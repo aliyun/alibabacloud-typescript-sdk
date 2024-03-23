@@ -4338,6 +4338,242 @@ export class OpenAlinlpServiceResponse extends $tea.Model {
   }
 }
 
+export class PostISConvRewriterRequest extends $tea.Model {
+  algorithm?: string;
+  debug?: boolean;
+  input?: { [key: string]: any };
+  parameters?: { [key: string]: any };
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      debug: 'Debug',
+      input: 'Input',
+      parameters: 'Parameters',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      debug: 'boolean',
+      input: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISConvRewriterShrinkRequest extends $tea.Model {
+  algorithm?: string;
+  debug?: boolean;
+  inputShrink?: string;
+  parametersShrink?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      debug: 'Debug',
+      inputShrink: 'Input',
+      parametersShrink: 'Parameters',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      debug: 'boolean',
+      inputShrink: 'string',
+      parametersShrink: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISConvRewriterResponseBody extends $tea.Model {
+  data?: { [key: string]: any };
+  debugInfo?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      debugInfo: 'DebugInfo',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      debugInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISConvRewriterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PostISConvRewriterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PostISConvRewriterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISRetrieveRouterRequest extends $tea.Model {
+  algorithm?: string;
+  debug?: boolean;
+  input?: { [key: string]: any };
+  parameters?: { [key: string]: any };
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      debug: 'Debug',
+      input: 'Input',
+      parameters: 'Parameters',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      debug: 'boolean',
+      input: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISRetrieveRouterShrinkRequest extends $tea.Model {
+  algorithm?: string;
+  debug?: boolean;
+  inputShrink?: string;
+  parametersShrink?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      debug: 'Debug',
+      inputShrink: 'Input',
+      parametersShrink: 'Parameters',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      debug: 'boolean',
+      inputShrink: 'string',
+      parametersShrink: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISRetrieveRouterResponseBody extends $tea.Model {
+  data?: { [key: string]: any };
+  debugInfo?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      debugInfo: 'DebugInfo',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      debugInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostISRetrieveRouterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PostISRetrieveRouterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PostISRetrieveRouterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PostMSConvSearchTokenGeneratedResponseBody extends $tea.Model {
   code?: number;
   data?: string;
@@ -7207,6 +7443,118 @@ export default class Client extends OpenApi {
   async openAlinlpService(): Promise<OpenAlinlpServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openAlinlpServiceWithOptions(runtime);
+  }
+
+  async postISConvRewriterWithOptions(tmpReq: PostISConvRewriterRequest, runtime: $Util.RuntimeOptions): Promise<PostISConvRewriterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PostISConvRewriterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithm)) {
+      body["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.debug)) {
+      body["Debug"] = request.debug;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      body["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      body["Version"] = request.version;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PostISConvRewriter",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PostISConvRewriterResponse>(await this.callApi(params, req, runtime), new PostISConvRewriterResponse({}));
+  }
+
+  async postISConvRewriter(request: PostISConvRewriterRequest): Promise<PostISConvRewriterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.postISConvRewriterWithOptions(request, runtime);
+  }
+
+  async postISRetrieveRouterWithOptions(tmpReq: PostISRetrieveRouterRequest, runtime: $Util.RuntimeOptions): Promise<PostISRetrieveRouterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PostISRetrieveRouterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.debug)) {
+      query["Debug"] = request.debug;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.algorithm)) {
+      body["Algorithm"] = request.algorithm;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      body["Version"] = request.version;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PostISRetrieveRouter",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PostISRetrieveRouterResponse>(await this.callApi(params, req, runtime), new PostISRetrieveRouterResponse({}));
+  }
+
+  async postISRetrieveRouter(request: PostISRetrieveRouterRequest): Promise<PostISRetrieveRouterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.postISRetrieveRouterWithOptions(request, runtime);
   }
 
   async postMSConvSearchTokenGeneratedWithOptions(runtime: $Util.RuntimeOptions): Promise<PostMSConvSearchTokenGeneratedResponse> {
