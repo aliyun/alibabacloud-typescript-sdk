@@ -4271,6 +4271,87 @@ export class DescribeDBClusterPerformanceResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBClusterSpaceSummaryRequest extends $tea.Model {
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterSpaceSummaryResponseBody extends $tea.Model {
+  data?: DescribeDBClusterSpaceSummaryResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDBClusterSpaceSummaryResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterSpaceSummaryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBClusterSpaceSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBClusterSpaceSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterStatusRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -4437,12 +4518,14 @@ export class DescribeDBResourceGroupRequest extends $tea.Model {
   DBClusterId?: string;
   groupName?: string;
   groupType?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       groupName: 'GroupName',
       groupType: 'GroupType',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
     };
   }
@@ -4452,6 +4535,7 @@ export class DescribeDBResourceGroupRequest extends $tea.Model {
       DBClusterId: 'string',
       groupName: 'string',
       groupType: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
     };
   }
@@ -11919,6 +12003,118 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $tea.M
   }
 }
 
+export class DescribeDBClusterSpaceSummaryResponseBodyDataColdData extends $tea.Model {
+  dataSize?: number;
+  indexSize?: number;
+  otherSize?: number;
+  primaryKeyIndexSize?: number;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSize: 'DataSize',
+      indexSize: 'IndexSize',
+      otherSize: 'OtherSize',
+      primaryKeyIndexSize: 'PrimaryKeyIndexSize',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSize: 'number',
+      indexSize: 'number',
+      otherSize: 'number',
+      primaryKeyIndexSize: 'number',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterSpaceSummaryResponseBodyDataDataGrowth extends $tea.Model {
+  dayGrowth?: number;
+  weekGrowth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dayGrowth: 'DayGrowth',
+      weekGrowth: 'WeekGrowth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dayGrowth: 'number',
+      weekGrowth: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterSpaceSummaryResponseBodyDataHotData extends $tea.Model {
+  dataSize?: number;
+  indexSize?: number;
+  otherSize?: number;
+  primaryKeyIndexSize?: number;
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSize: 'DataSize',
+      indexSize: 'IndexSize',
+      otherSize: 'OtherSize',
+      primaryKeyIndexSize: 'PrimaryKeyIndexSize',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSize: 'number',
+      indexSize: 'number',
+      otherSize: 'number',
+      primaryKeyIndexSize: 'number',
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterSpaceSummaryResponseBodyData extends $tea.Model {
+  coldData?: DescribeDBClusterSpaceSummaryResponseBodyDataColdData;
+  dataGrowth?: DescribeDBClusterSpaceSummaryResponseBodyDataDataGrowth;
+  hotData?: DescribeDBClusterSpaceSummaryResponseBodyDataHotData;
+  totalSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coldData: 'ColdData',
+      dataGrowth: 'DataGrowth',
+      hotData: 'HotData',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coldData: DescribeDBClusterSpaceSummaryResponseBodyDataColdData,
+      dataGrowth: DescribeDBClusterSpaceSummaryResponseBodyDataDataGrowth,
+      hotData: DescribeDBClusterSpaceSummaryResponseBodyDataHotData,
+      totalSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClustersRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -15605,6 +15801,55 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
   }
 
+  async describeDBClusterSpaceSummaryWithOptions(request: DescribeDBClusterSpaceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterSpaceSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBClusterSpaceSummary",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBClusterSpaceSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterSpaceSummaryResponse({}));
+  }
+
+  async describeDBClusterSpaceSummary(request: DescribeDBClusterSpaceSummaryRequest): Promise<DescribeDBClusterSpaceSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBClusterSpaceSummaryWithOptions(request, runtime);
+  }
+
   async describeDBClusterStatusWithOptions(request: DescribeDBClusterStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15704,6 +15949,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupType)) {
       query["GroupType"] = request.groupType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
