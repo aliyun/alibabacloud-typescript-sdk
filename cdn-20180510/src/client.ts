@@ -11569,6 +11569,78 @@ export class PushObjectCacheResponse extends $tea.Model {
   }
 }
 
+export class RefreshObjectCacheByCacheTagRequest extends $tea.Model {
+  cacheTag?: string;
+  domainName?: string;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cacheTag: 'CacheTag',
+      domainName: 'DomainName',
+      force: 'Force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheTag: 'string',
+      domainName: 'string',
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshObjectCacheByCacheTagResponseBody extends $tea.Model {
+  refreshTaskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refreshTaskId: 'RefreshTaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refreshTaskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshObjectCacheByCacheTagResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshObjectCacheByCacheTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefreshObjectCacheByCacheTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshObjectCachesRequest extends $tea.Model {
   force?: boolean;
   objectPath?: string;
@@ -26562,6 +26634,43 @@ export default class Client extends OpenApi {
   async pushObjectCache(request: PushObjectCacheRequest): Promise<PushObjectCacheResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushObjectCacheWithOptions(request, runtime);
+  }
+
+  async refreshObjectCacheByCacheTagWithOptions(request: RefreshObjectCacheByCacheTagRequest, runtime: $Util.RuntimeOptions): Promise<RefreshObjectCacheByCacheTagResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cacheTag)) {
+      query["CacheTag"] = request.cacheTag;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefreshObjectCacheByCacheTag",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshObjectCacheByCacheTagResponse>(await this.callApi(params, req, runtime), new RefreshObjectCacheByCacheTagResponse({}));
+  }
+
+  async refreshObjectCacheByCacheTag(request: RefreshObjectCacheByCacheTagRequest): Promise<RefreshObjectCacheByCacheTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshObjectCacheByCacheTagWithOptions(request, runtime);
   }
 
   /**
