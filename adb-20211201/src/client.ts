@@ -1601,6 +1601,7 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
   minClusterCount?: number;
   minComputeResource?: string;
   regionId?: string;
+  rules?: CreateDBResourceGroupRequestRules[];
   static names(): { [key: string]: string } {
     return {
       clusterMode: 'ClusterMode',
@@ -1614,6 +1615,7 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
       regionId: 'RegionId',
+      rules: 'Rules',
     };
   }
 
@@ -1630,6 +1632,59 @@ export class CreateDBResourceGroupRequest extends $tea.Model {
       minClusterCount: 'number',
       minComputeResource: 'string',
       regionId: 'string',
+      rules: { 'type': 'array', 'itemType': CreateDBResourceGroupRequestRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResourceGroupShrinkRequest extends $tea.Model {
+  clusterMode?: string;
+  clusterSizeResource?: string;
+  DBClusterId?: string;
+  enableSpot?: boolean;
+  groupName?: string;
+  groupType?: string;
+  maxClusterCount?: number;
+  maxComputeResource?: string;
+  minClusterCount?: number;
+  minComputeResource?: string;
+  regionId?: string;
+  rulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterMode: 'ClusterMode',
+      clusterSizeResource: 'ClusterSizeResource',
+      DBClusterId: 'DBClusterId',
+      enableSpot: 'EnableSpot',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      maxClusterCount: 'MaxClusterCount',
+      maxComputeResource: 'MaxComputeResource',
+      minClusterCount: 'MinClusterCount',
+      minComputeResource: 'MinComputeResource',
+      regionId: 'RegionId',
+      rulesShrink: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterMode: 'string',
+      clusterSizeResource: 'string',
+      DBClusterId: 'string',
+      enableSpot: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      maxClusterCount: 'number',
+      maxComputeResource: 'string',
+      minClusterCount: 'number',
+      minComputeResource: 'string',
+      regionId: 'string',
+      rulesShrink: 'string',
     };
   }
 
@@ -9618,6 +9673,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
   minClusterCount?: number;
   minComputeResource?: string;
   regionId?: string;
+  rules?: ModifyDBResourceGroupRequestRules[];
   static names(): { [key: string]: string } {
     return {
       clusterMode: 'ClusterMode',
@@ -9631,6 +9687,7 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
       regionId: 'RegionId',
+      rules: 'Rules',
     };
   }
 
@@ -9647,6 +9704,59 @@ export class ModifyDBResourceGroupRequest extends $tea.Model {
       minClusterCount: 'number',
       minComputeResource: 'string',
       regionId: 'string',
+      rules: { 'type': 'array', 'itemType': ModifyDBResourceGroupRequestRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBResourceGroupShrinkRequest extends $tea.Model {
+  clusterMode?: string;
+  clusterSizeResource?: string;
+  DBClusterId?: string;
+  enableSpot?: boolean;
+  groupName?: string;
+  groupType?: string;
+  maxClusterCount?: number;
+  maxComputeResource?: string;
+  minClusterCount?: number;
+  minComputeResource?: string;
+  regionId?: string;
+  rulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterMode: 'ClusterMode',
+      clusterSizeResource: 'ClusterSizeResource',
+      DBClusterId: 'DBClusterId',
+      enableSpot: 'EnableSpot',
+      groupName: 'GroupName',
+      groupType: 'GroupType',
+      maxClusterCount: 'MaxClusterCount',
+      maxComputeResource: 'MaxComputeResource',
+      minClusterCount: 'MinClusterCount',
+      minComputeResource: 'MinComputeResource',
+      regionId: 'RegionId',
+      rulesShrink: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterMode: 'string',
+      clusterSizeResource: 'string',
+      DBClusterId: 'string',
+      enableSpot: 'boolean',
+      groupName: 'string',
+      groupType: 'string',
+      maxClusterCount: 'number',
+      maxComputeResource: 'string',
+      minClusterCount: 'number',
+      minComputeResource: 'string',
+      regionId: 'string',
+      rulesShrink: 'string',
     };
   }
 
@@ -10683,6 +10793,31 @@ export class CreateDBClusterRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResourceGroupRequestRules extends $tea.Model {
+  groupName?: string;
+  queryTime?: string;
+  targetGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      queryTime: 'QueryTime',
+      targetGroupName: 'TargetGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      queryTime: 'string',
+      targetGroupName: 'string',
     };
   }
 
@@ -12291,6 +12426,31 @@ export class DescribeDBClustersResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $tea.Model {
+  groupName?: string;
+  queryTime?: string;
+  targetGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      queryTime: 'QueryTime',
+      targetGroupName: 'TargetGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      queryTime: 'string',
+      targetGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
   clusterMode?: string;
   clusterSizeResource?: string;
@@ -12304,6 +12464,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
   maxComputeResource?: string;
   minClusterCount?: number;
   minComputeResource?: string;
+  rules?: DescribeDBResourceGroupResponseBodyGroupsInfoRules[];
   runningClusterCount?: number;
   status?: string;
   updateTime?: string;
@@ -12321,6 +12482,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
       maxComputeResource: 'MaxComputeResource',
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
+      rules: 'Rules',
       runningClusterCount: 'RunningClusterCount',
       status: 'Status',
       updateTime: 'UpdateTime',
@@ -12341,6 +12503,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $tea.Model {
       maxComputeResource: 'string',
       minClusterCount: 'number',
       minComputeResource: 'string',
+      rules: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRules },
       runningClusterCount: 'number',
       status: 'string',
       updateTime: 'string',
@@ -13756,6 +13919,31 @@ export class ModifyAccountPrivilegesRequestAccountPrivileges extends $tea.Model 
   }
 }
 
+export class ModifyDBResourceGroupRequestRules extends $tea.Model {
+  groupName?: string;
+  queryTime?: string;
+  targetGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      queryTime: 'QueryTime',
+      targetGroupName: 'TargetGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      queryTime: 'string',
+      targetGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreloadSparkAppMetricsResponseBodyDataScanMetrics extends $tea.Model {
   outputRowsCount?: number;
   totalReadFileSizeInByte?: number;
@@ -14344,8 +14532,14 @@ export default class Client extends OpenApi {
     return await this.createDBClusterWithOptions(request, runtime);
   }
 
-  async createDBResourceGroupWithOptions(request: CreateDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResourceGroupResponse> {
-    Util.validateModel(request);
+  async createDBResourceGroupWithOptions(tmpReq: CreateDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResourceGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDBResourceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clusterMode)) {
       query["ClusterMode"] = request.clusterMode;
@@ -14389,6 +14583,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -18682,8 +18880,14 @@ export default class Client extends OpenApi {
     return await this.modifyDBClusterMaintainTimeWithOptions(request, runtime);
   }
 
-  async modifyDBResourceGroupWithOptions(request: ModifyDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBResourceGroupResponse> {
-    Util.validateModel(request);
+  async modifyDBResourceGroupWithOptions(tmpReq: ModifyDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBResourceGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyDBResourceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clusterMode)) {
       query["ClusterMode"] = request.clusterMode;
@@ -18727,6 +18931,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
