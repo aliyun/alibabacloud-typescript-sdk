@@ -149,6 +149,255 @@ export class ActiveDeviceCertificateResponse extends $tea.Model {
   }
 }
 
+export class AddCustomAuthConnectBlackRequest extends $tea.Model {
+  clientId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomAuthConnectBlackResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomAuthConnectBlackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddCustomAuthConnectBlackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddCustomAuthConnectBlackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomAuthIdentityRequest extends $tea.Model {
+  clientId?: string;
+  identityType?: string;
+  instanceId?: string;
+  secret?: string;
+  signMode?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      identityType: 'IdentityType',
+      instanceId: 'InstanceId',
+      secret: 'Secret',
+      signMode: 'SignMode',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      identityType: 'string',
+      instanceId: 'string',
+      secret: 'string',
+      signMode: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomAuthIdentityResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomAuthIdentityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddCustomAuthIdentityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddCustomAuthIdentityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomAuthPermissionRequest extends $tea.Model {
+  effect?: string;
+  identity?: string;
+  identityType?: string;
+  instanceId?: string;
+  permitAction?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+      identity: 'Identity',
+      identityType: 'IdentityType',
+      instanceId: 'InstanceId',
+      permitAction: 'PermitAction',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      identity: 'string',
+      identityType: 'string',
+      instanceId: 'string',
+      permitAction: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomAuthPermissionResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCustomAuthPermissionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddCustomAuthPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddCustomAuthPermissionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyTokenRequest extends $tea.Model {
   actions?: string;
   expireTime?: number;
@@ -420,6 +669,243 @@ export class DeleteCaCertificateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCaCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthConnectBlackRequest extends $tea.Model {
+  clientId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthConnectBlackResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthConnectBlackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomAuthConnectBlackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomAuthConnectBlackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthIdentityRequest extends $tea.Model {
+  clientId?: string;
+  identityType?: string;
+  instanceId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      identityType: 'IdentityType',
+      instanceId: 'InstanceId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      identityType: 'string',
+      instanceId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthIdentityResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthIdentityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomAuthIdentityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomAuthIdentityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthPermissionRequest extends $tea.Model {
+  identity?: string;
+  identityType?: string;
+  instanceId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identity: 'Identity',
+      identityType: 'IdentityType',
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identity: 'string',
+      identityType: 'string',
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthPermissionResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomAuthPermissionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomAuthPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomAuthPermissionResponseBody,
     };
   }
 
@@ -1338,6 +1824,270 @@ export class ListGroupIdResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGroupIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthConnectBlackRequest extends $tea.Model {
+  clientId?: string;
+  instanceId?: string;
+  nextToken?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      instanceId: 'InstanceId',
+      nextToken: 'NextToken',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      instanceId: 'string',
+      nextToken: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthConnectBlackResponseBody extends $tea.Model {
+  code?: number;
+  data?: QueryCustomAuthConnectBlackResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: QueryCustomAuthConnectBlackResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthConnectBlackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCustomAuthConnectBlackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCustomAuthConnectBlackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthIdentityRequest extends $tea.Model {
+  clientId?: string;
+  identityType?: string;
+  instanceId?: string;
+  nextToken?: string;
+  size?: number;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      identityType: 'IdentityType',
+      instanceId: 'InstanceId',
+      nextToken: 'NextToken',
+      size: 'Size',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      identityType: 'string',
+      instanceId: 'string',
+      nextToken: 'string',
+      size: 'number',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthIdentityResponseBody extends $tea.Model {
+  code?: number;
+  data?: QueryCustomAuthIdentityResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: QueryCustomAuthIdentityResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthIdentityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCustomAuthIdentityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCustomAuthIdentityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthPermissionRequest extends $tea.Model {
+  identity?: string;
+  identityType?: string;
+  instanceId?: string;
+  nextToken?: string;
+  size?: number;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identity: 'Identity',
+      identityType: 'IdentityType',
+      instanceId: 'InstanceId',
+      nextToken: 'NextToken',
+      size: 'Size',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identity: 'string',
+      identityType: 'string',
+      instanceId: 'string',
+      nextToken: 'string',
+      size: 'number',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthPermissionResponseBody extends $tea.Model {
+  code?: number;
+  data?: QueryCustomAuthPermissionResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: QueryCustomAuthPermissionResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthPermissionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCustomAuthPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCustomAuthPermissionResponseBody,
     };
   }
 
@@ -2270,6 +3020,180 @@ export class UnRegisterDeviceCredentialResponse extends $tea.Model {
   }
 }
 
+export class UpdateCustomAuthIdentityRequest extends $tea.Model {
+  clientId?: string;
+  identityType?: string;
+  instanceId?: string;
+  secret?: string;
+  signMode?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      identityType: 'IdentityType',
+      instanceId: 'InstanceId',
+      secret: 'Secret',
+      signMode: 'SignMode',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      identityType: 'string',
+      instanceId: 'string',
+      secret: 'string',
+      signMode: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomAuthIdentityResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomAuthIdentityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCustomAuthIdentityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomAuthIdentityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomAuthPermissionRequest extends $tea.Model {
+  effect?: string;
+  identity?: string;
+  identityType?: string;
+  instanceId?: string;
+  permitAction?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+      identity: 'Identity',
+      identityType: 'IdentityType',
+      instanceId: 'InstanceId',
+      permitAction: 'PermitAction',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      identity: 'string',
+      identityType: 'string',
+      instanceId: 'string',
+      permitAction: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomAuthPermissionResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomAuthPermissionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCustomAuthPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomAuthPermissionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchQuerySessionByClientIdsResponseBodyOnlineStatusList extends $tea.Model {
   clientId?: string;
   onlineStatus?: boolean;
@@ -2663,6 +3587,159 @@ export class ListGroupIdResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryCustomAuthConnectBlackResponseBodyDataResults extends $tea.Model {
+  clientId?: string;
+  effect?: string;
+  permitAction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      effect: 'Effect',
+      permitAction: 'PermitAction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      effect: 'string',
+      permitAction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthConnectBlackResponseBodyData extends $tea.Model {
+  nextToken?: string;
+  results?: QueryCustomAuthConnectBlackResponseBodyDataResults[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      results: { 'type': 'array', 'itemType': QueryCustomAuthConnectBlackResponseBodyDataResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthIdentityResponseBodyDataResults extends $tea.Model {
+  clientId?: string;
+  identityType?: string;
+  secret?: string;
+  signMode?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      identityType: 'IdentityType',
+      secret: 'Secret',
+      signMode: 'SignMode',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      identityType: 'string',
+      secret: 'string',
+      signMode: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthIdentityResponseBodyData extends $tea.Model {
+  nextToken?: string;
+  results?: QueryCustomAuthIdentityResponseBodyDataResults[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      results: { 'type': 'array', 'itemType': QueryCustomAuthIdentityResponseBodyDataResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthPermissionResponseBodyDataResults extends $tea.Model {
+  effect?: string;
+  identity?: string;
+  identityType?: string;
+  permitAction?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+      identity: 'Identity',
+      identityType: 'IdentityType',
+      permitAction: 'PermitAction',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      identity: 'string',
+      identityType: 'string',
+      permitAction: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCustomAuthPermissionResponseBodyData extends $tea.Model {
+  nextToken?: string;
+  results?: QueryCustomAuthPermissionResponseBodyDataResults[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      results: { 'type': 'array', 'itemType': QueryCustomAuthPermissionResponseBodyDataResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMqttTraceDeviceResponseBodyDeviceInfoList extends $tea.Model {
   action?: string;
   actionCode?: string;
@@ -2957,6 +4034,137 @@ export default class Client extends OpenApi {
     return await this.activeDeviceCertificateWithOptions(request, runtime);
   }
 
+  async addCustomAuthConnectBlackWithOptions(request: AddCustomAuthConnectBlackRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomAuthConnectBlackResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientId)) {
+      body["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddCustomAuthConnectBlack",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new AddCustomAuthConnectBlackResponse({}));
+  }
+
+  async addCustomAuthConnectBlack(request: AddCustomAuthConnectBlackRequest): Promise<AddCustomAuthConnectBlackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addCustomAuthConnectBlackWithOptions(request, runtime);
+  }
+
+  async addCustomAuthIdentityWithOptions(request: AddCustomAuthIdentityRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomAuthIdentityResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientId)) {
+      body["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["IdentityType"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
+    }
+
+    if (!Util.isUnset(request.signMode)) {
+      body["SignMode"] = request.signMode;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      body["Username"] = request.username;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddCustomAuthIdentity",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new AddCustomAuthIdentityResponse({}));
+  }
+
+  async addCustomAuthIdentity(request: AddCustomAuthIdentityRequest): Promise<AddCustomAuthIdentityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addCustomAuthIdentityWithOptions(request, runtime);
+  }
+
+  async addCustomAuthPermissionWithOptions(request: AddCustomAuthPermissionRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomAuthPermissionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.effect)) {
+      body["Effect"] = request.effect;
+    }
+
+    if (!Util.isUnset(request.identity)) {
+      body["Identity"] = request.identity;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["IdentityType"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.permitAction)) {
+      body["PermitAction"] = request.permitAction;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddCustomAuthPermission",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new AddCustomAuthPermissionResponse({}));
+  }
+
+  async addCustomAuthPermission(request: AddCustomAuthPermissionRequest): Promise<AddCustomAuthPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addCustomAuthPermissionWithOptions(request, runtime);
+  }
+
   /**
     * *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
     * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](~~52819~~).
@@ -3140,6 +4348,121 @@ export default class Client extends OpenApi {
   async deleteCaCertificate(request: DeleteCaCertificateRequest): Promise<DeleteCaCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCaCertificateWithOptions(request, runtime);
+  }
+
+  async deleteCustomAuthConnectBlackWithOptions(request: DeleteCustomAuthConnectBlackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomAuthConnectBlackResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientId)) {
+      body["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomAuthConnectBlack",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthConnectBlackResponse({}));
+  }
+
+  async deleteCustomAuthConnectBlack(request: DeleteCustomAuthConnectBlackRequest): Promise<DeleteCustomAuthConnectBlackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomAuthConnectBlackWithOptions(request, runtime);
+  }
+
+  async deleteCustomAuthIdentityWithOptions(request: DeleteCustomAuthIdentityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomAuthIdentityResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientId)) {
+      body["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["IdentityType"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      body["Username"] = request.username;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomAuthIdentity",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthIdentityResponse({}));
+  }
+
+  async deleteCustomAuthIdentity(request: DeleteCustomAuthIdentityRequest): Promise<DeleteCustomAuthIdentityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomAuthIdentityWithOptions(request, runtime);
+  }
+
+  async deleteCustomAuthPermissionWithOptions(request: DeleteCustomAuthPermissionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomAuthPermissionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identity)) {
+      body["Identity"] = request.identity;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["IdentityType"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomAuthPermission",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new DeleteCustomAuthPermissionResponse({}));
+  }
+
+  async deleteCustomAuthPermission(request: DeleteCustomAuthPermissionRequest): Promise<DeleteCustomAuthPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomAuthPermissionWithOptions(request, runtime);
   }
 
   async deleteDeviceCertificateWithOptions(request: DeleteDeviceCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceCertificateResponse> {
@@ -3578,6 +4901,81 @@ export default class Client extends OpenApi {
   async listGroupId(request: ListGroupIdRequest): Promise<ListGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupIdWithOptions(request, runtime);
+  }
+
+  async queryCustomAuthConnectBlackWithOptions(request: QueryCustomAuthConnectBlackRequest, runtime: $Util.RuntimeOptions): Promise<QueryCustomAuthConnectBlackResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCustomAuthConnectBlack",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCustomAuthConnectBlackResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthConnectBlackResponse({}));
+  }
+
+  async queryCustomAuthConnectBlack(request: QueryCustomAuthConnectBlackRequest): Promise<QueryCustomAuthConnectBlackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCustomAuthConnectBlackWithOptions(request, runtime);
+  }
+
+  async queryCustomAuthIdentityWithOptions(request: QueryCustomAuthIdentityRequest, runtime: $Util.RuntimeOptions): Promise<QueryCustomAuthIdentityResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCustomAuthIdentity",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthIdentityResponse({}));
+  }
+
+  async queryCustomAuthIdentity(request: QueryCustomAuthIdentityRequest): Promise<QueryCustomAuthIdentityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCustomAuthIdentityWithOptions(request, runtime);
+  }
+
+  async queryCustomAuthPermissionWithOptions(request: QueryCustomAuthPermissionRequest, runtime: $Util.RuntimeOptions): Promise<QueryCustomAuthPermissionResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCustomAuthPermission",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new QueryCustomAuthPermissionResponse({}));
+  }
+
+  async queryCustomAuthPermission(request: QueryCustomAuthPermissionRequest): Promise<QueryCustomAuthPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCustomAuthPermissionWithOptions(request, runtime);
   }
 
   /**
@@ -4245,6 +5643,104 @@ export default class Client extends OpenApi {
   async unRegisterDeviceCredential(request: UnRegisterDeviceCredentialRequest): Promise<UnRegisterDeviceCredentialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unRegisterDeviceCredentialWithOptions(request, runtime);
+  }
+
+  async updateCustomAuthIdentityWithOptions(request: UpdateCustomAuthIdentityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomAuthIdentityResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientId)) {
+      body["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["IdentityType"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.secret)) {
+      body["Secret"] = request.secret;
+    }
+
+    if (!Util.isUnset(request.signMode)) {
+      body["SignMode"] = request.signMode;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      body["Username"] = request.username;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomAuthIdentity",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomAuthIdentityResponse>(await this.callApi(params, req, runtime), new UpdateCustomAuthIdentityResponse({}));
+  }
+
+  async updateCustomAuthIdentity(request: UpdateCustomAuthIdentityRequest): Promise<UpdateCustomAuthIdentityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCustomAuthIdentityWithOptions(request, runtime);
+  }
+
+  async updateCustomAuthPermissionWithOptions(request: UpdateCustomAuthPermissionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomAuthPermissionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.effect)) {
+      body["Effect"] = request.effect;
+    }
+
+    if (!Util.isUnset(request.identity)) {
+      body["Identity"] = request.identity;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      body["IdentityType"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.permitAction)) {
+      body["PermitAction"] = request.permitAction;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomAuthPermission",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomAuthPermissionResponse>(await this.callApi(params, req, runtime), new UpdateCustomAuthPermissionResponse({}));
+  }
+
+  async updateCustomAuthPermission(request: UpdateCustomAuthPermissionRequest): Promise<UpdateCustomAuthPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCustomAuthPermissionWithOptions(request, runtime);
   }
 
 }
