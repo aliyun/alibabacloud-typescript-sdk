@@ -53,9 +53,9 @@ export class AcceptDemandResponseBody extends $tea.Model {
 }
 
 export class AcceptDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AcceptDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcceptDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -125,9 +125,9 @@ export class BidDomainResponseBody extends $tea.Model {
 }
 
 export class BidDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BidDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BidDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -188,9 +188,9 @@ export class ChangeAuctionResponseBody extends $tea.Model {
 }
 
 export class ChangeAuctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeAuctionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeAuctionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -263,9 +263,9 @@ export class CheckDomainStatusResponseBody extends $tea.Model {
 }
 
 export class CheckDomainStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckDomainStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDomainStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -338,9 +338,9 @@ export class CheckSelectedDomainStatusResponseBody extends $tea.Model {
 }
 
 export class CheckSelectedDomainStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckSelectedDomainStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckSelectedDomainStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -422,9 +422,9 @@ export class CreateFixedPriceDemandOrderResponseBody extends $tea.Model {
 }
 
 export class CreateFixedPriceDemandOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFixedPriceDemandOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFixedPriceDemandOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -509,9 +509,9 @@ export class CreateFixedPriceSelectedOrderResponseBody extends $tea.Model {
 }
 
 export class CreateFixedPriceSelectedOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFixedPriceSelectedOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFixedPriceSelectedOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -575,9 +575,9 @@ export class FailDemandResponseBody extends $tea.Model {
 }
 
 export class FailDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FailDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FailDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -641,9 +641,9 @@ export class FinishDemandResponseBody extends $tea.Model {
 }
 
 export class FinishDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FinishDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FinishDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -715,9 +715,9 @@ export class GetIntlDomainDownloadUrlResponseBody extends $tea.Model {
 }
 
 export class GetIntlDomainDownloadUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIntlDomainDownloadUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIntlDomainDownloadUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -762,9 +762,9 @@ export class GetReserveDomainUrlResponseBody extends $tea.Model {
 }
 
 export class GetReserveDomainUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetReserveDomainUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetReserveDomainUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -861,9 +861,9 @@ export class PurchaseIntlDomainResponseBody extends $tea.Model {
 }
 
 export class PurchaseIntlDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PurchaseIntlDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseIntlDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -993,9 +993,9 @@ export class QueryAuctionDetailResponseBody extends $tea.Model {
 }
 
 export class QueryAuctionDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAuctionDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAuctionDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1077,9 +1077,9 @@ export class QueryAuctionsResponseBody extends $tea.Model {
 }
 
 export class QueryAuctionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAuctionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAuctionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1161,9 +1161,9 @@ export class QueryBidRecordsResponseBody extends $tea.Model {
 }
 
 export class QueryBidRecordsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryBidRecordsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryBidRecordsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1242,9 +1242,9 @@ export class QueryBookingDomainInfoResponseBody extends $tea.Model {
 }
 
 export class QueryBookingDomainInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryBookingDomainInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryBookingDomainInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1329,9 +1329,9 @@ export class QueryBrokerDemandResponseBody extends $tea.Model {
 }
 
 export class QueryBrokerDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryBrokerDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryBrokerDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1413,9 +1413,9 @@ export class QueryBrokerDemandRecordResponseBody extends $tea.Model {
 }
 
 export class QueryBrokerDemandRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryBrokerDemandRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryBrokerDemandRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1479,9 +1479,9 @@ export class QueryDomainTransferStatusResponseBody extends $tea.Model {
 }
 
 export class QueryDomainTransferStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDomainTransferStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDomainTransferStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1581,9 +1581,9 @@ export class QueryPurchasedDomainsResponseBody extends $tea.Model {
 }
 
 export class QueryPurchasedDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPurchasedDomainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPurchasedDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1647,9 +1647,9 @@ export class RecordDemandResponseBody extends $tea.Model {
 }
 
 export class RecordDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RecordDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RecordDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1713,9 +1713,9 @@ export class RefuseDemandResponseBody extends $tea.Model {
 }
 
 export class RefuseDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefuseDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefuseDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1788,9 +1788,9 @@ export class RequestPayDemandResponseBody extends $tea.Model {
 }
 
 export class RequestPayDemandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RequestPayDemandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RequestPayDemandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1857,9 +1857,9 @@ export class ReserveDomainResponseBody extends $tea.Model {
 }
 
 export class ReserveDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReserveDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReserveDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1950,9 +1950,9 @@ export class ReserveIntlDomainResponseBody extends $tea.Model {
 }
 
 export class ReserveIntlDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReserveIntlDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReserveIntlDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2022,9 +2022,9 @@ export class SelectedDomainListResponseBody extends $tea.Model {
 }
 
 export class SelectedDomainListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SelectedDomainListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SelectedDomainListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2038,6 +2038,108 @@ export class SelectedDomainListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SelectedDomainListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitPurchaseInfoRequest extends $tea.Model {
+  bizId?: string;
+  purchaseCurrency?: string;
+  purchasePrice?: number;
+  purchaseProofs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      purchaseCurrency: 'PurchaseCurrency',
+      purchasePrice: 'PurchasePrice',
+      purchaseProofs: 'PurchaseProofs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      purchaseCurrency: 'string',
+      purchasePrice: 'number',
+      purchaseProofs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitPurchaseInfoResponseBody extends $tea.Model {
+  allowRetry?: boolean;
+  appName?: string;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorArgs?: any[];
+  errorCode?: string;
+  errorMsg?: string;
+  httpStatusCode?: number;
+  module?: any;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowRetry: 'AllowRetry',
+      appName: 'AppName',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorArgs: 'ErrorArgs',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      httpStatusCode: 'HttpStatusCode',
+      module: 'Module',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRetry: 'boolean',
+      appName: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorArgs: { 'type': 'array', 'itemType': 'any' },
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpStatusCode: 'number',
+      module: 'any',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitPurchaseInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitPurchaseInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitPurchaseInfoResponseBody,
     };
   }
 
@@ -2094,9 +2196,9 @@ export class UpdatePartnerReservePriceResponseBody extends $tea.Model {
 }
 
 export class UpdatePartnerReservePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePartnerReservePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePartnerReservePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2224,6 +2326,7 @@ export class CheckSelectedDomainStatusResponseBodyModule extends $tea.Model {
   deadDate?: number;
   domain?: string;
   endTime?: number;
+  premium?: boolean;
   price?: number;
   regDate?: number;
   static names(): { [key: string]: string } {
@@ -2231,6 +2334,7 @@ export class CheckSelectedDomainStatusResponseBodyModule extends $tea.Model {
       deadDate: 'DeadDate',
       domain: 'Domain',
       endTime: 'EndTime',
+      premium: 'Premium',
       price: 'Price',
       regDate: 'RegDate',
     };
@@ -2241,6 +2345,7 @@ export class CheckSelectedDomainStatusResponseBodyModule extends $tea.Model {
       deadDate: 'number',
       domain: 'string',
       endTime: 'number',
+      premium: 'boolean',
       price: 'number',
       regDate: 'number',
     };
@@ -2431,6 +2536,7 @@ export class QueryBrokerDemandResponseBodyData extends $tea.Model {
   demandDomain?: string;
   demandPrice?: number;
   description?: string;
+  email?: string;
   mobile?: string;
   orderType?: number;
   partnerDomain?: string;
@@ -2451,6 +2557,7 @@ export class QueryBrokerDemandResponseBodyData extends $tea.Model {
       demandDomain: 'DemandDomain',
       demandPrice: 'DemandPrice',
       description: 'Description',
+      email: 'Email',
       mobile: 'Mobile',
       orderType: 'OrderType',
       partnerDomain: 'PartnerDomain',
@@ -2474,6 +2581,7 @@ export class QueryBrokerDemandResponseBodyData extends $tea.Model {
       demandDomain: 'string',
       demandPrice: 'number',
       description: 'string',
+      email: 'string',
       mobile: 'string',
       orderType: 'number',
       partnerDomain: 'string',
@@ -3519,6 +3627,47 @@ export default class Client extends OpenApi {
   async selectedDomainList(request: SelectedDomainListRequest): Promise<SelectedDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.selectedDomainListWithOptions(request, runtime);
+  }
+
+  async submitPurchaseInfoWithOptions(request: SubmitPurchaseInfoRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPurchaseInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizId)) {
+      body["BizId"] = request.bizId;
+    }
+
+    if (!Util.isUnset(request.purchaseCurrency)) {
+      body["PurchaseCurrency"] = request.purchaseCurrency;
+    }
+
+    if (!Util.isUnset(request.purchasePrice)) {
+      body["PurchasePrice"] = request.purchasePrice;
+    }
+
+    if (!Util.isUnset(request.purchaseProofs)) {
+      body["PurchaseProofs"] = request.purchaseProofs;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitPurchaseInfo",
+      version: "2018-02-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitPurchaseInfoResponse>(await this.callApi(params, req, runtime), new SubmitPurchaseInfoResponse({}));
+  }
+
+  async submitPurchaseInfo(request: SubmitPurchaseInfoRequest): Promise<SubmitPurchaseInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitPurchaseInfoWithOptions(request, runtime);
   }
 
   async updatePartnerReservePriceWithOptions(request: UpdatePartnerReservePriceRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePartnerReservePriceResponse> {
