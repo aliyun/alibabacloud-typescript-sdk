@@ -4743,6 +4743,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   usedPartitionCount?: number;
   usedTopicCount?: number;
   vSwitchId?: string;
+  viewInstanceStatusCode?: number;
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -4782,6 +4783,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       usedPartitionCount: 'UsedPartitionCount',
       usedTopicCount: 'UsedTopicCount',
       vSwitchId: 'VSwitchId',
+      viewInstanceStatusCode: 'ViewInstanceStatusCode',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -4824,6 +4826,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       usedPartitionCount: 'number',
       usedTopicCount: 'number',
       vSwitchId: 'string',
+      viewInstanceStatusCode: 'number',
       vpcId: 'string',
       zoneId: 'string',
     };
