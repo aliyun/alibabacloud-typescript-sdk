@@ -359,6 +359,7 @@ export class CreateFeatureViewRequest extends $tea.Model {
   tags?: string[];
   type?: string;
   writeMethod?: string;
+  writeToFeatureDB?: boolean;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
@@ -373,6 +374,7 @@ export class CreateFeatureViewRequest extends $tea.Model {
       tags: 'Tags',
       type: 'Type',
       writeMethod: 'WriteMethod',
+      writeToFeatureDB: 'WriteToFeatureDB',
     };
   }
 
@@ -390,6 +392,7 @@ export class CreateFeatureViewRequest extends $tea.Model {
       tags: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
       writeMethod: 'string',
+      writeToFeatureDB: 'boolean',
     };
   }
 
@@ -1470,6 +1473,7 @@ export class GetFeatureViewResponseBody extends $tea.Model {
   tags?: string[];
   type?: string;
   writeMethod?: string;
+  writeToFeatureDB?: boolean;
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
@@ -1495,6 +1499,7 @@ export class GetFeatureViewResponseBody extends $tea.Model {
       tags: 'Tags',
       type: 'Type',
       writeMethod: 'WriteMethod',
+      writeToFeatureDB: 'WriteToFeatureDB',
     };
   }
 
@@ -1523,6 +1528,7 @@ export class GetFeatureViewResponseBody extends $tea.Model {
       tags: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
       writeMethod: 'string',
+      writeToFeatureDB: 'boolean',
     };
   }
 
@@ -5139,6 +5145,7 @@ export class ListFeatureViewsResponseBodyFeatureViews extends $tea.Model {
   registerTable?: string;
   TTL?: number;
   type?: string;
+  writeToFeatureDB?: boolean;
   static names(): { [key: string]: string } {
     return {
       featureEntityName: 'FeatureEntityName',
@@ -5154,6 +5161,7 @@ export class ListFeatureViewsResponseBodyFeatureViews extends $tea.Model {
       registerTable: 'RegisterTable',
       TTL: 'TTL',
       type: 'Type',
+      writeToFeatureDB: 'WriteToFeatureDB',
     };
   }
 
@@ -5172,6 +5180,7 @@ export class ListFeatureViewsResponseBodyFeatureViews extends $tea.Model {
       registerTable: 'string',
       TTL: 'number',
       type: 'string',
+      writeToFeatureDB: 'boolean',
     };
   }
 
@@ -5930,6 +5939,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.writeMethod)) {
       body["WriteMethod"] = request.writeMethod;
+    }
+
+    if (!Util.isUnset(request.writeToFeatureDB)) {
+      body["WriteToFeatureDB"] = request.writeToFeatureDB;
     }
 
     let req = new $OpenApi.OpenApiRequest({
