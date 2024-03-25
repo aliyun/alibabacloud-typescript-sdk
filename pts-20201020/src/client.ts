@@ -6033,11 +6033,13 @@ export class ListPtsSceneResponseBodySceneViewList extends $tea.Model {
   createTime?: string;
   sceneId?: string;
   sceneName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
+      status: 'Status',
     };
   }
 
@@ -6046,6 +6048,7 @@ export class ListPtsSceneResponseBodySceneViewList extends $tea.Model {
       createTime: 'string',
       sceneId: 'string',
       sceneName: 'string',
+      status: 'string',
     };
   }
 
