@@ -377,6 +377,28 @@ export class AutoScalingConstraints extends $tea.Model {
   }
 }
 
+export class AutoScalingPolicy extends $tea.Model {
+  constraints?: AutoScalingPolicyConstraints;
+  scalingRules?: ScalingRule[];
+  static names(): { [key: string]: string } {
+    return {
+      constraints: 'constraints',
+      scalingRules: 'scalingRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      constraints: AutoScalingPolicyConstraints,
+      scalingRules: { 'type': 'array', 'itemType': ScalingRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ByLoadScalingRule extends $tea.Model {
   comparisonOperator?: string;
   coolDownInterval?: number;
@@ -1720,6 +1742,7 @@ export class NodeGroup extends $tea.Model {
 
 export class NodeGroupConfig extends $tea.Model {
   additionalSecurityGroupIds?: string[];
+  componentTags?: string[];
   costOptimizedConfig?: CostOptimizedConfig;
   dataDisks?: DataDisk[];
   deploymentSetStrategy?: string;
@@ -1740,6 +1763,7 @@ export class NodeGroupConfig extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       additionalSecurityGroupIds: 'AdditionalSecurityGroupIds',
+      componentTags: 'ComponentTags',
       costOptimizedConfig: 'CostOptimizedConfig',
       dataDisks: 'DataDisks',
       deploymentSetStrategy: 'DeploymentSetStrategy',
@@ -1763,6 +1787,7 @@ export class NodeGroupConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       additionalSecurityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      componentTags: { 'type': 'array', 'itemType': 'string' },
       costOptimizedConfig: CostOptimizedConfig,
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       deploymentSetStrategy: 'string',
@@ -8020,6 +8045,28 @@ export class AutoScalingConstraintsSupportMetricTags extends $tea.Model {
     return {
       metricName: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AutoScalingPolicyConstraints extends $tea.Model {
+  maxCapacity?: number;
+  minCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxCapacity: 'maxCapacity',
+      minCapacity: 'minCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCapacity: 'number',
+      minCapacity: 'number',
     };
   }
 
