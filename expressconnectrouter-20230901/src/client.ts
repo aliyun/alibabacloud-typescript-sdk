@@ -2903,6 +2903,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
   childInstanceOwnerId?: number;
   childInstanceRegionId?: string;
   childInstanceType?: string;
+  ecrId?: string;
   gmtCreate?: string;
   gmtModified?: string;
   ownerId?: number;
@@ -2915,6 +2916,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
       childInstanceOwnerId: 'ChildInstanceOwnerId',
       childInstanceRegionId: 'ChildInstanceRegionId',
       childInstanceType: 'ChildInstanceType',
+      ecrId: 'EcrId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       ownerId: 'OwnerId',
@@ -2930,6 +2932,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
       childInstanceOwnerId: 'number',
       childInstanceRegionId: 'string',
       childInstanceType: 'string',
+      ecrId: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       ownerId: 'number',
