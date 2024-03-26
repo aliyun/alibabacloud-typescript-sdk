@@ -1909,15 +1909,18 @@ export class UrlAsyncModerationResponseBodyData extends $tea.Model {
 }
 
 export class VideoModerationResponseBodyData extends $tea.Model {
+  dataId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataId: 'DataId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dataId: 'string',
       taskId: 'string',
     };
   }
@@ -2042,6 +2045,47 @@ export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys exten
   }
 }
 
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage extends $tea.Model {
+  imageId?: string;
+  libId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      libId: 'LibId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      libId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure extends $tea.Model {
+  figureId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      figureId: 'FigureId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult extends $tea.Model {
   confidence?: number;
   label?: string;
@@ -2065,19 +2109,28 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
 }
 
 export class VideoModerationResultResponseBodyDataFrameResultFramesResults extends $tea.Model {
+  customImage?: VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage[];
+  publicFigure?: VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure[];
   result?: VideoModerationResultResponseBodyDataFrameResultFramesResultsResult[];
   service?: string;
+  textInImage?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      customImage: 'CustomImage',
+      publicFigure: 'PublicFigure',
       result: 'Result',
       service: 'Service',
+      textInImage: 'TextInImage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customImage: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage },
+      publicFigure: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure },
       result: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsResult },
       service: 'string',
+      textInImage: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -2144,12 +2197,14 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
   dataId?: string;
   frameResult?: VideoModerationResultResponseBodyDataFrameResult;
   liveId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       audioResult: 'AudioResult',
       dataId: 'DataId',
       frameResult: 'FrameResult',
       liveId: 'LiveId',
+      taskId: 'TaskId',
     };
   }
 
@@ -2159,6 +2214,7 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
       dataId: 'string',
       frameResult: VideoModerationResultResponseBodyDataFrameResult,
       liveId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -2168,15 +2224,18 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
 }
 
 export class VoiceModerationResponseBodyData extends $tea.Model {
+  dataId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataId: 'DataId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dataId: 'string',
       taskId: 'string',
     };
   }
@@ -2239,12 +2298,14 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
 }
 
 export class VoiceModerationResultResponseBodyData extends $tea.Model {
+  dataId?: string;
   liveId?: string;
   sliceDetails?: VoiceModerationResultResponseBodyDataSliceDetails[];
   taskId?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      dataId: 'DataId',
       liveId: 'LiveId',
       sliceDetails: 'SliceDetails',
       taskId: 'TaskId',
@@ -2254,6 +2315,7 @@ export class VoiceModerationResultResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataId: 'string',
       liveId: 'string',
       sliceDetails: { 'type': 'array', 'itemType': VoiceModerationResultResponseBodyDataSliceDetails },
       taskId: 'string',
