@@ -381,6 +381,7 @@ export class CreateLivePortraitProjectRequest extends $tea.Model {
   audioId?: string;
   audioUrl?: string;
   content?: string;
+  customParams?: string;
   imageId?: string;
   imageUrl?: string;
   intro?: string;
@@ -397,6 +398,7 @@ export class CreateLivePortraitProjectRequest extends $tea.Model {
       audioId: 'AudioId',
       audioUrl: 'AudioUrl',
       content: 'Content',
+      customParams: 'CustomParams',
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
       intro: 'Intro',
@@ -416,6 +418,7 @@ export class CreateLivePortraitProjectRequest extends $tea.Model {
       audioId: 'string',
       audioUrl: 'string',
       content: 'string',
+      customParams: 'string',
       imageId: 'string',
       imageUrl: 'string',
       intro: 'string',
@@ -5581,6 +5584,7 @@ export class ListDigitalHumanMaterialsResponseBodyData extends $tea.Model {
   files?: { [key: string]: any };
   id?: string;
   name?: string;
+  sortOrder?: number;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5590,6 +5594,7 @@ export class ListDigitalHumanMaterialsResponseBodyData extends $tea.Model {
       files: 'Files',
       id: 'Id',
       name: 'Name',
+      sortOrder: 'SortOrder',
       type: 'Type',
     };
   }
@@ -5602,6 +5607,7 @@ export class ListDigitalHumanMaterialsResponseBodyData extends $tea.Model {
       files: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       id: 'string',
       name: 'string',
+      sortOrder: 'number',
       type: 'string',
     };
   }
@@ -12109,6 +12115,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.content)) {
       body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.customParams)) {
+      body["CustomParams"] = request.customParams;
     }
 
     if (!Util.isUnset(request.imageId)) {
