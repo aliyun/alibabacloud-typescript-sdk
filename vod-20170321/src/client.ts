@@ -56,9 +56,9 @@ export class AddAITemplateResponseBody extends $tea.Model {
 }
 
 export class AddAITemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddAITemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddAITemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -128,9 +128,9 @@ export class AddCategoryResponseBody extends $tea.Model {
 }
 
 export class AddCategoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddCategoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddCategoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -218,9 +218,9 @@ export class AddEditingProjectResponseBody extends $tea.Model {
 }
 
 export class AddEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddEditingProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddEditingProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -302,9 +302,9 @@ export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
 }
 
 export class AddEditingProjectMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddEditingProjectMaterialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddEditingProjectMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -377,9 +377,9 @@ export class AddTranscodeTemplateGroupResponseBody extends $tea.Model {
 }
 
 export class AddTranscodeTemplateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddTranscodeTemplateGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddTranscodeTemplateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -461,9 +461,9 @@ export class AddVodDomainResponseBody extends $tea.Model {
 }
 
 export class AddVodDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddVodDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddVodDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -533,9 +533,9 @@ export class AddVodStorageForAppResponseBody extends $tea.Model {
 }
 
 export class AddVodStorageForAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddVodStorageForAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddVodStorageForAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -608,9 +608,9 @@ export class AddVodTemplateResponseBody extends $tea.Model {
 }
 
 export class AddVodTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddVodTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddVodTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -686,9 +686,9 @@ export class AddWatermarkResponseBody extends $tea.Model {
 }
 
 export class AddWatermarkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddWatermarkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddWatermarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -764,9 +764,9 @@ export class AttachAppPolicyToIdentityResponseBody extends $tea.Model {
 }
 
 export class AttachAppPolicyToIdentityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachAppPolicyToIdentityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachAppPolicyToIdentityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -839,9 +839,9 @@ export class BatchSetVodDomainConfigsResponseBody extends $tea.Model {
 }
 
 export class BatchSetVodDomainConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchSetVodDomainConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchSetVodDomainConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -908,9 +908,9 @@ export class BatchStartVodDomainResponseBody extends $tea.Model {
 }
 
 export class BatchStartVodDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchStartVodDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchStartVodDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -977,9 +977,9 @@ export class BatchStopVodDomainResponseBody extends $tea.Model {
 }
 
 export class BatchStopVodDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchStopVodDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchStopVodDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1049,9 +1049,9 @@ export class CancelUrlUploadJobsResponseBody extends $tea.Model {
 }
 
 export class CancelUrlUploadJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelUrlUploadJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelUrlUploadJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1118,9 +1118,9 @@ export class CreateAppInfoResponseBody extends $tea.Model {
 }
 
 export class CreateAppInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1181,9 +1181,9 @@ export class CreateAuditResponseBody extends $tea.Model {
 }
 
 export class CreateAuditResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAuditResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAuditResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1289,9 +1289,9 @@ export class CreateUploadAttachedMediaResponseBody extends $tea.Model {
 }
 
 export class CreateUploadAttachedMediaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateUploadAttachedMediaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUploadAttachedMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1394,9 +1394,9 @@ export class CreateUploadImageResponseBody extends $tea.Model {
 }
 
 export class CreateUploadImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateUploadImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUploadImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1499,9 +1499,9 @@ export class CreateUploadVideoResponseBody extends $tea.Model {
 }
 
 export class CreateUploadVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateUploadVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUploadVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1580,9 +1580,9 @@ export class DecryptKMSDataKeyResponseBody extends $tea.Model {
 }
 
 export class DecryptKMSDataKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DecryptKMSDataKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DecryptKMSDataKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1643,9 +1643,9 @@ export class DeleteAIImageInfosResponseBody extends $tea.Model {
 }
 
 export class DeleteAIImageInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAIImageInfosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAIImageInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1709,9 +1709,9 @@ export class DeleteAITemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteAITemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAITemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAITemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1772,9 +1772,9 @@ export class DeleteAppInfoResponseBody extends $tea.Model {
 }
 
 export class DeleteAppInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1838,9 +1838,9 @@ export class DeleteAttachedMediaResponseBody extends $tea.Model {
 }
 
 export class DeleteAttachedMediaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAttachedMediaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAttachedMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1901,9 +1901,9 @@ export class DeleteCategoryResponseBody extends $tea.Model {
 }
 
 export class DeleteCategoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCategoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCategoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1967,9 +1967,9 @@ export class DeleteDynamicImageResponseBody extends $tea.Model {
 }
 
 export class DeleteDynamicImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDynamicImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDynamicImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2042,9 +2042,9 @@ export class DeleteEditingProjectResponseBody extends $tea.Model {
 }
 
 export class DeleteEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEditingProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEditingProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2123,9 +2123,9 @@ export class DeleteEditingProjectMaterialsResponseBody extends $tea.Model {
 }
 
 export class DeleteEditingProjectMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEditingProjectMaterialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEditingProjectMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2198,9 +2198,9 @@ export class DeleteImageResponseBody extends $tea.Model {
 }
 
 export class DeleteImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2264,9 +2264,9 @@ export class DeleteMessageCallbackResponseBody extends $tea.Model {
 }
 
 export class DeleteMessageCallbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMessageCallbackResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMessageCallbackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2336,9 +2336,9 @@ export class DeleteMezzaninesResponseBody extends $tea.Model {
 }
 
 export class DeleteMezzaninesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMezzaninesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMezzaninesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2405,9 +2405,9 @@ export class DeleteMultipartUploadResponseBody extends $tea.Model {
 }
 
 export class DeleteMultipartUploadResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMultipartUploadResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMultipartUploadResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2471,9 +2471,9 @@ export class DeleteStreamResponseBody extends $tea.Model {
 }
 
 export class DeleteStreamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteStreamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteStreamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2543,9 +2543,9 @@ export class DeleteTranscodeTemplateGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteTranscodeTemplateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTranscodeTemplateGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTranscodeTemplateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2612,9 +2612,9 @@ export class DeleteVideoResponseBody extends $tea.Model {
 }
 
 export class DeleteVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2684,9 +2684,9 @@ export class DeleteVodDomainResponseBody extends $tea.Model {
 }
 
 export class DeleteVodDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVodDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVodDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2759,9 +2759,9 @@ export class DeleteVodSpecificConfigResponseBody extends $tea.Model {
 }
 
 export class DeleteVodSpecificConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVodSpecificConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVodSpecificConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2825,9 +2825,9 @@ export class DeleteVodTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteVodTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVodTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVodTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2888,9 +2888,9 @@ export class DeleteWatermarkResponseBody extends $tea.Model {
 }
 
 export class DeleteWatermarkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteWatermarkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWatermarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2972,9 +2972,9 @@ export class DescribePlayTopVideosResponseBody extends $tea.Model {
 }
 
 export class DescribePlayTopVideosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayTopVideosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePlayTopVideosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3044,9 +3044,9 @@ export class DescribePlayUserAvgResponseBody extends $tea.Model {
 }
 
 export class DescribePlayUserAvgResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayUserAvgResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePlayUserAvgResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3116,9 +3116,9 @@ export class DescribePlayUserTotalResponseBody extends $tea.Model {
 }
 
 export class DescribePlayUserTotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayUserTotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePlayUserTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3191,9 +3191,9 @@ export class DescribePlayVideoStatisResponseBody extends $tea.Model {
 }
 
 export class DescribePlayVideoStatisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePlayVideoStatisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePlayVideoStatisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3272,9 +3272,9 @@ export class DescribeVodAIDataResponseBody extends $tea.Model {
 }
 
 export class DescribeVodAIDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodAIDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodAIDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3344,9 +3344,9 @@ export class DescribeVodCertificateListResponseBody extends $tea.Model {
 }
 
 export class DescribeVodCertificateListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodCertificateListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodCertificateListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3446,9 +3446,9 @@ export class DescribeVodDomainBpsDataResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainBpsDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainBpsDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainBpsDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3515,9 +3515,9 @@ export class DescribeVodDomainCertificateInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainCertificateInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainCertificateInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainCertificateInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3590,9 +3590,9 @@ export class DescribeVodDomainConfigsResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3662,9 +3662,9 @@ export class DescribeVodDomainDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3743,9 +3743,9 @@ export class DescribeVodDomainLogResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3833,9 +3833,9 @@ export class DescribeVodDomainSrcBpsDataResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainSrcBpsDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainSrcBpsDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainSrcBpsDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3926,9 +3926,9 @@ export class DescribeVodDomainSrcTrafficDataResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainSrcTrafficDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainSrcTrafficDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainSrcTrafficDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4025,9 +4025,9 @@ export class DescribeVodDomainTrafficDataResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainTrafficDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainTrafficDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainTrafficDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4130,9 +4130,9 @@ export class DescribeVodDomainUsageDataResponseBody extends $tea.Model {
 }
 
 export class DescribeVodDomainUsageDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodDomainUsageDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainUsageDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4220,9 +4220,9 @@ export class DescribeVodRefreshQuotaResponseBody extends $tea.Model {
 }
 
 export class DescribeVodRefreshQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodRefreshQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodRefreshQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4325,9 +4325,9 @@ export class DescribeVodRefreshTasksResponseBody extends $tea.Model {
 }
 
 export class DescribeVodRefreshTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodRefreshTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodRefreshTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4409,9 +4409,9 @@ export class DescribeVodStorageDataResponseBody extends $tea.Model {
 }
 
 export class DescribeVodStorageDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodStorageDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodStorageDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4434,6 +4434,7 @@ export class DescribeVodStorageDataResponse extends $tea.Model {
 }
 
 export class DescribeVodTranscodeDataRequest extends $tea.Model {
+  appId?: string;
   endTime?: string;
   interval?: string;
   ownerId?: number;
@@ -4443,6 +4444,7 @@ export class DescribeVodTranscodeDataRequest extends $tea.Model {
   storage?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       endTime: 'EndTime',
       interval: 'Interval',
       ownerId: 'OwnerId',
@@ -4455,6 +4457,7 @@ export class DescribeVodTranscodeDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       endTime: 'string',
       interval: 'string',
       ownerId: 'number',
@@ -4496,9 +4499,9 @@ export class DescribeVodTranscodeDataResponseBody extends $tea.Model {
 }
 
 export class DescribeVodTranscodeDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodTranscodeDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodTranscodeDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4592,9 +4595,9 @@ export class DescribeVodUserDomainsResponseBody extends $tea.Model {
 }
 
 export class DescribeVodUserDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodUserDomainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodUserDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4661,9 +4664,9 @@ export class DescribeVodVerifyContentResponseBody extends $tea.Model {
 }
 
 export class DescribeVodVerifyContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVodVerifyContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodVerifyContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4739,9 +4742,9 @@ export class DetachAppPolicyFromIdentityResponseBody extends $tea.Model {
 }
 
 export class DetachAppPolicyFromIdentityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachAppPolicyFromIdentityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachAppPolicyFromIdentityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4817,9 +4820,9 @@ export class GenerateDownloadSecretKeyResponseBody extends $tea.Model {
 }
 
 export class GenerateDownloadSecretKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateDownloadSecretKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateDownloadSecretKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4898,9 +4901,9 @@ export class GenerateKMSDataKeyResponseBody extends $tea.Model {
 }
 
 export class GenerateKMSDataKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateKMSDataKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateKMSDataKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4976,9 +4979,9 @@ export class GetAIImageJobsResponseBody extends $tea.Model {
 }
 
 export class GetAIImageJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAIImageJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAIImageJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5042,9 +5045,9 @@ export class GetAIMediaAuditJobResponseBody extends $tea.Model {
 }
 
 export class GetAIMediaAuditJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAIMediaAuditJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAIMediaAuditJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5108,9 +5111,9 @@ export class GetAITemplateResponseBody extends $tea.Model {
 }
 
 export class GetAITemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAITemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAITemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5186,9 +5189,9 @@ export class GetAIVideoTagResultResponseBody extends $tea.Model {
 }
 
 export class GetAIVideoTagResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAIVideoTagResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAIVideoTagResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5258,9 +5261,9 @@ export class GetAppInfosResponseBody extends $tea.Model {
 }
 
 export class GetAppInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppInfosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5333,9 +5336,9 @@ export class GetAttachedMediaInfoResponseBody extends $tea.Model {
 }
 
 export class GetAttachedMediaInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAttachedMediaInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAttachedMediaInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5414,9 +5417,9 @@ export class GetAuditHistoryResponseBody extends $tea.Model {
 }
 
 export class GetAuditHistoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAuditHistoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAuditHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5498,9 +5501,9 @@ export class GetCategoriesResponseBody extends $tea.Model {
 }
 
 export class GetCategoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCategoriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCategoriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5564,9 +5567,9 @@ export class GetDefaultAITemplateResponseBody extends $tea.Model {
 }
 
 export class GetDefaultAITemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDefaultAITemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDefaultAITemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5648,9 +5651,9 @@ export class GetDigitalWatermarkExtractResultResponseBody extends $tea.Model {
 }
 
 export class GetDigitalWatermarkExtractResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDigitalWatermarkExtractResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDigitalWatermarkExtractResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5726,9 +5729,9 @@ export class GetEditingProjectResponseBody extends $tea.Model {
 }
 
 export class GetEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEditingProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEditingProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5810,9 +5813,9 @@ export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
 }
 
 export class GetEditingProjectMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEditingProjectMaterialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEditingProjectMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5882,9 +5885,9 @@ export class GetImageInfoResponseBody extends $tea.Model {
 }
 
 export class GetImageInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetImageInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetImageInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5957,9 +5960,9 @@ export class GetImageInfosResponseBody extends $tea.Model {
 }
 
 export class GetImageInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetImageInfosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetImageInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6038,9 +6041,9 @@ export class GetMediaAuditAudioResultDetailResponseBody extends $tea.Model {
 }
 
 export class GetMediaAuditAudioResultDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMediaAuditAudioResultDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaAuditAudioResultDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6104,9 +6107,9 @@ export class GetMediaAuditResultResponseBody extends $tea.Model {
 }
 
 export class GetMediaAuditResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMediaAuditResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaAuditResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6173,9 +6176,9 @@ export class GetMediaAuditResultDetailResponseBody extends $tea.Model {
 }
 
 export class GetMediaAuditResultDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMediaAuditResultDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaAuditResultDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6239,9 +6242,9 @@ export class GetMediaAuditResultTimelineResponseBody extends $tea.Model {
 }
 
 export class GetMediaAuditResultTimelineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMediaAuditResultTimelineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaAuditResultTimelineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6317,9 +6320,9 @@ export class GetMediaDNAResultResponseBody extends $tea.Model {
 }
 
 export class GetMediaDNAResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMediaDNAResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaDNAResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6386,9 +6389,9 @@ export class GetMediaRefreshJobsResponseBody extends $tea.Model {
 }
 
 export class GetMediaRefreshJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMediaRefreshJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaRefreshJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6455,9 +6458,9 @@ export class GetMessageCallbackResponseBody extends $tea.Model {
 }
 
 export class GetMessageCallbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMessageCallbackResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMessageCallbackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6530,9 +6533,9 @@ export class GetMezzanineInfoResponseBody extends $tea.Model {
 }
 
 export class GetMezzanineInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMezzanineInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMezzanineInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6632,9 +6635,9 @@ export class GetPlayInfoResponseBody extends $tea.Model {
 }
 
 export class GetPlayInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPlayInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPlayInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6701,9 +6704,9 @@ export class GetTranscodeSummaryResponseBody extends $tea.Model {
 }
 
 export class GetTranscodeSummaryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTranscodeSummaryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTranscodeSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6767,9 +6770,9 @@ export class GetTranscodeTaskResponseBody extends $tea.Model {
 }
 
 export class GetTranscodeTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTranscodeTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTranscodeTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6833,9 +6836,9 @@ export class GetTranscodeTemplateGroupResponseBody extends $tea.Model {
 }
 
 export class GetTranscodeTemplateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTranscodeTemplateGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTranscodeTemplateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6905,9 +6908,9 @@ export class GetURLUploadInfosResponseBody extends $tea.Model {
 }
 
 export class GetURLUploadInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetURLUploadInfosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetURLUploadInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6980,9 +6983,9 @@ export class GetUploadDetailsResponseBody extends $tea.Model {
 }
 
 export class GetUploadDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUploadDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUploadDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7046,9 +7049,9 @@ export class GetVideoInfoResponseBody extends $tea.Model {
 }
 
 export class GetVideoInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVideoInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7115,9 +7118,9 @@ export class GetVideoInfosResponseBody extends $tea.Model {
 }
 
 export class GetVideoInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVideoInfosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7205,9 +7208,9 @@ export class GetVideoListResponseBody extends $tea.Model {
 }
 
 export class GetVideoListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVideoListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7280,9 +7283,9 @@ export class GetVideoPlayAuthResponseBody extends $tea.Model {
 }
 
 export class GetVideoPlayAuthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVideoPlayAuthResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoPlayAuthResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7346,9 +7349,9 @@ export class GetVodTemplateResponseBody extends $tea.Model {
 }
 
 export class GetVodTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVodTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVodTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7412,9 +7415,9 @@ export class GetWatermarkResponseBody extends $tea.Model {
 }
 
 export class GetWatermarkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWatermarkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWatermarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7478,9 +7481,9 @@ export class ListAIImageInfoResponseBody extends $tea.Model {
 }
 
 export class ListAIImageInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAIImageInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAIImageInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7559,9 +7562,9 @@ export class ListAIJobResponseBody extends $tea.Model {
 }
 
 export class ListAIJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAIJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAIJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7625,9 +7628,9 @@ export class ListAITemplateResponseBody extends $tea.Model {
 }
 
 export class ListAITemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAITemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAITemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7700,9 +7703,9 @@ export class ListAppInfoResponseBody extends $tea.Model {
 }
 
 export class ListAppInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7772,9 +7775,9 @@ export class ListAppPoliciesForIdentityResponseBody extends $tea.Model {
 }
 
 export class ListAppPoliciesForIdentityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppPoliciesForIdentityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppPoliciesForIdentityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7838,9 +7841,9 @@ export class ListAuditSecurityIpResponseBody extends $tea.Model {
 }
 
 export class ListAuditSecurityIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAuditSecurityIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAuditSecurityIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7904,9 +7907,9 @@ export class ListDynamicImageResponseBody extends $tea.Model {
 }
 
 export class ListDynamicImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDynamicImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDynamicImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7994,9 +7997,9 @@ export class ListLiveRecordVideoResponseBody extends $tea.Model {
 }
 
 export class ListLiveRecordVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListLiveRecordVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLiveRecordVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8072,9 +8075,9 @@ export class ListSnapshotsResponseBody extends $tea.Model {
 }
 
 export class ListSnapshotsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSnapshotsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSnapshotsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8150,9 +8153,9 @@ export class ListTranscodeTaskResponseBody extends $tea.Model {
 }
 
 export class ListTranscodeTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTranscodeTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTranscodeTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8216,9 +8219,9 @@ export class ListTranscodeTemplateGroupResponseBody extends $tea.Model {
 }
 
 export class ListTranscodeTemplateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTranscodeTemplateGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTranscodeTemplateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8285,9 +8288,9 @@ export class ListVodTemplateResponseBody extends $tea.Model {
 }
 
 export class ListVodTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListVodTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVodTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8351,9 +8354,9 @@ export class ListWatermarkResponseBody extends $tea.Model {
 }
 
 export class ListWatermarkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListWatermarkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWatermarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8426,9 +8429,9 @@ export class MoveAppResourceResponseBody extends $tea.Model {
 }
 
 export class MoveAppResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MoveAppResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveAppResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8498,9 +8501,9 @@ export class PreloadVodObjectCachesResponseBody extends $tea.Model {
 }
 
 export class PreloadVodObjectCachesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PreloadVodObjectCachesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PreloadVodObjectCachesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8600,9 +8603,9 @@ export class ProduceEditingProjectVideoResponseBody extends $tea.Model {
 }
 
 export class ProduceEditingProjectVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProduceEditingProjectVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ProduceEditingProjectVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8696,9 +8699,9 @@ export class RefreshMediaPlayUrlsResponseBody extends $tea.Model {
 }
 
 export class RefreshMediaPlayUrlsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshMediaPlayUrlsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshMediaPlayUrlsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8777,9 +8780,9 @@ export class RefreshUploadVideoResponseBody extends $tea.Model {
 }
 
 export class RefreshUploadVideoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshUploadVideoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshUploadVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8852,9 +8855,9 @@ export class RefreshVodObjectCachesResponseBody extends $tea.Model {
 }
 
 export class RefreshVodObjectCachesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshVodObjectCachesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshVodObjectCachesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8930,9 +8933,9 @@ export class RegisterMediaResponseBody extends $tea.Model {
 }
 
 export class RegisterMediaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RegisterMediaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RegisterMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9011,9 +9014,9 @@ export class RestoreMediaResponseBody extends $tea.Model {
 }
 
 export class RestoreMediaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestoreMediaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestoreMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9110,9 +9113,9 @@ export class SearchEditingProjectResponseBody extends $tea.Model {
 }
 
 export class SearchEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchEditingProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchEditingProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9200,9 +9203,9 @@ export class SearchMediaResponseBody extends $tea.Model {
 }
 
 export class SearchMediaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SearchMediaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9269,9 +9272,9 @@ export class SetAuditSecurityIpResponseBody extends $tea.Model {
 }
 
 export class SetAuditSecurityIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetAuditSecurityIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetAuditSecurityIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9350,9 +9353,9 @@ export class SetCrossdomainContentResponseBody extends $tea.Model {
 }
 
 export class SetCrossdomainContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetCrossdomainContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetCrossdomainContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9416,9 +9419,9 @@ export class SetDefaultAITemplateResponseBody extends $tea.Model {
 }
 
 export class SetDefaultAITemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDefaultAITemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDefaultAITemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9479,9 +9482,9 @@ export class SetDefaultTranscodeTemplateGroupResponseBody extends $tea.Model {
 }
 
 export class SetDefaultTranscodeTemplateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDefaultTranscodeTemplateGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDefaultTranscodeTemplateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9542,9 +9545,9 @@ export class SetDefaultWatermarkResponseBody extends $tea.Model {
 }
 
 export class SetDefaultWatermarkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDefaultWatermarkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDefaultWatermarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9620,9 +9623,9 @@ export class SetEditingProjectMaterialsResponseBody extends $tea.Model {
 }
 
 export class SetEditingProjectMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetEditingProjectMaterialsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetEditingProjectMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9707,9 +9710,9 @@ export class SetMessageCallbackResponseBody extends $tea.Model {
 }
 
 export class SetMessageCallbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetMessageCallbackResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetMessageCallbackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9788,9 +9791,9 @@ export class SetVodDomainCertificateResponseBody extends $tea.Model {
 }
 
 export class SetVodDomainCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetVodDomainCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetVodDomainCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9872,9 +9875,9 @@ export class SubmitAIImageAuditJobResponseBody extends $tea.Model {
 }
 
 export class SubmitAIImageAuditJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAIImageAuditJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAIImageAuditJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9959,9 +9962,9 @@ export class SubmitAIImageJobResponseBody extends $tea.Model {
 }
 
 export class SubmitAIImageJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAIImageJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAIImageJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10046,9 +10049,9 @@ export class SubmitAIJobResponseBody extends $tea.Model {
 }
 
 export class SubmitAIJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAIJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAIJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10127,9 +10130,9 @@ export class SubmitAIMediaAuditJobResponseBody extends $tea.Model {
 }
 
 export class SubmitAIMediaAuditJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAIMediaAuditJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAIMediaAuditJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10208,9 +10211,9 @@ export class SubmitDigitalWatermarkExtractJobResponseBody extends $tea.Model {
 }
 
 export class SubmitDigitalWatermarkExtractJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitDigitalWatermarkExtractJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDigitalWatermarkExtractJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10280,9 +10283,9 @@ export class SubmitDynamicImageJobResponseBody extends $tea.Model {
 }
 
 export class SubmitDynamicImageJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitDynamicImageJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDynamicImageJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10358,9 +10361,9 @@ export class SubmitMediaDNADeleteJobResponseBody extends $tea.Model {
 }
 
 export class SubmitMediaDNADeleteJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitMediaDNADeleteJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitMediaDNADeleteJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10427,9 +10430,9 @@ export class SubmitPreprocessJobsResponseBody extends $tea.Model {
 }
 
 export class SubmitPreprocessJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitPreprocessJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitPreprocessJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10566,9 +10569,9 @@ export class SubmitSnapshotJobResponseBody extends $tea.Model {
 }
 
 export class SubmitSnapshotJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitSnapshotJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSnapshotJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10653,9 +10656,9 @@ export class SubmitTranscodeJobsResponseBody extends $tea.Model {
 }
 
 export class SubmitTranscodeJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitTranscodeJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTranscodeJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10719,9 +10722,9 @@ export class SubmitWorkflowJobResponseBody extends $tea.Model {
 }
 
 export class SubmitWorkflowJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitWorkflowJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitWorkflowJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10791,9 +10794,9 @@ export class UpdateAITemplateResponseBody extends $tea.Model {
 }
 
 export class UpdateAITemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAITemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAITemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10863,9 +10866,9 @@ export class UpdateAppInfoResponseBody extends $tea.Model {
 }
 
 export class UpdateAppInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAppInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAppInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10929,9 +10932,9 @@ export class UpdateAttachedMediaInfosResponseBody extends $tea.Model {
 }
 
 export class UpdateAttachedMediaInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAttachedMediaInfosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAttachedMediaInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10995,9 +10998,9 @@ export class UpdateCategoryResponseBody extends $tea.Model {
 }
 
 export class UpdateCategoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCategoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCategoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11082,9 +11085,9 @@ export class UpdateEditingProjectResponseBody extends $tea.Model {
 }
 
 export class UpdateEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEditingProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEditingProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11148,9 +11151,9 @@ export class UpdateImageInfosResponseBody extends $tea.Model {
 }
 
 export class UpdateImageInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateImageInfosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateImageInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11232,9 +11235,9 @@ export class UpdateMediaStorageClassResponseBody extends $tea.Model {
 }
 
 export class UpdateMediaStorageClassResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateMediaStorageClassResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaStorageClassResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11307,9 +11310,9 @@ export class UpdateTranscodeTemplateGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateTranscodeTemplateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTranscodeTemplateGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTranscodeTemplateGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11385,9 +11388,9 @@ export class UpdateVideoInfoResponseBody extends $tea.Model {
 }
 
 export class UpdateVideoInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVideoInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVideoInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11454,9 +11457,9 @@ export class UpdateVideoInfosResponseBody extends $tea.Model {
 }
 
 export class UpdateVideoInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVideoInfosResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVideoInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11529,9 +11532,9 @@ export class UpdateVodDomainResponseBody extends $tea.Model {
 }
 
 export class UpdateVodDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVodDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVodDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11601,9 +11604,9 @@ export class UpdateVodTemplateResponseBody extends $tea.Model {
 }
 
 export class UpdateVodTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVodTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVodTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11673,9 +11676,9 @@ export class UpdateWatermarkResponseBody extends $tea.Model {
 }
 
 export class UpdateWatermarkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateWatermarkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWatermarkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11760,9 +11763,9 @@ export class UploadMediaByURLResponseBody extends $tea.Model {
 }
 
 export class UploadMediaByURLResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadMediaByURLResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadMediaByURLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11847,9 +11850,9 @@ export class UploadStreamByURLResponseBody extends $tea.Model {
 }
 
 export class UploadStreamByURLResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadStreamByURLResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadStreamByURLResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11919,9 +11922,9 @@ export class VerifyVodDomainOwnerResponseBody extends $tea.Model {
 }
 
 export class VerifyVodDomainOwnerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyVodDomainOwnerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyVodDomainOwnerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19365,8 +19368,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   After you create a snapshot template, you can specify the ID of the snapshot template in the request of the [SubmitSnapshotJob](~~72213~~) operation to take snapshots.
-    * > *   You can receive the [SnapshotComplete](~~57337~~) event notification by using an HTTP or HTTPS URL or in Message Service (MNS). For more information, see [Overview](~~55627~~).
+    * *   After you add a snapshot template, you can call the [SubmitSnapshotJob](~~72213~~) operation and specify the template ID to submit a snapshot job.
+    * *   You can use the HTTP (HTTPS compatible) callback or MNS callback method to receive the [SnapshotComplete](~~57337~~) callback. For more information, see [Overview](~~55627~~).
     *
     * @param request AddVodTemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19409,8 +19412,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   After you create a snapshot template, you can specify the ID of the snapshot template in the request of the [SubmitSnapshotJob](~~72213~~) operation to take snapshots.
-    * > *   You can receive the [SnapshotComplete](~~57337~~) event notification by using an HTTP or HTTPS URL or in Message Service (MNS). For more information, see [Overview](~~55627~~).
+    * *   After you add a snapshot template, you can call the [SubmitSnapshotJob](~~72213~~) operation and specify the template ID to submit a snapshot job.
+    * *   You can use the HTTP (HTTPS compatible) callback or MNS callback method to receive the [SnapshotComplete](~~57337~~) callback. For more information, see [Overview](~~55627~~).
     *
     * @param request AddVodTemplateRequest
     * @return AddVodTemplateResponse
@@ -20624,7 +20627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed on mezzanine files. If you delete the mezzanine files, you cannot perform follow-up media processing operations. Exercise caution when you call this operation.
+    * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed based on source files. If you delete the source files, you cannot perform media processing operations. Exercise caution when you call this operation.
     *
     * @param request DeleteMezzaninesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20659,7 +20662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed on mezzanine files. If you delete the mezzanine files, you cannot perform follow-up media processing operations. Exercise caution when you call this operation.
+    * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed based on source files. If you delete the source files, you cannot perform media processing operations. Exercise caution when you call this operation.
     *
     * @param request DeleteMezzaninesRequest
     * @return DeleteMezzaninesResponse
@@ -20670,9 +20673,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * In a multipart upload, fragments may be generated if the upload fails. In most cases, the fragments are automatically deleted after seven days. You can call this operation to delete the generated fragments after the upload is successful or fails.
-    * * This operation does not delete the source file or transcoded file, but deletes only the fragments generated during the upload.
-    * * If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated fragments.
+    * *   During multipart upload, useless parts may be retained if the upload fails. These useless parts are automatically deleted after 7 days. You can call this operation to delete the generated parts after the upload is successful or fails.
+    * *   This operation does not delete the source file or transcoded file, but deletes only the parts generated during the upload.
+    * *   If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated parts.
     *
     * @param request DeleteMultipartUploadRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20711,9 +20714,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * In a multipart upload, fragments may be generated if the upload fails. In most cases, the fragments are automatically deleted after seven days. You can call this operation to delete the generated fragments after the upload is successful or fails.
-    * * This operation does not delete the source file or transcoded file, but deletes only the fragments generated during the upload.
-    * * If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated fragments.
+    * *   During multipart upload, useless parts may be retained if the upload fails. These useless parts are automatically deleted after 7 days. You can call this operation to delete the generated parts after the upload is successful or fails.
+    * *   This operation does not delete the source file or transcoded file, but deletes only the parts generated during the upload.
+    * *   If you call the [DeleteVideo](~~52837~~) operation, the entire video file is deleted, including the generated parts.
     *
     * @param request DeleteMultipartUploadRequest
     * @return DeleteMultipartUploadResponse
@@ -22190,6 +22193,10 @@ export default class Client extends OpenApi {
   async describeVodTranscodeDataWithOptions(request: DescribeVodTranscodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodTranscodeDataResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
@@ -22391,6 +22398,14 @@ export default class Client extends OpenApi {
     return await this.detachAppPolicyFromIdentityWithOptions(request, runtime);
   }
 
+  /**
+    * *   To use the secure download feature, you must enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Configure download settings](~~86107~~).
+    * *   After you generate a key for secure download, you must configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](~~124735~~).
+    *
+    * @param request GenerateDownloadSecretKeyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GenerateDownloadSecretKeyResponse
+   */
   async generateDownloadSecretKeyWithOptions(request: GenerateDownloadSecretKeyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDownloadSecretKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22431,6 +22446,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateDownloadSecretKeyResponse>(await this.callApi(params, req, runtime), new GenerateDownloadSecretKeyResponse({}));
   }
 
+  /**
+    * *   To use the secure download feature, you must enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Configure download settings](~~86107~~).
+    * *   After you generate a key for secure download, you must configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](~~124735~~).
+    *
+    * @param request GenerateDownloadSecretKeyRequest
+    * @return GenerateDownloadSecretKeyResponse
+   */
   async generateDownloadSecretKey(request: GenerateDownloadSecretKeyRequest): Promise<GenerateDownloadSecretKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateDownloadSecretKeyWithOptions(request, runtime);
@@ -23865,8 +23887,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The video snapshot URLs.
-    * > This operation returns only data about the snapshots that are captured when you upload a video. The snapshot data includes data of the thumbnail and snapshot data that is generated based on the workflow setting. To query the snapshot data that is generated after the video is uploaded, call the [ListSnapshots](~~ListSnapshots~~) operation. For more information, see [Video snapshots](~~99368~~).
+    * * You can call this operation to obtain basic information about multiple media files based on media IDs. The basic information includes the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags.
+    * * After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the **VideoAnalysisComplete** event and call this operation to query information about a media file after you receive notifications for the **VideoAnalysisComplete** event. For more information, see [Overview](~~55627~~) .
     *
     * @param request GetVideoInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23897,8 +23919,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The video snapshot URLs.
-    * > This operation returns only data about the snapshots that are captured when you upload a video. The snapshot data includes data of the thumbnail and snapshot data that is generated based on the workflow setting. To query the snapshot data that is generated after the video is uploaded, call the [ListSnapshots](~~ListSnapshots~~) operation. For more information, see [Video snapshots](~~99368~~).
+    * * You can call this operation to obtain basic information about multiple media files based on media IDs. The basic information includes the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags.
+    * * After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the **VideoAnalysisComplete** event and call this operation to query information about a media file after you receive notifications for the **VideoAnalysisComplete** event. For more information, see [Overview](~~55627~~) .
     *
     * @param request GetVideoInfoRequest
     * @return GetVideoInfoResponse
@@ -24828,17 +24850,16 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
     * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
     * *   The source files that are used in the timeline of an online editing project can be materials directly uploaded to the online project or selected from the media asset library.
-    * *   Videos are produced based on ProjectId and Timeline. The following rules apply when you specify the parameters:
-    *     *   You must specify at least one of the ProjectId and Timeline parameters. Otherwise, video production fails.
-    *     *   If you specify only the Timeline parameter, the system automatically creates an online editing project based on the specified timeline. Then, the system uses the source files specified in the timeline to produce videos.
-    *     *   If you specify only the ProjectId parameter, the system obtains the latest timeline data of the specified project to produce videos.
-    *     *   If you specify both the ProjectId and Timeline parameters, the system produces videos based on the specified timeline and updates the timeline data for the specified online editing project. You can also specify other parameters to update the corresponding information about the online editing project.
+    * *   Videos are produced based on ProjectId and Timeline. The following content describes the parameter configurations:
+    *     *   You must specify ProjectId or Timeline. If you leave both parameters empty, the video cannot be produced.
+    *     *   If you specify Timeline and leave ProjectId empty, the system automatically creates an online editing project based on Timeline and adds the materials specified in the Timeline to the project to produce videos.
+    *     *   If you specify ProjectId and leave Timeline empty, the system automatically uses the latest timeline information of the project to produce videos.
+    *     *   If you specify both ProjectId and Timeline, the system automatically uses the timeline information that you specified to produce videos and updates the project timeline and materials. You can also specify other parameters to update the corresponding information about the online editing project.
     * *   After a video is produced, the video is automatically uploaded to ApsaraVideo VOD. Then, the **ProduceMediaComplete** and **FileUploadComplete** event notifications are sent to you. After the produced video is transcoded, the **StreamTranscodeComplete** and **TranscodeComplete** event notifications are sent to you.
     * *   You can add special effects to the video. For more information, see [Special effects](~~69082~~).
-    * ### QPS limits
-    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VOD](~~342790~~).
     *
     * @param request ProduceEditingProjectVideoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24913,17 +24934,16 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
     * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
     * *   The source files that are used in the timeline of an online editing project can be materials directly uploaded to the online project or selected from the media asset library.
-    * *   Videos are produced based on ProjectId and Timeline. The following rules apply when you specify the parameters:
-    *     *   You must specify at least one of the ProjectId and Timeline parameters. Otherwise, video production fails.
-    *     *   If you specify only the Timeline parameter, the system automatically creates an online editing project based on the specified timeline. Then, the system uses the source files specified in the timeline to produce videos.
-    *     *   If you specify only the ProjectId parameter, the system obtains the latest timeline data of the specified project to produce videos.
-    *     *   If you specify both the ProjectId and Timeline parameters, the system produces videos based on the specified timeline and updates the timeline data for the specified online editing project. You can also specify other parameters to update the corresponding information about the online editing project.
+    * *   Videos are produced based on ProjectId and Timeline. The following content describes the parameter configurations:
+    *     *   You must specify ProjectId or Timeline. If you leave both parameters empty, the video cannot be produced.
+    *     *   If you specify Timeline and leave ProjectId empty, the system automatically creates an online editing project based on Timeline and adds the materials specified in the Timeline to the project to produce videos.
+    *     *   If you specify ProjectId and leave Timeline empty, the system automatically uses the latest timeline information of the project to produce videos.
+    *     *   If you specify both ProjectId and Timeline, the system automatically uses the timeline information that you specified to produce videos and updates the project timeline and materials. You can also specify other parameters to update the corresponding information about the online editing project.
     * *   After a video is produced, the video is automatically uploaded to ApsaraVideo VOD. Then, the **ProduceMediaComplete** and **FileUploadComplete** event notifications are sent to you. After the produced video is transcoded, the **StreamTranscodeComplete** and **TranscodeComplete** event notifications are sent to you.
     * *   You can add special effects to the video. For more information, see [Special effects](~~69082~~).
-    * ### QPS limits
-    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VOD](~~342790~~).
     *
     * @param request ProduceEditingProjectVideoRequest
     * @return ProduceEditingProjectVideoResponse
@@ -25016,7 +25036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you want to overwrite a video or audio source file, you can obtain the upload URL of the source file by calling this operation. Then, you can upload a new source file without changing the video or audio ID. However, the file overwriting may automatically trigger transcoding and snapshot jobs if these jobs are configured. For more information, see [Upload URLs and credentials](~~55397~~).
+    * You can also call this operation to overwrite the source file of an audio or video file. After you call this operation, the system obtains the upload URL and uploads a new source file without changing the ID of the audio or video file. If you have configured transcoding or snapshot capture for the upload, the transcoding or snapshot capture job is automatically triggered. For more information, see [Upload URLs and credentials](~~55397~~).
     *
     * @param request RefreshUploadVideoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25059,7 +25079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you want to overwrite a video or audio source file, you can obtain the upload URL of the source file by calling this operation. Then, you can upload a new source file without changing the video or audio ID. However, the file overwriting may automatically trigger transcoding and snapshot jobs if these jobs are configured. For more information, see [Upload URLs and credentials](~~55397~~).
+    * You can also call this operation to overwrite the source file of an audio or video file. After you call this operation, the system obtains the upload URL and uploads a new source file without changing the ID of the audio or video file. If you have configured transcoding or snapshot capture for the upload, the transcoding or snapshot capture job is automatically triggered. For more information, see [Upload URLs and credentials](~~55397~~).
     *
     * @param request RefreshUploadVideoRequest
     * @return RefreshUploadVideoResponse
@@ -25128,10 +25148,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you store an audio or video file in an Object Storage Service (OSS) bucket that is used for ApsaraVideo VOD, you can call the RegisterMedia operation to register the media file. After the media file is registered, you can use the media ID associated with the media file to submit transcoding jobs and snapshot jobs in ApsaraVideo VOD. For more information, see [SubmitTranscodeJobs](~~68570~~) and [SubmitSnapshotJob](~~72213~~).
-    * > *   You can register up to 10 OSS media files that have the same storage location at a time.
-    * > *   If you use the ApsaraVideo VOD console to upload a media file and do not specify a transcoding template group ID, ApsaraVideo VOD uses the default transcoding template group to transcode the media file. However, if you do not specify a transcoding template group ID when you call the RegisterMedia operation, ApsaraVideo VOD does not automatically transcode the media file after the media file is registered. If you specify a transcoding template group ID, ApsaraVideo VOD uses the specified transcoding template group to transcode the media file.
-    * > *   If the media file that you want to register is registered before, this operation returns only the unique media ID that is associated with the media file. No further processing is performed.
+    * *   After you add an OSS bucket to ApsaraVideo VOD, you must register media files in the OSS bucket to generate the required information. Then, you can use media IDs for features such as transcoding, snapshot capture, and AI processing.use features such as xxx on media files by specifying their IDs?
+    * *   You can register up to 10 media files in an OSS bucket in a request. The media files must be stored in the same bucket.
+    * *   If you do not specify a transcoding template group ID when you upload a media file to ApsaraVideo VOD, the media file is automatically transcoded based on the default template group. If you do not specify a transcoding template group ID after you register a media file, the media file is not automatically transcoded. The registered media files are automatically transcoded only if you specify a transcoding template group ID.
+    * *   If the media file that you want to register has been registered, this operation returns only the unique media ID that is associated with the media file. No further operation is performed.
+    * *   Make sure that the media file that you want to register has a valid suffix. Otherwise, the registration fails.
     *
     * @param request RegisterMediaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25174,10 +25195,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you store an audio or video file in an Object Storage Service (OSS) bucket that is used for ApsaraVideo VOD, you can call the RegisterMedia operation to register the media file. After the media file is registered, you can use the media ID associated with the media file to submit transcoding jobs and snapshot jobs in ApsaraVideo VOD. For more information, see [SubmitTranscodeJobs](~~68570~~) and [SubmitSnapshotJob](~~72213~~).
-    * > *   You can register up to 10 OSS media files that have the same storage location at a time.
-    * > *   If you use the ApsaraVideo VOD console to upload a media file and do not specify a transcoding template group ID, ApsaraVideo VOD uses the default transcoding template group to transcode the media file. However, if you do not specify a transcoding template group ID when you call the RegisterMedia operation, ApsaraVideo VOD does not automatically transcode the media file after the media file is registered. If you specify a transcoding template group ID, ApsaraVideo VOD uses the specified transcoding template group to transcode the media file.
-    * > *   If the media file that you want to register is registered before, this operation returns only the unique media ID that is associated with the media file. No further processing is performed.
+    * *   After you add an OSS bucket to ApsaraVideo VOD, you must register media files in the OSS bucket to generate the required information. Then, you can use media IDs for features such as transcoding, snapshot capture, and AI processing.use features such as xxx on media files by specifying their IDs?
+    * *   You can register up to 10 media files in an OSS bucket in a request. The media files must be stored in the same bucket.
+    * *   If you do not specify a transcoding template group ID when you upload a media file to ApsaraVideo VOD, the media file is automatically transcoded based on the default template group. If you do not specify a transcoding template group ID after you register a media file, the media file is not automatically transcoded. The registered media files are automatically transcoded only if you specify a transcoding template group ID.
+    * *   If the media file that you want to register has been registered, this operation returns only the unique media ID that is associated with the media file. No further operation is performed.
+    * *   Make sure that the media file that you want to register has a valid suffix. Otherwise, the registration fails.
     *
     * @param request RegisterMediaRequest
     * @return RegisterMediaResponse
@@ -25387,7 +25409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
+    * You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
     *
     * @param request SetAuditSecurityIpRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25426,7 +25448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
+    * You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
     *
     * @param request SetAuditSecurityIpRequest
     * @return SetAuditSecurityIpResponse
@@ -26291,8 +26313,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   Only snapshots in the JPG format are generated.
-    * > *   After a snapshot job is complete, ApsaraVideo VOD sends a [SnapshotComplete](~~57337~~) event notification that contains EventType=SnapshotComplete and SubType=SpecifiedTime.
+    * *   Only snapshots in the JPG format are generated.
+    * *   After a snapshot is captured, the [SnapshotComplete](~~57337~~) callback is fired and EventType=SnapshotComplete, SubType=SpecifiedTime is returned.
+    * ### [](#qps-)QPS limits
+    * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~342790~~).
     *
     * @param tmpReq SubmitSnapshotJobRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26365,8 +26389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   Only snapshots in the JPG format are generated.
-    * > *   After a snapshot job is complete, ApsaraVideo VOD sends a [SnapshotComplete](~~57337~~) event notification that contains EventType=SnapshotComplete and SubType=SpecifiedTime.
+    * *   Only snapshots in the JPG format are generated.
+    * *   After a snapshot is captured, the [SnapshotComplete](~~57337~~) callback is fired and EventType=SnapshotComplete, SubType=SpecifiedTime is returned.
+    * ### [](#qps-)QPS limits
+    * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~342790~~).
     *
     * @param request SubmitSnapshotJobRequest
     * @return SubmitSnapshotJobResponse
@@ -26772,10 +26798,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * UpdateMediaStorageClass is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
-    * If the storage class of a media asset is Archive or Cold Archive, the media asset is automatically restored when you call this operation. After the media asset is restored, the storage class is modified. To restore the media asset, you do not need to call the RestoreMedia operation. To modify the storage class of a Cold Archive media asset, you must specify the restoration priority. By default, the restoration priority is set to Standard.
-    * Media assets whose storage classes are being modified cannot be used or processed.
-    * The media assets that are not of the Standard storage class have a limit on storage duration. If the storage duration does not meet the following requirements, you cannot change the storage classes: Infrequent Access (IA) media assets or source files are stored for at least 30 days, Archive media assets or source files are stored for at least 60 days, and Cold Archive media assets or source files are stored for at least 180 days.
+    * *   This operation is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
+    * *   If the storage class of the media asset is Archive or Cold Archive and you call this operation to modify the storage class of the media asset, the media asset is automatically restored before the storage class is modified. You do not need to call the RestoreMedia operation to restore the media asset. You must specify the restoration priority for Cold Archive objects. Default configuration: RestoreTier=Standard.
+    * *   Media assets whose storage classes are being modified cannot be used or processed.
+    * *   Non-Standard objects have minimum storage durations. If an object is stored for less than the minimum storage duration, the storage class of the object cannot be changed. The following content describes the minimum storage durations for objects in different storage classes: IA or IA storage for source files: 30 days, Archive or Archive storage for source files: 60 days, Cold Archive or Cold Archive for source files: 180 days.
     *
     * @param request UpdateMediaStorageClassRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26822,10 +26848,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * UpdateMediaStorageClass is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
-    * If the storage class of a media asset is Archive or Cold Archive, the media asset is automatically restored when you call this operation. After the media asset is restored, the storage class is modified. To restore the media asset, you do not need to call the RestoreMedia operation. To modify the storage class of a Cold Archive media asset, you must specify the restoration priority. By default, the restoration priority is set to Standard.
-    * Media assets whose storage classes are being modified cannot be used or processed.
-    * The media assets that are not of the Standard storage class have a limit on storage duration. If the storage duration does not meet the following requirements, you cannot change the storage classes: Infrequent Access (IA) media assets or source files are stored for at least 30 days, Archive media assets or source files are stored for at least 60 days, and Cold Archive media assets or source files are stored for at least 180 days.
+    * *   This operation is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
+    * *   If the storage class of the media asset is Archive or Cold Archive and you call this operation to modify the storage class of the media asset, the media asset is automatically restored before the storage class is modified. You do not need to call the RestoreMedia operation to restore the media asset. You must specify the restoration priority for Cold Archive objects. Default configuration: RestoreTier=Standard.
+    * *   Media assets whose storage classes are being modified cannot be used or processed.
+    * *   Non-Standard objects have minimum storage durations. If an object is stored for less than the minimum storage duration, the storage class of the object cannot be changed. The following content describes the minimum storage durations for objects in different storage classes: IA or IA storage for source files: 30 days, Archive or Archive storage for source files: 60 days, Cold Archive or Cold Archive for source files: 180 days.
     *
     * @param request UpdateMediaStorageClassRequest
     * @return UpdateMediaStorageClassResponse
@@ -26836,8 +26862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   You cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
-    * > *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+    * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and check whether Locked is returned in the response. If the transcoding template group is locked, you can all this operation to unlock the transcoding template group before you add, modify, or delete transcoding templates in the transcoding template group.
     *
     * @param request UpdateTranscodeTemplateGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26880,8 +26905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   You cannot add, modify, or remove transcoding templates in a transcoding template group that is locked in the ApsaraVideo VOD console. To manage such transcoding template groups, contact the ApsaraVideo VOD technical support.
-    * > *   You can call the GetTranscodeTemplateGroup operation to query the configurations of a transcoding template group and check whether the transcoding template group is locked by using the response parameter Locked.
+    * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and check whether Locked is returned in the response. If the transcoding template group is locked, you can all this operation to unlock the transcoding template group before you add, modify, or delete transcoding templates in the transcoding template group.
     *
     * @param request UpdateTranscodeTemplateGroupRequest
     * @return UpdateTranscodeTemplateGroupResponse
