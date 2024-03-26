@@ -1887,13 +1887,13 @@ export default class Client extends OpenApi {
    */
   async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
+      body["Name"] = request.name;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFlow",
@@ -1923,17 +1923,17 @@ export default class Client extends OpenApi {
 
   async deleteScheduleWithOptions(request: DeleteScheduleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScheduleResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.flowName)) {
-      query["FlowName"] = request.flowName;
+      body["FlowName"] = request.flowName;
     }
 
     if (!Util.isUnset(request.scheduleName)) {
-      query["ScheduleName"] = request.scheduleName;
+      body["ScheduleName"] = request.scheduleName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSchedule",
