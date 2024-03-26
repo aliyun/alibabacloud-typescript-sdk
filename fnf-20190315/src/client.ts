@@ -14,7 +14,6 @@ export class CreateFlowRequest extends $tea.Model {
   executionMode?: string;
   externalStorageLocation?: string;
   name?: string;
-  requestId?: string;
   roleArn?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -24,7 +23,6 @@ export class CreateFlowRequest extends $tea.Model {
       executionMode: 'ExecutionMode',
       externalStorageLocation: 'ExternalStorageLocation',
       name: 'Name',
-      requestId: 'RequestId',
       roleArn: 'RoleArn',
       type: 'Type',
     };
@@ -37,7 +35,6 @@ export class CreateFlowRequest extends $tea.Model {
       executionMode: 'string',
       externalStorageLocation: 'string',
       name: 'string',
-      requestId: 'string',
       roleArn: 'string',
       type: 'string',
     };
@@ -95,9 +92,9 @@ export class CreateFlowResponseBody extends $tea.Model {
 }
 
 export class CreateFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -125,8 +122,8 @@ export class CreateScheduleRequest extends $tea.Model {
   enable?: boolean;
   flowName?: string;
   payload?: string;
-  requestId?: string;
   scheduleName?: string;
+  signatureVersion?: string;
   static names(): { [key: string]: string } {
     return {
       cronExpression: 'CronExpression',
@@ -134,8 +131,8 @@ export class CreateScheduleRequest extends $tea.Model {
       enable: 'Enable',
       flowName: 'FlowName',
       payload: 'Payload',
-      requestId: 'RequestId',
       scheduleName: 'ScheduleName',
+      signatureVersion: 'SignatureVersion',
     };
   }
 
@@ -146,8 +143,8 @@ export class CreateScheduleRequest extends $tea.Model {
       enable: 'boolean',
       flowName: 'string',
       payload: 'string',
-      requestId: 'string',
       scheduleName: 'string',
+      signatureVersion: 'string',
     };
   }
 
@@ -200,9 +197,9 @@ export class CreateScheduleResponseBody extends $tea.Model {
 }
 
 export class CreateScheduleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateScheduleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateScheduleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -226,18 +223,15 @@ export class CreateScheduleResponse extends $tea.Model {
 
 export class DeleteFlowRequest extends $tea.Model {
   name?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
-      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
-      requestId: 'string',
     };
   }
 
@@ -266,9 +260,9 @@ export class DeleteFlowResponseBody extends $tea.Model {
 }
 
 export class DeleteFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -292,12 +286,10 @@ export class DeleteFlowResponse extends $tea.Model {
 
 export class DeleteScheduleRequest extends $tea.Model {
   flowName?: string;
-  requestId?: string;
   scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
       flowName: 'FlowName',
-      requestId: 'RequestId',
       scheduleName: 'ScheduleName',
     };
   }
@@ -305,7 +297,6 @@ export class DeleteScheduleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       flowName: 'string',
-      requestId: 'string',
       scheduleName: 'string',
     };
   }
@@ -335,9 +326,9 @@ export class DeleteScheduleResponseBody extends $tea.Model {
 }
 
 export class DeleteScheduleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteScheduleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteScheduleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -362,13 +353,11 @@ export class DeleteScheduleResponse extends $tea.Model {
 export class DescribeExecutionRequest extends $tea.Model {
   executionName?: string;
   flowName?: string;
-  requestId?: string;
   waitTimeSeconds?: number;
   static names(): { [key: string]: string } {
     return {
       executionName: 'ExecutionName',
       flowName: 'FlowName',
-      requestId: 'RequestId',
       waitTimeSeconds: 'WaitTimeSeconds',
     };
   }
@@ -377,7 +366,6 @@ export class DescribeExecutionRequest extends $tea.Model {
     return {
       executionName: 'string',
       flowName: 'string',
-      requestId: 'string',
       waitTimeSeconds: 'number',
     };
   }
@@ -431,9 +419,9 @@ export class DescribeExecutionResponseBody extends $tea.Model {
 }
 
 export class DescribeExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -457,18 +445,15 @@ export class DescribeExecutionResponse extends $tea.Model {
 
 export class DescribeFlowRequest extends $tea.Model {
   name?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
-      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
-      requestId: 'string',
     };
   }
 
@@ -524,9 +509,9 @@ export class DescribeFlowResponseBody extends $tea.Model {
 }
 
 export class DescribeFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -550,12 +535,10 @@ export class DescribeFlowResponse extends $tea.Model {
 
 export class DescribeScheduleRequest extends $tea.Model {
   flowName?: string;
-  requestId?: string;
   scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
       flowName: 'FlowName',
-      requestId: 'RequestId',
       scheduleName: 'ScheduleName',
     };
   }
@@ -563,7 +546,6 @@ export class DescribeScheduleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       flowName: 'string',
-      requestId: 'string',
       scheduleName: 'string',
     };
   }
@@ -617,9 +599,9 @@ export class DescribeScheduleResponseBody extends $tea.Model {
 }
 
 export class DescribeScheduleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeScheduleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeScheduleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -646,14 +628,12 @@ export class GetExecutionHistoryRequest extends $tea.Model {
   flowName?: string;
   limit?: number;
   nextToken?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       executionName: 'ExecutionName',
       flowName: 'FlowName',
       limit: 'Limit',
       nextToken: 'NextToken',
-      requestId: 'RequestId',
     };
   }
 
@@ -663,7 +643,6 @@ export class GetExecutionHistoryRequest extends $tea.Model {
       flowName: 'string',
       limit: 'number',
       nextToken: 'string',
-      requestId: 'string',
     };
   }
 
@@ -698,9 +677,9 @@ export class GetExecutionHistoryResponseBody extends $tea.Model {
 }
 
 export class GetExecutionHistoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetExecutionHistoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetExecutionHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -727,7 +706,6 @@ export class ListExecutionsRequest extends $tea.Model {
   flowName?: string;
   limit?: number;
   nextToken?: string;
-  requestId?: string;
   startedTimeBegin?: string;
   startedTimeEnd?: string;
   status?: string;
@@ -737,7 +715,6 @@ export class ListExecutionsRequest extends $tea.Model {
       flowName: 'FlowName',
       limit: 'Limit',
       nextToken: 'NextToken',
-      requestId: 'RequestId',
       startedTimeBegin: 'StartedTimeBegin',
       startedTimeEnd: 'StartedTimeEnd',
       status: 'Status',
@@ -750,7 +727,6 @@ export class ListExecutionsRequest extends $tea.Model {
       flowName: 'string',
       limit: 'number',
       nextToken: 'string',
-      requestId: 'string',
       startedTimeBegin: 'string',
       startedTimeEnd: 'string',
       status: 'string',
@@ -788,9 +764,9 @@ export class ListExecutionsResponseBody extends $tea.Model {
 }
 
 export class ListExecutionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListExecutionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -815,12 +791,10 @@ export class ListExecutionsResponse extends $tea.Model {
 export class ListFlowsRequest extends $tea.Model {
   limit?: number;
   nextToken?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       limit: 'Limit',
       nextToken: 'NextToken',
-      requestId: 'RequestId',
     };
   }
 
@@ -828,7 +802,6 @@ export class ListFlowsRequest extends $tea.Model {
     return {
       limit: 'number',
       nextToken: 'string',
-      requestId: 'string',
     };
   }
 
@@ -863,9 +836,9 @@ export class ListFlowsResponseBody extends $tea.Model {
 }
 
 export class ListFlowsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFlowsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFlowsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -891,13 +864,11 @@ export class ListSchedulesRequest extends $tea.Model {
   flowName?: string;
   limit?: number;
   nextToken?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       flowName: 'FlowName',
       limit: 'Limit',
       nextToken: 'NextToken',
-      requestId: 'RequestId',
     };
   }
 
@@ -906,7 +877,6 @@ export class ListSchedulesRequest extends $tea.Model {
       flowName: 'string',
       limit: 'number',
       nextToken: 'string',
-      requestId: 'string',
     };
   }
 
@@ -941,9 +911,9 @@ export class ListSchedulesResponseBody extends $tea.Model {
 }
 
 export class ListSchedulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSchedulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSchedulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -968,13 +938,11 @@ export class ListSchedulesResponse extends $tea.Model {
 export class ReportTaskFailedRequest extends $tea.Model {
   cause?: string;
   error?: string;
-  requestId?: string;
   taskToken?: string;
   static names(): { [key: string]: string } {
     return {
       cause: 'Cause',
       error: 'Error',
-      requestId: 'RequestId',
       taskToken: 'TaskToken',
     };
   }
@@ -983,7 +951,6 @@ export class ReportTaskFailedRequest extends $tea.Model {
     return {
       cause: 'string',
       error: 'string',
-      requestId: 'string',
       taskToken: 'string',
     };
   }
@@ -1016,9 +983,9 @@ export class ReportTaskFailedResponseBody extends $tea.Model {
 }
 
 export class ReportTaskFailedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReportTaskFailedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReportTaskFailedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1042,12 +1009,10 @@ export class ReportTaskFailedResponse extends $tea.Model {
 
 export class ReportTaskSucceededRequest extends $tea.Model {
   output?: string;
-  requestId?: string;
   taskToken?: string;
   static names(): { [key: string]: string } {
     return {
       output: 'Output',
-      requestId: 'RequestId',
       taskToken: 'TaskToken',
     };
   }
@@ -1055,7 +1020,6 @@ export class ReportTaskSucceededRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       output: 'string',
-      requestId: 'string',
       taskToken: 'string',
     };
   }
@@ -1088,9 +1052,9 @@ export class ReportTaskSucceededResponseBody extends $tea.Model {
 }
 
 export class ReportTaskSucceededResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReportTaskSucceededResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReportTaskSucceededResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1117,14 +1081,12 @@ export class StartExecutionRequest extends $tea.Model {
   executionName?: string;
   flowName?: string;
   input?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       callbackFnFTaskToken: 'CallbackFnFTaskToken',
       executionName: 'ExecutionName',
       flowName: 'FlowName',
       input: 'Input',
-      requestId: 'RequestId',
     };
   }
 
@@ -1134,7 +1096,6 @@ export class StartExecutionRequest extends $tea.Model {
       executionName: 'string',
       flowName: 'string',
       input: 'string',
-      requestId: 'string',
     };
   }
 
@@ -1187,9 +1148,9 @@ export class StartExecutionResponseBody extends $tea.Model {
 }
 
 export class StartExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1215,13 +1176,11 @@ export class StartSyncExecutionRequest extends $tea.Model {
   executionName?: string;
   flowName?: string;
   input?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       executionName: 'ExecutionName',
       flowName: 'FlowName',
       input: 'Input',
-      requestId: 'RequestId',
     };
   }
 
@@ -1230,7 +1189,6 @@ export class StartSyncExecutionRequest extends $tea.Model {
       executionName: 'string',
       flowName: 'string',
       input: 'string',
-      requestId: 'string',
     };
   }
 
@@ -1283,9 +1241,9 @@ export class StartSyncExecutionResponseBody extends $tea.Model {
 }
 
 export class StartSyncExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartSyncExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartSyncExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1312,14 +1270,12 @@ export class StopExecutionRequest extends $tea.Model {
   error?: string;
   executionName?: string;
   flowName?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       cause: 'Cause',
       error: 'Error',
       executionName: 'ExecutionName',
       flowName: 'FlowName',
-      requestId: 'RequestId',
     };
   }
 
@@ -1329,7 +1285,6 @@ export class StopExecutionRequest extends $tea.Model {
       error: 'string',
       executionName: 'string',
       flowName: 'string',
-      requestId: 'string',
     };
   }
 
@@ -1382,9 +1337,9 @@ export class StopExecutionResponseBody extends $tea.Model {
 }
 
 export class StopExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1410,7 +1365,6 @@ export class UpdateFlowRequest extends $tea.Model {
   definition?: string;
   description?: string;
   name?: string;
-  requestId?: string;
   roleArn?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -1418,7 +1372,6 @@ export class UpdateFlowRequest extends $tea.Model {
       definition: 'Definition',
       description: 'Description',
       name: 'Name',
-      requestId: 'RequestId',
       roleArn: 'RoleArn',
       type: 'Type',
     };
@@ -1429,7 +1382,6 @@ export class UpdateFlowRequest extends $tea.Model {
       definition: 'string',
       description: 'string',
       name: 'string',
-      requestId: 'string',
       roleArn: 'string',
       type: 'string',
     };
@@ -1487,9 +1439,9 @@ export class UpdateFlowResponseBody extends $tea.Model {
 }
 
 export class UpdateFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1517,7 +1469,6 @@ export class UpdateScheduleRequest extends $tea.Model {
   enable?: boolean;
   flowName?: string;
   payload?: string;
-  requestId?: string;
   scheduleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1526,7 +1477,6 @@ export class UpdateScheduleRequest extends $tea.Model {
       enable: 'Enable',
       flowName: 'FlowName',
       payload: 'Payload',
-      requestId: 'RequestId',
       scheduleName: 'ScheduleName',
     };
   }
@@ -1538,7 +1488,6 @@ export class UpdateScheduleRequest extends $tea.Model {
       enable: 'boolean',
       flowName: 'string',
       payload: 'string',
-      requestId: 'string',
       scheduleName: 'string',
     };
   }
@@ -1592,9 +1541,9 @@ export class UpdateScheduleResponseBody extends $tea.Model {
 }
 
 export class UpdateScheduleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateScheduleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateScheduleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1814,11 +1763,6 @@ export default class Client extends OpenApi {
    */
   async createFlowWithOptions(request: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.definition)) {
       body["Definition"] = request.definition;
@@ -1849,7 +1793,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -1882,8 +1825,8 @@ export default class Client extends OpenApi {
   async createScheduleWithOptions(request: CreateScheduleRequest, runtime: $Util.RuntimeOptions): Promise<CreateScheduleResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
+    if (!Util.isUnset(request.signatureVersion)) {
+      query["SignatureVersion"] = request.signatureVersion;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1944,7 +1887,11 @@ export default class Client extends OpenApi {
    */
   async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1953,7 +1900,7 @@ export default class Client extends OpenApi {
       version: "2019-03-15",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -1976,7 +1923,15 @@ export default class Client extends OpenApi {
 
   async deleteScheduleWithOptions(request: DeleteScheduleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScheduleResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.flowName)) {
+      query["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.scheduleName)) {
+      query["ScheduleName"] = request.scheduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1985,7 +1940,7 @@ export default class Client extends OpenApi {
       version: "2019-03-15",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -2191,7 +2146,8 @@ export default class Client extends OpenApi {
 
   /**
     * ## [](#)Usage notes
-    * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task fails to be executed.
+    * In the old version of CloudFlow, the task step that ReportTaskFailed is used to call back `pattern: waitForCallback` indicates that the current task fails to be executed.
+    * In the new version of CloudFlow, the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
     *
     * @param request ReportTaskFailedRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2200,10 +2156,6 @@ export default class Client extends OpenApi {
   async reportTaskFailedWithOptions(request: ReportTaskFailedRequest, runtime: $Util.RuntimeOptions): Promise<ReportTaskFailedResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
     if (!Util.isUnset(request.taskToken)) {
       query["TaskToken"] = request.taskToken;
     }
@@ -2237,7 +2189,8 @@ export default class Client extends OpenApi {
 
   /**
     * ## [](#)Usage notes
-    * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task fails to be executed.
+    * In the old version of CloudFlow, the task step that ReportTaskFailed is used to call back `pattern: waitForCallback` indicates that the current task fails to be executed.
+    * In the new version of CloudFlow, the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
     *
     * @param request ReportTaskFailedRequest
     * @return ReportTaskFailedResponse
@@ -2249,7 +2202,8 @@ export default class Client extends OpenApi {
 
   /**
     * ## [](#)Usage notes
-    * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task is successfully executed.
+    * In the old version of CloudFlow, the task step that ReportTaskSucceeded is used to call back pattern: waitForCallback indicates that the current task is successfully executed.
+    * In the new version of CloudFlow, the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
     *
     * @param request ReportTaskSucceededRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2258,10 +2212,6 @@ export default class Client extends OpenApi {
   async reportTaskSucceededWithOptions(request: ReportTaskSucceededRequest, runtime: $Util.RuntimeOptions): Promise<ReportTaskSucceededResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
     if (!Util.isUnset(request.taskToken)) {
       query["TaskToken"] = request.taskToken;
     }
@@ -2291,7 +2241,8 @@ export default class Client extends OpenApi {
 
   /**
     * ## [](#)Usage notes
-    * You can use this operation to call back the task step of `pattern: waitForCallback`, which indicates that the current task is successfully executed.
+    * In the old version of CloudFlow, the task step that ReportTaskSucceeded is used to call back pattern: waitForCallback indicates that the current task is successfully executed.
+    * In the new version of CloudFlow, the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
     *
     * @param request ReportTaskSucceededRequest
     * @return ReportTaskSucceededResponse
@@ -2303,10 +2254,10 @@ export default class Client extends OpenApi {
 
   /**
     * ## [](#)Usage notes
-    * *   The flow is created.
+    * *   The flow is created. A flow only in standard mode is supported.
     * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
     * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
-    * *   If the ongoing execution with the same name has ended (succeeded or failed), the `ExecutionAlreadyExists` error is returned.
+    * *   If the ongoing execution with the same name has ended (succeeded or failed), `ExecutionAlreadyExists` is returned.
     * *   If no execution with the same name exists, the system starts a new execution.
     *
     * @param request StartExecutionRequest
@@ -2315,11 +2266,6 @@ export default class Client extends OpenApi {
    */
   async startExecutionWithOptions(request: StartExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartExecutionResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.callbackFnFTaskToken)) {
       body["CallbackFnFTaskToken"] = request.callbackFnFTaskToken;
@@ -2338,7 +2284,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -2357,10 +2302,10 @@ export default class Client extends OpenApi {
 
   /**
     * ## [](#)Usage notes
-    * *   The flow is created.
+    * *   The flow is created. A flow only in standard mode is supported.
     * *   If you do not specify an execution, the system automatically generates an execution and starts the execution.
     * *   If an ongoing execution has the same name as that of the execution to be started, the system directly returns the ongoing execution.
-    * *   If the ongoing execution with the same name has ended (succeeded or failed), the `ExecutionAlreadyExists` error is returned.
+    * *   If the ongoing execution with the same name has ended (succeeded or failed), `ExecutionAlreadyExists` is returned.
     * *   If no execution with the same name exists, the system starts a new execution.
     *
     * @param request StartExecutionRequest
@@ -2371,13 +2316,15 @@ export default class Client extends OpenApi {
     return await this.startExecutionWithOptions(request, runtime);
   }
 
+  /**
+    * *   Only flows of the express execution mode are supported.
+    *
+    * @param request StartSyncExecutionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartSyncExecutionResponse
+   */
   async startSyncExecutionWithOptions(request: StartSyncExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartSyncExecutionResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.executionName)) {
       body["ExecutionName"] = request.executionName;
@@ -2392,7 +2339,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -2409,6 +2355,12 @@ export default class Client extends OpenApi {
     return $tea.cast<StartSyncExecutionResponse>(await this.callApi(params, req, runtime), new StartSyncExecutionResponse({}));
   }
 
+  /**
+    * *   Only flows of the express execution mode are supported.
+    *
+    * @param request StartSyncExecutionRequest
+    * @return StartSyncExecutionResponse
+   */
   async startSyncExecution(request: StartSyncExecutionRequest): Promise<StartSyncExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startSyncExecutionWithOptions(request, runtime);
@@ -2424,11 +2376,6 @@ export default class Client extends OpenApi {
    */
   async stopExecutionWithOptions(request: StopExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StopExecutionResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cause)) {
       body["Cause"] = request.cause;
@@ -2447,7 +2394,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -2478,11 +2424,6 @@ export default class Client extends OpenApi {
 
   async updateFlowWithOptions(request: UpdateFlowRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFlowResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.definition)) {
       body["Definition"] = request.definition;
@@ -2505,7 +2446,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -2529,11 +2469,6 @@ export default class Client extends OpenApi {
 
   async updateScheduleWithOptions(request: UpdateScheduleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScheduleResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.requestId)) {
-      query["RequestId"] = request.requestId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.cronExpression)) {
       body["CronExpression"] = request.cronExpression;
@@ -2560,7 +2495,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
