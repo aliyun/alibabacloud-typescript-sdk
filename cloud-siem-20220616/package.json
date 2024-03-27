@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloud-siem20220616",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
