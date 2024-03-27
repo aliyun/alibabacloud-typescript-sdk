@@ -4210,6 +4210,112 @@ export class ImportServiceDataResponse extends $tea.Model {
   }
 }
 
+export class ImportServiceDataV2Request extends $tea.Model {
+  dataType?: string;
+  documents?: ImportServiceDataV2RequestDocuments[];
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      documents: 'Documents',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      documents: { 'type': 'array', 'itemType': ImportServiceDataV2RequestDocuments },
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportServiceDataV2ShrinkRequest extends $tea.Model {
+  dataType?: string;
+  documentsShrink?: string;
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      documentsShrink: 'Documents',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      documentsShrink: 'string',
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportServiceDataV2ResponseBody extends $tea.Model {
+  code?: number;
+  data?: number;
+  msg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportServiceDataV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportServiceDataV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportServiceDataV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InsertCustomRequest extends $tea.Model {
   apiId?: number;
   customFileName?: string;
@@ -5147,6 +5253,40 @@ export class UpdateServiceDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateServiceDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportServiceDataV2RequestDocuments extends $tea.Model {
+  bizParams?: { [key: string]: string };
+  docId?: string;
+  fileExtension?: string;
+  fileName?: string;
+  filePath?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizParams: 'BizParams',
+      docId: 'DocId',
+      fileExtension: 'FileExtension',
+      fileName: 'FileName',
+      filePath: 'FilePath',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      docId: 'string',
+      fileExtension: 'string',
+      fileName: 'string',
+      filePath: 'string',
+      version: 'string',
     };
   }
 
@@ -7373,6 +7513,49 @@ export default class Client extends OpenApi {
   async importServiceData(request: ImportServiceDataRequest): Promise<ImportServiceDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importServiceDataWithOptions(request, runtime);
+  }
+
+  async importServiceDataV2WithOptions(tmpReq: ImportServiceDataV2Request, runtime: $Util.RuntimeOptions): Promise<ImportServiceDataV2Response> {
+    Util.validateModel(tmpReq);
+    let request = new ImportServiceDataV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documents)) {
+      request.documentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documents, "Documents", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataType)) {
+      body["DataType"] = request.dataType;
+    }
+
+    if (!Util.isUnset(request.documentsShrink)) {
+      body["Documents"] = request.documentsShrink;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportServiceDataV2",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportServiceDataV2Response>(await this.callApi(params, req, runtime), new ImportServiceDataV2Response({}));
+  }
+
+  async importServiceDataV2(request: ImportServiceDataV2Request): Promise<ImportServiceDataV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importServiceDataV2WithOptions(request, runtime);
   }
 
   async insertCustomWithOptions(request: InsertCustomRequest, runtime: $Util.RuntimeOptions): Promise<InsertCustomResponse> {
