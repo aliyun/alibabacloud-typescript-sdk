@@ -31,9 +31,9 @@ export class AllowResponseBody extends $tea.Model {
 }
 
 export class AllowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AllowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -59,11 +59,13 @@ export class GetSummaryDataRequest extends $tea.Model {
   endTime?: string;
   group?: string;
   startTime?: string;
+  uids?: string[];
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       group: 'Group',
       startTime: 'StartTime',
+      uids: 'Uids',
     };
   }
 
@@ -72,6 +74,35 @@ export class GetSummaryDataRequest extends $tea.Model {
       endTime: 'string',
       group: 'string',
       startTime: 'string',
+      uids: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSummaryDataShrinkRequest extends $tea.Model {
+  endTime?: string;
+  group?: string;
+  startTime?: string;
+  uidsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      group: 'Group',
+      startTime: 'StartTime',
+      uidsShrink: 'Uids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      group: 'string',
+      startTime: 'string',
+      uidsShrink: 'string',
     };
   }
 
@@ -103,9 +134,9 @@ export class GetSummaryDataResponseBody extends $tea.Model {
 }
 
 export class GetSummaryDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSummaryDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSummaryDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -129,21 +160,70 @@ export class GetSummaryDataResponse extends $tea.Model {
 
 export class QueryCarbonTrackRequest extends $tea.Model {
   endTime?: string;
+  filterRDAccount?: number;
   group?: string;
   startTime?: string;
+  topNum?: number;
+  uids?: string[];
+  useCode?: number;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      filterRDAccount: 'FilterRDAccount',
       group: 'Group',
       startTime: 'StartTime',
+      topNum: 'TopNum',
+      uids: 'Uids',
+      useCode: 'UseCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      filterRDAccount: 'number',
       group: 'string',
       startTime: 'string',
+      topNum: 'number',
+      uids: { 'type': 'array', 'itemType': 'string' },
+      useCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCarbonTrackShrinkRequest extends $tea.Model {
+  endTime?: string;
+  filterRDAccount?: number;
+  group?: string;
+  startTime?: string;
+  topNum?: number;
+  uidsShrink?: string;
+  useCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      filterRDAccount: 'FilterRDAccount',
+      group: 'Group',
+      startTime: 'StartTime',
+      topNum: 'TopNum',
+      uidsShrink: 'Uids',
+      useCode: 'UseCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      filterRDAccount: 'number',
+      group: 'string',
+      startTime: 'string',
+      topNum: 'number',
+      uidsShrink: 'string',
+      useCode: 'number',
     };
   }
 
@@ -175,9 +255,9 @@ export class QueryCarbonTrackResponseBody extends $tea.Model {
 }
 
 export class QueryCarbonTrackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCarbonTrackResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCarbonTrackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -244,9 +324,9 @@ export class QueryMultiAccountCarbonTrackResponseBody extends $tea.Model {
 }
 
 export class QueryMultiAccountCarbonTrackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMultiAccountCarbonTrackResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMultiAccountCarbonTrackResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -291,9 +371,9 @@ export class VerifyResponseBody extends $tea.Model {
 }
 
 export class VerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -316,6 +396,8 @@ export class VerifyResponse extends $tea.Model {
 }
 
 export class GetSummaryDataResponseBodyData extends $tea.Model {
+  aircraftConsumptionConversion?: string;
+  carConsumptionConversion?: string;
   lastMonthConsumptionConversion?: string;
   lastYearConsumptionConversion?: string;
   lastYearConsumptionConversionSum?: string;
@@ -323,8 +405,11 @@ export class GetSummaryDataResponseBodyData extends $tea.Model {
   thisMonthConsumptionConversion?: string;
   thisYearConsumptionConversion?: string;
   totalCarbonConsumptionConversion?: string;
+  treeConsumptionConversion?: string;
   static names(): { [key: string]: string } {
     return {
+      aircraftConsumptionConversion: 'AircraftConsumptionConversion',
+      carConsumptionConversion: 'CarConsumptionConversion',
       lastMonthConsumptionConversion: 'LastMonthConsumptionConversion',
       lastYearConsumptionConversion: 'LastYearConsumptionConversion',
       lastYearConsumptionConversionSum: 'LastYearConsumptionConversionSum',
@@ -332,11 +417,14 @@ export class GetSummaryDataResponseBodyData extends $tea.Model {
       thisMonthConsumptionConversion: 'ThisMonthConsumptionConversion',
       thisYearConsumptionConversion: 'ThisYearConsumptionConversion',
       totalCarbonConsumptionConversion: 'TotalCarbonConsumptionConversion',
+      treeConsumptionConversion: 'TreeConsumptionConversion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aircraftConsumptionConversion: 'string',
+      carConsumptionConversion: 'string',
       lastMonthConsumptionConversion: 'string',
       lastYearConsumptionConversion: 'string',
       lastYearConsumptionConversionSum: 'string',
@@ -344,6 +432,7 @@ export class GetSummaryDataResponseBodyData extends $tea.Model {
       thisMonthConsumptionConversion: 'string',
       thisYearConsumptionConversion: 'string',
       totalCarbonConsumptionConversion: 'string',
+      treeConsumptionConversion: 'string',
     };
   }
 
@@ -417,17 +506,54 @@ export class QueryMultiAccountCarbonTrackResponseBodyData extends $tea.Model {
   }
 }
 
+export class VerifyResponseBodyDataAllMultiAccountUids extends $tea.Model {
+  accountId?: string;
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      displayName: 'displayName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      displayName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifyResponseBodyData extends $tea.Model {
   allowedUids?: string[];
+  accountType?: number;
+  allMultiAccountUids?: VerifyResponseBodyDataAllMultiAccountUids[];
+  code?: string;
+  message?: string;
+  multiAccountsAllow?: number;
   static names(): { [key: string]: string } {
     return {
       allowedUids: 'AllowedUids',
+      accountType: 'accountType',
+      allMultiAccountUids: 'allMultiAccountUids',
+      code: 'code',
+      message: 'message',
+      multiAccountsAllow: 'multiAccountsAllow',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       allowedUids: { 'type': 'array', 'itemType': 'string' },
+      accountType: 'number',
+      allMultiAccountUids: { 'type': 'array', 'itemType': VerifyResponseBodyDataAllMultiAccountUids },
+      code: 'string',
+      message: 'string',
+      multiAccountsAllow: 'number',
     };
   }
 
@@ -480,8 +606,14 @@ export default class Client extends OpenApi {
     return await this.allowWithOptions(runtime);
   }
 
-  async getSummaryDataWithOptions(request: GetSummaryDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSummaryDataResponse> {
-    Util.validateModel(request);
+  async getSummaryDataWithOptions(tmpReq: GetSummaryDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSummaryDataResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetSummaryDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.uids)) {
+      request.uidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.uids, "Uids", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
@@ -493,6 +625,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.uidsShrink)) {
+      query["Uids"] = request.uidsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -517,11 +653,21 @@ export default class Client extends OpenApi {
     return await this.getSummaryDataWithOptions(request, runtime);
   }
 
-  async queryCarbonTrackWithOptions(request: QueryCarbonTrackRequest, runtime: $Util.RuntimeOptions): Promise<QueryCarbonTrackResponse> {
-    Util.validateModel(request);
+  async queryCarbonTrackWithOptions(tmpReq: QueryCarbonTrackRequest, runtime: $Util.RuntimeOptions): Promise<QueryCarbonTrackResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryCarbonTrackShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.uids)) {
+      request.uidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.uids, "Uids", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.filterRDAccount)) {
+      query["FilterRDAccount"] = request.filterRDAccount;
     }
 
     if (!Util.isUnset(request.group)) {
@@ -530,6 +676,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.topNum)) {
+      query["TopNum"] = request.topNum;
+    }
+
+    if (!Util.isUnset(request.uidsShrink)) {
+      query["Uids"] = request.uidsShrink;
+    }
+
+    if (!Util.isUnset(request.useCode)) {
+      query["UseCode"] = request.useCode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
