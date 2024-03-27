@@ -9361,6 +9361,62 @@ export class ListHostGroupsResponse extends $tea.Model {
   }
 }
 
+export class ListJoinedOrganizationsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  organizations?: ListJoinedOrganizationsResponseBodyOrganizations[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      organizations: 'organizations',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      organizations: { 'type': 'array', 'itemType': ListJoinedOrganizationsResponseBodyOrganizations },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJoinedOrganizationsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJoinedOrganizationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListJoinedOrganizationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMergeRequestCommentsRequest extends $tea.Model {
   accessToken?: string;
   commentType?: string;
@@ -12826,6 +12882,87 @@ export class ListTestCaseFieldsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTestCaseFieldsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDrawRecordByPkRequest extends $tea.Model {
+  aliyunPk?: string;
+  drawGroup?: string;
+  drawPoolName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      drawGroup: 'drawGroup',
+      drawPoolName: 'drawPoolName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      drawGroup: 'string',
+      drawPoolName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDrawRecordByPkResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListUserDrawRecordByPkResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListUserDrawRecordByPkResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDrawRecordByPkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserDrawRecordByPkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserDrawRecordByPkResponseBody,
     };
   }
 
@@ -23737,6 +23874,31 @@ export class GetWorkItemInfoResponseBodyWorkitemCustomFields extends $tea.Model 
   }
 }
 
+export class GetWorkItemInfoResponseBodyWorkitemTagDetails extends $tea.Model {
+  color?: string;
+  identifier?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      identifier: 'identifier',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      identifier: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
   assignedTo?: string;
   categoryIdentifier?: string;
@@ -23761,6 +23923,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
   statusStageIdentifier?: string;
   subject?: string;
   tag?: string[];
+  tagDetails?: GetWorkItemInfoResponseBodyWorkitemTagDetails[];
   tracker?: string[];
   updateStatusAt?: number;
   verifier?: string[];
@@ -23790,6 +23953,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       statusStageIdentifier: 'statusStageIdentifier',
       subject: 'subject',
       tag: 'tag',
+      tagDetails: 'tagDetails',
       tracker: 'tracker',
       updateStatusAt: 'updateStatusAt',
       verifier: 'verifier',
@@ -23822,6 +23986,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       statusStageIdentifier: 'string',
       subject: 'string',
       tag: { 'type': 'array', 'itemType': 'string' },
+      tagDetails: { 'type': 'array', 'itemType': GetWorkItemInfoResponseBodyWorkitemTagDetails },
       tracker: { 'type': 'array', 'itemType': 'string' },
       updateStatusAt: 'number',
       verifier: { 'type': 'array', 'itemType': 'string' },
@@ -24829,6 +24994,28 @@ export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
   }
 }
 
+export class ListJoinedOrganizationsResponseBodyOrganizations extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMergeRequestCommentsResponseBodyResultAuthor extends $tea.Model {
   aliyunPk?: string;
   avatarUrl?: string;
@@ -25644,6 +25831,7 @@ export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
   email?: string;
   hiredDate?: number;
   identities?: ListOrganizationMembersResponseBodyMembersIdentities;
+  jobNumber?: string;
   joinTime?: number;
   lastVisitTime?: number;
   mobile?: string;
@@ -25659,6 +25847,7 @@ export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
       email: 'email',
       hiredDate: 'hiredDate',
       identities: 'identities',
+      jobNumber: 'jobNumber',
       joinTime: 'joinTime',
       lastVisitTime: 'lastVisitTime',
       mobile: 'mobile',
@@ -25677,6 +25866,7 @@ export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
       email: 'string',
       hiredDate: 'number',
       identities: ListOrganizationMembersResponseBodyMembersIdentities,
+      jobNumber: 'string',
       joinTime: 'number',
       lastVisitTime: 'number',
       mobile: 'string',
@@ -27996,6 +28186,43 @@ export class ListTestCaseFieldsResponseBodyFields extends $tea.Model {
       options: { 'type': 'array', 'itemType': ListTestCaseFieldsResponseBodyFieldsOptions },
       resourceType: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserDrawRecordByPkResponseBodyData extends $tea.Model {
+  aliyunPk?: string;
+  drawGroup?: string;
+  drawPoolName?: string;
+  drawResult?: string;
+  gmtCreate?: string;
+  taskGroupId?: string;
+  uccId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      drawGroup: 'drawGroup',
+      drawPoolName: 'drawPoolName',
+      drawResult: 'drawResult',
+      gmtCreate: 'gmtCreate',
+      taskGroupId: 'taskGroupId',
+      uccId: 'uccId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      drawGroup: 'string',
+      drawPoolName: 'string',
+      drawResult: 'string',
+      gmtCreate: 'string',
+      taskGroupId: 'string',
+      uccId: 'string',
     };
   }
 
@@ -35929,6 +36156,30 @@ export default class Client extends OpenApi {
     return await this.listHostGroupsWithOptions(organizationId, request, headers, runtime);
   }
 
+  async listJoinedOrganizationsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJoinedOrganizationsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListJoinedOrganizations",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/users/joinedOrgs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListJoinedOrganizationsResponse>(await this.callApi(params, req, runtime), new ListJoinedOrganizationsResponse({}));
+  }
+
+  async listJoinedOrganizations(): Promise<ListJoinedOrganizationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listJoinedOrganizationsWithOptions(headers, runtime);
+  }
+
   async listMergeRequestCommentsWithOptions(request: ListMergeRequestCommentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMergeRequestCommentsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -37769,6 +38020,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTestCaseFieldsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listUserDrawRecordByPkWithOptions(request: ListUserDrawRecordByPkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserDrawRecordByPkResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aliyunPk)) {
+      query["aliyunPk"] = request.aliyunPk;
+    }
+
+    if (!Util.isUnset(request.drawGroup)) {
+      query["drawGroup"] = request.drawGroup;
+    }
+
+    if (!Util.isUnset(request.drawPoolName)) {
+      query["drawPoolName"] = request.drawPoolName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserDrawRecordByPk",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/listUserDrawRecords`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserDrawRecordByPkResponse>(await this.callApi(params, req, runtime), new ListUserDrawRecordByPkResponse({}));
+  }
+
+  async listUserDrawRecordByPk(request: ListUserDrawRecordByPkRequest): Promise<ListUserDrawRecordByPkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listUserDrawRecordByPkWithOptions(request, headers, runtime);
   }
 
   async listUserKeysWithOptions(request: ListUserKeysRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserKeysResponse> {
