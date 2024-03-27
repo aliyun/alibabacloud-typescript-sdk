@@ -984,6 +984,120 @@ export class DescribeDdosEventResponse extends $tea.Model {
   }
 }
 
+export class DescribeDdosOriginInstanceBillRequest extends $tea.Model {
+  endTime?: number;
+  isShowList?: boolean;
+  startTime?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      isShowList: 'IsShowList',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      isShowList: 'boolean',
+      startTime: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
+  debtStatus?: number;
+  flowList?: DescribeDdosOriginInstanceBillResponseBodyFlowList[];
+  flowRegion?: { [key: string]: any };
+  instanceId?: string;
+  ipCount?: number;
+  ipCountOrFunctionList?: DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList[];
+  ipInfo?: string;
+  requestId?: string;
+  standardAssetsFlowList?: DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList[];
+  standardAssetsFlowRegion?: { [key: string]: any };
+  standardAssetsTotalFlowCn?: number;
+  standardAssetsTotalFlowOv?: number;
+  status?: number;
+  totalFlowCn?: number;
+  totalFlowOv?: number;
+  static names(): { [key: string]: string } {
+    return {
+      debtStatus: 'DebtStatus',
+      flowList: 'FlowList',
+      flowRegion: 'FlowRegion',
+      instanceId: 'InstanceId',
+      ipCount: 'IpCount',
+      ipCountOrFunctionList: 'IpCountOrFunctionList',
+      ipInfo: 'IpInfo',
+      requestId: 'RequestId',
+      standardAssetsFlowList: 'StandardAssetsFlowList',
+      standardAssetsFlowRegion: 'StandardAssetsFlowRegion',
+      standardAssetsTotalFlowCn: 'StandardAssetsTotalFlowCn',
+      standardAssetsTotalFlowOv: 'StandardAssetsTotalFlowOv',
+      status: 'Status',
+      totalFlowCn: 'TotalFlowCn',
+      totalFlowOv: 'TotalFlowOv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      debtStatus: 'number',
+      flowList: { 'type': 'array', 'itemType': DescribeDdosOriginInstanceBillResponseBodyFlowList },
+      flowRegion: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      instanceId: 'string',
+      ipCount: 'number',
+      ipCountOrFunctionList: { 'type': 'array', 'itemType': DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList },
+      ipInfo: 'string',
+      requestId: 'string',
+      standardAssetsFlowList: { 'type': 'array', 'itemType': DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList },
+      standardAssetsFlowRegion: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      standardAssetsTotalFlowCn: 'number',
+      standardAssetsTotalFlowOv: 'number',
+      status: 'number',
+      totalFlowCn: 'number',
+      totalFlowOv: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDdosOriginInstanceBillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDdosOriginInstanceBillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeExcpetionCountRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
@@ -2311,6 +2425,69 @@ export class QuerySchedruleOnDemandResponse extends $tea.Model {
   }
 }
 
+export class ReleaseDdosOriginInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseDdosOriginInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseDdosOriginInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseDdosOriginInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseDdosOriginInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetInstanceModeOnDemandRequest extends $tea.Model {
   instanceIdList?: string[];
   mode?: string;
@@ -2643,6 +2820,93 @@ export class DescribeDdosEventResponseBodyEvents extends $tea.Model {
       pps: 'number',
       startTime: 'number',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBodyFlowList extends $tea.Model {
+  memberFlow?: string;
+  regionFlow?: string;
+  time?: number;
+  totalFlow?: number;
+  static names(): { [key: string]: string } {
+    return {
+      memberFlow: 'MemberFlow',
+      regionFlow: 'RegionFlow',
+      time: 'Time',
+      totalFlow: 'TotalFlow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberFlow: 'string',
+      regionFlow: 'string',
+      time: 'number',
+      totalFlow: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList extends $tea.Model {
+  coverage?: string;
+  ipCntCn?: number;
+  ipCntOv?: number;
+  memberIpCnt?: string;
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coverage: 'Coverage',
+      ipCntCn: 'IpCntCn',
+      ipCntOv: 'IpCntOv',
+      memberIpCnt: 'MemberIpCnt',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverage: 'string',
+      ipCntCn: 'number',
+      ipCntOv: 'number',
+      memberIpCnt: 'string',
+      time: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList extends $tea.Model {
+  memberFlow?: string;
+  regionFlow?: string;
+  time?: number;
+  totalFlow?: number;
+  static names(): { [key: string]: string } {
+    return {
+      memberFlow: 'MemberFlow',
+      regionFlow: 'RegionFlow',
+      time: 'Time',
+      totalFlow: 'TotalFlow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberFlow: 'string',
+      regionFlow: 'string',
+      time: 'number',
+      totalFlow: 'number',
     };
   }
 
@@ -3936,6 +4200,47 @@ export default class Client extends OpenApi {
     return await this.describeDdosEventWithOptions(request, runtime);
   }
 
+  async describeDdosOriginInstanceBillWithOptions(request: DescribeDdosOriginInstanceBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosOriginInstanceBillResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.isShowList)) {
+      query["IsShowList"] = request.isShowList;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDdosOriginInstanceBill",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDdosOriginInstanceBillResponse>(await this.callApi(params, req, runtime), new DescribeDdosOriginInstanceBillResponse({}));
+  }
+
+  async describeDdosOriginInstanceBill(request: DescribeDdosOriginInstanceBillRequest): Promise<DescribeDdosOriginInstanceBillResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDdosOriginInstanceBillWithOptions(request, runtime);
+  }
+
   /**
     * ## Usage notes
     * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
@@ -4792,6 +5097,35 @@ export default class Client extends OpenApi {
   async querySchedruleOnDemand(request: QuerySchedruleOnDemandRequest): Promise<QuerySchedruleOnDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySchedruleOnDemandWithOptions(request, runtime);
+  }
+
+  async releaseDdosOriginInstanceWithOptions(request: ReleaseDdosOriginInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseDdosOriginInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseDdosOriginInstance",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseDdosOriginInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseDdosOriginInstanceResponse({}));
+  }
+
+  async releaseDdosOriginInstance(request: ReleaseDdosOriginInstanceRequest): Promise<ReleaseDdosOriginInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseDdosOriginInstanceWithOptions(request, runtime);
   }
 
   async setInstanceModeOnDemandWithOptions(request: SetInstanceModeOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<SetInstanceModeOnDemandResponse> {
