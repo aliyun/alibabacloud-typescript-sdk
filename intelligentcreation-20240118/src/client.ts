@@ -129,6 +129,34 @@ export class DigitalHumanLiveBroadcastQAResult extends $tea.Model {
   }
 }
 
+export class DigitalVideoCommonResult extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DirectDeductResourceCmd extends $tea.Model {
   accountId?: string;
   cost?: number;
@@ -313,6 +341,49 @@ export class SubmitBulletQuestionsQAResult extends $tea.Model {
       errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDigitalHumanVideoCmd extends $tea.Model {
+  accountId?: string;
+  actionType?: string;
+  idempotentId?: string;
+  imageScale?: string;
+  imageUrl?: string;
+  videoDuration?: number;
+  videoId?: string;
+  videoTitle?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      actionType: 'actionType',
+      idempotentId: 'idempotentId',
+      imageScale: 'imageScale',
+      imageUrl: 'imageUrl',
+      videoDuration: 'videoDuration',
+      videoId: 'videoId',
+      videoTitle: 'videoTitle',
+      videoUrl: 'videoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      actionType: 'string',
+      idempotentId: 'string',
+      imageScale: 'string',
+      imageUrl: 'string',
+      videoDuration: 'number',
+      videoId: 'string',
+      videoTitle: 'string',
+      videoUrl: 'string',
     };
   }
 
@@ -1065,6 +1136,50 @@ export class SubmitBulletQuestionsV1Response extends $tea.Model {
   }
 }
 
+export class SyncDigitalVideoRequest extends $tea.Model {
+  body?: SyncDigitalHumanVideoCmd;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: SyncDigitalHumanVideoCmd,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDigitalVideoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DigitalVideoCommonResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DigitalVideoCommonResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DigitalHumanLiveBroadcastQACmdHistory extends $tea.Model {
   bot?: string;
   user?: string;
@@ -1604,6 +1719,32 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.submitBulletQuestionsV1WithOptions(request, headers, runtime);
+  }
+
+  async syncDigitalVideoWithOptions(request: SyncDigitalVideoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SyncDigitalVideoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SyncDigitalVideo",
+      version: "2024-01-18",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/digitalHuman/videos/commands/syncDigitalVideo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SyncDigitalVideoResponse>(await this.callApi(params, req, runtime), new SyncDigitalVideoResponse({}));
+  }
+
+  async syncDigitalVideo(request: SyncDigitalVideoRequest): Promise<SyncDigitalVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.syncDigitalVideoWithOptions(request, headers, runtime);
   }
 
 }
