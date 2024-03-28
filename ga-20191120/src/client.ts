@@ -62,9 +62,9 @@ export class AddEntriesToAclResponseBody extends $tea.Model {
 }
 
 export class AddEntriesToAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddEntriesToAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddEntriesToAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -146,9 +146,9 @@ export class AssociateAclsWithListenerResponseBody extends $tea.Model {
 }
 
 export class AssociateAclsWithListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateAclsWithListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateAclsWithListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -224,9 +224,9 @@ export class AssociateAdditionalCertificatesWithListenerResponseBody extends $te
 }
 
 export class AssociateAdditionalCertificatesWithListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AssociateAdditionalCertificatesWithListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateAdditionalCertificatesWithListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -302,9 +302,9 @@ export class AttachDdosToAcceleratorResponseBody extends $tea.Model {
 }
 
 export class AttachDdosToAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachDdosToAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachDdosToAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -386,9 +386,9 @@ export class AttachLogStoreToEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class AttachLogStoreToEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachLogStoreToEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachLogStoreToEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -461,9 +461,9 @@ export class BandwidthPackageAddAcceleratorResponseBody extends $tea.Model {
 }
 
 export class BandwidthPackageAddAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BandwidthPackageAddAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BandwidthPackageAddAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -536,9 +536,9 @@ export class BandwidthPackageRemoveAcceleratorResponseBody extends $tea.Model {
 }
 
 export class BandwidthPackageRemoveAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BandwidthPackageRemoveAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BandwidthPackageRemoveAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -611,9 +611,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -695,9 +695,9 @@ export class ConfigEndpointProbeResponseBody extends $tea.Model {
 }
 
 export class ConfigEndpointProbeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigEndpointProbeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigEndpointProbeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -812,9 +812,9 @@ export class CreateAcceleratorResponseBody extends $tea.Model {
 }
 
 export class CreateAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -899,9 +899,9 @@ export class CreateAclResponseBody extends $tea.Model {
 }
 
 export class CreateAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -995,9 +995,9 @@ export class CreateApplicationMonitorResponseBody extends $tea.Model {
 }
 
 export class CreateApplicationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateApplicationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApplicationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1118,9 +1118,9 @@ export class CreateBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class CreateBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1205,9 +1205,9 @@ export class CreateBasicAccelerateIpResponseBody extends $tea.Model {
 }
 
 export class CreateBasicAccelerateIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBasicAccelerateIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBasicAccelerateIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1292,9 +1292,9 @@ export class CreateBasicAccelerateIpEndpointRelationResponseBody extends $tea.Mo
 }
 
 export class CreateBasicAccelerateIpEndpointRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBasicAccelerateIpEndpointRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBasicAccelerateIpEndpointRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1367,9 +1367,9 @@ export class CreateBasicAccelerateIpEndpointRelationsResponseBody extends $tea.M
 }
 
 export class CreateBasicAccelerateIpEndpointRelationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBasicAccelerateIpEndpointRelationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBasicAccelerateIpEndpointRelationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1475,9 +1475,9 @@ export class CreateBasicAcceleratorResponseBody extends $tea.Model {
 }
 
 export class CreateBasicAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBasicAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBasicAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1571,9 +1571,9 @@ export class CreateBasicEndpointResponseBody extends $tea.Model {
 }
 
 export class CreateBasicEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBasicEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBasicEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1661,9 +1661,9 @@ export class CreateBasicEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class CreateBasicEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBasicEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBasicEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1742,9 +1742,9 @@ export class CreateBasicEndpointsResponseBody extends $tea.Model {
 }
 
 export class CreateBasicEndpointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBasicEndpointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBasicEndpointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1823,9 +1823,9 @@ export class CreateBasicIpSetResponseBody extends $tea.Model {
 }
 
 export class CreateBasicIpSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBasicIpSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBasicIpSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1901,9 +1901,9 @@ export class CreateCustomRoutingEndpointGroupDestinationsResponseBody extends $t
 }
 
 export class CreateCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCustomRoutingEndpointGroupDestinationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomRoutingEndpointGroupDestinationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1982,9 +1982,9 @@ export class CreateCustomRoutingEndpointGroupsResponseBody extends $tea.Model {
 }
 
 export class CreateCustomRoutingEndpointGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCustomRoutingEndpointGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomRoutingEndpointGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2057,9 +2057,9 @@ export class CreateCustomRoutingEndpointTrafficPoliciesResponseBody extends $tea
 }
 
 export class CreateCustomRoutingEndpointTrafficPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCustomRoutingEndpointTrafficPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomRoutingEndpointTrafficPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2132,9 +2132,9 @@ export class CreateCustomRoutingEndpointsResponseBody extends $tea.Model {
 }
 
 export class CreateCustomRoutingEndpointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCustomRoutingEndpointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomRoutingEndpointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2201,9 +2201,9 @@ export class CreateDomainResponseBody extends $tea.Model {
 }
 
 export class CreateDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2321,9 +2321,9 @@ export class CreateEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class CreateEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2402,9 +2402,9 @@ export class CreateEndpointGroupsResponseBody extends $tea.Model {
 }
 
 export class CreateEndpointGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateEndpointGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEndpointGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2480,9 +2480,9 @@ export class CreateForwardingRulesResponseBody extends $tea.Model {
 }
 
 export class CreateForwardingRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateForwardingRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateForwardingRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2558,9 +2558,9 @@ export class CreateIpSetsResponseBody extends $tea.Model {
 }
 
 export class CreateIpSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateIpSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIpSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2590,6 +2590,7 @@ export class CreateListenerRequest extends $tea.Model {
   customRoutingEndpointGroupConfigurations?: CreateListenerRequestCustomRoutingEndpointGroupConfigurations[];
   description?: string;
   endpointGroupConfigurations?: CreateListenerRequestEndpointGroupConfigurations[];
+  httpVersion?: string;
   idleTimeout?: number;
   name?: string;
   portRanges?: CreateListenerRequestPortRanges[];
@@ -2609,6 +2610,7 @@ export class CreateListenerRequest extends $tea.Model {
       customRoutingEndpointGroupConfigurations: 'CustomRoutingEndpointGroupConfigurations',
       description: 'Description',
       endpointGroupConfigurations: 'EndpointGroupConfigurations',
+      httpVersion: 'HttpVersion',
       idleTimeout: 'IdleTimeout',
       name: 'Name',
       portRanges: 'PortRanges',
@@ -2631,6 +2633,7 @@ export class CreateListenerRequest extends $tea.Model {
       customRoutingEndpointGroupConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestCustomRoutingEndpointGroupConfigurations },
       description: 'string',
       endpointGroupConfigurations: { 'type': 'array', 'itemType': CreateListenerRequestEndpointGroupConfigurations },
+      httpVersion: 'string',
       idleTimeout: 'number',
       name: 'string',
       portRanges: { 'type': 'array', 'itemType': CreateListenerRequestPortRanges },
@@ -2672,9 +2675,9 @@ export class CreateListenerResponseBody extends $tea.Model {
 }
 
 export class CreateListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2747,9 +2750,9 @@ export class CreateSpareIpsResponseBody extends $tea.Model {
 }
 
 export class CreateSpareIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSpareIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSpareIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2816,9 +2819,9 @@ export class DeleteAcceleratorResponseBody extends $tea.Model {
 }
 
 export class DeleteAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2891,9 +2894,9 @@ export class DeleteAclResponseBody extends $tea.Model {
 }
 
 export class DeleteAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2960,9 +2963,9 @@ export class DeleteApplicationMonitorResponseBody extends $tea.Model {
 }
 
 export class DeleteApplicationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteApplicationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApplicationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3032,9 +3035,9 @@ export class DeleteBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class DeleteBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3104,9 +3107,9 @@ export class DeleteBasicAccelerateIpResponseBody extends $tea.Model {
 }
 
 export class DeleteBasicAccelerateIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBasicAccelerateIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBasicAccelerateIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3191,9 +3194,9 @@ export class DeleteBasicAccelerateIpEndpointRelationResponseBody extends $tea.Mo
 }
 
 export class DeleteBasicAccelerateIpEndpointRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBasicAccelerateIpEndpointRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBasicAccelerateIpEndpointRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3260,9 +3263,9 @@ export class DeleteBasicAcceleratorResponseBody extends $tea.Model {
 }
 
 export class DeleteBasicAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBasicAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBasicAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3335,9 +3338,9 @@ export class DeleteBasicEndpointResponseBody extends $tea.Model {
 }
 
 export class DeleteBasicEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBasicEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBasicEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3401,9 +3404,9 @@ export class DeleteBasicEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteBasicEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBasicEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBasicEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3470,9 +3473,9 @@ export class DeleteBasicIpSetResponseBody extends $tea.Model {
 }
 
 export class DeleteBasicIpSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBasicIpSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBasicIpSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3545,9 +3548,9 @@ export class DeleteCustomRoutingEndpointGroupDestinationsResponseBody extends $t
 }
 
 export class DeleteCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCustomRoutingEndpointGroupDestinationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomRoutingEndpointGroupDestinationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3620,9 +3623,9 @@ export class DeleteCustomRoutingEndpointGroupsResponseBody extends $tea.Model {
 }
 
 export class DeleteCustomRoutingEndpointGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCustomRoutingEndpointGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomRoutingEndpointGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3692,9 +3695,9 @@ export class DeleteCustomRoutingEndpointTrafficPoliciesResponseBody extends $tea
 }
 
 export class DeleteCustomRoutingEndpointTrafficPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCustomRoutingEndpointTrafficPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomRoutingEndpointTrafficPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3764,9 +3767,9 @@ export class DeleteCustomRoutingEndpointsResponseBody extends $tea.Model {
 }
 
 export class DeleteCustomRoutingEndpointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCustomRoutingEndpointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomRoutingEndpointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3833,9 +3836,9 @@ export class DeleteDomainAcceleratorRelationResponseBody extends $tea.Model {
 }
 
 export class DeleteDomainAcceleratorRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDomainAcceleratorRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDomainAcceleratorRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3902,9 +3905,9 @@ export class DeleteEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3974,9 +3977,9 @@ export class DeleteEndpointGroupsResponseBody extends $tea.Model {
 }
 
 export class DeleteEndpointGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteEndpointGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEndpointGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4052,9 +4055,9 @@ export class DeleteForwardingRulesResponseBody extends $tea.Model {
 }
 
 export class DeleteForwardingRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteForwardingRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteForwardingRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4124,9 +4127,9 @@ export class DeleteIpSetResponseBody extends $tea.Model {
 }
 
 export class DeleteIpSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIpSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIpSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4190,9 +4193,9 @@ export class DeleteIpSetsResponseBody extends $tea.Model {
 }
 
 export class DeleteIpSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIpSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIpSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4259,9 +4262,9 @@ export class DeleteListenerResponseBody extends $tea.Model {
 }
 
 export class DeleteListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4334,9 +4337,9 @@ export class DeleteSpareIpsResponseBody extends $tea.Model {
 }
 
 export class DeleteSpareIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSpareIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSpareIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4478,9 +4481,9 @@ export class DescribeAcceleratorResponseBody extends $tea.Model {
 }
 
 export class DescribeAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4556,9 +4559,9 @@ export class DescribeAcceleratorAutoRenewAttributeResponseBody extends $tea.Mode
 }
 
 export class DescribeAcceleratorAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAcceleratorAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAcceleratorAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4631,9 +4634,9 @@ export class DescribeAcceleratorServiceStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeAcceleratorServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAcceleratorServiceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAcceleratorServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4739,9 +4742,9 @@ export class DescribeApplicationMonitorResponseBody extends $tea.Model {
 }
 
 export class DescribeApplicationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeApplicationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApplicationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4859,9 +4862,9 @@ export class DescribeBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class DescribeBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4937,9 +4940,9 @@ export class DescribeBandwidthPackageAutoRenewAttributeResponseBody extends $tea
 }
 
 export class DescribeBandwidthPackageAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeBandwidthPackageAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBandwidthPackageAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5015,9 +5018,9 @@ export class DescribeCommodityResponseBody extends $tea.Model {
 }
 
 export class DescribeCommodityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCommodityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCommodityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5105,9 +5108,9 @@ export class DescribeCommodityPriceResponseBody extends $tea.Model {
 }
 
 export class DescribeCommodityPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCommodityPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCommodityPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5210,9 +5213,9 @@ export class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends $tea
 }
 
 export class DescribeCustomRoutingEndPointTrafficPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCustomRoutingEndPointTrafficPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCustomRoutingEndPointTrafficPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5312,9 +5315,9 @@ export class DescribeCustomRoutingEndpointResponseBody extends $tea.Model {
 }
 
 export class DescribeCustomRoutingEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCustomRoutingEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCustomRoutingEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5429,9 +5432,9 @@ export class DescribeCustomRoutingEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class DescribeCustomRoutingEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCustomRoutingEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCustomRoutingEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5531,9 +5534,9 @@ export class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends 
 }
 
 export class DescribeCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCustomRoutingEndpointGroupDestinationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCustomRoutingEndpointGroupDestinationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5687,9 +5690,9 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class DescribeEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5786,9 +5789,9 @@ export class DescribeIpSetResponseBody extends $tea.Model {
 }
 
 export class DescribeIpSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeIpSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeIpSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5840,6 +5843,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
   clientAffinity?: string;
   createTime?: string;
   description?: string;
+  httpVersion?: string;
   idleTimeout?: number;
   listenerId?: string;
   name?: string;
@@ -5865,6 +5869,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
       clientAffinity: 'ClientAffinity',
       createTime: 'CreateTime',
       description: 'Description',
+      httpVersion: 'HttpVersion',
       idleTimeout: 'IdleTimeout',
       listenerId: 'ListenerId',
       name: 'Name',
@@ -5893,6 +5898,7 @@ export class DescribeListenerResponseBody extends $tea.Model {
       clientAffinity: 'string',
       createTime: 'string',
       description: 'string',
+      httpVersion: 'string',
       idleTimeout: 'number',
       listenerId: 'string',
       name: 'string',
@@ -5918,9 +5924,9 @@ export class DescribeListenerResponseBody extends $tea.Model {
 }
 
 export class DescribeListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6011,9 +6017,9 @@ export class DescribeLogStoreOfEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class DescribeLogStoreOfEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLogStoreOfEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLogStoreOfEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6077,9 +6083,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6146,9 +6152,9 @@ export class DetachDdosFromAcceleratorResponseBody extends $tea.Model {
 }
 
 export class DetachDdosFromAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachDdosFromAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachDdosFromAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6221,9 +6227,9 @@ export class DetachLogStoreFromEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class DetachLogStoreFromEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachLogStoreFromEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachLogStoreFromEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6290,9 +6296,9 @@ export class DetectApplicationMonitorResponseBody extends $tea.Model {
 }
 
 export class DetectApplicationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetectApplicationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetectApplicationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6359,9 +6365,9 @@ export class DisableApplicationMonitorResponseBody extends $tea.Model {
 }
 
 export class DisableApplicationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableApplicationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableApplicationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6440,9 +6446,9 @@ export class DissociateAclsFromListenerResponseBody extends $tea.Model {
 }
 
 export class DissociateAclsFromListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DissociateAclsFromListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DissociateAclsFromListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6515,9 +6521,9 @@ export class DissociateAdditionalCertificatesFromListenerResponseBody extends $t
 }
 
 export class DissociateAdditionalCertificatesFromListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DissociateAdditionalCertificatesFromListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DissociateAdditionalCertificatesFromListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6584,9 +6590,9 @@ export class EnableApplicationMonitorResponseBody extends $tea.Model {
 }
 
 export class EnableApplicationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableApplicationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableApplicationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6674,9 +6680,9 @@ export class GetAclResponseBody extends $tea.Model {
 }
 
 export class GetAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6758,9 +6764,9 @@ export class GetBasicAccelerateIpResponseBody extends $tea.Model {
 }
 
 export class GetBasicAccelerateIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBasicAccelerateIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBasicAccelerateIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6866,9 +6872,9 @@ export class GetBasicAccelerateIpEndpointRelationResponseBody extends $tea.Model
 }
 
 export class GetBasicAccelerateIpEndpointRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBasicAccelerateIpEndpointRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBasicAccelerateIpEndpointRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6938,9 +6944,9 @@ export class GetBasicAccelerateIpIdleCountResponseBody extends $tea.Model {
 }
 
 export class GetBasicAccelerateIpIdleCountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBasicAccelerateIpIdleCountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBasicAccelerateIpIdleCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7058,9 +7064,9 @@ export class GetBasicAcceleratorResponseBody extends $tea.Model {
 }
 
 export class GetBasicAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBasicAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBasicAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7157,9 +7163,9 @@ export class GetBasicEndpointResponseBody extends $tea.Model {
 }
 
 export class GetBasicEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBasicEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBasicEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7253,9 +7259,9 @@ export class GetBasicEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class GetBasicEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBasicEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBasicEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7346,9 +7352,9 @@ export class GetBasicIpSetResponseBody extends $tea.Model {
 }
 
 export class GetBasicIpSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBasicIpSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBasicIpSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7430,9 +7436,9 @@ export class GetHealthStatusResponseBody extends $tea.Model {
 }
 
 export class GetHealthStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHealthStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHealthStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7496,9 +7502,9 @@ export class GetInvalidDomainCountResponseBody extends $tea.Model {
 }
 
 export class GetInvalidDomainCountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInvalidDomainCountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInvalidDomainCountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7568,9 +7574,9 @@ export class GetIpsetsBandwidthLimitResponseBody extends $tea.Model {
 }
 
 export class GetIpsetsBandwidthLimitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIpsetsBandwidthLimitResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIpsetsBandwidthLimitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7646,9 +7652,9 @@ export class GetSpareIpResponseBody extends $tea.Model {
 }
 
 export class GetSpareIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSpareIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSpareIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7712,9 +7718,9 @@ export class ListAccelerateAreasResponseBody extends $tea.Model {
 }
 
 export class ListAccelerateAreasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAccelerateAreasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccelerateAreasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7805,9 +7811,9 @@ export class ListAcceleratorsResponseBody extends $tea.Model {
 }
 
 export class ListAcceleratorsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAcceleratorsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAcceleratorsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7901,9 +7907,9 @@ export class ListAclsResponseBody extends $tea.Model {
 }
 
 export class ListAclsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAclsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAclsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7985,9 +7991,9 @@ export class ListApplicationMonitorResponseBody extends $tea.Model {
 }
 
 export class ListApplicationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplicationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8075,9 +8081,9 @@ export class ListApplicationMonitorDetectResultResponseBody extends $tea.Model {
 }
 
 export class ListApplicationMonitorDetectResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListApplicationMonitorDetectResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApplicationMonitorDetectResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8144,9 +8150,9 @@ export class ListAvailableAccelerateAreasResponseBody extends $tea.Model {
 }
 
 export class ListAvailableAccelerateAreasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAvailableAccelerateAreasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAvailableAccelerateAreasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8213,9 +8219,9 @@ export class ListAvailableBusiRegionsResponseBody extends $tea.Model {
 }
 
 export class ListAvailableBusiRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAvailableBusiRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAvailableBusiRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8309,9 +8315,9 @@ export class ListBandwidthPackagesResponseBody extends $tea.Model {
 }
 
 export class ListBandwidthPackagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBandwidthPackagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBandwidthPackagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8390,9 +8396,9 @@ export class ListBandwidthackagesResponseBody extends $tea.Model {
 }
 
 export class ListBandwidthackagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBandwidthackagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBandwidthackagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8483,9 +8489,9 @@ export class ListBasicAccelerateIpEndpointRelationsResponseBody extends $tea.Mod
 }
 
 export class ListBasicAccelerateIpEndpointRelationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBasicAccelerateIpEndpointRelationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBasicAccelerateIpEndpointRelationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8576,9 +8582,9 @@ export class ListBasicAccelerateIpsResponseBody extends $tea.Model {
 }
 
 export class ListBasicAccelerateIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBasicAccelerateIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBasicAccelerateIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8669,9 +8675,9 @@ export class ListBasicAcceleratorsResponseBody extends $tea.Model {
 }
 
 export class ListBasicAcceleratorsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBasicAcceleratorsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBasicAcceleratorsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8765,9 +8771,9 @@ export class ListBasicEndpointsResponseBody extends $tea.Model {
 }
 
 export class ListBasicEndpointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBasicEndpointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBasicEndpointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8831,9 +8837,9 @@ export class ListBusiRegionsResponseBody extends $tea.Model {
 }
 
 export class ListBusiRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBusiRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBusiRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8903,9 +8909,9 @@ export class ListCommonAreasResponseBody extends $tea.Model {
 }
 
 export class ListCommonAreasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCommonAreasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCommonAreasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9002,9 +9008,9 @@ export class ListCustomRoutingEndpointGroupDestinationsResponseBody extends $tea
 }
 
 export class ListCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCustomRoutingEndpointGroupDestinationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomRoutingEndpointGroupDestinationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9095,9 +9101,9 @@ export class ListCustomRoutingEndpointGroupsResponseBody extends $tea.Model {
 }
 
 export class ListCustomRoutingEndpointGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCustomRoutingEndpointGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomRoutingEndpointGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9191,9 +9197,9 @@ export class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends $tea.M
 }
 
 export class ListCustomRoutingEndpointTrafficPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCustomRoutingEndpointTrafficPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomRoutingEndpointTrafficPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9281,9 +9287,9 @@ export class ListCustomRoutingEndpointsResponseBody extends $tea.Model {
 }
 
 export class ListCustomRoutingEndpointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCustomRoutingEndpointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomRoutingEndpointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9371,9 +9377,9 @@ export class ListCustomRoutingPortMappingsResponseBody extends $tea.Model {
 }
 
 export class ListCustomRoutingPortMappingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCustomRoutingPortMappingsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomRoutingPortMappingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9458,9 +9464,9 @@ export class ListCustomRoutingPortMappingsByDestinationResponseBody extends $tea
 }
 
 export class ListCustomRoutingPortMappingsByDestinationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCustomRoutingPortMappingsByDestinationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomRoutingPortMappingsByDestinationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9548,9 +9554,9 @@ export class ListDomainsResponseBody extends $tea.Model {
 }
 
 export class ListDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDomainsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDomainsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9626,9 +9632,9 @@ export class ListEndpointGroupIpAddressCidrBlocksResponseBody extends $tea.Model
 }
 
 export class ListEndpointGroupIpAddressCidrBlocksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEndpointGroupIpAddressCidrBlocksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEndpointGroupIpAddressCidrBlocksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9725,9 +9731,9 @@ export class ListEndpointGroupsResponseBody extends $tea.Model {
 }
 
 export class ListEndpointGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEndpointGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEndpointGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9818,9 +9824,9 @@ export class ListForwardingRulesResponseBody extends $tea.Model {
 }
 
 export class ListForwardingRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListForwardingRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListForwardingRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9902,9 +9908,9 @@ export class ListIpSetsResponseBody extends $tea.Model {
 }
 
 export class ListIpSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIpSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIpSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9974,9 +9980,9 @@ export class ListIspTypesResponseBody extends $tea.Model {
 }
 
 export class ListIspTypesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIspTypesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIspTypesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10064,9 +10070,9 @@ export class ListListenerCertificatesResponseBody extends $tea.Model {
 }
 
 export class ListListenerCertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListListenerCertificatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListListenerCertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10148,9 +10154,9 @@ export class ListListenersResponseBody extends $tea.Model {
 }
 
 export class ListListenersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListListenersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListListenersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10223,9 +10229,9 @@ export class ListSpareIpsResponseBody extends $tea.Model {
 }
 
 export class ListSpareIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSpareIpsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSpareIpsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10304,9 +10310,9 @@ export class ListSystemSecurityPoliciesResponseBody extends $tea.Model {
 }
 
 export class ListSystemSecurityPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSystemSecurityPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSystemSecurityPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10391,9 +10397,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10469,9 +10475,9 @@ export class OpenAcceleratorServiceResponseBody extends $tea.Model {
 }
 
 export class OpenAcceleratorServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenAcceleratorServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenAcceleratorServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10535,9 +10541,9 @@ export class QueryCrossBorderApprovalStatusResponseBody extends $tea.Model {
 }
 
 export class QueryCrossBorderApprovalStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCrossBorderApprovalStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCrossBorderApprovalStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10613,9 +10619,9 @@ export class RemoveEntriesFromAclResponseBody extends $tea.Model {
 }
 
 export class RemoveEntriesFromAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveEntriesFromAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveEntriesFromAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10685,9 +10691,9 @@ export class ReplaceBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class ReplaceBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReplaceBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplaceBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10760,9 +10766,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10838,9 +10844,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10922,9 +10928,9 @@ export class UpdateAcceleratorResponseBody extends $tea.Model {
 }
 
 export class UpdateAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11006,9 +11012,9 @@ export class UpdateAcceleratorAutoRenewAttributeResponseBody extends $tea.Model 
 }
 
 export class UpdateAcceleratorAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAcceleratorAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAcceleratorAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11072,9 +11078,9 @@ export class UpdateAcceleratorConfirmResponseBody extends $tea.Model {
 }
 
 export class UpdateAcceleratorConfirmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAcceleratorConfirmResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAcceleratorConfirmResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11144,9 +11150,9 @@ export class UpdateAcceleratorCrossBorderModeResponseBody extends $tea.Model {
 }
 
 export class UpdateAcceleratorCrossBorderModeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAcceleratorCrossBorderModeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAcceleratorCrossBorderModeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11216,9 +11222,9 @@ export class UpdateAcceleratorCrossBorderStatusResponseBody extends $tea.Model {
 }
 
 export class UpdateAcceleratorCrossBorderStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAcceleratorCrossBorderStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAcceleratorCrossBorderStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11294,9 +11300,9 @@ export class UpdateAclAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateAclAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAclAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAclAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11378,9 +11384,9 @@ export class UpdateAdditionalCertificateWithListenerResponseBody extends $tea.Mo
 }
 
 export class UpdateAdditionalCertificateWithListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAdditionalCertificateWithListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAdditionalCertificateWithListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11471,9 +11477,9 @@ export class UpdateApplicationMonitorResponseBody extends $tea.Model {
 }
 
 export class UpdateApplicationMonitorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateApplicationMonitorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApplicationMonitorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11555,9 +11561,9 @@ export class UpdateBandwidthPackagaAutoRenewAttributeResponseBody extends $tea.M
 }
 
 export class UpdateBandwidthPackagaAutoRenewAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateBandwidthPackagaAutoRenewAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBandwidthPackagaAutoRenewAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11648,9 +11654,9 @@ export class UpdateBandwidthPackageResponseBody extends $tea.Model {
 }
 
 export class UpdateBandwidthPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateBandwidthPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBandwidthPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11723,9 +11729,9 @@ export class UpdateBasicAcceleratorResponseBody extends $tea.Model {
 }
 
 export class UpdateBasicAcceleratorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateBasicAcceleratorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBasicAcceleratorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11807,9 +11813,9 @@ export class UpdateBasicEndpointResponseBody extends $tea.Model {
 }
 
 export class UpdateBasicEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateBasicEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBasicEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11891,9 +11897,9 @@ export class UpdateBasicEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateBasicEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateBasicEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBasicEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11963,9 +11969,9 @@ export class UpdateBasicIpSetResponseBody extends $tea.Model {
 }
 
 export class UpdateBasicIpSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateBasicIpSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBasicIpSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12038,9 +12044,9 @@ export class UpdateCustomRoutingEndpointGroupAttributeResponseBody extends $tea.
 }
 
 export class UpdateCustomRoutingEndpointGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCustomRoutingEndpointGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCustomRoutingEndpointGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12113,9 +12119,9 @@ export class UpdateCustomRoutingEndpointGroupDestinationsResponseBody extends $t
 }
 
 export class UpdateCustomRoutingEndpointGroupDestinationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCustomRoutingEndpointGroupDestinationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCustomRoutingEndpointGroupDestinationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12188,9 +12194,9 @@ export class UpdateCustomRoutingEndpointTrafficPoliciesResponseBody extends $tea
 }
 
 export class UpdateCustomRoutingEndpointTrafficPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCustomRoutingEndpointTrafficPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCustomRoutingEndpointTrafficPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12263,9 +12269,9 @@ export class UpdateCustomRoutingEndpointsResponseBody extends $tea.Model {
 }
 
 export class UpdateCustomRoutingEndpointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCustomRoutingEndpointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCustomRoutingEndpointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12332,9 +12338,9 @@ export class UpdateDomainResponseBody extends $tea.Model {
 }
 
 export class UpdateDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12404,9 +12410,9 @@ export class UpdateDomainStateResponseBody extends $tea.Model {
 }
 
 export class UpdateDomainStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDomainStateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDomainStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12512,9 +12518,9 @@ export class UpdateEndpointGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateEndpointGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEndpointGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEndpointGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12587,9 +12593,9 @@ export class UpdateEndpointGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class UpdateEndpointGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEndpointGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEndpointGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12665,9 +12671,9 @@ export class UpdateEndpointGroupsResponseBody extends $tea.Model {
 }
 
 export class UpdateEndpointGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateEndpointGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEndpointGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12743,9 +12749,9 @@ export class UpdateForwardingRulesResponseBody extends $tea.Model {
 }
 
 export class UpdateForwardingRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateForwardingRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateForwardingRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12815,9 +12821,9 @@ export class UpdateIpSetResponseBody extends $tea.Model {
 }
 
 export class UpdateIpSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateIpSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateIpSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12881,9 +12887,9 @@ export class UpdateIpSetsResponseBody extends $tea.Model {
 }
 
 export class UpdateIpSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateIpSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateIpSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12911,6 +12917,7 @@ export class UpdateListenerRequest extends $tea.Model {
   clientAffinity?: string;
   clientToken?: string;
   description?: string;
+  httpVersion?: string;
   idleTimeout?: number;
   listenerId?: string;
   name?: string;
@@ -12928,6 +12935,7 @@ export class UpdateListenerRequest extends $tea.Model {
       clientAffinity: 'ClientAffinity',
       clientToken: 'ClientToken',
       description: 'Description',
+      httpVersion: 'HttpVersion',
       idleTimeout: 'IdleTimeout',
       listenerId: 'ListenerId',
       name: 'Name',
@@ -12948,6 +12956,7 @@ export class UpdateListenerRequest extends $tea.Model {
       clientAffinity: 'string',
       clientToken: 'string',
       description: 'string',
+      httpVersion: 'string',
       idleTimeout: 'number',
       listenerId: 'string',
       name: 'string',
@@ -12986,9 +12995,9 @@ export class UpdateListenerResponseBody extends $tea.Model {
 }
 
 export class UpdateListenerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateListenerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateListenerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13061,9 +13070,9 @@ export class UpdateServiceManagedControlResponseBody extends $tea.Model {
 }
 
 export class UpdateServiceManagedControlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateServiceManagedControlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceManagedControlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -15988,6 +15997,7 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $te
   chinaMainland?: boolean;
   ispTypeList?: string[];
   localName?: string;
+  multiAz?: boolean;
   regionId?: string;
   supportIpv6?: boolean;
   static names(): { [key: string]: string } {
@@ -15995,6 +16005,7 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $te
       chinaMainland: 'ChinaMainland',
       ispTypeList: 'IspTypeList',
       localName: 'LocalName',
+      multiAz: 'MultiAz',
       regionId: 'RegionId',
       supportIpv6: 'SupportIpv6',
     };
@@ -16005,6 +16016,7 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $te
       chinaMainland: 'boolean',
       ispTypeList: { 'type': 'array', 'itemType': 'string' },
       localName: 'string',
+      multiAz: 'boolean',
       regionId: 'string',
       supportIpv6: 'boolean',
     };
@@ -17794,6 +17806,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
   clientAffinity?: string;
   createTime?: number;
   description?: string;
+  httpVersion?: string;
   idleTimeout?: number;
   listenerId?: string;
   name?: string;
@@ -17816,6 +17829,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       clientAffinity: 'ClientAffinity',
       createTime: 'CreateTime',
       description: 'Description',
+      httpVersion: 'HttpVersion',
       idleTimeout: 'IdleTimeout',
       listenerId: 'ListenerId',
       name: 'Name',
@@ -17841,6 +17855,7 @@ export class ListListenersResponseBodyListeners extends $tea.Model {
       clientAffinity: 'string',
       createTime: 'number',
       description: 'string',
+      httpVersion: 'string',
       idleTimeout: 'number',
       listenerId: 'string',
       name: 'string',
@@ -18857,9 +18872,9 @@ export default class Client extends OpenApi {
 
   /**
     * When you call this operation, take note of the following items:
-    * *   **AttachDdosToAccelerator** is an asynchronous operation. After you call the operation, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
-    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is associated with the GA instance.
+    * *   **AttachDdosToAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is associated with the GA instance.
     * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
     *
     * @param request AttachDdosToAcceleratorRequest
@@ -18904,9 +18919,9 @@ export default class Client extends OpenApi {
 
   /**
     * When you call this operation, take note of the following items:
-    * *   **AttachDdosToAccelerator** is an asynchronous operation. After you call the operation, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
-    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is associated with the GA instance.
+    * *   **AttachDdosToAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
+    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
+    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is associated with the GA instance.
     * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
     *
     * @param request AttachDdosToAcceleratorRequest
@@ -19106,7 +19121,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Description
     * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request ChangeResourceGroupRequest
@@ -19154,7 +19168,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Description
     * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request ChangeResourceGroupRequest
@@ -19430,10 +19443,13 @@ export default class Client extends OpenApi {
   /**
     * You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between a client and an origin server and checks the availability of the origin server.
     * Before you call this operation, take note of the following items:
+    * *   You can create origin detection tasks only for subscription Standard Global Accelerator (GA) instances whose specification is Medium Ⅰ.
+    * *   You cannot create an origin probe task for a UDP listener.
+    * *   The service port of the URL or IP address that is probed must be within the listening port range.
     * *   **CreateApplicationMonitor** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to query the status of the origin probing task.
-    *     *   If the origin probing task is in the **init** state, the task is being created. You can perform only query operations.
-    *     *   If the origin probing task is in the **active** state, the task is created.
-    * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. You can perform only query operations.
+    *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
+    * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same GA instance within a specific period of time.
     *
     * @param request CreateApplicationMonitorRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19506,10 +19522,13 @@ export default class Client extends OpenApi {
   /**
     * You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between a client and an origin server and checks the availability of the origin server.
     * Before you call this operation, take note of the following items:
+    * *   You can create origin detection tasks only for subscription Standard Global Accelerator (GA) instances whose specification is Medium Ⅰ.
+    * *   You cannot create an origin probe task for a UDP listener.
+    * *   The service port of the URL or IP address that is probed must be within the listening port range.
     * *   **CreateApplicationMonitor** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to query the status of the origin probing task.
-    *     *   If the origin probing task is in the **init** state, the task is being created. You can perform only query operations.
-    *     *   If the origin probing task is in the **active** state, the task is created.
-    * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+    *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. You can perform only query operations.
+    *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
+    * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same GA instance within a specific period of time.
     *
     * @param request CreateApplicationMonitorRequest
     * @return CreateApplicationMonitorResponse
@@ -19834,9 +19853,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Basic GA instances leverage the immense bandwidth of Alibaba Cloud\\"s high-quality global network to provide end-to-end acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP). For more information, see [Overview of GA instances](~~153127~~).
-    * **CreateBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
-    * *   If the basic GA instance is in the **init** state, it indicates that the basic GA instance is being created. In this case, you can continue to perform query operations on the GA instance.
+    * **CreateBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of the task.
+    * *   If the basic GA instance is in the **init** state, it indicates that the basic GA instance is being created. In this case, you can perform only query operations.
     * *   If the basic GA instance is in the **active** state, it indicates that the basic GA instance is created.
     *
     * @param request CreateBasicAcceleratorRequest
@@ -19920,9 +19938,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Basic GA instances leverage the immense bandwidth of Alibaba Cloud\\"s high-quality global network to provide end-to-end acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP). For more information, see [Overview of GA instances](~~153127~~).
-    * **CreateBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of a basic GA instance:
-    * *   If the basic GA instance is in the **init** state, it indicates that the basic GA instance is being created. In this case, you can continue to perform query operations on the GA instance.
+    * **CreateBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of the task.
+    * *   If the basic GA instance is in the **init** state, it indicates that the basic GA instance is being created. In this case, you can perform only query operations.
     * *   If the basic GA instance is in the **active** state, it indicates that the basic GA instance is created.
     *
     * @param request CreateBasicAcceleratorRequest
@@ -20458,7 +20475,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * readAndWrite
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, the protocols and port ranges of the associated endpoint groups, and the IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+    * This operation is used to create endpoints for custom routing listeners. When you call this operation, take note of the following items:
+    * *   **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and determine whether endpoints are created in the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that endpoints are created.
+    * *   The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ### Prerequisites
+    * The following operations are complete before you call this operation:
+    * *   Create a standard GA instance. For more information, see [CreateAccelerator](~~206786~~).
+    * *   Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   Apply for permissions to use custom routing listeners and create a custom routing listener for the standard GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
     *
     * @param request CreateCustomRoutingEndpointsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20501,7 +20530,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * readAndWrite
+    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, the protocols and port ranges of the associated endpoint groups, and the IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+    * This operation is used to create endpoints for custom routing listeners. When you call this operation, take note of the following items:
+    * *   **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and determine whether endpoints are created in the endpoint group.
+    *     *   If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+    *     *   If the endpoint group is in the **active** state, it indicates that endpoints are created.
+    * *   The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+    * ### Prerequisites
+    * The following operations are complete before you call this operation:
+    * *   Create a standard GA instance. For more information, see [CreateAccelerator](~~206786~~).
+    * *   Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   Apply for permissions to use custom routing listeners and create a custom routing listener for the standard GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
     *
     * @param request CreateCustomRoutingEndpointsRequest
     * @return CreateCustomRoutingEndpointsResponse
@@ -20570,6 +20611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * *   When you call this operation to create a virtual endpoint group for a Layer 4 listener, make sure that a default endpoint group is created.
     * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group.
     *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
     *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
@@ -20676,6 +20718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * *   When you call this operation to create a virtual endpoint group for a Layer 4 listener, make sure that a default endpoint group is created.
     * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group.
     *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
     *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
@@ -20886,12 +20929,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A listener listens for connection requests and then distributes the requests to endpoints based on the forwarding rules that are defined by a specified scheduling algorithm. You can call this operation to create a listener for a standard GA instance.
-    * Before you call this operation, take note of the following limits:
-    * *   **CreateListener** is an asynchronous operation. After you send a request, the system returns a listener ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
-    *     *   If a listener is in the **init** state, the listener is being created. In this case, you can perform only query operations.
-    *     *   If a listener is in the **active** state, the listener is created.
-    * *   The **CreateListener** operation cannot be repeatedly called to create listeners for the same GA instance in a specific period of time.
+    * When you call this operation, take note of the following items:
+    * *   **CreateListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the task.
+    *     *   If the listener is in the **init** state, the listener is being created. In this state, you can perform only query operations.
+    *     *   If the listener is in the **active** state, the listener is created.
+    * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
     *
     * @param request CreateListenerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20926,6 +20968,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endpointGroupConfigurations)) {
       query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
+    }
+
+    if (!Util.isUnset(request.httpVersion)) {
+      query["HttpVersion"] = request.httpVersion;
     }
 
     if (!Util.isUnset(request.idleTimeout)) {
@@ -20986,12 +21032,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A listener listens for connection requests and then distributes the requests to endpoints based on the forwarding rules that are defined by a specified scheduling algorithm. You can call this operation to create a listener for a standard GA instance.
-    * Before you call this operation, take note of the following limits:
-    * *   **CreateListener** is an asynchronous operation. After you send a request, the system returns a listener ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener:
-    *     *   If a listener is in the **init** state, the listener is being created. In this case, you can perform only query operations.
-    *     *   If a listener is in the **active** state, the listener is created.
-    * *   The **CreateListener** operation cannot be repeatedly called to create listeners for the same GA instance in a specific period of time.
+    * When you call this operation, take note of the following items:
+    * *   **CreateListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the task.
+    *     *   If the listener is in the **init** state, the listener is being created. In this state, you can perform only query operations.
+    *     *   If the listener is in the **active** state, the listener is created.
+    * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
     *
     * @param request CreateListenerRequest
     * @return CreateListenerResponse
@@ -21066,11 +21111,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Subscription GA instances cannot be deleted.
-    * *   GA instances that have bandwidth plans associated cannot be deleted. To delete such GA instances, disassociate the bandwidth plans first. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   **DeleteAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can use the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   You cannot delete subscription GA instances.
+    * *   **DeleteAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of the task.
     *     *   If the GA instance is in the **deleting** state, the GA instance is being deleted. In this case, you can perform only query operations.
-    *     *   If the GA instance cannot be queried, it indicates that the GA instance is deleted.
+    *     *   If the GA instance cannot be queried, the GA instance is deleted.
     *
     * @param request DeleteAcceleratorRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21105,11 +21149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Subscription GA instances cannot be deleted.
-    * *   GA instances that have bandwidth plans associated cannot be deleted. To delete such GA instances, disassociate the bandwidth plans first. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   **DeleteAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can use the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+    * *   You cannot delete subscription GA instances.
+    * *   **DeleteAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of the task.
     *     *   If the GA instance is in the **deleting** state, the GA instance is being deleted. In this case, you can perform only query operations.
-    *     *   If the GA instance cannot be queried, it indicates that the GA instance is deleted.
+    *     *   If the GA instance cannot be queried, the GA instance is deleted.
     *
     * @param request DeleteAcceleratorRequest
     * @return DeleteAcceleratorResponse
@@ -21180,7 +21223,6 @@ export default class Client extends OpenApi {
   /**
     * *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](~~408462~~) operation to query the state of an origin probing task.
     *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
-    *     <!---->
     *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
     * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
     *
@@ -21223,7 +21265,6 @@ export default class Client extends OpenApi {
   /**
     * *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](~~408462~~) operation to query the state of an origin probing task.
     *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
-    *     <!---->
     *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
     * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
     *
@@ -21236,12 +21277,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   By default, subscription bandwidth plans cannot be deleted. If you want to delete subscription bandwidth plans, contact your account manager.
-    * *   Bandwidth plans that are associated with Global Accelerator (GA) instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   By default, subscription bandwidth plans cannot be deleted. If you want to unsubscribe from subscription bandwidth plans, go to the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you can unsubscribe from a subscription bandwidth plan that is associated with a Global Accelerator (GA) instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   Bandwidth plans that are associated with GA instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
     * *   **DeleteBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the task.
-    *     *   If the bandwidth plan is in the **deleting** state, it indicates that the bandwidth plan is being deleted. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan cannot be found, it indicates that the bandwidth plan is deleted.
-    * *   The **DeleteBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+    *     *   If the bandwidth plan is in the **deleting** state, the bandwidth plan is being deleted. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan cannot be found, the bandwidth plan is deleted.
+    * *   The **DeleteBandwidthPackage** operation cannot be repeatedly called for the same bandwidth plan within a specific period of time.
     *
     * @param request DeleteBandwidthPackageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21280,12 +21321,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   By default, subscription bandwidth plans cannot be deleted. If you want to delete subscription bandwidth plans, contact your account manager.
-    * *   Bandwidth plans that are associated with Global Accelerator (GA) instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   By default, subscription bandwidth plans cannot be deleted. If you want to unsubscribe from subscription bandwidth plans, go to the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you can unsubscribe from a subscription bandwidth plan that is associated with a Global Accelerator (GA) instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   Bandwidth plans that are associated with GA instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
     * *   **DeleteBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the task.
-    *     *   If the bandwidth plan is in the **deleting** state, it indicates that the bandwidth plan is being deleted. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan cannot be found, it indicates that the bandwidth plan is deleted.
-    * *   The **DeleteBandwidthPackage** operation cannot be called repeatedly for the same bandwidth plan within a specific period of time.
+    *     *   If the bandwidth plan is in the **deleting** state, the bandwidth plan is being deleted. In this case, you can perform only query operations.
+    *     *   If the bandwidth plan cannot be found, the bandwidth plan is deleted.
+    * *   The **DeleteBandwidthPackage** operation cannot be repeatedly called for the same bandwidth plan within a specific period of time.
     *
     * @param request DeleteBandwidthPackageRequest
     * @return DeleteBandwidthPackageResponse
@@ -21296,10 +21337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) API operation to query the status of an accelerated IP address:
-    *     *   If the accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
-    *     *   If the system fails to return information about the accelerated IP address, the accelerated IP address is deleted.
-    * *   The **DeleteBasicAccelerateIp** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    * *   **DeleteBasicAccelerateIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address.
+    *     *   If an accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
+    *     *   If the system fails to return information about an accelerated IP address, the accelerated IP address is deleted.
+    * *   You cannot repeatedly call the **DeleteBasicAccelerateIp** operation for the same basic GA instance within a specific period of time.
     *
     * @param request DeleteBasicAccelerateIpRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21338,10 +21379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) API operation to query the status of an accelerated IP address:
-    *     *   If the accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
-    *     *   If the system fails to return information about the accelerated IP address, the accelerated IP address is deleted.
-    * *   The **DeleteBasicAccelerateIp** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+    * *   **DeleteBasicAccelerateIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address.
+    *     *   If an accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
+    *     *   If the system fails to return information about an accelerated IP address, the accelerated IP address is deleted.
+    * *   You cannot repeatedly call the **DeleteBasicAccelerateIp** operation for the same basic GA instance within a specific period of time.
     *
     * @param request DeleteBasicAccelerateIpRequest
     * @return DeleteBasicAccelerateIpResponse
@@ -21416,9 +21457,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of a basic GA instance.
-    * *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
-    * *   If the information of the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
+    * *   You cannot delete subscription basic GA instances. You can unsubscribe from a basic GA instance on the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you unsubscribe from a basic GA instance, make sure that the acceleration areas and endpoint groups of the GA instance are deleted and no bandwidth plans are associated with the GA instance.
+    *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](~~2253388~~).
+    *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](~~2253399~~).
+    *     *   For information about how to disassociate a bandwidth plan from a basic GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   Before you call this operation to delete a pay-as-you-go basic GA instance, make sure that all data is migrated and the acceleration areas and endpoint groups of the instance are deleted.
+    *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](~~2253388~~).
+    *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](~~2253399~~).
+    * *   **DeleteBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the status of the task.
+    *     *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
+    *     *   If the information about the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
     *
     * @param request DeleteBasicAcceleratorRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21453,9 +21501,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteBasicAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of a basic GA instance.
-    * *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
-    * *   If the information of the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
+    * *   You cannot delete subscription basic GA instances. You can unsubscribe from a basic GA instance on the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you unsubscribe from a basic GA instance, make sure that the acceleration areas and endpoint groups of the GA instance are deleted and no bandwidth plans are associated with the GA instance.
+    *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](~~2253388~~).
+    *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](~~2253399~~).
+    *     *   For information about how to disassociate a bandwidth plan from a basic GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
+    * *   Before you call this operation to delete a pay-as-you-go basic GA instance, make sure that all data is migrated and the acceleration areas and endpoint groups of the instance are deleted.
+    *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](~~2253388~~).
+    *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](~~2253399~~).
+    * *   **DeleteBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the status of the task.
+    *     *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
+    *     *   If the information about the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
     *
     * @param request DeleteBasicAcceleratorRequest
     * @return DeleteBasicAcceleratorResponse
@@ -21526,9 +21581,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+    * Before you delete an endpoint group, take note of the following items:
+    * *   If an endpoint in the endpoint group is associated with an accelerated IP address, you cannot delete the endpoint group. You can call the [DeleteBasicAccelerateIpEndpointRelation](~~2253413~~) operation to disassociate the endpoint from the accelerated IP address.
+    * *   If no endpoint in the endpoint group is associated with an accelerated IP address, you can delete the endpoint group. When you delete an endpoint group, all endpoints in the endpoint group are deleted.
+    * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the status of the task.
+    *     *   If the endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group cannot be queried, the endpoint group is deleted.
     * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request DeleteBasicEndpointGroupRequest
@@ -21564,9 +21622,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+    * Before you delete an endpoint group, take note of the following items:
+    * *   If an endpoint in the endpoint group is associated with an accelerated IP address, you cannot delete the endpoint group. You can call the [DeleteBasicAccelerateIpEndpointRelation](~~2253413~~) operation to disassociate the endpoint from the accelerated IP address.
+    * *   If no endpoint in the endpoint group is associated with an accelerated IP address, you can delete the endpoint group. When you delete an endpoint group, all endpoints in the endpoint group are deleted.
+    * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the status of the task.
+    *     *   If the endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
+    *     *   If the endpoint group cannot be queried, the endpoint group is deleted.
     * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
     *
     * @param request DeleteBasicEndpointGroupRequest
@@ -21578,10 +21639,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   \\*\\*DeleteBasicIpSet\\*\\* is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region:
+    * *   If an accelerated IP address is associated with an endpoint, you cannot delete the acceleration region. You can call the [DeleteBasicAccelerateIpEndpointRelation](~~2253413~~) operation to disassociate the accelerated IP address from the endpoint.
+    * *   \\*\\*DeleteBasicIpSet\\*\\* is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
     *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the information of the acceleration region is not displayed in the response, it indicates that the acceleration region is deleted.
-    * *   The \\*\\*DeleteBasicIpSet\\*\\* operation cannot be called repeatedly for the same basic GA instance within a specific period of time.
+    *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+    * *   The \\*\\*DeleteBasicIpSet\\*\\* operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
     *
     * @param request DeleteBasicIpSetRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21620,10 +21682,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   \\*\\*DeleteBasicIpSet\\*\\* is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region:
+    * *   If an accelerated IP address is associated with an endpoint, you cannot delete the acceleration region. You can call the [DeleteBasicAccelerateIpEndpointRelation](~~2253413~~) operation to disassociate the accelerated IP address from the endpoint.
+    * *   \\*\\*DeleteBasicIpSet\\*\\* is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
     *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the information of the acceleration region is not displayed in the response, it indicates that the acceleration region is deleted.
-    * *   The \\*\\*DeleteBasicIpSet\\*\\* operation cannot be called repeatedly for the same basic GA instance within a specific period of time.
+    *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+    * *   The \\*\\*DeleteBasicIpSet\\*\\* operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
     *
     * @param request DeleteBasicIpSetRequest
     * @return DeleteBasicIpSetResponse
@@ -22172,10 +22235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    * *   **DeleteIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
     *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
-    * *   The **DeleteIpSets** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *     *   If you cannot query the acceleration region, the acceleration region is deleted.
+    * *   You cannot repeatedly call the **DeleteIpSets** operation for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request DeleteIpSetsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22210,10 +22273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpSets** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
+    * *   **DeleteIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
     *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
-    * *   The **DeleteIpSets** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+    *     *   If you cannot query the acceleration region, the acceleration region is deleted.
+    * *   You cannot repeatedly call the **DeleteIpSets** operation for the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request DeleteIpSetsRequest
     * @return DeleteIpSetsResponse
@@ -22224,10 +22287,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener.
-    *     *   If the listener is in the **deleting** state, it indicates that the listener is being deleted. In this case, you can continue to perform query operations on the listener.
-    *     *   If the listener cannot be queried, it indicates that the listener is deleted.
-    * *   The **DeleteListener** operation cannot be repeatedly called to delete listeners for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   Before you call the **DeleteListener** operation, make sure that no endpoint groups are associated with the listener that you want to delete. For information about how to delete an endpoint group, see the following topics:
+    *     *   [DeleteEndpointGroup](~~2253305~~): deletes an endpoint group that is associated with an intelligent routing listener.
+    *     *   [DeleteEndpointGroups](~~2253311~~): deletes multiple endpoint groups that are associated with intelligent routing listeners at the same time.
+    *     *   [DeleteCustomRoutingEndpointGroups](~~2303183~~): deletes multiple endpoint groups that are associated with custom routing listeners at the same time.
+    * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener.
+    *     *   If the listener is in the **deleting** state, the listener is being deleted. In this case, you can perform only query operations.
+    *     *   If the listener cannot be queried, the listener is deleted.
+    * *   You cannot repeatedly call the **DeleteListener** operation to delete the listeners of the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request DeleteListenerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22266,10 +22333,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener.
-    *     *   If the listener is in the **deleting** state, it indicates that the listener is being deleted. In this case, you can continue to perform query operations on the listener.
-    *     *   If the listener cannot be queried, it indicates that the listener is deleted.
-    * *   The **DeleteListener** operation cannot be repeatedly called to delete listeners for the same Global Accelerator (GA) instance within a specific period of time.
+    * *   Before you call the **DeleteListener** operation, make sure that no endpoint groups are associated with the listener that you want to delete. For information about how to delete an endpoint group, see the following topics:
+    *     *   [DeleteEndpointGroup](~~2253305~~): deletes an endpoint group that is associated with an intelligent routing listener.
+    *     *   [DeleteEndpointGroups](~~2253311~~): deletes multiple endpoint groups that are associated with intelligent routing listeners at the same time.
+    *     *   [DeleteCustomRoutingEndpointGroups](~~2303183~~): deletes multiple endpoint groups that are associated with custom routing listeners at the same time.
+    * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener.
+    *     *   If the listener is in the **deleting** state, the listener is being deleted. In this case, you can perform only query operations.
+    *     *   If the listener cannot be queried, the listener is deleted.
+    * *   You cannot repeatedly call the **DeleteListener** operation to delete the listeners of the same Global Accelerator (GA) instance within a specific period of time.
     *
     * @param request DeleteListenerRequest
     * @return DeleteListenerResponse
@@ -22578,6 +22649,13 @@ export default class Client extends OpenApi {
     return await this.describeCommodityWithOptions(request, runtime);
   }
 
+  /**
+    * You can call the [DescribeCommodity](~~2253233~~) operation to query information about the commodity modules.
+    *
+    * @param request DescribeCommodityPriceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCommodityPriceResponse
+   */
   async describeCommodityPriceWithOptions(request: DescribeCommodityPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommodityPriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22610,6 +22688,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommodityPriceResponse>(await this.callApi(params, req, runtime), new DescribeCommodityPriceResponse({}));
   }
 
+  /**
+    * You can call the [DescribeCommodity](~~2253233~~) operation to query information about the commodity modules.
+    *
+    * @param request DescribeCommodityPriceRequest
+    * @return DescribeCommodityPriceResponse
+   */
   async describeCommodityPrice(request: DescribeCommodityPriceRequest): Promise<DescribeCommodityPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommodityPriceWithOptions(request, runtime);
@@ -22792,14 +22876,6 @@ export default class Client extends OpenApi {
     return await this.describeEndpointGroupWithOptions(request, runtime);
   }
 
-  /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=DescribeIpSet\\&type=RPC\\&version=2019-11-20)
-    *
-    * @param request DescribeIpSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeIpSetResponse
-   */
   async describeIpSetWithOptions(request: DescribeIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22828,20 +22904,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpSetResponse>(await this.callApi(params, req, runtime), new DescribeIpSetResponse({}));
   }
 
-  /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=DescribeIpSet\\&type=RPC\\&version=2019-11-20)
-    *
-    * @param request DescribeIpSetRequest
-    * @return DescribeIpSetResponse
-   */
   async describeIpSet(request: DescribeIpSetRequest): Promise<DescribeIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpSetWithOptions(request, runtime);
   }
 
   /**
-    * This operation is used to query configuration information about a specified listener of a GA instance. The information includes the routing type of the listener, the state of the listener, the timestamp that indicates when the listener was created, and the listener ports.
+    * This operation is used to query configuration information about a listener of a GA instance. The information includes the routing type of the listener, the status of the listener, the timestamp that indicates when the listener was created, and the listener ports.
     *
     * @param request DescribeListenerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22876,7 +22945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used to query configuration information about a specified listener of a GA instance. The information includes the routing type of the listener, the state of the listener, the timestamp that indicates when the listener was created, and the listener ports.
+    * This operation is used to query configuration information about a listener of a GA instance. The information includes the routing type of the listener, the status of the listener, the timestamp that indicates when the listener was created, and the listener ports.
     *
     * @param request DescribeListenerRequest
     * @return DescribeListenerResponse
@@ -24875,14 +24944,6 @@ export default class Client extends OpenApi {
     return await this.listEndpointGroupIpAddressCidrBlocksWithOptions(request, runtime);
   }
 
-  /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListEndpointGroups\\&type=RPC\\&version=2019-11-20)
-    *
-    * @param request ListEndpointGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListEndpointGroupsResponse
-   */
   async listEndpointGroupsWithOptions(request: ListEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24939,13 +25000,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEndpointGroupsResponse>(await this.callApi(params, req, runtime), new ListEndpointGroupsResponse({}));
   }
 
-  /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListEndpointGroups\\&type=RPC\\&version=2019-11-20)
-    *
-    * @param request ListEndpointGroupsRequest
-    * @return ListEndpointGroupsResponse
-   */
   async listEndpointGroups(request: ListEndpointGroupsRequest): Promise<ListEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEndpointGroupsWithOptions(request, runtime);
@@ -25145,7 +25199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used to query information about the listeners of a GA instance, including the state of each listener, the timestamp that indicates when each listener was created, and the listener ports.
+    * This operation is used to query information about the listeners of a GA instance, including the status of each listener, the timestamp that indicates when each listener was created, and the listener ports.
     *
     * @param request ListListenersRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25188,7 +25242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used to query information about the listeners of a GA instance, including the state of each listener, the timestamp that indicates when each listener was created, and the listener ports.
+    * This operation is used to query information about the listeners of a GA instance, including the status of each listener, the timestamp that indicates when each listener was created, and the listener ports.
     *
     * @param request ListListenersRequest
     * @return ListListenersResponse
@@ -25290,10 +25344,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Description
-    * *   Specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   You must specify **ResourceId** or **Tag** in the request to specify the object that you want to query.********
+    * *   **Tag** is a resource tag that consists of a key-value pair (Key and Value). If you specify only **Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Value**, an error message is returned.
+    * *   If you specify **Tag** and **ResourceId** to filter tags, **ResourceId** must match all specified key-value pairs.
     * *   If you specify multiple key-value pairs, resources that contain the key-value pairs are returned.
     *
     * @param request ListTagResourcesRequest
@@ -25345,10 +25398,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Description
-    * *   Specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+    * *   You must specify **ResourceId** or **Tag** in the request to specify the object that you want to query.********
+    * *   **Tag** is a resource tag that consists of a key-value pair (Key and Value). If you specify only **Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Value**, an error message is returned.
+    * *   If you specify **Tag** and **ResourceId** to filter tags, **ResourceId** must match all specified key-value pairs.
     * *   If you specify multiple key-value pairs, resources that contain the key-value pairs are returned.
     *
     * @param request ListTagResourcesRequest
@@ -25735,7 +25787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The **UpdateAcceleratorAutoRenewAttribute** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    * You cannot repeatedly call the **UpdateAcceleratorAutoRenewAttribute** operation for the same GA instance within a specific period of time.
     *
     * @param request UpdateAcceleratorAutoRenewAttributeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25790,7 +25842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The **UpdateAcceleratorAutoRenewAttribute** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+    * You cannot repeatedly call the **UpdateAcceleratorAutoRenewAttribute** operation for the same GA instance within a specific period of time.
     *
     * @param request UpdateAcceleratorAutoRenewAttributeRequest
     * @return UpdateAcceleratorAutoRenewAttributeResponse
@@ -25855,10 +25907,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
     * You can call this operation to change the type of transmission network for a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**. Before you call this operation, make sure that the following requirements are met:
     * *   Cloud Data Transfer (CDT) is activated. When you call the [CreateAccelerator](~~206786~~) operation and set **BandwidthBillingType** to **CDT** to create a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**, CDT is automatically activated. The data transfer fees are managed by CDT.
-    * *   If you want to set **CrossBorderMode** to **private**, which specifies cross-border Express Connect circuit as the type of transmission network, make sure that your enterprise account completed real-name verification. For more information, see [Real-name verification](~~52595~~).
+    * *   If you want to set **CrossBorderMode** to **private**, which specifies cross-border Express Connect circuit as the type of transmission network, make sure that real-name verification is complete for your enterprise account. For more information, see [Real-name verification](~~52595~~).
     *
     * @param request UpdateAcceleratorCrossBorderModeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25901,10 +25952,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Prerequisites
     * You can call this operation to change the type of transmission network for a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**. Before you call this operation, make sure that the following requirements are met:
     * *   Cloud Data Transfer (CDT) is activated. When you call the [CreateAccelerator](~~206786~~) operation and set **BandwidthBillingType** to **CDT** to create a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**, CDT is automatically activated. The data transfer fees are managed by CDT.
-    * *   If you want to set **CrossBorderMode** to **private**, which specifies cross-border Express Connect circuit as the type of transmission network, make sure that your enterprise account completed real-name verification. For more information, see [Real-name verification](~~52595~~).
+    * *   If you want to set **CrossBorderMode** to **private**, which specifies cross-border Express Connect circuit as the type of transmission network, make sure that real-name verification is complete for your enterprise account. For more information, see [Real-name verification](~~52595~~).
     *
     * @param request UpdateAcceleratorCrossBorderModeRequest
     * @return UpdateAcceleratorCrossBorderModeResponse
@@ -26426,10 +26476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. After you call this operation to modify an endpoint group that is associated with a basic GA instance, the system deletes the endpoint group and creates another endpoint group in the background for the basic GA instance. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of the basic GA instance.
-    *     *   If the basic GA instance is in the **configuring** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the basic GA instance is in the **active** state, it indicates that the configurations of the endpoint group are modified.
-    * *   The **UpdateBasicEndpointGroup** operation cannot be called repeatedly for the same basic GA instance within a specific period of time.
+    * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The system modifies the configurations of an endpoint group that is associated with a basic GA instance by deleting the endpoint group and creating a new endpoint group. You can call the [GetBasicAccelerator](~~353188~~) operation to query the status of the task.
+    *     *   If the basic GA instance is in the **configuring** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the basic GA instance is in the **active** state, the configurations of the endpoint group are modified.
+    * *   The **UpdateBasicEndpointGroup** operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
     *
     * @param request UpdateBasicEndpointGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26488,10 +26538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. After you call this operation to modify an endpoint group that is associated with a basic GA instance, the system deletes the endpoint group and creates another endpoint group in the background for the basic GA instance. You can call the [GetBasicAccelerator](~~353188~~) operation to query the state of the basic GA instance.
-    *     *   If the basic GA instance is in the **configuring** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the basic GA instance is in the **active** state, it indicates that the configurations of the endpoint group are modified.
-    * *   The **UpdateBasicEndpointGroup** operation cannot be called repeatedly for the same basic GA instance within a specific period of time.
+    * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The system modifies the configurations of an endpoint group that is associated with a basic GA instance by deleting the endpoint group and creating a new endpoint group. You can call the [GetBasicAccelerator](~~353188~~) operation to query the status of the task.
+    *     *   If the basic GA instance is in the **configuring** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+    *     *   If the basic GA instance is in the **active** state, the configurations of the endpoint group are modified.
+    * *   The **UpdateBasicEndpointGroup** operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
     *
     * @param request UpdateBasicEndpointGroupRequest
     * @return UpdateBasicEndpointGroupResponse
@@ -26503,11 +26553,11 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, take note of the following limits:
-    * *   You can call this operation for only basic GA instances whose bandwidth is billed by Cloud Data Transfer (CDT).
-    * *   The **UpdateBasicIpSet** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region:
-    *     *   If an acceleration region is in the **updating** state, the bandwidth of the acceleration region is being modified. In this state, you can perform only query operations.
-    *     *   If an acceleration region is in the **active** state, the bandwidth of the acceleration region is modified.
-    * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within the specified period of time.
+    * *   You can modify the bandwidth of an acceleration region of a basic GA instance only if the bandwidth metering method of the basic GA instance is **pay-by-data-transfer**.
+    * *   **UpdateBasicIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
+    *     *   If the acceleration region is in the **updating** state, it indicates that the bandwidth of the acceleration region is being modified. In this case, you can perform only query operations.
+    *     *   If the acceleration region is in the **active** state, it indicates that the bandwidth of the acceleration region is modified.
+    * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within a specific period of time.
     *
     * @param request UpdateBasicIpSetRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -26551,11 +26601,11 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, take note of the following limits:
-    * *   You can call this operation for only basic GA instances whose bandwidth is billed by Cloud Data Transfer (CDT).
-    * *   The **UpdateBasicIpSet** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of an acceleration region:
-    *     *   If an acceleration region is in the **updating** state, the bandwidth of the acceleration region is being modified. In this state, you can perform only query operations.
-    *     *   If an acceleration region is in the **active** state, the bandwidth of the acceleration region is modified.
-    * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within the specified period of time.
+    * *   You can modify the bandwidth of an acceleration region of a basic GA instance only if the bandwidth metering method of the basic GA instance is **pay-by-data-transfer**.
+    * *   **UpdateBasicIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
+    *     *   If the acceleration region is in the **updating** state, it indicates that the bandwidth of the acceleration region is being modified. In this case, you can perform only query operations.
+    *     *   If the acceleration region is in the **active** state, it indicates that the bandwidth of the acceleration region is modified.
+    * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within a specific period of time.
     *
     * @param request UpdateBasicIpSetRequest
     * @return UpdateBasicIpSetResponse
@@ -27240,10 +27290,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
+    * *   **UpdateIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
     *     *   If an acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
     *     *   If an acceleration region is in the **active** state, the acceleration region is modified.
-    * *   You cannot repeatedly call the **UpdateIpSet** operation for the same GA instance within a specific period of time.
+    * *   You cannot repeatedly call the **UpdateIpSets** operation for the same GA instance within a specific period of time.
     *
     * @param request UpdateIpSetsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27278,10 +27328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
+    * *   **UpdateIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
     *     *   If an acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
     *     *   If an acceleration region is in the **active** state, the acceleration region is modified.
-    * *   You cannot repeatedly call the **UpdateIpSet** operation for the same GA instance within a specific period of time.
+    * *   You cannot repeatedly call the **UpdateIpSets** operation for the same GA instance within a specific period of time.
     *
     * @param request UpdateIpSetsRequest
     * @return UpdateIpSetsResponse
@@ -27324,6 +27374,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.httpVersion)) {
+      query["HttpVersion"] = request.httpVersion;
     }
 
     if (!Util.isUnset(request.idleTimeout)) {
