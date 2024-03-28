@@ -1536,7 +1536,9 @@ export class Tensorboard extends $tea.Model {
   requestId?: string;
   status?: string;
   summaryPath?: string;
+  tensorboardDataSources?: TensorboardDataSourceSpec[];
   tensorboardId?: string;
+  tensorboardSpec?: TensorboardSpec;
   tensorboardUrl?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -1552,7 +1554,9 @@ export class Tensorboard extends $tea.Model {
       requestId: 'RequestId',
       status: 'Status',
       summaryPath: 'SummaryPath',
+      tensorboardDataSources: 'TensorboardDataSources',
       tensorboardId: 'TensorboardId',
+      tensorboardSpec: 'TensorboardSpec',
       tensorboardUrl: 'TensorboardUrl',
       userId: 'UserId',
     };
@@ -1571,9 +1575,79 @@ export class Tensorboard extends $tea.Model {
       requestId: 'string',
       status: 'string',
       summaryPath: 'string',
+      tensorboardDataSources: { 'type': 'array', 'itemType': TensorboardDataSourceSpec },
       tensorboardId: 'string',
+      tensorboardSpec: TensorboardSpec,
       tensorboardUrl: 'string',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TensorboardDataSourceSpec extends $tea.Model {
+  dataSourceType?: string;
+  directoryName?: string;
+  fullSummaryPath?: string;
+  id?: string;
+  name?: string;
+  sourceType?: string;
+  summaryPath?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceType: 'DataSourceType',
+      directoryName: 'DirectoryName',
+      fullSummaryPath: 'FullSummaryPath',
+      id: 'Id',
+      name: 'Name',
+      sourceType: 'SourceType',
+      summaryPath: 'SummaryPath',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceType: 'string',
+      directoryName: 'string',
+      fullSummaryPath: 'string',
+      id: 'string',
+      name: 'string',
+      sourceType: 'string',
+      summaryPath: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TensorboardSpec extends $tea.Model {
+  ecsType?: string;
+  securityGroupId?: string;
+  switchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsType: 'EcsType',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsType: 'string',
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -1759,6 +1833,8 @@ export class CreateTensorboardRequest extends $tea.Model {
   sourceType?: string;
   summaryPath?: string;
   summaryRelativePath?: string;
+  tensorboardDataSources?: TensorboardDataSourceSpec[];
+  tensorboardSpec?: TensorboardSpec;
   uri?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
@@ -1776,6 +1852,8 @@ export class CreateTensorboardRequest extends $tea.Model {
       sourceType: 'SourceType',
       summaryPath: 'SummaryPath',
       summaryRelativePath: 'SummaryRelativePath',
+      tensorboardDataSources: 'TensorboardDataSources',
+      tensorboardSpec: 'TensorboardSpec',
       uri: 'Uri',
       workspaceId: 'WorkspaceId',
     };
@@ -1796,6 +1874,8 @@ export class CreateTensorboardRequest extends $tea.Model {
       sourceType: 'string',
       summaryPath: 'string',
       summaryRelativePath: 'string',
+      tensorboardDataSources: { 'type': 'array', 'itemType': TensorboardDataSourceSpec },
+      tensorboardSpec: TensorboardSpec,
       uri: 'string',
       workspaceId: 'string',
     };
@@ -3170,6 +3250,7 @@ export class ListTensorboardsRequest extends $tea.Model {
   order?: string;
   pageNumber?: number;
   pageSize?: number;
+  paymentType?: string;
   showOwn?: boolean;
   sortBy?: string;
   sourceId?: string;
@@ -3187,6 +3268,7 @@ export class ListTensorboardsRequest extends $tea.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      paymentType: 'PaymentType',
       showOwn: 'ShowOwn',
       sortBy: 'SortBy',
       sourceId: 'SourceId',
@@ -3207,6 +3289,7 @@ export class ListTensorboardsRequest extends $tea.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      paymentType: 'string',
       showOwn: 'boolean',
       sortBy: 'string',
       sourceId: 'string',
@@ -4103,6 +4186,14 @@ export default class Client extends OpenApi {
       body["SummaryRelativePath"] = request.summaryRelativePath;
     }
 
+    if (!Util.isUnset(request.tensorboardDataSources)) {
+      body["TensorboardDataSources"] = request.tensorboardDataSources;
+    }
+
+    if (!Util.isUnset(request.tensorboardSpec)) {
+      body["TensorboardSpec"] = request.tensorboardSpec;
+    }
+
     if (!Util.isUnset(request.uri)) {
       body["Uri"] = request.uri;
     }
@@ -4804,6 +4895,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
     }
 
     if (!Util.isUnset(request.showOwn)) {
