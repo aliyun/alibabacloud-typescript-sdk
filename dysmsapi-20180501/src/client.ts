@@ -80,9 +80,9 @@ export class BatchSendMessageToGlobeResponseBody extends $tea.Model {
 }
 
 export class BatchSendMessageToGlobeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchSendMessageToGlobeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchSendMessageToGlobeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -152,9 +152,9 @@ export class ConversionDataResponseBody extends $tea.Model {
 }
 
 export class ConversionDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConversionDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConversionDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -248,9 +248,9 @@ export class QueryMessageResponseBody extends $tea.Model {
 }
 
 export class QueryMessageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMessageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMessageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -273,6 +273,7 @@ export class QueryMessageResponse extends $tea.Model {
 }
 
 export class SendMessageToGlobeRequest extends $tea.Model {
+  channelId?: string;
   from?: string;
   message?: string;
   taskId?: string;
@@ -280,6 +281,7 @@ export class SendMessageToGlobeRequest extends $tea.Model {
   validityPeriod?: number;
   static names(): { [key: string]: string } {
     return {
+      channelId: 'ChannelId',
       from: 'From',
       message: 'Message',
       taskId: 'TaskId',
@@ -290,6 +292,7 @@ export class SendMessageToGlobeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      channelId: 'string',
       from: 'string',
       message: 'string',
       taskId: 'string',
@@ -344,9 +347,9 @@ export class SendMessageToGlobeResponseBody extends $tea.Model {
 }
 
 export class SendMessageToGlobeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendMessageToGlobeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendMessageToGlobeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -369,6 +372,7 @@ export class SendMessageToGlobeResponse extends $tea.Model {
 }
 
 export class SendMessageWithTemplateRequest extends $tea.Model {
+  channelId?: string;
   from?: string;
   smsUpExtendCode?: string;
   templateCode?: string;
@@ -377,6 +381,7 @@ export class SendMessageWithTemplateRequest extends $tea.Model {
   validityPeriod?: number;
   static names(): { [key: string]: string } {
     return {
+      channelId: 'ChannelId',
       from: 'From',
       smsUpExtendCode: 'SmsUpExtendCode',
       templateCode: 'TemplateCode',
@@ -388,6 +393,7 @@ export class SendMessageWithTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      channelId: 'string',
       from: 'string',
       smsUpExtendCode: 'string',
       templateCode: 'string',
@@ -440,9 +446,9 @@ export class SendMessageWithTemplateResponseBody extends $tea.Model {
 }
 
 export class SendMessageWithTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendMessageWithTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendMessageWithTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -515,9 +521,9 @@ export class SmsConversionResponseBody extends $tea.Model {
 }
 
 export class SmsConversionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SmsConversionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmsConversionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -647,11 +653,11 @@ export default class Client extends OpenApi {
 
   /**
     * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
-    * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages exceeding more than 1,000 mobile number per request, you can choose to use the broadcast messaging feature available in the Alibaba Cloud SMS console.
-    * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](~~SendMessageToGlobe~~) operation to ensure that messages are delivered on time.
+    * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
+    * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/zh/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
     * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
-    * ### QPS limit
-    * You may call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+    * ### [](#qps)QPS limits
+    * You can call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
     *
     * @param request BatchSendMessageToGlobeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -703,11 +709,11 @@ export default class Client extends OpenApi {
 
   /**
     * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
-    * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages exceeding more than 1,000 mobile number per request, you can choose to use the broadcast messaging feature available in the Alibaba Cloud SMS console.
-    * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](~~SendMessageToGlobe~~) operation to ensure that messages are delivered on time.
+    * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
+    * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/zh/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
     * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
-    * ### QPS limit
-    * You may call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+    * ### [](#qps)QPS limits
+    * You can call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
     *
     * @param request BatchSendMessageToGlobeRequest
     * @return BatchSendMessageToGlobeResponse
@@ -826,6 +832,10 @@ export default class Client extends OpenApi {
   async sendMessageToGlobeWithOptions(request: SendMessageToGlobeRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageToGlobeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
     if (!Util.isUnset(request.from)) {
       query["From"] = request.from;
     }
@@ -888,6 +898,10 @@ export default class Client extends OpenApi {
   async sendMessageWithTemplateWithOptions(request: SendMessageWithTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageWithTemplateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
     if (!Util.isUnset(request.from)) {
       query["From"] = request.from;
     }
