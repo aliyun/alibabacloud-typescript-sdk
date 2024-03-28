@@ -676,6 +676,114 @@ export class CreateCheckRunResponse extends $tea.Model {
   }
 }
 
+export class CreateCommentRequest extends $tea.Model {
+  accessToken?: string;
+  commentType?: string;
+  content?: string;
+  draft?: boolean;
+  filePath?: string;
+  lineNumber?: number;
+  parentCommentBizId?: string;
+  patchSetBizId?: string;
+  resolved?: boolean;
+  localId?: number;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      commentType: 'commentType',
+      content: 'content',
+      draft: 'draft',
+      filePath: 'filePath',
+      lineNumber: 'lineNumber',
+      parentCommentBizId: 'parentCommentBizId',
+      patchSetBizId: 'patchSetBizId',
+      resolved: 'resolved',
+      localId: 'localId',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      commentType: 'string',
+      content: 'string',
+      draft: 'boolean',
+      filePath: 'string',
+      lineNumber: 'number',
+      parentCommentBizId: 'string',
+      patchSetBizId: 'string',
+      resolved: 'boolean',
+      localId: 'number',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommentResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateCommentResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateCommentResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCommitStatusRequest extends $tea.Model {
   accessToken?: string;
   context?: string;
@@ -764,6 +872,96 @@ export class CreateCommitStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCommitStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitWithMultipleFilesRequest extends $tea.Model {
+  accessToken?: string;
+  actions?: CreateCommitWithMultipleFilesRequestActions[];
+  branch?: string;
+  commitMessage?: string;
+  organizationId?: string;
+  repositoryIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      actions: 'actions',
+      branch: 'branch',
+      commitMessage: 'commitMessage',
+      organizationId: 'organizationId',
+      repositoryIdentity: 'repositoryIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      actions: { 'type': 'array', 'itemType': CreateCommitWithMultipleFilesRequestActions },
+      branch: 'string',
+      commitMessage: 'string',
+      organizationId: 'string',
+      repositoryIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitWithMultipleFilesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  result?: CreateCommitWithMultipleFilesResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      result: CreateCommitWithMultipleFilesResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitWithMultipleFilesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCommitWithMultipleFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCommitWithMultipleFilesResponseBody,
     };
   }
 
@@ -11304,6 +11502,7 @@ export class ListPushRulesResponse extends $tea.Model {
 export class ListRepositoriesRequest extends $tea.Model {
   accessToken?: string;
   archived?: boolean;
+  minAccessLevel?: number;
   orderBy?: string;
   organizationId?: string;
   page?: number;
@@ -11314,6 +11513,7 @@ export class ListRepositoriesRequest extends $tea.Model {
     return {
       accessToken: 'accessToken',
       archived: 'archived',
+      minAccessLevel: 'minAccessLevel',
       orderBy: 'orderBy',
       organizationId: 'organizationId',
       page: 'page',
@@ -11327,6 +11527,7 @@ export class ListRepositoriesRequest extends $tea.Model {
     return {
       accessToken: 'string',
       archived: 'boolean',
+      minAccessLevel: 'number',
       orderBy: 'string',
       organizationId: 'string',
       page: 'number',
@@ -18127,6 +18328,138 @@ export class CreateCheckRunResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateCommentResponseBodyResultAuthor extends $tea.Model {
+  aliyunPk?: string;
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommentResponseBodyResultRelatedPatchSet extends $tea.Model {
+  commitId?: string;
+  createdAt?: string;
+  patchSetBizId?: string;
+  patchSetName?: string;
+  patchSetNo?: string;
+  relatedMergeItemType?: string;
+  shortId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commitId: 'commitId',
+      createdAt: 'createdAt',
+      patchSetBizId: 'patchSetBizId',
+      patchSetName: 'patchSetName',
+      patchSetNo: 'patchSetNo',
+      relatedMergeItemType: 'relatedMergeItemType',
+      shortId: 'shortId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commitId: 'string',
+      createdAt: 'string',
+      patchSetBizId: 'string',
+      patchSetName: 'string',
+      patchSetNo: 'string',
+      relatedMergeItemType: 'string',
+      shortId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommentResponseBodyResult extends $tea.Model {
+  author?: CreateCommentResponseBodyResultAuthor;
+  commentBizId?: string;
+  commentTime?: string;
+  commentType?: string;
+  content?: string;
+  deleted?: boolean;
+  filePath?: string;
+  lastEditTime?: string;
+  lineNumber?: string;
+  parentCommentBizId?: string;
+  relatedPatchSet?: CreateCommentResponseBodyResultRelatedPatchSet;
+  resolved?: boolean;
+  rootCommentBizId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'author',
+      commentBizId: 'commentBizId',
+      commentTime: 'commentTime',
+      commentType: 'commentType',
+      content: 'content',
+      deleted: 'deleted',
+      filePath: 'filePath',
+      lastEditTime: 'lastEditTime',
+      lineNumber: 'lineNumber',
+      parentCommentBizId: 'parentCommentBizId',
+      relatedPatchSet: 'relatedPatchSet',
+      resolved: 'resolved',
+      rootCommentBizId: 'rootCommentBizId',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: CreateCommentResponseBodyResultAuthor,
+      commentBizId: 'string',
+      commentTime: 'string',
+      commentType: 'string',
+      content: 'string',
+      deleted: 'boolean',
+      filePath: 'string',
+      lastEditTime: 'string',
+      lineNumber: 'string',
+      parentCommentBizId: 'string',
+      relatedPatchSet: CreateCommentResponseBodyResultRelatedPatchSet,
+      resolved: 'boolean',
+      rootCommentBizId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCommitStatusResponseBodyResultCreator extends $tea.Model {
   aliyunPk?: number;
   avatarUrl?: string;
@@ -18184,6 +18517,172 @@ export class CreateCommitStatusResponseBodyResult extends $tea.Model {
       sha: 'string',
       state: 'string',
       targetUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitWithMultipleFilesRequestActions extends $tea.Model {
+  action?: string;
+  content?: string;
+  filePath?: string;
+  previousPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+      content: 'content',
+      filePath: 'filePath',
+      previousPath: 'previousPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      content: 'string',
+      filePath: 'string',
+      previousPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitWithMultipleFilesResponseBodyResultAuthor extends $tea.Model {
+  aliyunPk?: string;
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  websiteUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+      websiteUrl: 'websiteUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+      websiteUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitWithMultipleFilesResponseBodyResultCommitter extends $tea.Model {
+  aliyunPk?: string;
+  avatarUrl?: string;
+  email?: string;
+  id?: number;
+  name?: string;
+  state?: string;
+  username?: string;
+  websiteUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'aliyunPk',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      id: 'id',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+      websiteUrl: 'websiteUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'string',
+      avatarUrl: 'string',
+      email: 'string',
+      id: 'number',
+      name: 'string',
+      state: 'string',
+      username: 'string',
+      websiteUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommitWithMultipleFilesResponseBodyResult extends $tea.Model {
+  author?: CreateCommitWithMultipleFilesResponseBodyResultAuthor;
+  authorEmail?: string;
+  authorName?: string;
+  authoredDate?: string;
+  committedDate?: string;
+  committer?: CreateCommitWithMultipleFilesResponseBodyResultCommitter;
+  committerEmail?: string;
+  committerName?: string;
+  createdAt?: string;
+  id?: string;
+  message?: string;
+  parentIds?: string[];
+  shortId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'author',
+      authorEmail: 'authorEmail',
+      authorName: 'authorName',
+      authoredDate: 'authoredDate',
+      committedDate: 'committedDate',
+      committer: 'committer',
+      committerEmail: 'committerEmail',
+      committerName: 'committerName',
+      createdAt: 'createdAt',
+      id: 'id',
+      message: 'message',
+      parentIds: 'parentIds',
+      shortId: 'shortId',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: CreateCommitWithMultipleFilesResponseBodyResultAuthor,
+      authorEmail: 'string',
+      authorName: 'string',
+      authoredDate: 'string',
+      committedDate: 'string',
+      committer: CreateCommitWithMultipleFilesResponseBodyResultCommitter,
+      committerEmail: 'string',
+      committerName: 'string',
+      createdAt: 'string',
+      id: 'string',
+      message: 'string',
+      parentIds: { 'type': 'array', 'itemType': 'string' },
+      shortId: 'string',
+      title: 'string',
     };
   }
 
@@ -25885,6 +26384,8 @@ export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
 export class ListOrganizationsResponseBodyResult extends $tea.Model {
   accessLevel?: number;
   id?: number;
+  namespaceId?: string;
+  organizationAlias?: string;
   organizationId?: string;
   organizationName?: string;
   organizationRole?: string;
@@ -25892,6 +26393,8 @@ export class ListOrganizationsResponseBodyResult extends $tea.Model {
     return {
       accessLevel: 'accessLevel',
       id: 'id',
+      namespaceId: 'namespaceId',
+      organizationAlias: 'organizationAlias',
       organizationId: 'organizationId',
       organizationName: 'organizationName',
       organizationRole: 'organizationRole',
@@ -25902,6 +26405,8 @@ export class ListOrganizationsResponseBodyResult extends $tea.Model {
     return {
       accessLevel: 'number',
       id: 'number',
+      namespaceId: 'string',
+      organizationAlias: 'string',
       organizationId: 'string',
       organizationName: 'string',
       organizationRole: 'string',
@@ -31734,6 +32239,83 @@ export default class Client extends OpenApi {
     return await this.createCheckRunWithOptions(request, headers, runtime);
   }
 
+  async createCommentWithOptions(request: CreateCommentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCommentResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.localId)) {
+      query["localId"] = request.localId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commentType)) {
+      body["commentType"] = request.commentType;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.draft)) {
+      body["draft"] = request.draft;
+    }
+
+    if (!Util.isUnset(request.filePath)) {
+      body["filePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.lineNumber)) {
+      body["lineNumber"] = request.lineNumber;
+    }
+
+    if (!Util.isUnset(request.parentCommentBizId)) {
+      body["parentCommentBizId"] = request.parentCommentBizId;
+    }
+
+    if (!Util.isUnset(request.patchSetBizId)) {
+      body["patchSetBizId"] = request.patchSetBizId;
+    }
+
+    if (!Util.isUnset(request.resolved)) {
+      body["resolved"] = request.resolved;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateComment",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/code_reviews/comments/create_comment`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCommentResponse>(await this.callApi(params, req, runtime), new CreateCommentResponse({}));
+  }
+
+  async createComment(request: CreateCommentRequest): Promise<CreateCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCommentWithOptions(request, headers, runtime);
+  }
+
   async createCommitStatusWithOptions(request: CreateCommitStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCommitStatusResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -31793,6 +32375,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCommitStatusWithOptions(request, headers, runtime);
+  }
+
+  async createCommitWithMultipleFilesWithOptions(request: CreateCommitWithMultipleFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCommitWithMultipleFilesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryIdentity)) {
+      query["repositoryIdentity"] = request.repositoryIdentity;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.actions)) {
+      body["actions"] = request.actions;
+    }
+
+    if (!Util.isUnset(request.branch)) {
+      body["branch"] = request.branch;
+    }
+
+    if (!Util.isUnset(request.commitMessage)) {
+      body["commitMessage"] = request.commitMessage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCommitWithMultipleFiles",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/v4/projects/repository/commits/files`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCommitWithMultipleFilesResponse>(await this.callApi(params, req, runtime), new CreateCommitWithMultipleFilesResponse({}));
+  }
+
+  async createCommitWithMultipleFiles(request: CreateCommitWithMultipleFilesRequest): Promise<CreateCommitWithMultipleFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCommitWithMultipleFilesWithOptions(request, headers, runtime);
   }
 
   async createDeployKeyWithOptions(repositoryId: string, request: CreateDeployKeyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDeployKeyResponse> {
@@ -37178,6 +37813,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.archived)) {
       query["archived"] = request.archived;
+    }
+
+    if (!Util.isUnset(request.minAccessLevel)) {
+      query["minAccessLevel"] = request.minAccessLevel;
     }
 
     if (!Util.isUnset(request.orderBy)) {
