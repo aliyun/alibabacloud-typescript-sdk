@@ -576,6 +576,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       aliasType: 'AliasType',
@@ -588,6 +589,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -603,6 +605,7 @@ export class SendByAliasFileIdRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -622,6 +625,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       aliasType: 'AliasType',
@@ -634,6 +638,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -649,6 +654,7 @@ export class SendByAliasFileIdShrinkRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -725,6 +731,7 @@ export class SendByAppRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
@@ -735,6 +742,7 @@ export class SendByAppRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -748,6 +756,7 @@ export class SendByAppRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -765,6 +774,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
@@ -775,6 +785,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -788,6 +799,7 @@ export class SendByAppShrinkRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -1016,6 +1028,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
@@ -1027,6 +1040,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -1041,6 +1055,7 @@ export class SendByDeviceFileIdRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -1059,6 +1074,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
@@ -1070,6 +1086,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -1084,6 +1101,7 @@ export class SendByDeviceFileIdShrinkRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -1161,6 +1179,7 @@ export class SendByFilterRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
@@ -1172,6 +1191,7 @@ export class SendByFilterRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -1186,6 +1206,7 @@ export class SendByFilterRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -1204,6 +1225,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
@@ -1215,6 +1237,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -1229,6 +1252,7 @@ export class SendByFilterShrinkRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -1801,6 +1825,10 @@ export default class Client extends OpenApi {
       body["ReceiptUrl"] = request.receiptUrl;
     }
 
+    if (!Util.isUnset(request.thirdPartyId)) {
+      body["ThirdPartyId"] = request.thirdPartyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -1876,6 +1904,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.receiptUrl)) {
       body["ReceiptUrl"] = request.receiptUrl;
+    }
+
+    if (!Util.isUnset(request.thirdPartyId)) {
+      body["ThirdPartyId"] = request.thirdPartyId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2044,6 +2076,10 @@ export default class Client extends OpenApi {
       body["ReceiptUrl"] = request.receiptUrl;
     }
 
+    if (!Util.isUnset(request.thirdPartyId)) {
+      body["ThirdPartyId"] = request.thirdPartyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -2123,6 +2159,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.receiptUrl)) {
       body["ReceiptUrl"] = request.receiptUrl;
+    }
+
+    if (!Util.isUnset(request.thirdPartyId)) {
+      body["ThirdPartyId"] = request.thirdPartyId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
