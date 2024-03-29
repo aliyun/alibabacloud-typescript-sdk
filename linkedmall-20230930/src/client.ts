@@ -2005,9 +2005,9 @@ export class SkuSpec extends $tea.Model {
 }
 
 export class CancelRefundOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefundOrderResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundOrderResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2049,9 +2049,9 @@ export class ConfirmDisburseRequest extends $tea.Model {
 }
 
 export class ConfirmDisburseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfirmDisburseResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfirmDisburseResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2093,9 +2093,9 @@ export class CreateGoodsShippingNoticeRequest extends $tea.Model {
 }
 
 export class CreateGoodsShippingNoticeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GoodsShippingNoticeCreateResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GoodsShippingNoticeCreateResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2137,9 +2137,9 @@ export class CreatePurchaseOrderRequest extends $tea.Model {
 }
 
 export class CreatePurchaseOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PurchaseOrderCreateResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseOrderCreateResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2181,9 +2181,9 @@ export class CreateRefundOrderRequest extends $tea.Model {
 }
 
 export class CreateRefundOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefundOrderResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundOrderResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2206,9 +2206,9 @@ export class CreateRefundOrderResponse extends $tea.Model {
 }
 
 export class GetOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OrderResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OrderResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2231,9 +2231,9 @@ export class GetOrderResponse extends $tea.Model {
 }
 
 export class GetPurchaseOrderStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PurchaseOrderStatusResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseOrderStatusResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2256,9 +2256,9 @@ export class GetPurchaseOrderStatusResponse extends $tea.Model {
 }
 
 export class GetPurchaserShopResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Shop;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Shop;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2281,9 +2281,9 @@ export class GetPurchaserShopResponse extends $tea.Model {
 }
 
 export class GetRefundOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefundResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2328,9 +2328,9 @@ export class GetSelectionProductRequest extends $tea.Model {
 }
 
 export class GetSelectionProductResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Product;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Product;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2375,9 +2375,9 @@ export class GetSelectionProductSaleInfoRequest extends $tea.Model {
 }
 
 export class GetSelectionProductSaleInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProductSaleInfo;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ProductSaleInfo;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2419,9 +2419,9 @@ export class ListCategoriesRequest extends $tea.Model {
 }
 
 export class ListCategoriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CategoryListResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CategoryListResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2444,9 +2444,9 @@ export class ListCategoriesResponse extends $tea.Model {
 }
 
 export class ListLogisticsOrdersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LogisticsOrderListResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LogisticsOrderListResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2491,9 +2491,9 @@ export class ListPurchaserShopsRequest extends $tea.Model {
 }
 
 export class ListPurchaserShopsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ShopPageResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ShopPageResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2535,9 +2535,9 @@ export class ListSelectionProductSaleInfosRequest extends $tea.Model {
 }
 
 export class ListSelectionProductSaleInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProductSaleInfoListResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ProductSaleInfoListResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2585,9 +2585,9 @@ export class ListSelectionProductsRequest extends $tea.Model {
 }
 
 export class ListSelectionProductsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ProductPageResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ProductPageResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2629,9 +2629,9 @@ export class ListSelectionSkuSaleInfosRequest extends $tea.Model {
 }
 
 export class ListSelectionSkuSaleInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SkuSaleInfoListResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SkuSaleInfoListResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2673,9 +2673,9 @@ export class QueryChildDivisionCodeRequest extends $tea.Model {
 }
 
 export class QueryChildDivisionCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DivisionPageResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DivisionPageResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2717,9 +2717,9 @@ export class QueryOrdersRequest extends $tea.Model {
 }
 
 export class QueryOrdersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OrderListResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OrderListResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2761,9 +2761,9 @@ export class RenderPurchaseOrderRequest extends $tea.Model {
 }
 
 export class RenderPurchaseOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PurchaseOrderRenderResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseOrderRenderResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2805,9 +2805,9 @@ export class RenderRefundOrderRequest extends $tea.Model {
 }
 
 export class RenderRefundOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefundRenderResult;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefundRenderResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
