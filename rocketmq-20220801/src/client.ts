@@ -1601,12 +1601,14 @@ export class UpdateConsumerGroupResponse extends $tea.Model {
 }
 
 export class UpdateInstanceRequest extends $tea.Model {
+  aclInfo?: UpdateInstanceRequestAclInfo;
   instanceName?: string;
   networkInfo?: UpdateInstanceRequestNetworkInfo;
   productInfo?: UpdateInstanceRequestProductInfo;
   remark?: string;
   static names(): { [key: string]: string } {
     return {
+      aclInfo: 'aclInfo',
       instanceName: 'instanceName',
       networkInfo: 'networkInfo',
       productInfo: 'productInfo',
@@ -1616,6 +1618,7 @@ export class UpdateInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aclInfo: UpdateInstanceRequestAclInfo,
       instanceName: 'string',
       networkInfo: UpdateInstanceRequestNetworkInfo,
       productInfo: UpdateInstanceRequestProductInfo,
@@ -2000,15 +2003,21 @@ export class GetInstanceResponseBodyDataAccountInfo extends $tea.Model {
 
 export class GetInstanceResponseBodyDataAclInfo extends $tea.Model {
   aclType?: string;
+  aclTypes?: string[];
+  defaultVpcAuthFree?: boolean;
   static names(): { [key: string]: string } {
     return {
       aclType: 'aclType',
+      aclTypes: 'aclTypes',
+      defaultVpcAuthFree: 'defaultVpcAuthFree',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aclType: 'string',
+      aclTypes: { 'type': 'array', 'itemType': 'string' },
+      defaultVpcAuthFree: 'boolean',
     };
   }
 
@@ -2938,6 +2947,28 @@ export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
   }
 }
 
+export class UpdateInstanceRequestAclInfo extends $tea.Model {
+  aclTypes?: string[];
+  defaultVpcAuthFree?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aclTypes: 'aclTypes',
+      defaultVpcAuthFree: 'defaultVpcAuthFree',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclTypes: { 'type': 'array', 'itemType': 'string' },
+      defaultVpcAuthFree: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
   ipWhitelist?: string[];
   static names(): { [key: string]: string } {
@@ -3853,6 +3884,10 @@ export default class Client extends OpenApi {
   async updateInstanceWithOptions(instanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aclInfo)) {
+      body["aclInfo"] = request.aclInfo;
+    }
+
     if (!Util.isUnset(request.instanceName)) {
       body["instanceName"] = request.instanceName;
     }
