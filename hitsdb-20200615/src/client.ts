@@ -3190,7 +3190,10 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
   createMilliseconds?: number;
   createTime?: string;
   enableCompute?: boolean;
+  enableLts?: boolean;
+  enableMessage?: boolean;
   enableStream?: boolean;
+  enableVector?: boolean;
   engineType?: string;
   expireTime?: string;
   expiredMilliseconds?: number;
@@ -3212,7 +3215,10 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       createMilliseconds: 'CreateMilliseconds',
       createTime: 'CreateTime',
       enableCompute: 'EnableCompute',
+      enableLts: 'EnableLts',
+      enableMessage: 'EnableMessage',
       enableStream: 'EnableStream',
+      enableVector: 'EnableVector',
       engineType: 'EngineType',
       expireTime: 'ExpireTime',
       expiredMilliseconds: 'ExpiredMilliseconds',
@@ -3237,7 +3243,10 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       createMilliseconds: 'number',
       createTime: 'string',
       enableCompute: 'boolean',
+      enableLts: 'boolean',
+      enableMessage: 'boolean',
       enableStream: 'boolean',
+      enableVector: 'boolean',
       engineType: 'string',
       expireTime: 'string',
       expiredMilliseconds: 'number',
