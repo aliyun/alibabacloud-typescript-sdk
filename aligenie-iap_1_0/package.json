@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/aligenieiap_1_0",
-  "version": "1.0.21",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -21,7 +21,9 @@
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/tea-util": "^1.4.7",
-    "@alicloud/openapi-client": "^0.4.7",
+    "@alicloud/gateway-spi": "^0.0.8",
+    "@alicloud/gateway-pop": "^0.0.4",
+    "@alicloud/openapi-client": "^0.4.8",
     "@alicloud/openapi-util": "^0.3.2"
   },
   "files": [

@@ -3,6 +3,8 @@
  *
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import SPI from '@alicloud/gateway-spi';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import * as $tea from '@alicloud/tea-typescript';
@@ -108,9 +110,9 @@ export class AppUseTimeReportResponseBody extends $tea.Model {
 }
 
 export class AppUseTimeReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AppUseTimeReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AppUseTimeReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -236,9 +238,9 @@ export class CreateReminderResponseBody extends $tea.Model {
 }
 
 export class CreateReminderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateReminderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateReminderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -361,9 +363,9 @@ export class DeleteReminderResponseBody extends $tea.Model {
 }
 
 export class DeleteReminderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteReminderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteReminderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -486,9 +488,9 @@ export class GetAccountForAppResponseBody extends $tea.Model {
 }
 
 export class GetAccountForAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccountForAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountForAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -502,6 +504,131 @@ export class GetAccountForAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAccountForAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigRequest extends $tea.Model {
+  deviceInfo?: GetBusAppConfigRequestDeviceInfo;
+  payload?: GetBusAppConfigRequestPayload;
+  userInfo?: GetBusAppConfigRequestUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfo: 'DeviceInfo',
+      payload: 'Payload',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfo: GetBusAppConfigRequestDeviceInfo,
+      payload: GetBusAppConfigRequestPayload,
+      userInfo: GetBusAppConfigRequestUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigShrinkRequest extends $tea.Model {
+  deviceInfoShrink?: string;
+  payloadShrink?: string;
+  userInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfoShrink: 'DeviceInfo',
+      payloadShrink: 'Payload',
+      userInfoShrink: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfoShrink: 'string',
+      payloadShrink: 'string',
+      userInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigResponseBody extends $tea.Model {
+  retCode?: number;
+  retMsg?: string;
+  retValue?: GetBusAppConfigResponseBodyRetValue;
+  static names(): { [key: string]: string } {
+    return {
+      retCode: 'RetCode',
+      retMsg: 'RetMsg',
+      retValue: 'RetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      retCode: 'number',
+      retMsg: 'string',
+      retValue: GetBusAppConfigResponseBodyRetValue,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBusAppConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetBusAppConfigResponseBody,
     };
   }
 
@@ -599,9 +726,9 @@ export class GetPhoneNumberResponseBody extends $tea.Model {
 }
 
 export class GetPhoneNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPhoneNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPhoneNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -727,9 +854,9 @@ export class GetReminderResponseBody extends $tea.Model {
 }
 
 export class GetReminderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetReminderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetReminderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -855,9 +982,9 @@ export class ListRemindersResponseBody extends $tea.Model {
 }
 
 export class ListRemindersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRemindersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRemindersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -980,9 +1107,9 @@ export class PullCashierResponseBody extends $tea.Model {
 }
 
 export class PullCashierResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PullCashierResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PullCashierResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1074,8 +1201,8 @@ export class PushNotificationsShrinkRequest extends $tea.Model {
 }
 
 export class PushNotificationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1177,8 +1304,8 @@ export class SendNotificationsShrinkRequest extends $tea.Model {
 }
 
 export class SendNotificationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1302,9 +1429,9 @@ export class UpdateReminderResponseBody extends $tea.Model {
 }
 
 export class UpdateReminderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateReminderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateReminderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1427,9 +1554,9 @@ export class VideoAppReportResponseBody extends $tea.Model {
 }
 
 export class VideoAppReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VideoAppReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoAppReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1502,8 +1629,8 @@ export class WakeUpAppRequest extends $tea.Model {
 }
 
 export class WakeUpAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1943,6 +2070,115 @@ export class GetAccountForAppResponseBodyRetValue extends $tea.Model {
       isVip: 'boolean',
       strVipExpire: 'string',
       vipExpireAt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigRequestDeviceInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigRequestPayload extends $tea.Model {
+  originUuid?: string;
+  phone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      originUuid: 'originUuid',
+      phone: 'phone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originUuid: 'string',
+      phone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigRequestUserInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBusAppConfigResponseBodyRetValue extends $tea.Model {
+  shoppingBar?: string;
+  shoppingWindow?: string;
+  vipLabel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      shoppingBar: 'ShoppingBar',
+      shoppingWindow: 'ShoppingWindow',
+      vipLabel: 'VipLabel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shoppingBar: 'string',
+      shoppingWindow: 'string',
+      vipLabel: 'string',
     };
   }
 
@@ -2940,9 +3176,13 @@ export class WakeUpAppRequestTargetInfo extends $tea.Model {
 
 
 export default class Client extends OpenApi {
+  _client: SPI;
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "AliGenie";
+    this._client = new GatewayClient();
+    this._spi = this._client;
     this._endpointRule = "";
     if (Util.empty(this._endpoint)) {
       this._endpoint = "openapi.aligenie.com/v1.0/iap";
@@ -3008,7 +3248,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AppUseTimeReportResponse>(await this.callApi(params, req, runtime), new AppUseTimeReportResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AppUseTimeReportResponse>(await this.callApi(params, req, runtime), new AppUseTimeReportResponse({}));
+    } else {
+      return $tea.cast<AppUseTimeReportResponse>(await this.execute(params, req, runtime), new AppUseTimeReportResponse({}));
+    }
+
   }
 
   async appUseTimeReport(request: AppUseTimeReportRequest): Promise<AppUseTimeReportResponse> {
@@ -3074,7 +3319,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateReminderResponse>(await this.callApi(params, req, runtime), new CreateReminderResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateReminderResponse>(await this.callApi(params, req, runtime), new CreateReminderResponse({}));
+    } else {
+      return $tea.cast<CreateReminderResponse>(await this.execute(params, req, runtime), new CreateReminderResponse({}));
+    }
+
   }
 
   async createReminder(request: CreateReminderRequest): Promise<CreateReminderResponse> {
@@ -3140,7 +3390,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteReminderResponse>(await this.callApi(params, req, runtime), new DeleteReminderResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteReminderResponse>(await this.callApi(params, req, runtime), new DeleteReminderResponse({}));
+    } else {
+      return $tea.cast<DeleteReminderResponse>(await this.execute(params, req, runtime), new DeleteReminderResponse({}));
+    }
+
   }
 
   async deleteReminder(request: DeleteReminderRequest): Promise<DeleteReminderResponse> {
@@ -3206,13 +3461,89 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountForAppResponse>(await this.callApi(params, req, runtime), new GetAccountForAppResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetAccountForAppResponse>(await this.callApi(params, req, runtime), new GetAccountForAppResponse({}));
+    } else {
+      return $tea.cast<GetAccountForAppResponse>(await this.execute(params, req, runtime), new GetAccountForAppResponse({}));
+    }
+
   }
 
   async getAccountForApp(request: GetAccountForAppRequest): Promise<GetAccountForAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetAccountForAppHeaders({ });
     return await this.getAccountForAppWithOptions(request, headers, runtime);
+  }
+
+  async getBusAppConfigWithOptions(tmpReq: GetBusAppConfigRequest, headers: GetBusAppConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetBusAppConfigResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetBusAppConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.payload)) {
+      request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userInfo)) {
+      request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceInfoShrink)) {
+      query["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    if (!Util.isUnset(request.payloadShrink)) {
+      query["Payload"] = request.payloadShrink;
+    }
+
+    if (!Util.isUnset(request.userInfoShrink)) {
+      query["UserInfo"] = request.userInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBusAppConfig",
+      version: "iap_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/iap/app/config/get`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetBusAppConfigResponse>(await this.callApi(params, req, runtime), new GetBusAppConfigResponse({}));
+    } else {
+      return $tea.cast<GetBusAppConfigResponse>(await this.execute(params, req, runtime), new GetBusAppConfigResponse({}));
+    }
+
+  }
+
+  async getBusAppConfig(request: GetBusAppConfigRequest): Promise<GetBusAppConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetBusAppConfigHeaders({ });
+    return await this.getBusAppConfigWithOptions(request, headers, runtime);
   }
 
   async getPhoneNumberWithOptions(tmpReq: GetPhoneNumberRequest, headers: GetPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<GetPhoneNumberResponse> {
@@ -3264,7 +3595,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetPhoneNumberResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetPhoneNumberResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberResponse({}));
+    } else {
+      return $tea.cast<GetPhoneNumberResponse>(await this.execute(params, req, runtime), new GetPhoneNumberResponse({}));
+    }
+
   }
 
   async getPhoneNumber(request: GetPhoneNumberRequest): Promise<GetPhoneNumberResponse> {
@@ -3330,7 +3666,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetReminderResponse>(await this.callApi(params, req, runtime), new GetReminderResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetReminderResponse>(await this.callApi(params, req, runtime), new GetReminderResponse({}));
+    } else {
+      return $tea.cast<GetReminderResponse>(await this.execute(params, req, runtime), new GetReminderResponse({}));
+    }
+
   }
 
   async getReminder(request: GetReminderRequest): Promise<GetReminderResponse> {
@@ -3396,7 +3737,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListRemindersResponse>(await this.callApi(params, req, runtime), new ListRemindersResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListRemindersResponse>(await this.callApi(params, req, runtime), new ListRemindersResponse({}));
+    } else {
+      return $tea.cast<ListRemindersResponse>(await this.execute(params, req, runtime), new ListRemindersResponse({}));
+    }
+
   }
 
   async listReminders(request: ListRemindersRequest): Promise<ListRemindersResponse> {
@@ -3462,7 +3808,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PullCashierResponse>(await this.callApi(params, req, runtime), new PullCashierResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PullCashierResponse>(await this.callApi(params, req, runtime), new PullCashierResponse({}));
+    } else {
+      return $tea.cast<PullCashierResponse>(await this.execute(params, req, runtime), new PullCashierResponse({}));
+    }
+
   }
 
   async pullCashier(request: PullCashierRequest): Promise<PullCashierResponse> {
@@ -3520,7 +3871,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "none",
     });
-    return $tea.cast<PushNotificationsResponse>(await this.callApi(params, req, runtime), new PushNotificationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PushNotificationsResponse>(await this.callApi(params, req, runtime), new PushNotificationsResponse({}));
+    } else {
+      return $tea.cast<PushNotificationsResponse>(await this.execute(params, req, runtime), new PushNotificationsResponse({}));
+    }
+
   }
 
   async pushNotifications(request: PushNotificationsRequest): Promise<PushNotificationsResponse> {
@@ -3594,7 +3950,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "none",
     });
-    return $tea.cast<SendNotificationsResponse>(await this.callApi(params, req, runtime), new SendNotificationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SendNotificationsResponse>(await this.callApi(params, req, runtime), new SendNotificationsResponse({}));
+    } else {
+      return $tea.cast<SendNotificationsResponse>(await this.execute(params, req, runtime), new SendNotificationsResponse({}));
+    }
+
   }
 
   async sendNotifications(request: SendNotificationsRequest): Promise<SendNotificationsResponse> {
@@ -3660,7 +4021,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateReminderResponse>(await this.callApi(params, req, runtime), new UpdateReminderResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateReminderResponse>(await this.callApi(params, req, runtime), new UpdateReminderResponse({}));
+    } else {
+      return $tea.cast<UpdateReminderResponse>(await this.execute(params, req, runtime), new UpdateReminderResponse({}));
+    }
+
   }
 
   async updateReminder(request: UpdateReminderRequest): Promise<UpdateReminderResponse> {
@@ -3726,7 +4092,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VideoAppReportResponse>(await this.callApi(params, req, runtime), new VideoAppReportResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<VideoAppReportResponse>(await this.callApi(params, req, runtime), new VideoAppReportResponse({}));
+    } else {
+      return $tea.cast<VideoAppReportResponse>(await this.execute(params, req, runtime), new VideoAppReportResponse({}));
+    }
+
   }
 
   async videoAppReport(request: VideoAppReportRequest): Promise<VideoAppReportResponse> {
@@ -3778,7 +4149,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<WakeUpAppResponse>(await this.callApi(params, req, runtime), new WakeUpAppResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<WakeUpAppResponse>(await this.callApi(params, req, runtime), new WakeUpAppResponse({}));
+    } else {
+      return $tea.cast<WakeUpAppResponse>(await this.execute(params, req, runtime), new WakeUpAppResponse({}));
+    }
+
   }
 
   async wakeUpApp(request: WakeUpAppRequest): Promise<WakeUpAppResponse> {
