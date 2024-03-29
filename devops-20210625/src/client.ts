@@ -25495,10 +25495,12 @@ export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
 
 export class ListJoinedOrganizationsResponseBodyOrganizations extends $tea.Model {
   id?: string;
+  isOrgAdmin?: boolean;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'id',
+      isOrgAdmin: 'isOrgAdmin',
       name: 'name',
     };
   }
@@ -25506,6 +25508,7 @@ export class ListJoinedOrganizationsResponseBodyOrganizations extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+      isOrgAdmin: 'boolean',
       name: 'string',
     };
   }
