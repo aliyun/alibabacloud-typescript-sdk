@@ -8,6 +8,199 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AttachVscMountPointRequest extends $tea.Model {
+  description?: string;
+  fileSystemId?: string;
+  inputRegionId?: string;
+  instanceIds?: { [key: string]: any };
+  mountPointId?: string;
+  vscIds?: string[];
+  vscType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      instanceIds: 'InstanceIds',
+      mountPointId: 'MountPointId',
+      vscIds: 'VscIds',
+      vscType: 'VscType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      instanceIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      mountPointId: 'string',
+      vscIds: { 'type': 'array', 'itemType': 'string' },
+      vscType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachVscMountPointShrinkRequest extends $tea.Model {
+  description?: string;
+  fileSystemId?: string;
+  inputRegionId?: string;
+  instanceIdsShrink?: string;
+  mountPointId?: string;
+  vscIdsShrink?: string;
+  vscType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      instanceIdsShrink: 'InstanceIds',
+      mountPointId: 'MountPointId',
+      vscIdsShrink: 'VscIds',
+      vscType: 'VscType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      instanceIdsShrink: 'string',
+      mountPointId: 'string',
+      vscIdsShrink: 'string',
+      vscType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachVscMountPointResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachVscMountPointResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachVscMountPointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachVscMountPointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindVscMountPointAliasRequest extends $tea.Model {
+  aliasPrefix?: string;
+  fileSystemId?: string;
+  inputRegionId?: string;
+  mountPointId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasPrefix: 'AliasPrefix',
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      mountPointId: 'MountPointId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasPrefix: 'string',
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      mountPointId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindVscMountPointAliasResponseBody extends $tea.Model {
+  mountPointAlias?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPointAlias: 'MountPointAlias',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPointAlias: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindVscMountPointAliasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindVscMountPointAliasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindVscMountPointAliasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAccessGroupRequest extends $tea.Model {
   accessGroupName?: string;
   description?: string;
@@ -59,11 +252,13 @@ export class CreateAccessGroupResponseBody extends $tea.Model {
 }
 
 export class CreateAccessGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateAccessGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccessGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -71,6 +266,7 @@ export class CreateAccessGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccessGroupResponseBody,
     };
   }
@@ -137,11 +333,13 @@ export class CreateAccessRuleResponseBody extends $tea.Model {
 }
 
 export class CreateAccessRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateAccessRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccessRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -149,6 +347,7 @@ export class CreateAccessRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateAccessRuleResponseBody,
     };
   }
@@ -233,11 +432,13 @@ export class CreateFileSystemResponseBody extends $tea.Model {
 }
 
 export class CreateFileSystemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateFileSystemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -245,6 +446,7 @@ export class CreateFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateFileSystemResponseBody,
     };
   }
@@ -314,11 +516,13 @@ export class CreateMountPointResponseBody extends $tea.Model {
 }
 
 export class CreateMountPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateMountPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMountPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -326,6 +530,7 @@ export class CreateMountPointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateMountPointResponseBody,
     };
   }
@@ -337,7 +542,7 @@ export class CreateMountPointResponse extends $tea.Model {
 
 export class CreateUserGroupsMappingRequest extends $tea.Model {
   fileSystemId?: string;
-  groupNames?: { [key: string]: any };
+  groupNames?: string[];
   inputRegionId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -352,7 +557,7 @@ export class CreateUserGroupsMappingRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
-      groupNames: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      groupNames: { 'type': 'array', 'itemType': 'string' },
       inputRegionId: 'string',
       userName: 'string',
     };
@@ -411,11 +616,13 @@ export class CreateUserGroupsMappingResponseBody extends $tea.Model {
 }
 
 export class CreateUserGroupsMappingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateUserGroupsMappingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserGroupsMappingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -423,7 +630,111 @@ export class CreateUserGroupsMappingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateUserGroupsMappingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVscMountPointRequest extends $tea.Model {
+  description?: string;
+  fileSystemId?: string;
+  inputRegionId?: string;
+  instanceIds?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      instanceIds: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      instanceIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVscMountPointShrinkRequest extends $tea.Model {
+  description?: string;
+  fileSystemId?: string;
+  inputRegionId?: string;
+  instanceIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      instanceIdsShrink: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      instanceIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVscMountPointResponseBody extends $tea.Model {
+  mountPointId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPointId: 'MountPointId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPointId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVscMountPointResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVscMountPointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVscMountPointResponseBody,
     };
   }
 
@@ -474,11 +785,13 @@ export class DeleteAccessGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteAccessGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteAccessGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccessGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -486,6 +799,7 @@ export class DeleteAccessGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccessGroupResponseBody,
     };
   }
@@ -540,11 +854,13 @@ export class DeleteAccessRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteAccessRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteAccessRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccessRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -552,6 +868,7 @@ export class DeleteAccessRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteAccessRuleResponseBody,
     };
   }
@@ -603,11 +920,13 @@ export class DeleteFileSystemResponseBody extends $tea.Model {
 }
 
 export class DeleteFileSystemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteFileSystemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -615,6 +934,7 @@ export class DeleteFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteFileSystemResponseBody,
     };
   }
@@ -669,11 +989,13 @@ export class DeleteMountPointResponseBody extends $tea.Model {
 }
 
 export class DeleteMountPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteMountPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMountPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -681,6 +1003,7 @@ export class DeleteMountPointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteMountPointResponseBody,
     };
   }
@@ -766,11 +1089,13 @@ export class DeleteUserGroupsMappingResponseBody extends $tea.Model {
 }
 
 export class DeleteUserGroupsMappingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteUserGroupsMappingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserGroupsMappingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -778,7 +1103,77 @@ export class DeleteUserGroupsMappingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteUserGroupsMappingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVscMountPointRequest extends $tea.Model {
+  fileSystemId?: string;
+  inputRegionId?: string;
+  mountPointId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      mountPointId: 'MountPointId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      mountPointId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVscMountPointResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVscMountPointResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVscMountPointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVscMountPointResponseBody,
     };
   }
 
@@ -832,11 +1227,13 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -844,7 +1241,204 @@ export class DescribeRegionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscMountPointsRequest extends $tea.Model {
+  fileSystemId?: string;
+  inputRegionId?: string;
+  instanceId?: string;
+  mountPointId?: string;
+  status?: string;
+  vscId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      instanceId: 'InstanceId',
+      mountPointId: 'MountPointId',
+      status: 'Status',
+      vscId: 'VscId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      instanceId: 'string',
+      mountPointId: 'string',
+      status: 'string',
+      vscId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscMountPointsResponseBody extends $tea.Model {
+  mountPoints?: DescribeVscMountPointsResponseBodyMountPoints[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mountPoints: 'MountPoints',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPoints: { 'type': 'array', 'itemType': DescribeVscMountPointsResponseBodyMountPoints },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscMountPointsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVscMountPointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVscMountPointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachVscMountPointRequest extends $tea.Model {
+  description?: string;
+  fileSystemId?: string;
+  inputRegionId?: string;
+  instanceIds?: { [key: string]: any };
+  mountPointId?: string;
+  vscIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      instanceIds: 'InstanceIds',
+      mountPointId: 'MountPointId',
+      vscIds: 'VscIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      instanceIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      mountPointId: 'string',
+      vscIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachVscMountPointShrinkRequest extends $tea.Model {
+  description?: string;
+  fileSystemId?: string;
+  inputRegionId?: string;
+  instanceIdsShrink?: string;
+  mountPointId?: string;
+  vscIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileSystemId: 'FileSystemId',
+      inputRegionId: 'InputRegionId',
+      instanceIdsShrink: 'InstanceIds',
+      mountPointId: 'MountPointId',
+      vscIdsShrink: 'VscIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileSystemId: 'string',
+      inputRegionId: 'string',
+      instanceIdsShrink: 'string',
+      mountPointId: 'string',
+      vscIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachVscMountPointResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachVscMountPointResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachVscMountPointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachVscMountPointResponseBody,
     };
   }
 
@@ -898,11 +1492,13 @@ export class GetAccessGroupResponseBody extends $tea.Model {
 }
 
 export class GetAccessGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAccessGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccessGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -910,6 +1506,7 @@ export class GetAccessGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAccessGroupResponseBody,
     };
   }
@@ -967,11 +1564,13 @@ export class GetAccessRuleResponseBody extends $tea.Model {
 }
 
 export class GetAccessRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAccessRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccessRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -979,6 +1578,7 @@ export class GetAccessRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetAccessRuleResponseBody,
     };
   }
@@ -1033,11 +1633,13 @@ export class GetFileSystemResponseBody extends $tea.Model {
 }
 
 export class GetFileSystemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetFileSystemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1045,6 +1647,7 @@ export class GetFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetFileSystemResponseBody,
     };
   }
@@ -1102,11 +1705,13 @@ export class GetMountPointResponseBody extends $tea.Model {
 }
 
 export class GetMountPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetMountPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMountPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1114,6 +1719,7 @@ export class GetMountPointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetMountPointResponseBody,
     };
   }
@@ -1165,11 +1771,13 @@ export class GetRegionResponseBody extends $tea.Model {
 }
 
 export class GetRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetRegionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRegionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1177,6 +1785,7 @@ export class GetRegionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetRegionResponseBody,
     };
   }
@@ -1243,11 +1852,13 @@ export class ListAccessGroupsResponseBody extends $tea.Model {
 }
 
 export class ListAccessGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListAccessGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccessGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1255,6 +1866,7 @@ export class ListAccessGroupsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAccessGroupsResponseBody,
     };
   }
@@ -1324,11 +1936,13 @@ export class ListAccessRulesResponseBody extends $tea.Model {
 }
 
 export class ListAccessRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListAccessRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccessRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1336,6 +1950,7 @@ export class ListAccessRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListAccessRulesResponseBody,
     };
   }
@@ -1402,11 +2017,13 @@ export class ListFileSystemsResponseBody extends $tea.Model {
 }
 
 export class ListFileSystemsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListFileSystemsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFileSystemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1414,6 +2031,7 @@ export class ListFileSystemsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListFileSystemsResponseBody,
     };
   }
@@ -1483,11 +2101,13 @@ export class ListMountPointsResponseBody extends $tea.Model {
 }
 
 export class ListMountPointsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListMountPointsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMountPointsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1495,6 +2115,7 @@ export class ListMountPointsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListMountPointsResponseBody,
     };
   }
@@ -1561,11 +2182,13 @@ export class ListUserGroupsMappingsResponseBody extends $tea.Model {
 }
 
 export class ListUserGroupsMappingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListUserGroupsMappingsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserGroupsMappingsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1573,6 +2196,7 @@ export class ListUserGroupsMappingsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListUserGroupsMappingsResponseBody,
     };
   }
@@ -1630,11 +2254,13 @@ export class ModifyAccessGroupResponseBody extends $tea.Model {
 }
 
 export class ModifyAccessGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyAccessGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccessGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1642,6 +2268,7 @@ export class ModifyAccessGroupResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAccessGroupResponseBody,
     };
   }
@@ -1705,11 +2332,13 @@ export class ModifyAccessRuleResponseBody extends $tea.Model {
 }
 
 export class ModifyAccessRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyAccessRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccessRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1717,6 +2346,7 @@ export class ModifyAccessRuleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyAccessRuleResponseBody,
     };
   }
@@ -1783,11 +2413,13 @@ export class ModifyFileSystemResponseBody extends $tea.Model {
 }
 
 export class ModifyFileSystemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyFileSystemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyFileSystemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1795,6 +2427,7 @@ export class ModifyFileSystemResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyFileSystemResponseBody,
     };
   }
@@ -1858,11 +2491,13 @@ export class ModifyMountPointResponseBody extends $tea.Model {
 }
 
 export class ModifyMountPointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyMountPointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyMountPointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1870,6 +2505,7 @@ export class ModifyMountPointResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ModifyMountPointResponseBody,
     };
   }
@@ -1915,6 +2551,87 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscMountPointsResponseBodyMountPointsInstancesVscs extends $tea.Model {
+  vscId?: string;
+  vscStatus?: string;
+  vscType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vscId: 'VscId',
+      vscStatus: 'VscStatus',
+      vscType: 'VscType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vscId: 'string',
+      vscStatus: 'string',
+      vscType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscMountPointsResponseBodyMountPointsInstances extends $tea.Model {
+  instanceId?: string;
+  status?: string;
+  vscs?: DescribeVscMountPointsResponseBodyMountPointsInstancesVscs[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      status: 'Status',
+      vscs: 'Vscs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      status: 'string',
+      vscs: { 'type': 'array', 'itemType': DescribeVscMountPointsResponseBodyMountPointsInstancesVscs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscMountPointsResponseBodyMountPoints extends $tea.Model {
+  description?: string;
+  instanceTotalCount?: number;
+  instances?: DescribeVscMountPointsResponseBodyMountPointsInstances[];
+  mountPointAlias?: string;
+  mountPointId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      instanceTotalCount: 'InstanceTotalCount',
+      instances: 'Instances',
+      mountPointAlias: 'MountPointAlias',
+      mountPointId: 'MountPointId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      instanceTotalCount: 'number',
+      instances: { 'type': 'array', 'itemType': DescribeVscMountPointsResponseBodyMountPointsInstances },
+      mountPointAlias: 'string',
+      mountPointId: 'string',
     };
   }
 
@@ -2416,6 +3133,123 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * ****
+    *
+    * @param tmpReq AttachVscMountPointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachVscMountPointResponse
+   */
+  async attachVscMountPointWithOptions(tmpReq: AttachVscMountPointRequest, runtime: $Util.RuntimeOptions): Promise<AttachVscMountPointResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AttachVscMountPointShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.vscIds)) {
+      request.vscIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vscIds, "VscIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.mountPointId)) {
+      query["MountPointId"] = request.mountPointId;
+    }
+
+    if (!Util.isUnset(request.vscIdsShrink)) {
+      query["VscIds"] = request.vscIdsShrink;
+    }
+
+    if (!Util.isUnset(request.vscType)) {
+      query["VscType"] = request.vscType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachVscMountPoint",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachVscMountPointResponse>(await this.callApi(params, req, runtime), new AttachVscMountPointResponse({}));
+  }
+
+  /**
+    * ****
+    *
+    * @param request AttachVscMountPointRequest
+    * @return AttachVscMountPointResponse
+   */
+  async attachVscMountPoint(request: AttachVscMountPointRequest): Promise<AttachVscMountPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachVscMountPointWithOptions(request, runtime);
+  }
+
+  async bindVscMountPointAliasWithOptions(request: BindVscMountPointAliasRequest, runtime: $Util.RuntimeOptions): Promise<BindVscMountPointAliasResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasPrefix)) {
+      query["AliasPrefix"] = request.aliasPrefix;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!Util.isUnset(request.mountPointId)) {
+      query["MountPointId"] = request.mountPointId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindVscMountPointAlias",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindVscMountPointAliasResponse>(await this.callApi(params, req, runtime), new BindVscMountPointAliasResponse({}));
+  }
+
+  async bindVscMountPointAlias(request: BindVscMountPointAliasRequest): Promise<BindVscMountPointAliasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindVscMountPointAliasWithOptions(request, runtime);
+  }
+
   async createAccessGroupWithOptions(request: CreateAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2663,6 +3497,53 @@ export default class Client extends OpenApi {
     return await this.createUserGroupsMappingWithOptions(request, runtime);
   }
 
+  async createVscMountPointWithOptions(tmpReq: CreateVscMountPointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVscMountPointResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateVscMountPointShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateVscMountPoint",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVscMountPointResponse>(await this.callApi(params, req, runtime), new CreateVscMountPointResponse({}));
+  }
+
+  async createVscMountPoint(request: CreateVscMountPointRequest): Promise<CreateVscMountPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createVscMountPointWithOptions(request, runtime);
+  }
+
   async deleteAccessGroupWithOptions(request: DeleteAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2834,6 +3715,43 @@ export default class Client extends OpenApi {
     return await this.deleteUserGroupsMappingWithOptions(request, runtime);
   }
 
+  async deleteVscMountPointWithOptions(request: DeleteVscMountPointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVscMountPointResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!Util.isUnset(request.mountPointId)) {
+      query["MountPointId"] = request.mountPointId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteVscMountPoint",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVscMountPointResponse>(await this.callApi(params, req, runtime), new DeleteVscMountPointResponse({}));
+  }
+
+  async deleteVscMountPoint(request: DeleteVscMountPointRequest): Promise<DeleteVscMountPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteVscMountPointWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2865,6 +3783,114 @@ export default class Client extends OpenApi {
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  async describeVscMountPointsWithOptions(request: DescribeVscMountPointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVscMountPointsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mountPointId)) {
+      query["MountPointId"] = request.mountPointId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.vscId)) {
+      query["VscId"] = request.vscId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVscMountPoints",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVscMountPointsResponse>(await this.callApi(params, req, runtime), new DescribeVscMountPointsResponse({}));
+  }
+
+  async describeVscMountPoints(request: DescribeVscMountPointsRequest): Promise<DescribeVscMountPointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVscMountPointsWithOptions(request, runtime);
+  }
+
+  async detachVscMountPointWithOptions(tmpReq: DetachVscMountPointRequest, runtime: $Util.RuntimeOptions): Promise<DetachVscMountPointResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DetachVscMountPointShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.vscIds)) {
+      request.vscIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vscIds, "VscIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!Util.isUnset(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.mountPointId)) {
+      query["MountPointId"] = request.mountPointId;
+    }
+
+    if (!Util.isUnset(request.vscIdsShrink)) {
+      query["VscIds"] = request.vscIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachVscMountPoint",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachVscMountPointResponse>(await this.callApi(params, req, runtime), new DetachVscMountPointResponse({}));
+  }
+
+  async detachVscMountPoint(request: DetachVscMountPointRequest): Promise<DetachVscMountPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachVscMountPointWithOptions(request, runtime);
   }
 
   async getAccessGroupWithOptions(request: GetAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessGroupResponse> {
