@@ -5017,6 +5017,112 @@ export class PostMSSearchEnhanceResponse extends $tea.Model {
   }
 }
 
+export class PostMSServiceDataImportRequest extends $tea.Model {
+  dataType?: string;
+  documents?: PostMSServiceDataImportRequestDocuments[];
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      documents: 'Documents',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      documents: { 'type': 'array', 'itemType': PostMSServiceDataImportRequestDocuments },
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSServiceDataImportShrinkRequest extends $tea.Model {
+  dataType?: string;
+  documentsShrink?: string;
+  serviceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      documentsShrink: 'Documents',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      documentsShrink: 'string',
+      serviceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSServiceDataImportResponseBody extends $tea.Model {
+  code?: number;
+  data?: number;
+  msg?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSServiceDataImportResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PostMSServiceDataImportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PostMSServiceDataImportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RequestTableQARequest extends $tea.Model {
   params?: string;
   serviceCode?: string;
@@ -5368,6 +5474,40 @@ export class PostMSDataProcessingCountResponseBodyData extends $tea.Model {
     return {
       dataProcessedStatuses: { 'type': 'array', 'itemType': PostMSDataProcessingCountResponseBodyDataDataProcessedStatuses },
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PostMSServiceDataImportRequestDocuments extends $tea.Model {
+  bizParams?: { [key: string]: any };
+  docId?: string;
+  fileExtension?: string;
+  fileName?: string;
+  filePath?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizParams: 'BizParams',
+      docId: 'DocId',
+      fileExtension: 'FileExtension',
+      fileName: 'FileName',
+      filePath: 'FilePath',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      docId: 'string',
+      fileExtension: 'string',
+      fileName: 'string',
+      filePath: 'string',
+      version: 'string',
     };
   }
 
@@ -7897,6 +8037,49 @@ export default class Client extends OpenApi {
   async postMSSearchEnhance(request: PostMSSearchEnhanceRequest): Promise<PostMSSearchEnhanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.postMSSearchEnhanceWithOptions(request, runtime);
+  }
+
+  async postMSServiceDataImportWithOptions(tmpReq: PostMSServiceDataImportRequest, runtime: $Util.RuntimeOptions): Promise<PostMSServiceDataImportResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PostMSServiceDataImportShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documents)) {
+      request.documentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documents, "Documents", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataType)) {
+      body["DataType"] = request.dataType;
+    }
+
+    if (!Util.isUnset(request.documentsShrink)) {
+      body["Documents"] = request.documentsShrink;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PostMSServiceDataImport",
+      version: "2020-06-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PostMSServiceDataImportResponse>(await this.callApi(params, req, runtime), new PostMSServiceDataImportResponse({}));
+  }
+
+  async postMSServiceDataImport(request: PostMSServiceDataImportRequest): Promise<PostMSServiceDataImportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.postMSServiceDataImportWithOptions(request, runtime);
   }
 
   async requestTableQAWithOptions(request: RequestTableQARequest, runtime: $Util.RuntimeOptions): Promise<RequestTableQAResponse> {
