@@ -60,11 +60,12 @@ export class AndroidPayload extends $tea.Model {
 
 export class Aps extends $tea.Model {
   alert?: Alert;
-  badge?: number;
+  badge?: string;
   category?: string;
   contentAvailable?: number;
   interruptionLevel?: string;
   sound?: string;
+  threadID?: string;
   static names(): { [key: string]: string } {
     return {
       alert: 'alert',
@@ -73,17 +74,19 @@ export class Aps extends $tea.Model {
       contentAvailable: 'contentAvailable',
       interruptionLevel: 'interruptionLevel',
       sound: 'sound',
+      threadID: 'threadID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       alert: Alert,
-      badge: 'number',
+      badge: 'string',
       category: 'string',
       contentAvailable: 'number',
       interruptionLevel: 'string',
       sound: 'string',
+      threadID: 'string',
     };
   }
 
@@ -201,7 +204,7 @@ export class ChannelProperties extends $tea.Model {
 
 export class IosPayload extends $tea.Model {
   aps?: Aps;
-  extra?: { [key: string]: string };
+  extra?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       aps: 'aps',
@@ -212,7 +215,7 @@ export class IosPayload extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aps: Aps,
-      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -303,9 +306,9 @@ export class CancelByMsgIdResponseBody extends $tea.Model {
 }
 
 export class CancelByMsgIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelByMsgIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelByMsgIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -381,9 +384,9 @@ export class QueryMsgStatResponseBody extends $tea.Model {
 }
 
 export class QueryMsgStatResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMsgStatResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMsgStatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -416,6 +419,7 @@ export class SendByAliasRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
@@ -428,6 +432,7 @@ export class SendByAliasRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -443,6 +448,7 @@ export class SendByAliasRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -462,6 +468,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'Alias',
@@ -474,6 +481,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -489,6 +497,7 @@ export class SendByAliasShrinkRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -532,9 +541,9 @@ export class SendByAliasResponseBody extends $tea.Model {
 }
 
 export class SendByAliasResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendByAliasResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendByAliasResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -683,9 +692,9 @@ export class SendByAliasFileIdResponseBody extends $tea.Model {
 }
 
 export class SendByAliasFileIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendByAliasFileIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendByAliasFileIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -822,9 +831,9 @@ export class SendByAppResponseBody extends $tea.Model {
 }
 
 export class SendByAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendByAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendByAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -856,6 +865,7 @@ export class SendByDeviceRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayload: 'AndroidPayload',
@@ -867,6 +877,7 @@ export class SendByDeviceRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -881,6 +892,7 @@ export class SendByDeviceRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -899,6 +911,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
   productionMode?: boolean;
   receiptType?: number;
   receiptUrl?: string;
+  thirdPartyId?: string;
   static names(): { [key: string]: string } {
     return {
       androidPayloadShrink: 'AndroidPayload',
@@ -910,6 +923,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
       productionMode: 'ProductionMode',
       receiptType: 'ReceiptType',
       receiptUrl: 'ReceiptUrl',
+      thirdPartyId: 'ThirdPartyId',
     };
   }
 
@@ -924,6 +938,7 @@ export class SendByDeviceShrinkRequest extends $tea.Model {
       productionMode: 'boolean',
       receiptType: 'number',
       receiptUrl: 'string',
+      thirdPartyId: 'string',
     };
   }
 
@@ -967,9 +982,9 @@ export class SendByDeviceResponseBody extends $tea.Model {
 }
 
 export class SendByDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendByDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendByDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1112,9 +1127,9 @@ export class SendByDeviceFileIdResponseBody extends $tea.Model {
 }
 
 export class SendByDeviceFileIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendByDeviceFileIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendByDeviceFileIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1257,9 +1272,9 @@ export class SendByFilterResponseBody extends $tea.Model {
 }
 
 export class SendByFilterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendByFilterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendByFilterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1335,9 +1350,9 @@ export class UploadDeviceResponseBody extends $tea.Model {
 }
 
 export class UploadDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1697,6 +1712,10 @@ export default class Client extends OpenApi {
       body["ReceiptUrl"] = request.receiptUrl;
     }
 
+    if (!Util.isUnset(request.thirdPartyId)) {
+      body["ThirdPartyId"] = request.thirdPartyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -1938,6 +1957,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.receiptUrl)) {
       body["ReceiptUrl"] = request.receiptUrl;
+    }
+
+    if (!Util.isUnset(request.thirdPartyId)) {
+      body["ThirdPartyId"] = request.thirdPartyId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
