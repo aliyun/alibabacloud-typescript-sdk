@@ -46,9 +46,12 @@ export class ConfigureDtsJobRequest extends $tea.Model {
   errorPhone?: string;
   fileOssUrl?: string;
   jobType?: string;
+  maxDu?: number;
+  minDu?: number;
   ownerId?: string;
   regionId?: string;
   reserve?: string;
+  resourceGroupId?: string;
   sourceEndpointDatabaseName?: string;
   sourceEndpointEngineName?: string;
   sourceEndpointIP?: string;
@@ -100,9 +103,12 @@ export class ConfigureDtsJobRequest extends $tea.Model {
       errorPhone: 'ErrorPhone',
       fileOssUrl: 'FileOssUrl',
       jobType: 'JobType',
+      maxDu: 'MaxDu',
+      minDu: 'MinDu',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       reserve: 'Reserve',
+      resourceGroupId: 'ResourceGroupId',
       sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
       sourceEndpointEngineName: 'SourceEndpointEngineName',
       sourceEndpointIP: 'SourceEndpointIP',
@@ -157,9 +163,12 @@ export class ConfigureDtsJobRequest extends $tea.Model {
       errorPhone: 'string',
       fileOssUrl: 'string',
       jobType: 'string',
+      maxDu: 'number',
+      minDu: 'number',
       ownerId: 'string',
       regionId: 'string',
       reserve: 'string',
+      resourceGroupId: 'string',
       sourceEndpointDatabaseName: 'string',
       sourceEndpointEngineName: 'string',
       sourceEndpointIP: 'string',
@@ -218,9 +227,12 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
   errorPhone?: string;
   fileOssUrlObject?: Readable;
   jobType?: string;
+  maxDu?: number;
+  minDu?: number;
   ownerId?: string;
   regionId?: string;
   reserve?: string;
+  resourceGroupId?: string;
   sourceEndpointDatabaseName?: string;
   sourceEndpointEngineName?: string;
   sourceEndpointIP?: string;
@@ -272,9 +284,12 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
       errorPhone: 'ErrorPhone',
       fileOssUrlObject: 'FileOssUrl',
       jobType: 'JobType',
+      maxDu: 'MaxDu',
+      minDu: 'MinDu',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       reserve: 'Reserve',
+      resourceGroupId: 'ResourceGroupId',
       sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
       sourceEndpointEngineName: 'SourceEndpointEngineName',
       sourceEndpointIP: 'SourceEndpointIP',
@@ -329,9 +344,12 @@ export class ConfigureDtsJobAdvanceRequest extends $tea.Model {
       errorPhone: 'string',
       fileOssUrlObject: 'Readable',
       jobType: 'string',
+      maxDu: 'number',
+      minDu: 'number',
       ownerId: 'string',
       regionId: 'string',
       reserve: 'string',
+      resourceGroupId: 'string',
       sourceEndpointDatabaseName: 'string',
       sourceEndpointEngineName: 'string',
       sourceEndpointIP: 'string',
@@ -395,9 +413,9 @@ export class ConfigureDtsJobResponseBody extends $tea.Model {
 }
 
 export class ConfigureDtsJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureDtsJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureDtsJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -431,6 +449,7 @@ export class ConfigureMigrationJobRequest extends $tea.Model {
   migrationReserved?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       destinationEndpoint: 'DestinationEndpoint',
@@ -444,6 +463,7 @@ export class ConfigureMigrationJobRequest extends $tea.Model {
       migrationReserved: 'MigrationReserved',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -460,6 +480,7 @@ export class ConfigureMigrationJobRequest extends $tea.Model {
       migrationReserved: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -497,9 +518,9 @@ export class ConfigureMigrationJobResponseBody extends $tea.Model {
 }
 
 export class ConfigureMigrationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureMigrationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureMigrationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -531,6 +552,7 @@ export class ConfigureMigrationJobAlertRequest extends $tea.Model {
   migrationJobId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -542,6 +564,7 @@ export class ConfigureMigrationJobAlertRequest extends $tea.Model {
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -556,6 +579,7 @@ export class ConfigureMigrationJobAlertRequest extends $tea.Model {
       migrationJobId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -593,9 +617,9 @@ export class ConfigureMigrationJobAlertResponseBody extends $tea.Model {
 }
 
 export class ConfigureMigrationJobAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureMigrationJobAlertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureMigrationJobAlertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -630,8 +654,11 @@ export class ConfigureSubscriptionRequest extends $tea.Model {
   dtsJobName?: string;
   errorNotice?: boolean;
   errorPhone?: string;
+  maxDu?: number;
+  minDu?: number;
   regionId?: string;
   reserve?: string;
+  resourceGroupId?: string;
   sourceEndpointDatabaseName?: string;
   sourceEndpointEngineName?: string;
   sourceEndpointIP?: string;
@@ -663,8 +690,11 @@ export class ConfigureSubscriptionRequest extends $tea.Model {
       dtsJobName: 'DtsJobName',
       errorNotice: 'ErrorNotice',
       errorPhone: 'ErrorPhone',
+      maxDu: 'MaxDu',
+      minDu: 'MinDu',
       regionId: 'RegionId',
       reserve: 'Reserve',
+      resourceGroupId: 'ResourceGroupId',
       sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
       sourceEndpointEngineName: 'SourceEndpointEngineName',
       sourceEndpointIP: 'SourceEndpointIP',
@@ -699,8 +729,11 @@ export class ConfigureSubscriptionRequest extends $tea.Model {
       dtsJobName: 'string',
       errorNotice: 'boolean',
       errorPhone: 'string',
+      maxDu: 'number',
+      minDu: 'number',
       regionId: 'string',
       reserve: 'string',
+      resourceGroupId: 'string',
       sourceEndpointDatabaseName: 'string',
       sourceEndpointEngineName: 'string',
       sourceEndpointIP: 'string',
@@ -764,9 +797,9 @@ export class ConfigureSubscriptionResponseBody extends $tea.Model {
 }
 
 export class ConfigureSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -795,6 +828,7 @@ export class ConfigureSubscriptionInstanceRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   subscriptionInstanceName?: string;
   subscriptionInstanceNetworkType?: string;
@@ -807,6 +841,7 @@ export class ConfigureSubscriptionInstanceRequest extends $tea.Model {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       subscriptionInstanceName: 'SubscriptionInstanceName',
       subscriptionInstanceNetworkType: 'SubscriptionInstanceNetworkType',
@@ -822,6 +857,7 @@ export class ConfigureSubscriptionInstanceRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
       subscriptionInstanceName: 'string',
       subscriptionInstanceNetworkType: 'string',
@@ -863,9 +899,9 @@ export class ConfigureSubscriptionInstanceResponseBody extends $tea.Model {
 }
 
 export class ConfigureSubscriptionInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureSubscriptionInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureSubscriptionInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -896,6 +932,7 @@ export class ConfigureSubscriptionInstanceAlertRequest extends $tea.Model {
   errorAlertStatus?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -907,6 +944,7 @@ export class ConfigureSubscriptionInstanceAlertRequest extends $tea.Model {
       errorAlertStatus: 'ErrorAlertStatus',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -921,6 +959,7 @@ export class ConfigureSubscriptionInstanceAlertRequest extends $tea.Model {
       errorAlertStatus: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -959,9 +998,9 @@ export class ConfigureSubscriptionInstanceAlertResponseBody extends $tea.Model {
 }
 
 export class ConfigureSubscriptionInstanceAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureSubscriptionInstanceAlertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureSubscriptionInstanceAlertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -993,6 +1032,7 @@ export class ConfigureSynchronizationJobRequest extends $tea.Model {
   migrationReserved?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   structureInitialization?: boolean;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
@@ -1009,6 +1049,7 @@ export class ConfigureSynchronizationJobRequest extends $tea.Model {
       migrationReserved: 'MigrationReserved',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       structureInitialization: 'StructureInitialization',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
@@ -1028,6 +1069,7 @@ export class ConfigureSynchronizationJobRequest extends $tea.Model {
       migrationReserved: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       structureInitialization: 'boolean',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
@@ -1070,9 +1112,9 @@ export class ConfigureSynchronizationJobResponseBody extends $tea.Model {
 }
 
 export class ConfigureSynchronizationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureSynchronizationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureSynchronizationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1103,6 +1145,7 @@ export class ConfigureSynchronizationJobAlertRequest extends $tea.Model {
   errorAlertStatus?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
@@ -1115,6 +1158,7 @@ export class ConfigureSynchronizationJobAlertRequest extends $tea.Model {
       errorAlertStatus: 'ErrorAlertStatus',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
     };
@@ -1130,6 +1174,7 @@ export class ConfigureSynchronizationJobAlertRequest extends $tea.Model {
       errorAlertStatus: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
     };
@@ -1169,9 +1214,9 @@ export class ConfigureSynchronizationJobAlertResponseBody extends $tea.Model {
 }
 
 export class ConfigureSynchronizationJobAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureSynchronizationJobAlertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureSynchronizationJobAlertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1198,6 +1243,7 @@ export class ConfigureSynchronizationJobReplicatorCompareRequest extends $tea.Mo
   clientToken?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   synchronizationReplicatorCompareEnable?: boolean;
@@ -1207,6 +1253,7 @@ export class ConfigureSynchronizationJobReplicatorCompareRequest extends $tea.Mo
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationReplicatorCompareEnable: 'SynchronizationReplicatorCompareEnable',
@@ -1219,6 +1266,7 @@ export class ConfigureSynchronizationJobReplicatorCompareRequest extends $tea.Mo
       clientToken: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
       synchronizationReplicatorCompareEnable: 'boolean',
@@ -1259,9 +1307,9 @@ export class ConfigureSynchronizationJobReplicatorCompareResponseBody extends $t
 }
 
 export class ConfigureSynchronizationJobReplicatorCompareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfigureSynchronizationJobReplicatorCompareResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigureSynchronizationJobReplicatorCompareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1290,6 +1338,7 @@ export class CountJobByConditionRequest extends $tea.Model {
   params?: string;
   region?: string;
   regionId?: string;
+  resourceGroupId?: string;
   srcDbType?: string;
   status?: string;
   type?: string;
@@ -1301,6 +1350,7 @@ export class CountJobByConditionRequest extends $tea.Model {
       params: 'Params',
       region: 'Region',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       srcDbType: 'SrcDbType',
       status: 'Status',
       type: 'Type',
@@ -1315,6 +1365,7 @@ export class CountJobByConditionRequest extends $tea.Model {
       params: 'string',
       region: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       srcDbType: 'string',
       status: 'string',
       type: 'string',
@@ -1367,9 +1418,9 @@ export class CountJobByConditionResponseBody extends $tea.Model {
 }
 
 export class CountJobByConditionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CountJobByConditionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CountJobByConditionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1398,6 +1449,7 @@ export class CreateConsumerChannelRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       consumerGroupName: 'ConsumerGroupName',
@@ -1406,6 +1458,7 @@ export class CreateConsumerChannelRequest extends $tea.Model {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1417,6 +1470,7 @@ export class CreateConsumerChannelRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1460,9 +1514,9 @@ export class CreateConsumerChannelResponseBody extends $tea.Model {
 }
 
 export class CreateConsumerChannelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateConsumerChannelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConsumerChannelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1491,6 +1545,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
   consumerGroupUserName?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1500,6 +1555,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
       consumerGroupUserName: 'ConsumerGroupUserName',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -1512,6 +1568,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
       consumerGroupUserName: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -1553,9 +1610,9 @@ export class CreateConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class CreateConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1588,6 +1645,7 @@ export class CreateDedicatedClusterMonitorRuleRequest extends $tea.Model {
   ownerId?: string;
   phones?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       cpuAlarmThreshold: 'CpuAlarmThreshold',
@@ -1600,6 +1658,7 @@ export class CreateDedicatedClusterMonitorRuleRequest extends $tea.Model {
       ownerId: 'OwnerId',
       phones: 'Phones',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1615,6 +1674,7 @@ export class CreateDedicatedClusterMonitorRuleRequest extends $tea.Model {
       ownerId: 'string',
       phones: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1655,9 +1715,9 @@ export class CreateDedicatedClusterMonitorRuleResponseBody extends $tea.Model {
 }
 
 export class CreateDedicatedClusterMonitorRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDedicatedClusterMonitorRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDedicatedClusterMonitorRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1690,6 +1750,8 @@ export class CreateDtsInstanceRequest extends $tea.Model {
   feeType?: string;
   instanceClass?: string;
   jobId?: string;
+  maxDu?: number;
+  minDu?: number;
   payType?: string;
   period?: string;
   quantity?: number;
@@ -1712,6 +1774,8 @@ export class CreateDtsInstanceRequest extends $tea.Model {
       feeType: 'FeeType',
       instanceClass: 'InstanceClass',
       jobId: 'JobId',
+      maxDu: 'MaxDu',
+      minDu: 'MinDu',
       payType: 'PayType',
       period: 'Period',
       quantity: 'Quantity',
@@ -1737,6 +1801,8 @@ export class CreateDtsInstanceRequest extends $tea.Model {
       feeType: 'string',
       instanceClass: 'string',
       jobId: 'string',
+      maxDu: 'number',
+      minDu: 'number',
       payType: 'string',
       period: 'string',
       quantity: 'number',
@@ -1790,9 +1856,9 @@ export class CreateDtsInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateDtsInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDtsInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDtsInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1821,6 +1887,7 @@ export class CreateJobMonitorRuleRequest extends $tea.Model {
   period?: number;
   phone?: string;
   regionId?: string;
+  resourceGroupId?: string;
   state?: string;
   times?: number;
   type?: string;
@@ -1832,6 +1899,7 @@ export class CreateJobMonitorRuleRequest extends $tea.Model {
       period: 'Period',
       phone: 'Phone',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
       times: 'Times',
       type: 'Type',
@@ -1846,6 +1914,7 @@ export class CreateJobMonitorRuleRequest extends $tea.Model {
       period: 'number',
       phone: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
       times: 'number',
       type: 'string',
@@ -1898,9 +1967,9 @@ export class CreateJobMonitorRuleResponseBody extends $tea.Model {
 }
 
 export class CreateJobMonitorRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateJobMonitorRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateJobMonitorRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1929,6 +1998,7 @@ export class CreateMigrationJobRequest extends $tea.Model {
   ownerId?: string;
   region?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -1937,6 +2007,7 @@ export class CreateMigrationJobRequest extends $tea.Model {
       ownerId: 'OwnerId',
       region: 'Region',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1948,6 +2019,7 @@ export class CreateMigrationJobRequest extends $tea.Model {
       ownerId: 'string',
       region: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1988,9 +2060,9 @@ export class CreateMigrationJobResponseBody extends $tea.Model {
 }
 
 export class CreateMigrationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateMigrationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMigrationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2014,15 +2086,18 @@ export class CreateMigrationJobResponse extends $tea.Model {
 
 export class CreateReverseDtsJobRequest extends $tea.Model {
   dtsJobId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dtsJobId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -2069,9 +2144,9 @@ export class CreateReverseDtsJobResponseBody extends $tea.Model {
 }
 
 export class CreateReverseDtsJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateReverseDtsJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateReverseDtsJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2102,6 +2177,7 @@ export class CreateSubscriptionInstanceRequest extends $tea.Model {
   period?: string;
   region?: string;
   regionId?: string;
+  resourceGroupId?: string;
   usedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2113,6 +2189,7 @@ export class CreateSubscriptionInstanceRequest extends $tea.Model {
       period: 'Period',
       region: 'Region',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       usedTime: 'UsedTime',
     };
   }
@@ -2127,6 +2204,7 @@ export class CreateSubscriptionInstanceRequest extends $tea.Model {
       period: 'string',
       region: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       usedTime: 'number',
     };
   }
@@ -2168,9 +2246,9 @@ export class CreateSubscriptionInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateSubscriptionInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSubscriptionInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSubscriptionInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2203,6 +2281,7 @@ export class CreateSynchronizationJobRequest extends $tea.Model {
   payType?: string;
   period?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sourceRegion?: string;
   synchronizationJobClass?: string;
   topology?: string;
@@ -2220,6 +2299,7 @@ export class CreateSynchronizationJobRequest extends $tea.Model {
       payType: 'PayType',
       period: 'Period',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceRegion: 'SourceRegion',
       synchronizationJobClass: 'SynchronizationJobClass',
       topology: 'Topology',
@@ -2240,6 +2320,7 @@ export class CreateSynchronizationJobRequest extends $tea.Model {
       payType: 'string',
       period: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceRegion: 'string',
       synchronizationJobClass: 'string',
       topology: 'string',
@@ -2285,9 +2366,9 @@ export class CreateSynchronizationJobResponseBody extends $tea.Model {
 }
 
 export class CreateSynchronizationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSynchronizationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSynchronizationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2314,12 +2395,14 @@ export class DeleteConsumerChannelRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       consumerGroupId: 'ConsumerGroupId',
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -2329,6 +2412,7 @@ export class DeleteConsumerChannelRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -2369,9 +2453,9 @@ export class DeleteConsumerChannelResponseBody extends $tea.Model {
 }
 
 export class DeleteConsumerChannelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteConsumerChannelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConsumerChannelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2398,6 +2482,7 @@ export class DeleteConsumerGroupRequest extends $tea.Model {
   consumerGroupID?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2405,6 +2490,7 @@ export class DeleteConsumerGroupRequest extends $tea.Model {
       consumerGroupID: 'ConsumerGroupID',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -2415,6 +2501,7 @@ export class DeleteConsumerGroupRequest extends $tea.Model {
       consumerGroupID: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -2453,9 +2540,9 @@ export class DeleteConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2482,14 +2569,18 @@ export class DeleteDtsJobRequest extends $tea.Model {
   dtsJobId?: string;
   jobType?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       jobType: 'JobType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -2499,7 +2590,9 @@ export class DeleteDtsJobRequest extends $tea.Model {
       dtsJobId: 'string',
       jobType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -2546,9 +2639,9 @@ export class DeleteDtsJobResponseBody extends $tea.Model {
 }
 
 export class DeleteDtsJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDtsJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDtsJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2573,10 +2666,14 @@ export class DeleteDtsJobResponse extends $tea.Model {
 export class DeleteDtsJobsRequest extends $tea.Model {
   dtsJobIds?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsJobIds: 'DtsJobIds',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -2584,6 +2681,8 @@ export class DeleteDtsJobsRequest extends $tea.Model {
     return {
       dtsJobIds: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -2630,9 +2729,9 @@ export class DeleteDtsJobsResponseBody extends $tea.Model {
 }
 
 export class DeleteDtsJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDtsJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDtsJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2659,12 +2758,14 @@ export class DeleteMigrationJobRequest extends $tea.Model {
   migrationJobId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -2674,6 +2775,7 @@ export class DeleteMigrationJobRequest extends $tea.Model {
       migrationJobId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -2711,9 +2813,9 @@ export class DeleteMigrationJobResponseBody extends $tea.Model {
 }
 
 export class DeleteMigrationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMigrationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMigrationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2739,12 +2841,14 @@ export class DeleteSubscriptionInstanceRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -2754,6 +2858,7 @@ export class DeleteSubscriptionInstanceRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -2792,9 +2897,9 @@ export class DeleteSubscriptionInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteSubscriptionInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSubscriptionInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSubscriptionInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2820,12 +2925,14 @@ export class DeleteSynchronizationJobRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationJobId: 'SynchronizationJobId',
     };
   }
@@ -2835,6 +2942,7 @@ export class DeleteSynchronizationJobRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationJobId: 'string',
     };
   }
@@ -2873,9 +2981,9 @@ export class DeleteSynchronizationJobResponseBody extends $tea.Model {
 }
 
 export class DeleteSynchronizationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSynchronizationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSynchronizationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2978,9 +3086,9 @@ export class DescribeChannelAccountResponseBody extends $tea.Model {
 }
 
 export class DescribeChannelAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeChannelAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeChannelAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3008,6 +3116,7 @@ export class DescribeCheckJobsRequest extends $tea.Model {
   jobName?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       checkType: 'CheckType',
@@ -3015,6 +3124,7 @@ export class DescribeCheckJobsRequest extends $tea.Model {
       jobName: 'JobName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -3025,6 +3135,7 @@ export class DescribeCheckJobsRequest extends $tea.Model {
       jobName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
     };
   }
 
@@ -3083,9 +3194,9 @@ export class DescribeCheckJobsResponseBody extends $tea.Model {
 }
 
 export class DescribeCheckJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCheckJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCheckJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3116,6 +3227,7 @@ export class DescribeClusterOperateLogsRequest extends $tea.Model {
   ownerID?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3127,6 +3239,7 @@ export class DescribeClusterOperateLogsRequest extends $tea.Model {
       ownerID: 'OwnerID',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       startTime: 'StartTime',
     };
   }
@@ -3141,6 +3254,7 @@ export class DescribeClusterOperateLogsRequest extends $tea.Model {
       ownerID: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       startTime: 'number',
     };
   }
@@ -3200,9 +3314,9 @@ export class DescribeClusterOperateLogsResponseBody extends $tea.Model {
 }
 
 export class DescribeClusterOperateLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeClusterOperateLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeClusterOperateLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3233,6 +3347,7 @@ export class DescribeClusterUsedUtilizationRequest extends $tea.Model {
   metricType?: string;
   ownerID?: string;
   regionId?: string;
+  resourceGroupId?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3244,6 +3359,7 @@ export class DescribeClusterUsedUtilizationRequest extends $tea.Model {
       metricType: 'MetricType',
       ownerID: 'OwnerID',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       securityToken: 'SecurityToken',
     };
   }
@@ -3258,6 +3374,7 @@ export class DescribeClusterUsedUtilizationRequest extends $tea.Model {
       metricType: 'string',
       ownerID: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       securityToken: 'string',
     };
   }
@@ -3335,9 +3452,9 @@ export class DescribeClusterUsedUtilizationResponseBody extends $tea.Model {
 }
 
 export class DescribeClusterUsedUtilizationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeClusterUsedUtilizationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeClusterUsedUtilizationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3372,6 +3489,7 @@ export class DescribeConnectionStatusRequest extends $tea.Model {
   destinationEndpointRegion?: string;
   destinationEndpointUserName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sourceEndpointArchitecture?: string;
   sourceEndpointDatabaseName?: string;
   sourceEndpointEngineName?: string;
@@ -3397,6 +3515,7 @@ export class DescribeConnectionStatusRequest extends $tea.Model {
       destinationEndpointRegion: 'DestinationEndpointRegion',
       destinationEndpointUserName: 'DestinationEndpointUserName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceEndpointArchitecture: 'SourceEndpointArchitecture',
       sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
       sourceEndpointEngineName: 'SourceEndpointEngineName',
@@ -3425,6 +3544,7 @@ export class DescribeConnectionStatusRequest extends $tea.Model {
       destinationEndpointRegion: 'string',
       destinationEndpointUserName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceEndpointArchitecture: 'string',
       sourceEndpointDatabaseName: 'string',
       sourceEndpointEngineName: 'string',
@@ -3479,9 +3599,9 @@ export class DescribeConnectionStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeConnectionStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeConnectionStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeConnectionStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3510,6 +3630,7 @@ export class DescribeConsumerChannelRequest extends $tea.Model {
   pageSize?: number;
   parentChannelId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
@@ -3518,6 +3639,7 @@ export class DescribeConsumerChannelRequest extends $tea.Model {
       pageSize: 'PageSize',
       parentChannelId: 'ParentChannelId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -3529,6 +3651,7 @@ export class DescribeConsumerChannelRequest extends $tea.Model {
       pageSize: 'number',
       parentChannelId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -3581,9 +3704,9 @@ export class DescribeConsumerChannelResponseBody extends $tea.Model {
 }
 
 export class DescribeConsumerChannelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeConsumerChannelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeConsumerChannelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3611,6 +3734,7 @@ export class DescribeConsumerGroupRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3619,6 +3743,7 @@ export class DescribeConsumerGroupRequest extends $tea.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -3630,6 +3755,7 @@ export class DescribeConsumerGroupRequest extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -3680,9 +3806,9 @@ export class DescribeConsumerGroupResponseBody extends $tea.Model {
 }
 
 export class DescribeConsumerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeConsumerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeConsumerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3707,11 +3833,13 @@ export class DescribeConsumerGroupResponse extends $tea.Model {
 export class DescribeDTSIPRequest extends $tea.Model {
   destinationEndpointRegion?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sourceEndpointRegion?: string;
   static names(): { [key: string]: string } {
     return {
       destinationEndpointRegion: 'DestinationEndpointRegion',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceEndpointRegion: 'SourceEndpointRegion',
     };
   }
@@ -3720,6 +3848,7 @@ export class DescribeDTSIPRequest extends $tea.Model {
     return {
       destinationEndpointRegion: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceEndpointRegion: 'string',
     };
   }
@@ -3764,9 +3893,9 @@ export class DescribeDTSIPResponseBody extends $tea.Model {
 }
 
 export class DescribeDTSIPResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDTSIPResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDTSIPResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3792,12 +3921,14 @@ export class DescribeDataCheckReportUrlRequest extends $tea.Model {
   checkType?: number;
   dbName?: string;
   dtsJobId?: string;
+  resourceGroupId?: string;
   tbName?: string;
   static names(): { [key: string]: string } {
     return {
       checkType: 'CheckType',
       dbName: 'DbName',
       dtsJobId: 'DtsJobId',
+      resourceGroupId: 'ResourceGroupId',
       tbName: 'TbName',
     };
   }
@@ -3807,6 +3938,7 @@ export class DescribeDataCheckReportUrlRequest extends $tea.Model {
       checkType: 'number',
       dbName: 'string',
       dtsJobId: 'string',
+      resourceGroupId: 'string',
       tbName: 'string',
     };
   }
@@ -3851,9 +3983,9 @@ export class DescribeDataCheckReportUrlResponseBody extends $tea.Model {
 }
 
 export class DescribeDataCheckReportUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDataCheckReportUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataCheckReportUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3880,6 +4012,7 @@ export class DescribeDataCheckTableDetailsRequest extends $tea.Model {
   dtsJobId?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   schemaName?: string;
   status?: string;
   tableName?: string;
@@ -3889,6 +4022,7 @@ export class DescribeDataCheckTableDetailsRequest extends $tea.Model {
       dtsJobId: 'DtsJobId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       schemaName: 'SchemaName',
       status: 'Status',
       tableName: 'TableName',
@@ -3901,6 +4035,7 @@ export class DescribeDataCheckTableDetailsRequest extends $tea.Model {
       dtsJobId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       schemaName: 'string',
       status: 'string',
       tableName: 'string',
@@ -3965,9 +4100,9 @@ export class DescribeDataCheckTableDetailsResponseBody extends $tea.Model {
 }
 
 export class DescribeDataCheckTableDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDataCheckTableDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataCheckTableDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3995,6 +4130,7 @@ export class DescribeDataCheckTableDiffDetailsRequest extends $tea.Model {
   dtsJobId?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   tbName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4003,6 +4139,7 @@ export class DescribeDataCheckTableDiffDetailsRequest extends $tea.Model {
       dtsJobId: 'DtsJobId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       tbName: 'TbName',
     };
   }
@@ -4014,6 +4151,7 @@ export class DescribeDataCheckTableDiffDetailsRequest extends $tea.Model {
       dtsJobId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       tbName: 'string',
     };
   }
@@ -4073,9 +4211,9 @@ export class DescribeDataCheckTableDiffDetailsResponseBody extends $tea.Model {
 }
 
 export class DescribeDataCheckTableDiffDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDataCheckTableDiffDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataCheckTableDiffDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4101,11 +4239,13 @@ export class DescribeDedicatedClusterRequest extends $tea.Model {
   dedicatedClusterId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedClusterId: 'DedicatedClusterId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -4114,6 +4254,7 @@ export class DescribeDedicatedClusterRequest extends $tea.Model {
       dedicatedClusterId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -4217,9 +4358,9 @@ export class DescribeDedicatedClusterResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4245,11 +4386,13 @@ export class DescribeDedicatedClusterMonitorRuleRequest extends $tea.Model {
   dedicatedClusterId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedClusterId: 'DedicatedClusterId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -4258,6 +4401,7 @@ export class DescribeDedicatedClusterMonitorRuleRequest extends $tea.Model {
       dedicatedClusterId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -4319,9 +4463,9 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $tea.Model 
 }
 
 export class DescribeDedicatedClusterMonitorRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedClusterMonitorRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedClusterMonitorRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4349,6 +4493,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
@@ -4356,6 +4501,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -4366,6 +4512,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -4424,9 +4571,9 @@ export class DescribeDtsEtlJobVersionInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeDtsEtlJobVersionInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDtsEtlJobVersionInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDtsEtlJobVersionInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4452,15 +4599,19 @@ export class DescribeDtsJobDetailRequest extends $tea.Model {
   dtsInstanceID?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   syncSubJobHistory?: boolean;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceID: 'DtsInstanceID',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       syncSubJobHistory: 'SyncSubJobHistory',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -4469,8 +4620,10 @@ export class DescribeDtsJobDetailRequest extends $tea.Model {
       dtsInstanceID: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       syncSubJobHistory: 'boolean',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -4518,7 +4671,9 @@ export class DescribeDtsJobDetailResponseBody extends $tea.Model {
   httpStatusCode?: number;
   jobType?: string;
   lastUpdateTime?: string;
+  maxDu?: number;
   migrationMode?: DescribeDtsJobDetailResponseBodyMigrationMode;
+  minDu?: number;
   payType?: string;
   requestId?: string;
   reserved?: string;
@@ -4575,7 +4730,9 @@ export class DescribeDtsJobDetailResponseBody extends $tea.Model {
       httpStatusCode: 'HttpStatusCode',
       jobType: 'JobType',
       lastUpdateTime: 'LastUpdateTime',
+      maxDu: 'MaxDu',
       migrationMode: 'MigrationMode',
+      minDu: 'MinDu',
       payType: 'PayType',
       requestId: 'RequestId',
       reserved: 'Reserved',
@@ -4635,7 +4792,9 @@ export class DescribeDtsJobDetailResponseBody extends $tea.Model {
       httpStatusCode: 'number',
       jobType: 'string',
       lastUpdateTime: 'string',
+      maxDu: 'number',
       migrationMode: DescribeDtsJobDetailResponseBodyMigrationMode,
+      minDu: 'number',
       payType: 'string',
       requestId: 'string',
       reserved: 'string',
@@ -4661,9 +4820,9 @@ export class DescribeDtsJobDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeDtsJobDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDtsJobDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDtsJobDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4691,6 +4850,8 @@ export class DescribeDtsJobsRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   groupId?: string;
+  instanceId?: string;
+  instanceType?: string;
   jobType?: string;
   orderColumn?: string;
   orderDirection?: string;
@@ -4705,6 +4866,7 @@ export class DescribeDtsJobsRequest extends $tea.Model {
   tags?: string;
   type?: string;
   withoutDbList?: boolean;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dedicatedClusterId: 'DedicatedClusterId',
@@ -4712,6 +4874,8 @@ export class DescribeDtsJobsRequest extends $tea.Model {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
       jobType: 'JobType',
       orderColumn: 'OrderColumn',
       orderDirection: 'OrderDirection',
@@ -4726,6 +4890,7 @@ export class DescribeDtsJobsRequest extends $tea.Model {
       tags: 'Tags',
       type: 'Type',
       withoutDbList: 'WithoutDbList',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -4736,6 +4901,8 @@ export class DescribeDtsJobsRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       groupId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
       jobType: 'string',
       orderColumn: 'string',
       orderDirection: 'string',
@@ -4750,6 +4917,7 @@ export class DescribeDtsJobsRequest extends $tea.Model {
       tags: 'string',
       type: 'string',
       withoutDbList: 'boolean',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -4811,9 +4979,9 @@ export class DescribeDtsJobsResponseBody extends $tea.Model {
 }
 
 export class DescribeDtsJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDtsJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDtsJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4842,9 +5010,11 @@ export class DescribeDtsServiceLogRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   startTime?: number;
   status?: string;
   subJobType?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
@@ -4853,9 +5023,11 @@ export class DescribeDtsServiceLogRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       startTime: 'StartTime',
       status: 'Status',
       subJobType: 'SubJobType',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -4867,9 +5039,11 @@ export class DescribeDtsServiceLogRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       startTime: 'number',
       status: 'string',
       subJobType: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -4928,9 +5102,9 @@ export class DescribeDtsServiceLogResponseBody extends $tea.Model {
 }
 
 export class DescribeDtsServiceLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDtsServiceLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDtsServiceLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4957,6 +5131,7 @@ export class DescribeEndpointSwitchStatusRequest extends $tea.Model {
   clientToken?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4964,6 +5139,7 @@ export class DescribeEndpointSwitchStatusRequest extends $tea.Model {
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       taskId: 'TaskId',
     };
   }
@@ -4974,6 +5150,7 @@ export class DescribeEndpointSwitchStatusRequest extends $tea.Model {
       clientToken: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       taskId: 'string',
     };
   }
@@ -5018,9 +5195,9 @@ export class DescribeEndpointSwitchStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeEndpointSwitchStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEndpointSwitchStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEndpointSwitchStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5045,10 +5222,12 @@ export class DescribeEndpointSwitchStatusResponse extends $tea.Model {
 export class DescribeEtlJobLogsRequest extends $tea.Model {
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5056,6 +5235,7 @@ export class DescribeEtlJobLogsRequest extends $tea.Model {
     return {
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5105,9 +5285,9 @@ export class DescribeEtlJobLogsResponseBody extends $tea.Model {
 }
 
 export class DescribeEtlJobLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeEtlJobLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEtlJobLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5135,6 +5315,7 @@ export class DescribeInitializationStatusRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5143,6 +5324,7 @@ export class DescribeInitializationStatusRequest extends $tea.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationJobId: 'SynchronizationJobId',
     };
   }
@@ -5154,6 +5336,7 @@ export class DescribeInitializationStatusRequest extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationJobId: 'string',
     };
   }
@@ -5201,9 +5384,9 @@ export class DescribeInitializationStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeInitializationStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInitializationStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInitializationStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5228,10 +5411,12 @@ export class DescribeInitializationStatusResponse extends $tea.Model {
 export class DescribeJobMonitorRuleRequest extends $tea.Model {
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5239,6 +5424,7 @@ export class DescribeJobMonitorRuleRequest extends $tea.Model {
     return {
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5294,9 +5480,9 @@ export class DescribeJobMonitorRuleResponseBody extends $tea.Model {
 }
 
 export class DescribeJobMonitorRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeJobMonitorRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeJobMonitorRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5329,6 +5515,7 @@ export class DescribeMetricListRequest extends $tea.Model {
   ownerID?: string;
   param?: string;
   period?: number;
+  resourceGroupId?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5342,6 +5529,7 @@ export class DescribeMetricListRequest extends $tea.Model {
       ownerID: 'OwnerID',
       param: 'Param',
       period: 'Period',
+      resourceGroupId: 'ResourceGroupId',
       startTime: 'StartTime',
     };
   }
@@ -5358,6 +5546,7 @@ export class DescribeMetricListRequest extends $tea.Model {
       ownerID: 'string',
       param: 'string',
       period: 'number',
+      resourceGroupId: 'string',
       startTime: 'number',
     };
   }
@@ -5420,9 +5609,9 @@ export class DescribeMetricListResponseBody extends $tea.Model {
 }
 
 export class DescribeMetricListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMetricListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMetricListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5450,6 +5639,7 @@ export class DescribeMigrationJobAlertRequest extends $tea.Model {
   migrationJobId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -5457,6 +5647,7 @@ export class DescribeMigrationJobAlertRequest extends $tea.Model {
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5467,6 +5658,7 @@ export class DescribeMigrationJobAlertRequest extends $tea.Model {
       migrationJobId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5525,9 +5717,9 @@ export class DescribeMigrationJobAlertResponseBody extends $tea.Model {
 }
 
 export class DescribeMigrationJobAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMigrationJobAlertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMigrationJobAlertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5558,6 +5750,7 @@ export class DescribeMigrationJobDetailRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       migrationMode: 'MigrationMode',
@@ -5568,6 +5761,7 @@ export class DescribeMigrationJobDetailRequest extends $tea.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5581,6 +5775,7 @@ export class DescribeMigrationJobDetailRequest extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5636,9 +5831,9 @@ export class DescribeMigrationJobDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeMigrationJobDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMigrationJobDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMigrationJobDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5666,6 +5861,7 @@ export class DescribeMigrationJobStatusRequest extends $tea.Model {
   migrationJobId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -5673,6 +5869,7 @@ export class DescribeMigrationJobStatusRequest extends $tea.Model {
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5683,6 +5880,7 @@ export class DescribeMigrationJobStatusRequest extends $tea.Model {
       migrationJobId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5762,9 +5960,9 @@ export class DescribeMigrationJobStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeMigrationJobStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMigrationJobStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMigrationJobStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5793,6 +5991,7 @@ export class DescribeMigrationJobsRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   tag?: DescribeMigrationJobsRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -5802,6 +6001,7 @@ export class DescribeMigrationJobsRequest extends $tea.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
     };
   }
@@ -5814,6 +6014,7 @@ export class DescribeMigrationJobsRequest extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': DescribeMigrationJobsRequestTag },
     };
   }
@@ -5864,9 +6065,9 @@ export class DescribeMigrationJobsResponseBody extends $tea.Model {
 }
 
 export class DescribeMigrationJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMigrationJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMigrationJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5895,8 +6096,10 @@ export class DescribePreCheckStatusRequest extends $tea.Model {
   pageNo?: string;
   pageSize?: string;
   regionId?: string;
+  resourceGroupId?: string;
   structPhase?: string;
   structType?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
@@ -5905,8 +6108,10 @@ export class DescribePreCheckStatusRequest extends $tea.Model {
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       structPhase: 'StructPhase',
       structType: 'StructType',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -5918,8 +6123,10 @@ export class DescribePreCheckStatusRequest extends $tea.Model {
       pageNo: 'string',
       pageSize: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       structPhase: 'string',
       structType: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -5999,9 +6206,9 @@ export class DescribePreCheckStatusResponseBody extends $tea.Model {
 }
 
 export class DescribePreCheckStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePreCheckStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePreCheckStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6028,6 +6235,7 @@ export class DescribeSubscriptionInstanceAlertRequest extends $tea.Model {
   clientToken?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6035,6 +6243,7 @@ export class DescribeSubscriptionInstanceAlertRequest extends $tea.Model {
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -6045,6 +6254,7 @@ export class DescribeSubscriptionInstanceAlertRequest extends $tea.Model {
       clientToken: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -6104,9 +6314,9 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $tea.Model {
 }
 
 export class DescribeSubscriptionInstanceAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSubscriptionInstanceAlertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSubscriptionInstanceAlertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6132,12 +6342,14 @@ export class DescribeSubscriptionInstanceStatusRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -6147,6 +6359,7 @@ export class DescribeSubscriptionInstanceStatusRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -6230,9 +6443,9 @@ export class DescribeSubscriptionInstanceStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeSubscriptionInstanceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSubscriptionInstanceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSubscriptionInstanceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6261,6 +6474,7 @@ export class DescribeSubscriptionInstancesRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceName?: string;
   tag?: DescribeSubscriptionInstancesRequestTag[];
   static names(): { [key: string]: string } {
@@ -6271,6 +6485,7 @@ export class DescribeSubscriptionInstancesRequest extends $tea.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceName: 'SubscriptionInstanceName',
       tag: 'Tag',
     };
@@ -6284,6 +6499,7 @@ export class DescribeSubscriptionInstancesRequest extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceName: 'string',
       tag: { 'type': 'array', 'itemType': DescribeSubscriptionInstancesRequestTag },
     };
@@ -6335,9 +6551,9 @@ export class DescribeSubscriptionInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeSubscriptionInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSubscriptionInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSubscriptionInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6362,6 +6578,7 @@ export class DescribeSubscriptionInstancesResponse extends $tea.Model {
 export class DescribeSubscriptionMetaRequest extends $tea.Model {
   dtsInstanceId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sid?: string;
   subMigrationJobIds?: { [key: string]: any };
   topics?: { [key: string]: any };
@@ -6369,6 +6586,7 @@ export class DescribeSubscriptionMetaRequest extends $tea.Model {
     return {
       dtsInstanceId: 'DtsInstanceId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sid: 'Sid',
       subMigrationJobIds: 'SubMigrationJobIds',
       topics: 'Topics',
@@ -6379,6 +6597,7 @@ export class DescribeSubscriptionMetaRequest extends $tea.Model {
     return {
       dtsInstanceId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sid: 'string',
       subMigrationJobIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       topics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -6393,6 +6612,7 @@ export class DescribeSubscriptionMetaRequest extends $tea.Model {
 export class DescribeSubscriptionMetaShrinkRequest extends $tea.Model {
   dtsInstanceId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   sid?: string;
   subMigrationJobIdsShrink?: string;
   topicsShrink?: string;
@@ -6400,6 +6620,7 @@ export class DescribeSubscriptionMetaShrinkRequest extends $tea.Model {
     return {
       dtsInstanceId: 'DtsInstanceId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sid: 'Sid',
       subMigrationJobIdsShrink: 'SubMigrationJobIds',
       topicsShrink: 'Topics',
@@ -6410,6 +6631,7 @@ export class DescribeSubscriptionMetaShrinkRequest extends $tea.Model {
     return {
       dtsInstanceId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sid: 'string',
       subMigrationJobIdsShrink: 'string',
       topicsShrink: 'string',
@@ -6456,9 +6678,9 @@ export class DescribeSubscriptionMetaResponseBody extends $tea.Model {
 }
 
 export class DescribeSubscriptionMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSubscriptionMetaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSubscriptionMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6485,6 +6707,7 @@ export class DescribeSynchronizationJobAlertRequest extends $tea.Model {
   clientToken?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
@@ -6493,6 +6716,7 @@ export class DescribeSynchronizationJobAlertRequest extends $tea.Model {
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
     };
@@ -6504,6 +6728,7 @@ export class DescribeSynchronizationJobAlertRequest extends $tea.Model {
       clientToken: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
     };
@@ -6567,9 +6792,9 @@ export class DescribeSynchronizationJobAlertResponseBody extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSynchronizationJobAlertResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSynchronizationJobAlertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6596,6 +6821,7 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $tea.Mod
   clientToken?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
@@ -6604,6 +6830,7 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $tea.Mod
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
     };
@@ -6615,6 +6842,7 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $tea.Mod
       clientToken: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
     };
@@ -6657,9 +6885,9 @@ export class DescribeSynchronizationJobReplicatorCompareResponseBody extends $te
 }
 
 export class DescribeSynchronizationJobReplicatorCompareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSynchronizationJobReplicatorCompareResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSynchronizationJobReplicatorCompareResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6686,6 +6914,7 @@ export class DescribeSynchronizationJobStatusRequest extends $tea.Model {
   clientToken?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
@@ -6694,6 +6923,7 @@ export class DescribeSynchronizationJobStatusRequest extends $tea.Model {
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
     };
@@ -6705,6 +6935,7 @@ export class DescribeSynchronizationJobStatusRequest extends $tea.Model {
       clientToken: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
     };
@@ -6810,9 +7041,9 @@ export class DescribeSynchronizationJobStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSynchronizationJobStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSynchronizationJobStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6839,6 +7070,7 @@ export class DescribeSynchronizationJobStatusListRequest extends $tea.Model {
   clientToken?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationJobIdListJsonStr?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6846,6 +7078,7 @@ export class DescribeSynchronizationJobStatusListRequest extends $tea.Model {
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationJobIdListJsonStr: 'SynchronizationJobIdListJsonStr',
     };
   }
@@ -6856,6 +7089,7 @@ export class DescribeSynchronizationJobStatusListRequest extends $tea.Model {
       clientToken: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationJobIdListJsonStr: 'string',
     };
   }
@@ -6906,9 +7140,9 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $tea.Model
 }
 
 export class DescribeSynchronizationJobStatusListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSynchronizationJobStatusListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSynchronizationJobStatusListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6937,6 +7171,7 @@ export class DescribeSynchronizationJobsRequest extends $tea.Model {
   pageNum?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationJobName?: string;
   tag?: DescribeSynchronizationJobsRequestTag[];
   static names(): { [key: string]: string } {
@@ -6947,6 +7182,7 @@ export class DescribeSynchronizationJobsRequest extends $tea.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationJobName: 'SynchronizationJobName',
       tag: 'Tag',
     };
@@ -6960,6 +7196,7 @@ export class DescribeSynchronizationJobsRequest extends $tea.Model {
       pageNum: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationJobName: 'string',
       tag: { 'type': 'array', 'itemType': DescribeSynchronizationJobsRequestTag },
     };
@@ -7002,9 +7239,9 @@ export class DescribeSynchronizationJobsResponseBody extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSynchronizationJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSynchronizationJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7031,6 +7268,7 @@ export class DescribeSynchronizationObjectModifyStatusRequest extends $tea.Model
   clientToken?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7038,6 +7276,7 @@ export class DescribeSynchronizationObjectModifyStatusRequest extends $tea.Model
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       taskId: 'TaskId',
     };
   }
@@ -7048,6 +7287,7 @@ export class DescribeSynchronizationObjectModifyStatusRequest extends $tea.Model
       clientToken: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       taskId: 'string',
     };
   }
@@ -7104,9 +7344,9 @@ export class DescribeSynchronizationObjectModifyStatusResponseBody extends $tea.
 }
 
 export class DescribeSynchronizationObjectModifyStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSynchronizationObjectModifyStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSynchronizationObjectModifyStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7133,6 +7373,7 @@ export class DescribeTagKeysRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
@@ -7141,6 +7382,7 @@ export class DescribeTagKeysRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
     };
@@ -7152,6 +7394,7 @@ export class DescribeTagKeysRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceType: 'string',
     };
@@ -7197,9 +7440,9 @@ export class DescribeTagKeysResponseBody extends $tea.Model {
 }
 
 export class DescribeTagKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTagKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTagKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7227,6 +7470,7 @@ export class DescribeTagValuesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
@@ -7236,6 +7480,7 @@ export class DescribeTagValuesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
     };
@@ -7248,6 +7493,7 @@ export class DescribeTagValuesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceType: 'string',
     };
@@ -7293,9 +7539,9 @@ export class DescribeTagValuesResponseBody extends $tea.Model {
 }
 
 export class DescribeTagValuesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTagValuesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTagValuesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7324,6 +7570,7 @@ export class InitDtsRdsInstanceRequest extends $tea.Model {
   endpointInstanceType?: string;
   endpointRegion?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
@@ -7332,6 +7579,7 @@ export class InitDtsRdsInstanceRequest extends $tea.Model {
       endpointInstanceType: 'EndpointInstanceType',
       endpointRegion: 'EndpointRegion',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -7343,6 +7591,7 @@ export class InitDtsRdsInstanceRequest extends $tea.Model {
       endpointInstanceType: 'string',
       endpointRegion: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -7389,9 +7638,9 @@ export class InitDtsRdsInstanceResponseBody extends $tea.Model {
 }
 
 export class InitDtsRdsInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InitDtsRdsInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitDtsRdsInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7421,6 +7670,7 @@ export class ListDedicatedClusterRequest extends $tea.Model {
   pageSize?: number;
   params?: string;
   regionId?: string;
+  resourceGroupId?: string;
   state?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -7432,6 +7682,7 @@ export class ListDedicatedClusterRequest extends $tea.Model {
       pageSize: 'PageSize',
       params: 'Params',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
       type: 'Type',
     };
@@ -7446,6 +7697,7 @@ export class ListDedicatedClusterRequest extends $tea.Model {
       pageSize: 'number',
       params: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       state: 'string',
       type: 'string',
     };
@@ -7500,9 +7752,9 @@ export class ListDedicatedClusterResponseBody extends $tea.Model {
 }
 
 export class ListDedicatedClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDedicatedClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDedicatedClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7527,6 +7779,7 @@ export class ListDedicatedClusterResponse extends $tea.Model {
 export class ListTagResourcesRequest extends $tea.Model {
   nextToken?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string[];
   resourceType?: string;
   tag?: ListTagResourcesRequestTag[];
@@ -7534,6 +7787,7 @@ export class ListTagResourcesRequest extends $tea.Model {
     return {
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tag: 'Tag',
@@ -7544,6 +7798,7 @@ export class ListTagResourcesRequest extends $tea.Model {
     return {
       nextToken: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
@@ -7590,9 +7845,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7622,6 +7877,7 @@ export class ModifyConsumerChannelRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       consumerGroupId: 'ConsumerGroupId',
@@ -7631,6 +7887,7 @@ export class ModifyConsumerChannelRequest extends $tea.Model {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -7643,6 +7900,7 @@ export class ModifyConsumerChannelRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -7683,9 +7941,9 @@ export class ModifyConsumerChannelResponseBody extends $tea.Model {
 }
 
 export class ModifyConsumerChannelResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyConsumerChannelResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyConsumerChannelResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7715,6 +7973,7 @@ export class ModifyConsumerGroupPasswordRequest extends $tea.Model {
   consumerGroupUserName?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   consumerGroupNewPassword?: string;
   static names(): { [key: string]: string } {
@@ -7726,6 +7985,7 @@ export class ModifyConsumerGroupPasswordRequest extends $tea.Model {
       consumerGroupUserName: 'ConsumerGroupUserName',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       consumerGroupNewPassword: 'consumerGroupNewPassword',
     };
@@ -7740,6 +8000,7 @@ export class ModifyConsumerGroupPasswordRequest extends $tea.Model {
       consumerGroupUserName: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
       consumerGroupNewPassword: 'string',
     };
@@ -7779,9 +8040,9 @@ export class ModifyConsumerGroupPasswordResponseBody extends $tea.Model {
 }
 
 export class ModifyConsumerGroupPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyConsumerGroupPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyConsumerGroupPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7808,6 +8069,7 @@ export class ModifyConsumptionTimestampRequest extends $tea.Model {
   consumptionTimestamp?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7815,6 +8077,7 @@ export class ModifyConsumptionTimestampRequest extends $tea.Model {
       consumptionTimestamp: 'ConsumptionTimestamp',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -7825,6 +8088,7 @@ export class ModifyConsumptionTimestampRequest extends $tea.Model {
       consumptionTimestamp: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -7863,9 +8127,9 @@ export class ModifyConsumptionTimestampResponseBody extends $tea.Model {
 }
 
 export class ModifyConsumptionTimestampResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyConsumptionTimestampResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyConsumptionTimestampResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7894,6 +8158,7 @@ export class ModifyDedicatedClusterRequest extends $tea.Model {
   oversoldRatio?: number;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedClusterId: 'DedicatedClusterId',
@@ -7902,6 +8167,7 @@ export class ModifyDedicatedClusterRequest extends $tea.Model {
       oversoldRatio: 'OversoldRatio',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -7913,6 +8179,7 @@ export class ModifyDedicatedClusterRequest extends $tea.Model {
       oversoldRatio: 'number',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -7956,9 +8223,9 @@ export class ModifyDedicatedClusterResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7993,8 +8260,10 @@ export class ModifyDtsJobRequest extends $tea.Model {
   modifyTypeEnum?: string;
   regionId?: string;
   reserved?: string;
+  resourceGroupId?: string;
   structureInitialization?: boolean;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -8009,8 +8278,10 @@ export class ModifyDtsJobRequest extends $tea.Model {
       modifyTypeEnum: 'ModifyTypeEnum',
       regionId: 'RegionId',
       reserved: 'Reserved',
+      resourceGroupId: 'ResourceGroupId',
       structureInitialization: 'StructureInitialization',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -8028,8 +8299,10 @@ export class ModifyDtsJobRequest extends $tea.Model {
       modifyTypeEnum: 'string',
       regionId: 'string',
       reserved: 'string',
+      resourceGroupId: 'string',
       structureInitialization: 'boolean',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -8051,8 +8324,10 @@ export class ModifyDtsJobAdvanceRequest extends $tea.Model {
   modifyTypeEnum?: string;
   regionId?: string;
   reserved?: string;
+  resourceGroupId?: string;
   structureInitialization?: boolean;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -8067,8 +8342,10 @@ export class ModifyDtsJobAdvanceRequest extends $tea.Model {
       modifyTypeEnum: 'ModifyTypeEnum',
       regionId: 'RegionId',
       reserved: 'Reserved',
+      resourceGroupId: 'ResourceGroupId',
       structureInitialization: 'StructureInitialization',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -8086,8 +8363,10 @@ export class ModifyDtsJobAdvanceRequest extends $tea.Model {
       modifyTypeEnum: 'string',
       regionId: 'string',
       reserved: 'string',
+      resourceGroupId: 'string',
       structureInitialization: 'boolean',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -8109,8 +8388,10 @@ export class ModifyDtsJobShrinkRequest extends $tea.Model {
   modifyTypeEnum?: string;
   regionId?: string;
   reserved?: string;
+  resourceGroupId?: string;
   structureInitialization?: boolean;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -8125,8 +8406,10 @@ export class ModifyDtsJobShrinkRequest extends $tea.Model {
       modifyTypeEnum: 'ModifyTypeEnum',
       regionId: 'RegionId',
       reserved: 'Reserved',
+      resourceGroupId: 'ResourceGroupId',
       structureInitialization: 'StructureInitialization',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -8144,8 +8427,10 @@ export class ModifyDtsJobShrinkRequest extends $tea.Model {
       modifyTypeEnum: 'string',
       regionId: 'string',
       reserved: 'string',
+      resourceGroupId: 'string',
       structureInitialization: 'boolean',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -8189,9 +8474,9 @@ export class ModifyDtsJobResponseBody extends $tea.Model {
 }
 
 export class ModifyDtsJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDtsJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDtsJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8218,12 +8503,14 @@ export class ModifyDtsJobConfigRequest extends $tea.Model {
   ownerId?: string;
   parameters?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
       ownerId: 'OwnerId',
       parameters: 'Parameters',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -8233,6 +8520,7 @@ export class ModifyDtsJobConfigRequest extends $tea.Model {
       ownerId: 'string',
       parameters: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -8261,9 +8549,9 @@ export class ModifyDtsJobConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyDtsJobConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDtsJobConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDtsJobConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8290,12 +8578,14 @@ export class ModifyDtsJobDedicatedClusterRequest extends $tea.Model {
   dtsJobIds?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedClusterId: 'DedicatedClusterId',
       dtsJobIds: 'DtsJobIds',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -8305,6 +8595,7 @@ export class ModifyDtsJobDedicatedClusterRequest extends $tea.Model {
       dtsJobIds: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -8351,9 +8642,9 @@ export class ModifyDtsJobDedicatedClusterResponseBody extends $tea.Model {
 }
 
 export class ModifyDtsJobDedicatedClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDtsJobDedicatedClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDtsJobDedicatedClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8380,12 +8671,14 @@ export class ModifyDtsJobDuLimitRequest extends $tea.Model {
   duLimit?: number;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
       duLimit: 'DuLimit',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -8395,6 +8688,7 @@ export class ModifyDtsJobDuLimitRequest extends $tea.Model {
       duLimit: 'number',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -8441,9 +8735,9 @@ export class ModifyDtsJobDuLimitResponseBody extends $tea.Model {
 }
 
 export class ModifyDtsJobDuLimitResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDtsJobDuLimitResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDtsJobDuLimitResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8478,6 +8772,7 @@ export class ModifyDtsJobEndpointRequest extends $tea.Model {
   endpointPort?: string;
   password?: string;
   regionId?: string;
+  resourceGroupId?: string;
   roleName?: string;
   shardPassword?: string;
   shardUsername?: string;
@@ -8497,6 +8792,7 @@ export class ModifyDtsJobEndpointRequest extends $tea.Model {
       endpointPort: 'EndpointPort',
       password: 'Password',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       roleName: 'RoleName',
       shardPassword: 'ShardPassword',
       shardUsername: 'ShardUsername',
@@ -8519,6 +8815,7 @@ export class ModifyDtsJobEndpointRequest extends $tea.Model {
       endpointPort: 'string',
       password: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       roleName: 'string',
       shardPassword: 'string',
       shardUsername: 'string',
@@ -8564,9 +8861,9 @@ export class ModifyDtsJobEndpointResponseBody extends $tea.Model {
 }
 
 export class ModifyDtsJobEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDtsJobEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDtsJobEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8592,11 +8889,15 @@ export class ModifyDtsJobNameRequest extends $tea.Model {
   dtsJobId?: string;
   dtsJobName?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
       dtsJobName: 'DtsJobName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -8605,6 +8906,8 @@ export class ModifyDtsJobNameRequest extends $tea.Model {
       dtsJobId: 'string',
       dtsJobName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -8651,9 +8954,9 @@ export class ModifyDtsJobNameResponseBody extends $tea.Model {
 }
 
 export class ModifyDtsJobNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDtsJobNameResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDtsJobNameResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8680,14 +8983,18 @@ export class ModifyDtsJobPasswordRequest extends $tea.Model {
   endpoint?: string;
   password?: string;
   regionId?: string;
+  resourceGroupId?: string;
   userName?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
       endpoint: 'Endpoint',
       password: 'Password',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       userName: 'UserName',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -8697,7 +9004,9 @@ export class ModifyDtsJobPasswordRequest extends $tea.Model {
       endpoint: 'string',
       password: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       userName: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -8744,9 +9053,9 @@ export class ModifyDtsJobPasswordResponseBody extends $tea.Model {
 }
 
 export class ModifyDtsJobPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDtsJobPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDtsJobPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8774,6 +9083,7 @@ export class ModifyDynamicConfigRequest extends $tea.Model {
   enableLimit?: boolean;
   jobCode?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       configList: 'ConfigList',
@@ -8781,6 +9091,7 @@ export class ModifyDynamicConfigRequest extends $tea.Model {
       enableLimit: 'EnableLimit',
       jobCode: 'JobCode',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -8791,6 +9102,7 @@ export class ModifyDynamicConfigRequest extends $tea.Model {
       enableLimit: 'boolean',
       jobCode: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -8837,9 +9149,9 @@ export class ModifyDynamicConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyDynamicConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDynamicConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDynamicConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8866,6 +9178,7 @@ export class ModifySubscriptionRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionDataTypeDDL?: boolean;
   subscriptionDataTypeDML?: boolean;
   static names(): { [key: string]: string } {
@@ -8874,6 +9187,7 @@ export class ModifySubscriptionRequest extends $tea.Model {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionDataTypeDDL: 'SubscriptionDataTypeDDL',
       subscriptionDataTypeDML: 'SubscriptionDataTypeDML',
     };
@@ -8885,6 +9199,7 @@ export class ModifySubscriptionRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionDataTypeDDL: 'boolean',
       subscriptionDataTypeDML: 'boolean',
     };
@@ -8927,9 +9242,9 @@ export class ModifySubscriptionResponseBody extends $tea.Model {
 }
 
 export class ModifySubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8955,6 +9270,7 @@ export class ModifySubscriptionObjectRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   subscriptionObject?: string;
   static names(): { [key: string]: string } {
@@ -8962,6 +9278,7 @@ export class ModifySubscriptionObjectRequest extends $tea.Model {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       subscriptionObject: 'SubscriptionObject',
     };
@@ -8972,6 +9289,7 @@ export class ModifySubscriptionObjectRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
       subscriptionObject: 'string',
     };
@@ -9011,9 +9329,9 @@ export class ModifySubscriptionObjectResponseBody extends $tea.Model {
 }
 
 export class ModifySubscriptionObjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySubscriptionObjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySubscriptionObjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9039,6 +9357,7 @@ export class ModifySynchronizationObjectRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   synchronizationObjects?: string;
@@ -9047,6 +9366,7 @@ export class ModifySynchronizationObjectRequest extends $tea.Model {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationObjects: 'SynchronizationObjects',
@@ -9058,6 +9378,7 @@ export class ModifySynchronizationObjectRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
       synchronizationObjects: 'string',
@@ -9101,9 +9422,9 @@ export class ModifySynchronizationObjectResponseBody extends $tea.Model {
 }
 
 export class ModifySynchronizationObjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifySynchronizationObjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySynchronizationObjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9131,6 +9452,7 @@ export class RenewInstanceRequest extends $tea.Model {
   dtsJobId?: string;
   period?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       buyCount: 'BuyCount',
@@ -9138,6 +9460,7 @@ export class RenewInstanceRequest extends $tea.Model {
       dtsJobId: 'DtsJobId',
       period: 'Period',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -9148,6 +9471,7 @@ export class RenewInstanceRequest extends $tea.Model {
       dtsJobId: 'string',
       period: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -9206,9 +9530,9 @@ export class RenewInstanceResponseBody extends $tea.Model {
 }
 
 export class RenewInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9234,12 +9558,14 @@ export class ResetDtsJobRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
     };
   }
@@ -9249,6 +9575,7 @@ export class ResetDtsJobRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
     };
   }
@@ -9296,9 +9623,9 @@ export class ResetDtsJobResponseBody extends $tea.Model {
 }
 
 export class ResetDtsJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetDtsJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetDtsJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9324,6 +9651,7 @@ export class ResetSynchronizationJobRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
@@ -9331,6 +9659,7 @@ export class ResetSynchronizationJobRequest extends $tea.Model {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
     };
@@ -9341,6 +9670,7 @@ export class ResetSynchronizationJobRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
     };
@@ -9380,9 +9710,9 @@ export class ResetSynchronizationJobResponseBody extends $tea.Model {
 }
 
 export class ResetSynchronizationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetSynchronizationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetSynchronizationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9408,11 +9738,13 @@ export class ReverseTwoWayDirectionRequest extends $tea.Model {
   dtsInstanceId?: string;
   ignoreErrorSubJob?: boolean;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       ignoreErrorSubJob: 'IgnoreErrorSubJob',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -9421,6 +9753,7 @@ export class ReverseTwoWayDirectionRequest extends $tea.Model {
       dtsInstanceId: 'string',
       ignoreErrorSubJob: 'boolean',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -9467,9 +9800,9 @@ export class ReverseTwoWayDirectionResponseBody extends $tea.Model {
 }
 
 export class ReverseTwoWayDirectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReverseTwoWayDirectionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReverseTwoWayDirectionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9495,11 +9828,13 @@ export class ShieldPrecheckRequest extends $tea.Model {
   dtsInstanceId?: string;
   precheckItems?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       precheckItems: 'PrecheckItems',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -9508,6 +9843,7 @@ export class ShieldPrecheckRequest extends $tea.Model {
       dtsInstanceId: 'string',
       precheckItems: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -9545,9 +9881,9 @@ export class ShieldPrecheckResponseBody extends $tea.Model {
 }
 
 export class ShieldPrecheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ShieldPrecheckResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ShieldPrecheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9573,6 +9909,7 @@ export class SkipPreCheckRequest extends $tea.Model {
   dtsJobId?: string;
   jobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   skip?: boolean;
   skipPreCheckItems?: string;
   skipPreCheckNames?: string;
@@ -9581,6 +9918,7 @@ export class SkipPreCheckRequest extends $tea.Model {
       dtsJobId: 'DtsJobId',
       jobId: 'JobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       skip: 'Skip',
       skipPreCheckItems: 'SkipPreCheckItems',
       skipPreCheckNames: 'SkipPreCheckNames',
@@ -9592,6 +9930,7 @@ export class SkipPreCheckRequest extends $tea.Model {
       dtsJobId: 'string',
       jobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       skip: 'boolean',
       skipPreCheckItems: 'string',
       skipPreCheckNames: 'string',
@@ -9653,9 +9992,9 @@ export class SkipPreCheckResponseBody extends $tea.Model {
 }
 
 export class SkipPreCheckResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SkipPreCheckResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SkipPreCheckResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9681,13 +10020,17 @@ export class StartDtsJobRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -9696,7 +10039,9 @@ export class StartDtsJobRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -9743,9 +10088,9 @@ export class StartDtsJobResponseBody extends $tea.Model {
 }
 
 export class StartDtsJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartDtsJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDtsJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9770,10 +10115,14 @@ export class StartDtsJobResponse extends $tea.Model {
 export class StartDtsJobsRequest extends $tea.Model {
   dtsJobIds?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsJobIds: 'DtsJobIds',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -9781,6 +10130,8 @@ export class StartDtsJobsRequest extends $tea.Model {
     return {
       dtsJobIds: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -9827,9 +10178,9 @@ export class StartDtsJobsResponseBody extends $tea.Model {
 }
 
 export class StartDtsJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartDtsJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDtsJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9856,12 +10207,14 @@ export class StartMigrationJobRequest extends $tea.Model {
   migrationJobId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -9871,6 +10224,7 @@ export class StartMigrationJobRequest extends $tea.Model {
       migrationJobId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -9908,9 +10262,9 @@ export class StartMigrationJobResponseBody extends $tea.Model {
 }
 
 export class StartMigrationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartMigrationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartMigrationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9935,10 +10289,12 @@ export class StartMigrationJobResponse extends $tea.Model {
 export class StartReverseWriterRequest extends $tea.Model {
   checkPoint?: string;
   dtsJobId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       checkPoint: 'CheckPoint',
       dtsJobId: 'DtsJobId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -9946,6 +10302,7 @@ export class StartReverseWriterRequest extends $tea.Model {
     return {
       checkPoint: 'string',
       dtsJobId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -9983,9 +10340,9 @@ export class StartReverseWriterResponseBody extends $tea.Model {
 }
 
 export class StartReverseWriterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartReverseWriterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartReverseWriterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10011,12 +10368,14 @@ export class StartSubscriptionInstanceRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   subscriptionInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
     };
   }
@@ -10026,6 +10385,7 @@ export class StartSubscriptionInstanceRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       subscriptionInstanceId: 'string',
     };
   }
@@ -10067,9 +10427,9 @@ export class StartSubscriptionInstanceResponseBody extends $tea.Model {
 }
 
 export class StartSubscriptionInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartSubscriptionInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartSubscriptionInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10095,6 +10455,7 @@ export class StartSynchronizationJobRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
@@ -10102,6 +10463,7 @@ export class StartSynchronizationJobRequest extends $tea.Model {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
     };
@@ -10112,6 +10474,7 @@ export class StartSynchronizationJobRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
     };
@@ -10151,9 +10514,9 @@ export class StartSynchronizationJobResponseBody extends $tea.Model {
 }
 
 export class StartSynchronizationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartSynchronizationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartSynchronizationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10181,6 +10544,7 @@ export class StopDedicatedClusterRequest extends $tea.Model {
   instanceId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedClusterId: 'DedicatedClusterId',
@@ -10188,6 +10552,7 @@ export class StopDedicatedClusterRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -10198,6 +10563,7 @@ export class StopDedicatedClusterRequest extends $tea.Model {
       instanceId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -10238,9 +10604,9 @@ export class StopDedicatedClusterResponseBody extends $tea.Model {
 }
 
 export class StopDedicatedClusterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDedicatedClusterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDedicatedClusterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10266,13 +10632,17 @@ export class StopDtsJobRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -10281,7 +10651,9 @@ export class StopDtsJobRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -10328,9 +10700,9 @@ export class StopDtsJobResponseBody extends $tea.Model {
 }
 
 export class StopDtsJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDtsJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDtsJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10355,10 +10727,14 @@ export class StopDtsJobResponse extends $tea.Model {
 export class StopDtsJobsRequest extends $tea.Model {
   dtsJobIds?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsJobIds: 'DtsJobIds',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -10366,6 +10742,8 @@ export class StopDtsJobsRequest extends $tea.Model {
     return {
       dtsJobIds: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -10412,9 +10790,9 @@ export class StopDtsJobsResponseBody extends $tea.Model {
 }
 
 export class StopDtsJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopDtsJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDtsJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10442,6 +10820,7 @@ export class StopMigrationJobRequest extends $tea.Model {
   migrationJobId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -10449,6 +10828,7 @@ export class StopMigrationJobRequest extends $tea.Model {
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -10459,6 +10839,7 @@ export class StopMigrationJobRequest extends $tea.Model {
       migrationJobId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -10496,9 +10877,9 @@ export class StopMigrationJobResponseBody extends $tea.Model {
 }
 
 export class StopMigrationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopMigrationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopMigrationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10525,16 +10906,20 @@ export class SummaryJobDetailRequest extends $tea.Model {
   dtsJobId?: string;
   jobCode?: string;
   regionId?: string;
+  resourceGroupId?: string;
   structType?: string;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       jobCode: 'JobCode',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       structType: 'StructType',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -10544,8 +10929,10 @@ export class SummaryJobDetailRequest extends $tea.Model {
       dtsJobId: 'string',
       jobCode: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       structType: 'string',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -10589,9 +10976,9 @@ export class SummaryJobDetailResponseBody extends $tea.Model {
 }
 
 export class SummaryJobDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SummaryJobDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SummaryJobDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10617,13 +11004,17 @@ export class SuspendDtsJobRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -10632,7 +11023,9 @@ export class SuspendDtsJobRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -10679,9 +11072,9 @@ export class SuspendDtsJobResponseBody extends $tea.Model {
 }
 
 export class SuspendDtsJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SuspendDtsJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuspendDtsJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10706,10 +11099,14 @@ export class SuspendDtsJobResponse extends $tea.Model {
 export class SuspendDtsJobsRequest extends $tea.Model {
   dtsJobIds?: string;
   regionId?: string;
+  resourceGroupId?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       dtsJobIds: 'DtsJobIds',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -10717,6 +11114,8 @@ export class SuspendDtsJobsRequest extends $tea.Model {
     return {
       dtsJobIds: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -10763,9 +11162,9 @@ export class SuspendDtsJobsResponseBody extends $tea.Model {
 }
 
 export class SuspendDtsJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SuspendDtsJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuspendDtsJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10793,6 +11192,7 @@ export class SuspendMigrationJobRequest extends $tea.Model {
   migrationJobId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -10800,6 +11200,7 @@ export class SuspendMigrationJobRequest extends $tea.Model {
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -10810,6 +11211,7 @@ export class SuspendMigrationJobRequest extends $tea.Model {
       migrationJobId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -10847,9 +11249,9 @@ export class SuspendMigrationJobResponseBody extends $tea.Model {
 }
 
 export class SuspendMigrationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SuspendMigrationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuspendMigrationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10875,6 +11277,7 @@ export class SuspendSynchronizationJobRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
@@ -10882,6 +11285,7 @@ export class SuspendSynchronizationJobRequest extends $tea.Model {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
     };
@@ -10892,6 +11296,7 @@ export class SuspendSynchronizationJobRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
     };
@@ -10931,9 +11336,9 @@ export class SuspendSynchronizationJobResponseBody extends $tea.Model {
 }
 
 export class SuspendSynchronizationJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SuspendSynchronizationJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuspendSynchronizationJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10959,12 +11364,14 @@ export class SwitchPhysicalDtsJobToCloudRequest extends $tea.Model {
   dtsInstanceId?: string;
   dtsJobId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   static names(): { [key: string]: string } {
     return {
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
     };
   }
@@ -10974,6 +11381,7 @@ export class SwitchPhysicalDtsJobToCloudRequest extends $tea.Model {
       dtsInstanceId: 'string',
       dtsJobId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
     };
   }
@@ -11021,9 +11429,9 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $tea.Model {
 }
 
 export class SwitchPhysicalDtsJobToCloudResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SwitchPhysicalDtsJobToCloudResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchPhysicalDtsJobToCloudResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11051,6 +11459,7 @@ export class SwitchSynchronizationEndpointRequest extends $tea.Model {
   accountId?: string;
   ownerId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   synchronizationDirection?: string;
   synchronizationJobId?: string;
   static names(): { [key: string]: string } {
@@ -11060,6 +11469,7 @@ export class SwitchSynchronizationEndpointRequest extends $tea.Model {
       accountId: 'AccountId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationJobId: 'SynchronizationJobId',
     };
@@ -11072,6 +11482,7 @@ export class SwitchSynchronizationEndpointRequest extends $tea.Model {
       accountId: 'string',
       ownerId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       synchronizationDirection: 'string',
       synchronizationJobId: 'string',
     };
@@ -11114,9 +11525,9 @@ export class SwitchSynchronizationEndpointResponseBody extends $tea.Model {
 }
 
 export class SwitchSynchronizationEndpointResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SwitchSynchronizationEndpointResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchSynchronizationEndpointResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11140,12 +11551,14 @@ export class SwitchSynchronizationEndpointResponse extends $tea.Model {
 
 export class TagResourcesRequest extends $tea.Model {
   regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string[];
   resourceType?: string;
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tag: 'Tag',
@@ -11155,6 +11568,7 @@ export class TagResourcesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
@@ -11195,9 +11609,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11224,12 +11638,14 @@ export class TransferInstanceClassRequest extends $tea.Model {
   instanceClass?: string;
   orderType?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
       instanceClass: 'InstanceClass',
       orderType: 'OrderType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -11239,6 +11655,7 @@ export class TransferInstanceClassRequest extends $tea.Model {
       instanceClass: 'string',
       orderType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -11297,9 +11714,9 @@ export class TransferInstanceClassResponseBody extends $tea.Model {
 }
 
 export class TransferInstanceClassResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransferInstanceClassResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferInstanceClassResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11327,6 +11744,7 @@ export class TransferPayTypeRequest extends $tea.Model {
   dtsJobId?: string;
   period?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       buyCount: 'BuyCount',
@@ -11334,6 +11752,7 @@ export class TransferPayTypeRequest extends $tea.Model {
       dtsJobId: 'DtsJobId',
       period: 'Period',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -11344,6 +11763,7 @@ export class TransferPayTypeRequest extends $tea.Model {
       dtsJobId: 'string',
       period: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -11402,9 +11822,9 @@ export class TransferPayTypeResponseBody extends $tea.Model {
 }
 
 export class TransferPayTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransferPayTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferPayTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11429,6 +11849,7 @@ export class TransferPayTypeResponse extends $tea.Model {
 export class UntagResourcesRequest extends $tea.Model {
   all?: boolean;
   regionId?: string;
+  resourceGroupId?: string;
   resourceId?: string[];
   resourceType?: string;
   tagKey?: string[];
@@ -11436,6 +11857,7 @@ export class UntagResourcesRequest extends $tea.Model {
     return {
       all: 'All',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tagKey: 'TagKey',
@@ -11446,6 +11868,7 @@ export class UntagResourcesRequest extends $tea.Model {
     return {
       all: 'boolean',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tagKey: { 'type': 'array', 'itemType': 'string' },
@@ -11486,9 +11909,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11514,11 +11937,13 @@ export class UpgradeTwoWayRequest extends $tea.Model {
   instanceClass?: string;
   instanceId?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -11527,6 +11952,7 @@ export class UpgradeTwoWayRequest extends $tea.Model {
       instanceClass: 'string',
       instanceId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -11573,9 +11999,9 @@ export class UpgradeTwoWayResponseBody extends $tea.Model {
 }
 
 export class UpgradeTwoWayResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpgradeTwoWayResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeTwoWayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11601,13 +12027,17 @@ export class WhiteIpListRequest extends $tea.Model {
   destinationRegion?: string;
   region?: string;
   regionId?: string;
+  resourceGroupId?: string;
   type?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       destinationRegion: 'DestinationRegion',
       region: 'Region',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       type: 'Type',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -11616,7 +12046,9 @@ export class WhiteIpListRequest extends $tea.Model {
       destinationRegion: 'string',
       region: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       type: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -11666,9 +12098,9 @@ export class WhiteIpListResponseBody extends $tea.Model {
 }
 
 export class WhiteIpListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: WhiteIpListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WhiteIpListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13417,7 +13849,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
   groupId?: string;
   isDemoJob?: boolean;
   jobType?: string;
+  maxDu?: number;
   migrationMode?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobMigrationMode;
+  minDu?: number;
   originType?: string;
   payType?: string;
   performance?: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPerformance;
@@ -13463,7 +13897,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
       groupId: 'GroupId',
       isDemoJob: 'IsDemoJob',
       jobType: 'JobType',
+      maxDu: 'MaxDu',
       migrationMode: 'MigrationMode',
+      minDu: 'MinDu',
       originType: 'OriginType',
       payType: 'PayType',
       performance: 'Performance',
@@ -13512,7 +13948,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJobReverseJob extends
       groupId: 'string',
       isDemoJob: 'boolean',
       jobType: 'string',
+      maxDu: 'number',
       migrationMode: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobMigrationMode,
+      minDu: 'number',
       originType: 'string',
       payType: 'string',
       performance: DescribeDtsJobDetailResponseBodySubDistributedJobReverseJobPerformance,
@@ -13750,7 +14188,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $tea.Mode
   groupId?: string;
   isDemoJob?: boolean;
   jobType?: string;
+  maxDu?: number;
   migrationMode?: DescribeDtsJobDetailResponseBodySubDistributedJobMigrationMode;
+  minDu?: number;
   originType?: string;
   payType?: string;
   performance?: DescribeDtsJobDetailResponseBodySubDistributedJobPerformance;
@@ -13797,7 +14237,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $tea.Mode
       groupId: 'GroupId',
       isDemoJob: 'IsDemoJob',
       jobType: 'JobType',
+      maxDu: 'MaxDu',
       migrationMode: 'MigrationMode',
+      minDu: 'MinDu',
       originType: 'OriginType',
       payType: 'PayType',
       performance: 'Performance',
@@ -13847,7 +14289,9 @@ export class DescribeDtsJobDetailResponseBodySubDistributedJob extends $tea.Mode
       groupId: 'string',
       isDemoJob: 'boolean',
       jobType: 'string',
+      maxDu: 'number',
       migrationMode: DescribeDtsJobDetailResponseBodySubDistributedJobMigrationMode,
+      minDu: 'number',
       originType: 'string',
       payType: 'string',
       performance: DescribeDtsJobDetailResponseBodySubDistributedJobPerformance,
@@ -15007,7 +15451,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $tea.Model {
   groupId?: string;
   isDemoJob?: boolean;
   jobType?: string;
+  maxDu?: number;
   migrationMode?: DescribeDtsJobDetailResponseBodySubSyncJobMigrationMode;
+  minDu?: number;
   originType?: string;
   payType?: string;
   performance?: DescribeDtsJobDetailResponseBodySubSyncJobPerformance;
@@ -15054,7 +15500,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $tea.Model {
       groupId: 'GroupId',
       isDemoJob: 'IsDemoJob',
       jobType: 'JobType',
+      maxDu: 'MaxDu',
       migrationMode: 'MigrationMode',
+      minDu: 'MinDu',
       originType: 'OriginType',
       payType: 'PayType',
       performance: 'Performance',
@@ -15104,7 +15552,9 @@ export class DescribeDtsJobDetailResponseBodySubSyncJob extends $tea.Model {
       groupId: 'string',
       isDemoJob: 'boolean',
       jobType: 'string',
+      maxDu: 'number',
       migrationMode: DescribeDtsJobDetailResponseBodySubSyncJobMigrationMode,
+      minDu: 'number',
       originType: 'string',
       payType: 'string',
       performance: DescribeDtsJobDetailResponseBodySubSyncJobPerformance,
@@ -15980,8 +16430,10 @@ export class DescribeDtsJobsResponseBodyDtsJobListReverseJob extends $tea.Model 
   expireTime?: string;
   fullDataCheckStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus;
   incDataCheckStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus;
+  maxDu?: number;
   memUsage?: string;
   migrationMode?: DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode;
+  minDu?: number;
   payType?: string;
   performance?: DescribeDtsJobsResponseBodyDtsJobListReverseJobPerformance;
   precheckStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobPrecheckStatus;
@@ -16012,8 +16464,10 @@ export class DescribeDtsJobsResponseBodyDtsJobListReverseJob extends $tea.Model 
       expireTime: 'ExpireTime',
       fullDataCheckStatus: 'FullDataCheckStatus',
       incDataCheckStatus: 'IncDataCheckStatus',
+      maxDu: 'MaxDu',
       memUsage: 'MemUsage',
       migrationMode: 'MigrationMode',
+      minDu: 'MinDu',
       payType: 'PayType',
       performance: 'Performance',
       precheckStatus: 'PrecheckStatus',
@@ -16047,8 +16501,10 @@ export class DescribeDtsJobsResponseBodyDtsJobListReverseJob extends $tea.Model 
       expireTime: 'string',
       fullDataCheckStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus,
       incDataCheckStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus,
+      maxDu: 'number',
       memUsage: 'string',
       migrationMode: DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode,
+      minDu: 'number',
       payType: 'string',
       performance: DescribeDtsJobsResponseBodyDtsJobListReverseJobPerformance,
       precheckStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobPrecheckStatus,
@@ -16191,6 +16647,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $tea.Model {
   fullDataCheckStatus?: DescribeDtsJobsResponseBodyDtsJobListFullDataCheckStatus;
   incDataCheckStatus?: DescribeDtsJobsResponseBodyDtsJobListIncDataCheckStatus;
   jobType?: string;
+  maxDu?: number;
   memUsage?: string;
   migrationErrCode?: string;
   migrationErrHelpDocId?: string;
@@ -16199,6 +16656,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $tea.Model {
   migrationErrType?: string;
   migrationErrWorkaround?: string;
   migrationMode?: DescribeDtsJobsResponseBodyDtsJobListMigrationMode;
+  minDu?: number;
   originType?: string;
   payType?: string;
   performance?: DescribeDtsJobsResponseBodyDtsJobListPerformance;
@@ -16244,6 +16702,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $tea.Model {
       fullDataCheckStatus: 'FullDataCheckStatus',
       incDataCheckStatus: 'IncDataCheckStatus',
       jobType: 'JobType',
+      maxDu: 'MaxDu',
       memUsage: 'MemUsage',
       migrationErrCode: 'MigrationErrCode',
       migrationErrHelpDocId: 'MigrationErrHelpDocId',
@@ -16252,6 +16711,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $tea.Model {
       migrationErrType: 'MigrationErrType',
       migrationErrWorkaround: 'MigrationErrWorkaround',
       migrationMode: 'MigrationMode',
+      minDu: 'MinDu',
       originType: 'OriginType',
       payType: 'PayType',
       performance: 'Performance',
@@ -16300,6 +16760,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $tea.Model {
       fullDataCheckStatus: DescribeDtsJobsResponseBodyDtsJobListFullDataCheckStatus,
       incDataCheckStatus: DescribeDtsJobsResponseBodyDtsJobListIncDataCheckStatus,
       jobType: 'string',
+      maxDu: 'number',
       memUsage: 'string',
       migrationErrCode: 'string',
       migrationErrHelpDocId: 'string',
@@ -16308,6 +16769,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $tea.Model {
       migrationErrType: 'string',
       migrationErrWorkaround: 'string',
       migrationMode: DescribeDtsJobsResponseBodyDtsJobListMigrationMode,
+      minDu: 'number',
       originType: 'string',
       payType: 'string',
       performance: DescribeDtsJobsResponseBodyDtsJobListPerformance,
@@ -20854,12 +21316,24 @@ export default class Client extends OpenApi {
       query["JobType"] = request.jobType;
     }
 
+    if (!Util.isUnset(request.maxDu)) {
+      query["MaxDu"] = request.maxDu;
+    }
+
+    if (!Util.isUnset(request.minDu)) {
+      query["MinDu"] = request.minDu;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.sourceEndpointDatabaseName)) {
@@ -21081,6 +21555,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.destinationEndpoint)) {
       query["DestinationEndpoint"] = request.destinationEndpoint;
     }
@@ -21167,6 +21645,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21240,12 +21722,24 @@ export default class Client extends OpenApi {
       query["ErrorPhone"] = request.errorPhone;
     }
 
+    if (!Util.isUnset(request.maxDu)) {
+      query["MaxDu"] = request.maxDu;
+    }
+
+    if (!Util.isUnset(request.minDu)) {
+      query["MinDu"] = request.minDu;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.reserve)) {
       query["Reserve"] = request.reserve;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.sourceEndpointDatabaseName)) {
@@ -21360,6 +21854,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.subscriptionInstanceId)) {
       query["SubscriptionInstanceId"] = request.subscriptionInstanceId;
     }
@@ -21453,6 +21951,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.subscriptionInstanceId)) {
       query["SubscriptionInstanceId"] = request.subscriptionInstanceId;
     }
@@ -21514,6 +22016,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.structureInitialization)) {
@@ -21616,6 +22122,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
     }
@@ -21671,6 +22181,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
@@ -21741,6 +22255,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.srcDbType)) {
       query["SrcDbType"] = request.srcDbType;
     }
@@ -21802,6 +22320,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21849,6 +22371,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceId)) {
@@ -21918,6 +22444,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -21991,6 +22521,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.jobId)) {
       query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.maxDu)) {
+      query["MaxDu"] = request.maxDu;
+    }
+
+    if (!Util.isUnset(request.minDu)) {
+      query["MinDu"] = request.minDu;
     }
 
     if (!Util.isUnset(request.payType)) {
@@ -22099,6 +22637,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.state)) {
       query["State"] = request.state;
     }
@@ -22178,6 +22720,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22213,6 +22759,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.dtsJobId)) {
       query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22273,6 +22823,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.usedTime)) {
@@ -22354,6 +22908,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.sourceRegion)) {
       query["SourceRegion"] = request.sourceRegion;
     }
@@ -22430,6 +22988,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22469,6 +23031,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceId)) {
@@ -22516,8 +23082,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22551,6 +23125,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22601,6 +23183,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22649,6 +23235,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceId)) {
@@ -22703,6 +23293,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationJobId)) {
@@ -22813,6 +23407,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22837,6 +23435,11 @@ export default class Client extends OpenApi {
 
   async describeClusterOperateLogsWithOptions(request: DescribeClusterOperateLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterOperateLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accountId)) {
       body["AccountId"] = request.accountId;
@@ -22875,6 +23478,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -22898,6 +23502,11 @@ export default class Client extends OpenApi {
 
   async describeClusterUsedUtilizationWithOptions(request: DescribeClusterUsedUtilizationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterUsedUtilizationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accountId)) {
       body["AccountId"] = request.accountId;
@@ -22936,6 +23545,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -23006,6 +23616,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.sourceEndpointArchitecture)) {
@@ -23101,6 +23715,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23146,6 +23764,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.subscriptionInstanceId)) {
       query["SubscriptionInstanceId"] = request.subscriptionInstanceId;
     }
@@ -23189,6 +23811,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.sourceEndpointRegion)) {
@@ -23239,6 +23865,10 @@ export default class Client extends OpenApi {
       query["DtsJobId"] = request.dtsJobId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.tbName)) {
       query["TbName"] = request.tbName;
     }
@@ -23282,6 +23912,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.schemaName)) {
@@ -23341,6 +23975,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.tbName)) {
       query["TbName"] = request.tbName;
     }
@@ -23382,6 +24020,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23417,6 +24059,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23464,6 +24110,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23501,12 +24151,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.syncSubJobHistory)) {
       query["SyncSubJobHistory"] = request.syncSubJobHistory;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23560,6 +24218,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
     }
 
     if (!Util.isUnset(request.jobType)) {
@@ -23618,6 +24284,10 @@ export default class Client extends OpenApi {
       query["WithoutDbList"] = request.withoutDbList;
     }
 
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23674,6 +24344,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -23684,6 +24358,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.subJobType)) {
       query["SubJobType"] = request.subJobType;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23734,6 +24412,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -23775,6 +24457,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23822,6 +24508,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationJobId)) {
       query["SynchronizationJobId"] = request.synchronizationJobId;
     }
@@ -23859,6 +24549,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23883,6 +24577,11 @@ export default class Client extends OpenApi {
 
   async describeMetricListWithOptions(request: DescribeMetricListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetricListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accountId)) {
       body["AccountId"] = request.accountId;
@@ -23929,6 +24628,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -23971,6 +24671,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24033,6 +24737,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.migrationMode)) {
       query["MigrationMode"] = request.migrationMode;
     }
@@ -24088,6 +24796,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24135,6 +24847,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.tag)) {
@@ -24190,12 +24906,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.structPhase)) {
       query["StructPhase"] = request.structPhase;
     }
 
     if (!Util.isUnset(request.structType)) {
       query["StructType"] = request.structType;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24239,6 +24963,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.subscriptionInstanceId)) {
       query["SubscriptionInstanceId"] = request.subscriptionInstanceId;
     }
@@ -24278,6 +25006,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceId)) {
@@ -24331,6 +25063,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceName)) {
@@ -24390,6 +25126,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.sid)) {
@@ -24452,6 +25192,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
     }
@@ -24499,6 +25243,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
@@ -24550,6 +25298,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
     }
@@ -24597,6 +25349,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationJobIdListJsonStr)) {
@@ -24650,6 +25406,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationJobName)) {
@@ -24708,6 +25468,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -24757,6 +25521,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceId)) {
@@ -24810,6 +25578,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceId)) {
@@ -24877,6 +25649,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -24937,6 +25713,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.state)) {
       query["State"] = request.state;
     }
@@ -24983,6 +25763,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceId)) {
@@ -25056,6 +25840,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25116,6 +25904,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceId)) {
@@ -25183,6 +25975,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceId)) {
@@ -25254,6 +26050,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25282,6 +26082,13 @@ export default class Client extends OpenApi {
     return await this.modifyDedicatedClusterWithOptions(request, runtime);
   }
 
+  /**
+    * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
+    *
+    * @param tmpReq ModifyDtsJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDtsJobResponse
+   */
   async modifyDtsJobWithOptions(tmpReq: ModifyDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDtsJobResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyDtsJobShrinkRequest({ });
@@ -25319,12 +26126,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.structureInitialization)) {
       query["StructureInitialization"] = request.structureInitialization;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let body : {[key: string ]: any} = { };
@@ -25366,6 +26181,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDtsJobResponse>(await this.callApi(params, req, runtime), new ModifyDtsJobResponse({}));
   }
 
+  /**
+    * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
+    *
+    * @param request ModifyDtsJobRequest
+    * @return ModifyDtsJobResponse
+   */
   async modifyDtsJob(request: ModifyDtsJobRequest): Promise<ModifyDtsJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDtsJobWithOptions(request, runtime);
@@ -25464,6 +26285,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25503,6 +26328,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25552,6 +26381,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25634,6 +26467,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.roleName)) {
       query["RoleName"] = request.roleName;
     }
@@ -25691,6 +26528,14 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25732,8 +26577,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.userName)) {
       query["UserName"] = request.userName;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25781,6 +26634,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -25820,6 +26677,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionDataTypeDDL)) {
@@ -25875,6 +26736,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceId)) {
@@ -25936,6 +26801,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
@@ -26003,6 +26872,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26045,6 +26918,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
@@ -26101,6 +26978,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
     }
@@ -26152,6 +27033,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26196,6 +27081,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26237,6 +27126,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.skip)) {
@@ -26288,8 +27181,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26323,6 +27224,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26373,6 +27282,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26401,6 +27314,13 @@ export default class Client extends OpenApi {
     return await this.startMigrationJobWithOptions(request, runtime);
   }
 
+  /**
+    * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](~~208925~~) operation.
+    *
+    * @param request StartReverseWriterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartReverseWriterResponse
+   */
   async startReverseWriterWithOptions(request: StartReverseWriterRequest, runtime: $Util.RuntimeOptions): Promise<StartReverseWriterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26410,6 +27330,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dtsJobId)) {
       query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26429,6 +27353,12 @@ export default class Client extends OpenApi {
     return $tea.cast<StartReverseWriterResponse>(await this.callApi(params, req, runtime), new StartReverseWriterResponse({}));
   }
 
+  /**
+    * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](~~208925~~) operation.
+    *
+    * @param request StartReverseWriterRequest
+    * @return StartReverseWriterResponse
+   */
   async startReverseWriter(request: StartReverseWriterRequest): Promise<StartReverseWriterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startReverseWriterWithOptions(request, runtime);
@@ -26454,6 +27384,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.subscriptionInstanceId)) {
@@ -26488,15 +27422,6 @@ export default class Client extends OpenApi {
     return await this.startSubscriptionInstanceWithOptions(request, runtime);
   }
 
-  /**
-    * > 
-    * *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service) of Data Transmission Service (DTS).
-    * *   When you call this operation, the data synchronization task must be in the NotStarted, Failed, or Suspending state. If you call this operation to start a task that is in the NotStarted state, the task will be prechecked.
-    *
-    * @param request StartSynchronizationJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartSynchronizationJobResponse
-   */
   async startSynchronizationJobWithOptions(request: StartSynchronizationJobRequest, runtime: $Util.RuntimeOptions): Promise<StartSynchronizationJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26510,6 +27435,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
@@ -26537,14 +27466,6 @@ export default class Client extends OpenApi {
     return $tea.cast<StartSynchronizationJobResponse>(await this.callApi(params, req, runtime), new StartSynchronizationJobResponse({}));
   }
 
-  /**
-    * > 
-    * *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service) of Data Transmission Service (DTS).
-    * *   When you call this operation, the data synchronization task must be in the NotStarted, Failed, or Suspending state. If you call this operation to start a task that is in the NotStarted state, the task will be prechecked.
-    *
-    * @param request StartSynchronizationJobRequest
-    * @return StartSynchronizationJobResponse
-   */
   async startSynchronizationJob(request: StartSynchronizationJobRequest): Promise<StartSynchronizationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startSynchronizationJobWithOptions(request, runtime);
@@ -26571,6 +27492,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26610,8 +27535,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26645,6 +27578,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26699,6 +27640,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26746,12 +27691,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.structType)) {
       query["StructType"] = request.structType;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26798,8 +27751,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26839,6 +27800,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26893,6 +27862,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -26950,6 +27923,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
     }
@@ -27004,6 +27981,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.synchronizationDirection)) {
       query["SynchronizationDirection"] = request.synchronizationDirection;
     }
@@ -27053,6 +28034,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.synchronizationDirection)) {
@@ -27121,6 +28106,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
@@ -27185,6 +28174,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27240,6 +28233,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27287,6 +28284,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceId)) {
@@ -27356,6 +28357,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -27411,8 +28416,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApi.OpenApiRequest({
