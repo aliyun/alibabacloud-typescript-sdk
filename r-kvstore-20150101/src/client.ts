@@ -8596,6 +8596,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
   instanceClass?: string;
   instanceId?: string;
   majorVersion?: string;
+  nodeType?: string;
   orderType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -8619,6 +8620,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
       majorVersion: 'MajorVersion',
+      nodeType: 'NodeType',
       orderType: 'OrderType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -8645,6 +8647,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       instanceClass: 'string',
       instanceId: 'string',
       majorVersion: 'string',
+      nodeType: 'string',
       orderType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -13509,6 +13512,108 @@ export class DescribePriceResponseBodyOrderCoupons extends $tea.Model {
   }
 }
 
+export class DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds extends $tea.Model {
+  optionId?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      optionId: 'OptionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionId: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extends $tea.Model {
+  activityId?: number;
+  activityName?: string;
+  finalFee?: number;
+  finalPromFee?: number;
+  optionCode?: string;
+  optionIds?: DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds;
+  prodFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      activityName: 'ActivityName',
+      finalFee: 'FinalFee',
+      finalPromFee: 'FinalPromFee',
+      optionCode: 'OptionCode',
+      optionIds: 'OptionIds',
+      prodFee: 'ProdFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'number',
+      activityName: 'string',
+      finalFee: 'number',
+      finalPromFee: 'number',
+      optionCode: 'string',
+      optionIds: DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionIds,
+      prodFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyOrderDepreciateInfo extends $tea.Model {
+  cheapRate?: number;
+  cheapStandAmount?: number;
+  contractActivity?: DescribePriceResponseBodyOrderDepreciateInfoContractActivity;
+  differential?: number;
+  differentialName?: string;
+  isContractActivity?: boolean;
+  isShow?: boolean;
+  listPrice?: number;
+  monthPrice?: number;
+  originalStandAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      contractActivity: 'ContractActivity',
+      differential: 'Differential',
+      differentialName: 'DifferentialName',
+      isContractActivity: 'IsContractActivity',
+      isShow: 'IsShow',
+      listPrice: 'ListPrice',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'number',
+      cheapStandAmount: 'number',
+      contractActivity: DescribePriceResponseBodyOrderDepreciateInfoContractActivity,
+      differential: 'number',
+      differentialName: 'string',
+      isContractActivity: 'boolean',
+      isShow: 'boolean',
+      listPrice: 'number',
+      monthPrice: 'number',
+      originalStandAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePriceResponseBodyOrderRuleIds extends $tea.Model {
   ruleId?: string[];
   static names(): { [key: string]: string } {
@@ -13529,36 +13634,54 @@ export class DescribePriceResponseBodyOrderRuleIds extends $tea.Model {
 }
 
 export class DescribePriceResponseBodyOrder extends $tea.Model {
+  code?: string;
   coupons?: DescribePriceResponseBodyOrderCoupons;
   currency?: string;
+  depreciateInfo?: DescribePriceResponseBodyOrderDepreciateInfo;
   discountAmount?: string;
   handlingFeeAmount?: string;
+  isContractActivity?: boolean;
+  message?: string;
   originalAmount?: string;
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
   showDiscountInfo?: boolean;
+  standDiscountPrice?: number;
+  standPrice?: number;
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       coupons: 'Coupons',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
       handlingFeeAmount: 'HandlingFeeAmount',
+      isContractActivity: 'IsContractActivity',
+      message: 'Message',
       originalAmount: 'OriginalAmount',
       ruleIds: 'RuleIds',
       showDiscountInfo: 'ShowDiscountInfo',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       coupons: DescribePriceResponseBodyOrderCoupons,
       currency: 'string',
+      depreciateInfo: DescribePriceResponseBodyOrderDepreciateInfo,
       discountAmount: 'string',
       handlingFeeAmount: 'string',
+      isContractActivity: 'boolean',
+      message: 'string',
       originalAmount: 'string',
       ruleIds: DescribePriceResponseBodyOrderRuleIds,
       showDiscountInfo: 'boolean',
+      standDiscountPrice: 'number',
+      standPrice: 'number',
       tradeAmount: 'string',
     };
   }
@@ -13612,6 +13735,344 @@ export class DescribePriceResponseBodyRules extends $tea.Model {
   }
 }
 
+export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds extends $tea.Model {
+  optionId?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      optionId: 'OptionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionId: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity extends $tea.Model {
+  activityId?: number;
+  activityName?: string;
+  finalFee?: number;
+  finalPromFee?: number;
+  optionCode?: string;
+  optionIds?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds;
+  prodFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activityId: 'ActivityId',
+      activityName: 'ActivityName',
+      finalFee: 'FinalFee',
+      finalPromFee: 'FinalPromFee',
+      optionCode: 'OptionCode',
+      optionIds: 'OptionIds',
+      prodFee: 'ProdFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityId: 'number',
+      activityName: 'string',
+      finalFee: 'number',
+      finalPromFee: 'number',
+      optionCode: 'string',
+      optionIds: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivityOptionIds,
+      prodFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo extends $tea.Model {
+  cheapRate?: number;
+  cheapStandAmount?: number;
+  contractActivity?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity;
+  differential?: number;
+  differentialName?: string;
+  isContractActivity?: boolean;
+  listPrice?: number;
+  monthPrice?: number;
+  originalStandAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      contractActivity: 'ContractActivity',
+      differential: 'Differential',
+      differentialName: 'DifferentialName',
+      isContractActivity: 'IsContractActivity',
+      listPrice: 'ListPrice',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'number',
+      cheapStandAmount: 'number',
+      contractActivity: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfoContractActivity,
+      differential: 'number',
+      differentialName: 'string',
+      isContractActivity: 'boolean',
+      listPrice: 'number',
+      monthPrice: 'number',
+      originalStandAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrsModuleAttr extends $tea.Model {
+  code?: string;
+  name?: string;
+  type?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      type: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs extends $tea.Model {
+  moduleAttr?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrsModuleAttr[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleAttr: 'moduleAttr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleAttr: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrsModuleAttr },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance extends $tea.Model {
+  contractActivity?: boolean;
+  discountFee?: number;
+  moduleAttrs?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs;
+  moduleCode?: string;
+  moduleId?: string;
+  moduleName?: string;
+  needOrderPay?: boolean;
+  payFee?: number;
+  pricingModule?: boolean;
+  standPrice?: number;
+  totalProductFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contractActivity: 'ContractActivity',
+      discountFee: 'DiscountFee',
+      moduleAttrs: 'ModuleAttrs',
+      moduleCode: 'ModuleCode',
+      moduleId: 'ModuleId',
+      moduleName: 'ModuleName',
+      needOrderPay: 'NeedOrderPay',
+      payFee: 'PayFee',
+      pricingModule: 'PricingModule',
+      standPrice: 'StandPrice',
+      totalProductFee: 'TotalProductFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contractActivity: 'boolean',
+      discountFee: 'number',
+      moduleAttrs: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs,
+      moduleCode: 'string',
+      moduleId: 'string',
+      moduleName: 'string',
+      needOrderPay: 'boolean',
+      payFee: 'number',
+      pricingModule: 'boolean',
+      standPrice: 'number',
+      totalProductFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstance extends $tea.Model {
+  moduleInstance?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      moduleInstance: 'ModuleInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleInstance: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotion extends $tea.Model {
+  activityExtInfo?: { [key: string]: any };
+  canPromFee?: string;
+  couponNo?: string;
+  description?: string;
+  name?: string;
+  optionCode?: string;
+  promotionName?: string;
+  promotionOptionNo?: string;
+  selected?: boolean;
+  show?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      activityExtInfo: 'ActivityExtInfo',
+      canPromFee: 'CanPromFee',
+      couponNo: 'CouponNo',
+      description: 'Description',
+      name: 'Name',
+      optionCode: 'OptionCode',
+      promotionName: 'PromotionName',
+      promotionOptionNo: 'PromotionOptionNo',
+      selected: 'Selected',
+      show: 'Show',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityExtInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      canPromFee: 'string',
+      couponNo: 'string',
+      description: 'string',
+      name: 'string',
+      optionCode: 'string',
+      promotionName: 'string',
+      promotionOptionNo: 'string',
+      selected: 'boolean',
+      show: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions extends $tea.Model {
+  optionalPromotion?: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotion[];
+  static names(): { [key: string]: string } {
+    return {
+      optionalPromotion: 'OptionalPromotion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionalPromotion: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderPromDetailListPromDetail extends $tea.Model {
+  activityExtInfo?: { [key: string]: any };
+  derivedPromType?: string;
+  finalPromFee?: number;
+  optionCode?: string;
+  promType?: string;
+  promotionCode?: string;
+  promotionId?: number;
+  promotionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activityExtInfo: 'ActivityExtInfo',
+      derivedPromType: 'DerivedPromType',
+      finalPromFee: 'FinalPromFee',
+      optionCode: 'OptionCode',
+      promType: 'PromType',
+      promotionCode: 'PromotionCode',
+      promotionId: 'PromotionId',
+      promotionName: 'PromotionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityExtInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      derivedPromType: 'string',
+      finalPromFee: 'number',
+      optionCode: 'string',
+      promType: 'string',
+      promotionCode: 'string',
+      promotionId: 'number',
+      promotionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodySubOrdersSubOrderPromDetailList extends $tea.Model {
+  promDetail?: DescribePriceResponseBodySubOrdersSubOrderPromDetailListPromDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      promDetail: 'PromDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promDetail: { 'type': 'array', 'itemType': DescribePriceResponseBodySubOrdersSubOrderPromDetailListPromDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePriceResponseBodySubOrdersSubOrderRuleIds extends $tea.Model {
   ruleId?: string[];
   static names(): { [key: string]: string } {
@@ -13632,27 +14093,51 @@ export class DescribePriceResponseBodySubOrdersSubOrderRuleIds extends $tea.Mode
 }
 
 export class DescribePriceResponseBodySubOrdersSubOrder extends $tea.Model {
+  contractActivity?: boolean;
+  depreciateInfo?: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo;
   discountAmount?: string;
   instanceId?: string;
+  isContractActivity?: boolean;
+  moduleInstance?: DescribePriceResponseBodySubOrdersSubOrderModuleInstance;
+  optionalPromotions?: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions;
   originalAmount?: string;
+  promDetailList?: DescribePriceResponseBodySubOrdersSubOrderPromDetailList;
   ruleIds?: DescribePriceResponseBodySubOrdersSubOrderRuleIds;
+  standDiscountPrice?: number;
+  standPrice?: number;
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {
+      contractActivity: 'ContractActivity',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
       instanceId: 'InstanceId',
+      isContractActivity: 'IsContractActivity',
+      moduleInstance: 'ModuleInstance',
+      optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
+      promDetailList: 'PromDetailList',
       ruleIds: 'RuleIds',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      contractActivity: 'boolean',
+      depreciateInfo: DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo,
       discountAmount: 'string',
       instanceId: 'string',
+      isContractActivity: 'boolean',
+      moduleInstance: DescribePriceResponseBodySubOrdersSubOrderModuleInstance,
+      optionalPromotions: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotions,
       originalAmount: 'string',
+      promDetailList: DescribePriceResponseBodySubOrdersSubOrderPromDetailList,
       ruleIds: DescribePriceResponseBodySubOrdersSubOrderRuleIds,
+      standDiscountPrice: 'number',
+      standPrice: 'number',
       tradeAmount: 'string',
     };
   }
@@ -15000,8 +15485,7 @@ export default class Client extends OpenApi {
   /**
     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
     * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](~~208271~~) operation.
-    * **
-    * **Description** For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
+    * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
     *
     * @param request CreateInstanceRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15206,8 +15690,7 @@ export default class Client extends OpenApi {
   /**
     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
     * You can call this operation to create an ApsaraDB for Redis instance or a classic Tair DRAM-based instance. To create a cloud-native Tair instance, call the [CreateTairInstance](~~208271~~) operation.
-    * **
-    * **Description** For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
+    * > For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
     *
     * @param request CreateInstanceRequest
     * @return CreateInstanceResponse
@@ -15219,8 +15702,8 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
-    * To create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks, call [CreateTairInstance](~~208271~~).
+    * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see Step 1: Create an ApsaraDB for Redis instance.[](~~26351~~)
+    * This operation can only be used to create ApsaraDB for Redis Community Edition instances and ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based classic instances.
     *
     * @param request CreateInstancesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15304,8 +15787,8 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
-    * To create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks, call [CreateTairInstance](~~208271~~).
+    * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see Step 1: Create an ApsaraDB for Redis instance.[](~~26351~~)
+    * This operation can only be used to create ApsaraDB for Redis Community Edition instances and ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based classic instances.
     *
     * @param request CreateInstancesRequest
     * @return CreateInstancesResponse
@@ -15318,7 +15801,6 @@ export default class Client extends OpenApi {
   /**
     * For information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * > 
     * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](~~443863~~).
     * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](~~126164~~) instances, you can call the [CreateInstance](~~60873~~) operation.
     *
@@ -15513,7 +15995,6 @@ export default class Client extends OpenApi {
   /**
     * For information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
-    * > 
     * *   For information about how to create a Tair instance in the Tair console, see [Create a Tair instance](~~443863~~).
     * *   If you want to create other types of instances, such as Community Edition instances or [Tair DRAM-based](~~126164~~) instances, you can call the [CreateInstance](~~60873~~) operation.
     *
@@ -15888,9 +16369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to return the historical tasks. Valid values:
-    * *   **0**: returns the current task. This is the default value.
-    * *   **1**: returns the historical tasks.
+    * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
     *
     * @param request DescribeActiveOperationTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15957,9 +16436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Specifies whether to return the historical tasks. Valid values:
-    * *   **0**: returns the current task. This is the default value.
-    * *   **1**: returns the historical tasks.
+    * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](~~ModifyActiveOperationTask~~) operation to modify the scheduled switchover time of the O&M task.
     *
     * @param request DescribeActiveOperationTaskRequest
     * @return DescribeActiveOperationTaskResponse
@@ -16737,6 +17214,13 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceNetInfoWithOptions(request, runtime);
   }
 
+  /**
+    * > Only instances that use cloud disks support this operation.
+    *
+    * @param request DescribeDBNodeDirectVipInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBNodeDirectVipInfoResponse
+   */
   async describeDBNodeDirectVipInfoWithOptions(request: DescribeDBNodeDirectVipInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodeDirectVipInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16777,6 +17261,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBNodeDirectVipInfoResponse>(await this.callApi(params, req, runtime), new DescribeDBNodeDirectVipInfoResponse({}));
   }
 
+  /**
+    * > Only instances that use cloud disks support this operation.
+    *
+    * @param request DescribeDBNodeDirectVipInfoRequest
+    * @return DescribeDBNodeDirectVipInfoResponse
+   */
   async describeDBNodeDirectVipInfo(request: DescribeDBNodeDirectVipInfoRequest): Promise<DescribeDBNodeDirectVipInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBNodeDirectVipInfoWithOptions(request, runtime);
@@ -18188,7 +18678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * An array that consists of the details about the parameters returned.
+    * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](~~61113~~) operation to reconfigure the parameters of the instance.
     *
     * @param request DescribeParameterTemplatesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -18255,7 +18745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * An array that consists of the details about the parameters returned.
+    * After you call this operation to query the parameters and default values of an instance, you can call the [ModifyInstanceConfig](~~61113~~) operation to reconfigure the parameters of the instance.
     *
     * @param request DescribeParameterTemplatesRequest
     * @return DescribeParameterTemplatesResponse
@@ -19353,7 +19843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis] (~~184337~~).
+    * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
     *
     * @param request InitializeKvstorePermissionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19404,7 +19894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis] (~~184337~~).
+    * The log management feature of ApsaraDB for Redis requires the resources of [Log Service](~~48869~~). To use the log management feature of ApsaraDB for Redis, you can call this operation to associate the RAM role named AliyunServiceRoleForKvstore with the ApsaraDB for Redis instance. For more information, see [Associated RAM roles of ApsaraDB for Redis](~~184337~~).
     *
     * @param request InitializeKvstorePermissionRequest
     * @return InitializeKvstorePermissionResponse
@@ -20884,6 +21374,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.majorVersion)) {
       query["MajorVersion"] = request.majorVersion;
+    }
+
+    if (!Util.isUnset(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
     }
 
     if (!Util.isUnset(request.orderType)) {
