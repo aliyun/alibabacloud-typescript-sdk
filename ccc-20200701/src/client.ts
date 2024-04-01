@@ -83,6 +83,84 @@ export class AbortCampaignResponse extends $tea.Model {
   }
 }
 
+export class AddBlacklistCallTaggingRequest extends $tea.Model {
+  instanceId?: string;
+  jobId?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      jobId: 'string',
+      number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddBlacklistCallTaggingResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddBlacklistCallTaggingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddBlacklistCallTaggingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddBlacklistCallTaggingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCasesRequest extends $tea.Model {
   campaignId?: string;
   caseList?: AddCasesRequestCaseList[];
@@ -1048,8 +1126,12 @@ export class BlindTransferRequest extends $tea.Model {
   deviceId?: string;
   instanceId?: string;
   jobId?: string;
+  queuingOverflowThreshold?: number;
+  queuingTimeoutSeconds?: number;
+  routingType?: string;
   strategyName?: string;
   strategyParams?: string;
+  tags?: string;
   timeoutSeconds?: number;
   transferee?: string;
   transfereeType?: string;
@@ -1062,8 +1144,12 @@ export class BlindTransferRequest extends $tea.Model {
       deviceId: 'DeviceId',
       instanceId: 'InstanceId',
       jobId: 'JobId',
+      queuingOverflowThreshold: 'QueuingOverflowThreshold',
+      queuingTimeoutSeconds: 'QueuingTimeoutSeconds',
+      routingType: 'RoutingType',
       strategyName: 'StrategyName',
       strategyParams: 'StrategyParams',
+      tags: 'Tags',
       timeoutSeconds: 'TimeoutSeconds',
       transferee: 'Transferee',
       transfereeType: 'TransfereeType',
@@ -1079,8 +1165,12 @@ export class BlindTransferRequest extends $tea.Model {
       deviceId: 'string',
       instanceId: 'string',
       jobId: 'string',
+      queuingOverflowThreshold: 'number',
+      queuingTimeoutSeconds: 'number',
+      routingType: 'string',
       strategyName: 'string',
       strategyParams: 'string',
+      tags: 'string',
       timeoutSeconds: 'number',
       transferee: 'string',
       transfereeType: 'string',
@@ -5998,10 +6088,15 @@ export class InitiateAttendedTransferRequest extends $tea.Model {
   deviceId?: string;
   instanceId?: string;
   jobId?: string;
+  queuingOverflowThreshold?: number;
+  queuingTimeoutSeconds?: number;
+  routingType?: string;
   strategyName?: string;
   strategyParams?: string;
+  tags?: string;
   timeoutSeconds?: number;
   transferee?: string;
+  transfereeType?: string;
   transferor?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -6010,10 +6105,15 @@ export class InitiateAttendedTransferRequest extends $tea.Model {
       deviceId: 'DeviceId',
       instanceId: 'InstanceId',
       jobId: 'JobId',
+      queuingOverflowThreshold: 'QueuingOverflowThreshold',
+      queuingTimeoutSeconds: 'QueuingTimeoutSeconds',
+      routingType: 'RoutingType',
       strategyName: 'StrategyName',
       strategyParams: 'StrategyParams',
+      tags: 'Tags',
       timeoutSeconds: 'TimeoutSeconds',
       transferee: 'Transferee',
+      transfereeType: 'TransfereeType',
       transferor: 'Transferor',
       userId: 'UserId',
     };
@@ -6025,10 +6125,15 @@ export class InitiateAttendedTransferRequest extends $tea.Model {
       deviceId: 'string',
       instanceId: 'string',
       jobId: 'string',
+      queuingOverflowThreshold: 'number',
+      queuingTimeoutSeconds: 'number',
+      routingType: 'string',
       strategyName: 'string',
       strategyParams: 'string',
+      tags: 'string',
       timeoutSeconds: 'number',
       transferee: 'string',
+      transfereeType: 'string',
       transferor: 'string',
       userId: 'string',
     };
@@ -6846,6 +6951,84 @@ export class ListAudioFilesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAudioFilesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBlacklistCallTaggingsRequest extends $tea.Model {
+  instanceId?: string;
+  numberList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      numberList: 'NumberList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      numberList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBlacklistCallTaggingsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListBlacklistCallTaggingsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListBlacklistCallTaggingsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBlacklistCallTaggingsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBlacklistCallTaggingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBlacklistCallTaggingsResponseBody,
     };
   }
 
@@ -12659,6 +12842,84 @@ export class ReleaseCallResponse extends $tea.Model {
   }
 }
 
+export class RemoveBlacklistCallTaggingRequest extends $tea.Model {
+  instanceId?: string;
+  jobId?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      jobId: 'string',
+      number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveBlacklistCallTaggingResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveBlacklistCallTaggingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveBlacklistCallTaggingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveBlacklistCallTaggingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveDoNotCallNumbersRequest extends $tea.Model {
   instanceId?: string;
   numberList?: string;
@@ -15447,6 +15708,7 @@ export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.M
   channelState?: string;
   channelVariables?: string;
   destination?: string;
+  index?: number;
   jobId?: string;
   originator?: string;
   releaseInitiator?: string;
@@ -15462,6 +15724,7 @@ export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.M
       channelState: 'ChannelState',
       channelVariables: 'ChannelVariables',
       destination: 'Destination',
+      index: 'Index',
       jobId: 'JobId',
       originator: 'Originator',
       releaseInitiator: 'ReleaseInitiator',
@@ -15480,6 +15743,7 @@ export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.M
       channelState: 'string',
       channelVariables: 'string',
       destination: 'string',
+      index: 'number',
       jobId: 'string',
       originator: 'string',
       releaseInitiator: 'string',
@@ -20184,6 +20448,31 @@ export class ListAudioFilesResponseBodyData extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBlacklistCallTaggingsResponseBodyData extends $tea.Model {
+  blacklisted?: boolean;
+  jobId?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      blacklisted: 'Blacklisted',
+      jobId: 'JobId',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blacklisted: 'boolean',
+      jobId: 'string',
+      number: 'string',
     };
   }
 
@@ -29572,6 +29861,43 @@ export default class Client extends OpenApi {
     return await this.abortCampaignWithOptions(request, runtime);
   }
 
+  async addBlacklistCallTaggingWithOptions(request: AddBlacklistCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<AddBlacklistCallTaggingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddBlacklistCallTagging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddBlacklistCallTaggingResponse>(await this.callApi(params, req, runtime), new AddBlacklistCallTaggingResponse({}));
+  }
+
+  async addBlacklistCallTagging(request: AddBlacklistCallTaggingRequest): Promise<AddBlacklistCallTaggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addBlacklistCallTaggingWithOptions(request, runtime);
+  }
+
   async addCasesWithOptions(tmpReq: AddCasesRequest, runtime: $Util.RuntimeOptions): Promise<AddCasesResponse> {
     Util.validateModel(tmpReq);
     let request = new AddCasesShrinkRequest({ });
@@ -30067,12 +30393,28 @@ export default class Client extends OpenApi {
       query["JobId"] = request.jobId;
     }
 
+    if (!Util.isUnset(request.queuingOverflowThreshold)) {
+      query["QueuingOverflowThreshold"] = request.queuingOverflowThreshold;
+    }
+
+    if (!Util.isUnset(request.queuingTimeoutSeconds)) {
+      query["QueuingTimeoutSeconds"] = request.queuingTimeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.routingType)) {
+      query["RoutingType"] = request.routingType;
+    }
+
     if (!Util.isUnset(request.strategyName)) {
       query["StrategyName"] = request.strategyName;
     }
 
     if (!Util.isUnset(request.strategyParams)) {
       query["StrategyParams"] = request.strategyParams;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.timeoutSeconds)) {
@@ -32350,6 +32692,18 @@ export default class Client extends OpenApi {
       query["JobId"] = request.jobId;
     }
 
+    if (!Util.isUnset(request.queuingOverflowThreshold)) {
+      query["QueuingOverflowThreshold"] = request.queuingOverflowThreshold;
+    }
+
+    if (!Util.isUnset(request.queuingTimeoutSeconds)) {
+      query["QueuingTimeoutSeconds"] = request.queuingTimeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.routingType)) {
+      query["RoutingType"] = request.routingType;
+    }
+
     if (!Util.isUnset(request.strategyName)) {
       query["StrategyName"] = request.strategyName;
     }
@@ -32358,12 +32712,20 @@ export default class Client extends OpenApi {
       query["StrategyParams"] = request.strategyParams;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!Util.isUnset(request.timeoutSeconds)) {
       query["TimeoutSeconds"] = request.timeoutSeconds;
     }
 
     if (!Util.isUnset(request.transferee)) {
       query["Transferee"] = request.transferee;
+    }
+
+    if (!Util.isUnset(request.transfereeType)) {
+      query["TransfereeType"] = request.transfereeType;
     }
 
     if (!Util.isUnset(request.transferor)) {
@@ -32768,6 +33130,39 @@ export default class Client extends OpenApi {
   async listAudioFiles(request: ListAudioFilesRequest): Promise<ListAudioFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAudioFilesWithOptions(request, runtime);
+  }
+
+  async listBlacklistCallTaggingsWithOptions(request: ListBlacklistCallTaggingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBlacklistCallTaggingsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBlacklistCallTaggings",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBlacklistCallTaggingsResponse>(await this.callApi(params, req, runtime), new ListBlacklistCallTaggingsResponse({}));
+  }
+
+  async listBlacklistCallTaggings(request: ListBlacklistCallTaggingsRequest): Promise<ListBlacklistCallTaggingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBlacklistCallTaggingsWithOptions(request, runtime);
   }
 
   async listBriefSkillGroupsWithOptions(request: ListBriefSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListBriefSkillGroupsResponse> {
@@ -35747,6 +36142,43 @@ export default class Client extends OpenApi {
   async releaseCall(request: ReleaseCallRequest): Promise<ReleaseCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseCallWithOptions(request, runtime);
+  }
+
+  async removeBlacklistCallTaggingWithOptions(request: RemoveBlacklistCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<RemoveBlacklistCallTaggingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveBlacklistCallTagging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveBlacklistCallTaggingResponse>(await this.callApi(params, req, runtime), new RemoveBlacklistCallTaggingResponse({}));
+  }
+
+  async removeBlacklistCallTagging(request: RemoveBlacklistCallTaggingRequest): Promise<RemoveBlacklistCallTaggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeBlacklistCallTaggingWithOptions(request, runtime);
   }
 
   async removeDoNotCallNumbersWithOptions(request: RemoveDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDoNotCallNumbersResponse> {
