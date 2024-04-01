@@ -7310,6 +7310,99 @@ export class ModifyDBInstanceDescriptionResponse extends $tea.Model {
   }
 }
 
+export class ModifyDBInstanceDiskTypeRequest extends $tea.Model {
+  autoPay?: boolean;
+  autoRenew?: string;
+  businessInfo?: string;
+  couponNo?: string;
+  DBInstanceId?: string;
+  dbInstanceStorageType?: string;
+  extraParam?: string;
+  orderType?: string;
+  provisionedIops?: number;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      businessInfo: 'BusinessInfo',
+      couponNo: 'CouponNo',
+      DBInstanceId: 'DBInstanceId',
+      dbInstanceStorageType: 'DbInstanceStorageType',
+      extraParam: 'ExtraParam',
+      orderType: 'OrderType',
+      provisionedIops: 'ProvisionedIops',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'string',
+      businessInfo: 'string',
+      couponNo: 'string',
+      DBInstanceId: 'string',
+      dbInstanceStorageType: 'string',
+      extraParam: 'string',
+      orderType: 'string',
+      provisionedIops: 'number',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceDiskTypeResponseBody extends $tea.Model {
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceDiskTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceDiskTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceDiskTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBInstanceMaintainTimeRequest extends $tea.Model {
   DBInstanceId?: string;
   maintainEndTime?: string;
@@ -15221,8 +15314,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-    * This operation is applicable only to sharded cluster instances.
+    * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+    * This operation applies only to sharded cluster instances.
     *
     * @param request CreateNodeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15313,8 +15406,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
-    * This operation is applicable only to sharded cluster instances.
+    * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+    * This operation applies only to sharded cluster instances.
     *
     * @param request CreateNodeRequest
     * @return CreateNodeResponse
@@ -19957,6 +20050,71 @@ export default class Client extends OpenApi {
   async modifyDBInstanceDescription(request: ModifyDBInstanceDescriptionRequest): Promise<ModifyDBInstanceDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceDescriptionWithOptions(request, runtime);
+  }
+
+  async modifyDBInstanceDiskTypeWithOptions(request: ModifyDBInstanceDiskTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDiskTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.businessInfo)) {
+      query["BusinessInfo"] = request.businessInfo;
+    }
+
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.dbInstanceStorageType)) {
+      query["DbInstanceStorageType"] = request.dbInstanceStorageType;
+    }
+
+    if (!Util.isUnset(request.extraParam)) {
+      query["ExtraParam"] = request.extraParam;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.provisionedIops)) {
+      query["ProvisionedIops"] = request.provisionedIops;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceDiskType",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceDiskTypeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDiskTypeResponse({}));
+  }
+
+  async modifyDBInstanceDiskType(request: ModifyDBInstanceDiskTypeRequest): Promise<ModifyDBInstanceDiskTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBInstanceDiskTypeWithOptions(request, runtime);
   }
 
   async modifyDBInstanceMaintainTimeWithOptions(request: ModifyDBInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMaintainTimeResponse> {
