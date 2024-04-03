@@ -172,18 +172,24 @@ export class ConvertPostPayOrderResponse extends $tea.Model {
 
 export class CreateAclRequest extends $tea.Model {
   aclOperationType?: string;
+  aclOperationTypes?: string;
+  aclPermissionType?: string;
   aclResourceName?: string;
   aclResourcePatternType?: string;
   aclResourceType?: string;
+  host?: string;
   instanceId?: string;
   regionId?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
       aclOperationType: 'AclOperationType',
+      aclOperationTypes: 'AclOperationTypes',
+      aclPermissionType: 'AclPermissionType',
       aclResourceName: 'AclResourceName',
       aclResourcePatternType: 'AclResourcePatternType',
       aclResourceType: 'AclResourceType',
+      host: 'Host',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       username: 'Username',
@@ -193,9 +199,12 @@ export class CreateAclRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclOperationType: 'string',
+      aclOperationTypes: 'string',
+      aclPermissionType: 'string',
       aclResourceName: 'string',
       aclResourcePatternType: 'string',
       aclResourceType: 'string',
+      host: 'string',
       instanceId: 'string',
       regionId: 'string',
       username: 'string',
@@ -632,6 +641,7 @@ export class CreatePrePayOrderResponse extends $tea.Model {
 
 export class CreateSaslUserRequest extends $tea.Model {
   instanceId?: string;
+  mechanism?: string;
   password?: string;
   regionId?: string;
   type?: string;
@@ -639,6 +649,7 @@ export class CreateSaslUserRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      mechanism: 'Mechanism',
       password: 'Password',
       regionId: 'RegionId',
       type: 'Type',
@@ -649,6 +660,7 @@ export class CreateSaslUserRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      mechanism: 'string',
       password: 'string',
       regionId: 'string',
       type: 'string',
@@ -818,18 +830,24 @@ export class CreateTopicResponse extends $tea.Model {
 
 export class DeleteAclRequest extends $tea.Model {
   aclOperationType?: string;
+  aclOperationTypes?: string;
+  aclPermissionType?: string;
   aclResourceName?: string;
   aclResourcePatternType?: string;
   aclResourceType?: string;
+  host?: string;
   instanceId?: string;
   regionId?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
       aclOperationType: 'AclOperationType',
+      aclOperationTypes: 'AclOperationTypes',
+      aclPermissionType: 'AclPermissionType',
       aclResourceName: 'AclResourceName',
       aclResourcePatternType: 'AclResourcePatternType',
       aclResourceType: 'AclResourceType',
+      host: 'Host',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       username: 'Username',
@@ -839,9 +857,12 @@ export class DeleteAclRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclOperationType: 'string',
+      aclOperationTypes: 'string',
+      aclPermissionType: 'string',
       aclResourceName: 'string',
       aclResourcePatternType: 'string',
       aclResourceType: 'string',
+      host: 'string',
       instanceId: 'string',
       regionId: 'string',
       username: 'string',
@@ -1061,12 +1082,14 @@ export class DeleteInstanceResponse extends $tea.Model {
 
 export class DeleteSaslUserRequest extends $tea.Model {
   instanceId?: string;
+  mechanism?: string;
   regionId?: string;
   type?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      mechanism: 'Mechanism',
       regionId: 'RegionId',
       type: 'Type',
       username: 'Username',
@@ -1076,6 +1099,7 @@ export class DeleteSaslUserRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      mechanism: 'string',
       regionId: 'string',
       type: 'string',
       username: 'string',
@@ -1219,17 +1243,23 @@ export class DeleteTopicResponse extends $tea.Model {
 }
 
 export class DescribeAclsRequest extends $tea.Model {
+  aclOperationType?: string;
+  aclPermissionType?: string;
   aclResourceName?: string;
   aclResourcePatternType?: string;
   aclResourceType?: string;
+  host?: string;
   instanceId?: string;
   regionId?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
+      aclOperationType: 'AclOperationType',
+      aclPermissionType: 'AclPermissionType',
       aclResourceName: 'AclResourceName',
       aclResourcePatternType: 'AclResourcePatternType',
       aclResourceType: 'AclResourceType',
+      host: 'Host',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       username: 'Username',
@@ -1238,9 +1268,12 @@ export class DescribeAclsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aclOperationType: 'string',
+      aclPermissionType: 'string',
       aclResourceName: 'string',
       aclResourcePatternType: 'string',
       aclResourceType: 'string',
+      host: 'string',
       instanceId: 'string',
       regionId: 'string',
       username: 'string',
@@ -4172,6 +4205,7 @@ export class CreateTopicRequestTag extends $tea.Model {
 
 export class DescribeAclsResponseBodyKafkaAclListKafkaAclVO extends $tea.Model {
   aclOperationType?: string;
+  aclPermissionType?: string;
   aclResourceName?: string;
   aclResourcePatternType?: string;
   aclResourceType?: string;
@@ -4180,6 +4214,7 @@ export class DescribeAclsResponseBodyKafkaAclListKafkaAclVO extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aclOperationType: 'AclOperationType',
+      aclPermissionType: 'AclPermissionType',
       aclResourceName: 'AclResourceName',
       aclResourcePatternType: 'AclResourcePatternType',
       aclResourceType: 'AclResourceType',
@@ -4191,6 +4226,7 @@ export class DescribeAclsResponseBodyKafkaAclListKafkaAclVO extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclOperationType: 'string',
+      aclPermissionType: 'string',
       aclResourceName: 'string',
       aclResourcePatternType: 'string',
       aclResourceType: 'string',
@@ -4224,11 +4260,13 @@ export class DescribeAclsResponseBodyKafkaAclList extends $tea.Model {
 }
 
 export class DescribeSaslUsersResponseBodySaslUserListSaslUserVO extends $tea.Model {
+  mechanism?: string;
   password?: string;
   type?: string;
   username?: string;
   static names(): { [key: string]: string } {
     return {
+      mechanism: 'Mechanism',
       password: 'Password',
       type: 'Type',
       username: 'Username',
@@ -4237,6 +4275,7 @@ export class DescribeSaslUsersResponseBodySaslUserListSaslUserVO extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      mechanism: 'string',
       password: 'string',
       type: 'string',
       username: 'string',
@@ -4436,6 +4475,59 @@ export class GetConsumerListResponseBodyConsumerList extends $tea.Model {
   }
 }
 
+export class GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList extends $tea.Model {
+  generation?: number;
+  groupId?: string;
+  lastRebalanceTimestamp?: number;
+  reason?: string;
+  rebalanceSuccess?: boolean;
+  rebalanceTimeConsuming?: number;
+  static names(): { [key: string]: string } {
+    return {
+      generation: 'Generation',
+      groupId: 'GroupId',
+      lastRebalanceTimestamp: 'LastRebalanceTimestamp',
+      reason: 'Reason',
+      rebalanceSuccess: 'RebalanceSuccess',
+      rebalanceTimeConsuming: 'RebalanceTimeConsuming',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generation: 'number',
+      groupId: 'string',
+      lastRebalanceTimestamp: 'number',
+      reason: 'string',
+      rebalanceSuccess: 'boolean',
+      rebalanceTimeConsuming: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList extends $tea.Model {
+  rebalanceInfoList?: GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      rebalanceInfoList: 'RebalanceInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rebalanceInfoList: { 'type': 'array', 'itemType': GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOffsetListOffsetList extends $tea.Model {
   brokerOffset?: number;
   consumerOffset?: number;
@@ -4532,11 +4624,13 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicList extends $t
 
 export class GetConsumerProgressResponseBodyConsumerProgress extends $tea.Model {
   lastTimestamp?: number;
+  rebalanceInfoList?: GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList;
   topicList?: GetConsumerProgressResponseBodyConsumerProgressTopicList;
   totalDiff?: number;
   static names(): { [key: string]: string } {
     return {
       lastTimestamp: 'LastTimestamp',
+      rebalanceInfoList: 'RebalanceInfoList',
       topicList: 'TopicList',
       totalDiff: 'TotalDiff',
     };
@@ -4545,6 +4639,7 @@ export class GetConsumerProgressResponseBodyConsumerProgress extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       lastTimestamp: 'number',
+      rebalanceInfoList: GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList,
       topicList: GetConsumerProgressResponseBodyConsumerProgressTopicList,
       totalDiff: 'number',
     };
@@ -5481,6 +5576,14 @@ export default class Client extends OpenApi {
       query["AclOperationType"] = request.aclOperationType;
     }
 
+    if (!Util.isUnset(request.aclOperationTypes)) {
+      query["AclOperationTypes"] = request.aclOperationTypes;
+    }
+
+    if (!Util.isUnset(request.aclPermissionType)) {
+      query["AclPermissionType"] = request.aclPermissionType;
+    }
+
     if (!Util.isUnset(request.aclResourceName)) {
       query["AclResourceName"] = request.aclResourceName;
     }
@@ -5491,6 +5594,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.aclResourceType)) {
       query["AclResourceType"] = request.aclResourceType;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      query["Host"] = request.host;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -5771,6 +5878,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mechanism)) {
+      query["Mechanism"] = request.mechanism;
+    }
+
     if (!Util.isUnset(request.password)) {
       query["Password"] = request.password;
     }
@@ -5900,6 +6011,14 @@ export default class Client extends OpenApi {
       query["AclOperationType"] = request.aclOperationType;
     }
 
+    if (!Util.isUnset(request.aclOperationTypes)) {
+      query["AclOperationTypes"] = request.aclOperationTypes;
+    }
+
+    if (!Util.isUnset(request.aclPermissionType)) {
+      query["AclPermissionType"] = request.aclPermissionType;
+    }
+
     if (!Util.isUnset(request.aclResourceName)) {
       query["AclResourceName"] = request.aclResourceName;
     }
@@ -5910,6 +6029,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.aclResourceType)) {
       query["AclResourceType"] = request.aclResourceType;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      query["Host"] = request.host;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -6023,6 +6146,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.mechanism)) {
+      query["Mechanism"] = request.mechanism;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -6097,6 +6224,14 @@ export default class Client extends OpenApi {
   async describeAclsWithOptions(request: DescribeAclsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAclsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.aclOperationType)) {
+      query["AclOperationType"] = request.aclOperationType;
+    }
+
+    if (!Util.isUnset(request.aclPermissionType)) {
+      query["AclPermissionType"] = request.aclPermissionType;
+    }
+
     if (!Util.isUnset(request.aclResourceName)) {
       query["AclResourceName"] = request.aclResourceName;
     }
@@ -6107,6 +6242,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.aclResourceType)) {
       query["AclResourceType"] = request.aclResourceType;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      query["Host"] = request.host;
     }
 
     if (!Util.isUnset(request.instanceId)) {
