@@ -11754,12 +11754,14 @@ export class ImportAppAlertRulesResponse extends $tea.Model {
 
 export class InitEnvironmentRequest extends $tea.Model {
   aliyunLang?: string;
+  createAuthToken?: boolean;
   environmentId?: string;
   managedType?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       aliyunLang: 'AliyunLang',
+      createAuthToken: 'CreateAuthToken',
       environmentId: 'EnvironmentId',
       managedType: 'ManagedType',
       regionId: 'RegionId',
@@ -11769,6 +11771,7 @@ export class InitEnvironmentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliyunLang: 'string',
+      createAuthToken: 'boolean',
       environmentId: 'string',
       managedType: 'string',
       regionId: 'string',
@@ -12809,12 +12812,14 @@ export class ListDashboardsRequest extends $tea.Model {
 export class ListDashboardsResponseBody extends $tea.Model {
   dashboardVos?: ListDashboardsResponseBodyDashboardVos[];
   environmentId?: string;
+  grafanaServiceOpened?: string;
   prometheusServiceOpened?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       dashboardVos: 'DashboardVos',
       environmentId: 'EnvironmentId',
+      grafanaServiceOpened: 'GrafanaServiceOpened',
       prometheusServiceOpened: 'PrometheusServiceOpened',
       requestId: 'RequestId',
     };
@@ -12824,6 +12829,7 @@ export class ListDashboardsResponseBody extends $tea.Model {
     return {
       dashboardVos: { 'type': 'array', 'itemType': ListDashboardsResponseBodyDashboardVos },
       environmentId: 'string',
+      grafanaServiceOpened: 'string',
       prometheusServiceOpened: 'string',
       requestId: 'string',
     };
@@ -38659,6 +38665,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.aliyunLang)) {
       query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!Util.isUnset(request.createAuthToken)) {
+      query["CreateAuthToken"] = request.createAuthToken;
     }
 
     if (!Util.isUnset(request.environmentId)) {
