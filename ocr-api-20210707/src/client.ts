@@ -3865,11 +3865,13 @@ export class RecognizeMedicalDeviceProduceLicenseResponse extends $tea.Model {
 }
 
 export class RecognizeMixedInvoicesRequest extends $tea.Model {
+  mergePdfPages?: boolean;
   pageNo?: number;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      mergePdfPages: 'MergePdfPages',
       pageNo: 'PageNo',
       url: 'Url',
       body: 'body',
@@ -3878,6 +3880,7 @@ export class RecognizeMixedInvoicesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      mergePdfPages: 'boolean',
       pageNo: 'number',
       url: 'string',
       body: 'Readable',
@@ -9140,6 +9143,10 @@ export default class Client extends OpenApi {
   async recognizeMixedInvoicesWithOptions(request: RecognizeMixedInvoicesRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMixedInvoicesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.mergePdfPages)) {
+      query["MergePdfPages"] = request.mergePdfPages;
+    }
+
     if (!Util.isUnset(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
