@@ -11,11 +11,15 @@ import * as $tea from '@alicloud/tea-typescript';
 export class CreateDedicatedHostRequest extends $tea.Model {
   autoRenew?: string;
   clientToken?: string;
+  clusterAlias?: string;
+  clusterServices?: string[];
+  clusterType?: string;
   dedicatedHostGroupId?: string;
   hostClass?: string;
   hostStorage?: string;
   hostStorageType?: string;
   imageCategory?: string;
+  myBaseEcsClass?: CreateDedicatedHostRequestMyBaseEcsClass;
   osPassword?: string;
   ownerId?: number;
   payType?: string;
@@ -25,16 +29,21 @@ export class CreateDedicatedHostRequest extends $tea.Model {
   resourceOwnerId?: number;
   usedTime?: string;
   vSwitchId?: string;
+  vpcID?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      clusterAlias: 'ClusterAlias',
+      clusterServices: 'ClusterServices',
+      clusterType: 'ClusterType',
       dedicatedHostGroupId: 'DedicatedHostGroupId',
       hostClass: 'HostClass',
       hostStorage: 'HostStorage',
       hostStorageType: 'HostStorageType',
       imageCategory: 'ImageCategory',
+      myBaseEcsClass: 'MyBaseEcsClass',
       osPassword: 'OsPassword',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -44,6 +53,7 @@ export class CreateDedicatedHostRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
+      vpcID: 'VpcID',
       zoneId: 'ZoneId',
     };
   }
@@ -52,11 +62,15 @@ export class CreateDedicatedHostRequest extends $tea.Model {
     return {
       autoRenew: 'string',
       clientToken: 'string',
+      clusterAlias: 'string',
+      clusterServices: { 'type': 'array', 'itemType': 'string' },
+      clusterType: 'string',
       dedicatedHostGroupId: 'string',
       hostClass: 'string',
       hostStorage: 'string',
       hostStorageType: 'string',
       imageCategory: 'string',
+      myBaseEcsClass: CreateDedicatedHostRequestMyBaseEcsClass,
       osPassword: 'string',
       ownerId: 'number',
       payType: 'string',
@@ -66,6 +80,89 @@ export class CreateDedicatedHostRequest extends $tea.Model {
       resourceOwnerId: 'number',
       usedTime: 'string',
       vSwitchId: 'string',
+      vpcID: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDedicatedHostShrinkRequest extends $tea.Model {
+  autoRenew?: string;
+  clientToken?: string;
+  clusterAlias?: string;
+  clusterServicesShrink?: string;
+  clusterType?: string;
+  dedicatedHostGroupId?: string;
+  hostClass?: string;
+  hostStorage?: string;
+  hostStorageType?: string;
+  imageCategory?: string;
+  myBaseEcsClassShrink?: string;
+  osPassword?: string;
+  ownerId?: number;
+  payType?: string;
+  period?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  usedTime?: string;
+  vSwitchId?: string;
+  vpcID?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'AutoRenew',
+      clientToken: 'ClientToken',
+      clusterAlias: 'ClusterAlias',
+      clusterServicesShrink: 'ClusterServices',
+      clusterType: 'ClusterType',
+      dedicatedHostGroupId: 'DedicatedHostGroupId',
+      hostClass: 'HostClass',
+      hostStorage: 'HostStorage',
+      hostStorageType: 'HostStorageType',
+      imageCategory: 'ImageCategory',
+      myBaseEcsClassShrink: 'MyBaseEcsClass',
+      osPassword: 'OsPassword',
+      ownerId: 'OwnerId',
+      payType: 'PayType',
+      period: 'Period',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      usedTime: 'UsedTime',
+      vSwitchId: 'VSwitchId',
+      vpcID: 'VpcID',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'string',
+      clientToken: 'string',
+      clusterAlias: 'string',
+      clusterServicesShrink: 'string',
+      clusterType: 'string',
+      dedicatedHostGroupId: 'string',
+      hostClass: 'string',
+      hostStorage: 'string',
+      hostStorageType: 'string',
+      imageCategory: 'string',
+      myBaseEcsClassShrink: 'string',
+      osPassword: 'string',
+      ownerId: 'number',
+      payType: 'string',
+      period: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      usedTime: 'string',
+      vSwitchId: 'string',
+      vpcID: 'string',
       zoneId: 'string',
     };
   }
@@ -76,11 +173,13 @@ export class CreateDedicatedHostRequest extends $tea.Model {
 }
 
 export class CreateDedicatedHostResponseBody extends $tea.Model {
+  clusterName?: string;
   dedicateHostList?: CreateDedicatedHostResponseBodyDedicateHostList;
   orderId?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterName: 'ClusterName',
       dedicateHostList: 'DedicateHostList',
       orderId: 'OrderId',
       requestId: 'RequestId',
@@ -89,6 +188,7 @@ export class CreateDedicatedHostResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterName: 'string',
       dedicateHostList: CreateDedicatedHostResponseBodyDedicateHostList,
       orderId: 'number',
       requestId: 'string',
@@ -101,9 +201,9 @@ export class CreateDedicatedHostResponseBody extends $tea.Model {
 }
 
 export class CreateDedicatedHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDedicatedHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDedicatedHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -191,9 +291,9 @@ export class CreateDedicatedHostAccountResponseBody extends $tea.Model {
 }
 
 export class CreateDedicatedHostAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDedicatedHostAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDedicatedHostAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -296,9 +396,9 @@ export class CreateDedicatedHostGroupResponseBody extends $tea.Model {
 }
 
 export class CreateDedicatedHostGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDedicatedHostGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDedicatedHostGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -321,6 +421,7 @@ export class CreateDedicatedHostGroupResponse extends $tea.Model {
 }
 
 export class CreateMyBaseRequest extends $tea.Model {
+  autoPay?: boolean;
   autoRenew?: string;
   clientToken?: string;
   dedicatedHostGroupDescription?: string;
@@ -332,6 +433,8 @@ export class CreateMyBaseRequest extends $tea.Model {
   ecsUniqueSuffix?: string;
   engine?: string;
   imageId?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
   keyPairName?: string;
   osPassword?: string;
   ownerId?: number;
@@ -340,14 +443,19 @@ export class CreateMyBaseRequest extends $tea.Model {
   period?: string;
   periodType?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityGroupId?: string;
+  tags?: CreateMyBaseRequestTags[];
+  userData?: string;
+  userDataInBase64?: boolean;
   vSwitchId?: string;
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
       dedicatedHostGroupDescription: 'DedicatedHostGroupDescription',
@@ -359,6 +467,8 @@ export class CreateMyBaseRequest extends $tea.Model {
       ecsUniqueSuffix: 'EcsUniqueSuffix',
       engine: 'Engine',
       imageId: 'ImageId',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       keyPairName: 'KeyPairName',
       osPassword: 'OsPassword',
       ownerId: 'OwnerId',
@@ -367,9 +477,13 @@ export class CreateMyBaseRequest extends $tea.Model {
       period: 'Period',
       periodType: 'PeriodType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityGroupId: 'SecurityGroupId',
+      tags: 'Tags',
+      userData: 'UserData',
+      userDataInBase64: 'UserDataInBase64',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -378,6 +492,7 @@ export class CreateMyBaseRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       autoRenew: 'string',
       clientToken: 'string',
       dedicatedHostGroupDescription: 'string',
@@ -389,6 +504,8 @@ export class CreateMyBaseRequest extends $tea.Model {
       ecsUniqueSuffix: 'string',
       engine: 'string',
       imageId: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
       keyPairName: 'string',
       osPassword: 'string',
       ownerId: 'number',
@@ -397,9 +514,13 @@ export class CreateMyBaseRequest extends $tea.Model {
       period: 'string',
       periodType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateMyBaseRequestTags },
+      userData: 'string',
+      userDataInBase64: 'boolean',
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',
@@ -412,6 +533,7 @@ export class CreateMyBaseRequest extends $tea.Model {
 }
 
 export class CreateMyBaseShrinkRequest extends $tea.Model {
+  autoPay?: boolean;
   autoRenew?: string;
   clientToken?: string;
   dedicatedHostGroupDescription?: string;
@@ -423,6 +545,8 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
   ecsUniqueSuffix?: string;
   engine?: string;
   imageId?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
   keyPairName?: string;
   osPassword?: string;
   ownerId?: number;
@@ -431,14 +555,19 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
   period?: string;
   periodType?: string;
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityGroupId?: string;
+  tagsShrink?: string;
+  userData?: string;
+  userDataInBase64?: boolean;
   vSwitchId?: string;
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
       dedicatedHostGroupDescription: 'DedicatedHostGroupDescription',
@@ -450,6 +579,8 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
       ecsUniqueSuffix: 'EcsUniqueSuffix',
       engine: 'Engine',
       imageId: 'ImageId',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       keyPairName: 'KeyPairName',
       osPassword: 'OsPassword',
       ownerId: 'OwnerId',
@@ -458,9 +589,13 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
       period: 'Period',
       periodType: 'PeriodType',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityGroupId: 'SecurityGroupId',
+      tagsShrink: 'Tags',
+      userData: 'UserData',
+      userDataInBase64: 'UserDataInBase64',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -469,6 +604,7 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       autoRenew: 'string',
       clientToken: 'string',
       dedicatedHostGroupDescription: 'string',
@@ -480,6 +616,8 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
       ecsUniqueSuffix: 'string',
       engine: 'string',
       imageId: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
       keyPairName: 'string',
       osPassword: 'string',
       ownerId: 'number',
@@ -488,9 +626,13 @@ export class CreateMyBaseShrinkRequest extends $tea.Model {
       period: 'string',
       periodType: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityGroupId: 'string',
+      tagsShrink: 'string',
+      userData: 'string',
+      userDataInBase64: 'boolean',
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',
@@ -525,9 +667,9 @@ export class CreateMyBaseResponseBody extends $tea.Model {
 }
 
 export class CreateMyBaseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateMyBaseResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMyBaseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -603,9 +745,9 @@ export class DeleteDedicatedHostAccountResponseBody extends $tea.Model {
 }
 
 export class DeleteDedicatedHostAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDedicatedHostAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDedicatedHostAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -678,9 +820,9 @@ export class DeleteDedicatedHostGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteDedicatedHostGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDedicatedHostGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDedicatedHostGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -861,9 +1003,9 @@ export class DescribeDedicatedHostAttributeResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedHostAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedHostAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedHostAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -942,9 +1084,9 @@ export class DescribeDedicatedHostDisksResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedHostDisksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedHostDisksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedHostDisksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1026,9 +1168,9 @@ export class DescribeDedicatedHostGroupsResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedHostGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedHostGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedHostGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1146,9 +1288,9 @@ export class DescribeDedicatedHostsResponseBody extends $tea.Model {
 }
 
 export class DescribeDedicatedHostsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDedicatedHostsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedHostsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1233,9 +1375,9 @@ export class DescribeHostEcsLevelInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeHostEcsLevelInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHostEcsLevelInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHostEcsLevelInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1314,9 +1456,9 @@ export class DescribeHostWebShellResponseBody extends $tea.Model {
 }
 
 export class DescribeHostWebShellResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHostWebShellResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHostWebShellResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1380,9 +1522,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1464,9 +1606,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1545,9 +1687,9 @@ export class ModifyDedicatedHostAccountResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedHostAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1626,9 +1768,9 @@ export class ModifyDedicatedHostAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedHostAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1716,9 +1858,9 @@ export class ModifyDedicatedHostClassResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedHostClassResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostClassResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostClassResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1812,9 +1954,9 @@ export class ModifyDedicatedHostGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedHostGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1893,9 +2035,9 @@ export class ModifyDedicatedHostPasswordResponseBody extends $tea.Model {
 }
 
 export class ModifyDedicatedHostPasswordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDedicatedHostPasswordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedHostPasswordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1971,9 +2113,9 @@ export class QueryHostBaseInfoByInstanceResponseBody extends $tea.Model {
 }
 
 export class QueryHostBaseInfoByInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryHostBaseInfoByInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryHostBaseInfoByInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2049,9 +2191,9 @@ export class QueryHostInstanceConsoleInfoResponseBody extends $tea.Model {
 }
 
 export class QueryHostInstanceConsoleInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryHostInstanceConsoleInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryHostInstanceConsoleInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2133,9 +2275,9 @@ export class ReplaceDedicatedHostResponseBody extends $tea.Model {
 }
 
 export class ReplaceDedicatedHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReplaceDedicatedHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplaceDedicatedHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2220,9 +2362,9 @@ export class RestartDedicatedHostResponseBody extends $tea.Model {
 }
 
 export class RestartDedicatedHostResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestartDedicatedHostResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartDedicatedHostResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2301,9 +2443,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2385,9 +2527,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2401,6 +2543,76 @@ export class UntagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDedicatedHostRequestMyBaseEcsClass extends $tea.Model {
+  amount?: number;
+  autoRenew?: boolean;
+  chargeType?: string;
+  dataDiskCategory?: string;
+  dataDiskCount?: number;
+  dataDiskSize?: number;
+  depolymentSetId?: string;
+  ecsClassCode?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
+  keyPairName?: string;
+  password?: string;
+  period?: number;
+  periodType?: string;
+  securityGroupIds?: string[];
+  systemDiskCategory?: string;
+  systemDiskSize?: number;
+  tags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      dataDiskCategory: 'DataDiskCategory',
+      dataDiskCount: 'DataDiskCount',
+      dataDiskSize: 'DataDiskSize',
+      depolymentSetId: 'DepolymentSetId',
+      ecsClassCode: 'EcsClassCode',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      keyPairName: 'KeyPairName',
+      password: 'Password',
+      period: 'Period',
+      periodType: 'PeriodType',
+      securityGroupIds: 'SecurityGroupIds',
+      systemDiskCategory: 'SystemDiskCategory',
+      systemDiskSize: 'SystemDiskSize',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      dataDiskCategory: 'string',
+      dataDiskCount: 'number',
+      dataDiskSize: 'number',
+      depolymentSetId: 'string',
+      ecsClassCode: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
+      keyPairName: 'string',
+      password: 'string',
+      period: 'number',
+      periodType: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      systemDiskCategory: 'string',
+      systemDiskSize: 'number',
+      tags: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2448,24 +2660,36 @@ export class CreateDedicatedHostResponseBodyDedicateHostList extends $tea.Model 
 }
 
 export class CreateMyBaseRequestECSClassList extends $tea.Model {
+  dataDiskAutoSnapshotPolicyId?: string;
+  dataDiskEncrypted?: boolean;
+  dataDiskKMSKeyId?: string;
   dataDiskPerformanceLevel?: string;
   diskCapacity?: number;
   diskCount?: number;
   diskType?: string;
   instanceType?: string;
   nodeCount?: number;
+  sysDiskAutoSnapshotPolicyId?: string;
   sysDiskCapacity?: number;
+  sysDiskEncrypted?: boolean;
+  sysDiskKMSKeyId?: string;
   sysDiskType?: string;
   systemDiskPerformanceLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      dataDiskAutoSnapshotPolicyId: 'dataDiskAutoSnapshotPolicyId',
+      dataDiskEncrypted: 'dataDiskEncrypted',
+      dataDiskKMSKeyId: 'dataDiskKMSKeyId',
       dataDiskPerformanceLevel: 'dataDiskPerformanceLevel',
       diskCapacity: 'diskCapacity',
       diskCount: 'diskCount',
       diskType: 'diskType',
       instanceType: 'instanceType',
       nodeCount: 'nodeCount',
+      sysDiskAutoSnapshotPolicyId: 'sysDiskAutoSnapshotPolicyId',
       sysDiskCapacity: 'sysDiskCapacity',
+      sysDiskEncrypted: 'sysDiskEncrypted',
+      sysDiskKMSKeyId: 'sysDiskKMSKeyId',
       sysDiskType: 'sysDiskType',
       systemDiskPerformanceLevel: 'systemDiskPerformanceLevel',
     };
@@ -2473,15 +2697,43 @@ export class CreateMyBaseRequestECSClassList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataDiskAutoSnapshotPolicyId: 'string',
+      dataDiskEncrypted: 'boolean',
+      dataDiskKMSKeyId: 'string',
       dataDiskPerformanceLevel: 'string',
       diskCapacity: 'number',
       diskCount: 'number',
       diskType: 'string',
       instanceType: 'string',
       nodeCount: 'number',
+      sysDiskAutoSnapshotPolicyId: 'string',
       sysDiskCapacity: 'number',
+      sysDiskEncrypted: 'boolean',
+      sysDiskKMSKeyId: 'string',
       sysDiskType: 'string',
       systemDiskPerformanceLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMyBaseRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -3230,8 +3482,18 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async createDedicatedHostWithOptions(request: CreateDedicatedHostRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedHostResponse> {
-    Util.validateModel(request);
+  async createDedicatedHostWithOptions(tmpReq: CreateDedicatedHostRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedHostResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDedicatedHostShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.clusterServices)) {
+      request.clusterServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterServices, "ClusterServices", "simple");
+    }
+
+    if (!Util.isUnset(tmpReq.myBaseEcsClass)) {
+      request.myBaseEcsClassShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.myBaseEcsClass, "MyBaseEcsClass", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
@@ -3239,6 +3501,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterAlias)) {
+      query["ClusterAlias"] = request.clusterAlias;
+    }
+
+    if (!Util.isUnset(request.clusterServicesShrink)) {
+      query["ClusterServices"] = request.clusterServicesShrink;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
     }
 
     if (!Util.isUnset(request.dedicatedHostGroupId)) {
@@ -3259,6 +3533,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.imageCategory)) {
       query["ImageCategory"] = request.imageCategory;
+    }
+
+    if (!Util.isUnset(request.myBaseEcsClassShrink)) {
+      query["MyBaseEcsClass"] = request.myBaseEcsClassShrink;
     }
 
     if (!Util.isUnset(request.osPassword)) {
@@ -3297,6 +3575,10 @@ export default class Client extends OpenApi {
       query["VSwitchId"] = request.vSwitchId;
     }
 
+    if (!Util.isUnset(request.vpcID)) {
+      query["VpcID"] = request.vpcID;
+    }
+
     if (!Util.isUnset(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
@@ -3323,6 +3605,13 @@ export default class Client extends OpenApi {
     return await this.createDedicatedHostWithOptions(request, runtime);
   }
 
+  /**
+    * Each host can have only one account. Before you create an account for a host, make sure that the existing account of the host is deleted. For more information, see [Create an account for a host](~~211413~~).
+    *
+    * @param request CreateDedicatedHostAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDedicatedHostAccountResponse
+   */
   async createDedicatedHostAccountWithOptions(request: CreateDedicatedHostAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedHostAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3383,6 +3672,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDedicatedHostAccountResponse>(await this.callApi(params, req, runtime), new CreateDedicatedHostAccountResponse({}));
   }
 
+  /**
+    * Each host can have only one account. Before you create an account for a host, make sure that the existing account of the host is deleted. For more information, see [Create an account for a host](~~211413~~).
+    *
+    * @param request CreateDedicatedHostAccountRequest
+    * @return CreateDedicatedHostAccountResponse
+   */
   async createDedicatedHostAccount(request: CreateDedicatedHostAccountRequest): Promise<CreateDedicatedHostAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDedicatedHostAccountWithOptions(request, runtime);
@@ -3477,7 +3772,15 @@ export default class Client extends OpenApi {
       request.ECSClassListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ECSClassList, "ECSClassList", "json");
     }
 
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     if (!Util.isUnset(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
@@ -3522,6 +3825,14 @@ export default class Client extends OpenApi {
       query["ImageId"] = request.imageId;
     }
 
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.internetMaxBandwidthOut)) {
+      query["InternetMaxBandwidthOut"] = request.internetMaxBandwidthOut;
+    }
+
     if (!Util.isUnset(request.keyPairName)) {
       query["KeyPairName"] = request.keyPairName;
     }
@@ -3554,6 +3865,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -3564,6 +3879,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!Util.isUnset(request.userDataInBase64)) {
+      query["UserDataInBase64"] = request.userDataInBase64;
     }
 
     if (!Util.isUnset(request.vSwitchId)) {
@@ -3649,6 +3976,13 @@ export default class Client extends OpenApi {
     return await this.deleteDedicatedHostAccountWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to delete a dedicated cluster only after all the instances and hosts in the dedicated cluster are deleted.
+    *
+    * @param request DeleteDedicatedHostGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDedicatedHostGroupResponse
+   */
   async deleteDedicatedHostGroupWithOptions(request: DeleteDedicatedHostGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDedicatedHostGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3689,6 +4023,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDedicatedHostGroupResponse>(await this.callApi(params, req, runtime), new DeleteDedicatedHostGroupResponse({}));
   }
 
+  /**
+    * You can call this operation to delete a dedicated cluster only after all the instances and hosts in the dedicated cluster are deleted.
+    *
+    * @param request DeleteDedicatedHostGroupRequest
+    * @return DeleteDedicatedHostGroupResponse
+   */
   async deleteDedicatedHostGroup(request: DeleteDedicatedHostGroupRequest): Promise<DeleteDedicatedHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDedicatedHostGroupWithOptions(request, runtime);
@@ -3841,6 +4181,13 @@ export default class Client extends OpenApi {
     return await this.describeDedicatedHostGroupsWithOptions(request, runtime);
   }
 
+  /**
+    * After hosts are created in a dedicated cluster, you can query the information about the hosts such as performance metrics, total number of CPU cores, total memory size, and total storage.
+    *
+    * @param request DescribeDedicatedHostsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDedicatedHostsResponse
+   */
   async describeDedicatedHostsWithOptions(request: DescribeDedicatedHostsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3917,11 +4264,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDedicatedHostsResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostsResponse({}));
   }
 
+  /**
+    * After hosts are created in a dedicated cluster, you can query the information about the hosts such as performance metrics, total number of CPU cores, total memory size, and total storage.
+    *
+    * @param request DescribeDedicatedHostsRequest
+    * @return DescribeDedicatedHostsResponse
+   */
   async describeDedicatedHosts(request: DescribeDedicatedHostsRequest): Promise<DescribeDedicatedHostsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDedicatedHostsWithOptions(request, runtime);
   }
 
+  /**
+    * After a host is created, you can call this operation to query the information about the host specifications, such as the CPU resources, memory resources, CPU model, host category, and storage type.
+    *
+    * @param request DescribeHostEcsLevelInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeHostEcsLevelInfoResponse
+   */
   async describeHostEcsLevelInfoWithOptions(request: DescribeHostEcsLevelInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHostEcsLevelInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3974,11 +4334,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHostEcsLevelInfoResponse>(await this.callApi(params, req, runtime), new DescribeHostEcsLevelInfoResponse({}));
   }
 
+  /**
+    * After a host is created, you can call this operation to query the information about the host specifications, such as the CPU resources, memory resources, CPU model, host category, and storage type.
+    *
+    * @param request DescribeHostEcsLevelInfoRequest
+    * @return DescribeHostEcsLevelInfoResponse
+   */
   async describeHostEcsLevelInfo(request: DescribeHostEcsLevelInfoRequest): Promise<DescribeHostEcsLevelInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHostEcsLevelInfoWithOptions(request, runtime);
   }
 
+  /**
+    * You can use a webshell to access a host in an ApsaraDB MyBase for MySQL or ApsaraDB MyBase for PostgreSQL dedicated cluster. For more information, see [Use a webshell to access a host](~~205456~~).
+    *
+    * @param request DescribeHostWebShellRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeHostWebShellResponse
+   */
   async describeHostWebShellWithOptions(request: DescribeHostWebShellRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHostWebShellResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4023,11 +4396,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHostWebShellResponse>(await this.callApi(params, req, runtime), new DescribeHostWebShellResponse({}));
   }
 
+  /**
+    * You can use a webshell to access a host in an ApsaraDB MyBase for MySQL or ApsaraDB MyBase for PostgreSQL dedicated cluster. For more information, see [Use a webshell to access a host](~~205456~~).
+    *
+    * @param request DescribeHostWebShellRequest
+    * @return DescribeHostWebShellResponse
+   */
   async describeHostWebShell(request: DescribeHostWebShellRequest): Promise<DescribeHostWebShellResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHostWebShellWithOptions(request, runtime);
   }
 
+  /**
+    * For more information about region IDs, see [Region IDs](~~198326~~).
+    *
+    * @param request DescribeRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4052,6 +4438,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+    * For more information about region IDs, see [Region IDs](~~198326~~).
+    *
+    * @param request DescribeRegionsRequest
+    * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
@@ -4216,6 +4608,14 @@ export default class Client extends OpenApi {
     return await this.modifyDedicatedHostAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * After a host is created in a dedicated cluster, you can modify the specifications of the host based on your business requirements. The host specifications include the CPU and memory resources. For more information, see [Upgrade host specifications](~~262822~~).
+    * >  When you upgrade the specifications of a host, the host restarts. The database instances that are running on the host also restart. For information about the impacts of a host restart, see [Restart a host](~~141772~~).
+    *
+    * @param request ModifyDedicatedHostClassRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDedicatedHostClassResponse
+   */
   async modifyDedicatedHostClassWithOptions(request: ModifyDedicatedHostClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostClassResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4268,11 +4668,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDedicatedHostClassResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostClassResponse({}));
   }
 
+  /**
+    * After a host is created in a dedicated cluster, you can modify the specifications of the host based on your business requirements. The host specifications include the CPU and memory resources. For more information, see [Upgrade host specifications](~~262822~~).
+    * >  When you upgrade the specifications of a host, the host restarts. The database instances that are running on the host also restart. For information about the impacts of a host restart, see [Restart a host](~~141772~~).
+    *
+    * @param request ModifyDedicatedHostClassRequest
+    * @return ModifyDedicatedHostClassResponse
+   */
   async modifyDedicatedHostClass(request: ModifyDedicatedHostClassRequest): Promise<ModifyDedicatedHostClassResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDedicatedHostClassWithOptions(request, runtime);
   }
 
+  /**
+    * For more information, see [Manage dedicated clusters](~~182328~~).
+    *
+    * @param request ModifyDedicatedHostGroupAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDedicatedHostGroupAttributeResponse
+   */
   async modifyDedicatedHostGroupAttributeWithOptions(request: ModifyDedicatedHostGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4341,11 +4755,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDedicatedHostGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostGroupAttributeResponse({}));
   }
 
+  /**
+    * For more information, see [Manage dedicated clusters](~~182328~~).
+    *
+    * @param request ModifyDedicatedHostGroupAttributeRequest
+    * @return ModifyDedicatedHostGroupAttributeResponse
+   */
   async modifyDedicatedHostGroupAttribute(request: ModifyDedicatedHostGroupAttributeRequest): Promise<ModifyDedicatedHostGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDedicatedHostGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is supported only for ApsaraDB MyBase for Redis Enhanced Edition (Tair) dedicated clusters.
+    *
+    * @param request ModifyDedicatedHostPasswordRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDedicatedHostPasswordResponse
+   */
   async modifyDedicatedHostPasswordWithOptions(request: ModifyDedicatedHostPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4390,6 +4817,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDedicatedHostPasswordResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostPasswordResponse({}));
   }
 
+  /**
+    * This operation is supported only for ApsaraDB MyBase for Redis Enhanced Edition (Tair) dedicated clusters.
+    *
+    * @param request ModifyDedicatedHostPasswordRequest
+    * @return ModifyDedicatedHostPasswordResponse
+   */
   async modifyDedicatedHostPassword(request: ModifyDedicatedHostPasswordRequest): Promise<ModifyDedicatedHostPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDedicatedHostPasswordWithOptions(request, runtime);
@@ -4485,6 +4918,14 @@ export default class Client extends OpenApi {
     return await this.queryHostInstanceConsoleInfoWithOptions(request, runtime);
   }
 
+  /**
+    * If you specify the manual host replacement policy when you create an ApsaraDB MyBase for MySQL dedicated cluster, you can call this operation to replace a **faulty** host in the dedicated cluster.
+    * >  You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the value of the **HostStatus** parameter.
+    *
+    * @param request ReplaceDedicatedHostRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReplaceDedicatedHostResponse
+   */
   async replaceDedicatedHostWithOptions(request: ReplaceDedicatedHostRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceDedicatedHostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4529,6 +4970,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ReplaceDedicatedHostResponse>(await this.callApi(params, req, runtime), new ReplaceDedicatedHostResponse({}));
   }
 
+  /**
+    * If you specify the manual host replacement policy when you create an ApsaraDB MyBase for MySQL dedicated cluster, you can call this operation to replace a **faulty** host in the dedicated cluster.
+    * >  You can call the [DescribeDedicatedHostAttribute](~~213010~~) operation to query the value of the **HostStatus** parameter.
+    *
+    * @param request ReplaceDedicatedHostRequest
+    * @return ReplaceDedicatedHostResponse
+   */
   async replaceDedicatedHost(request: ReplaceDedicatedHostRequest): Promise<ReplaceDedicatedHostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.replaceDedicatedHostWithOptions(request, runtime);
