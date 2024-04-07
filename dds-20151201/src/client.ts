@@ -13194,6 +13194,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo extends $t
   listPrice?: number;
   monthPrice?: number;
   originalStandAmount?: number;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       cheapRate: 'CheapRate',
@@ -13206,6 +13207,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo extends $t
       listPrice: 'ListPrice',
       monthPrice: 'MonthPrice',
       originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
     };
   }
 
@@ -13221,6 +13223,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo extends $t
       listPrice: 'number',
       monthPrice: 'number',
       originalStandAmount: 'number',
+      startTime: 'string',
     };
   }
 
