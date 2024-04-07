@@ -2615,6 +2615,40 @@ export class QueryConvertInstancePriceRequestConvertPostpayInstanceRequest exten
   }
 }
 
+export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
   promotionDesc?: string;
   promotionName?: string;
@@ -2668,21 +2702,29 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoRules extends $tea.Mo
 export class QueryConvertInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryConvertInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -2691,11 +2733,15 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $tea.Model {
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryConvertInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
     };
   }
@@ -2719,6 +2765,40 @@ export class QueryConvertPrepayInstancePriceRequestConvertPrepayInstanceRequest 
     return {
       instanceId: 'string',
       region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
     };
   }
 
@@ -2780,21 +2860,29 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules extends $
 export class QueryConvertPrepayInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -2803,11 +2891,15 @@ export class QueryConvertPrepayInstancePriceResponseBodyPriceInfo extends $tea.M
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryConvertPrepayInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryConvertPrepayInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryConvertPrepayInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
     };
   }
@@ -2966,6 +3058,40 @@ export class QueryCreateInstancePriceRequestCreateInstanceRequest extends $tea.M
   }
 }
 
+export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
   promotionDesc?: string;
   promotionName?: string;
@@ -3019,21 +3145,29 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $tea.Mod
 export class QueryCreateInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryCreateInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -3042,11 +3176,15 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $tea.Model {
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
     };
   }
@@ -3137,6 +3275,40 @@ export class QueryModifyInstancePriceRequestModifyPrepayInstanceSpecRequest exte
   }
 }
 
+export class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
   promotionDesc?: string;
   promotionName?: string;
@@ -3190,21 +3362,29 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoRules extends $tea.Mod
 export class QueryModifyInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryModifyInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -3213,11 +3393,15 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $tea.Model {
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryModifyInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
     };
   }
@@ -3247,6 +3431,40 @@ export class QueryRenewInstancePriceRequestRenewInstanceRequest extends $tea.Mod
       instanceId: 'string',
       pricingCycle: 'string',
       region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
     };
   }
 
@@ -3308,21 +3526,29 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoRules extends $tea.Mode
 export class QueryRenewInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryRenewInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -3331,11 +3557,15 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $tea.Model {
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryRenewInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
     };
   }
