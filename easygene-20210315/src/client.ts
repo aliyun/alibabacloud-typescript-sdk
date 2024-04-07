@@ -2322,6 +2322,7 @@ export class GetRunRequest extends $tea.Model {
 export class GetRunResponseBody extends $tea.Model {
   appName?: string;
   appRevision?: string;
+  billingInstanceIds?: string[];
   calls?: string;
   createTime?: string;
   defaultRuntime?: string;
@@ -2351,6 +2352,7 @@ export class GetRunResponseBody extends $tea.Model {
     return {
       appName: 'AppName',
       appRevision: 'AppRevision',
+      billingInstanceIds: 'BillingInstanceIds',
       calls: 'Calls',
       createTime: 'CreateTime',
       defaultRuntime: 'DefaultRuntime',
@@ -2383,6 +2385,7 @@ export class GetRunResponseBody extends $tea.Model {
     return {
       appName: 'string',
       appRevision: 'string',
+      billingInstanceIds: { 'type': 'array', 'itemType': 'string' },
       calls: 'string',
       createTime: 'string',
       defaultRuntime: 'string',
@@ -8245,7 +8248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : UpdateEntity is deprecated, please use EasyGene::2021-03-15::UpdateEntityItems instead.
     *
     * @param tmpReq UpdateEntityRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -8293,7 +8296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
+    * @deprecated : UpdateEntity is deprecated, please use EasyGene::2021-03-15::UpdateEntityItems instead.
     *
     * @param request UpdateEntityRequest
     * @return UpdateEntityResponse
