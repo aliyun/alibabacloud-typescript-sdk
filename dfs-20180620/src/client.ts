@@ -12,7 +12,7 @@ export class AttachVscMountPointRequest extends $tea.Model {
   description?: string;
   fileSystemId?: string;
   inputRegionId?: string;
-  instanceIds?: { [key: string]: any };
+  instanceIds?: string[];
   mountPointId?: string;
   vscIds?: string[];
   vscType?: string;
@@ -33,7 +33,7 @@ export class AttachVscMountPointRequest extends $tea.Model {
       description: 'string',
       fileSystemId: 'string',
       inputRegionId: 'string',
-      instanceIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       mountPointId: 'string',
       vscIds: { 'type': 'array', 'itemType': 'string' },
       vscType: 'string',
@@ -644,7 +644,7 @@ export class CreateVscMountPointRequest extends $tea.Model {
   description?: string;
   fileSystemId?: string;
   inputRegionId?: string;
-  instanceIds?: { [key: string]: any };
+  instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -659,7 +659,7 @@ export class CreateVscMountPointRequest extends $tea.Model {
       description: 'string',
       fileSystemId: 'string',
       inputRegionId: 'string',
-      instanceIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1339,7 +1339,7 @@ export class DetachVscMountPointRequest extends $tea.Model {
   description?: string;
   fileSystemId?: string;
   inputRegionId?: string;
-  instanceIds?: { [key: string]: any };
+  instanceIds?: string[];
   mountPointId?: string;
   vscIds?: string[];
   static names(): { [key: string]: string } {
@@ -1358,7 +1358,7 @@ export class DetachVscMountPointRequest extends $tea.Model {
       description: 'string',
       fileSystemId: 'string',
       inputRegionId: 'string',
-      instanceIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       mountPointId: 'string',
       vscIds: { 'type': 'array', 'itemType': 'string' },
     };
