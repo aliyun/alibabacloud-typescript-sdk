@@ -1221,6 +1221,111 @@ export class DescribeCertsResponse extends $tea.Model {
   }
 }
 
+export class DescribeCloudResourcesRequest extends $tea.Model {
+  instanceId?: string;
+  ownerUserId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceDomain?: string;
+  resourceFunction?: string;
+  resourceInstanceId?: string;
+  resourceManagerResourceGroupId?: string;
+  resourceName?: string;
+  resourceProduct?: string;
+  resourceRegionId?: string;
+  resourceRouteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerUserId: 'OwnerUserId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceDomain: 'ResourceDomain',
+      resourceFunction: 'ResourceFunction',
+      resourceInstanceId: 'ResourceInstanceId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resourceName: 'ResourceName',
+      resourceProduct: 'ResourceProduct',
+      resourceRegionId: 'ResourceRegionId',
+      resourceRouteName: 'ResourceRouteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerUserId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceDomain: 'string',
+      resourceFunction: 'string',
+      resourceInstanceId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      resourceName: 'string',
+      resourceProduct: 'string',
+      resourceRegionId: 'string',
+      resourceRouteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudResourcesResponseBody extends $tea.Model {
+  cloudResources?: DescribeCloudResourcesResponseBodyCloudResources[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cloudResources: 'CloudResources',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudResources: { 'type': 'array', 'itemType': DescribeCloudResourcesResponseBodyCloudResources },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDefenseResourceGroupRequest extends $tea.Model {
   groupName?: string;
   instanceId?: string;
@@ -2902,6 +3007,105 @@ export class DescribePeakTrendResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribePeakTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductInstancesRequest extends $tea.Model {
+  instanceId?: string;
+  ownerUserId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceInstanceId?: string;
+  resourceIp?: string;
+  resourceManagerResourceGroupId?: string;
+  resourceName?: string;
+  resourceProduct?: string;
+  resourceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerUserId: 'OwnerUserId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceInstanceId: 'ResourceInstanceId',
+      resourceIp: 'ResourceIp',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resourceName: 'ResourceName',
+      resourceProduct: 'ResourceProduct',
+      resourceRegionId: 'ResourceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerUserId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceInstanceId: 'string',
+      resourceIp: 'string',
+      resourceManagerResourceGroupId: 'string',
+      resourceName: 'string',
+      resourceProduct: 'string',
+      resourceRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductInstancesResponseBody extends $tea.Model {
+  productInstances?: DescribeProductInstancesResponseBodyProductInstances[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      productInstances: 'ProductInstances',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productInstances: { 'type': 'array', 'itemType': DescribeProductInstancesResponseBodyProductInstances },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProductInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeProductInstancesResponseBody,
     };
   }
 
@@ -5704,6 +5908,75 @@ export class ModifyTemplateResourcesResponse extends $tea.Model {
   }
 }
 
+export class SyncProductInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncProductInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncProductInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SyncProductInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SyncProductInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDomainRequestListen extends $tea.Model {
   certId?: string;
   cipherSuite?: number;
@@ -5908,6 +6181,49 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
       commonName: 'string',
       domain: 'string',
       isChainCompleted: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model {
+  ownerUserId?: string;
+  resourceDomain?: string;
+  resourceFunction?: string;
+  resourceInstance?: string;
+  resourceName?: string;
+  resourceProduct?: string;
+  resourceRegionId?: string;
+  resourceRouteName?: string;
+  resourceService?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerUserId: 'OwnerUserId',
+      resourceDomain: 'ResourceDomain',
+      resourceFunction: 'ResourceFunction',
+      resourceInstance: 'ResourceInstance',
+      resourceName: 'ResourceName',
+      resourceProduct: 'ResourceProduct',
+      resourceRegionId: 'ResourceRegionId',
+      resourceRouteName: 'ResourceRouteName',
+      resourceService: 'ResourceService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerUserId: 'string',
+      resourceDomain: 'string',
+      resourceFunction: 'string',
+      resourceInstance: 'string',
+      resourceName: 'string',
+      resourceProduct: 'string',
+      resourceRegionId: 'string',
+      resourceRouteName: 'string',
+      resourceService: 'string',
     };
   }
 
@@ -7266,6 +7582,90 @@ export class DescribePeakTrendResponseBodyFlowChart extends $tea.Model {
   }
 }
 
+export class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates extends $tea.Model {
+  certificateId?: string;
+  certificateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateId: 'CertificateId',
+      certificateName: 'CertificateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateId: 'string',
+      certificateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductInstancesResponseBodyProductInstancesResourcePorts extends $tea.Model {
+  certificates?: DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates[];
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificates: 'Certificates',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificates: { 'type': 'array', 'itemType': DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates },
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductInstancesResponseBodyProductInstances extends $tea.Model {
+  ownerUserId?: string;
+  resourceInstanceId?: string;
+  resourceIp?: string;
+  resourceName?: string;
+  resourcePorts?: DescribeProductInstancesResponseBodyProductInstancesResourcePorts[];
+  resourceProduct?: string;
+  resourceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerUserId: 'OwnerUserId',
+      resourceInstanceId: 'ResourceInstanceId',
+      resourceIp: 'ResourceIp',
+      resourceName: 'ResourceName',
+      resourcePorts: 'ResourcePorts',
+      resourceProduct: 'ResourceProduct',
+      resourceRegionId: 'ResourceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerUserId: 'string',
+      resourceInstanceId: 'string',
+      resourceIp: 'string',
+      resourceName: 'string',
+      resourcePorts: { 'type': 'array', 'itemType': DescribeProductInstancesResponseBodyProductInstancesResourcePorts },
+      resourceProduct: 'string',
+      resourceRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeResourceInstanceCertsResponseBodyCerts extends $tea.Model {
   afterDate?: number;
   beforeDate?: number;
@@ -8562,6 +8962,83 @@ export default class Client extends OpenApi {
     return await this.describeCertsWithOptions(request, runtime);
   }
 
+  async describeCloudResourcesWithOptions(request: DescribeCloudResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerUserId)) {
+      query["OwnerUserId"] = request.ownerUserId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceDomain)) {
+      query["ResourceDomain"] = request.resourceDomain;
+    }
+
+    if (!Util.isUnset(request.resourceFunction)) {
+      query["ResourceFunction"] = request.resourceFunction;
+    }
+
+    if (!Util.isUnset(request.resourceInstanceId)) {
+      query["ResourceInstanceId"] = request.resourceInstanceId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
+    }
+
+    if (!Util.isUnset(request.resourceProduct)) {
+      query["ResourceProduct"] = request.resourceProduct;
+    }
+
+    if (!Util.isUnset(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!Util.isUnset(request.resourceRouteName)) {
+      query["ResourceRouteName"] = request.resourceRouteName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudResourcesResponse>(await this.callApi(params, req, runtime), new DescribeCloudResourcesResponse({}));
+  }
+
+  async describeCloudResources(request: DescribeCloudResourcesRequest): Promise<DescribeCloudResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudResourcesWithOptions(request, runtime);
+  }
+
   async describeDefenseResourceGroupWithOptions(request: DescribeDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9544,6 +10021,75 @@ export default class Client extends OpenApi {
   async describePeakTrend(request: DescribePeakTrendRequest): Promise<DescribePeakTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePeakTrendWithOptions(request, runtime);
+  }
+
+  async describeProductInstancesWithOptions(request: DescribeProductInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerUserId)) {
+      query["OwnerUserId"] = request.ownerUserId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceInstanceId)) {
+      query["ResourceInstanceId"] = request.resourceInstanceId;
+    }
+
+    if (!Util.isUnset(request.resourceIp)) {
+      query["ResourceIp"] = request.resourceIp;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
+    }
+
+    if (!Util.isUnset(request.resourceProduct)) {
+      query["ResourceProduct"] = request.resourceProduct;
+    }
+
+    if (!Util.isUnset(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProductInstances",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProductInstancesResponse>(await this.callApi(params, req, runtime), new DescribeProductInstancesResponse({}));
+  }
+
+  async describeProductInstances(request: DescribeProductInstancesRequest): Promise<DescribeProductInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProductInstancesWithOptions(request, runtime);
   }
 
   async describeResourceInstanceCertsWithOptions(request: DescribeResourceInstanceCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceInstanceCertsResponse> {
@@ -11181,6 +11727,56 @@ export default class Client extends OpenApi {
   async modifyTemplateResources(request: ModifyTemplateResourcesRequest): Promise<ModifyTemplateResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTemplateResourcesWithOptions(request, runtime);
+  }
+
+  /**
+    * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](~~2743168~~) operation to query the status of the task.
+    *
+    * @param request SyncProductInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SyncProductInstanceResponse
+   */
+  async syncProductInstanceWithOptions(request: SyncProductInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SyncProductInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SyncProductInstance",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SyncProductInstanceResponse>(await this.callApi(params, req, runtime), new SyncProductInstanceResponse({}));
+  }
+
+  /**
+    * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](~~2743168~~) operation to query the status of the task.
+    *
+    * @param request SyncProductInstanceRequest
+    * @return SyncProductInstanceResponse
+   */
+  async syncProductInstance(request: SyncProductInstanceRequest): Promise<SyncProductInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.syncProductInstanceWithOptions(request, runtime);
   }
 
 }
