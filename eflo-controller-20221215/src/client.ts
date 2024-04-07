@@ -382,6 +382,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
   clusterName?: string;
   clusterType?: string;
   components?: DescribeClusterResponseBodyComponents[];
+  computingIpVersion?: string;
   createTime?: string;
   hpnZone?: string;
   networks?: DescribeClusterResponseBodyNetworks[];
@@ -400,6 +401,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       components: 'Components',
+      computingIpVersion: 'ComputingIpVersion',
       createTime: 'CreateTime',
       hpnZone: 'HpnZone',
       networks: 'Networks',
@@ -421,6 +423,7 @@ export class DescribeClusterResponseBody extends $tea.Model {
       clusterName: 'string',
       clusterType: 'string',
       components: { 'type': 'array', 'itemType': DescribeClusterResponseBodyComponents },
+      computingIpVersion: 'string',
       createTime: 'string',
       hpnZone: 'string',
       networks: { 'type': 'array', 'itemType': DescribeClusterResponseBodyNetworks },
@@ -3431,6 +3434,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
   clusterName?: string;
   clusterType?: string;
   components?: any;
+  computingIpVersion?: string;
   createTime?: string;
   hpnZone?: string;
   nodeCount?: number;
@@ -3447,6 +3451,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
       components: 'Components',
+      computingIpVersion: 'ComputingIpVersion',
       createTime: 'CreateTime',
       hpnZone: 'HpnZone',
       nodeCount: 'NodeCount',
@@ -3466,6 +3471,7 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
       clusterName: 'string',
       clusterType: 'string',
       components: 'any',
+      computingIpVersion: 'string',
       createTime: 'string',
       hpnZone: 'string',
       nodeCount: 'number',
