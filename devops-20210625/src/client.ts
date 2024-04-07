@@ -10202,10 +10202,12 @@ export class ListOrganizationMembersResponse extends $tea.Model {
 
 export class ListOrganizationsRequest extends $tea.Model {
   accessLevel?: number;
+  accessToken?: string;
   minAccessLevel?: number;
   static names(): { [key: string]: string } {
     return {
       accessLevel: 'accessLevel',
+      accessToken: 'accessToken',
       minAccessLevel: 'minAccessLevel',
     };
   }
@@ -10213,6 +10215,7 @@ export class ListOrganizationsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessLevel: 'number',
+      accessToken: 'string',
       minAccessLevel: 'number',
     };
   }
@@ -37179,6 +37182,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessLevel)) {
       query["accessLevel"] = request.accessLevel;
+    }
+
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
     }
 
     if (!Util.isUnset(request.minAccessLevel)) {
