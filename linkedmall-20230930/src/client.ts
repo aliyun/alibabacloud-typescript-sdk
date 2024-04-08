@@ -1805,6 +1805,7 @@ export class Sku extends $tea.Model {
   price?: number;
   productId?: string;
   quantity?: number;
+  rankValue?: number;
   shopId?: string;
   skuId?: string;
   skuSpecs?: SkuSpec[];
@@ -1823,6 +1824,7 @@ export class Sku extends $tea.Model {
       price: 'price',
       productId: 'productId',
       quantity: 'quantity',
+      rankValue: 'rankValue',
       shopId: 'shopId',
       skuId: 'skuId',
       skuSpecs: 'skuSpecs',
@@ -1844,6 +1846,7 @@ export class Sku extends $tea.Model {
       price: 'number',
       productId: 'string',
       quantity: 'number',
+      rankValue: 'number',
       shopId: 'string',
       skuId: 'string',
       skuSpecs: { 'type': 'array', 'itemType': SkuSpec },
