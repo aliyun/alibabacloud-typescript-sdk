@@ -18518,90 +18518,6 @@ export class GrantOperatorPermissionResponse extends $tea.Model {
   }
 }
 
-export class ImportDatabaseBetweenInstancesRequest extends $tea.Model {
-  DBInfo?: string;
-  DBInstanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  sourceDBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInfo: 'DBInfo',
-      DBInstanceId: 'DBInstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceDBInstanceId: 'SourceDBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInfo: 'string',
-      DBInstanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      sourceDBInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportDatabaseBetweenInstancesResponseBody extends $tea.Model {
-  importId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      importId: 'ImportId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      importId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportDatabaseBetweenInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ImportDatabaseBetweenInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ImportDatabaseBetweenInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ImportUserBackupFileRequest extends $tea.Model {
   backupFile?: string;
   bucketRegion?: string;
@@ -31375,9 +31291,11 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
   connectionMode?: string;
   connectionString?: string;
   createTime?: string;
+  DBInstanceCPU?: string;
   DBInstanceClass?: string;
   DBInstanceDescription?: string;
   DBInstanceId?: string;
+  DBInstanceMemory?: number;
   DBInstanceNetType?: string;
   DBInstanceStatus?: string;
   DBInstanceStorageType?: string;
@@ -31428,9 +31346,11 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
       createTime: 'CreateTime',
+      DBInstanceCPU: 'DBInstanceCPU',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceId: 'DBInstanceId',
+      DBInstanceMemory: 'DBInstanceMemory',
       DBInstanceNetType: 'DBInstanceNetType',
       DBInstanceStatus: 'DBInstanceStatus',
       DBInstanceStorageType: 'DBInstanceStorageType',
@@ -31484,9 +31404,11 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       connectionMode: 'string',
       connectionString: 'string',
       createTime: 'string',
+      DBInstanceCPU: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
       DBInstanceId: 'string',
+      DBInstanceMemory: 'number',
       DBInstanceNetType: 'string',
       DBInstanceStatus: 'string',
       DBInstanceStorageType: 'string',
@@ -52137,98 +52059,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    * ### [](#)Description
-    * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
-    * ### [](#)Precautions
-    * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-    * *   Before you call this operation, **make sure that the following conditions are met**:
-    *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-    *     *   The source and destination instances must be created by using the same user.
-    *     *   The instance is in the Running state.
-    *     *   The source and destination databases must be in the Running state.
-    *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
-    * > *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-    * > *   You can migrate the data of multiple databases at a time.
-    *
-    * @param request ImportDatabaseBetweenInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportDatabaseBetweenInstancesResponse
-   */
-  async importDatabaseBetweenInstancesWithOptions(request: ImportDatabaseBetweenInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ImportDatabaseBetweenInstancesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInfo)) {
-      query["DBInfo"] = request.DBInfo;
-    }
-
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.sourceDBInstanceId)) {
-      query["SourceDBInstanceId"] = request.sourceDBInstanceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ImportDatabaseBetweenInstances",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ImportDatabaseBetweenInstancesResponse>(await this.callApi(params, req, runtime), new ImportDatabaseBetweenInstancesResponse({}));
-  }
-
-  /**
-    * ### [](#)Supported database engine
-    * *   SQL Server
-    * ### [](#)Description
-    * We recommend that you use Data Transmission Service (DTS). DTS provides data migration, subscription, and synchronization features that allow you to establish stable, secure transmission links. For more information, see [DTS API overview](~~49456~~).
-    * ### [](#)Precautions
-    * *   During the migration, the source instance is in the **Migrating** state, and the destination instance is in the **Importing** state.
-    * *   Before you call this operation, **make sure that the following conditions are met**:
-    *     *   The source and destination instances must run SQL Server and belong to the dedicated or dedicated host instance family. For more information about the supported instance types, see [Primary instance types](~~26312~~).
-    *     *   The source and destination instances must be created by using the same user.
-    *     *   The instance is in the Running state.
-    *     *   The source and destination databases must be in the Running state.
-    *     *   The remaining storage of the destination instance must be greater than the storage capacity of the source instance.
-    * > *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-    * > *   You can migrate the data of multiple databases at a time.
-    *
-    * @param request ImportDatabaseBetweenInstancesRequest
-    * @return ImportDatabaseBetweenInstancesResponse
-   */
-  async importDatabaseBetweenInstances(request: ImportDatabaseBetweenInstancesRequest): Promise<ImportDatabaseBetweenInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.importDatabaseBetweenInstancesWithOptions(request, runtime);
-  }
-
-  /**
     * ### [](#)Supported database engines
     * *   MySQL
     * ### [](#)Description
@@ -53483,7 +53313,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is phased out.
+    * ### [](#)Supported database engines
+    * RDS SQL Server
+    * ### [](#)References
+    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+    * [Change the character set collation and the time zone of system databases](~~95700~~)
     *
     * @param request ModifyCollationTimeZoneRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -53534,7 +53368,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is phased out.
+    * ### [](#)Supported database engines
+    * RDS SQL Server
+    * ### [](#)References
+    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+    * [Change the character set collation and the time zone of system databases](~~95700~~)
     *
     * @param request ModifyCollationTimeZoneRequest
     * @return ModifyCollationTimeZoneResponse

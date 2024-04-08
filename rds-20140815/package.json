@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/rds20140815",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "nyc": "^15.0.0",
     "source-map-support": "^0.5.16",
     "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "typescript": "^5"
   },
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
