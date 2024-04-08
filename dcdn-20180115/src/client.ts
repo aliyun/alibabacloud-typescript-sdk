@@ -475,6 +475,172 @@ export class BatchDeleteDcdnDomainConfigsResponse extends $tea.Model {
   }
 }
 
+export class BatchDeleteDcdnKvRequest extends $tea.Model {
+  keys?: string[];
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keys: 'Keys',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keys: { 'type': 'array', 'itemType': 'string' },
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnKvShrinkRequest extends $tea.Model {
+  keysShrink?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keysShrink: 'Keys',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keysShrink: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnKvResponseBody extends $tea.Model {
+  failKeys?: string[];
+  requestId?: string;
+  successKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      failKeys: 'FailKeys',
+      requestId: 'RequestId',
+      successKeys: 'SuccessKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failKeys: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      successKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnKvResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchDeleteDcdnKvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchDeleteDcdnKvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnKvWithHighCapacityRequest extends $tea.Model {
+  namespace?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnKvWithHighCapacityResponseBody extends $tea.Model {
+  failKeys?: string[];
+  requestId?: string;
+  successKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      failKeys: 'FailKeys',
+      requestId: 'RequestId',
+      successKeys: 'SuccessKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failKeys: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      successKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchDeleteDcdnKvWithHighCapacityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchDeleteDcdnKvWithHighCapacityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchDeleteDcdnKvWithHighCapacityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchDeleteDcdnWafRulesRequest extends $tea.Model {
   ruleIds?: string;
   static names(): { [key: string]: string } {
@@ -690,6 +856,78 @@ export class BatchPutDcdnKvResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchPutDcdnKvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchPutDcdnKvWithHighCapacityRequest extends $tea.Model {
+  namespace?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchPutDcdnKvWithHighCapacityResponseBody extends $tea.Model {
+  failKeys?: string[];
+  requestId?: string;
+  successKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      failKeys: 'FailKeys',
+      requestId: 'RequestId',
+      successKeys: 'SuccessKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failKeys: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      successKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchPutDcdnKvWithHighCapacityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchPutDcdnKvWithHighCapacityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchPutDcdnKvWithHighCapacityResponseBody,
     };
   }
 
@@ -15061,6 +15299,81 @@ export class PutDcdnKvNamespaceResponse extends $tea.Model {
   }
 }
 
+export class PutDcdnKvWithHighCapacityRequest extends $tea.Model {
+  key?: string;
+  namespace?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      namespace: 'Namespace',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      namespace: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDcdnKvWithHighCapacityResponseBody extends $tea.Model {
+  length?: number;
+  requestId?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      length: 'Length',
+      requestId: 'RequestId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      length: 'number',
+      requestId: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDcdnKvWithHighCapacityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PutDcdnKvWithHighCapacityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PutDcdnKvWithHighCapacityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshDcdnObjectCachesRequest extends $tea.Model {
   force?: boolean;
   objectPath?: string;
@@ -23853,6 +24166,80 @@ export default class Client extends OpenApi {
     return await this.batchDeleteDcdnDomainConfigsWithOptions(request, runtime);
   }
 
+  async batchDeleteDcdnKvWithOptions(tmpReq: BatchDeleteDcdnKvRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDcdnKvResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchDeleteDcdnKvShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.keys)) {
+      request.keysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keys, "Keys", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keysShrink)) {
+      body["Keys"] = request.keysShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteDcdnKv",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteDcdnKvResponse>(await this.callApi(params, req, runtime), new BatchDeleteDcdnKvResponse({}));
+  }
+
+  async batchDeleteDcdnKv(request: BatchDeleteDcdnKvRequest): Promise<BatchDeleteDcdnKvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchDeleteDcdnKvWithOptions(request, runtime);
+  }
+
+  async batchDeleteDcdnKvWithHighCapacityWithOptions(request: BatchDeleteDcdnKvWithHighCapacityRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDcdnKvWithHighCapacityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteDcdnKvWithHighCapacity",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteDcdnKvWithHighCapacityResponse>(await this.callApi(params, req, runtime), new BatchDeleteDcdnKvWithHighCapacityResponse({}));
+  }
+
+  async batchDeleteDcdnKvWithHighCapacity(request: BatchDeleteDcdnKvWithHighCapacityRequest): Promise<BatchDeleteDcdnKvWithHighCapacityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchDeleteDcdnKvWithHighCapacityWithOptions(request, runtime);
+  }
+
   /**
     * *   You can call this operation up to 20 times per second per account.
     * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
@@ -23952,16 +24339,18 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    if (!Util.isUnset(request.kvListShrink)) {
-      query["KvList"] = request.kvListShrink;
-    }
-
     if (!Util.isUnset(request.namespace)) {
       query["Namespace"] = request.namespace;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.kvListShrink)) {
+      body["KvList"] = request.kvListShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchPutDcdnKv",
@@ -23980,6 +24369,39 @@ export default class Client extends OpenApi {
   async batchPutDcdnKv(request: BatchPutDcdnKvRequest): Promise<BatchPutDcdnKvResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchPutDcdnKvWithOptions(request, runtime);
+  }
+
+  async batchPutDcdnKvWithHighCapacityWithOptions(request: BatchPutDcdnKvWithHighCapacityRequest, runtime: $Util.RuntimeOptions): Promise<BatchPutDcdnKvWithHighCapacityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchPutDcdnKvWithHighCapacity",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchPutDcdnKvWithHighCapacityResponse>(await this.callApi(params, req, runtime), new BatchPutDcdnKvWithHighCapacityResponse({}));
+  }
+
+  async batchPutDcdnKvWithHighCapacity(request: BatchPutDcdnKvWithHighCapacityRequest): Promise<BatchPutDcdnKvWithHighCapacityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchPutDcdnKvWithHighCapacityWithOptions(request, runtime);
   }
 
   /**
@@ -33442,6 +33864,43 @@ export default class Client extends OpenApi {
   async putDcdnKvNamespace(request: PutDcdnKvNamespaceRequest): Promise<PutDcdnKvNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putDcdnKvNamespaceWithOptions(request, runtime);
+  }
+
+  async putDcdnKvWithHighCapacityWithOptions(request: PutDcdnKvWithHighCapacityRequest, runtime: $Util.RuntimeOptions): Promise<PutDcdnKvWithHighCapacityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PutDcdnKvWithHighCapacity",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PutDcdnKvWithHighCapacityResponse>(await this.callApi(params, req, runtime), new PutDcdnKvWithHighCapacityResponse({}));
+  }
+
+  async putDcdnKvWithHighCapacity(request: PutDcdnKvWithHighCapacityRequest): Promise<PutDcdnKvWithHighCapacityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putDcdnKvWithHighCapacityWithOptions(request, runtime);
   }
 
   /**
