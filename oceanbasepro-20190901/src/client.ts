@@ -920,6 +920,7 @@ export class CreateProjectRequest extends $tea.Model {
   labelIds?: string[];
   name?: string;
   ossKey?: string;
+  reverseIncrTransferConfig?: CreateProjectRequestReverseIncrTransferConfig;
   sinkEndpointId?: string;
   sourceEndpointId?: string;
   structTransferConfig?: CreateProjectRequestStructTransferConfig;
@@ -941,6 +942,7 @@ export class CreateProjectRequest extends $tea.Model {
       labelIds: 'LabelIds',
       name: 'Name',
       ossKey: 'OssKey',
+      reverseIncrTransferConfig: 'ReverseIncrTransferConfig',
       sinkEndpointId: 'SinkEndpointId',
       sourceEndpointId: 'SourceEndpointId',
       structTransferConfig: 'StructTransferConfig',
@@ -965,6 +967,7 @@ export class CreateProjectRequest extends $tea.Model {
       labelIds: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       ossKey: 'string',
+      reverseIncrTransferConfig: CreateProjectRequestReverseIncrTransferConfig,
       sinkEndpointId: 'string',
       sourceEndpointId: 'string',
       structTransferConfig: CreateProjectRequestStructTransferConfig,
@@ -993,6 +996,7 @@ export class CreateProjectShrinkRequest extends $tea.Model {
   labelIdsShrink?: string;
   name?: string;
   ossKey?: string;
+  reverseIncrTransferConfigShrink?: string;
   sinkEndpointId?: string;
   sourceEndpointId?: string;
   structTransferConfigShrink?: string;
@@ -1014,6 +1018,7 @@ export class CreateProjectShrinkRequest extends $tea.Model {
       labelIdsShrink: 'LabelIds',
       name: 'Name',
       ossKey: 'OssKey',
+      reverseIncrTransferConfigShrink: 'ReverseIncrTransferConfig',
       sinkEndpointId: 'SinkEndpointId',
       sourceEndpointId: 'SourceEndpointId',
       structTransferConfigShrink: 'StructTransferConfig',
@@ -1038,6 +1043,7 @@ export class CreateProjectShrinkRequest extends $tea.Model {
       labelIdsShrink: 'string',
       name: 'string',
       ossKey: 'string',
+      reverseIncrTransferConfigShrink: 'string',
       sinkEndpointId: 'string',
       sourceEndpointId: 'string',
       structTransferConfigShrink: 'string',
@@ -10700,12 +10706,20 @@ export class CreateProjectRequestFullTransferConfig extends $tea.Model {
   fullTransferSpeedMode?: string;
   fullVerifySpeedMode?: string;
   nonePkUkTruncateDstTable?: boolean;
+  readWorkerNum?: number;
+  throttleIOPS?: number;
+  throttleRps?: number;
+  writeWorkerNum?: number;
   static names(): { [key: string]: string } {
     return {
       allowDestTableNotEmpty: 'AllowDestTableNotEmpty',
       fullTransferSpeedMode: 'FullTransferSpeedMode',
       fullVerifySpeedMode: 'FullVerifySpeedMode',
       nonePkUkTruncateDstTable: 'NonePkUkTruncateDstTable',
+      readWorkerNum: 'ReadWorkerNum',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
+      writeWorkerNum: 'WriteWorkerNum',
     };
   }
 
@@ -10715,6 +10729,10 @@ export class CreateProjectRequestFullTransferConfig extends $tea.Model {
       fullTransferSpeedMode: 'string',
       fullVerifySpeedMode: 'string',
       nonePkUkTruncateDstTable: 'boolean',
+      readWorkerNum: 'number',
+      throttleIOPS: 'number',
+      throttleRps: 'number',
+      writeWorkerNum: 'number',
     };
   }
 
@@ -10730,6 +10748,9 @@ export class CreateProjectRequestIncrTransferConfig extends $tea.Model {
   recordTypeWhiteList?: string[];
   startTimestamp?: string;
   storeLogKeptHour?: number;
+  supportDDLTypes?: string[];
+  throttleIOPS?: number;
+  throttleRps?: number;
   static names(): { [key: string]: string } {
     return {
       enableIncrSyncStatistics: 'EnableIncrSyncStatistics',
@@ -10738,6 +10759,9 @@ export class CreateProjectRequestIncrTransferConfig extends $tea.Model {
       recordTypeWhiteList: 'RecordTypeWhiteList',
       startTimestamp: 'StartTimestamp',
       storeLogKeptHour: 'StoreLogKeptHour',
+      supportDDLTypes: 'SupportDDLTypes',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
     };
   }
 
@@ -10749,6 +10773,52 @@ export class CreateProjectRequestIncrTransferConfig extends $tea.Model {
       recordTypeWhiteList: { 'type': 'array', 'itemType': 'string' },
       startTimestamp: 'string',
       storeLogKeptHour: 'number',
+      supportDDLTypes: { 'type': 'array', 'itemType': 'string' },
+      throttleIOPS: 'number',
+      throttleRps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectRequestReverseIncrTransferConfig extends $tea.Model {
+  enableIncrSyncStatistics?: boolean;
+  enableSequencingWithinTxn?: boolean;
+  incrSyncConcurrency?: number;
+  recordTypeWhiteList?: string[];
+  startTimestamp?: string;
+  storeLogKeptHour?: number;
+  supportDDLTypes?: string[];
+  throttleIOPS?: number;
+  throttleRps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableIncrSyncStatistics: 'EnableIncrSyncStatistics',
+      enableSequencingWithinTxn: 'EnableSequencingWithinTxn',
+      incrSyncConcurrency: 'IncrSyncConcurrency',
+      recordTypeWhiteList: 'RecordTypeWhiteList',
+      startTimestamp: 'StartTimestamp',
+      storeLogKeptHour: 'StoreLogKeptHour',
+      supportDDLTypes: 'SupportDDLTypes',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableIncrSyncStatistics: 'boolean',
+      enableSequencingWithinTxn: 'boolean',
+      incrSyncConcurrency: 'number',
+      recordTypeWhiteList: { 'type': 'array', 'itemType': 'string' },
+      startTimestamp: 'string',
+      storeLogKeptHour: 'number',
+      supportDDLTypes: { 'type': 'array', 'itemType': 'string' },
+      throttleIOPS: 'number',
+      throttleRps: 'number',
     };
   }
 
@@ -16117,12 +16187,20 @@ export class DescribeProjectResponseBodyDataFullTransferConfig extends $tea.Mode
   fullTransferSpeedMode?: string;
   fullVerifySpeedMode?: string;
   nonePkUkTruncateDstTable?: boolean;
+  readWorkerNum?: number;
+  throttleIOPS?: number;
+  throttleRps?: number;
+  writeWorkerNum?: number;
   static names(): { [key: string]: string } {
     return {
       allowDestTableNotEmpty: 'AllowDestTableNotEmpty',
       fullTransferSpeedMode: 'FullTransferSpeedMode',
       fullVerifySpeedMode: 'FullVerifySpeedMode',
       nonePkUkTruncateDstTable: 'NonePkUkTruncateDstTable',
+      readWorkerNum: 'ReadWorkerNum',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
+      writeWorkerNum: 'WriteWorkerNum',
     };
   }
 
@@ -16132,6 +16210,10 @@ export class DescribeProjectResponseBodyDataFullTransferConfig extends $tea.Mode
       fullTransferSpeedMode: 'string',
       fullVerifySpeedMode: 'string',
       nonePkUkTruncateDstTable: 'boolean',
+      readWorkerNum: 'number',
+      throttleIOPS: 'number',
+      throttleRps: 'number',
+      writeWorkerNum: 'number',
     };
   }
 
@@ -16147,6 +16229,9 @@ export class DescribeProjectResponseBodyDataIncrTransferConfig extends $tea.Mode
   recordTypeWhiteList?: string[];
   startTimestamp?: number;
   storeLogKeptHour?: number;
+  supportDDLTypes?: string[];
+  throttleIOPS?: number;
+  throttleRps?: number;
   static names(): { [key: string]: string } {
     return {
       enableIncrSyncStatistics: 'EnableIncrSyncStatistics',
@@ -16155,6 +16240,9 @@ export class DescribeProjectResponseBodyDataIncrTransferConfig extends $tea.Mode
       recordTypeWhiteList: 'RecordTypeWhiteList',
       startTimestamp: 'StartTimestamp',
       storeLogKeptHour: 'StoreLogKeptHour',
+      supportDDLTypes: 'SupportDDLTypes',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
     };
   }
 
@@ -16166,6 +16254,9 @@ export class DescribeProjectResponseBodyDataIncrTransferConfig extends $tea.Mode
       recordTypeWhiteList: { 'type': 'array', 'itemType': 'string' },
       startTimestamp: 'number',
       storeLogKeptHour: 'number',
+      supportDDLTypes: { 'type': 'array', 'itemType': 'string' },
+      throttleIOPS: 'number',
+      throttleRps: 'number',
     };
   }
 
@@ -16188,6 +16279,49 @@ export class DescribeProjectResponseBodyDataLabels extends $tea.Model {
     return {
       id: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectResponseBodyDataReverseIncrTransferConfig extends $tea.Model {
+  enableIncrSyncStatistics?: boolean;
+  enableSequencingWithinTxn?: boolean;
+  incrSyncConcurrency?: number;
+  recordTypeWhiteList?: string[];
+  startTimestamp?: number;
+  storeLogKeptHour?: number;
+  supportDDLTypes?: string[];
+  throttleIOPS?: number;
+  throttleRps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableIncrSyncStatistics: 'EnableIncrSyncStatistics',
+      enableSequencingWithinTxn: 'EnableSequencingWithinTxn',
+      incrSyncConcurrency: 'IncrSyncConcurrency',
+      recordTypeWhiteList: 'RecordTypeWhiteList',
+      startTimestamp: 'StartTimestamp',
+      storeLogKeptHour: 'StoreLogKeptHour',
+      supportDDLTypes: 'SupportDDLTypes',
+      throttleIOPS: 'ThrottleIOPS',
+      throttleRps: 'ThrottleRps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableIncrSyncStatistics: 'boolean',
+      enableSequencingWithinTxn: 'boolean',
+      incrSyncConcurrency: 'number',
+      recordTypeWhiteList: { 'type': 'array', 'itemType': 'string' },
+      startTimestamp: 'number',
+      storeLogKeptHour: 'number',
+      supportDDLTypes: { 'type': 'array', 'itemType': 'string' },
+      throttleIOPS: 'number',
+      throttleRps: 'number',
     };
   }
 
@@ -17213,6 +17347,7 @@ export class DescribeProjectResponseBodyData extends $tea.Model {
   labels?: DescribeProjectResponseBodyDataLabels[];
   name?: string;
   owner?: string;
+  reverseIncrTransferConfig?: DescribeProjectResponseBodyDataReverseIncrTransferConfig;
   sinkConnectInfo?: DescribeProjectResponseBodyDataSinkConnectInfo;
   sinkEndpointType?: string;
   sourceConnectInfo?: DescribeProjectResponseBodyDataSourceConnectInfo;
@@ -17250,6 +17385,7 @@ export class DescribeProjectResponseBodyData extends $tea.Model {
       labels: 'Labels',
       name: 'Name',
       owner: 'Owner',
+      reverseIncrTransferConfig: 'ReverseIncrTransferConfig',
       sinkConnectInfo: 'SinkConnectInfo',
       sinkEndpointType: 'SinkEndpointType',
       sourceConnectInfo: 'SourceConnectInfo',
@@ -17290,6 +17426,7 @@ export class DescribeProjectResponseBodyData extends $tea.Model {
       labels: { 'type': 'array', 'itemType': DescribeProjectResponseBodyDataLabels },
       name: 'string',
       owner: 'string',
+      reverseIncrTransferConfig: DescribeProjectResponseBodyDataReverseIncrTransferConfig,
       sinkConnectInfo: DescribeProjectResponseBodyDataSinkConnectInfo,
       sinkEndpointType: 'string',
       sourceConnectInfo: DescribeProjectResponseBodyDataSourceConnectInfo,
@@ -24245,6 +24382,10 @@ export default class Client extends OpenApi {
       request.labelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelIds, "LabelIds", "json");
     }
 
+    if (!Util.isUnset(tmpReq.reverseIncrTransferConfig)) {
+      request.reverseIncrTransferConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reverseIncrTransferConfig, "ReverseIncrTransferConfig", "json");
+    }
+
     if (!Util.isUnset(tmpReq.structTransferConfig)) {
       request.structTransferConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.structTransferConfig, "StructTransferConfig", "json");
     }
@@ -24300,6 +24441,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ossKey)) {
       body["OssKey"] = request.ossKey;
+    }
+
+    if (!Util.isUnset(request.reverseIncrTransferConfigShrink)) {
+      body["ReverseIncrTransferConfig"] = request.reverseIncrTransferConfigShrink;
     }
 
     if (!Util.isUnset(request.sinkEndpointId)) {
