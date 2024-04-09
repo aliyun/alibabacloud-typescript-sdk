@@ -3054,6 +3054,7 @@ export class ListJobsRequest extends $tea.Model {
   pageSize?: number;
   pipelineId?: string;
   resourceId?: string;
+  resourceQuotaName?: string;
   showOwn?: boolean;
   sortBy?: string;
   startTime?: string;
@@ -3076,6 +3077,7 @@ export class ListJobsRequest extends $tea.Model {
       pageSize: 'PageSize',
       pipelineId: 'PipelineId',
       resourceId: 'ResourceId',
+      resourceQuotaName: 'ResourceQuotaName',
       showOwn: 'ShowOwn',
       sortBy: 'SortBy',
       startTime: 'StartTime',
@@ -3101,6 +3103,7 @@ export class ListJobsRequest extends $tea.Model {
       pageSize: 'number',
       pipelineId: 'string',
       resourceId: 'string',
+      resourceQuotaName: 'string',
       showOwn: 'boolean',
       sortBy: 'string',
       startTime: 'string',
@@ -3130,6 +3133,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
   pageSize?: number;
   pipelineId?: string;
   resourceId?: string;
+  resourceQuotaName?: string;
   showOwn?: boolean;
   sortBy?: string;
   startTime?: string;
@@ -3152,6 +3156,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       pageSize: 'PageSize',
       pipelineId: 'PipelineId',
       resourceId: 'ResourceId',
+      resourceQuotaName: 'ResourceQuotaName',
       showOwn: 'ShowOwn',
       sortBy: 'SortBy',
       startTime: 'StartTime',
@@ -3177,6 +3182,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       pageSize: 'number',
       pipelineId: 'string',
       resourceId: 'string',
+      resourceQuotaName: 'string',
       showOwn: 'boolean',
       sortBy: 'string',
       startTime: 'string',
@@ -4812,6 +4818,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceQuotaName)) {
+      query["ResourceQuotaName"] = request.resourceQuotaName;
     }
 
     if (!Util.isUnset(request.showOwn)) {
