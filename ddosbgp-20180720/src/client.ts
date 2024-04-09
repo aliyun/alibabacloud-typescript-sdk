@@ -80,6 +80,88 @@ export class AddIpResponse extends $tea.Model {
   }
 }
 
+export class AddRdMemberListRequest extends $tea.Model {
+  memberList?: AddRdMemberListRequestMemberList[];
+  static names(): { [key: string]: string } {
+    return {
+      memberList: 'MemberList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberList: { 'type': 'array', 'itemType': AddRdMemberListRequestMemberList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRdMemberListShrinkRequest extends $tea.Model {
+  memberListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberListShrink: 'MemberList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRdMemberListResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRdMemberListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddRdMemberListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddRdMemberListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachAssetGroupToInstanceRequest extends $tea.Model {
   assetGroupList?: AttachAssetGroupToInstanceRequestAssetGroupList[];
   instanceId?: string;
@@ -649,6 +731,88 @@ export class DeleteIpResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRdMemberListRequest extends $tea.Model {
+  memberList?: DeleteRdMemberListRequestMemberList[];
+  static names(): { [key: string]: string } {
+    return {
+      memberList: 'MemberList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberList: { 'type': 'array', 'itemType': DeleteRdMemberListRequestMemberList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRdMemberListShrinkRequest extends $tea.Model {
+  memberListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberListShrink: 'MemberList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRdMemberListResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRdMemberListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRdMemberListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRdMemberListResponseBody,
     };
   }
 
@@ -1695,6 +1859,149 @@ export class DescribePackIpListResponse extends $tea.Model {
   }
 }
 
+export class DescribeRdMemberListRequest extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  resourceDirectoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      resourceDirectoryId: 'ResourceDirectoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      resourceDirectoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdMemberListResponseBody extends $tea.Model {
+  memberList?: DescribeRdMemberListResponseBodyMemberList[];
+  requestId?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      memberList: 'MemberList',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberList: { 'type': 'array', 'itemType': DescribeRdMemberListResponseBodyMemberList },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdMemberListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRdMemberListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRdMemberListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdStatusResponseBody extends $tea.Model {
+  currentUid?: string;
+  currentUidType?: string;
+  enabled?: boolean;
+  localEnable?: boolean;
+  masterUid?: string;
+  remoteEnable?: boolean;
+  requestId?: string;
+  rootUid?: string;
+  servicePrincipalEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      currentUid: 'CurrentUid',
+      currentUidType: 'CurrentUidType',
+      enabled: 'Enabled',
+      localEnable: 'LocalEnable',
+      masterUid: 'MasterUid',
+      remoteEnable: 'RemoteEnable',
+      requestId: 'RequestId',
+      rootUid: 'RootUid',
+      servicePrincipalEnabled: 'ServicePrincipalEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentUid: 'string',
+      currentUidType: 'string',
+      enabled: 'boolean',
+      localEnable: 'boolean',
+      masterUid: 'string',
+      remoteEnable: 'boolean',
+      requestId: 'string',
+      rootUid: 'string',
+      servicePrincipalEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRdStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRdStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
@@ -2710,6 +3017,25 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class AddRdMemberListRequestMemberList extends $tea.Model {
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachAssetGroupToInstanceRequestAssetGroupList extends $tea.Model {
   memberUid?: string;
   name?: string;
@@ -2730,6 +3056,25 @@ export class AttachAssetGroupToInstanceRequestAssetGroupList extends $tea.Model 
       name: 'string',
       region: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRdMemberListRequestMemberList extends $tea.Model {
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uid: 'string',
     };
   }
 
@@ -3233,6 +3578,31 @@ export class DescribePackIpListResponseBodyIpList extends $tea.Model {
   }
 }
 
+export class DescribeRdMemberListResponseBodyMemberList extends $tea.Model {
+  gmtCreate?: number;
+  name?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      name: 'Name',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      name: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   regionEnName?: string;
   regionId?: string;
@@ -3607,6 +3977,41 @@ export default class Client extends OpenApi {
   async addIp(request: AddIpRequest): Promise<AddIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addIpWithOptions(request, runtime);
+  }
+
+  async addRdMemberListWithOptions(tmpReq: AddRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<AddRdMemberListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddRdMemberListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.memberList)) {
+      request.memberListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memberList, "MemberList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.memberListShrink)) {
+      query["MemberList"] = request.memberListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddRdMemberList",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddRdMemberListResponse>(await this.callApi(params, req, runtime), new AddRdMemberListResponse({}));
+  }
+
+  async addRdMemberList(request: AddRdMemberListRequest): Promise<AddRdMemberListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addRdMemberListWithOptions(request, runtime);
   }
 
   async attachAssetGroupToInstanceWithOptions(tmpReq: AttachAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AttachAssetGroupToInstanceResponse> {
@@ -3989,6 +4394,41 @@ export default class Client extends OpenApi {
   async deleteIp(request: DeleteIpRequest): Promise<DeleteIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpWithOptions(request, runtime);
+  }
+
+  async deleteRdMemberListWithOptions(tmpReq: DeleteRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRdMemberListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteRdMemberListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.memberList)) {
+      request.memberListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memberList, "MemberList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.memberListShrink)) {
+      query["MemberList"] = request.memberListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRdMemberList",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRdMemberListResponse>(await this.callApi(params, req, runtime), new DeleteRdMemberListResponse({}));
+  }
+
+  async deleteRdMemberList(request: DeleteRdMemberListRequest): Promise<DeleteRdMemberListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRdMemberListWithOptions(request, runtime);
   }
 
   async deleteSchedruleOnDemandWithOptions(request: DeleteSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchedruleOnDemandResponse> {
@@ -4669,6 +5109,64 @@ export default class Client extends OpenApi {
   async describePackIpList(request: DescribePackIpListRequest): Promise<DescribePackIpListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePackIpListWithOptions(request, runtime);
+  }
+
+  async describeRdMemberListWithOptions(request: DescribeRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdMemberListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryId)) {
+      query["ResourceDirectoryId"] = request.resourceDirectoryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRdMemberList",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRdMemberListResponse>(await this.callApi(params, req, runtime), new DescribeRdMemberListResponse({}));
+  }
+
+  async describeRdMemberList(request: DescribeRdMemberListRequest): Promise<DescribeRdMemberListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRdMemberListWithOptions(request, runtime);
+  }
+
+  async describeRdStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRdStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeRdStatus",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRdStatusResponse>(await this.callApi(params, req, runtime), new DescribeRdStatusResponse({}));
+  }
+
+  async describeRdStatus(): Promise<DescribeRdStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRdStatusWithOptions(runtime);
   }
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
