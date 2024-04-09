@@ -80,6 +80,78 @@ export class AuthDiagnosisResponse extends $tea.Model {
   }
 }
 
+export class GenerateCopilotResponseRequest extends $tea.Model {
+  llmParamString?: string;
+  static names(): { [key: string]: string } {
+    return {
+      llmParamString: 'llmParamString',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      llmParamString: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateCopilotResponseResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  massage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      massage: 'massage',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      massage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateCopilotResponseResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateCopilotResponseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateCopilotResponseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDiagnosisResultRequest extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -366,6 +438,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.authDiagnosisWithOptions(request, headers, runtime);
+  }
+
+  async generateCopilotResponseWithOptions(request: GenerateCopilotResponseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateCopilotResponseResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.llmParamString)) {
+      body["llmParamString"] = request.llmParamString;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateCopilotResponse",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/copilot/generate_copilot_response`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateCopilotResponseResponse>(await this.callApi(params, req, runtime), new GenerateCopilotResponseResponse({}));
+  }
+
+  async generateCopilotResponse(request: GenerateCopilotResponseRequest): Promise<GenerateCopilotResponseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateCopilotResponseWithOptions(request, headers, runtime);
   }
 
   async getDiagnosisResultWithOptions(request: GetDiagnosisResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDiagnosisResultResponse> {
