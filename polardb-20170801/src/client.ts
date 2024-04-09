@@ -14609,6 +14609,7 @@ export class DescribeDBClustersResponseBodyItemsDBClusterTags extends $tea.Model
 export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   aiType?: string;
   category?: string;
+  cpuCores?: string;
   createTime?: string;
   DBClusterDescription?: string;
   DBClusterId?: string;
@@ -14624,14 +14625,17 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   expireTime?: string;
   expired?: string;
   lockMode?: string;
+  memorySize?: string;
   payType?: string;
   regionId?: string;
+  remoteMemorySize?: string;
   resourceGroupId?: string;
   serverlessType?: string;
   storagePayType?: string;
   storageSpace?: number;
   storageUsed?: number;
   strictConsistency?: string;
+  subCategory?: string;
   tags?: DescribeDBClustersResponseBodyItemsDBClusterTags;
   vpcId?: string;
   vswitchId?: string;
@@ -14640,6 +14644,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
     return {
       aiType: 'AiType',
       category: 'Category',
+      cpuCores: 'CpuCores',
       createTime: 'CreateTime',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
@@ -14655,14 +14660,17 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       expireTime: 'ExpireTime',
       expired: 'Expired',
       lockMode: 'LockMode',
+      memorySize: 'MemorySize',
       payType: 'PayType',
       regionId: 'RegionId',
+      remoteMemorySize: 'RemoteMemorySize',
       resourceGroupId: 'ResourceGroupId',
       serverlessType: 'ServerlessType',
       storagePayType: 'StoragePayType',
       storageSpace: 'StorageSpace',
       storageUsed: 'StorageUsed',
       strictConsistency: 'StrictConsistency',
+      subCategory: 'SubCategory',
       tags: 'Tags',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
@@ -14674,6 +14682,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
     return {
       aiType: 'string',
       category: 'string',
+      cpuCores: 'string',
       createTime: 'string',
       DBClusterDescription: 'string',
       DBClusterId: 'string',
@@ -14689,14 +14698,17 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       expireTime: 'string',
       expired: 'string',
       lockMode: 'string',
+      memorySize: 'string',
       payType: 'string',
       regionId: 'string',
+      remoteMemorySize: 'string',
       resourceGroupId: 'string',
       serverlessType: 'string',
       storagePayType: 'string',
       storageSpace: 'number',
       storageUsed: 'number',
       strictConsistency: 'string',
+      subCategory: 'string',
       tags: DescribeDBClustersResponseBodyItemsDBClusterTags,
       vpcId: 'string',
       vswitchId: 'string',
@@ -20006,13 +20018,6 @@ export default class Client extends OpenApi {
     return await this.describeDBClusterTDEWithOptions(request, runtime);
   }
 
-  /**
-    * The release note of the kernel version.
-    *
-    * @param request DescribeDBClusterVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBClusterVersionResponse
-   */
   async describeDBClusterVersionWithOptions(request: DescribeDBClusterVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20057,12 +20062,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterVersionResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterVersionResponse({}));
   }
 
-  /**
-    * The release note of the kernel version.
-    *
-    * @param request DescribeDBClusterVersionRequest
-    * @return DescribeDBClusterVersionResponse
-   */
   async describeDBClusterVersion(request: DescribeDBClusterVersionRequest): Promise<DescribeDBClusterVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterVersionWithOptions(request, runtime);
