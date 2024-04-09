@@ -727,12 +727,14 @@ export class CreateServiceLinkedRoleForProductRequest extends $tea.Model {
 
 export class CreateServiceLinkedRoleForProductResponseBody extends $tea.Model {
   code?: string;
+  httpCode?: number;
   message?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      httpCode: 'HttpCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -742,6 +744,7 @@ export class CreateServiceLinkedRoleForProductResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      httpCode: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
@@ -989,15 +992,18 @@ export class DeleteEventBusResponse extends $tea.Model {
 }
 
 export class DeleteEventSourceRequest extends $tea.Model {
+  eventBusName?: string;
   eventSourceName?: string;
   static names(): { [key: string]: string } {
     return {
+      eventBusName: 'EventBusName',
       eventSourceName: 'EventSourceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      eventBusName: 'string',
       eventSourceName: 'string',
     };
   }
@@ -6519,11 +6525,13 @@ export class CreateEventStreamingRequestSourceSourcePrometheusParameters extends
   clusterId?: string;
   dataType?: string;
   labels?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       dataType: 'DataType',
       labels: 'Labels',
+      regionId: 'RegionId',
     };
   }
 
@@ -6532,6 +6540,7 @@ export class CreateEventStreamingRequestSourceSourcePrometheusParameters extends
       clusterId: 'string',
       dataType: 'string',
       labels: 'string',
+      regionId: 'string',
     };
   }
 
@@ -8737,11 +8746,13 @@ export class GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters e
   clusterId?: string;
   dataType?: string;
   labels?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       dataType: 'DataType',
       labels: 'Labels',
+      regionId: 'RegionId',
     };
   }
 
@@ -8750,6 +8761,7 @@ export class GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters e
       clusterId: 'string',
       dataType: 'string',
       labels: 'string',
+      regionId: 'string',
     };
   }
 
@@ -11086,6 +11098,34 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters extends $tea.Model {
+  clusterId?: string;
+  dataType?: string;
+  labels?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dataType: 'DataType',
+      labels: 'Labels',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dataType: 'string',
+      labels: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters extends $tea.Model {
   instanceId?: string;
   queueName?: string;
@@ -11214,6 +11254,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $t
   sourceKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters;
   sourceMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters;
   sourceMQTTParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters;
+  sourcePrometheusParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters;
   sourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters;
   sourceRocketMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters;
   sourceSLSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSParameters;
@@ -11223,6 +11264,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $t
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
+      sourcePrometheusParameters: 'SourcePrometheusParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQParameters: 'SourceRocketMQParameters',
       sourceSLSParameters: 'SourceSLSParameters',
@@ -11235,6 +11277,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $t
       sourceKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters,
       sourceMNSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters,
       sourceMQTTParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters,
+      sourcePrometheusParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters,
       sourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters,
       sourceRocketMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters,
       sourceSLSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSParameters,
@@ -14406,11 +14449,13 @@ export class UpdateEventStreamingRequestSourceSourcePrometheusParameters extends
   clusterId?: string;
   dataType?: string;
   labels?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       dataType: 'DataType',
       labels: 'Labels',
+      regionId: 'RegionId',
     };
   }
 
@@ -14419,6 +14464,7 @@ export class UpdateEventStreamingRequestSourceSourcePrometheusParameters extends
       clusterId: 'string',
       dataType: 'string',
       labels: 'string',
+      regionId: 'string',
     };
   }
 
@@ -15228,6 +15274,10 @@ export default class Client extends OpenApi {
   async deleteEventSourceWithOptions(request: DeleteEventSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventSourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.eventBusName)) {
+      body["EventBusName"] = request.eventBusName;
+    }
+
     if (!Util.isUnset(request.eventSourceName)) {
       body["EventSourceName"] = request.eventSourceName;
     }
