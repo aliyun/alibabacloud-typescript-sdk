@@ -73,9 +73,9 @@ export class GetH5PageTrendResponseBody extends $tea.Model {
 }
 
 export class GetH5PageTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetH5PageTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetH5PageTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -157,9 +157,9 @@ export class GetLaunchTrendResponseBody extends $tea.Model {
 }
 
 export class GetLaunchTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLaunchTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLaunchTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -241,9 +241,9 @@ export class GetNativePageTrendResponseBody extends $tea.Model {
 }
 
 export class GetNativePageTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetNativePageTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNativePageTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -325,9 +325,9 @@ export class GetNetworkTrendResponseBody extends $tea.Model {
 }
 
 export class GetNetworkTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetNetworkTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNetworkTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -409,9 +409,9 @@ export class GetStatTrendResponseBody extends $tea.Model {
 }
 
 export class GetStatTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetStatTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetStatTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -496,9 +496,9 @@ export class GetSymUploadParamResponseBody extends $tea.Model {
 }
 
 export class GetSymUploadParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSymUploadParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSymUploadParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -574,9 +574,9 @@ export class GetTodayStatTrendResponseBody extends $tea.Model {
 }
 
 export class GetTodayStatTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTodayStatTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTodayStatTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -649,9 +649,9 @@ export class UpdateAlertPlanResponseBody extends $tea.Model {
 }
 
 export class UpdateAlertPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAlertPlanResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAlertPlanResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -773,9 +773,9 @@ export class UploadSymbolFileResponseBody extends $tea.Model {
 }
 
 export class UploadSymbolFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadSymbolFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadSymbolFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
