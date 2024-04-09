@@ -516,6 +516,84 @@ export class Service extends $tea.Model {
   }
 }
 
+export class CloneServiceRequest extends $tea.Model {
+  body?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneServiceResponseBody extends $tea.Model {
+  internetEndpoint?: string;
+  intranetEndpoint?: string;
+  requestId?: string;
+  serviceId?: string;
+  serviceName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internetEndpoint: 'InternetEndpoint',
+      intranetEndpoint: 'IntranetEndpoint',
+      requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceName: 'ServiceName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetEndpoint: 'string',
+      intranetEndpoint: 'string',
+      requestId: 'string',
+      serviceId: 'string',
+      serviceName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloneServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CommitServiceResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
@@ -6256,6 +6334,32 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async cloneServiceWithOptions(ClusterId: string, ServiceName: string, request: CloneServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneServiceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "CloneService",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/clone`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneServiceResponse>(await this.callApi(params, req, runtime), new CloneServiceResponse({}));
+  }
+
+  async cloneService(ClusterId: string, ServiceName: string, request: CloneServiceRequest): Promise<CloneServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cloneServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  }
+
   async commitServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CommitServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6451,6 +6555,14 @@ export default class Client extends OpenApi {
     return await this.createGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
+  /**
+    * **Before you call this operation, make sure that you are familiar with the [billing](~~144261~~) of Elastic Algorithm Service (EAS).
+    *
+    * @param request CreateResourceRequest
+    * @param headers map
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateResourceResponse
+   */
   async createResourceWithOptions(request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6504,6 +6616,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceResponse>(await this.callApi(params, req, runtime), new CreateResourceResponse({}));
   }
 
+  /**
+    * **Before you call this operation, make sure that you are familiar with the [billing](~~144261~~) of Elastic Algorithm Service (EAS).
+    *
+    * @param request CreateResourceRequest
+    * @return CreateResourceResponse
+   */
   async createResource(request: CreateResourceRequest): Promise<CreateResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
