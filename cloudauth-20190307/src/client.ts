@@ -103,6 +103,96 @@ export class AIGCFaceVerifyResponse extends $tea.Model {
   }
 }
 
+export class BankMetaVerifyRequest extends $tea.Model {
+  bankCard?: string;
+  identifyNum?: string;
+  mobile?: string;
+  paramType?: string;
+  productType?: string;
+  userName?: string;
+  verifyMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bankCard: 'BankCard',
+      identifyNum: 'IdentifyNum',
+      mobile: 'Mobile',
+      paramType: 'ParamType',
+      productType: 'ProductType',
+      userName: 'UserName',
+      verifyMode: 'VerifyMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bankCard: 'string',
+      identifyNum: 'string',
+      mobile: 'string',
+      paramType: 'string',
+      productType: 'string',
+      userName: 'string',
+      verifyMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BankMetaVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: BankMetaVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: BankMetaVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BankMetaVerifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BankMetaVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BankMetaVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CompareFaceVerifyRequest extends $tea.Model {
   crop?: string;
   outerOrderNo?: string;
@@ -872,6 +962,108 @@ export class DescribeOssUploadTokenResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeOssUploadTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePageFaceVerifyDataRequest extends $tea.Model {
+  currentPage?: number;
+  endDate?: string;
+  pageSize?: number;
+  productCode?: string;
+  sceneId?: number;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      endDate: 'EndDate',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      sceneId: 'SceneId',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      endDate: 'string',
+      pageSize: 'number',
+      productCode: 'string',
+      sceneId: 'number',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePageFaceVerifyDataResponseBody extends $tea.Model {
+  code?: string;
+  currentPage?: string;
+  items?: DescribePageFaceVerifyDataResponseBodyItems[];
+  message?: string;
+  pageSize?: string;
+  requestId?: string;
+  success?: string;
+  totalCount?: string;
+  totalPage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      message: 'Message',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      currentPage: 'string',
+      items: { 'type': 'array', 'itemType': DescribePageFaceVerifyDataResponseBodyItems },
+      message: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      success: 'string',
+      totalCount: 'string',
+      totalPage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePageFaceVerifyDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePageFaceVerifyDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePageFaceVerifyDataResponseBody,
     };
   }
 
@@ -1831,6 +2023,231 @@ export class Mobile3MetaSimpleVerifyResponse extends $tea.Model {
   }
 }
 
+export class MobileDetectRequest extends $tea.Model {
+  mobiles?: string;
+  paramType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobiles: 'Mobiles',
+      paramType: 'ParamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobiles: 'string',
+      paramType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileDetectResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: MobileDetectResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: MobileDetectResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileDetectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MobileDetectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MobileDetectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileOnlineStatusRequest extends $tea.Model {
+  mobile?: string;
+  paramType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      paramType: 'ParamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      paramType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileOnlineStatusResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: MobileOnlineStatusResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: MobileOnlineStatusResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileOnlineStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MobileOnlineStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MobileOnlineStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileOnlineTimeRequest extends $tea.Model {
+  mobile?: string;
+  paramType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      paramType: 'ParamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      paramType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileOnlineTimeResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: MobileOnlineTimeResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: MobileOnlineTimeResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileOnlineTimeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MobileOnlineTimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MobileOnlineTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDeviceInfoRequest extends $tea.Model {
   bizType?: string;
   deviceId?: string;
@@ -2045,6 +2462,28 @@ export class AIGCFaceVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
+export class BankMetaVerifyResponseBodyResultObject extends $tea.Model {
+  bizCode?: string;
+  subCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      subCode: 'SubCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      subCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CompareFaceVerifyResponseBodyResultObject extends $tea.Model {
   certifyId?: string;
   passed?: string;
@@ -2242,6 +2681,40 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $tea.Model
       path: 'string',
       secret: 'string',
       token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePageFaceVerifyDataResponseBodyItems extends $tea.Model {
+  date?: string;
+  productCode?: string;
+  sceneId?: string;
+  sceneName?: string;
+  successCount?: string;
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      productCode: 'ProductCode',
+      sceneId: 'SceneId',
+      sceneName: 'SceneName',
+      successCount: 'SuccessCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      productCode: 'string',
+      sceneId: 'string',
+      sceneName: 'string',
+      successCount: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -2707,6 +3180,109 @@ export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $tea.Model 
   }
 }
 
+export class MobileDetectResponseBodyResultObjectItems extends $tea.Model {
+  area?: string;
+  bizCode?: string;
+  ispName?: string;
+  mobile?: string;
+  subCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      area: 'Area',
+      bizCode: 'BizCode',
+      ispName: 'IspName',
+      mobile: 'Mobile',
+      subCode: 'SubCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      area: 'string',
+      bizCode: 'string',
+      ispName: 'string',
+      mobile: 'string',
+      subCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileDetectResponseBodyResultObject extends $tea.Model {
+  chargeCount?: string;
+  items?: MobileDetectResponseBodyResultObjectItems[];
+  static names(): { [key: string]: string } {
+    return {
+      chargeCount: 'ChargeCount',
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeCount: 'string',
+      items: { 'type': 'array', 'itemType': MobileDetectResponseBodyResultObjectItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileOnlineStatusResponseBodyResultObject extends $tea.Model {
+  bizCode?: string;
+  ispName?: string;
+  subCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      ispName: 'IspName',
+      subCode: 'SubCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      ispName: 'string',
+      subCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MobileOnlineTimeResponseBodyResultObject extends $tea.Model {
+  bizCode?: string;
+  ispName?: string;
+  timeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      ispName: 'IspName',
+      timeCode: 'TimeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      ispName: 'string',
+      timeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifyMaterialResponseBodyMaterialIdCardInfo extends $tea.Model {
   address?: string;
   authority?: string;
@@ -2866,6 +3442,59 @@ export default class Client extends OpenApi {
   async aIGCFaceVerify(request: AIGCFaceVerifyRequest): Promise<AIGCFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.aIGCFaceVerifyWithOptions(request, runtime);
+  }
+
+  async bankMetaVerifyWithOptions(request: BankMetaVerifyRequest, runtime: $Util.RuntimeOptions): Promise<BankMetaVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bankCard)) {
+      query["BankCard"] = request.bankCard;
+    }
+
+    if (!Util.isUnset(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!Util.isUnset(request.verifyMode)) {
+      query["VerifyMode"] = request.verifyMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BankMetaVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BankMetaVerifyResponse>(await this.callApi(params, req, runtime), new BankMetaVerifyResponse({}));
+  }
+
+  async bankMetaVerify(request: BankMetaVerifyRequest): Promise<BankMetaVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bankMetaVerifyWithOptions(request, runtime);
   }
 
   async compareFaceVerifyWithOptions(request: CompareFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceVerifyResponse> {
@@ -3366,6 +3995,55 @@ export default class Client extends OpenApi {
   async describeOssUploadToken(): Promise<DescribeOssUploadTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOssUploadTokenWithOptions(runtime);
+  }
+
+  async describePageFaceVerifyDataWithOptions(request: DescribePageFaceVerifyDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribePageFaceVerifyDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePageFaceVerifyData",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePageFaceVerifyDataResponse>(await this.callApi(params, req, runtime), new DescribePageFaceVerifyDataResponse({}));
+  }
+
+  async describePageFaceVerifyData(request: DescribePageFaceVerifyDataRequest): Promise<DescribePageFaceVerifyDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePageFaceVerifyDataWithOptions(request, runtime);
   }
 
   async describeSmartStatisticsPageListWithOptions(request: DescribeSmartStatisticsPageListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmartStatisticsPageListResponse> {
@@ -3956,6 +4634,105 @@ export default class Client extends OpenApi {
   async mobile3MetaSimpleVerify(request: Mobile3MetaSimpleVerifyRequest): Promise<Mobile3MetaSimpleVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.mobile3MetaSimpleVerifyWithOptions(request, runtime);
+  }
+
+  async mobileDetectWithOptions(request: MobileDetectRequest, runtime: $Util.RuntimeOptions): Promise<MobileDetectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mobiles)) {
+      query["Mobiles"] = request.mobiles;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MobileDetect",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MobileDetectResponse>(await this.callApi(params, req, runtime), new MobileDetectResponse({}));
+  }
+
+  async mobileDetect(request: MobileDetectRequest): Promise<MobileDetectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mobileDetectWithOptions(request, runtime);
+  }
+
+  async mobileOnlineStatusWithOptions(request: MobileOnlineStatusRequest, runtime: $Util.RuntimeOptions): Promise<MobileOnlineStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MobileOnlineStatus",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MobileOnlineStatusResponse>(await this.callApi(params, req, runtime), new MobileOnlineStatusResponse({}));
+  }
+
+  async mobileOnlineStatus(request: MobileOnlineStatusRequest): Promise<MobileOnlineStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mobileOnlineStatusWithOptions(request, runtime);
+  }
+
+  async mobileOnlineTimeWithOptions(request: MobileOnlineTimeRequest, runtime: $Util.RuntimeOptions): Promise<MobileOnlineTimeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MobileOnlineTime",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MobileOnlineTimeResponse>(await this.callApi(params, req, runtime), new MobileOnlineTimeResponse({}));
+  }
+
+  async mobileOnlineTime(request: MobileOnlineTimeRequest): Promise<MobileOnlineTimeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mobileOnlineTimeWithOptions(request, runtime);
   }
 
   async modifyDeviceInfoWithOptions(request: ModifyDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDeviceInfoResponse> {
