@@ -68,9 +68,9 @@ export class AddChatappPhoneNumberResponseBody extends $tea.Model {
 }
 
 export class AddChatappPhoneNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddChatappPhoneNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddChatappPhoneNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -198,9 +198,9 @@ export class BeeBotAssociateResponseBody extends $tea.Model {
 }
 
 export class BeeBotAssociateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BeeBotAssociateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BeeBotAssociateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -352,9 +352,9 @@ export class BeeBotChatResponseBody extends $tea.Model {
 }
 
 export class BeeBotChatResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BeeBotChatResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BeeBotChatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -427,9 +427,9 @@ export class ChatappBindWabaResponseBody extends $tea.Model {
 }
 
 export class ChatappBindWabaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChatappBindWabaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatappBindWabaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -502,9 +502,9 @@ export class ChatappEmbedSignUpResponseBody extends $tea.Model {
 }
 
 export class ChatappEmbedSignUpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChatappEmbedSignUpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatappEmbedSignUpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -577,9 +577,9 @@ export class ChatappMigrationRegisterResponseBody extends $tea.Model {
 }
 
 export class ChatappMigrationRegisterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChatappMigrationRegisterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatappMigrationRegisterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -658,9 +658,9 @@ export class ChatappMigrationVerifiedResponseBody extends $tea.Model {
 }
 
 export class ChatappMigrationVerifiedResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChatappMigrationVerifiedResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatappMigrationVerifiedResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -733,9 +733,9 @@ export class ChatappPhoneNumberDeregisterResponseBody extends $tea.Model {
 }
 
 export class ChatappPhoneNumberDeregisterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChatappPhoneNumberDeregisterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatappPhoneNumberDeregisterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -808,9 +808,9 @@ export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
 }
 
 export class ChatappPhoneNumberRegisterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChatappPhoneNumberRegisterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatappPhoneNumberRegisterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -883,9 +883,9 @@ export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
 }
 
 export class ChatappSyncPhoneNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChatappSyncPhoneNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatappSyncPhoneNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -961,9 +961,9 @@ export class ChatappVerifyAndRegisterResponseBody extends $tea.Model {
 }
 
 export class ChatappVerifyAndRegisterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChatappVerifyAndRegisterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatappVerifyAndRegisterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1042,9 +1042,9 @@ export class CreateChatappMigrationInitiateResponseBody extends $tea.Model {
 }
 
 export class CreateChatappMigrationInitiateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateChatappMigrationInitiateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateChatappMigrationInitiateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1196,9 +1196,9 @@ export class CreateChatappTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateChatappTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateChatappTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateChatappTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1299,9 +1299,9 @@ export class CreateFlowResponseBody extends $tea.Model {
 }
 
 export class CreateFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1380,9 +1380,9 @@ export class CreatePhoneMessageQrdlResponseBody extends $tea.Model {
 }
 
 export class CreatePhoneMessageQrdlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePhoneMessageQrdlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePhoneMessageQrdlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1408,13 +1408,19 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
   custSpaceId?: string;
   custWabaId?: string;
   isvCode?: string;
+  language?: string;
   templateCode?: string;
+  templateName?: string;
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       isvCode: 'IsvCode',
+      language: 'Language',
       templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
     };
   }
 
@@ -1423,7 +1429,10 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
       custSpaceId: 'string',
       custWabaId: 'string',
       isvCode: 'string',
+      language: 'string',
       templateCode: 'string',
+      templateName: 'string',
+      templateType: 'string',
     };
   }
 
@@ -1461,9 +1470,9 @@ export class DeleteChatappTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteChatappTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteChatappTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteChatappTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1533,9 +1542,9 @@ export class DeleteFlowResponseBody extends $tea.Model {
 }
 
 export class DeleteFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1608,9 +1617,9 @@ export class DeletePhoneMessageQrdlResponseBody extends $tea.Model {
 }
 
 export class DeletePhoneMessageQrdlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePhoneMessageQrdlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePhoneMessageQrdlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1680,9 +1689,9 @@ export class DeprecateFlowResponseBody extends $tea.Model {
 }
 
 export class DeprecateFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeprecateFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeprecateFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1755,9 +1764,9 @@ export class EnableWhatsappROIMetricResponseBody extends $tea.Model {
 }
 
 export class EnableWhatsappROIMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableWhatsappROIMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableWhatsappROIMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1845,9 +1854,9 @@ export class GetChatappPhoneNumberMetricResponseBody extends $tea.Model {
 }
 
 export class GetChatappPhoneNumberMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetChatappPhoneNumberMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChatappPhoneNumberMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1875,6 +1884,7 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
   isvCode?: string;
   language?: string;
   templateCode?: string;
+  templateName?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1883,6 +1893,7 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
       isvCode: 'IsvCode',
       language: 'Language',
       templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
       templateType: 'TemplateType',
     };
   }
@@ -1894,6 +1905,7 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
       isvCode: 'string',
       language: 'string',
       templateCode: 'string',
+      templateName: 'string',
       templateType: 'string',
     };
   }
@@ -1935,9 +1947,9 @@ export class GetChatappTemplateDetailResponseBody extends $tea.Model {
 }
 
 export class GetChatappTemplateDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetChatappTemplateDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChatappTemplateDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2031,9 +2043,9 @@ export class GetChatappTemplateMetricResponseBody extends $tea.Model {
 }
 
 export class GetChatappTemplateMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetChatappTemplateMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChatappTemplateMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2106,9 +2118,9 @@ export class GetChatappUploadAuthorizationResponseBody extends $tea.Model {
 }
 
 export class GetChatappUploadAuthorizationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetChatappUploadAuthorizationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChatappUploadAuthorizationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2187,9 +2199,9 @@ export class GetChatappVerifyCodeResponseBody extends $tea.Model {
 }
 
 export class GetChatappVerifyCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetChatappVerifyCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChatappVerifyCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2262,9 +2274,9 @@ export class GetCommerceSettingResponseBody extends $tea.Model {
 }
 
 export class GetCommerceSettingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCommerceSettingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCommerceSettingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2337,9 +2349,9 @@ export class GetFlowResponseBody extends $tea.Model {
 }
 
 export class GetFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2412,9 +2424,9 @@ export class GetFlowJSONAssestResponseBody extends $tea.Model {
 }
 
 export class GetFlowJSONAssestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFlowJSONAssestResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFlowJSONAssestResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2487,9 +2499,9 @@ export class GetFlowPreviewUrlResponseBody extends $tea.Model {
 }
 
 export class GetFlowPreviewUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFlowPreviewUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFlowPreviewUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2571,9 +2583,9 @@ export class GetMigrationVerifyCodeResponseBody extends $tea.Model {
 }
 
 export class GetMigrationVerifyCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMigrationVerifyCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMigrationVerifyCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2671,9 +2683,9 @@ export class GetPermissionByCodeResponseBody extends $tea.Model {
 }
 
 export class GetPermissionByCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPermissionByCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPermissionByCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2746,9 +2758,9 @@ export class GetPhoneEncryptionPublicKeyResponseBody extends $tea.Model {
 }
 
 export class GetPhoneEncryptionPublicKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPhoneEncryptionPublicKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPhoneEncryptionPublicKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2821,9 +2833,9 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $tea.Model {
 }
 
 export class GetPhoneNumberVerificationStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPhoneNumberVerificationStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPhoneNumberVerificationStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2896,9 +2908,9 @@ export class GetPreValidatePhoneIdResponseBody extends $tea.Model {
 }
 
 export class GetPreValidatePhoneIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPreValidatePhoneIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPreValidatePhoneIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2986,9 +2998,9 @@ export class GetWhatsappConnectionCatalogResponseBody extends $tea.Model {
 }
 
 export class GetWhatsappConnectionCatalogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWhatsappConnectionCatalogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWhatsappConnectionCatalogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3067,9 +3079,9 @@ export class IsvGetAppIdResponseBody extends $tea.Model {
 }
 
 export class IsvGetAppIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: IsvGetAppIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: IsvGetAppIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3206,9 +3218,9 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
 }
 
 export class ListChatappTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListChatappTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChatappTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3309,9 +3321,9 @@ export class ListFlowResponseBody extends $tea.Model {
 }
 
 export class ListFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3384,9 +3396,9 @@ export class ListPhoneMessageQrdlResponseBody extends $tea.Model {
 }
 
 export class ListPhoneMessageQrdlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPhoneMessageQrdlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPhoneMessageQrdlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3489,9 +3501,9 @@ export class ListProductResponseBody extends $tea.Model {
 }
 
 export class ListProductResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProductResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProductResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3591,9 +3603,9 @@ export class ListProductCatalogResponseBody extends $tea.Model {
 }
 
 export class ListProductCatalogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProductCatalogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProductCatalogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3625,6 +3637,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
   language?: string;
   messageSendTtlSeconds?: number;
   templateCode?: string;
+  templateName?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3637,6 +3650,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
       language: 'Language',
       messageSendTtlSeconds: 'MessageSendTtlSeconds',
       templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
       templateType: 'TemplateType',
     };
   }
@@ -3652,6 +3666,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
       language: 'string',
       messageSendTtlSeconds: 'number',
       templateCode: 'string',
+      templateName: 'string',
       templateType: 'string',
     };
   }
@@ -3671,6 +3686,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
   language?: string;
   messageSendTtlSeconds?: number;
   templateCode?: string;
+  templateName?: string;
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3683,6 +3699,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
       language: 'Language',
       messageSendTtlSeconds: 'MessageSendTtlSeconds',
       templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
       templateType: 'TemplateType',
     };
   }
@@ -3698,6 +3715,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
       language: 'string',
       messageSendTtlSeconds: 'number',
       templateCode: 'string',
+      templateName: 'string',
       templateType: 'string',
     };
   }
@@ -3739,9 +3757,9 @@ export class ModifyChatappTemplateResponseBody extends $tea.Model {
 }
 
 export class ModifyChatappTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyChatappTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyChatappTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3848,9 +3866,9 @@ export class ModifyFlowResponseBody extends $tea.Model {
 }
 
 export class ModifyFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3873,6 +3891,7 @@ export class ModifyFlowResponse extends $tea.Model {
 }
 
 export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
+  about?: string;
   address?: string;
   custSpaceId?: string;
   description?: string;
@@ -3883,6 +3902,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   websites?: string[];
   static names(): { [key: string]: string } {
     return {
+      about: 'About',
       address: 'Address',
       custSpaceId: 'CustSpaceId',
       description: 'Description',
@@ -3896,6 +3916,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      about: 'string',
       address: 'string',
       custSpaceId: 'string',
       description: 'string',
@@ -3913,6 +3934,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
 }
 
 export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
+  about?: string;
   address?: string;
   custSpaceId?: string;
   description?: string;
@@ -3923,6 +3945,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   websitesShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      about: 'About',
       address: 'Address',
       custSpaceId: 'CustSpaceId',
       description: 'Description',
@@ -3936,6 +3959,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      about: 'string',
       address: 'string',
       custSpaceId: 'string',
       description: 'string',
@@ -3981,9 +4005,9 @@ export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
 }
 
 export class ModifyPhoneBusinessProfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPhoneBusinessProfileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPhoneBusinessProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4053,9 +4077,9 @@ export class PublishFlowResponseBody extends $tea.Model {
 }
 
 export class PublishFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PublishFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PublishFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4131,9 +4155,9 @@ export class QueryChatappBindWabaResponseBody extends $tea.Model {
 }
 
 export class QueryChatappBindWabaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryChatappBindWabaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryChatappBindWabaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4158,10 +4182,12 @@ export class QueryChatappBindWabaResponse extends $tea.Model {
 export class QueryChatappPhoneNumbersRequest extends $tea.Model {
   custSpaceId?: string;
   isvCode?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       isvCode: 'IsvCode',
+      status: 'Status',
     };
   }
 
@@ -4169,6 +4195,7 @@ export class QueryChatappPhoneNumbersRequest extends $tea.Model {
     return {
       custSpaceId: 'string',
       isvCode: 'string',
+      status: 'string',
     };
   }
 
@@ -4209,9 +4236,9 @@ export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
 }
 
 export class QueryChatappPhoneNumbersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryChatappPhoneNumbersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryChatappPhoneNumbersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4287,9 +4314,9 @@ export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
 }
 
 export class QueryPhoneBusinessProfileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryPhoneBusinessProfileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryPhoneBusinessProfileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4365,9 +4392,9 @@ export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
 }
 
 export class QueryWabaBusinessInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryWabaBusinessInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryWabaBusinessInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4405,6 +4432,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   tag?: string;
   taskId?: string;
   templateCode?: string;
+  templateName?: string;
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4423,6 +4451,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
       tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
       ttl: 'Ttl',
     };
   }
@@ -4444,6 +4473,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
       tag: 'string',
       taskId: 'string',
       templateCode: 'string',
+      templateName: 'string',
       ttl: 'number',
     };
   }
@@ -4469,6 +4499,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   tag?: string;
   taskId?: string;
   templateCode?: string;
+  templateName?: string;
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4487,6 +4518,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
       tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
       ttl: 'Ttl',
     };
   }
@@ -4508,6 +4540,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
       tag: 'string',
       taskId: 'string',
       templateCode: 'string',
+      templateName: 'string',
       ttl: 'number',
     };
   }
@@ -4549,9 +4582,9 @@ export class SendChatappMassMessageResponseBody extends $tea.Model {
 }
 
 export class SendChatappMassMessageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendChatappMassMessageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendChatappMassMessageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4594,6 +4627,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   tag?: string;
   taskId?: string;
   templateCode?: string;
+  templateName?: string;
   templateParams?: { [key: string]: string };
   to?: string;
   trackingData?: string;
@@ -4621,6 +4655,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
       templateParams: 'TemplateParams',
       to: 'To',
       trackingData: 'TrackingData',
@@ -4651,6 +4686,7 @@ export class SendChatappMessageRequest extends $tea.Model {
       tag: 'string',
       taskId: 'string',
       templateCode: 'string',
+      templateName: 'string',
       templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       to: 'string',
       trackingData: 'string',
@@ -4685,6 +4721,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   tag?: string;
   taskId?: string;
   templateCode?: string;
+  templateName?: string;
   templateParamsShrink?: string;
   to?: string;
   trackingData?: string;
@@ -4712,6 +4749,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
       templateParamsShrink: 'TemplateParams',
       to: 'To',
       trackingData: 'TrackingData',
@@ -4742,6 +4780,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
       tag: 'string',
       taskId: 'string',
       templateCode: 'string',
+      templateName: 'string',
       templateParamsShrink: 'string',
       to: 'string',
       trackingData: 'string',
@@ -4784,9 +4823,9 @@ export class SendChatappMessageResponseBody extends $tea.Model {
 }
 
 export class SendChatappMessageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendChatappMessageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendChatappMessageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4874,9 +4913,9 @@ export class SubmitIsvCustomerTermsResponseBody extends $tea.Model {
 }
 
 export class SubmitIsvCustomerTermsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitIsvCustomerTermsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitIsvCustomerTermsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4955,9 +4994,9 @@ export class UpdateAccountWebhookResponseBody extends $tea.Model {
 }
 
 export class UpdateAccountWebhookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAccountWebhookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAccountWebhookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5033,9 +5072,9 @@ export class UpdateCommerceSettingResponseBody extends $tea.Model {
 }
 
 export class UpdateCommerceSettingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCommerceSettingResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCommerceSettingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5111,9 +5150,9 @@ export class UpdateFlowJSONAssetResponseBody extends $tea.Model {
 }
 
 export class UpdateFlowJSONAssetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateFlowJSONAssetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFlowJSONAssetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5186,9 +5225,9 @@ export class UpdatePhoneEncryptionPublicKeyResponseBody extends $tea.Model {
 }
 
 export class UpdatePhoneEncryptionPublicKeyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePhoneEncryptionPublicKeyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePhoneEncryptionPublicKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5270,9 +5309,9 @@ export class UpdatePhoneMessageQrdlResponseBody extends $tea.Model {
 }
 
 export class UpdatePhoneMessageQrdlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePhoneMessageQrdlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePhoneMessageQrdlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5357,9 +5396,9 @@ export class UpdatePhoneWebhookResponseBody extends $tea.Model {
 }
 
 export class UpdatePhoneWebhookResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePhoneWebhookResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePhoneWebhookResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7306,6 +7345,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
 }
 
 export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
+  about?: string;
   address?: string;
   description?: string;
   email?: string;
@@ -7314,6 +7354,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
   websites?: string[];
   static names(): { [key: string]: string } {
     return {
+      about: 'About',
       address: 'Address',
       description: 'Description',
       email: 'Email',
@@ -7325,6 +7366,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      about: 'string',
       address: 'string',
       description: 'string',
       email: 'string',
@@ -7644,6 +7686,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddChatappPhoneNumberRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddChatappPhoneNumberResponse
+   */
   async addChatappPhoneNumberWithOptions(request: AddChatappPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<AddChatappPhoneNumberResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7684,6 +7733,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AddChatappPhoneNumberResponse>(await this.callApi(params, req, runtime), new AddChatappPhoneNumberResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request AddChatappPhoneNumberRequest
+    * @return AddChatappPhoneNumberResponse
+   */
   async addChatappPhoneNumber(request: AddChatappPhoneNumberRequest): Promise<AddChatappPhoneNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addChatappPhoneNumberWithOptions(request, runtime);
@@ -8033,6 +8088,13 @@ export default class Client extends OpenApi {
     return await this.chatappMigrationVerifiedWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappPhoneNumberDeregisterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ChatappPhoneNumberDeregisterResponse
+   */
   async chatappPhoneNumberDeregisterWithOptions(request: ChatappPhoneNumberDeregisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappPhoneNumberDeregisterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8061,6 +8123,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatappPhoneNumberDeregisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberDeregisterResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ChatappPhoneNumberDeregisterRequest
+    * @return ChatappPhoneNumberDeregisterResponse
+   */
   async chatappPhoneNumberDeregister(request: ChatappPhoneNumberDeregisterRequest): Promise<ChatappPhoneNumberDeregisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatappPhoneNumberDeregisterWithOptions(request, runtime);
@@ -8346,6 +8414,13 @@ export default class Client extends OpenApi {
     return await this.createChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param tmpReq CreateFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateFlowResponse
+   */
   async createFlowWithOptions(tmpReq: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFlowShrinkRequest({ });
@@ -8384,6 +8459,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request CreateFlowRequest
+    * @return CreateFlowResponse
+   */
   async createFlow(request: CreateFlowRequest): Promise<CreateFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFlowWithOptions(request, runtime);
@@ -8453,8 +8534,20 @@ export default class Client extends OpenApi {
       query["IsvCode"] = request.isvCode;
     }
 
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
     if (!Util.isUnset(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8486,6 +8579,13 @@ export default class Client extends OpenApi {
     return await this.deleteChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteFlowResponse
+   */
   async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8514,6 +8614,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request DeleteFlowRequest
+    * @return DeleteFlowResponse
+   */
   async deleteFlow(request: DeleteFlowRequest): Promise<DeleteFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFlowWithOptions(request, runtime);
@@ -8589,6 +8695,13 @@ export default class Client extends OpenApi {
     return await this.deprecateFlowWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request EnableWhatsappROIMetricRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableWhatsappROIMetricResponse
+   */
   async enableWhatsappROIMetricWithOptions(request: EnableWhatsappROIMetricRequest, runtime: $Util.RuntimeOptions): Promise<EnableWhatsappROIMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8617,11 +8730,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableWhatsappROIMetricResponse>(await this.callApi(params, req, runtime), new EnableWhatsappROIMetricResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request EnableWhatsappROIMetricRequest
+    * @return EnableWhatsappROIMetricResponse
+   */
   async enableWhatsappROIMetric(request: EnableWhatsappROIMetricRequest): Promise<EnableWhatsappROIMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableWhatsappROIMetricWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetChatappPhoneNumberMetricRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetChatappPhoneNumberMetricResponse
+   */
   async getChatappPhoneNumberMetricWithOptions(request: GetChatappPhoneNumberMetricRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappPhoneNumberMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8666,6 +8792,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetChatappPhoneNumberMetricResponse>(await this.callApi(params, req, runtime), new GetChatappPhoneNumberMetricResponse({}));
   }
 
+  /**
+    * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetChatappPhoneNumberMetricRequest
+    * @return GetChatappPhoneNumberMetricResponse
+   */
   async getChatappPhoneNumberMetric(request: GetChatappPhoneNumberMetricRequest): Promise<GetChatappPhoneNumberMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getChatappPhoneNumberMetricWithOptions(request, runtime);
@@ -8702,6 +8834,10 @@ export default class Client extends OpenApi {
       query["TemplateCode"] = request.templateCode;
     }
 
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
     if (!Util.isUnset(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
@@ -8735,6 +8871,13 @@ export default class Client extends OpenApi {
     return await this.getChatappTemplateDetailWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetChatappTemplateMetricRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetChatappTemplateMetricResponse
+   */
   async getChatappTemplateMetricWithOptions(request: GetChatappTemplateMetricRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8787,6 +8930,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetChatappTemplateMetricResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateMetricResponse({}));
   }
 
+  /**
+    * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetChatappTemplateMetricRequest
+    * @return GetChatappTemplateMetricResponse
+   */
   async getChatappTemplateMetric(request: GetChatappTemplateMetricRequest): Promise<GetChatappTemplateMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getChatappTemplateMetricWithOptions(request, runtime);
@@ -8888,6 +9037,13 @@ export default class Client extends OpenApi {
     return await this.getChatappVerifyCodeWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetCommerceSettingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetCommerceSettingResponse
+   */
   async getCommerceSettingWithOptions(request: GetCommerceSettingRequest, runtime: $Util.RuntimeOptions): Promise<GetCommerceSettingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8916,11 +9072,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCommerceSettingResponse>(await this.callApi(params, req, runtime), new GetCommerceSettingResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetCommerceSettingRequest
+    * @return GetCommerceSettingResponse
+   */
   async getCommerceSetting(request: GetCommerceSettingRequest): Promise<GetCommerceSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCommerceSettingWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetFlowResponse
+   */
   async getFlowWithOptions(request: GetFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8949,6 +9118,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFlowResponse>(await this.callApi(params, req, runtime), new GetFlowResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetFlowRequest
+    * @return GetFlowResponse
+   */
   async getFlow(request: GetFlowRequest): Promise<GetFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFlowWithOptions(request, runtime);
@@ -8987,6 +9162,13 @@ export default class Client extends OpenApi {
     return await this.getFlowJSONAssestWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetFlowPreviewUrlRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetFlowPreviewUrlResponse
+   */
   async getFlowPreviewUrlWithOptions(request: GetFlowPreviewUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowPreviewUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9015,6 +9197,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFlowPreviewUrlResponse>(await this.callApi(params, req, runtime), new GetFlowPreviewUrlResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetFlowPreviewUrlRequest
+    * @return GetFlowPreviewUrlResponse
+   */
   async getFlowPreviewUrl(request: GetFlowPreviewUrlRequest): Promise<GetFlowPreviewUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFlowPreviewUrlWithOptions(request, runtime);
@@ -9196,6 +9384,13 @@ export default class Client extends OpenApi {
     return await this.getPhoneNumberVerificationStatusWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetPreValidatePhoneIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetPreValidatePhoneIdResponse
+   */
   async getPreValidatePhoneIdWithOptions(request: GetPreValidatePhoneIdRequest, runtime: $Util.RuntimeOptions): Promise<GetPreValidatePhoneIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9224,6 +9419,12 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPreValidatePhoneIdResponse>(await this.callApi(params, req, runtime), new GetPreValidatePhoneIdResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request GetPreValidatePhoneIdRequest
+    * @return GetPreValidatePhoneIdResponse
+   */
   async getPreValidatePhoneId(request: GetPreValidatePhoneIdRequest): Promise<GetPreValidatePhoneIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPreValidatePhoneIdWithOptions(request, runtime);
@@ -9411,6 +9612,13 @@ export default class Client extends OpenApi {
     return await this.listChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param tmpReq ListFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListFlowResponse
+   */
   async listFlowWithOptions(tmpReq: ListFlowRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowResponse> {
     Util.validateModel(tmpReq);
     let request = new ListFlowShrinkRequest({ });
@@ -9449,6 +9657,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFlowResponse>(await this.callApi(params, req, runtime), new ListFlowResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ListFlowRequest
+    * @return ListFlowResponse
+   */
   async listFlow(request: ListFlowRequest): Promise<ListFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFlowWithOptions(request, runtime);
@@ -9695,6 +9909,10 @@ export default class Client extends OpenApi {
       body["TemplateCode"] = request.templateCode;
     }
 
+    if (!Util.isUnset(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
     if (!Util.isUnset(request.templateType)) {
       body["TemplateType"] = request.templateType;
     }
@@ -9727,6 +9945,13 @@ export default class Client extends OpenApi {
     return await this.modifyChatappTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param tmpReq ModifyFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyFlowResponse
+   */
   async modifyFlowWithOptions(tmpReq: ModifyFlowRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyFlowShrinkRequest({ });
@@ -9769,6 +9994,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyFlowResponse>(await this.callApi(params, req, runtime), new ModifyFlowResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request ModifyFlowRequest
+    * @return ModifyFlowResponse
+   */
   async modifyFlow(request: ModifyFlowRequest): Promise<ModifyFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFlowWithOptions(request, runtime);
@@ -9790,6 +10021,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.about)) {
+      query["About"] = request.about;
+    }
+
     if (!Util.isUnset(request.address)) {
       query["Address"] = request.address;
     }
@@ -9850,6 +10085,13 @@ export default class Client extends OpenApi {
     return await this.modifyPhoneBusinessProfileWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PublishFlowRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return PublishFlowResponse
+   */
   async publishFlowWithOptions(request: PublishFlowRequest, runtime: $Util.RuntimeOptions): Promise<PublishFlowResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9878,6 +10120,12 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishFlowResponse>(await this.callApi(params, req, runtime), new PublishFlowResponse({}));
   }
 
+  /**
+    * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request PublishFlowRequest
+    * @return PublishFlowResponse
+   */
   async publishFlow(request: PublishFlowRequest): Promise<PublishFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishFlowWithOptions(request, runtime);
@@ -9945,6 +10193,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10144,6 +10396,10 @@ export default class Client extends OpenApi {
       body["TemplateCode"] = request.templateCode;
     }
 
+    if (!Util.isUnset(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
     if (!Util.isUnset(request.ttl)) {
       body["Ttl"] = request.ttl;
     }
@@ -10284,6 +10540,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateCode)) {
       body["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      body["TemplateName"] = request.templateName;
     }
 
     if (!Util.isUnset(request.templateParamsShrink)) {
@@ -10455,6 +10715,13 @@ export default class Client extends OpenApi {
     return await this.updateAccountWebhookWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpdateCommerceSettingRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateCommerceSettingResponse
+   */
   async updateCommerceSettingWithOptions(request: UpdateCommerceSettingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCommerceSettingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10491,6 +10758,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCommerceSettingResponse>(await this.callApi(params, req, runtime), new UpdateCommerceSettingResponse({}));
   }
 
+  /**
+    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    *
+    * @param request UpdateCommerceSettingRequest
+    * @return UpdateCommerceSettingResponse
+   */
   async updateCommerceSetting(request: UpdateCommerceSettingRequest): Promise<UpdateCommerceSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCommerceSettingWithOptions(request, runtime);
