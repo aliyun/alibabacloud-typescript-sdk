@@ -491,6 +491,7 @@ export class GetInternetTupleRequest extends $tea.Model {
   accountIds?: number[];
   beginTime?: number;
   cloudIp?: string;
+  cloudIpList?: string[];
   cloudIsp?: string;
   cloudPort?: string;
   direction?: string;
@@ -514,6 +515,7 @@ export class GetInternetTupleRequest extends $tea.Model {
       accountIds: 'AccountIds',
       beginTime: 'BeginTime',
       cloudIp: 'CloudIp',
+      cloudIpList: 'CloudIpList',
       cloudIsp: 'CloudIsp',
       cloudPort: 'CloudPort',
       direction: 'Direction',
@@ -540,6 +542,7 @@ export class GetInternetTupleRequest extends $tea.Model {
       accountIds: { 'type': 'array', 'itemType': 'number' },
       beginTime: 'number',
       cloudIp: 'string',
+      cloudIpList: { 'type': 'array', 'itemType': 'string' },
       cloudIsp: 'string',
       cloudPort: 'string',
       direction: 'string',
@@ -570,6 +573,7 @@ export class GetInternetTupleShrinkRequest extends $tea.Model {
   accountIds?: number[];
   beginTime?: number;
   cloudIp?: string;
+  cloudIpListShrink?: string;
   cloudIsp?: string;
   cloudPort?: string;
   direction?: string;
@@ -593,6 +597,7 @@ export class GetInternetTupleShrinkRequest extends $tea.Model {
       accountIds: 'AccountIds',
       beginTime: 'BeginTime',
       cloudIp: 'CloudIp',
+      cloudIpListShrink: 'CloudIpList',
       cloudIsp: 'CloudIsp',
       cloudPort: 'CloudPort',
       direction: 'Direction',
@@ -619,6 +624,7 @@ export class GetInternetTupleShrinkRequest extends $tea.Model {
       accountIds: { 'type': 'array', 'itemType': 'number' },
       beginTime: 'number',
       cloudIp: 'string',
+      cloudIpListShrink: 'string',
       cloudIsp: 'string',
       cloudPort: 'string',
       direction: 'string',
@@ -1842,6 +1848,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new GetInternetTupleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.cloudIpList)) {
+      request.cloudIpListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cloudIpList, "CloudIpList", "json");
+    }
+
     if (!Util.isUnset(tmpReq.instanceList)) {
       request.instanceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceList, "InstanceList", "json");
     }
@@ -1857,6 +1867,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.cloudIp)) {
       query["CloudIp"] = request.cloudIp;
+    }
+
+    if (!Util.isUnset(request.cloudIpListShrink)) {
+      query["CloudIpList"] = request.cloudIpListShrink;
     }
 
     if (!Util.isUnset(request.cloudIsp)) {
