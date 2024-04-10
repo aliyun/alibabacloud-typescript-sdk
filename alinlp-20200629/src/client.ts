@@ -4854,6 +4854,7 @@ export class PostMSSearchEnhanceRequest extends $tea.Model {
   debug?: boolean;
   fields?: string[];
   filters?: string;
+  minScore?: number;
   page?: number;
   queries?: string;
   rankModelInfo?: { [key: string]: any };
@@ -4869,6 +4870,7 @@ export class PostMSSearchEnhanceRequest extends $tea.Model {
       debug: 'Debug',
       fields: 'Fields',
       filters: 'Filters',
+      minScore: 'MinScore',
       page: 'Page',
       queries: 'Queries',
       rankModelInfo: 'RankModelInfo',
@@ -4887,6 +4889,7 @@ export class PostMSSearchEnhanceRequest extends $tea.Model {
       debug: 'boolean',
       fields: { 'type': 'array', 'itemType': 'string' },
       filters: 'string',
+      minScore: 'number',
       page: 'number',
       queries: 'string',
       rankModelInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -4909,6 +4912,7 @@ export class PostMSSearchEnhanceShrinkRequest extends $tea.Model {
   debug?: boolean;
   fieldsShrink?: string;
   filters?: string;
+  minScore?: number;
   page?: number;
   queries?: string;
   rankModelInfoShrink?: string;
@@ -4924,6 +4928,7 @@ export class PostMSSearchEnhanceShrinkRequest extends $tea.Model {
       debug: 'Debug',
       fieldsShrink: 'Fields',
       filters: 'Filters',
+      minScore: 'MinScore',
       page: 'Page',
       queries: 'Queries',
       rankModelInfoShrink: 'RankModelInfo',
@@ -4942,6 +4947,7 @@ export class PostMSSearchEnhanceShrinkRequest extends $tea.Model {
       debug: 'boolean',
       fieldsShrink: 'string',
       filters: 'string',
+      minScore: 'number',
       page: 'number',
       queries: 'string',
       rankModelInfoShrink: 'string',
@@ -7983,6 +7989,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.filters)) {
       body["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.minScore)) {
+      body["MinScore"] = request.minScore;
     }
 
     if (!Util.isUnset(request.page)) {
