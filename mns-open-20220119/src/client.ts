@@ -80,9 +80,9 @@ export class CreateQueueResponseBody extends $tea.Model {
 }
 
 export class CreateQueueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQueueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -164,9 +164,9 @@ export class CreateTopicResponseBody extends $tea.Model {
 }
 
 export class CreateTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -242,9 +242,9 @@ export class DeleteQueueResponseBody extends $tea.Model {
 }
 
 export class DeleteQueueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteQueueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -320,9 +320,9 @@ export class DeleteTopicResponseBody extends $tea.Model {
 }
 
 export class DeleteTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -398,9 +398,9 @@ export class GetQueueAttributesResponseBody extends $tea.Model {
 }
 
 export class GetQueueAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueueAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueueAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -479,9 +479,9 @@ export class GetSubscriptionAttributesResponseBody extends $tea.Model {
 }
 
 export class GetSubscriptionAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSubscriptionAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSubscriptionAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -557,9 +557,9 @@ export class GetTopicAttributesResponseBody extends $tea.Model {
 }
 
 export class GetTopicAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTopicAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTopicAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -641,9 +641,9 @@ export class ListQueueResponseBody extends $tea.Model {
 }
 
 export class ListQueueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListQueueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -728,9 +728,9 @@ export class ListSubscriptionByTopicResponseBody extends $tea.Model {
 }
 
 export class ListSubscriptionByTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSubscriptionByTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubscriptionByTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -812,9 +812,9 @@ export class ListTopicResponseBody extends $tea.Model {
 }
 
 export class ListTopicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTopicResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTopicResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -908,9 +908,9 @@ export class SetQueueAttributesResponseBody extends $tea.Model {
 }
 
 export class SetQueueAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetQueueAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetQueueAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -992,9 +992,9 @@ export class SetSubscriptionAttributesResponseBody extends $tea.Model {
 }
 
 export class SetSubscriptionAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetSubscriptionAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetSubscriptionAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1076,9 +1076,9 @@ export class SetTopicAttributesResponseBody extends $tea.Model {
 }
 
 export class SetTopicAttributesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetTopicAttributesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetTopicAttributesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1172,9 +1172,9 @@ export class SubscribeResponseBody extends $tea.Model {
 }
 
 export class SubscribeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubscribeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubscribeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1253,9 +1253,9 @@ export class UnsubscribeResponseBody extends $tea.Model {
 }
 
 export class UnsubscribeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnsubscribeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnsubscribeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1363,9 +1363,7 @@ export class GetQueueAttributesResponseBodyData extends $tea.Model {
   maximumMessageSize?: number;
   messageRetentionPeriod?: number;
   pollingWaitSeconds?: number;
-  queueInternalUrl?: string;
   queueName?: string;
-  queueUrl?: string;
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1379,9 +1377,7 @@ export class GetQueueAttributesResponseBodyData extends $tea.Model {
       maximumMessageSize: 'MaximumMessageSize',
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
-      queueInternalUrl: 'QueueInternalUrl',
       queueName: 'QueueName',
-      queueUrl: 'QueueUrl',
       visibilityTimeout: 'VisibilityTimeout',
     };
   }
@@ -1398,9 +1394,7 @@ export class GetQueueAttributesResponseBodyData extends $tea.Model {
       maximumMessageSize: 'number',
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
-      queueInternalUrl: 'string',
       queueName: 'string',
-      queueUrl: 'string',
       visibilityTimeout: 'number',
     };
   }
@@ -1418,7 +1412,6 @@ export class GetSubscriptionAttributesResponseBodyData extends $tea.Model {
   notifyContentFormat?: string;
   notifyStrategy?: string;
   subscriptionName?: string;
-  subscriptionURL?: string;
   topicName?: string;
   topicOwner?: string;
   static names(): { [key: string]: string } {
@@ -1430,7 +1423,6 @@ export class GetSubscriptionAttributesResponseBodyData extends $tea.Model {
       notifyContentFormat: 'NotifyContentFormat',
       notifyStrategy: 'NotifyStrategy',
       subscriptionName: 'SubscriptionName',
-      subscriptionURL: 'SubscriptionURL',
       topicName: 'TopicName',
       topicOwner: 'TopicOwner',
     };
@@ -1445,7 +1437,6 @@ export class GetSubscriptionAttributesResponseBodyData extends $tea.Model {
       notifyContentFormat: 'string',
       notifyStrategy: 'string',
       subscriptionName: 'string',
-      subscriptionURL: 'string',
       topicName: 'string',
       topicOwner: 'string',
     };
@@ -1463,9 +1454,7 @@ export class GetTopicAttributesResponseBodyData extends $tea.Model {
   maxMessageSize?: number;
   messageCount?: number;
   messageRetentionPeriod?: number;
-  topicInnerUrl?: string;
   topicName?: string;
-  topicUrl?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -1474,9 +1463,7 @@ export class GetTopicAttributesResponseBodyData extends $tea.Model {
       maxMessageSize: 'MaxMessageSize',
       messageCount: 'MessageCount',
       messageRetentionPeriod: 'MessageRetentionPeriod',
-      topicInnerUrl: 'TopicInnerUrl',
       topicName: 'TopicName',
-      topicUrl: 'TopicUrl',
     };
   }
 
@@ -1488,9 +1475,7 @@ export class GetTopicAttributesResponseBodyData extends $tea.Model {
       maxMessageSize: 'number',
       messageCount: 'number',
       messageRetentionPeriod: 'number',
-      topicInnerUrl: 'string',
       topicName: 'string',
-      topicUrl: 'string',
     };
   }
 
@@ -1510,9 +1495,7 @@ export class ListQueueResponseBodyDataPageData extends $tea.Model {
   maximumMessageSize?: number;
   messageRetentionPeriod?: number;
   pollingWaitSeconds?: number;
-  queueInternalUrl?: string;
   queueName?: string;
-  queueUrl?: string;
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1526,9 +1509,7 @@ export class ListQueueResponseBodyDataPageData extends $tea.Model {
       maximumMessageSize: 'MaximumMessageSize',
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
-      queueInternalUrl: 'QueueInternalUrl',
       queueName: 'QueueName',
-      queueUrl: 'QueueUrl',
       visibilityTimeout: 'VisibilityTimeout',
     };
   }
@@ -1545,9 +1526,7 @@ export class ListQueueResponseBodyDataPageData extends $tea.Model {
       maximumMessageSize: 'number',
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
-      queueInternalUrl: 'string',
       queueName: 'string',
-      queueUrl: 'string',
       visibilityTimeout: 'number',
     };
   }
@@ -1599,7 +1578,6 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $tea.Model 
   notifyContentFormat?: string;
   notifyStrategy?: string;
   subscriptionName?: string;
-  subscriptionURL?: string;
   topicName?: string;
   topicOwner?: string;
   static names(): { [key: string]: string } {
@@ -1611,7 +1589,6 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $tea.Model 
       notifyContentFormat: 'NotifyContentFormat',
       notifyStrategy: 'NotifyStrategy',
       subscriptionName: 'SubscriptionName',
-      subscriptionURL: 'SubscriptionURL',
       topicName: 'TopicName',
       topicOwner: 'TopicOwner',
     };
@@ -1626,7 +1603,6 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $tea.Model 
       notifyContentFormat: 'string',
       notifyStrategy: 'string',
       subscriptionName: 'string',
-      subscriptionURL: 'string',
       topicName: 'string',
       topicOwner: 'string',
     };
@@ -1678,9 +1654,7 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
   maxMessageSize?: number;
   messageCount?: number;
   messageRetentionPeriod?: number;
-  topicInnerUrl?: string;
   topicName?: string;
-  topicUrl?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -1689,9 +1663,7 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
       maxMessageSize: 'MaxMessageSize',
       messageCount: 'MessageCount',
       messageRetentionPeriod: 'MessageRetentionPeriod',
-      topicInnerUrl: 'TopicInnerUrl',
       topicName: 'TopicName',
-      topicUrl: 'TopicUrl',
     };
   }
 
@@ -1703,9 +1675,7 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
       maxMessageSize: 'number',
       messageCount: 'number',
       messageRetentionPeriod: 'number',
-      topicInnerUrl: 'string',
       topicName: 'string',
-      topicUrl: 'string',
     };
   }
 
