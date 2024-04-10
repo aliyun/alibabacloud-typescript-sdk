@@ -773,6 +773,7 @@ export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
   meetingAssistance?: string;
   pptExtraction?: string;
   summarization?: string;
+  textPolish?: string;
   transcription?: string;
   translation?: string;
   static names(): { [key: string]: string } {
@@ -781,6 +782,7 @@ export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
       meetingAssistance: 'MeetingAssistance',
       pptExtraction: 'PptExtraction',
       summarization: 'Summarization',
+      textPolish: 'TextPolish',
       transcription: 'Transcription',
       translation: 'Translation',
     };
@@ -792,6 +794,7 @@ export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
       meetingAssistance: 'string',
       pptExtraction: 'string',
       summarization: 'string',
+      textPolish: 'string',
       transcription: 'string',
       translation: 'string',
     };
