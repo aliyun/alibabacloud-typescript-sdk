@@ -84,6 +84,7 @@ export class CreateInstanceRequest extends $tea.Model {
   coldStorageSize?: number;
   cpu?: number;
   duration?: number;
+  enableServerlessComputing?: boolean;
   gatewayCount?: number;
   initialDatabases?: string;
   instanceName?: string;
@@ -104,6 +105,7 @@ export class CreateInstanceRequest extends $tea.Model {
       coldStorageSize: 'coldStorageSize',
       cpu: 'cpu',
       duration: 'duration',
+      enableServerlessComputing: 'enableServerlessComputing',
       gatewayCount: 'gatewayCount',
       initialDatabases: 'initialDatabases',
       instanceName: 'instanceName',
@@ -127,6 +129,7 @@ export class CreateInstanceRequest extends $tea.Model {
       coldStorageSize: 'number',
       cpu: 'number',
       duration: 'number',
+      enableServerlessComputing: 'boolean',
       gatewayCount: 'number',
       initialDatabases: 'string',
       instanceName: 'string',
@@ -876,6 +879,7 @@ export class ResumeInstanceResponse extends $tea.Model {
 export class ScaleInstanceRequest extends $tea.Model {
   coldStorageSize?: number;
   cpu?: number;
+  enableServerlessComputing?: boolean;
   gatewayCount?: number;
   scaleType?: string;
   storageSize?: number;
@@ -883,6 +887,7 @@ export class ScaleInstanceRequest extends $tea.Model {
     return {
       coldStorageSize: 'coldStorageSize',
       cpu: 'cpu',
+      enableServerlessComputing: 'enableServerlessComputing',
       gatewayCount: 'gatewayCount',
       scaleType: 'scaleType',
       storageSize: 'storageSize',
@@ -893,6 +898,7 @@ export class ScaleInstanceRequest extends $tea.Model {
     return {
       coldStorageSize: 'number',
       cpu: 'number',
+      enableServerlessComputing: 'boolean',
       gatewayCount: 'number',
       scaleType: 'string',
       storageSize: 'number',
@@ -1788,6 +1794,10 @@ export default class Client extends OpenApi {
       body["duration"] = request.duration;
     }
 
+    if (!Util.isUnset(request.enableServerlessComputing)) {
+      body["enableServerlessComputing"] = request.enableServerlessComputing;
+    }
+
     if (!Util.isUnset(request.gatewayCount)) {
       body["gatewayCount"] = request.gatewayCount;
     }
@@ -2230,6 +2240,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.cpu)) {
       body["cpu"] = request.cpu;
+    }
+
+    if (!Util.isUnset(request.enableServerlessComputing)) {
+      body["enableServerlessComputing"] = request.enableServerlessComputing;
     }
 
     if (!Util.isUnset(request.gatewayCount)) {
