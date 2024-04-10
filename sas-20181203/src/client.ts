@@ -240,6 +240,7 @@ export class AddCheckResultWhiteListResponse extends $tea.Model {
 export class AddClientUserDefineRuleRequest extends $tea.Model {
   actionType?: number;
   cmdline?: string;
+  domain?: string;
   filePath?: string;
   IP?: string;
   md5List?: string;
@@ -258,6 +259,7 @@ export class AddClientUserDefineRuleRequest extends $tea.Model {
     return {
       actionType: 'ActionType',
       cmdline: 'Cmdline',
+      domain: 'Domain',
       filePath: 'FilePath',
       IP: 'IP',
       md5List: 'Md5List',
@@ -279,6 +281,7 @@ export class AddClientUserDefineRuleRequest extends $tea.Model {
     return {
       actionType: 'number',
       cmdline: 'string',
+      domain: 'string',
       filePath: 'string',
       IP: 'string',
       md5List: 'string',
@@ -1573,7 +1576,10 @@ export class BindAuthToMachineRequest extends $tea.Model {
   bind?: string[];
   bindAll?: boolean;
   criteria?: string;
+  isPreBind?: number;
   logicalExp?: string;
+  ntmVersion?: string;
+  preBindOrderId?: number;
   unBind?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1582,7 +1588,10 @@ export class BindAuthToMachineRequest extends $tea.Model {
       bind: 'Bind',
       bindAll: 'BindAll',
       criteria: 'Criteria',
+      isPreBind: 'IsPreBind',
       logicalExp: 'LogicalExp',
+      ntmVersion: 'NtmVersion',
+      preBindOrderId: 'PreBindOrderId',
       unBind: 'UnBind',
     };
   }
@@ -1594,7 +1603,10 @@ export class BindAuthToMachineRequest extends $tea.Model {
       bind: { 'type': 'array', 'itemType': 'string' },
       bindAll: 'boolean',
       criteria: 'string',
+      isPreBind: 'number',
       logicalExp: 'string',
+      ntmVersion: 'string',
+      preBindOrderId: 'number',
       unBind: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -4814,6 +4826,8 @@ export class CreateOrUpdateDingTalkResponse extends $tea.Model {
 export class CreateOssBucketScanTaskRequest extends $tea.Model {
   allKeyPrefix?: boolean;
   bucketNameList?: string[];
+  decompressMaxFileCount?: number;
+  decompressMaxLayer?: number;
   excludeKeySuffixList?: string[];
   keyPrefixList?: string[];
   keySuffixList?: string[];
@@ -4822,6 +4836,8 @@ export class CreateOssBucketScanTaskRequest extends $tea.Model {
     return {
       allKeyPrefix: 'AllKeyPrefix',
       bucketNameList: 'BucketNameList',
+      decompressMaxFileCount: 'DecompressMaxFileCount',
+      decompressMaxLayer: 'DecompressMaxLayer',
       excludeKeySuffixList: 'ExcludeKeySuffixList',
       keyPrefixList: 'KeyPrefixList',
       keySuffixList: 'KeySuffixList',
@@ -4833,6 +4849,8 @@ export class CreateOssBucketScanTaskRequest extends $tea.Model {
     return {
       allKeyPrefix: 'boolean',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      decompressMaxFileCount: 'number',
+      decompressMaxLayer: 'number',
       excludeKeySuffixList: { 'type': 'array', 'itemType': 'string' },
       keyPrefixList: { 'type': 'array', 'itemType': 'string' },
       keySuffixList: { 'type': 'array', 'itemType': 'string' },
@@ -4892,6 +4910,8 @@ export class CreateOssBucketScanTaskResponse extends $tea.Model {
 export class CreateOssScanConfigRequest extends $tea.Model {
   allKeyPrefix?: boolean;
   bucketNameList?: string[];
+  decompressMaxFileCount?: number;
+  decompressMaxLayer?: number;
   enable?: number;
   endTime?: string;
   keyPrefixList?: string[];
@@ -4903,6 +4923,8 @@ export class CreateOssScanConfigRequest extends $tea.Model {
     return {
       allKeyPrefix: 'AllKeyPrefix',
       bucketNameList: 'BucketNameList',
+      decompressMaxFileCount: 'DecompressMaxFileCount',
+      decompressMaxLayer: 'DecompressMaxLayer',
       enable: 'Enable',
       endTime: 'EndTime',
       keyPrefixList: 'KeyPrefixList',
@@ -4917,6 +4939,8 @@ export class CreateOssScanConfigRequest extends $tea.Model {
     return {
       allKeyPrefix: 'boolean',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      decompressMaxFileCount: 'number',
+      decompressMaxLayer: 'number',
       enable: 'number',
       endTime: 'string',
       keyPrefixList: { 'type': 'array', 'itemType': 'string' },
@@ -39304,6 +39328,7 @@ export class ListObjectScanEventRequest extends $tea.Model {
   md5?: string;
   ossKey?: string;
   pageSize?: number;
+  parentEventId?: number;
   riskLevel?: string;
   source?: string;
   timeEnd?: number;
@@ -39317,6 +39342,7 @@ export class ListObjectScanEventRequest extends $tea.Model {
       md5: 'Md5',
       ossKey: 'OssKey',
       pageSize: 'PageSize',
+      parentEventId: 'ParentEventId',
       riskLevel: 'RiskLevel',
       source: 'Source',
       timeEnd: 'TimeEnd',
@@ -39333,6 +39359,7 @@ export class ListObjectScanEventRequest extends $tea.Model {
       md5: 'string',
       ossKey: 'string',
       pageSize: 'number',
+      parentEventId: 'number',
       riskLevel: 'string',
       source: 'string',
       timeEnd: 'number',
@@ -42221,6 +42248,7 @@ export class ModifyClientConfStrategyResponse extends $tea.Model {
 export class ModifyClientUserDefineRuleRequest extends $tea.Model {
   actionType?: number;
   cmdline?: string;
+  domain?: string;
   filePath?: string;
   IP?: string;
   id?: number;
@@ -42240,6 +42268,7 @@ export class ModifyClientUserDefineRuleRequest extends $tea.Model {
     return {
       actionType: 'ActionType',
       cmdline: 'Cmdline',
+      domain: 'Domain',
       filePath: 'FilePath',
       IP: 'IP',
       id: 'Id',
@@ -42262,6 +42291,7 @@ export class ModifyClientUserDefineRuleRequest extends $tea.Model {
     return {
       actionType: 'number',
       cmdline: 'string',
+      domain: 'string',
       filePath: 'string',
       IP: 'string',
       id: 'number',
@@ -52348,6 +52378,8 @@ export class UpdateOpaStrategyNewResponse extends $tea.Model {
 export class UpdateOssScanConfigRequest extends $tea.Model {
   allKeyPrefix?: boolean;
   bucketNameList?: string[];
+  decompressMaxFileCount?: number;
+  decompressMaxLayer?: number;
   enable?: number;
   endTime?: string;
   id?: string;
@@ -52360,6 +52392,8 @@ export class UpdateOssScanConfigRequest extends $tea.Model {
     return {
       allKeyPrefix: 'AllKeyPrefix',
       bucketNameList: 'BucketNameList',
+      decompressMaxFileCount: 'DecompressMaxFileCount',
+      decompressMaxLayer: 'DecompressMaxLayer',
       enable: 'Enable',
       endTime: 'EndTime',
       id: 'Id',
@@ -52375,6 +52409,8 @@ export class UpdateOssScanConfigRequest extends $tea.Model {
     return {
       allKeyPrefix: 'boolean',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      decompressMaxFileCount: 'number',
+      decompressMaxLayer: 'number',
       enable: 'number',
       endTime: 'string',
       id: 'string',
@@ -65500,6 +65536,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJsonNecessity ext
 
 export class DescribeVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList extends $tea.Model {
   containerName?: string;
+  extendField?: string;
   fullVersion?: string;
   imageName?: string;
   matchDetail?: string;
@@ -65512,6 +65549,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList
   static names(): { [key: string]: string } {
     return {
       containerName: 'ContainerName',
+      extendField: 'ExtendField',
       fullVersion: 'FullVersion',
       imageName: 'ImageName',
       matchDetail: 'MatchDetail',
@@ -65527,6 +65565,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList
   static types(): { [key: string]: any } {
     return {
       containerName: 'string',
+      extendField: 'string',
       fullVersion: 'string',
       imageName: 'string',
       matchDetail: 'string',
@@ -67939,6 +67978,7 @@ export class GetClientRatioStatisticResponseBodyClientOnlineRatio extends $tea.M
 export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $tea.Model {
   actionType?: string;
   cmdline?: string;
+  domain?: string;
   filePath?: string;
   gmtCreate?: number;
   gmtModified?: number;
@@ -67960,6 +68000,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $te
     return {
       actionType: 'ActionType',
       cmdline: 'Cmdline',
+      domain: 'Domain',
       filePath: 'FilePath',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
@@ -67984,6 +68025,7 @@ export class GetClientUserDefineRuleResponseBodyUserDefineRuleDetail extends $te
     return {
       actionType: 'string',
       cmdline: 'string',
+      domain: 'string',
       filePath: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
@@ -70325,6 +70367,8 @@ export class GetOssScanConfigResponseBodyData extends $tea.Model {
   bucketCount?: number;
   bucketName?: string;
   bucketNameList?: string[];
+  decompressMaxFileCount?: number;
+  decompressMaxLayer?: number;
   enable?: number;
   endTime?: string;
   id?: string;
@@ -70340,6 +70384,8 @@ export class GetOssScanConfigResponseBodyData extends $tea.Model {
       bucketCount: 'BucketCount',
       bucketName: 'BucketName',
       bucketNameList: 'BucketNameList',
+      decompressMaxFileCount: 'DecompressMaxFileCount',
+      decompressMaxLayer: 'DecompressMaxLayer',
       enable: 'Enable',
       endTime: 'EndTime',
       id: 'Id',
@@ -70358,6 +70404,8 @@ export class GetOssScanConfigResponseBodyData extends $tea.Model {
       bucketCount: 'number',
       bucketName: 'string',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      decompressMaxFileCount: 'number',
+      decompressMaxLayer: 'number',
       enable: 'number',
       endTime: 'string',
       id: 'string',
@@ -71994,6 +72042,7 @@ export class ListCheckItemResponseBodyCheckItems extends $tea.Model {
   checkShowName?: string;
   customConfigs?: ListCheckItemResponseBodyCheckItemsCustomConfigs[];
   description?: ListCheckItemResponseBodyCheckItemsDescription;
+  estimatedCount?: number;
   instanceSubType?: string;
   instanceType?: string;
   riskLevel?: string;
@@ -72005,6 +72054,7 @@ export class ListCheckItemResponseBodyCheckItems extends $tea.Model {
       checkShowName: 'CheckShowName',
       customConfigs: 'CustomConfigs',
       description: 'Description',
+      estimatedCount: 'EstimatedCount',
       instanceSubType: 'InstanceSubType',
       instanceType: 'InstanceType',
       riskLevel: 'RiskLevel',
@@ -72019,6 +72069,7 @@ export class ListCheckItemResponseBodyCheckItems extends $tea.Model {
       checkShowName: 'string',
       customConfigs: { 'type': 'array', 'itemType': ListCheckItemResponseBodyCheckItemsCustomConfigs },
       description: ListCheckItemResponseBodyCheckItemsDescription,
+      estimatedCount: 'number',
       instanceSubType: 'string',
       instanceType: 'string',
       riskLevel: 'string',
@@ -75076,6 +75127,7 @@ export class ListObjectScanEventResponseBodyData extends $tea.Model {
   eventName?: string;
   filePath?: string;
   firstTime?: number;
+  hasSubEvent?: boolean;
   lastTime?: number;
   md5?: string;
   ossKey?: string;
@@ -75092,6 +75144,7 @@ export class ListObjectScanEventResponseBodyData extends $tea.Model {
       eventName: 'EventName',
       filePath: 'FilePath',
       firstTime: 'FirstTime',
+      hasSubEvent: 'HasSubEvent',
       lastTime: 'LastTime',
       md5: 'Md5',
       ossKey: 'OssKey',
@@ -75111,6 +75164,7 @@ export class ListObjectScanEventResponseBodyData extends $tea.Model {
       eventName: 'string',
       filePath: 'string',
       firstTime: 'number',
+      hasSubEvent: 'boolean',
       lastTime: 'number',
       md5: 'string',
       ossKey: 'string',
@@ -75262,6 +75316,7 @@ export class ListOssBucketResponseBodyData extends $tea.Model {
 export class ListOssBucketScanInfoResponseBodyData extends $tea.Model {
   bucketName?: string;
   configStatus?: number;
+  decompressStatus?: number;
   highRisk?: number;
   lastScanEndTime?: number;
   lastScanTime?: number;
@@ -75279,6 +75334,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $tea.Model {
     return {
       bucketName: 'BucketName',
       configStatus: 'ConfigStatus',
+      decompressStatus: 'DecompressStatus',
       highRisk: 'HighRisk',
       lastScanEndTime: 'LastScanEndTime',
       lastScanTime: 'LastScanTime',
@@ -75299,6 +75355,7 @@ export class ListOssBucketScanInfoResponseBodyData extends $tea.Model {
     return {
       bucketName: 'string',
       configStatus: 'number',
+      decompressStatus: 'number',
       highRisk: 'number',
       lastScanEndTime: 'number',
       lastScanTime: 'number',
@@ -75349,6 +75406,8 @@ export class ListOssScanConfigResponseBodyData extends $tea.Model {
   allKeyPrefix?: boolean;
   bucketCount?: number;
   bucketNameList?: string[];
+  decompressMaxFileCount?: number;
+  decompressMaxLayer?: number;
   enable?: number;
   endTime?: string;
   id?: number;
@@ -75363,6 +75422,8 @@ export class ListOssScanConfigResponseBodyData extends $tea.Model {
       allKeyPrefix: 'AllKeyPrefix',
       bucketCount: 'BucketCount',
       bucketNameList: 'BucketNameList',
+      decompressMaxFileCount: 'DecompressMaxFileCount',
+      decompressMaxLayer: 'DecompressMaxLayer',
       enable: 'Enable',
       endTime: 'EndTime',
       id: 'Id',
@@ -75380,6 +75441,8 @@ export class ListOssScanConfigResponseBodyData extends $tea.Model {
       allKeyPrefix: 'boolean',
       bucketCount: 'number',
       bucketNameList: { 'type': 'array', 'itemType': 'string' },
+      decompressMaxFileCount: 'number',
+      decompressMaxLayer: 'number',
       enable: 'number',
       endTime: 'string',
       id: 'number',
@@ -78931,6 +78994,10 @@ export default class Client extends OpenApi {
       query["Cmdline"] = request.cmdline;
     }
 
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
     if (!Util.isUnset(request.filePath)) {
       query["FilePath"] = request.filePath;
     }
@@ -79690,8 +79757,20 @@ export default class Client extends OpenApi {
       query["Criteria"] = request.criteria;
     }
 
+    if (!Util.isUnset(request.isPreBind)) {
+      query["IsPreBind"] = request.isPreBind;
+    }
+
     if (!Util.isUnset(request.logicalExp)) {
       query["LogicalExp"] = request.logicalExp;
+    }
+
+    if (!Util.isUnset(request.ntmVersion)) {
+      query["NtmVersion"] = request.ntmVersion;
+    }
+
+    if (!Util.isUnset(request.preBindOrderId)) {
+      query["PreBindOrderId"] = request.preBindOrderId;
     }
 
     if (!Util.isUnset(request.unBind)) {
@@ -81489,6 +81568,14 @@ export default class Client extends OpenApi {
       query["BucketNameList"] = request.bucketNameList;
     }
 
+    if (!Util.isUnset(request.decompressMaxFileCount)) {
+      query["DecompressMaxFileCount"] = request.decompressMaxFileCount;
+    }
+
+    if (!Util.isUnset(request.decompressMaxLayer)) {
+      query["DecompressMaxLayer"] = request.decompressMaxLayer;
+    }
+
     if (!Util.isUnset(request.excludeKeySuffixList)) {
       query["ExcludeKeySuffixList"] = request.excludeKeySuffixList;
     }
@@ -81536,6 +81623,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.bucketNameList)) {
       query["BucketNameList"] = request.bucketNameList;
+    }
+
+    if (!Util.isUnset(request.decompressMaxFileCount)) {
+      query["DecompressMaxFileCount"] = request.decompressMaxFileCount;
+    }
+
+    if (!Util.isUnset(request.decompressMaxLayer)) {
+      query["DecompressMaxLayer"] = request.decompressMaxLayer;
     }
 
     if (!Util.isUnset(request.enable)) {
@@ -99531,6 +99626,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.parentEventId)) {
+      query["ParentEventId"] = request.parentEventId;
+    }
+
     if (!Util.isUnset(request.riskLevel)) {
       query["RiskLevel"] = request.riskLevel;
     }
@@ -101020,6 +101119,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.cmdline)) {
       query["Cmdline"] = request.cmdline;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
     }
 
     if (!Util.isUnset(request.filePath)) {
@@ -106517,6 +106620,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.bucketNameList)) {
       query["BucketNameList"] = request.bucketNameList;
+    }
+
+    if (!Util.isUnset(request.decompressMaxFileCount)) {
+      query["DecompressMaxFileCount"] = request.decompressMaxFileCount;
+    }
+
+    if (!Util.isUnset(request.decompressMaxLayer)) {
+      query["DecompressMaxLayer"] = request.decompressMaxLayer;
     }
 
     if (!Util.isUnset(request.enable)) {
