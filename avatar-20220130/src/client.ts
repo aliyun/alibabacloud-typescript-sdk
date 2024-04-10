@@ -90,9 +90,9 @@ export class CancelVideoTaskResponseBody extends $tea.Model {
 }
 
 export class CancelVideoTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelVideoTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelVideoTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -177,9 +177,9 @@ export class ClientAuthResponseBody extends $tea.Model {
 }
 
 export class ClientAuthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ClientAuthResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClientAuthResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -255,9 +255,9 @@ export class ClientStartResponseBody extends $tea.Model {
 }
 
 export class ClientStartResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ClientStartResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClientStartResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -330,9 +330,9 @@ export class ClientUnbindDeviceResponseBody extends $tea.Model {
 }
 
 export class ClientUnbindDeviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ClientUnbindDeviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClientUnbindDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -408,9 +408,9 @@ export class CloseTimedResetOperateResponseBody extends $tea.Model {
 }
 
 export class CloseTimedResetOperateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CloseTimedResetOperateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloseTimedResetOperateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -486,9 +486,9 @@ export class ConfirmAvatar2dTrainResponseBody extends $tea.Model {
 }
 
 export class ConfirmAvatar2dTrainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfirmAvatar2dTrainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfirmAvatar2dTrainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -585,9 +585,9 @@ export class Create2dAvatarResponseBody extends $tea.Model {
 }
 
 export class Create2dAvatarResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Create2dAvatarResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Create2dAvatarResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -660,9 +660,9 @@ export class DeleteAvatarResponseBody extends $tea.Model {
 }
 
 export class DeleteAvatarResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAvatarResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAvatarResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -808,9 +808,9 @@ export class DuplexDecisionResponseBody extends $tea.Model {
 }
 
 export class DuplexDecisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DuplexDecisionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DuplexDecisionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -914,9 +914,9 @@ export class GetVideoTaskInfoResponseBody extends $tea.Model {
 }
 
 export class GetVideoTaskInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetVideoTaskInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoTaskInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -995,9 +995,9 @@ export class LicenseAuthResponseBody extends $tea.Model {
 }
 
 export class LicenseAuthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LicenseAuthResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LicenseAuthResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1073,9 +1073,9 @@ export class QueryAvatarResponseBody extends $tea.Model {
 }
 
 export class QueryAvatarResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAvatarResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAvatarResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1157,9 +1157,9 @@ export class QueryAvatarListResponseBody extends $tea.Model {
 }
 
 export class QueryAvatarListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryAvatarListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAvatarListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1263,9 +1263,9 @@ export class QueryRunningInstanceResponseBody extends $tea.Model {
 }
 
 export class QueryRunningInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRunningInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRunningInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1341,9 +1341,9 @@ export class QueryTimedResetOperateStatusResponseBody extends $tea.Model {
 }
 
 export class QueryTimedResetOperateStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTimedResetOperateStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTimedResetOperateStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1483,9 +1483,9 @@ export class QueryVideoTaskInfoResponseBody extends $tea.Model {
 }
 
 export class QueryVideoTaskInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryVideoTaskInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryVideoTaskInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1564,9 +1564,9 @@ export class Render3dAvatarResponseBody extends $tea.Model {
 }
 
 export class Render3dAvatarResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Render3dAvatarResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Render3dAvatarResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1688,9 +1688,9 @@ export class SendCommandResponseBody extends $tea.Model {
 }
 
 export class SendCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendCommandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1809,9 +1809,9 @@ export class SendMessageResponseBody extends $tea.Model {
 }
 
 export class SendMessageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendMessageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendMessageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1939,9 +1939,9 @@ export class SendTextResponseBody extends $tea.Model {
 }
 
 export class SendTextResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendTextResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendTextResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2020,9 +2020,9 @@ export class SendVamlResponseBody extends $tea.Model {
 }
 
 export class SendVamlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendVamlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendVamlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2147,9 +2147,9 @@ export class StartInstanceResponseBody extends $tea.Model {
 }
 
 export class StartInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2225,9 +2225,9 @@ export class StartTimedResetOperateResponseBody extends $tea.Model {
 }
 
 export class StartTimedResetOperateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartTimedResetOperateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartTimedResetOperateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2300,9 +2300,9 @@ export class StopInstanceResponseBody extends $tea.Model {
 }
 
 export class StopInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2448,9 +2448,9 @@ export class SubmitAudioTo2DAvatarVideoTaskResponseBody extends $tea.Model {
 }
 
 export class SubmitAudioTo2DAvatarVideoTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAudioTo2DAvatarVideoTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAudioTo2DAvatarVideoTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2596,9 +2596,9 @@ export class SubmitAudioTo3DAvatarVideoTaskResponseBody extends $tea.Model {
 }
 
 export class SubmitAudioTo3DAvatarVideoTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAudioTo3DAvatarVideoTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAudioTo3DAvatarVideoTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2726,9 +2726,9 @@ export class SubmitAvatarVideoTaskResponseBody extends $tea.Model {
 }
 
 export class SubmitAvatarVideoTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitAvatarVideoTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitAvatarVideoTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2874,9 +2874,9 @@ export class SubmitTextTo2DAvatarVideoTaskResponseBody extends $tea.Model {
 }
 
 export class SubmitTextTo2DAvatarVideoTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitTextTo2DAvatarVideoTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTextTo2DAvatarVideoTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3022,9 +3022,9 @@ export class SubmitTextTo3DAvatarVideoTaskResponseBody extends $tea.Model {
 }
 
 export class SubmitTextTo3DAvatarVideoTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitTextTo3DAvatarVideoTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTextTo3DAvatarVideoTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3124,9 +3124,9 @@ export class Update2dAvatarResponseBody extends $tea.Model {
 }
 
 export class Update2dAvatarResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: Update2dAvatarResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Update2dAvatarResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3516,6 +3516,7 @@ export class QueryAvatarResponseBodyData extends $tea.Model {
   modelType?: string;
   name?: string;
   portrait?: string;
+  preview?: string;
   supportedResolutions?: QueryAvatarResponseBodyDataSupportedResolutions;
   static names(): { [key: string]: string } {
     return {
@@ -3529,6 +3530,7 @@ export class QueryAvatarResponseBodyData extends $tea.Model {
       modelType: 'ModelType',
       name: 'Name',
       portrait: 'Portrait',
+      preview: 'Preview',
       supportedResolutions: 'SupportedResolutions',
     };
   }
@@ -3545,6 +3547,7 @@ export class QueryAvatarResponseBodyData extends $tea.Model {
       modelType: 'string',
       name: 'string',
       portrait: 'string',
+      preview: 'string',
       supportedResolutions: QueryAvatarResponseBodyDataSupportedResolutions,
     };
   }
@@ -3637,6 +3640,7 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
   modelType?: string;
   name?: string;
   portrait?: string;
+  preview?: string;
   supportedResolutions?: QueryAvatarListResponseBodyDataListSupportedResolutions;
   static names(): { [key: string]: string } {
     return {
@@ -3650,6 +3654,7 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
       modelType: 'ModelType',
       name: 'Name',
       portrait: 'Portrait',
+      preview: 'Preview',
       supportedResolutions: 'SupportedResolutions',
     };
   }
@@ -3666,6 +3671,7 @@ export class QueryAvatarListResponseBodyDataList extends $tea.Model {
       modelType: 'string',
       name: 'string',
       portrait: 'string',
+      preview: 'string',
       supportedResolutions: QueryAvatarListResponseBodyDataListSupportedResolutions,
     };
   }
