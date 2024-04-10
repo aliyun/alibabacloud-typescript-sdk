@@ -59,9 +59,9 @@ export class AddIpfilterResponseBody extends $tea.Model {
 }
 
 export class AddIpfilterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddIpfilterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddIpfilterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -95,6 +95,8 @@ export class BatchSendMailRequest extends $tea.Model {
   resourceOwnerId?: number;
   tagName?: string;
   templateName?: string;
+  unSubscribeFilterLevel?: string;
+  unSubscribeLinkType?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
@@ -108,6 +110,8 @@ export class BatchSendMailRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       tagName: 'TagName',
       templateName: 'TemplateName',
+      unSubscribeFilterLevel: 'UnSubscribeFilterLevel',
+      unSubscribeLinkType: 'UnSubscribeLinkType',
     };
   }
 
@@ -124,6 +128,8 @@ export class BatchSendMailRequest extends $tea.Model {
       resourceOwnerId: 'number',
       tagName: 'string',
       templateName: 'string',
+      unSubscribeFilterLevel: 'string',
+      unSubscribeLinkType: 'string',
     };
   }
 
@@ -155,9 +161,9 @@ export class BatchSendMailResponseBody extends $tea.Model {
 }
 
 export class BatchSendMailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchSendMailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchSendMailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -230,9 +236,9 @@ export class CheckDomainResponseBody extends $tea.Model {
 }
 
 export class CheckDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -308,9 +314,9 @@ export class CheckDomainDnsResponseBody extends $tea.Model {
 }
 
 export class CheckDomainDnsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CheckDomainDnsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckDomainDnsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -383,9 +389,9 @@ export class CreateDomainResponseBody extends $tea.Model {
 }
 
 export class CreateDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -464,9 +470,9 @@ export class CreateMailAddressResponseBody extends $tea.Model {
 }
 
 export class CreateMailAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateMailAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMailAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -545,9 +551,9 @@ export class CreateReceiverResponseBody extends $tea.Model {
 }
 
 export class CreateReceiverResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateReceiverResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateReceiverResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -623,9 +629,9 @@ export class CreateTagResponseBody extends $tea.Model {
 }
 
 export class CreateTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -722,9 +728,9 @@ export class CreateTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -794,9 +800,9 @@ export class DeleteDomainResponseBody extends $tea.Model {
 }
 
 export class DeleteDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -866,9 +872,9 @@ export class DeleteMailAddressResponseBody extends $tea.Model {
 }
 
 export class DeleteMailAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteMailAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMailAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -938,9 +944,9 @@ export class DeleteReceiverResponseBody extends $tea.Model {
 }
 
 export class DeleteReceiverResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteReceiverResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteReceiverResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1013,9 +1019,9 @@ export class DeleteReceiverDetailResponseBody extends $tea.Model {
 }
 
 export class DeleteReceiverDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteReceiverDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteReceiverDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1085,9 +1091,9 @@ export class DeleteTagResponseBody extends $tea.Model {
 }
 
 export class DeleteTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1160,9 +1166,9 @@ export class DeleteTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1277,9 +1283,9 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
 }
 
 export class DescAccountSummaryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescAccountSummaryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescAccountSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1436,9 +1442,9 @@ export class DescDomainResponseBody extends $tea.Model {
 }
 
 export class DescDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1541,9 +1547,9 @@ export class DescTemplateResponseBody extends $tea.Model {
 }
 
 export class DescTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1640,9 +1646,9 @@ export class GetAccountListResponseBody extends $tea.Model {
 }
 
 export class GetAccountListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccountListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1718,9 +1724,9 @@ export class GetMailAddressMsgCallBackUrlResponseBody extends $tea.Model {
 }
 
 export class GetMailAddressMsgCallBackUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMailAddressMsgCallBackUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMailAddressMsgCallBackUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1829,9 +1835,9 @@ export class GetTrackListResponseBody extends $tea.Model {
 }
 
 export class GetTrackListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTrackListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTrackListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1907,9 +1913,9 @@ export class ModifyMailAddressResponseBody extends $tea.Model {
 }
 
 export class ModifyMailAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyMailAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyMailAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1985,9 +1991,9 @@ export class ModifyPWByDomainResponseBody extends $tea.Model {
 }
 
 export class ModifyPWByDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPWByDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPWByDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2063,9 +2069,9 @@ export class ModifyTagResponseBody extends $tea.Model {
 }
 
 export class ModifyTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2159,9 +2165,9 @@ export class ModifyTemplateResponseBody extends $tea.Model {
 }
 
 export class ModifyTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2252,9 +2258,9 @@ export class QueryDomainByParamResponseBody extends $tea.Model {
 }
 
 export class QueryDomainByParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDomainByParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDomainByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2345,9 +2351,9 @@ export class QueryInvalidAddressResponseBody extends $tea.Model {
 }
 
 export class QueryInvalidAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryInvalidAddressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryInvalidAddressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2438,9 +2444,9 @@ export class QueryMailAddressByParamResponseBody extends $tea.Model {
 }
 
 export class QueryMailAddressByParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMailAddressByParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMailAddressByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2531,9 +2537,9 @@ export class QueryReceiverByParamResponseBody extends $tea.Model {
 }
 
 export class QueryReceiverByParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryReceiverByParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryReceiverByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2624,9 +2630,9 @@ export class QueryReceiverDetailResponseBody extends $tea.Model {
 }
 
 export class QueryReceiverDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryReceiverDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryReceiverDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2714,9 +2720,9 @@ export class QueryTagByParamResponseBody extends $tea.Model {
 }
 
 export class QueryTagByParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTagByParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTagByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2807,9 +2813,9 @@ export class QueryTaskByParamResponseBody extends $tea.Model {
 }
 
 export class QueryTaskByParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTaskByParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTaskByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2903,9 +2909,9 @@ export class QueryTemplateByParamResponseBody extends $tea.Model {
 }
 
 export class QueryTemplateByParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTemplateByParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTemplateByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2987,9 +2993,9 @@ export class SaveReceiverDetailResponseBody extends $tea.Model {
 }
 
 export class SaveReceiverDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SaveReceiverDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveReceiverDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3074,9 +3080,9 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBody extends $tea.Model 
 }
 
 export class SenderStatisticsByTagNameAndBatchIDResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SenderStatisticsByTagNameAndBatchIDResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SenderStatisticsByTagNameAndBatchIDResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3173,9 +3179,9 @@ export class SenderStatisticsDetailByParamResponseBody extends $tea.Model {
 }
 
 export class SenderStatisticsDetailByParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SenderStatisticsDetailByParamResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SenderStatisticsDetailByParamResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3213,6 +3219,8 @@ export class SingleSendMailRequest extends $tea.Model {
   tagName?: string;
   textBody?: string;
   toAddress?: string;
+  unSubscribeFilterLevel?: string;
+  unSubscribeLinkType?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
@@ -3230,6 +3238,8 @@ export class SingleSendMailRequest extends $tea.Model {
       tagName: 'TagName',
       textBody: 'TextBody',
       toAddress: 'ToAddress',
+      unSubscribeFilterLevel: 'UnSubscribeFilterLevel',
+      unSubscribeLinkType: 'UnSubscribeLinkType',
     };
   }
 
@@ -3250,6 +3260,8 @@ export class SingleSendMailRequest extends $tea.Model {
       tagName: 'string',
       textBody: 'string',
       toAddress: 'string',
+      unSubscribeFilterLevel: 'string',
+      unSubscribeLinkType: 'string',
     };
   }
 
@@ -3281,9 +3293,9 @@ export class SingleSendMailResponseBody extends $tea.Model {
 }
 
 export class SingleSendMailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SingleSendMailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SingleSendMailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3456,9 +3468,9 @@ export class SingleSendMailV2ResponseBody extends $tea.Model {
 }
 
 export class SingleSendMailV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SingleSendMailV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SingleSendMailV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4145,17 +4157,21 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBodyData extends $tea.Mo
 
 export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $tea.Model {
   accountName?: string;
+  errorClassification?: string;
   lastUpdateTime?: string;
   message?: string;
   status?: number;
+  subject?: string;
   toAddress?: string;
   utcLastUpdateTime?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      errorClassification: 'ErrorClassification',
       lastUpdateTime: 'LastUpdateTime',
       message: 'Message',
       status: 'Status',
+      subject: 'Subject',
       toAddress: 'ToAddress',
       utcLastUpdateTime: 'UtcLastUpdateTime',
     };
@@ -4164,9 +4180,11 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $te
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      errorClassification: 'string',
       lastUpdateTime: 'string',
       message: 'string',
       status: 'number',
+      subject: 'string',
       toAddress: 'string',
       utcLastUpdateTime: 'string',
     };
@@ -4327,6 +4345,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.unSubscribeFilterLevel)) {
+      query["UnSubscribeFilterLevel"] = request.unSubscribeFilterLevel;
+    }
+
+    if (!Util.isUnset(request.unSubscribeLinkType)) {
+      query["UnSubscribeLinkType"] = request.unSubscribeLinkType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6125,6 +6151,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.toAddress)) {
       query["ToAddress"] = request.toAddress;
+    }
+
+    if (!Util.isUnset(request.unSubscribeFilterLevel)) {
+      query["UnSubscribeFilterLevel"] = request.unSubscribeFilterLevel;
+    }
+
+    if (!Util.isUnset(request.unSubscribeLinkType)) {
+      query["UnSubscribeLinkType"] = request.unSubscribeLinkType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
