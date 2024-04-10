@@ -29108,21 +29108,27 @@ export class ListIsolationRulesResponseBodyData extends $tea.Model {
 
 export class ListListenersByConfigResponseBodyListeners extends $tea.Model {
   ip?: string;
+  labels?: { [key: string]: string };
   md5?: string;
   status?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       ip: 'Ip',
+      labels: 'Labels',
       md5: 'Md5',
       status: 'Status',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ip: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       md5: 'string',
       status: 'string',
+      version: 'string',
     };
   }
 
@@ -29135,11 +29141,13 @@ export class ListListenersByIpResponseBodyListeners extends $tea.Model {
   dataId?: string;
   group?: string;
   md5?: string;
+  namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
       dataId: 'DataId',
       group: 'Group',
       md5: 'Md5',
+      namespaceId: 'NamespaceId',
     };
   }
 
@@ -29148,6 +29156,7 @@ export class ListListenersByIpResponseBodyListeners extends $tea.Model {
       dataId: 'string',
       group: 'string',
       md5: 'string',
+      namespaceId: 'string',
     };
   }
 
