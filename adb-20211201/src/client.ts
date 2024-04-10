@@ -3260,15 +3260,21 @@ export class DescribeApsActionLogsResponse extends $tea.Model {
 
 export class DescribeApsResourceGroupsRequest extends $tea.Model {
   DBClusterId?: string;
+  regionId?: string;
+  workloadId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+      workloadId: 'WorkloadId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      regionId: 'string',
+      workloadId: 'string',
     };
   }
 
@@ -15442,6 +15448,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.DBClusterId)) {
       body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.workloadId)) {
+      body["WorkloadId"] = request.workloadId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
