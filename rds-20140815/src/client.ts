@@ -15162,17 +15162,21 @@ export class DescribePriceShrinkRequest extends $tea.Model {
 }
 
 export class DescribePriceResponseBody extends $tea.Model {
+  orderParams?: string;
   priceInfo?: DescribePriceResponseBodyPriceInfo;
   requestId?: string;
   rules?: DescribePriceResponseBodyRules;
+  serverlessPrice?: DescribePriceResponseBodyServerlessPrice;
   showDiscount?: boolean;
   tradeMaxRCUAmount?: number;
   tradeMinRCUAmount?: number;
   static names(): { [key: string]: string } {
     return {
+      orderParams: 'OrderParams',
       priceInfo: 'PriceInfo',
       requestId: 'RequestId',
       rules: 'Rules',
+      serverlessPrice: 'ServerlessPrice',
       showDiscount: 'ShowDiscount',
       tradeMaxRCUAmount: 'TradeMaxRCUAmount',
       tradeMinRCUAmount: 'TradeMinRCUAmount',
@@ -15181,9 +15185,11 @@ export class DescribePriceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      orderParams: 'string',
       priceInfo: DescribePriceResponseBodyPriceInfo,
       requestId: 'string',
       rules: DescribePriceResponseBodyRules,
+      serverlessPrice: DescribePriceResponseBodyServerlessPrice,
       showDiscount: 'boolean',
       tradeMaxRCUAmount: 'number',
       tradeMinRCUAmount: 'number',
@@ -34338,8 +34344,11 @@ export class DescribePriceResponseBodyPriceInfo extends $tea.Model {
   coupons?: DescribePriceResponseBodyPriceInfoCoupons;
   currency?: string;
   discountPrice?: number;
+  orderLines?: string;
   originalPrice?: number;
   ruleIds?: DescribePriceResponseBodyPriceInfoRuleIds;
+  tradeMaxRCUAmount?: number;
+  tradeMinRCUAmount?: number;
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34347,8 +34356,11 @@ export class DescribePriceResponseBodyPriceInfo extends $tea.Model {
       coupons: 'Coupons',
       currency: 'Currency',
       discountPrice: 'DiscountPrice',
+      orderLines: 'OrderLines',
       originalPrice: 'OriginalPrice',
       ruleIds: 'RuleIds',
+      tradeMaxRCUAmount: 'TradeMaxRCUAmount',
+      tradeMinRCUAmount: 'TradeMinRCUAmount',
       tradePrice: 'TradePrice',
     };
   }
@@ -34359,8 +34371,11 @@ export class DescribePriceResponseBodyPriceInfo extends $tea.Model {
       coupons: DescribePriceResponseBodyPriceInfoCoupons,
       currency: 'string',
       discountPrice: 'number',
+      orderLines: 'string',
       originalPrice: 'number',
       ruleIds: DescribePriceResponseBodyPriceInfoRuleIds,
+      tradeMaxRCUAmount: 'number',
+      tradeMinRCUAmount: 'number',
       tradePrice: 'number',
     };
   }
@@ -34406,6 +34421,52 @@ export class DescribePriceResponseBodyRules extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       rule: { 'type': 'array', 'itemType': DescribePriceResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyServerlessPrice extends $tea.Model {
+  RCUDiscountMaxAmount?: number;
+  RCUDiscountMinAmount?: number;
+  RCUOriginalMaxAmount?: number;
+  RCUOriginalMinAmount?: number;
+  storageOriginalAmount?: number;
+  totalOriginalMaxAmount?: number;
+  totalOriginalMinAmount?: number;
+  tradeMaxRCUAmount?: number;
+  tradeMinRCUAmount?: number;
+  storageDiscountAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      RCUDiscountMaxAmount: 'RCUDiscountMaxAmount',
+      RCUDiscountMinAmount: 'RCUDiscountMinAmount',
+      RCUOriginalMaxAmount: 'RCUOriginalMaxAmount',
+      RCUOriginalMinAmount: 'RCUOriginalMinAmount',
+      storageOriginalAmount: 'StorageOriginalAmount',
+      totalOriginalMaxAmount: 'TotalOriginalMaxAmount',
+      totalOriginalMinAmount: 'TotalOriginalMinAmount',
+      tradeMaxRCUAmount: 'TradeMaxRCUAmount',
+      tradeMinRCUAmount: 'TradeMinRCUAmount',
+      storageDiscountAmount: 'storageDiscountAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      RCUDiscountMaxAmount: 'number',
+      RCUDiscountMinAmount: 'number',
+      RCUOriginalMaxAmount: 'number',
+      RCUOriginalMinAmount: 'number',
+      storageOriginalAmount: 'number',
+      totalOriginalMaxAmount: 'number',
+      totalOriginalMinAmount: 'number',
+      tradeMaxRCUAmount: 'number',
+      tradeMinRCUAmount: 'number',
+      storageDiscountAmount: 'number',
     };
   }
 
@@ -39967,9 +40028,9 @@ export default class Client extends OpenApi {
 
   /**
     * ### [](#)Supported database engines
-    * MySQL
+    * RDS MySQL
     * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
     * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~)
     *
     * @param tmpReq CreateOrderForDeleteDBNodesRequest
@@ -40068,9 +40129,9 @@ export default class Client extends OpenApi {
 
   /**
     * ### [](#)Supported database engines
-    * MySQL
+    * RDS MySQL
     * ### [](#)References
-    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
     * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~)
     *
     * @param request CreateOrderForDeleteDBNodesRequest
@@ -47609,6 +47670,17 @@ export default class Client extends OpenApi {
     return await this.describeInstanceCrossBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   RDS MySQL
+    * *   RDS PostgreSQL
+    * *   RDS SQL Server
+    * *   RDS MariaDB
+    *
+    * @param request DescribeInstanceKeywordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeInstanceKeywordsResponse
+   */
   async describeInstanceKeywordsWithOptions(request: DescribeInstanceKeywordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceKeywordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47649,6 +47721,16 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceKeywordsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceKeywordsResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   RDS MySQL
+    * *   RDS PostgreSQL
+    * *   RDS SQL Server
+    * *   RDS MariaDB
+    *
+    * @param request DescribeInstanceKeywordsRequest
+    * @return DescribeInstanceKeywordsResponse
+   */
   async describeInstanceKeywords(request: DescribeInstanceKeywordsRequest): Promise<DescribeInstanceKeywordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceKeywordsWithOptions(request, runtime);
