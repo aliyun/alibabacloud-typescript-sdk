@@ -3105,6 +3105,318 @@ export class CreateFlowRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateGatewayCircuitBreakerRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  maxAllowedMs?: number;
+  minRequestAmount?: number;
+  recoveryTimeoutSec?: number;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  statDurationSec?: number;
+  strategy?: number;
+  triggerRatio?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      maxAllowedMs: 'MaxAllowedMs',
+      minRequestAmount: 'MinRequestAmount',
+      recoveryTimeoutSec: 'RecoveryTimeoutSec',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      statDurationSec: 'StatDurationSec',
+      strategy: 'Strategy',
+      triggerRatio: 'TriggerRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      maxAllowedMs: 'number',
+      minRequestAmount: 'number',
+      recoveryTimeoutSec: 'number',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      statDurationSec: 'number',
+      strategy: 'number',
+      triggerRatio: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayCircuitBreakerRuleResponseBody extends $tea.Model {
+  data?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayCircuitBreakerRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGatewayCircuitBreakerRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGatewayCircuitBreakerRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayFlowRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayFlowRuleResponseBody extends $tea.Model {
+  data?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayFlowRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGatewayFlowRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGatewayFlowRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIsolationRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  maxConcurrency?: number;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      maxConcurrency: 'MaxConcurrency',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      maxConcurrency: 'number',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIsolationRuleResponseBody extends $tea.Model {
+  data?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIsolationRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGatewayIsolationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateGatewayIsolationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIsolationRuleRequest extends $tea.Model {
   acceptLanguage?: string;
   appId?: string;
@@ -4795,6 +5107,81 @@ export class DeleteGatewayAuthConsumerResourceResponse extends $tea.Model {
   }
 }
 
+export class DeleteGatewayCircuitBreakerRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  gatewayUniqueId?: string;
+  routeId?: number;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayUniqueId: 'GatewayUniqueId',
+      routeId: 'RouteId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayUniqueId: 'string',
+      routeId: 'number',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayCircuitBreakerRuleResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayCircuitBreakerRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGatewayCircuitBreakerRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGatewayCircuitBreakerRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteGatewayDomainRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
@@ -4871,6 +5258,156 @@ export class DeleteGatewayDomainResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteGatewayDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayFlowRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  gatewayUniqueId?: string;
+  routeId?: number;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayUniqueId: 'GatewayUniqueId',
+      routeId: 'RouteId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayUniqueId: 'string',
+      routeId: 'number',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayFlowRuleResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayFlowRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGatewayFlowRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGatewayFlowRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIsolationRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  gatewayUniqueId?: string;
+  routeId?: number;
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayUniqueId: 'GatewayUniqueId',
+      routeId: 'RouteId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayUniqueId: 'string',
+      routeId: 'number',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIsolationRuleResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIsolationRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGatewayIsolationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteGatewayIsolationRuleResponseBody,
     };
   }
 
@@ -11888,6 +12425,75 @@ export class ListGatewayAuthConsumerResourceResponse extends $tea.Model {
   }
 }
 
+export class ListGatewayCircuitBreakerRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  filterParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      filterParams: 'FilterParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      filterParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayCircuitBreakerRuleResponseBody extends $tea.Model {
+  data?: ListGatewayCircuitBreakerRuleResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListGatewayCircuitBreakerRuleResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayCircuitBreakerRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGatewayCircuitBreakerRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayCircuitBreakerRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayDomainRequest extends $tea.Model {
   acceptLanguage?: string;
   domainName?: string;
@@ -11967,6 +12573,144 @@ export class ListGatewayDomainResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGatewayDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayFlowRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  filterParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      filterParams: 'FilterParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      filterParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayFlowRuleResponseBody extends $tea.Model {
+  data?: ListGatewayFlowRuleResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListGatewayFlowRuleResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayFlowRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGatewayFlowRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayFlowRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIsolationRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  filterParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      filterParams: 'FilterParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      filterParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIsolationRuleResponseBody extends $tea.Model {
+  data?: ListGatewayIsolationRuleResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListGatewayIsolationRuleResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIsolationRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGatewayIsolationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayIsolationRuleResponseBody,
     };
   }
 
@@ -17865,6 +18609,123 @@ export class UpdateGatewayAuthConsumerStatusResponse extends $tea.Model {
   }
 }
 
+export class UpdateGatewayCircuitBreakerRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  maxAllowedMs?: number;
+  minRequestAmount?: number;
+  recoveryTimeoutSec?: number;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  statDurationSec?: number;
+  strategy?: number;
+  triggerRatio?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      maxAllowedMs: 'MaxAllowedMs',
+      minRequestAmount: 'MinRequestAmount',
+      recoveryTimeoutSec: 'RecoveryTimeoutSec',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      statDurationSec: 'StatDurationSec',
+      strategy: 'Strategy',
+      triggerRatio: 'TriggerRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      maxAllowedMs: 'number',
+      minRequestAmount: 'number',
+      recoveryTimeoutSec: 'number',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      statDurationSec: 'number',
+      strategy: 'number',
+      triggerRatio: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayCircuitBreakerRuleResponseBody extends $tea.Model {
+  data?: UpdateGatewayCircuitBreakerRuleResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateGatewayCircuitBreakerRuleResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayCircuitBreakerRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGatewayCircuitBreakerRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGatewayCircuitBreakerRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGatewayDomainRequest extends $tea.Model {
   acceptLanguage?: string;
   certIdentifier?: string;
@@ -17959,6 +18820,210 @@ export class UpdateGatewayDomainResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateGatewayDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayFlowRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayFlowRuleResponseBody extends $tea.Model {
+  data?: UpdateGatewayFlowRuleResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateGatewayFlowRuleResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayFlowRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGatewayFlowRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGatewayFlowRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayIsolationRuleRequest extends $tea.Model {
+  acceptLanguage?: string;
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  maxConcurrency?: number;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      maxConcurrency: 'MaxConcurrency',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      maxConcurrency: 'number',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayIsolationRuleResponseBody extends $tea.Model {
+  data?: UpdateGatewayIsolationRuleResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateGatewayIsolationRuleResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayIsolationRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGatewayIsolationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGatewayIsolationRuleResponseBody,
     };
   }
 
@@ -27923,6 +28988,189 @@ export class ListGatewayAuthConsumerResourceResponseBodyData extends $tea.Model 
   }
 }
 
+export class ListGatewayCircuitBreakerRuleResponseBodyDataResult extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  idList?: number[];
+  limitMode?: number;
+  maxAllowedMs?: number;
+  minRequestAmount?: number;
+  recoveryTimeoutSec?: number;
+  responseAdditionalHeaders?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  statDurationSec?: number;
+  strategy?: number;
+  triggerRatio?: number;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      idList: 'IdList',
+      limitMode: 'LimitMode',
+      maxAllowedMs: 'MaxAllowedMs',
+      minRequestAmount: 'MinRequestAmount',
+      recoveryTimeoutSec: 'RecoveryTimeoutSec',
+      responseAdditionalHeaders: 'ResponseAdditionalHeaders',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      statDurationSec: 'StatDurationSec',
+      strategy: 'Strategy',
+      triggerRatio: 'TriggerRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      limitMode: 'number',
+      maxAllowedMs: 'number',
+      minRequestAmount: 'number',
+      recoveryTimeoutSec: 'number',
+      responseAdditionalHeaders: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      statDurationSec: 'number',
+      strategy: 'number',
+      triggerRatio: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayCircuitBreakerRuleResponseBodyDataResults extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  idList?: number[];
+  limitMode?: number;
+  maxAllowedMs?: number;
+  minRequestAmount?: number;
+  recoveryTimeoutSec?: number;
+  responseAdditionalHeaders?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  statDurationSec?: number;
+  strategy?: number;
+  triggerRatio?: number;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      idList: 'IdList',
+      limitMode: 'LimitMode',
+      maxAllowedMs: 'MaxAllowedMs',
+      minRequestAmount: 'MinRequestAmount',
+      recoveryTimeoutSec: 'RecoveryTimeoutSec',
+      responseAdditionalHeaders: 'ResponseAdditionalHeaders',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      statDurationSec: 'StatDurationSec',
+      strategy: 'Strategy',
+      triggerRatio: 'TriggerRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      limitMode: 'number',
+      maxAllowedMs: 'number',
+      minRequestAmount: 'number',
+      recoveryTimeoutSec: 'number',
+      responseAdditionalHeaders: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      statDurationSec: 'number',
+      strategy: 'number',
+      triggerRatio: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayCircuitBreakerRuleResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: ListGatewayCircuitBreakerRuleResponseBodyDataResult[];
+  results?: ListGatewayCircuitBreakerRuleResponseBodyDataResults[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      results: 'Results',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListGatewayCircuitBreakerRuleResponseBodyDataResult },
+      results: { 'type': 'array', 'itemType': ListGatewayCircuitBreakerRuleResponseBodyDataResults },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayDomainResponseBodyDataComment extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
@@ -27995,6 +29243,306 @@ export class ListGatewayDomainResponseBodyData extends $tea.Model {
       tlsMax: 'string',
       tlsMin: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayFlowRuleResponseBodyDataResult extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayFlowRuleResponseBodyDataResults extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  idList?: number[];
+  limitMode?: number;
+  responseAdditionalHeaders?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  statDurationMs?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      idList: 'IdList',
+      limitMode: 'LimitMode',
+      responseAdditionalHeaders: 'ResponseAdditionalHeaders',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      statDurationMs: 'StatDurationMs',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      limitMode: 'number',
+      responseAdditionalHeaders: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      statDurationMs: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayFlowRuleResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: ListGatewayFlowRuleResponseBodyDataResult[];
+  results?: ListGatewayFlowRuleResponseBodyDataResults[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      results: 'Results',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListGatewayFlowRuleResponseBodyDataResult },
+      results: { 'type': 'array', 'itemType': ListGatewayFlowRuleResponseBodyDataResults },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIsolationRuleResponseBodyDataResult extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  idList?: number[];
+  limitMode?: number;
+  maxConcurrency?: number;
+  responseAdditionalHeaders?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      idList: 'IdList',
+      limitMode: 'LimitMode',
+      maxConcurrency: 'MaxConcurrency',
+      responseAdditionalHeaders: 'ResponseAdditionalHeaders',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      limitMode: 'number',
+      maxConcurrency: 'number',
+      responseAdditionalHeaders: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIsolationRuleResponseBodyDataResults extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  idList?: number[];
+  limitMode?: number;
+  maxConcurrency?: number;
+  responseAdditionalHeaders?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      idList: 'IdList',
+      limitMode: 'LimitMode',
+      maxConcurrency: 'MaxConcurrency',
+      responseAdditionalHeaders: 'ResponseAdditionalHeaders',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      limitMode: 'number',
+      maxConcurrency: 'number',
+      responseAdditionalHeaders: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIsolationRuleResponseBodyData extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  result?: ListGatewayIsolationRuleResponseBodyDataResult[];
+  results?: ListGatewayIsolationRuleResponseBodyDataResults[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      results: 'Results',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListGatewayIsolationRuleResponseBodyDataResult },
+      results: { 'type': 'array', 'itemType': ListGatewayIsolationRuleResponseBodyDataResults },
+      totalSize: 'number',
     };
   }
 
@@ -31188,6 +32736,207 @@ export class UpdateGatewayAuthConsumerResourceRequestResourceList extends $tea.M
   }
 }
 
+export class UpdateGatewayCircuitBreakerRuleResponseBodyData extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  idList?: number[];
+  limitMode?: number;
+  maxAllowedMs?: number;
+  minRequestAmount?: number;
+  recoveryTimeoutSec?: number;
+  responseAdditionalHeaders?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  statDurationSec?: number;
+  strategy?: number;
+  triggerRatio?: number;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      idList: 'IdList',
+      limitMode: 'LimitMode',
+      maxAllowedMs: 'MaxAllowedMs',
+      minRequestAmount: 'MinRequestAmount',
+      recoveryTimeoutSec: 'RecoveryTimeoutSec',
+      responseAdditionalHeaders: 'ResponseAdditionalHeaders',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      statDurationSec: 'StatDurationSec',
+      strategy: 'Strategy',
+      triggerRatio: 'TriggerRatio',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      limitMode: 'number',
+      maxAllowedMs: 'number',
+      minRequestAmount: 'number',
+      recoveryTimeoutSec: 'number',
+      responseAdditionalHeaders: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      statDurationSec: 'number',
+      strategy: 'number',
+      triggerRatio: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayFlowRuleResponseBodyData extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  idList?: number[];
+  limitMode?: number;
+  responseAdditionalHeaders?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  statDurationMs?: number;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      idList: 'IdList',
+      limitMode: 'LimitMode',
+      responseAdditionalHeaders: 'ResponseAdditionalHeaders',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+      statDurationMs: 'StatDurationMs',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      limitMode: 'number',
+      responseAdditionalHeaders: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+      statDurationMs: 'number',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayIsolationRuleResponseBodyData extends $tea.Model {
+  behaviorType?: number;
+  bodyEncoding?: number;
+  enable?: number;
+  gatewayId?: number;
+  gatewayUniqueId?: string;
+  id?: number;
+  idList?: number[];
+  limitMode?: number;
+  maxConcurrency?: number;
+  responseAdditionalHeaders?: string;
+  responseContentBody?: string;
+  responseRedirectUrl?: string;
+  responseStatusCode?: number;
+  routeId?: number;
+  routeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      behaviorType: 'BehaviorType',
+      bodyEncoding: 'BodyEncoding',
+      enable: 'Enable',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      idList: 'IdList',
+      limitMode: 'LimitMode',
+      maxConcurrency: 'MaxConcurrency',
+      responseAdditionalHeaders: 'ResponseAdditionalHeaders',
+      responseContentBody: 'ResponseContentBody',
+      responseRedirectUrl: 'ResponseRedirectUrl',
+      responseStatusCode: 'ResponseStatusCode',
+      routeId: 'RouteId',
+      routeName: 'RouteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      behaviorType: 'number',
+      bodyEncoding: 'number',
+      enable: 'number',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'number',
+      idList: { 'type': 'array', 'itemType': 'number' },
+      limitMode: 'number',
+      maxConcurrency: 'number',
+      responseAdditionalHeaders: 'string',
+      responseContentBody: 'string',
+      responseRedirectUrl: 'string',
+      responseStatusCode: 'number',
+      routeId: 'number',
+      routeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGatewayRouteRequestDirectResponseJSON extends $tea.Model {
   body?: string;
   code?: number;
@@ -33910,6 +35659,245 @@ export default class Client extends OpenApi {
     return await this.createFlowRuleWithOptions(request, runtime);
   }
 
+  async createGatewayCircuitBreakerRuleWithOptions(request: CreateGatewayCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGatewayCircuitBreakerRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.behaviorType)) {
+      query["BehaviorType"] = request.behaviorType;
+    }
+
+    if (!Util.isUnset(request.bodyEncoding)) {
+      query["BodyEncoding"] = request.bodyEncoding;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.maxAllowedMs)) {
+      query["MaxAllowedMs"] = request.maxAllowedMs;
+    }
+
+    if (!Util.isUnset(request.minRequestAmount)) {
+      query["MinRequestAmount"] = request.minRequestAmount;
+    }
+
+    if (!Util.isUnset(request.recoveryTimeoutSec)) {
+      query["RecoveryTimeoutSec"] = request.recoveryTimeoutSec;
+    }
+
+    if (!Util.isUnset(request.responseContentBody)) {
+      query["ResponseContentBody"] = request.responseContentBody;
+    }
+
+    if (!Util.isUnset(request.responseRedirectUrl)) {
+      query["ResponseRedirectUrl"] = request.responseRedirectUrl;
+    }
+
+    if (!Util.isUnset(request.responseStatusCode)) {
+      query["ResponseStatusCode"] = request.responseStatusCode;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    if (!Util.isUnset(request.statDurationSec)) {
+      query["StatDurationSec"] = request.statDurationSec;
+    }
+
+    if (!Util.isUnset(request.strategy)) {
+      query["Strategy"] = request.strategy;
+    }
+
+    if (!Util.isUnset(request.triggerRatio)) {
+      query["TriggerRatio"] = request.triggerRatio;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGatewayCircuitBreakerRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayCircuitBreakerRuleResponse({}));
+  }
+
+  async createGatewayCircuitBreakerRule(request: CreateGatewayCircuitBreakerRuleRequest): Promise<CreateGatewayCircuitBreakerRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGatewayCircuitBreakerRuleWithOptions(request, runtime);
+  }
+
+  async createGatewayFlowRuleWithOptions(request: CreateGatewayFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGatewayFlowRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.behaviorType)) {
+      query["BehaviorType"] = request.behaviorType;
+    }
+
+    if (!Util.isUnset(request.bodyEncoding)) {
+      query["BodyEncoding"] = request.bodyEncoding;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.responseContentBody)) {
+      query["ResponseContentBody"] = request.responseContentBody;
+    }
+
+    if (!Util.isUnset(request.responseRedirectUrl)) {
+      query["ResponseRedirectUrl"] = request.responseRedirectUrl;
+    }
+
+    if (!Util.isUnset(request.responseStatusCode)) {
+      query["ResponseStatusCode"] = request.responseStatusCode;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGatewayFlowRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayFlowRuleResponse({}));
+  }
+
+  async createGatewayFlowRule(request: CreateGatewayFlowRuleRequest): Promise<CreateGatewayFlowRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGatewayFlowRuleWithOptions(request, runtime);
+  }
+
+  async createGatewayIsolationRuleWithOptions(request: CreateGatewayIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGatewayIsolationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.behaviorType)) {
+      query["BehaviorType"] = request.behaviorType;
+    }
+
+    if (!Util.isUnset(request.bodyEncoding)) {
+      query["BodyEncoding"] = request.bodyEncoding;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.maxConcurrency)) {
+      query["MaxConcurrency"] = request.maxConcurrency;
+    }
+
+    if (!Util.isUnset(request.responseContentBody)) {
+      query["ResponseContentBody"] = request.responseContentBody;
+    }
+
+    if (!Util.isUnset(request.responseRedirectUrl)) {
+      query["ResponseRedirectUrl"] = request.responseRedirectUrl;
+    }
+
+    if (!Util.isUnset(request.responseStatusCode)) {
+      query["ResponseStatusCode"] = request.responseStatusCode;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGatewayIsolationRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new CreateGatewayIsolationRuleResponse({}));
+  }
+
+  async createGatewayIsolationRule(request: CreateGatewayIsolationRuleRequest): Promise<CreateGatewayIsolationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGatewayIsolationRuleWithOptions(request, runtime);
+  }
+
   async createIsolationRuleWithOptions(request: CreateIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateIsolationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34820,6 +36808,47 @@ export default class Client extends OpenApi {
     return await this.deleteGatewayAuthConsumerResourceWithOptions(request, runtime);
   }
 
+  async deleteGatewayCircuitBreakerRuleWithOptions(request: DeleteGatewayCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayCircuitBreakerRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGatewayCircuitBreakerRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayCircuitBreakerRuleResponse({}));
+  }
+
+  async deleteGatewayCircuitBreakerRule(request: DeleteGatewayCircuitBreakerRuleRequest): Promise<DeleteGatewayCircuitBreakerRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGatewayCircuitBreakerRuleWithOptions(request, runtime);
+  }
+
   async deleteGatewayDomainWithOptions(request: DeleteGatewayDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34855,6 +36884,88 @@ export default class Client extends OpenApi {
   async deleteGatewayDomain(request: DeleteGatewayDomainRequest): Promise<DeleteGatewayDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGatewayDomainWithOptions(request, runtime);
+  }
+
+  async deleteGatewayFlowRuleWithOptions(request: DeleteGatewayFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayFlowRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGatewayFlowRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayFlowRuleResponse({}));
+  }
+
+  async deleteGatewayFlowRule(request: DeleteGatewayFlowRuleRequest): Promise<DeleteGatewayFlowRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGatewayFlowRuleWithOptions(request, runtime);
+  }
+
+  async deleteGatewayIsolationRuleWithOptions(request: DeleteGatewayIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayIsolationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGatewayIsolationRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIsolationRuleResponse({}));
+  }
+
+  async deleteGatewayIsolationRule(request: DeleteGatewayIsolationRuleRequest): Promise<DeleteGatewayIsolationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGatewayIsolationRuleWithOptions(request, runtime);
   }
 
   async deleteGatewayRouteWithOptions(request: DeleteGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayRouteResponse> {
@@ -38438,6 +40549,39 @@ export default class Client extends OpenApi {
     return await this.listGatewayAuthConsumerResourceWithOptions(request, runtime);
   }
 
+  async listGatewayCircuitBreakerRuleWithOptions(request: ListGatewayCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayCircuitBreakerRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.filterParams)) {
+      query["FilterParams"] = request.filterParams;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGatewayCircuitBreakerRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayCircuitBreakerRuleResponse({}));
+  }
+
+  async listGatewayCircuitBreakerRule(request: ListGatewayCircuitBreakerRuleRequest): Promise<ListGatewayCircuitBreakerRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGatewayCircuitBreakerRuleWithOptions(request, runtime);
+  }
+
   async listGatewayDomainWithOptions(request: ListGatewayDomainRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38477,6 +40621,72 @@ export default class Client extends OpenApi {
   async listGatewayDomain(request: ListGatewayDomainRequest): Promise<ListGatewayDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayDomainWithOptions(request, runtime);
+  }
+
+  async listGatewayFlowRuleWithOptions(request: ListGatewayFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayFlowRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.filterParams)) {
+      query["FilterParams"] = request.filterParams;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGatewayFlowRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayFlowRuleResponse({}));
+  }
+
+  async listGatewayFlowRule(request: ListGatewayFlowRuleRequest): Promise<ListGatewayFlowRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGatewayFlowRuleWithOptions(request, runtime);
+  }
+
+  async listGatewayIsolationRuleWithOptions(request: ListGatewayIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayIsolationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.filterParams)) {
+      query["FilterParams"] = request.filterParams;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGatewayIsolationRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new ListGatewayIsolationRuleResponse({}));
+  }
+
+  async listGatewayIsolationRule(request: ListGatewayIsolationRuleRequest): Promise<ListGatewayIsolationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGatewayIsolationRuleWithOptions(request, runtime);
   }
 
   async listGatewayRouteWithOptions(tmpReq: ListGatewayRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayRouteResponse> {
@@ -41422,6 +43632,103 @@ export default class Client extends OpenApi {
     return await this.updateGatewayAuthConsumerStatusWithOptions(request, runtime);
   }
 
+  async updateGatewayCircuitBreakerRuleWithOptions(request: UpdateGatewayCircuitBreakerRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayCircuitBreakerRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.behaviorType)) {
+      query["BehaviorType"] = request.behaviorType;
+    }
+
+    if (!Util.isUnset(request.bodyEncoding)) {
+      query["BodyEncoding"] = request.bodyEncoding;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.maxAllowedMs)) {
+      query["MaxAllowedMs"] = request.maxAllowedMs;
+    }
+
+    if (!Util.isUnset(request.minRequestAmount)) {
+      query["MinRequestAmount"] = request.minRequestAmount;
+    }
+
+    if (!Util.isUnset(request.recoveryTimeoutSec)) {
+      query["RecoveryTimeoutSec"] = request.recoveryTimeoutSec;
+    }
+
+    if (!Util.isUnset(request.responseContentBody)) {
+      query["ResponseContentBody"] = request.responseContentBody;
+    }
+
+    if (!Util.isUnset(request.responseRedirectUrl)) {
+      query["ResponseRedirectUrl"] = request.responseRedirectUrl;
+    }
+
+    if (!Util.isUnset(request.responseStatusCode)) {
+      query["ResponseStatusCode"] = request.responseStatusCode;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    if (!Util.isUnset(request.statDurationSec)) {
+      query["StatDurationSec"] = request.statDurationSec;
+    }
+
+    if (!Util.isUnset(request.strategy)) {
+      query["Strategy"] = request.strategy;
+    }
+
+    if (!Util.isUnset(request.triggerRatio)) {
+      query["TriggerRatio"] = request.triggerRatio;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGatewayCircuitBreakerRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGatewayCircuitBreakerRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayCircuitBreakerRuleResponse({}));
+  }
+
+  async updateGatewayCircuitBreakerRule(request: UpdateGatewayCircuitBreakerRuleRequest): Promise<UpdateGatewayCircuitBreakerRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGatewayCircuitBreakerRuleWithOptions(request, runtime);
+  }
+
   async updateGatewayDomainWithOptions(request: UpdateGatewayDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41481,6 +43788,160 @@ export default class Client extends OpenApi {
   async updateGatewayDomain(request: UpdateGatewayDomainRequest): Promise<UpdateGatewayDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayDomainWithOptions(request, runtime);
+  }
+
+  async updateGatewayFlowRuleWithOptions(request: UpdateGatewayFlowRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayFlowRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.behaviorType)) {
+      query["BehaviorType"] = request.behaviorType;
+    }
+
+    if (!Util.isUnset(request.bodyEncoding)) {
+      query["BodyEncoding"] = request.bodyEncoding;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.responseContentBody)) {
+      query["ResponseContentBody"] = request.responseContentBody;
+    }
+
+    if (!Util.isUnset(request.responseRedirectUrl)) {
+      query["ResponseRedirectUrl"] = request.responseRedirectUrl;
+    }
+
+    if (!Util.isUnset(request.responseStatusCode)) {
+      query["ResponseStatusCode"] = request.responseStatusCode;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGatewayFlowRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGatewayFlowRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayFlowRuleResponse({}));
+  }
+
+  async updateGatewayFlowRule(request: UpdateGatewayFlowRuleRequest): Promise<UpdateGatewayFlowRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGatewayFlowRuleWithOptions(request, runtime);
+  }
+
+  async updateGatewayIsolationRuleWithOptions(request: UpdateGatewayIsolationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayIsolationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.behaviorType)) {
+      query["BehaviorType"] = request.behaviorType;
+    }
+
+    if (!Util.isUnset(request.bodyEncoding)) {
+      query["BodyEncoding"] = request.bodyEncoding;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.maxConcurrency)) {
+      query["MaxConcurrency"] = request.maxConcurrency;
+    }
+
+    if (!Util.isUnset(request.responseContentBody)) {
+      query["ResponseContentBody"] = request.responseContentBody;
+    }
+
+    if (!Util.isUnset(request.responseRedirectUrl)) {
+      query["ResponseRedirectUrl"] = request.responseRedirectUrl;
+    }
+
+    if (!Util.isUnset(request.responseStatusCode)) {
+      query["ResponseStatusCode"] = request.responseStatusCode;
+    }
+
+    if (!Util.isUnset(request.routeId)) {
+      query["RouteId"] = request.routeId;
+    }
+
+    if (!Util.isUnset(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGatewayIsolationRule",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGatewayIsolationRuleResponse>(await this.callApi(params, req, runtime), new UpdateGatewayIsolationRuleResponse({}));
+  }
+
+  async updateGatewayIsolationRule(request: UpdateGatewayIsolationRuleRequest): Promise<UpdateGatewayIsolationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGatewayIsolationRuleWithOptions(request, runtime);
   }
 
   async updateGatewayNameWithOptions(request: UpdateGatewayNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayNameResponse> {
