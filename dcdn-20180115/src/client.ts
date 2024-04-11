@@ -15374,6 +15374,78 @@ export class PutDcdnKvWithHighCapacityResponse extends $tea.Model {
   }
 }
 
+export class RefreshDcdnObjectCacheByCacheTagRequest extends $tea.Model {
+  cacheTag?: string;
+  domainName?: string;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cacheTag: 'CacheTag',
+      domainName: 'DomainName',
+      force: 'Force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheTag: 'string',
+      domainName: 'string',
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshDcdnObjectCacheByCacheTagResponseBody extends $tea.Model {
+  refreshTaskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      refreshTaskId: 'RefreshTaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      refreshTaskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshDcdnObjectCacheByCacheTagResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshDcdnObjectCacheByCacheTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefreshDcdnObjectCacheByCacheTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshDcdnObjectCachesRequest extends $tea.Model {
   force?: boolean;
   objectPath?: string;
@@ -25030,10 +25102,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****
-    * *
-    * *
+    * > *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+    * > *   You can call this operation up to three times per second per account.
     *
     * @param request CreateDcdnSubTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25068,10 +25138,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****
-    * *
-    * *
+    * > *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
+    * > *   You can call this operation up to three times per second per account.
     *
     * @param request CreateDcdnSubTaskRequest
     * @return CreateDcdnSubTaskResponse
@@ -28587,7 +28655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the accelerated domain.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnDomainStagingConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -28622,7 +28690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The name of the accelerated domain.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request DescribeDcdnDomainStagingConfigRequest
     * @return DescribeDcdnDomainStagingConfigResponse
@@ -29370,7 +29438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDcdnHttpsDomainListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -29409,7 +29477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The maximum number of times that each user can call this operation per second is 100.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeDcdnHttpsDomainListRequest
     * @return DescribeDcdnHttpsDomainListResponse
@@ -32878,7 +32946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @param request DescribeRoutineUserInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -32901,7 +32969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 100 times per second per account.
+    * > You can call this operation up to 100 times per second per account.
     *
     * @return DescribeRoutineUserInfoResponse
    */
@@ -33901,6 +33969,43 @@ export default class Client extends OpenApi {
   async putDcdnKvWithHighCapacity(request: PutDcdnKvWithHighCapacityRequest): Promise<PutDcdnKvWithHighCapacityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putDcdnKvWithHighCapacityWithOptions(request, runtime);
+  }
+
+  async refreshDcdnObjectCacheByCacheTagWithOptions(request: RefreshDcdnObjectCacheByCacheTagRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDcdnObjectCacheByCacheTagResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cacheTag)) {
+      query["CacheTag"] = request.cacheTag;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefreshDcdnObjectCacheByCacheTag",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshDcdnObjectCacheByCacheTagResponse>(await this.callApi(params, req, runtime), new RefreshDcdnObjectCacheByCacheTagResponse({}));
+  }
+
+  async refreshDcdnObjectCacheByCacheTag(request: RefreshDcdnObjectCacheByCacheTagRequest): Promise<RefreshDcdnObjectCacheByCacheTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshDcdnObjectCacheByCacheTagWithOptions(request, runtime);
   }
 
   /**
@@ -34922,7 +35027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second per account.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request UpdateDcdnDomainRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -34973,7 +35078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to 30 times per second per account.
+    * > You can call this operation up to 30 times per second per account.
     *
     * @param request UpdateDcdnDomainRequest
     * @return UpdateDcdnDomainResponse
