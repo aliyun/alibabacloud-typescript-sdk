@@ -795,7 +795,9 @@ export class AddGatewayResponse extends $tea.Model {
 
 export class AddGatewayAuthRequest extends $tea.Model {
   acceptLanguage?: string;
+  authResourceConfig?: string;
   authResourceList?: AddGatewayAuthRequestAuthResourceList[];
+  authResourceMode?: number;
   clientId?: string;
   clientSecret?: string;
   cookieDomain?: string;
@@ -818,7 +820,9 @@ export class AddGatewayAuthRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      authResourceConfig: 'AuthResourceConfig',
       authResourceList: 'AuthResourceList',
+      authResourceMode: 'AuthResourceMode',
       clientId: 'ClientId',
       clientSecret: 'ClientSecret',
       cookieDomain: 'CookieDomain',
@@ -844,7 +848,9 @@ export class AddGatewayAuthRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      authResourceConfig: 'string',
       authResourceList: { 'type': 'array', 'itemType': AddGatewayAuthRequestAuthResourceList },
+      authResourceMode: 'number',
       clientId: 'string',
       clientSecret: 'string',
       cookieDomain: 'string',
@@ -874,7 +880,9 @@ export class AddGatewayAuthRequest extends $tea.Model {
 
 export class AddGatewayAuthShrinkRequest extends $tea.Model {
   acceptLanguage?: string;
+  authResourceConfig?: string;
   authResourceListShrink?: string;
+  authResourceMode?: number;
   clientId?: string;
   clientSecret?: string;
   cookieDomain?: string;
@@ -897,7 +905,9 @@ export class AddGatewayAuthShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      authResourceConfig: 'AuthResourceConfig',
       authResourceListShrink: 'AuthResourceList',
+      authResourceMode: 'AuthResourceMode',
       clientId: 'ClientId',
       clientSecret: 'ClientSecret',
       cookieDomain: 'CookieDomain',
@@ -923,7 +933,9 @@ export class AddGatewayAuthShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      authResourceConfig: 'string',
       authResourceListShrink: 'string',
+      authResourceMode: 'number',
       clientId: 'string',
       clientSecret: 'string',
       cookieDomain: 'string',
@@ -23992,6 +24004,8 @@ export class GetGatewayAuthDetailResponseBodyDataResourceList extends $tea.Model
 }
 
 export class GetGatewayAuthDetailResponseBodyData extends $tea.Model {
+  authResourceConfig?: string;
+  authResourceMode?: number;
   clientId?: string;
   clientSecret?: string;
   cookieDomain?: string;
@@ -24018,6 +24032,8 @@ export class GetGatewayAuthDetailResponseBodyData extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      authResourceConfig: 'AuthResourceConfig',
+      authResourceMode: 'AuthResourceMode',
       clientId: 'ClientId',
       clientSecret: 'ClientSecret',
       cookieDomain: 'CookieDomain',
@@ -24047,6 +24063,8 @@ export class GetGatewayAuthDetailResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authResourceConfig: 'string',
+      authResourceMode: 'number',
       clientId: 'string',
       clientSecret: 'string',
       cookieDomain: 'string',
@@ -32550,8 +32568,16 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!Util.isUnset(request.authResourceConfig)) {
+      query["AuthResourceConfig"] = request.authResourceConfig;
+    }
+
     if (!Util.isUnset(request.authResourceListShrink)) {
       query["AuthResourceList"] = request.authResourceListShrink;
+    }
+
+    if (!Util.isUnset(request.authResourceMode)) {
+      query["AuthResourceMode"] = request.authResourceMode;
     }
 
     if (!Util.isUnset(request.clientId)) {
