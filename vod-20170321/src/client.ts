@@ -4154,6 +4154,105 @@ export class DescribeVodDomainUsageDataResponse extends $tea.Model {
   }
 }
 
+export class DescribeVodMediaPlayDataRequest extends $tea.Model {
+  mediaId?: string;
+  orderName?: string;
+  orderType?: string;
+  os?: string;
+  pageNo?: number;
+  pageSize?: number;
+  playDate?: string;
+  region?: string;
+  terminalType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      orderName: 'OrderName',
+      orderType: 'OrderType',
+      os: 'Os',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      playDate: 'PlayDate',
+      region: 'Region',
+      terminalType: 'TerminalType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      orderName: 'string',
+      orderType: 'string',
+      os: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      playDate: 'string',
+      region: 'string',
+      terminalType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodMediaPlayDataResponseBody extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  qoeInfoList?: DescribeVodMediaPlayDataResponseBodyQoeInfoList[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      qoeInfoList: 'QoeInfoList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      qoeInfoList: { 'type': 'array', 'itemType': DescribeVodMediaPlayDataResponseBodyQoeInfoList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodMediaPlayDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodMediaPlayDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodMediaPlayDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodRefreshQuotaRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
@@ -8805,12 +8904,14 @@ export class RefreshUploadVideoResponse extends $tea.Model {
 }
 
 export class RefreshVodObjectCachesRequest extends $tea.Model {
+  force?: boolean;
   objectPath?: string;
   objectType?: string;
   ownerId?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       objectPath: 'ObjectPath',
       objectType: 'ObjectType',
       ownerId: 'OwnerId',
@@ -8820,6 +8921,7 @@ export class RefreshVodObjectCachesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       objectPath: 'string',
       objectType: 'string',
       ownerId: 'number',
@@ -13132,6 +13234,46 @@ export class DescribeVodDomainUsageDataResponseBodyUsageDataPerInterval extends 
   static types(): { [key: string]: any } {
     return {
       dataModule: { 'type': 'array', 'itemType': DescribeVodDomainUsageDataResponseBodyUsageDataPerIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodMediaPlayDataResponseBodyQoeInfoList extends $tea.Model {
+  DAU?: number;
+  mediaId?: string;
+  playDuration?: number;
+  playDurationPerUv?: number;
+  playPerVv?: number;
+  playSuccessVv?: number;
+  videoDuration?: number;
+  videoTitle?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DAU: 'DAU',
+      mediaId: 'MediaId',
+      playDuration: 'PlayDuration',
+      playDurationPerUv: 'PlayDurationPerUv',
+      playPerVv: 'PlayPerVv',
+      playSuccessVv: 'PlaySuccessVv',
+      videoDuration: 'VideoDuration',
+      videoTitle: 'VideoTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DAU: 'number',
+      mediaId: 'string',
+      playDuration: 'number',
+      playDurationPerUv: 'number',
+      playPerVv: 'number',
+      playSuccessVv: 'number',
+      videoDuration: 'number',
+      videoTitle: 'number',
     };
   }
 
@@ -21986,6 +22128,67 @@ export default class Client extends OpenApi {
     return await this.describeVodDomainUsageDataWithOptions(request, runtime);
   }
 
+  async describeVodMediaPlayDataWithOptions(request: DescribeVodMediaPlayDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodMediaPlayDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.orderName)) {
+      query["OrderName"] = request.orderName;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.os)) {
+      query["Os"] = request.os;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.playDate)) {
+      query["PlayDate"] = request.playDate;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.terminalType)) {
+      query["TerminalType"] = request.terminalType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodMediaPlayData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodMediaPlayDataResponse>(await this.callApi(params, req, runtime), new DescribeVodMediaPlayDataResponse({}));
+  }
+
+  async describeVodMediaPlayData(request: DescribeVodMediaPlayDataRequest): Promise<DescribeVodMediaPlayDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodMediaPlayDataWithOptions(request, runtime);
+  }
+
   /**
     * > *   This operation is available only in the **China (Shanghai)** region.
     * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
@@ -25101,6 +25304,10 @@ export default class Client extends OpenApi {
   async refreshVodObjectCachesWithOptions(request: RefreshVodObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshVodObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
     if (!Util.isUnset(request.objectPath)) {
       query["ObjectPath"] = request.objectPath;
     }
@@ -25525,8 +25732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-    * *   Before you can call this operation to specify an AI template as the default template, you must obtain the ID of the AI template. You cannot delete an AI template that is set as the default template.
+    * Specifies an AI template as the default template.
     *
     * @param request SetDefaultAITemplateRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25557,8 +25763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-    * *   Before you can call this operation to specify an AI template as the default template, you must obtain the ID of the AI template. You cannot delete an AI template that is set as the default template.
+    * Specifies an AI template as the default template.
     *
     * @param request SetDefaultAITemplateRequest
     * @return SetDefaultAITemplateResponse
