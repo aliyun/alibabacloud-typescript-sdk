@@ -1520,11 +1520,38 @@ export class DescribeImageResultExtResponseBodyDataPublicFigure extends $tea.Mod
   }
 }
 
+export class DescribeImageResultExtResponseBodyDataTextInImageCustomTexts extends $tea.Model {
+  keyWords?: string;
+  libId?: string;
+  libName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyWords: 'KeyWords',
+      libId: 'LibId',
+      libName: 'LibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyWords: 'string',
+      libId: 'string',
+      libName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageResultExtResponseBodyDataTextInImage extends $tea.Model {
+  customTexts?: DescribeImageResultExtResponseBodyDataTextInImageCustomTexts[];
   ocrDatas?: string[];
   riskWords?: string[];
   static names(): { [key: string]: string } {
     return {
+      customTexts: 'CustomTexts',
       ocrDatas: 'OcrDatas',
       riskWords: 'RiskWords',
     };
@@ -1532,6 +1559,7 @@ export class DescribeImageResultExtResponseBodyDataTextInImage extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      customTexts: { 'type': 'array', 'itemType': DescribeImageResultExtResponseBodyDataTextInImageCustomTexts },
       ocrDatas: { 'type': 'array', 'itemType': 'string' },
       riskWords: { 'type': 'array', 'itemType': 'string' },
     };
