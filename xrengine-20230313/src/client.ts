@@ -5171,12 +5171,14 @@ export class SubmitLongTtsTaskResponse extends $tea.Model {
 export class SubmitMotionShopTaskRequest extends $tea.Model {
   avatarId?: string;
   jwtToken?: string;
+  selectedBoxIndex?: number;
   title?: string;
   videoId?: string;
   static names(): { [key: string]: string } {
     return {
       avatarId: 'AvatarId',
       jwtToken: 'JwtToken',
+      selectedBoxIndex: 'SelectedBoxIndex',
       title: 'Title',
       videoId: 'VideoId',
     };
@@ -5186,6 +5188,7 @@ export class SubmitMotionShopTaskRequest extends $tea.Model {
     return {
       avatarId: 'string',
       jwtToken: 'string',
+      selectedBoxIndex: 'number',
       title: 'string',
       videoId: 'string',
     };
@@ -11741,6 +11744,7 @@ export class QueryMotionShopVideoDetectResultResponseBodyDataDetectResult extend
   box?: number[];
   code?: number;
   coverUrl?: string;
+  humanBoxes?: number[][];
   message?: string;
   selectedFrameIndex?: number;
   static names(): { [key: string]: string } {
@@ -11748,6 +11752,7 @@ export class QueryMotionShopVideoDetectResultResponseBodyDataDetectResult extend
       box: 'Box',
       code: 'Code',
       coverUrl: 'CoverUrl',
+      humanBoxes: 'HumanBoxes',
       message: 'Message',
       selectedFrameIndex: 'SelectedFrameIndex',
     };
@@ -11758,6 +11763,7 @@ export class QueryMotionShopVideoDetectResultResponseBodyDataDetectResult extend
       box: { 'type': 'array', 'itemType': 'number' },
       code: 'number',
       coverUrl: 'string',
+      humanBoxes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
       message: 'string',
       selectedFrameIndex: 'number',
     };
@@ -14298,6 +14304,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.jwtToken)) {
       body["JwtToken"] = request.jwtToken;
+    }
+
+    if (!Util.isUnset(request.selectedBoxIndex)) {
+      body["SelectedBoxIndex"] = request.selectedBoxIndex;
     }
 
     if (!Util.isUnset(request.title)) {
