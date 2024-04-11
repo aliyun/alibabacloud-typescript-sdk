@@ -11742,6 +11742,8 @@ export class TransferPayTypeRequest extends $tea.Model {
   buyCount?: string;
   chargeType?: string;
   dtsJobId?: string;
+  maxDu?: number;
+  minDu?: number;
   period?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -11750,6 +11752,8 @@ export class TransferPayTypeRequest extends $tea.Model {
       buyCount: 'BuyCount',
       chargeType: 'ChargeType',
       dtsJobId: 'DtsJobId',
+      maxDu: 'MaxDu',
+      minDu: 'MinDu',
       period: 'Period',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -11761,6 +11765,8 @@ export class TransferPayTypeRequest extends $tea.Model {
       buyCount: 'string',
       chargeType: 'string',
       dtsJobId: 'string',
+      maxDu: 'number',
+      minDu: 'number',
       period: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -28223,6 +28229,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dtsJobId)) {
       query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!Util.isUnset(request.maxDu)) {
+      query["MaxDu"] = request.maxDu;
+    }
+
+    if (!Util.isUnset(request.minDu)) {
+      query["MinDu"] = request.minDu;
     }
 
     if (!Util.isUnset(request.period)) {
