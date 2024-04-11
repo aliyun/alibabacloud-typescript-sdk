@@ -360,9 +360,11 @@ export class CreatePostPayOrderRequest extends $tea.Model {
   eipMax?: number;
   ioMax?: number;
   ioMaxSpec?: string;
+  paidType?: number;
   partitionNum?: number;
   regionId?: string;
   resourceGroupId?: string;
+  serverlessConfig?: CreatePostPayOrderRequestServerlessConfig;
   specType?: string;
   tag?: CreatePostPayOrderRequestTag[];
   topicQuota?: number;
@@ -374,9 +376,11 @@ export class CreatePostPayOrderRequest extends $tea.Model {
       eipMax: 'EipMax',
       ioMax: 'IoMax',
       ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
       partitionNum: 'PartitionNum',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      serverlessConfig: 'ServerlessConfig',
       specType: 'SpecType',
       tag: 'Tag',
       topicQuota: 'TopicQuota',
@@ -391,11 +395,71 @@ export class CreatePostPayOrderRequest extends $tea.Model {
       eipMax: 'number',
       ioMax: 'number',
       ioMaxSpec: 'string',
+      paidType: 'number',
       partitionNum: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
+      serverlessConfig: CreatePostPayOrderRequestServerlessConfig,
       specType: 'string',
       tag: { 'type': 'array', 'itemType': CreatePostPayOrderRequestTag },
+      topicQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayOrderShrinkRequest extends $tea.Model {
+  deployType?: number;
+  diskSize?: number;
+  diskType?: string;
+  eipMax?: number;
+  ioMax?: number;
+  ioMaxSpec?: string;
+  paidType?: number;
+  partitionNum?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  serverlessConfigShrink?: string;
+  specType?: string;
+  tag?: CreatePostPayOrderShrinkRequestTag[];
+  topicQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deployType: 'DeployType',
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+      eipMax: 'EipMax',
+      ioMax: 'IoMax',
+      ioMaxSpec: 'IoMaxSpec',
+      paidType: 'PaidType',
+      partitionNum: 'PartitionNum',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serverlessConfigShrink: 'ServerlessConfig',
+      specType: 'SpecType',
+      tag: 'Tag',
+      topicQuota: 'TopicQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployType: 'number',
+      diskSize: 'number',
+      diskType: 'string',
+      eipMax: 'number',
+      ioMax: 'number',
+      ioMaxSpec: 'string',
+      paidType: 'number',
+      partitionNum: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serverlessConfigShrink: 'string',
+      specType: 'string',
+      tag: { 'type': 'array', 'itemType': CreatePostPayOrderShrinkRequestTag },
       topicQuota: 'number',
     };
   }
@@ -4045,7 +4109,51 @@ export class CreateConsumerGroupRequestTag extends $tea.Model {
   }
 }
 
+export class CreatePostPayOrderRequestServerlessConfig extends $tea.Model {
+  reservedPublishCapacity?: number;
+  reservedSubscribeCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reservedPublishCapacity: 'ReservedPublishCapacity',
+      reservedSubscribeCapacity: 'ReservedSubscribeCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reservedPublishCapacity: 'number',
+      reservedSubscribeCapacity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePostPayOrderRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayOrderShrinkRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -4815,7 +4923,9 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   expiredTime?: number;
   instanceId?: string;
   ioMax?: number;
+  ioMaxRead?: number;
   ioMaxSpec?: string;
+  ioMaxWrite?: number;
   kmsKeyId?: string;
   msgRetain?: number;
   name?: string;
@@ -4855,7 +4965,9 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       expiredTime: 'ExpiredTime',
       instanceId: 'InstanceId',
       ioMax: 'IoMax',
+      ioMaxRead: 'IoMaxRead',
       ioMaxSpec: 'IoMaxSpec',
+      ioMaxWrite: 'IoMaxWrite',
       kmsKeyId: 'KmsKeyId',
       msgRetain: 'MsgRetain',
       name: 'Name',
@@ -4898,7 +5010,9 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       expiredTime: 'number',
       instanceId: 'string',
       ioMax: 'number',
+      ioMaxRead: 'number',
       ioMaxSpec: 'string',
+      ioMaxWrite: 'number',
       kmsKeyId: 'string',
       msgRetain: 'number',
       name: 'string',
@@ -5682,12 +5796,18 @@ export default class Client extends OpenApi {
   /**
     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
     *
-    * @param request CreatePostPayOrderRequest
+    * @param tmpReq CreatePostPayOrderRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return CreatePostPayOrderResponse
    */
-  async createPostPayOrderWithOptions(request: CreatePostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostPayOrderResponse> {
-    Util.validateModel(request);
+  async createPostPayOrderWithOptions(tmpReq: CreatePostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostPayOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePostPayOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.serverlessConfig)) {
+      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfig, "ServerlessConfig", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.deployType)) {
       query["DeployType"] = request.deployType;
@@ -5713,6 +5833,10 @@ export default class Client extends OpenApi {
       query["IoMaxSpec"] = request.ioMaxSpec;
     }
 
+    if (!Util.isUnset(request.paidType)) {
+      query["PaidType"] = request.paidType;
+    }
+
     if (!Util.isUnset(request.partitionNum)) {
       query["PartitionNum"] = request.partitionNum;
     }
@@ -5723,6 +5847,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.serverlessConfigShrink)) {
+      query["ServerlessConfig"] = request.serverlessConfigShrink;
     }
 
     if (!Util.isUnset(request.specType)) {
