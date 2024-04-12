@@ -77,9 +77,9 @@ export class CommitContainerResponseBody extends $tea.Model {
 }
 
 export class CommitContainerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CommitContainerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CommitContainerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -182,9 +182,9 @@ export class CopyDataCacheResponseBody extends $tea.Model {
 }
 
 export class CopyDataCacheResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CopyDataCacheResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CopyDataCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -239,6 +239,7 @@ export class CreateContainerGroupRequest extends $tea.Model {
   ephemeralStorage?: number;
   fixedIp?: string;
   fixedIpRetainHour?: number;
+  gpuDriverVersion?: string;
   hostAliase?: CreateContainerGroupRequestHostAliase[];
   hostName?: string;
   imageAccelerateMode?: string;
@@ -311,6 +312,7 @@ export class CreateContainerGroupRequest extends $tea.Model {
       ephemeralStorage: 'EphemeralStorage',
       fixedIp: 'FixedIp',
       fixedIpRetainHour: 'FixedIpRetainHour',
+      gpuDriverVersion: 'GpuDriverVersion',
       hostAliase: 'HostAliase',
       hostName: 'HostName',
       imageAccelerateMode: 'ImageAccelerateMode',
@@ -386,6 +388,7 @@ export class CreateContainerGroupRequest extends $tea.Model {
       ephemeralStorage: 'number',
       fixedIp: 'string',
       fixedIpRetainHour: 'number',
+      gpuDriverVersion: 'string',
       hostAliase: { 'type': 'array', 'itemType': CreateContainerGroupRequestHostAliase },
       hostName: 'string',
       imageAccelerateMode: 'string',
@@ -455,9 +458,9 @@ export class CreateContainerGroupResponseBody extends $tea.Model {
 }
 
 export class CreateContainerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateContainerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateContainerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -572,9 +575,9 @@ export class CreateDataCacheResponseBody extends $tea.Model {
 }
 
 export class CreateDataCacheResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDataCacheResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -716,9 +719,9 @@ export class CreateImageCacheResponseBody extends $tea.Model {
 }
 
 export class CreateImageCacheResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateImageCacheResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImageCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -803,9 +806,9 @@ export class CreateInstanceOpsTaskResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceOpsTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceOpsTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceOpsTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -926,9 +929,9 @@ export class CreateVirtualNodeResponseBody extends $tea.Model {
 }
 
 export class CreateVirtualNodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateVirtualNodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVirtualNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1007,9 +1010,9 @@ export class DeleteContainerGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteContainerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteContainerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteContainerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1094,9 +1097,9 @@ export class DeleteDataCacheResponseBody extends $tea.Model {
 }
 
 export class DeleteDataCacheResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDataCacheResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1175,9 +1178,9 @@ export class DeleteImageCacheResponseBody extends $tea.Model {
 }
 
 export class DeleteImageCacheResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteImageCacheResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteImageCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1256,9 +1259,9 @@ export class DeleteVirtualNodeResponseBody extends $tea.Model {
 }
 
 export class DeleteVirtualNodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteVirtualNodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVirtualNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1343,9 +1346,9 @@ export class DescribeAvailableResourceResponseBody extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAvailableResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAvailableResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1445,9 +1448,9 @@ export class DescribeCommitContainerTaskResponseBody extends $tea.Model {
 }
 
 export class DescribeCommitContainerTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCommitContainerTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCommitContainerTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1541,9 +1544,9 @@ export class DescribeContainerGroupEventsResponseBody extends $tea.Model {
 }
 
 export class DescribeContainerGroupEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeContainerGroupEventsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeContainerGroupEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1634,9 +1637,9 @@ export class DescribeContainerGroupMetricResponseBody extends $tea.Model {
 }
 
 export class DescribeContainerGroupMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeContainerGroupMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeContainerGroupMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1739,9 +1742,9 @@ export class DescribeContainerGroupPriceResponseBody extends $tea.Model {
 }
 
 export class DescribeContainerGroupPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeContainerGroupPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeContainerGroupPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1835,9 +1838,9 @@ export class DescribeContainerGroupStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeContainerGroupStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeContainerGroupStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeContainerGroupStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1955,9 +1958,9 @@ export class DescribeContainerGroupsResponseBody extends $tea.Model {
 }
 
 export class DescribeContainerGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeContainerGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeContainerGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2060,9 +2063,9 @@ export class DescribeContainerLogResponseBody extends $tea.Model {
 }
 
 export class DescribeContainerLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeContainerLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeContainerLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2165,9 +2168,9 @@ export class DescribeDataCachesResponseBody extends $tea.Model {
 }
 
 export class DescribeDataCachesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDataCachesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataCachesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2282,9 +2285,9 @@ export class DescribeImageCachesResponseBody extends $tea.Model {
 }
 
 export class DescribeImageCachesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeImageCachesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageCachesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2366,9 +2369,9 @@ export class DescribeInstanceOpsRecordsResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceOpsRecordsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceOpsRecordsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceOpsRecordsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2453,9 +2456,9 @@ export class DescribeMultiContainerGroupMetricResponseBody extends $tea.Model {
 }
 
 export class DescribeMultiContainerGroupMetricResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeMultiContainerGroupMetricResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMultiContainerGroupMetricResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2531,9 +2534,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2639,9 +2642,9 @@ export class DescribeVirtualNodesResponseBody extends $tea.Model {
 }
 
 export class DescribeVirtualNodesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeVirtualNodesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVirtualNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2741,9 +2744,9 @@ export class ExecContainerCommandResponseBody extends $tea.Model {
 }
 
 export class ExecContainerCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExecContainerCommandResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecContainerCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2819,9 +2822,9 @@ export class ListUsageResponseBody extends $tea.Model {
 }
 
 export class ListUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUsageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2906,9 +2909,9 @@ export class ResizeContainerGroupVolumeResponseBody extends $tea.Model {
 }
 
 export class ResizeContainerGroupVolumeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResizeContainerGroupVolumeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResizeContainerGroupVolumeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2987,9 +2990,9 @@ export class RestartContainerGroupResponseBody extends $tea.Model {
 }
 
 export class RestartContainerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestartContainerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartContainerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3104,9 +3107,9 @@ export class UpdateContainerGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateContainerGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateContainerGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateContainerGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3218,9 +3221,9 @@ export class UpdateDataCacheResponseBody extends $tea.Model {
 }
 
 export class UpdateDataCacheResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDataCacheResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3347,9 +3350,9 @@ export class UpdateImageCacheResponseBody extends $tea.Model {
 }
 
 export class UpdateImageCacheResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateImageCacheResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateImageCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3443,9 +3446,9 @@ export class UpdateVirtualNodeResponseBody extends $tea.Model {
 }
 
 export class UpdateVirtualNodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateVirtualNodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVirtualNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9751,11 +9754,9 @@ export default class Client extends OpenApi {
     * When you create an elastic container instance, you can configure features such as instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
     * **Instances** You can use one of the following methods to create an elastic container instance:
     * *   [Specify the number of vCPUs and memory size to create an elastic container instance](~~114662~~)
-    *     *   [Create job-optimized elastic container instances](~~324246~~)
-    *     *   [Ignore special containers during resource adjustment](~~446853~~)
     * *   [Specify ECS instance types to create an elastic container instance](~~114664~~)
     * Both the preceding creation methods support the following features:
-    * *   [Specify custom CPU options](~~197781~~)
+    * *   [Specify CPU options](~~197781~~)
     * *   [Create a preemptible elastic container instance](~~157759~~)
     * *   [Configure multiple zones](~~157290~~)
     * *   [Configure multiple specifications](~~146468~~)
@@ -9781,7 +9782,7 @@ export default class Client extends OpenApi {
     * *   [Configure startup commands and arguments for a container](~~94593~~)
     * *   [Use probes to perform health checks on a container](~~99053~~)
     * *   [Obtain metadata by using environment variables](~~141788~~)
-    * *   [Configure a security context](~~462313~~)
+    * *   [Configure a security context for an elastic container instance or a container](~~462313~~)
     * *   [Configure the NTP service](~~462768~~)
     * **Logging and O\\&M**
     * *   [Use environment variables to configure log collection](~~121973~~)
@@ -9908,6 +9909,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fixedIpRetainHour)) {
       query["FixedIpRetainHour"] = request.fixedIpRetainHour;
+    }
+
+    if (!Util.isUnset(request.gpuDriverVersion)) {
+      query["GpuDriverVersion"] = request.gpuDriverVersion;
     }
 
     if (!Util.isUnset(request.hostAliase)) {
@@ -10100,11 +10105,9 @@ export default class Client extends OpenApi {
     * When you create an elastic container instance, you can configure features such as instances, images, and storage based on your business requirements. For information about parameters configured for the features and the description of the parameters, see the following documents:
     * **Instances** You can use one of the following methods to create an elastic container instance:
     * *   [Specify the number of vCPUs and memory size to create an elastic container instance](~~114662~~)
-    *     *   [Create job-optimized elastic container instances](~~324246~~)
-    *     *   [Ignore special containers during resource adjustment](~~446853~~)
     * *   [Specify ECS instance types to create an elastic container instance](~~114664~~)
     * Both the preceding creation methods support the following features:
-    * *   [Specify custom CPU options](~~197781~~)
+    * *   [Specify CPU options](~~197781~~)
     * *   [Create a preemptible elastic container instance](~~157759~~)
     * *   [Configure multiple zones](~~157290~~)
     * *   [Configure multiple specifications](~~146468~~)
@@ -10130,7 +10133,7 @@ export default class Client extends OpenApi {
     * *   [Configure startup commands and arguments for a container](~~94593~~)
     * *   [Use probes to perform health checks on a container](~~99053~~)
     * *   [Obtain metadata by using environment variables](~~141788~~)
-    * *   [Configure a security context](~~462313~~)
+    * *   [Configure a security context for an elastic container instance or a container](~~462313~~)
     * *   [Configure the NTP service](~~462768~~)
     * **Logging and O\\&M**
     * *   [Use environment variables to configure log collection](~~121973~~)
@@ -12240,8 +12243,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can update only elastic container instances that are in the Pending or Running state. After you call this operation to update an elastic container instance, the instance enters the Updating state.
-    * *   You cannot update elastic container instances that were created before 15:00:00 March 7, 2019.
+    * *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
+    * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
     *
     * @param request UpdateContainerGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -12348,8 +12351,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can update only elastic container instances that are in the Pending or Running state. After you call this operation to update an elastic container instance, the instance enters the Updating state.
-    * *   You cannot update elastic container instances that were created before 15:00:00 March 7, 2019.
+    * *   Only elastic container instances that are in the Pending or Running state can be updated. After you call this operation to update an elastic container instance, the instance enters the Updating state.
+    * *   If the RestartPolicy parameter is set to Never for the elastic container instance that you are updating, the containers of the instance may fail. Exercise caution if you want to update the kind of instances.
     *
     * @param request UpdateContainerGroupRequest
     * @return UpdateContainerGroupResponse
