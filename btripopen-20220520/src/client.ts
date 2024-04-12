@@ -20336,6 +20336,246 @@ export class TrainTicketScanQueryResponse extends $tea.Model {
   }
 }
 
+export class TravelStandardListQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardListQueryRequest extends $tea.Model {
+  fromGroup?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromGroup: 'from_group',
+      pageNo: 'page_no',
+      pageSize: 'page_size',
+      ruleName: 'rule_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromGroup: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardListQueryResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  module?: TravelStandardListQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      module: TravelStandardListQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardListQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TravelStandardListQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TravelStandardListQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryRequest extends $tea.Model {
+  fromGroup?: boolean;
+  ruleCode?: number;
+  serviceTypeList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fromGroup: 'from_group',
+      ruleCode: 'rule_code',
+      serviceTypeList: 'service_type_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromGroup: 'boolean',
+      ruleCode: 'number',
+      serviceTypeList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryShrinkRequest extends $tea.Model {
+  fromGroup?: boolean;
+  ruleCode?: number;
+  serviceTypeListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromGroup: 'from_group',
+      ruleCode: 'rule_code',
+      serviceTypeListShrink: 'service_type_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromGroup: 'boolean',
+      ruleCode: 'number',
+      serviceTypeListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TravelStandardQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TravelStandardQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TravelStandardQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TravelStandardQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UserQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -22276,11 +22516,16 @@ export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
+  flightIntlRuleCode?: number;
+  flightRuleCode?: number;
   hotelCitys?: ApplyAddRequestExternalTravelerStandardHotelCitys[];
   hotelIntlCitys?: ApplyAddRequestExternalTravelerStandardHotelIntlCitys[];
+  hotelIntlRuleCode?: number;
+  hotelRuleCode?: number;
   internationalFlightCabins?: string;
   premiumEconomyDiscount?: number;
   reserveType?: number;
+  trainRuleCode?: number;
   trainSeats?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22288,11 +22533,16 @@ export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
+      flightIntlRuleCode: 'flight_intl_rule_code',
+      flightRuleCode: 'flight_rule_code',
       hotelCitys: 'hotel_citys',
       hotelIntlCitys: 'hotel_intl_citys',
+      hotelIntlRuleCode: 'hotel_intl_rule_code',
+      hotelRuleCode: 'hotel_rule_code',
       internationalFlightCabins: 'international_flight_cabins',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
+      trainRuleCode: 'train_rule_code',
       trainSeats: 'train_seats',
     };
   }
@@ -22303,11 +22553,16 @@ export class ApplyAddRequestExternalTravelerStandard extends $tea.Model {
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
+      flightIntlRuleCode: 'number',
+      flightRuleCode: 'number',
       hotelCitys: { 'type': 'array', 'itemType': ApplyAddRequestExternalTravelerStandardHotelCitys },
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyAddRequestExternalTravelerStandardHotelIntlCitys },
+      hotelIntlRuleCode: 'number',
+      hotelRuleCode: 'number',
       internationalFlightCabins: 'string',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
+      trainRuleCode: 'number',
       trainSeats: 'string',
     };
   }
@@ -22602,11 +22857,16 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
+  flightIntlRuleCode?: number;
+  flightRuleCode?: number;
   hotelCitys?: ApplyAddRequestTravelerStandardHotelCitys[];
   hotelIntlCitys?: ApplyAddRequestTravelerStandardHotelIntlCitys[];
+  hotelIntlRuleCode?: number;
+  hotelRuleCode?: number;
   internationalFlightCabins?: string;
   premiumEconomyDiscount?: number;
   reserveType?: number;
+  trainRuleCode?: number;
   trainSeats?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -22616,11 +22876,16 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
+      flightIntlRuleCode: 'flight_intl_rule_code',
+      flightRuleCode: 'flight_rule_code',
       hotelCitys: 'hotel_citys',
       hotelIntlCitys: 'hotel_intl_citys',
+      hotelIntlRuleCode: 'hotel_intl_rule_code',
+      hotelRuleCode: 'hotel_rule_code',
       internationalFlightCabins: 'international_flight_cabins',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
+      trainRuleCode: 'train_rule_code',
       trainSeats: 'train_seats',
       userId: 'user_id',
     };
@@ -22633,11 +22898,16 @@ export class ApplyAddRequestTravelerStandard extends $tea.Model {
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
+      flightIntlRuleCode: 'number',
+      flightRuleCode: 'number',
       hotelCitys: { 'type': 'array', 'itemType': ApplyAddRequestTravelerStandardHotelCitys },
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyAddRequestTravelerStandardHotelIntlCitys },
+      hotelIntlRuleCode: 'number',
+      hotelRuleCode: 'number',
       internationalFlightCabins: 'string',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
+      trainRuleCode: 'number',
       trainSeats: 'string',
       userId: 'string',
     };
@@ -23211,10 +23481,15 @@ export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
+  flightIntlRuleCode?: number;
+  flightRuleCode?: number;
   hotelCitys?: ApplyModifyRequestExternalTravelerStandardHotelCitys[];
   hotelIntlCitys?: ApplyModifyRequestExternalTravelerStandardHotelIntlCitys[];
+  hotelIntlRuleCode?: number;
+  hotelRuleCode?: number;
   premiumEconomyDiscount?: number;
   reserveType?: number;
+  trainRuleCode?: number;
   trainSeats?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23222,10 +23497,15 @@ export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
+      flightIntlRuleCode: 'flight_intl_rule_code',
+      flightRuleCode: 'flight_rule_code',
       hotelCitys: 'hotel_citys',
       hotelIntlCitys: 'hotel_intl_citys',
+      hotelIntlRuleCode: 'hotel_intl_rule_code',
+      hotelRuleCode: 'hotel_rule_code',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
+      trainRuleCode: 'train_rule_code',
       trainSeats: 'train_seats',
     };
   }
@@ -23236,10 +23516,15 @@ export class ApplyModifyRequestExternalTravelerStandard extends $tea.Model {
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
+      flightIntlRuleCode: 'number',
+      flightRuleCode: 'number',
       hotelCitys: { 'type': 'array', 'itemType': ApplyModifyRequestExternalTravelerStandardHotelCitys },
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyModifyRequestExternalTravelerStandardHotelIntlCitys },
+      hotelIntlRuleCode: 'number',
+      hotelRuleCode: 'number',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
+      trainRuleCode: 'number',
       trainSeats: 'string',
     };
   }
@@ -23534,10 +23819,15 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
+  flightIntlRuleCode?: number;
+  flightRuleCode?: number;
   hotelCitys?: ApplyModifyRequestTravelerStandardHotelCitys[];
   hotelIntlCitys?: ApplyModifyRequestTravelerStandardHotelIntlCitys[];
+  hotelIntlRuleCode?: number;
+  hotelRuleCode?: number;
   premiumEconomyDiscount?: number;
   reserveType?: number;
+  trainRuleCode?: number;
   trainSeats?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -23547,10 +23837,15 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
+      flightIntlRuleCode: 'flight_intl_rule_code',
+      flightRuleCode: 'flight_rule_code',
       hotelCitys: 'hotel_citys',
       hotelIntlCitys: 'hotel_intl_citys',
+      hotelIntlRuleCode: 'hotel_intl_rule_code',
+      hotelRuleCode: 'hotel_rule_code',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
+      trainRuleCode: 'train_rule_code',
       trainSeats: 'train_seats',
       userId: 'user_id',
     };
@@ -23563,10 +23858,15 @@ export class ApplyModifyRequestTravelerStandard extends $tea.Model {
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
+      flightIntlRuleCode: 'number',
+      flightRuleCode: 'number',
       hotelCitys: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardHotelCitys },
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardHotelIntlCitys },
+      hotelIntlRuleCode: 'number',
+      hotelRuleCode: 'number',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
+      trainRuleCode: 'number',
       trainSeats: 'string',
       userId: 'string',
     };
@@ -23716,10 +24016,15 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
+  flightIntlRuleCode?: number;
+  flightRuleCode?: number;
   hotelCitys?: ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys[];
   hotelIntlCitys?: ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys[];
+  hotelIntlRuleCode?: number;
+  hotelRuleCode?: number;
   premiumEconomyDiscount?: number;
   reserveType?: number;
+  trainRuleCode?: number;
   trainSeats?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -23728,10 +24033,15 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
+      flightIntlRuleCode: 'flight_intl_rule_code',
+      flightRuleCode: 'flight_rule_code',
       hotelCitys: 'hotel_citys',
       hotelIntlCitys: 'hotel_intl_citys',
+      hotelIntlRuleCode: 'hotel_intl_rule_code',
+      hotelRuleCode: 'hotel_rule_code',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
+      trainRuleCode: 'train_rule_code',
       trainSeats: 'train_seats',
       userName: 'user_name',
     };
@@ -23743,10 +24053,15 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
+      flightIntlRuleCode: 'number',
+      flightRuleCode: 'number',
       hotelCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys },
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys },
+      hotelIntlRuleCode: 'number',
+      hotelRuleCode: 'number',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
+      trainRuleCode: 'number',
       trainSeats: 'string',
       userName: 'string',
     };
@@ -24008,10 +24323,15 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
+  flightIntlRuleCode?: number;
+  flightRuleCode?: number;
   hotelCitys?: ApplyQueryResponseBodyModuleTravelerListHotelCitys[];
   hotelIntlCitys?: ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys[];
+  hotelIntlRuleCode?: number;
+  hotelRuleCode?: number;
   premiumEconomyDiscount?: number;
   reserveType?: number;
+  trainRuleCode?: number;
   trainSeats?: string;
   userId?: string;
   userName?: string;
@@ -24022,10 +24342,15 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
+      flightIntlRuleCode: 'flight_intl_rule_code',
+      flightRuleCode: 'flight_rule_code',
       hotelCitys: 'hotel_citys',
       hotelIntlCitys: 'hotel_intl_citys',
+      hotelIntlRuleCode: 'hotel_intl_rule_code',
+      hotelRuleCode: 'hotel_rule_code',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
+      trainRuleCode: 'train_rule_code',
       trainSeats: 'train_seats',
       userId: 'user_id',
       userName: 'user_name',
@@ -24039,10 +24364,15 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
+      flightIntlRuleCode: 'number',
+      flightRuleCode: 'number',
       hotelCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleTravelerListHotelCitys },
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys },
+      hotelIntlRuleCode: 'number',
+      hotelRuleCode: 'number',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
+      trainRuleCode: 'number',
       trainSeats: 'string',
       userId: 'string',
       userName: 'string',
@@ -51447,6 +51777,228 @@ export class TrainTicketScanQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class TravelStandardListQueryResponseBodyModuleItemsMainReserveRule extends $tea.Model {
+  openServiceTypeList?: string[];
+  ruleCode?: number;
+  ruleDesc?: string;
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openServiceTypeList: 'open_service_type_list',
+      ruleCode: 'rule_code',
+      ruleDesc: 'rule_desc',
+      ruleId: 'rule_id',
+      ruleName: 'rule_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openServiceTypeList: { 'type': 'array', 'itemType': 'string' },
+      ruleCode: 'number',
+      ruleDesc: 'string',
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardListQueryResponseBodyModuleItemsReserveRuleDescDataList extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardListQueryResponseBodyModuleItemsReserveRuleDesc extends $tea.Model {
+  dataList?: TravelStandardListQueryResponseBodyModuleItemsReserveRuleDescDataList[];
+  title?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'data_list',
+      title: 'title',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': TravelStandardListQueryResponseBodyModuleItemsReserveRuleDescDataList },
+      title: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardListQueryResponseBodyModuleItems extends $tea.Model {
+  mainReserveRule?: TravelStandardListQueryResponseBodyModuleItemsMainReserveRule;
+  reserveRuleDesc?: TravelStandardListQueryResponseBodyModuleItemsReserveRuleDesc[];
+  scope?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mainReserveRule: 'main_reserve_rule',
+      reserveRuleDesc: 'reserve_rule_desc',
+      scope: 'scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mainReserveRule: TravelStandardListQueryResponseBodyModuleItemsMainReserveRule,
+      reserveRuleDesc: { 'type': 'array', 'itemType': TravelStandardListQueryResponseBodyModuleItemsReserveRuleDesc },
+      scope: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardListQueryResponseBodyModule extends $tea.Model {
+  items?: TravelStandardListQueryResponseBodyModuleItems[];
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+      totalSize: 'total_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': TravelStandardListQueryResponseBodyModuleItems },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryResponseBodyModuleReserveRuleMainReserveRule extends $tea.Model {
+  openServiceTypeList?: string[];
+  ruleCode?: number;
+  ruleDesc?: string;
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openServiceTypeList: 'open_service_type_list',
+      ruleCode: 'rule_code',
+      ruleDesc: 'rule_desc',
+      ruleId: 'rule_id',
+      ruleName: 'rule_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openServiceTypeList: { 'type': 'array', 'itemType': 'string' },
+      ruleCode: 'number',
+      ruleDesc: 'string',
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryResponseBodyModuleReserveRuleModuleConfigList extends $tea.Model {
+  code?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryResponseBodyModuleReserveRule extends $tea.Model {
+  mainReserveRule?: TravelStandardQueryResponseBodyModuleReserveRuleMainReserveRule;
+  moduleConfigList?: TravelStandardQueryResponseBodyModuleReserveRuleModuleConfigList[];
+  static names(): { [key: string]: string } {
+    return {
+      mainReserveRule: 'main_reserve_rule',
+      moduleConfigList: 'module_config_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mainReserveRule: TravelStandardQueryResponseBodyModuleReserveRuleMainReserveRule,
+      moduleConfigList: { 'type': 'array', 'itemType': TravelStandardQueryResponseBodyModuleReserveRuleModuleConfigList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TravelStandardQueryResponseBodyModule extends $tea.Model {
+  activatedServiceTypeList?: string[];
+  reserveRule?: TravelStandardQueryResponseBodyModuleReserveRule;
+  static names(): { [key: string]: string } {
+    return {
+      activatedServiceTypeList: 'activated_service_type_list',
+      reserveRule: 'reserve_rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activatedServiceTypeList: { 'type': 'array', 'itemType': 'string' },
+      reserveRule: TravelStandardQueryResponseBodyModuleReserveRule,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UserQueryResponseBodyModuleItems extends $tea.Model {
   employeeNick?: string;
   leaveStatus?: number;
@@ -60904,6 +61456,112 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainTicketScanQueryHeaders({ });
     return await this.trainTicketScanQueryWithOptions(request, headers, runtime);
+  }
+
+  async travelStandardListQueryWithOptions(request: TravelStandardListQueryRequest, headers: TravelStandardListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TravelStandardListQueryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fromGroup)) {
+      query["from_group"] = request.fromGroup;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["page_no"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["rule_name"] = request.ruleName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TravelStandardListQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/travel-manage/v1/standards/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TravelStandardListQueryResponse>(await this.callApi(params, req, runtime), new TravelStandardListQueryResponse({}));
+  }
+
+  async travelStandardListQuery(request: TravelStandardListQueryRequest): Promise<TravelStandardListQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TravelStandardListQueryHeaders({ });
+    return await this.travelStandardListQueryWithOptions(request, headers, runtime);
+  }
+
+  async travelStandardQueryWithOptions(tmpReq: TravelStandardQueryRequest, headers: TravelStandardQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TravelStandardQueryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TravelStandardQueryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.serviceTypeList)) {
+      request.serviceTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceTypeList, "service_type_list", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fromGroup)) {
+      query["from_group"] = request.fromGroup;
+    }
+
+    if (!Util.isUnset(request.ruleCode)) {
+      query["rule_code"] = request.ruleCode;
+    }
+
+    if (!Util.isUnset(request.serviceTypeListShrink)) {
+      query["service_type_list"] = request.serviceTypeListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TravelStandardQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/travel-manage/v1/standards/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TravelStandardQueryResponse>(await this.callApi(params, req, runtime), new TravelStandardQueryResponse({}));
+  }
+
+  async travelStandardQuery(request: TravelStandardQueryRequest): Promise<TravelStandardQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TravelStandardQueryHeaders({ });
+    return await this.travelStandardQueryWithOptions(request, headers, runtime);
   }
 
   async userQueryWithOptions(request: UserQueryRequest, headers: UserQueryHeaders, runtime: $Util.RuntimeOptions): Promise<UserQueryResponse> {
