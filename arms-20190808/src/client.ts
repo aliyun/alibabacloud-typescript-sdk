@@ -616,6 +616,7 @@ export class GrafanaWorkspaceIntegrationDataSource extends $tea.Model {
   datasourceUrl?: string;
   description?: string;
   exploreUrl?: string;
+  extra?: { [key: string]: string };
   folderUrl?: string;
   regionId?: string;
   status?: string;
@@ -628,6 +629,7 @@ export class GrafanaWorkspaceIntegrationDataSource extends $tea.Model {
       datasourceUrl: 'datasourceUrl',
       description: 'description',
       exploreUrl: 'exploreUrl',
+      extra: 'extra',
       folderUrl: 'folderUrl',
       regionId: 'regionId',
       status: 'status',
@@ -643,6 +645,7 @@ export class GrafanaWorkspaceIntegrationDataSource extends $tea.Model {
       datasourceUrl: 'string',
       description: 'string',
       exploreUrl: 'string',
+      extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       folderUrl: 'string',
       regionId: 'string',
       status: 'string',
@@ -4501,6 +4504,7 @@ export class CreatePrometheusAlertRuleResponse extends $tea.Model {
 
 export class CreatePrometheusInstanceRequest extends $tea.Model {
   allSubClustersSuccess?: boolean;
+  archiveDuration?: number;
   clusterId?: string;
   clusterName?: string;
   clusterType?: string;
@@ -4516,6 +4520,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       allSubClustersSuccess: 'AllSubClustersSuccess',
+      archiveDuration: 'ArchiveDuration',
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
@@ -4534,6 +4539,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       allSubClustersSuccess: 'boolean',
+      archiveDuration: 'number',
       clusterId: 'string',
       clusterName: 'string',
       clusterType: 'string',
@@ -19724,6 +19730,90 @@ export class UpdatePrometheusGlobalViewResponse extends $tea.Model {
   }
 }
 
+export class UpdatePrometheusInstanceRequest extends $tea.Model {
+  archiveDuration?: number;
+  clusterId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  storageDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      archiveDuration: 'ArchiveDuration',
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      storageDuration: 'StorageDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      archiveDuration: 'number',
+      clusterId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      storageDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusInstanceResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrometheusInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePrometheusInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePrometheusInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePrometheusIntegrationRequest extends $tea.Model {
   clusterId?: string;
   instanceId?: number;
@@ -22588,6 +22678,31 @@ export class CreateTimingSyntheticTaskRequestCommonSettingCustomHost extends $te
   }
 }
 
+export class CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting extends $tea.Model {
+  prometheusClusterId?: string;
+  prometheusClusterRegion?: string;
+  prometheusLabels?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      prometheusClusterId: 'PrometheusClusterId',
+      prometheusClusterRegion: 'PrometheusClusterRegion',
+      prometheusLabels: 'PrometheusLabels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prometheusClusterId: 'string',
+      prometheusClusterRegion: 'string',
+      prometheusLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting extends $tea.Model {
   regionId?: string;
   secureGroupId?: string;
@@ -22618,6 +22733,7 @@ export class CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting exten
 
 export class CreateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
   customHost?: CreateTimingSyntheticTaskRequestCommonSettingCustomHost;
+  customPrometheusSetting?: CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting;
   customVPCSetting?: CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting;
   ipType?: number;
   isOpenTrace?: boolean;
@@ -22627,6 +22743,7 @@ export class CreateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       customHost: 'CustomHost',
+      customPrometheusSetting: 'CustomPrometheusSetting',
       customVPCSetting: 'CustomVPCSetting',
       ipType: 'IpType',
       isOpenTrace: 'IsOpenTrace',
@@ -22639,6 +22756,7 @@ export class CreateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       customHost: CreateTimingSyntheticTaskRequestCommonSettingCustomHost,
+      customPrometheusSetting: CreateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting,
       customVPCSetting: CreateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting,
       ipType: 'number',
       isOpenTrace: 'boolean',
@@ -25178,6 +25296,7 @@ export class GetPrometheusInstanceResponseBodyDataTags extends $tea.Model {
 }
 
 export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
+  archiveDuration?: number;
   authToken?: string;
   clusterId?: string;
   clusterName?: string;
@@ -25196,6 +25315,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   resourceGroupId?: string;
   resourceType?: string;
   securityGroupId?: string;
+  storageDuration?: number;
   subClustersJson?: string;
   tags?: GetPrometheusInstanceResponseBodyDataTags[];
   userId?: string;
@@ -25203,6 +25323,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      archiveDuration: 'ArchiveDuration',
       authToken: 'AuthToken',
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
@@ -25221,6 +25342,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceType: 'ResourceType',
       securityGroupId: 'SecurityGroupId',
+      storageDuration: 'StorageDuration',
       subClustersJson: 'SubClustersJson',
       tags: 'Tags',
       userId: 'UserId',
@@ -25231,6 +25353,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      archiveDuration: 'number',
       authToken: 'string',
       clusterId: 'string',
       clusterName: 'string',
@@ -25249,6 +25372,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       resourceGroupId: 'string',
       resourceType: 'string',
       securityGroupId: 'string',
+      storageDuration: 'number',
       subClustersJson: 'string',
       tags: { 'type': 'array', 'itemType': GetPrometheusInstanceResponseBodyDataTags },
       userId: 'string',
@@ -26462,6 +26586,31 @@ export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost exten
   }
 }
 
+export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting extends $tea.Model {
+  prometheusClusterId?: string;
+  prometheusClusterRegion?: string;
+  prometheusLabels?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      prometheusClusterId: 'PrometheusClusterId',
+      prometheusClusterRegion: 'PrometheusClusterRegion',
+      prometheusLabels: 'PrometheusLabels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prometheusClusterId: 'string',
+      prometheusClusterRegion: 'string',
+      prometheusLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting extends $tea.Model {
   regionId?: string;
   secureGroupId?: string;
@@ -26492,6 +26641,7 @@ export class GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting
 
 export class GetTimingSyntheticTaskResponseBodyDataCommonSetting extends $tea.Model {
   customHost?: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost;
+  customPrometheusSetting?: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting;
   customVPCSetting?: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting;
   ipType?: number;
   isOpenTrace?: boolean;
@@ -26501,6 +26651,7 @@ export class GetTimingSyntheticTaskResponseBodyDataCommonSetting extends $tea.Mo
   static names(): { [key: string]: string } {
     return {
       customHost: 'CustomHost',
+      customPrometheusSetting: 'CustomPrometheusSetting',
       customVPCSetting: 'CustomVPCSetting',
       ipType: 'IpType',
       isOpenTrace: 'IsOpenTrace',
@@ -26513,6 +26664,7 @@ export class GetTimingSyntheticTaskResponseBodyDataCommonSetting extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       customHost: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomHost,
+      customPrometheusSetting: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomPrometheusSetting,
       customVPCSetting: GetTimingSyntheticTaskResponseBodyDataCommonSettingCustomVPCSetting,
       ipType: 'number',
       isOpenTrace: 'boolean',
@@ -30445,6 +30597,146 @@ export class ListTimingSyntheticTasksRequestTags extends $tea.Model {
   }
 }
 
+export class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts extends $tea.Model {
+  domain?: string;
+  ipType?: number;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      ipType: 'IpType',
+      ips: 'Ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      ipType: 'number',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost extends $tea.Model {
+  hosts?: ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts[];
+  selectType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hosts: 'Hosts',
+      selectType: 'SelectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hosts: { 'type': 'array', 'itemType': ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHostHosts },
+      selectType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting extends $tea.Model {
+  prometheusClusterId?: string;
+  prometheusClusterRegion?: string;
+  prometheusLabels?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      prometheusClusterId: 'PrometheusClusterId',
+      prometheusClusterRegion: 'PrometheusClusterRegion',
+      prometheusLabels: 'PrometheusLabels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prometheusClusterId: 'string',
+      prometheusClusterRegion: 'string',
+      prometheusLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting extends $tea.Model {
+  regionId?: string;
+  secureGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      secureGroupId: 'SecureGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      secureGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting extends $tea.Model {
+  customHost?: ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost;
+  customPrometheusSetting?: ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting;
+  customVPCSetting?: ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting;
+  ipType?: number;
+  isOpenTrace?: boolean;
+  monitorSamples?: number;
+  traceClientType?: number;
+  xtraceRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customHost: 'CustomHost',
+      customPrometheusSetting: 'CustomPrometheusSetting',
+      customVPCSetting: 'CustomVPCSetting',
+      ipType: 'IpType',
+      isOpenTrace: 'IsOpenTrace',
+      monitorSamples: 'MonitorSamples',
+      traceClientType: 'TraceClientType',
+      xtraceRegion: 'XtraceRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customHost: ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomHost,
+      customPrometheusSetting: ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomPrometheusSetting,
+      customVPCSetting: ListTimingSyntheticTasksResponseBodyDataItemsCommonSettingCustomVPCSetting,
+      ipType: 'number',
+      isOpenTrace: 'boolean',
+      monitorSamples: 'number',
+      traceClientType: 'number',
+      xtraceRegion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTimingSyntheticTasksResponseBodyDataItemsTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -30468,6 +30760,7 @@ export class ListTimingSyntheticTasksResponseBodyDataItemsTags extends $tea.Mode
 }
 
 export class ListTimingSyntheticTasksResponseBodyDataItems extends $tea.Model {
+  commonSetting?: ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting;
   frequency?: string;
   gmtCreate?: string;
   gmtModified?: string;
@@ -30483,6 +30776,7 @@ export class ListTimingSyntheticTasksResponseBodyDataItems extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      commonSetting: 'CommonSetting',
       frequency: 'Frequency',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
@@ -30501,6 +30795,7 @@ export class ListTimingSyntheticTasksResponseBodyDataItems extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      commonSetting: ListTimingSyntheticTasksResponseBodyDataItemsCommonSetting,
       frequency: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -32408,6 +32703,31 @@ export class UpdateTimingSyntheticTaskRequestCommonSettingCustomHost extends $te
   }
 }
 
+export class UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting extends $tea.Model {
+  prometheusClusterId?: string;
+  prometheusClusterRegion?: string;
+  prometheusLabels?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      prometheusClusterId: 'PrometheusClusterId',
+      prometheusClusterRegion: 'PrometheusClusterRegion',
+      prometheusLabels: 'PrometheusLabels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prometheusClusterId: 'string',
+      prometheusClusterRegion: 'string',
+      prometheusLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting extends $tea.Model {
   regionId?: string;
   secureGroupId?: string;
@@ -32438,6 +32758,7 @@ export class UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting exten
 
 export class UpdateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
   customHost?: UpdateTimingSyntheticTaskRequestCommonSettingCustomHost;
+  customPrometheusSetting?: UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting;
   customVPCSetting?: UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting;
   ipType?: number;
   isOpenTrace?: boolean;
@@ -32447,6 +32768,7 @@ export class UpdateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       customHost: 'CustomHost',
+      customPrometheusSetting: 'CustomPrometheusSetting',
       customVPCSetting: 'CustomVPCSetting',
       ipType: 'IpType',
       isOpenTrace: 'IsOpenTrace',
@@ -32459,6 +32781,7 @@ export class UpdateTimingSyntheticTaskRequestCommonSetting extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       customHost: UpdateTimingSyntheticTaskRequestCommonSettingCustomHost,
+      customPrometheusSetting: UpdateTimingSyntheticTaskRequestCommonSettingCustomPrometheusSetting,
       customVPCSetting: UpdateTimingSyntheticTaskRequestCommonSettingCustomVPCSetting,
       ipType: 'number',
       isOpenTrace: 'boolean',
@@ -35012,6 +35335,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.allSubClustersSuccess)) {
       query["AllSubClustersSuccess"] = request.allSubClustersSuccess;
+    }
+
+    if (!Util.isUnset(request.archiveDuration)) {
+      query["ArchiveDuration"] = request.archiveDuration;
     }
 
     if (!Util.isUnset(request.clusterId)) {
@@ -43047,6 +43374,51 @@ export default class Client extends OpenApi {
   async updatePrometheusGlobalView(request: UpdatePrometheusGlobalViewRequest): Promise<UpdatePrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusGlobalViewWithOptions(request, runtime);
+  }
+
+  async updatePrometheusInstanceWithOptions(request: UpdatePrometheusInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.archiveDuration)) {
+      query["ArchiveDuration"] = request.archiveDuration;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.storageDuration)) {
+      query["StorageDuration"] = request.storageDuration;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePrometheusInstance",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePrometheusInstanceResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusInstanceResponse({}));
+  }
+
+  async updatePrometheusInstance(request: UpdatePrometheusInstanceRequest): Promise<UpdatePrometheusInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePrometheusInstanceWithOptions(request, runtime);
   }
 
   async updatePrometheusIntegrationWithOptions(request: UpdatePrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusIntegrationResponse> {
