@@ -13843,15 +13843,21 @@ export class SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam exte
 }
 
 export class SaveBatchTaskForReserveDropListDomainRequestDomains extends $tea.Model {
+  dns1?: string;
+  dns2?: string;
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
+      dns1: 'Dns1',
+      dns2: 'Dns2',
       domainName: 'DomainName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dns1: 'string',
+      dns2: 'string',
       domainName: 'string',
     };
   }
