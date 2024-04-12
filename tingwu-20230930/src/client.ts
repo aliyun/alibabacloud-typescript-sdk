@@ -808,6 +808,10 @@ export class GetTaskInfoResponseBodyDataResult extends $tea.Model {
 export class GetTaskInfoResponseBodyData extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
+  outputMp3Path?: string;
+  outputMp4Path?: string;
+  outputSpectrumPath?: string;
+  outputThumbnailPath?: string;
   result?: GetTaskInfoResponseBodyDataResult;
   taskId?: string;
   taskKey?: string;
@@ -816,6 +820,10 @@ export class GetTaskInfoResponseBodyData extends $tea.Model {
     return {
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      outputMp3Path: 'OutputMp3Path',
+      outputMp4Path: 'OutputMp4Path',
+      outputSpectrumPath: 'OutputSpectrumPath',
+      outputThumbnailPath: 'OutputThumbnailPath',
       result: 'Result',
       taskId: 'TaskId',
       taskKey: 'TaskKey',
@@ -827,6 +835,10 @@ export class GetTaskInfoResponseBodyData extends $tea.Model {
     return {
       errorCode: 'string',
       errorMessage: 'string',
+      outputMp3Path: 'string',
+      outputMp4Path: 'string',
+      outputSpectrumPath: 'string',
+      outputThumbnailPath: 'string',
       result: GetTaskInfoResponseBodyDataResult,
       taskId: 'string',
       taskKey: 'string',
