@@ -25463,6 +25463,7 @@ export class DescribeVulListRequest extends $tea.Model {
   currentPage?: number;
   dealed?: string;
   groupId?: string;
+  ids?: string;
   lang?: string;
   name?: string;
   necessity?: string;
@@ -25482,6 +25483,7 @@ export class DescribeVulListRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       dealed: 'Dealed',
       groupId: 'GroupId',
+      ids: 'Ids',
       lang: 'Lang',
       name: 'Name',
       necessity: 'Necessity',
@@ -25504,6 +25506,7 @@ export class DescribeVulListRequest extends $tea.Model {
       currentPage: 'number',
       dealed: 'string',
       groupId: 'string',
+      ids: 'string',
       lang: 'string',
       name: 'string',
       necessity: 'string',
@@ -92572,6 +92575,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
     }
 
     if (!Util.isUnset(request.lang)) {
