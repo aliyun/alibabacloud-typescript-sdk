@@ -164,9 +164,9 @@ export class CreateIdleInstanceCullerResponseBody extends $tea.Model {
 }
 
 export class CreateIdleInstanceCullerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateIdleInstanceCullerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIdleInstanceCullerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -290,9 +290,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -371,9 +371,9 @@ export class CreateInstanceShutdownTimerResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceShutdownTimerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceShutdownTimerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceShutdownTimerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -467,9 +467,9 @@ export class CreateInstanceSnapshotResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -523,9 +523,9 @@ export class DeleteIdleInstanceCullerResponseBody extends $tea.Model {
 }
 
 export class DeleteIdleInstanceCullerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIdleInstanceCullerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIdleInstanceCullerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -582,9 +582,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -641,9 +641,9 @@ export class DeleteInstanceShutdownTimerResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceShutdownTimerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceShutdownTimerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceShutdownTimerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -703,9 +703,9 @@ export class DeleteInstanceSnapshotResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -771,9 +771,9 @@ export class GetIdleInstanceCullerResponseBody extends $tea.Model {
 }
 
 export class GetIdleInstanceCullerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIdleInstanceCullerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIdleInstanceCullerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -821,6 +821,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   labels?: GetInstanceResponseBodyLabels[];
   latestSnapshot?: GetInstanceResponseBodyLatestSnapshot;
   message?: string;
+  nodeErrorRecovery?: GetInstanceResponseBodyNodeErrorRecovery;
   paymentType?: string;
   priority?: number;
   reasonCode?: string;
@@ -866,6 +867,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       labels: 'Labels',
       latestSnapshot: 'LatestSnapshot',
       message: 'Message',
+      nodeErrorRecovery: 'NodeErrorRecovery',
       paymentType: 'PaymentType',
       priority: 'Priority',
       reasonCode: 'ReasonCode',
@@ -914,6 +916,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       labels: { 'type': 'array', 'itemType': GetInstanceResponseBodyLabels },
       latestSnapshot: GetInstanceResponseBodyLatestSnapshot,
       message: 'string',
+      nodeErrorRecovery: GetInstanceResponseBodyNodeErrorRecovery,
       paymentType: 'string',
       priority: 'number',
       reasonCode: 'string',
@@ -941,9 +944,9 @@ export class GetInstanceResponseBody extends $tea.Model {
 }
 
 export class GetInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -957,6 +960,93 @@ export class GetInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceEventsRequest extends $tea.Model {
+  endTime?: string;
+  maxEventsNum?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      maxEventsNum: 'MaxEventsNum',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      maxEventsNum: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceEventsResponseBody extends $tea.Model {
+  code?: string;
+  events?: string[];
+  httpStatusCode?: number;
+  instanceId?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      events: 'Events',
+      httpStatusCode: 'HttpStatusCode',
+      instanceId: 'InstanceId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      events: { 'type': 'array', 'itemType': 'string' },
+      httpStatusCode: 'number',
+      instanceId: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceEventsResponseBody,
     };
   }
 
@@ -1031,9 +1121,9 @@ export class GetInstanceMetricsResponseBody extends $tea.Model {
 }
 
 export class GetInstanceMetricsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceMetricsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceMetricsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1102,9 +1192,9 @@ export class GetInstanceShutdownTimerResponseBody extends $tea.Model {
 }
 
 export class GetInstanceShutdownTimerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceShutdownTimerResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceShutdownTimerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1194,9 +1284,9 @@ export class GetInstanceSnapshotResponseBody extends $tea.Model {
 }
 
 export class GetInstanceSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1284,9 +1374,9 @@ export class GetLifecycleResponseBody extends $tea.Model {
 }
 
 export class GetLifecycleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLifecycleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLifecycleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1371,9 +1461,9 @@ export class GetResourceGroupStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetResourceGroupStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceGroupStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceGroupStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1449,9 +1539,9 @@ export class GetTokenResponseBody extends $tea.Model {
 }
 
 export class GetTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1517,9 +1607,9 @@ export class GetUserConfigResponseBody extends $tea.Model {
 }
 
 export class GetUserConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1610,9 +1700,9 @@ export class ListEcsSpecsResponseBody extends $tea.Model {
 }
 
 export class ListEcsSpecsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListEcsSpecsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEcsSpecsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1700,9 +1790,9 @@ export class ListInstanceSnapshotResponseBody extends $tea.Model {
 }
 
 export class ListInstanceSnapshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstanceSnapshotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceSnapshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1778,9 +1868,9 @@ export class ListInstanceStatisticsResponseBody extends $tea.Model {
 }
 
 export class ListInstanceStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstanceStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1892,9 +1982,9 @@ export class ListInstancesResponseBody extends $tea.Model {
 }
 
 export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1951,9 +2041,9 @@ export class StartInstanceResponseBody extends $tea.Model {
 }
 
 export class StartInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2029,9 +2119,9 @@ export class StopInstanceResponseBody extends $tea.Model {
 }
 
 export class StopInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2155,9 +2245,9 @@ export class UpdateInstanceResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2650,6 +2740,31 @@ export class GetInstanceResponseBodyLatestSnapshot extends $tea.Model {
       reasonMessage: 'string',
       repositoryUrl: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyNodeErrorRecovery extends $tea.Model {
+  autoSwitchCountdownSeconds?: number;
+  enableAutoSwitchOnNodeError?: boolean;
+  hasNodeError?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoSwitchCountdownSeconds: 'autoSwitchCountdownSeconds',
+      enableAutoSwitchOnNodeError: 'enableAutoSwitchOnNodeError',
+      hasNodeError: 'hasNodeError',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSwitchCountdownSeconds: 'number',
+      enableAutoSwitchOnNodeError: 'boolean',
+      hasNodeError: 'boolean',
     };
   }
 
@@ -3926,6 +4041,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(InstanceId, headers, runtime);
+  }
+
+  async getInstanceEventsWithOptions(InstanceId: string, request: GetInstanceEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceEventsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.maxEventsNum)) {
+      query["MaxEventsNum"] = request.maxEventsNum;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInstanceEvents",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceEventsResponse>(await this.callApi(params, req, runtime), new GetInstanceEventsResponse({}));
+  }
+
+  async getInstanceEvents(InstanceId: string, request: GetInstanceEventsRequest): Promise<GetInstanceEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceEventsWithOptions(InstanceId, request, headers, runtime);
   }
 
   async getInstanceMetricsWithOptions(InstanceId: string, request: GetInstanceMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceMetricsResponse> {
