@@ -2891,11 +2891,13 @@ export class GetModelVersionResponse extends $tea.Model {
 export class GetPermissionRequest extends $tea.Model {
   accessibility?: string;
   creator?: string;
+  option?: string;
   resource?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
       creator: 'Creator',
+      option: 'Option',
       resource: 'Resource',
     };
   }
@@ -2904,6 +2906,7 @@ export class GetPermissionRequest extends $tea.Model {
     return {
       accessibility: 'string',
       creator: 'string',
+      option: 'string',
       resource: 'string',
     };
   }
@@ -7219,6 +7222,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.creator)) {
       query["Creator"] = request.creator;
+    }
+
+    if (!Util.isUnset(request.option)) {
+      query["Option"] = request.option;
     }
 
     if (!Util.isUnset(request.resource)) {
