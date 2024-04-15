@@ -3385,6 +3385,93 @@ export class ListUserGroupsForRegistrationPolicyResponse extends $tea.Model {
   }
 }
 
+export class ListUsersRequest extends $tea.Model {
+  currentPage?: number;
+  department?: string;
+  fuzzyUsername?: string;
+  pageSize?: number;
+  preciseUsername?: string;
+  saseUserIds?: string[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      department: 'Department',
+      fuzzyUsername: 'FuzzyUsername',
+      pageSize: 'PageSize',
+      preciseUsername: 'PreciseUsername',
+      saseUserIds: 'SaseUserIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      department: 'string',
+      fuzzyUsername: 'string',
+      pageSize: 'number',
+      preciseUsername: 'string',
+      saseUserIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  totalNum?: string;
+  users?: ListUsersResponseBodyUsers[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalNum: 'string',
+      users: { 'type': 'array', 'itemType': ListUsersResponseBodyUsers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDynamicRouteRequest extends $tea.Model {
   applicationIds?: string[];
   applicationType?: string;
@@ -4086,6 +4173,72 @@ export class UpdateUserGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateUserGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUsersStatusRequest extends $tea.Model {
+  saseUserIds?: string[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      saseUserIds: 'SaseUserIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      saseUserIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUsersStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUsersStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUsersStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUsersStatusResponseBody,
     };
   }
 
@@ -6410,6 +6563,43 @@ export class ListUserGroupsForRegistrationPolicyResponseBodyPolicies extends $te
   }
 }
 
+export class ListUsersResponseBodyUsers extends $tea.Model {
+  department?: string;
+  email?: string;
+  idpName?: string;
+  phone?: string;
+  saseUserId?: string;
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      department: 'Department',
+      email: 'Email',
+      idpName: 'IdpName',
+      phone: 'Phone',
+      saseUserId: 'SaseUserId',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      department: 'string',
+      email: 'string',
+      idpName: 'string',
+      phone: 'string',
+      saseUserId: 'string',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBodyApplications extends $tea.Model {
   applicationId?: string;
   createTime?: string;
@@ -8259,6 +8449,31 @@ export default class Client extends OpenApi {
     return await this.listUserGroupsForRegistrationPolicyWithOptions(request, runtime);
   }
 
+  async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUsers",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
+  }
+
+  async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUsersWithOptions(request, runtime);
+  }
+
   async updateDynamicRouteWithOptions(request: UpdateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicRouteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8727,6 +8942,39 @@ export default class Client extends OpenApi {
   async updateUserGroup(request: UpdateUserGroupRequest): Promise<UpdateUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserGroupWithOptions(request, runtime);
+  }
+
+  async updateUsersStatusWithOptions(request: UpdateUsersStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUsersStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.saseUserIds)) {
+      query["SaseUserIds"] = request.saseUserIds;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUsersStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUsersStatusResponse>(await this.callApi(params, req, runtime), new UpdateUsersStatusResponse({}));
+  }
+
+  async updateUsersStatus(request: UpdateUsersStatusRequest): Promise<UpdateUsersStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateUsersStatusWithOptions(request, runtime);
   }
 
 }
