@@ -63,6 +63,7 @@ export class Alias extends $tea.Model {
 }
 
 export class AsyncConfig extends $tea.Model {
+  asyncTask?: boolean;
   createdTime?: string;
   destinationConfig?: DestinationConfig;
   functionArn?: string;
@@ -71,6 +72,7 @@ export class AsyncConfig extends $tea.Model {
   maxAsyncRetryAttempts?: number;
   static names(): { [key: string]: string } {
     return {
+      asyncTask: 'asyncTask',
       createdTime: 'createdTime',
       destinationConfig: 'destinationConfig',
       functionArn: 'functionArn',
@@ -82,12 +84,102 @@ export class AsyncConfig extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asyncTask: 'boolean',
       createdTime: 'string',
       destinationConfig: DestinationConfig,
       functionArn: 'string',
       lastModifiedTime: 'string',
       maxAsyncEventAgeInSeconds: 'number',
       maxAsyncRetryAttempts: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AsyncTask extends $tea.Model {
+  alreadyRetriedTimes?: number;
+  destinationStatus?: string;
+  durationMs?: number;
+  endTime?: number;
+  events?: AsyncTaskEvent[];
+  functionArn?: string;
+  instanceId?: string;
+  qualifier?: string;
+  requestId?: string;
+  returnPayload?: string;
+  startedTime?: number;
+  status?: string;
+  taskErrorMessage?: string;
+  taskId?: string;
+  taskPayload?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alreadyRetriedTimes: 'alreadyRetriedTimes',
+      destinationStatus: 'destinationStatus',
+      durationMs: 'durationMs',
+      endTime: 'endTime',
+      events: 'events',
+      functionArn: 'functionArn',
+      instanceId: 'instanceId',
+      qualifier: 'qualifier',
+      requestId: 'requestId',
+      returnPayload: 'returnPayload',
+      startedTime: 'startedTime',
+      status: 'status',
+      taskErrorMessage: 'taskErrorMessage',
+      taskId: 'taskId',
+      taskPayload: 'taskPayload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alreadyRetriedTimes: 'number',
+      destinationStatus: 'string',
+      durationMs: 'number',
+      endTime: 'number',
+      events: { 'type': 'array', 'itemType': AsyncTaskEvent },
+      functionArn: 'string',
+      instanceId: 'string',
+      qualifier: 'string',
+      requestId: 'string',
+      returnPayload: 'string',
+      startedTime: 'number',
+      status: 'string',
+      taskErrorMessage: 'string',
+      taskId: 'string',
+      taskPayload: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AsyncTaskEvent extends $tea.Model {
+  eventDetail?: string;
+  eventId?: number;
+  status?: string;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventDetail: 'eventDetail',
+      eventId: 'eventId',
+      status: 'status',
+      timestamp: 'timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventDetail: 'string',
+      eventId: 'number',
+      status: 'string',
+      timestamp: 'number',
     };
   }
 
@@ -110,6 +202,56 @@ export class AuthConfig extends $tea.Model {
     return {
       authInfo: 'string',
       authType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchWindow extends $tea.Model {
+  countBasedWindow?: number;
+  timeBasedWindow?: number;
+  static names(): { [key: string]: string } {
+    return {
+      countBasedWindow: 'CountBasedWindow',
+      timeBasedWindow: 'TimeBasedWindow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      countBasedWindow: 'number',
+      timeBasedWindow: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CDNTriggerConfig extends $tea.Model {
+  eventName?: string;
+  eventVersion?: string;
+  filter?: { [key: string]: string[] };
+  notes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventName: 'eventName',
+      eventVersion: 'eventVersion',
+      filter: 'filter',
+      notes: 'notes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventName: 'string',
+      eventVersion: 'string',
+      filter: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      notes: 'string',
     };
   }
 
@@ -606,6 +748,47 @@ export class DNSOption extends $tea.Model {
   }
 }
 
+export class DeadLetterQueue extends $tea.Model {
+  arn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeliveryOption extends $tea.Model {
+  concurrency?: number;
+  eventSchema?: string;
+  static names(): { [key: string]: string } {
+    return {
+      concurrency: 'concurrency',
+      eventSchema: 'eventSchema',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrency: 'number',
+      eventSchema: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Destination extends $tea.Model {
   destination?: string;
   static names(): { [key: string]: string } {
@@ -686,6 +869,134 @@ export class Error extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventBridgeTriggerConfig extends $tea.Model {
+  asyncInvocationType?: boolean;
+  eventRuleFilterPattern?: string;
+  eventSinkConfig?: EventSinkConfig;
+  eventSourceConfig?: EventSourceConfig;
+  runOptions?: RunOptions;
+  triggerEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      asyncInvocationType: 'asyncInvocationType',
+      eventRuleFilterPattern: 'eventRuleFilterPattern',
+      eventSinkConfig: 'eventSinkConfig',
+      eventSourceConfig: 'eventSourceConfig',
+      runOptions: 'runOptions',
+      triggerEnable: 'triggerEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncInvocationType: 'boolean',
+      eventRuleFilterPattern: 'string',
+      eventSinkConfig: EventSinkConfig,
+      eventSourceConfig: EventSourceConfig,
+      runOptions: RunOptions,
+      triggerEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventSinkConfig extends $tea.Model {
+  deliveryOption?: DeliveryOption;
+  static names(): { [key: string]: string } {
+    return {
+      deliveryOption: 'deliveryOption',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliveryOption: DeliveryOption,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventSourceConfig extends $tea.Model {
+  eventSourceParameters?: EventSourceParameters;
+  eventSourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventSourceParameters: 'eventSourceParameters',
+      eventSourceType: 'eventSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventSourceParameters: EventSourceParameters,
+      eventSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventSourceParameters extends $tea.Model {
+  sourceDTSParameters?: SourceDTSParameters;
+  sourceKafkaParameters?: SourceKafkaParameters;
+  sourceMNSParameters?: SourceMNSParameters;
+  sourceMQTTParameters?: SourceMQTTParameters;
+  sourceRabbitMQParameters?: SourceRabbitMQParameters;
+  sourceRocketMQParameters?: SourceRocketMQParameters;
+  static names(): { [key: string]: string } {
+    return {
+      sourceDTSParameters: 'sourceDTSParameters',
+      sourceKafkaParameters: 'sourceKafkaParameters',
+      sourceMNSParameters: 'sourceMNSParameters',
+      sourceMQTTParameters: 'sourceMQTTParameters',
+      sourceRabbitMQParameters: 'sourceRabbitMQParameters',
+      sourceRocketMQParameters: 'sourceRocketMQParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceDTSParameters: SourceDTSParameters,
+      sourceKafkaParameters: SourceKafkaParameters,
+      sourceMNSParameters: SourceMNSParameters,
+      sourceMQTTParameters: SourceMQTTParameters,
+      sourceRabbitMQParameters: SourceRabbitMQParameters,
+      sourceRocketMQParameters: SourceRocketMQParameters,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Filter extends $tea.Model {
+  key?: Key;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: Key,
     };
   }
 
@@ -906,6 +1217,34 @@ export class HTTPTrigger extends $tea.Model {
   }
 }
 
+export class HTTPTriggerConfig extends $tea.Model {
+  authConfig?: string;
+  authType?: string;
+  disableURLInternet?: boolean;
+  methods?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'authConfig',
+      authType: 'authType',
+      disableURLInternet: 'disableURLInternet',
+      methods: 'methods',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: 'string',
+      authType: 'string',
+      disableURLInternet: 'boolean',
+      methods: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InputCodeLocation extends $tea.Model {
   checksum?: string;
   ossBucketName?: string;
@@ -970,6 +1309,50 @@ export class InstanceLifecycleConfig extends $tea.Model {
     return {
       initializer: LifecycleHook,
       preStop: LifecycleHook,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobConfig extends $tea.Model {
+  maxRetryTime?: number;
+  triggerInterval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxRetryTime: 'maxRetryTime',
+      triggerInterval: 'triggerInterval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxRetryTime: 'number',
+      triggerInterval: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Key extends $tea.Model {
+  prefix?: string;
+  suffix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prefix: 'prefix',
+      suffix: 'suffix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prefix: 'string',
+      suffix: 'string',
     };
   }
 
@@ -1085,6 +1468,28 @@ export class ListAsyncInvokeConfigOutput extends $tea.Model {
     return {
       configs: { 'type': 'array', 'itemType': AsyncConfig },
       nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAsyncTaskOutput extends $tea.Model {
+  nextToken?: string;
+  tasks?: AsyncTask[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      tasks: 'tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      tasks: { 'type': 'array', 'itemType': AsyncTask },
     };
   }
 
@@ -1388,6 +1793,31 @@ export class LogConfig extends $tea.Model {
   }
 }
 
+export class MNSTopicTriggerConfig extends $tea.Model {
+  filterTag?: string;
+  notifyContentFormat?: string;
+  notifyStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterTag: 'filterTag',
+      notifyContentFormat: 'notifyContentFormat',
+      notifyStrategy: 'notifyStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterTag: 'string',
+      notifyContentFormat: 'string',
+      notifyStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NASConfig extends $tea.Model {
   groupId?: number;
   mountPoints?: NASMountConfig[];
@@ -1480,6 +1910,28 @@ export class OSSMountPoint extends $tea.Model {
       endpoint: 'string',
       mountDir: 'string',
       readOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OSSTriggerConfig extends $tea.Model {
+  events?: string[];
+  filter?: Filter;
+  static names(): { [key: string]: string } {
+    return {
+      events: 'events',
+      filter: 'filter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': 'string' },
+      filter: Filter,
     };
   }
 
@@ -1620,11 +2072,13 @@ export class PublishVersionInput extends $tea.Model {
 }
 
 export class PutAsyncInvokeConfigInput extends $tea.Model {
+  asyncTask?: boolean;
   destinationConfig?: DestinationConfig;
   maxAsyncEventAgeInSeconds?: number;
   maxAsyncRetryAttempts?: number;
   static names(): { [key: string]: string } {
     return {
+      asyncTask: 'asyncTask',
       destinationConfig: 'destinationConfig',
       maxAsyncEventAgeInSeconds: 'maxAsyncEventAgeInSeconds',
       maxAsyncRetryAttempts: 'maxAsyncRetryAttempts',
@@ -1633,6 +2087,7 @@ export class PutAsyncInvokeConfigInput extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asyncTask: 'boolean',
       destinationConfig: DestinationConfig,
       maxAsyncEventAgeInSeconds: 'number',
       maxAsyncRetryAttempts: 'number',
@@ -1738,6 +2193,25 @@ export class Resource extends $tea.Model {
   }
 }
 
+export class RetryStrategy extends $tea.Model {
+  pushRetryStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pushRetryStrategy: 'PushRetryStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pushRetryStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RewriteConfig extends $tea.Model {
   equalRules?: EqualRule[];
   regexRules?: RegexRule[];
@@ -1782,6 +2256,90 @@ export class RouteConfig extends $tea.Model {
   }
 }
 
+export class RunOptions extends $tea.Model {
+  batchWindow?: BatchWindow;
+  deadLetterQueue?: DeadLetterQueue;
+  errorsTolerance?: string;
+  mode?: string;
+  retryStrategy?: RetryStrategy;
+  static names(): { [key: string]: string } {
+    return {
+      batchWindow: 'batchWindow',
+      deadLetterQueue: 'deadLetterQueue',
+      errorsTolerance: 'errorsTolerance',
+      mode: 'mode',
+      retryStrategy: 'retryStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchWindow: BatchWindow,
+      deadLetterQueue: DeadLetterQueue,
+      errorsTolerance: 'string',
+      mode: 'string',
+      retryStrategy: RetryStrategy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SLSTriggerConfig extends $tea.Model {
+  enable?: boolean;
+  functionParameter?: { [key: string]: string };
+  jobConfig?: JobConfig;
+  logConfig?: SLSTriggerLogConfig;
+  sourceConfig?: SourceConfig;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      functionParameter: 'functionParameter',
+      jobConfig: 'jobConfig',
+      logConfig: 'logConfig',
+      sourceConfig: 'sourceConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      functionParameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      jobConfig: JobConfig,
+      logConfig: SLSTriggerLogConfig,
+      sourceConfig: SourceConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SLSTriggerLogConfig extends $tea.Model {
+  logstore?: string;
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+      project: 'project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      project: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScheduledAction extends $tea.Model {
   endTime?: string;
   name?: string;
@@ -1805,6 +2363,256 @@ export class ScheduledAction extends $tea.Model {
       scheduleExpression: 'string',
       startTime: 'string',
       target: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceConfig extends $tea.Model {
+  logstore?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logstore: 'logstore',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logstore: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceDTSParameters extends $tea.Model {
+  brokerUrl?: string;
+  initCheckPoint?: number;
+  password?: string;
+  regionId?: string;
+  sid?: string;
+  taskId?: string;
+  topic?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brokerUrl: 'BrokerUrl',
+      initCheckPoint: 'InitCheckPoint',
+      password: 'Password',
+      regionId: 'RegionId',
+      sid: 'Sid',
+      taskId: 'TaskId',
+      topic: 'Topic',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brokerUrl: 'string',
+      initCheckPoint: 'number',
+      password: 'string',
+      regionId: 'string',
+      sid: 'string',
+      taskId: 'string',
+      topic: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceKafkaParameters extends $tea.Model {
+  consumerGroup?: string;
+  instanceId?: string;
+  network?: string;
+  offsetReset?: string;
+  regionId?: string;
+  securityGroupId?: string;
+  topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroup: 'ConsumerGroup',
+      instanceId: 'InstanceId',
+      network: 'Network',
+      offsetReset: 'OffsetReset',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroup: 'string',
+      instanceId: 'string',
+      network: 'string',
+      offsetReset: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceMNSParameters extends $tea.Model {
+  isBase64Decode?: boolean;
+  queueName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isBase64Decode: 'IsBase64Decode',
+      queueName: 'QueueName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isBase64Decode: 'boolean',
+      queueName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceMQTTParameters extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      topic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceRabbitMQParameters extends $tea.Model {
+  instanceId?: string;
+  queueName?: string;
+  regionId?: string;
+  virtualHostName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      queueName: 'QueueName',
+      regionId: 'RegionId',
+      virtualHostName: 'VirtualHostName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      queueName: 'string',
+      regionId: 'string',
+      virtualHostName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceRocketMQParameters extends $tea.Model {
+  authType?: string;
+  filterType?: string;
+  groupID?: string;
+  instanceEndpoint?: string;
+  instanceId?: string;
+  instanceNetwork?: string;
+  instancePassword?: string;
+  instanceSecurityGroupId?: string;
+  instanceType?: string;
+  instanceUsername?: string;
+  instanceVSwitchIds?: string;
+  instanceVpcId?: string;
+  offset?: string;
+  regionId?: string;
+  tag?: string;
+  timestamp?: number;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'AuthType',
+      filterType: 'FilterType',
+      groupID: 'GroupID',
+      instanceEndpoint: 'InstanceEndpoint',
+      instanceId: 'InstanceId',
+      instanceNetwork: 'InstanceNetwork',
+      instancePassword: 'InstancePassword',
+      instanceSecurityGroupId: 'InstanceSecurityGroupId',
+      instanceType: 'InstanceType',
+      instanceUsername: 'InstanceUsername',
+      instanceVSwitchIds: 'InstanceVSwitchIds',
+      instanceVpcId: 'InstanceVpcId',
+      offset: 'Offset',
+      regionId: 'RegionId',
+      tag: 'Tag',
+      timestamp: 'Timestamp',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      filterType: 'string',
+      groupID: 'string',
+      instanceEndpoint: 'string',
+      instanceId: 'string',
+      instanceNetwork: 'string',
+      instancePassword: 'string',
+      instanceSecurityGroupId: 'string',
+      instanceType: 'string',
+      instanceUsername: 'string',
+      instanceVSwitchIds: 'string',
+      instanceVpcId: 'string',
+      offset: 'string',
+      regionId: 'string',
+      tag: 'string',
+      timestamp: 'number',
+      topic: 'string',
     };
   }
 
@@ -1964,6 +2772,31 @@ export class TargetTrackingPolicy extends $tea.Model {
       minCapacity: 'number',
       name: 'string',
       startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TimerTriggerConfig extends $tea.Model {
+  cronExpression?: string;
+  enable?: boolean;
+  payload?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'cronExpression',
+      enable: 'enable',
+      payload: 'payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+      enable: 'boolean',
+      payload: 'string',
     };
   }
 
@@ -3135,50 +3968,6 @@ export class GetProvisionConfigResponse extends $tea.Model {
   }
 }
 
-export class GetResourceTagsRequest extends $tea.Model {
-  arn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      arn: 'arn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTagsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetResourceTagsOutput;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetResourceTagsOutput,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetTriggerResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -3206,11 +3995,13 @@ export class GetTriggerResponse extends $tea.Model {
 
 export class InvokeFunctionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  xFcAsyncTaskId?: string;
   xFcInvocationType?: string;
   xFcLogType?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
+      xFcAsyncTaskId: 'x-fc-async-task-id',
       xFcInvocationType: 'x-fc-invocation-type',
       xFcLogType: 'x-fc-log-type',
     };
@@ -3219,6 +4010,7 @@ export class InvokeFunctionHeaders extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAsyncTaskId: 'string',
       xFcInvocationType: 'string',
       xFcLogType: 'string',
     };
@@ -3863,56 +4655,6 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
-export class ListTaggedResourcesRequest extends $tea.Model {
-  limit?: number;
-  nextToken?: string;
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      limit: 'limit',
-      nextToken: 'nextToken',
-      resourceType: 'resourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      limit: 'number',
-      nextToken: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaggedResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTaggedResourcesOutput;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTaggedResourcesOutput,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListTriggersRequest extends $tea.Model {
   limit?: number;
   nextToken?: string;
@@ -4211,47 +4953,6 @@ export class PutProvisionConfigResponse extends $tea.Model {
   }
 }
 
-export class TagResourceRequest extends $tea.Model {
-  body?: TagResourceInput;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: TagResourceInput,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class TagResourcesRequest extends $tea.Model {
   body?: TagResourcesInput;
   static names(): { [key: string]: string } {
@@ -4272,53 +4973,6 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourceRequest extends $tea.Model {
-  all?: boolean;
-  arn?: string;
-  tagKeys?: string;
-  static names(): { [key: string]: string } {
-    return {
-      all: 'all',
-      arn: 'arn',
-      tagKeys: 'tagKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      arn: 'string',
-      tagKeys: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5293,53 +5947,6 @@ export default class Client extends OpenApi {
     return await this.getProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * @deprecated
-    *
-    * @param request GetResourceTagsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetResourceTagsResponse
-   */
-  // Deprecated
-  async getResourceTagsWithOptions(request: GetResourceTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceTagsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.arn)) {
-      query["arn"] = request.arn;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetResourceTags",
-      version: "2023-03-30",
-      protocol: "HTTPS",
-      pathname: `/2023-03-30/tag`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetResourceTagsResponse>(await this.callApi(params, req, runtime), new GetResourceTagsResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request GetResourceTagsRequest
-    * @return GetResourceTagsResponse
-   */
-  // Deprecated
-  async getResourceTags(request: GetResourceTagsRequest): Promise<GetResourceTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getResourceTagsWithOptions(request, headers, runtime);
-  }
-
   async getTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5374,6 +5981,10 @@ export default class Client extends OpenApi {
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAsyncTaskId)) {
+      realHeaders["x-fc-async-task-id"] = Util.toJSONString(headers.xFcAsyncTaskId);
     }
 
     if (!Util.isUnset(headers.xFcInvocationType)) {
@@ -5874,61 +6485,6 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
-  /**
-    * @deprecated
-    *
-    * @param request ListTaggedResourcesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTaggedResourcesResponse
-   */
-  // Deprecated
-  async listTaggedResourcesWithOptions(request: ListTaggedResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaggedResourcesResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
-      query["limit"] = request.limit;
-    }
-
-    if (!Util.isUnset(request.nextToken)) {
-      query["nextToken"] = request.nextToken;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      query["resourceType"] = request.resourceType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListTaggedResources",
-      version: "2023-03-30",
-      protocol: "HTTPS",
-      pathname: `/2023-03-30/tags`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTaggedResourcesResponse>(await this.callApi(params, req, runtime), new ListTaggedResourcesResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request ListTaggedResourcesRequest
-    * @return ListTaggedResourcesResponse
-   */
-  // Deprecated
-  async listTaggedResources(request: ListTaggedResourcesRequest): Promise<ListTaggedResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listTaggedResourcesWithOptions(request, headers, runtime);
-  }
-
   async listTriggersWithOptions(functionName: string, request: ListTriggersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6139,48 +6695,6 @@ export default class Client extends OpenApi {
     return await this.putProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
 
-  /**
-    * @deprecated
-    *
-    * @param request TagResourceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourceResponse
-   */
-  // Deprecated
-  async tagResourceWithOptions(request: TagResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(request.body),
-    });
-    let params = new $OpenApi.Params({
-      action: "TagResource",
-      version: "2023-03-30",
-      protocol: "HTTPS",
-      pathname: `/2023-03-30/tag`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request TagResourceRequest
-    * @return TagResourceResponse
-   */
-  // Deprecated
-  async tagResource(request: TagResourceRequest): Promise<TagResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.tagResourceWithOptions(request, headers, runtime);
-  }
-
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6205,61 +6719,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request UntagResourceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UntagResourceResponse
-   */
-  // Deprecated
-  async untagResourceWithOptions(request: UntagResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourceResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.all)) {
-      query["all"] = request.all;
-    }
-
-    if (!Util.isUnset(request.arn)) {
-      query["arn"] = request.arn;
-    }
-
-    if (!Util.isUnset(request.tagKeys)) {
-      query["tagKeys"] = request.tagKeys;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UntagResource",
-      version: "2023-03-30",
-      protocol: "HTTPS",
-      pathname: `/2023-03-30/tag`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<UntagResourceResponse>(await this.callApi(params, req, runtime), new UntagResourceResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request UntagResourceRequest
-    * @return UntagResourceResponse
-   */
-  // Deprecated
-  async untagResource(request: UntagResourceRequest): Promise<UntagResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.untagResourceWithOptions(request, headers, runtime);
   }
 
   async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
