@@ -640,15 +640,18 @@ export class AddPublicIpAddressPoolCidrBlockRequest extends $tea.Model {
 }
 
 export class AddPublicIpAddressPoolCidrBlockResponseBody extends $tea.Model {
+  cidrBlock?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      cidrBlock: 'CidrBlock',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cidrBlock: 'string',
       requestId: 'string',
     };
   }
@@ -4259,6 +4262,312 @@ export class CreateExpressCloudConnectionResponse extends $tea.Model {
   }
 }
 
+export class CreateExpressConnectTrafficQosRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosDescription?: string;
+  qosName?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosDescription: 'QosDescription',
+      qosName: 'QosName',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosDescription: 'string',
+      qosName: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExpressConnectTrafficQosResponseBody extends $tea.Model {
+  qosId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qosId: 'QosId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qosId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExpressConnectTrafficQosResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateExpressConnectTrafficQosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateExpressConnectTrafficQosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExpressConnectTrafficQosQueueRequest extends $tea.Model {
+  bandwidthPercent?: string;
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosId?: string;
+  queueDescription?: string;
+  queueName?: string;
+  queueType?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPercent: 'BandwidthPercent',
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosId: 'QosId',
+      queueDescription: 'QueueDescription',
+      queueName: 'QueueName',
+      queueType: 'QueueType',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPercent: 'string',
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosId: 'string',
+      queueDescription: 'string',
+      queueName: 'string',
+      queueType: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExpressConnectTrafficQosQueueResponseBody extends $tea.Model {
+  qosId?: string;
+  queueId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qosId: 'string',
+      queueId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExpressConnectTrafficQosQueueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateExpressConnectTrafficQosQueueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateExpressConnectTrafficQosQueueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExpressConnectTrafficQosRuleRequest extends $tea.Model {
+  clientToken?: string;
+  dstCidr?: string;
+  dstIPv6Cidr?: string;
+  dstPortRange?: string;
+  matchDscp?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  priority?: number;
+  protocol?: string;
+  qosId?: string;
+  queueId?: string;
+  regionId?: string;
+  remarkingDscp?: number;
+  resourceOwnerAccount?: string;
+  ruleDescription?: string;
+  ruleName?: string;
+  srcCidr?: string;
+  srcIPv6Cidr?: string;
+  srcPortRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dstCidr: 'DstCidr',
+      dstIPv6Cidr: 'DstIPv6Cidr',
+      dstPortRange: 'DstPortRange',
+      matchDscp: 'MatchDscp',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      priority: 'Priority',
+      protocol: 'Protocol',
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      regionId: 'RegionId',
+      remarkingDscp: 'RemarkingDscp',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      ruleDescription: 'RuleDescription',
+      ruleName: 'RuleName',
+      srcCidr: 'SrcCidr',
+      srcIPv6Cidr: 'SrcIPv6Cidr',
+      srcPortRange: 'SrcPortRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dstCidr: 'string',
+      dstIPv6Cidr: 'string',
+      dstPortRange: 'string',
+      matchDscp: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      priority: 'number',
+      protocol: 'string',
+      qosId: 'string',
+      queueId: 'string',
+      regionId: 'string',
+      remarkingDscp: 'number',
+      resourceOwnerAccount: 'string',
+      ruleDescription: 'string',
+      ruleName: 'string',
+      srcCidr: 'string',
+      srcIPv6Cidr: 'string',
+      srcPortRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExpressConnectTrafficQosRuleResponseBody extends $tea.Model {
+  qosId?: string;
+  queueId?: string;
+  requestId?: string;
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      requestId: 'RequestId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qosId: 'string',
+      queueId: 'string',
+      requestId: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExpressConnectTrafficQosRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateExpressConnectTrafficQosRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateExpressConnectTrafficQosRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFailoverTestJobRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
@@ -6523,11 +6832,13 @@ export class CreatePublicIpAddressPoolRequest extends $tea.Model {
 }
 
 export class CreatePublicIpAddressPoolResponseBody extends $tea.Model {
+  publicIpAddressPoolId?: string;
   pulbicIpAddressPoolId?: string;
   requestId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      publicIpAddressPoolId: 'PublicIpAddressPoolId',
       pulbicIpAddressPoolId: 'PulbicIpAddressPoolId',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
@@ -6536,6 +6847,7 @@ export class CreatePublicIpAddressPoolResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      publicIpAddressPoolId: 'string',
       pulbicIpAddressPoolId: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
@@ -10029,6 +10341,249 @@ export class DeleteDhcpOptionsSetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDhcpOptionsSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosId?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosId: 'QosId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosId: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExpressConnectTrafficQosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteExpressConnectTrafficQosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosQueueRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosId?: string;
+  queueId?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosId: 'string',
+      queueId: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosQueueResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosQueueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExpressConnectTrafficQosQueueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteExpressConnectTrafficQosQueueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosRuleRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosId?: string;
+  queueId?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosId: 'string',
+      queueId: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteExpressConnectTrafficQosRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteExpressConnectTrafficQosRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteExpressConnectTrafficQosRuleResponseBody,
     };
   }
 
@@ -13778,6 +14333,93 @@ export class DeletionProtectionResponse extends $tea.Model {
   }
 }
 
+export class Describe95TrafficRequest extends $tea.Model {
+  day?: string;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      day: 'Day',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      day: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Describe95TrafficResponseBody extends $tea.Model {
+  requestId?: string;
+  traffic95Summary?: Describe95TrafficResponseBodyTraffic95Summary;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      traffic95Summary: 'Traffic95Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      traffic95Summary: Describe95TrafficResponseBodyTraffic95Summary,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Describe95TrafficResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Describe95TrafficResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Describe95TrafficResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccessPointsRequest extends $tea.Model {
   acceptLanguage?: string;
   ownerId?: number;
@@ -14608,6 +15250,7 @@ export class DescribeEipAddressesRequest extends $tea.Model {
   resourceOwnerId?: number;
   securityProtectionEnabled?: boolean;
   segmentInstanceId?: string;
+  serviceManaged?: boolean;
   status?: string;
   tag?: DescribeEipAddressesRequestTag[];
   static names(): { [key: string]: string } {
@@ -14634,6 +15277,7 @@ export class DescribeEipAddressesRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       securityProtectionEnabled: 'SecurityProtectionEnabled',
       segmentInstanceId: 'SegmentInstanceId',
+      serviceManaged: 'ServiceManaged',
       status: 'Status',
       tag: 'Tag',
     };
@@ -14663,6 +15307,7 @@ export class DescribeEipAddressesRequest extends $tea.Model {
       resourceOwnerId: 'number',
       securityProtectionEnabled: 'boolean',
       segmentInstanceId: 'string',
+      serviceManaged: 'boolean',
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeEipAddressesRequestTag },
     };
@@ -14997,6 +15642,285 @@ export class DescribeEipSegmentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeEipSegmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosRequest extends $tea.Model {
+  clientToken?: string;
+  maxResults?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosIdList?: string[];
+  qosNameList?: string[];
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosIdList: 'QosIdList',
+      qosNameList: 'QosNameList',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosIdList: { 'type': 'array', 'itemType': 'string' },
+      qosNameList: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosResponseBody extends $tea.Model {
+  count?: string;
+  maxResults?: number;
+  nextToken?: string;
+  qosList?: DescribeExpressConnectTrafficQosResponseBodyQosList[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      qosList: 'QosList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      qosList: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosResponseBodyQosList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeExpressConnectTrafficQosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeExpressConnectTrafficQosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosQueueRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosId?: string;
+  queueIdList?: string[];
+  queueNameList?: string[];
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosId: 'QosId',
+      queueIdList: 'QueueIdList',
+      queueNameList: 'QueueNameList',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosId: 'string',
+      queueIdList: { 'type': 'array', 'itemType': 'string' },
+      queueNameList: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosQueueResponseBody extends $tea.Model {
+  queueList?: DescribeExpressConnectTrafficQosQueueResponseBodyQueueList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queueList: 'QueueList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queueList: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosQueueResponseBodyQueueList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosQueueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeExpressConnectTrafficQosQueueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeExpressConnectTrafficQosQueueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosRuleRequest extends $tea.Model {
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosId?: string;
+  queueId?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  ruleIdList?: string[];
+  ruleNameList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      ruleIdList: 'RuleIdList',
+      ruleNameList: 'RuleNameList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosId: 'string',
+      queueId: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      ruleIdList: { 'type': 'array', 'itemType': 'string' },
+      ruleNameList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  ruleList?: DescribeExpressConnectTrafficQosRuleResponseBodyRuleList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      ruleList: 'RuleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      ruleList: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosRuleResponseBodyRuleList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeExpressConnectTrafficQosRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeExpressConnectTrafficQosRuleResponseBody,
     };
   }
 
@@ -16321,6 +17245,7 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  serviceManaged?: boolean;
   tag?: DescribeIpv6AddressesRequestTag[];
   vSwitchId?: string;
   vpcId?: string;
@@ -16342,6 +17267,7 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      serviceManaged: 'ServiceManaged',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -16366,6 +17292,7 @@ export class DescribeIpv6AddressesRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      serviceManaged: 'boolean',
       tag: { 'type': 'array', 'itemType': DescribeIpv6AddressesRequestTag },
       vSwitchId: 'string',
       vpcId: 'string',
@@ -19855,6 +20782,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
   description?: string;
   dhcpOptionsSetId?: string;
   dhcpOptionsSetStatus?: string;
+  enabledIpv6?: boolean;
   ipv4GatewayId?: string;
   ipv6CidrBlock?: string;
   ipv6CidrBlocks?: DescribeVpcAttributeResponseBodyIpv6CidrBlocks;
@@ -19883,6 +20811,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
       description: 'Description',
       dhcpOptionsSetId: 'DhcpOptionsSetId',
       dhcpOptionsSetStatus: 'DhcpOptionsSetStatus',
+      enabledIpv6: 'EnabledIpv6',
       ipv4GatewayId: 'Ipv4GatewayId',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       ipv6CidrBlocks: 'Ipv6CidrBlocks',
@@ -19914,6 +20843,7 @@ export class DescribeVpcAttributeResponseBody extends $tea.Model {
       description: 'string',
       dhcpOptionsSetId: 'string',
       dhcpOptionsSetStatus: 'string',
+      enabledIpv6: 'boolean',
       ipv4GatewayId: 'string',
       ipv6CidrBlock: 'string',
       ipv6CidrBlocks: DescribeVpcAttributeResponseBodyIpv6CidrBlocks,
@@ -26964,6 +27894,306 @@ export class ModifyExpressCloudConnectionBandwidthResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyExpressCloudConnectionBandwidthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosRequest extends $tea.Model {
+  addInstanceList?: ModifyExpressConnectTrafficQosRequestAddInstanceList[];
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosDescription?: string;
+  qosId?: string;
+  qosName?: string;
+  regionId?: string;
+  removeInstanceList?: ModifyExpressConnectTrafficQosRequestRemoveInstanceList[];
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addInstanceList: 'AddInstanceList',
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosDescription: 'QosDescription',
+      qosId: 'QosId',
+      qosName: 'QosName',
+      regionId: 'RegionId',
+      removeInstanceList: 'RemoveInstanceList',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addInstanceList: { 'type': 'array', 'itemType': ModifyExpressConnectTrafficQosRequestAddInstanceList },
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosDescription: 'string',
+      qosId: 'string',
+      qosName: 'string',
+      regionId: 'string',
+      removeInstanceList: { 'type': 'array', 'itemType': ModifyExpressConnectTrafficQosRequestRemoveInstanceList },
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyExpressConnectTrafficQosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyExpressConnectTrafficQosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosQueueRequest extends $tea.Model {
+  bandwidthPercent?: string;
+  clientToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  qosId?: string;
+  queueDescription?: string;
+  queueId?: string;
+  queueName?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPercent: 'BandwidthPercent',
+      clientToken: 'ClientToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      qosId: 'QosId',
+      queueDescription: 'QueueDescription',
+      queueId: 'QueueId',
+      queueName: 'QueueName',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPercent: 'string',
+      clientToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      qosId: 'string',
+      queueDescription: 'string',
+      queueId: 'string',
+      queueName: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosQueueResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosQueueResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyExpressConnectTrafficQosQueueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyExpressConnectTrafficQosQueueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosRuleRequest extends $tea.Model {
+  clientToken?: string;
+  dstCidr?: string;
+  dstIPv6Cidr?: string;
+  dstPortRange?: string;
+  matchDscp?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  priority?: number;
+  protocol?: string;
+  qosId?: string;
+  queueId?: string;
+  regionId?: string;
+  remarkingDscp?: number;
+  resourceOwnerAccount?: string;
+  ruleDescription?: string;
+  ruleId?: string;
+  ruleName?: string;
+  srcCidr?: string;
+  srcIPv6Cidr?: string;
+  srcPortRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dstCidr: 'DstCidr',
+      dstIPv6Cidr: 'DstIPv6Cidr',
+      dstPortRange: 'DstPortRange',
+      matchDscp: 'MatchDscp',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      priority: 'Priority',
+      protocol: 'Protocol',
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      regionId: 'RegionId',
+      remarkingDscp: 'RemarkingDscp',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      ruleDescription: 'RuleDescription',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      srcCidr: 'SrcCidr',
+      srcIPv6Cidr: 'SrcIPv6Cidr',
+      srcPortRange: 'SrcPortRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dstCidr: 'string',
+      dstIPv6Cidr: 'string',
+      dstPortRange: 'string',
+      matchDscp: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      priority: 'number',
+      protocol: 'string',
+      qosId: 'string',
+      queueId: 'string',
+      regionId: 'string',
+      remarkingDscp: 'number',
+      resourceOwnerAccount: 'string',
+      ruleDescription: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      srcCidr: 'string',
+      srcIPv6Cidr: 'string',
+      srcPortRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyExpressConnectTrafficQosRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyExpressConnectTrafficQosRuleResponseBody,
     };
   }
 
@@ -37233,6 +38463,87 @@ export class DeleteRouteEntryRequestNextHopList extends $tea.Model {
   }
 }
 
+export class Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail extends $tea.Model {
+  billBandwidth?: string;
+  inBandwidth?: string;
+  outBandwidth?: string;
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billBandwidth: 'BillBandwidth',
+      inBandwidth: 'InBandwidth',
+      outBandwidth: 'OutBandwidth',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billBandwidth: 'string',
+      inBandwidth: 'string',
+      outBandwidth: 'string',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList extends $tea.Model {
+  traffic95Detail?: Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail[];
+  static names(): { [key: string]: string } {
+    return {
+      traffic95Detail: 'Traffic95Detail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      traffic95Detail: { 'type': 'array', 'itemType': Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailListTraffic95Detail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Describe95TrafficResponseBodyTraffic95Summary extends $tea.Model {
+  bandwidth?: number;
+  fifthPeakBandwidth?: string;
+  instanceId?: string;
+  internetChargeType?: string;
+  minimumConsumeBandwidth?: string;
+  traffic95DetailList?: Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      fifthPeakBandwidth: 'FifthPeakBandwidth',
+      instanceId: 'InstanceId',
+      internetChargeType: 'InternetChargeType',
+      minimumConsumeBandwidth: 'MinimumConsumeBandwidth',
+      traffic95DetailList: 'Traffic95DetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      fifthPeakBandwidth: 'string',
+      instanceId: 'string',
+      internetChargeType: 'string',
+      minimumConsumeBandwidth: 'string',
+      traffic95DetailList: Describe95TrafficResponseBodyTraffic95SummaryTraffic95DetailList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccessPointsResponseBodyAccessPointSetAccessPointTypeAccessPointFeatureModelsAccessPointFeatureModel extends $tea.Model {
   featureKey?: string;
   featureValue?: string;
@@ -38474,6 +39785,276 @@ export class DescribeEipSegmentResponseBodyEipSegments extends $tea.Model {
   }
 }
 
+export class DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList extends $tea.Model {
+  instanceId?: string;
+  instanceProgressing?: number;
+  instanceStatus?: string;
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceProgressing: 'InstanceProgressing',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceProgressing: 'number',
+      instanceStatus: 'string',
+      instanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extends $tea.Model {
+  bandwidthPercent?: string;
+  qosId?: string;
+  queueDescription?: string;
+  queueId?: string;
+  queueName?: string;
+  queueType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPercent: 'BandwidthPercent',
+      qosId: 'QosId',
+      queueDescription: 'QueueDescription',
+      queueId: 'QueueId',
+      queueName: 'QueueName',
+      queueType: 'QueueType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPercent: 'string',
+      qosId: 'string',
+      queueDescription: 'string',
+      queueId: 'string',
+      queueName: 'string',
+      queueType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $tea.Model {
+  associatedInstanceList?: DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList[];
+  progressing?: number;
+  qosDescription?: string;
+  qosId?: string;
+  qosName?: string;
+  queueList?: DescribeExpressConnectTrafficQosResponseBodyQosListQueueList[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associatedInstanceList: 'AssociatedInstanceList',
+      progressing: 'Progressing',
+      qosDescription: 'QosDescription',
+      qosId: 'QosId',
+      qosName: 'QosName',
+      queueList: 'QueueList',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associatedInstanceList: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList },
+      progressing: 'number',
+      qosDescription: 'string',
+      qosId: 'string',
+      qosName: 'string',
+      queueList: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosResponseBodyQosListQueueList },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList extends $tea.Model {
+  dstCidr?: string;
+  dstIPv6Cidr?: string;
+  dstPortRange?: string;
+  matchDscp?: number;
+  priority?: number;
+  protocol?: string;
+  qosId?: string;
+  queueId?: string;
+  remarkingDscp?: number;
+  ruleDescription?: string;
+  ruleId?: string;
+  ruleName?: string;
+  srcCidr?: string;
+  srcIPv6Cidr?: string;
+  srcPortRange?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstCidr: 'DstCidr',
+      dstIPv6Cidr: 'DstIPv6Cidr',
+      dstPortRange: 'DstPortRange',
+      matchDscp: 'MatchDscp',
+      priority: 'Priority',
+      protocol: 'Protocol',
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      remarkingDscp: 'RemarkingDscp',
+      ruleDescription: 'RuleDescription',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      srcCidr: 'SrcCidr',
+      srcIPv6Cidr: 'SrcIPv6Cidr',
+      srcPortRange: 'SrcPortRange',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstCidr: 'string',
+      dstIPv6Cidr: 'string',
+      dstPortRange: 'string',
+      matchDscp: 'number',
+      priority: 'number',
+      protocol: 'string',
+      qosId: 'string',
+      queueId: 'string',
+      remarkingDscp: 'number',
+      ruleDescription: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      srcCidr: 'string',
+      srcIPv6Cidr: 'string',
+      srcPortRange: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueList extends $tea.Model {
+  bandwidthPercent?: string;
+  qosId?: string;
+  queueDescription?: string;
+  queueId?: string;
+  queueName?: string;
+  queueType?: string;
+  ruleList?: DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPercent: 'BandwidthPercent',
+      qosId: 'QosId',
+      queueDescription: 'QueueDescription',
+      queueId: 'QueueId',
+      queueName: 'QueueName',
+      queueType: 'QueueType',
+      ruleList: 'RuleList',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPercent: 'string',
+      qosId: 'string',
+      queueDescription: 'string',
+      queueId: 'string',
+      queueName: 'string',
+      queueType: 'string',
+      ruleList: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeExpressConnectTrafficQosRuleResponseBodyRuleList extends $tea.Model {
+  dstCidr?: string;
+  dstIPv6Cidr?: string;
+  dstPortRange?: string;
+  matchDscp?: number;
+  priority?: number;
+  protocol?: string;
+  qosId?: string;
+  queueId?: string;
+  remarkingDscp?: number;
+  ruleDescription?: string;
+  ruleId?: string;
+  ruleName?: string;
+  srcCidr?: string;
+  srcIPv6Cidr?: string;
+  srcPortRange?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstCidr: 'DstCidr',
+      dstIPv6Cidr: 'DstIPv6Cidr',
+      dstPortRange: 'DstPortRange',
+      matchDscp: 'MatchDscp',
+      priority: 'Priority',
+      protocol: 'Protocol',
+      qosId: 'QosId',
+      queueId: 'QueueId',
+      remarkingDscp: 'RemarkingDscp',
+      ruleDescription: 'RuleDescription',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      srcCidr: 'SrcCidr',
+      srcIPv6Cidr: 'SrcIPv6Cidr',
+      srcPortRange: 'SrcPortRange',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstCidr: 'string',
+      dstIPv6Cidr: 'string',
+      dstPortRange: 'string',
+      matchDscp: 'number',
+      priority: 'number',
+      protocol: 'string',
+      qosId: 'string',
+      queueId: 'string',
+      remarkingDscp: 'number',
+      ruleDescription: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      srcCidr: 'string',
+      srcIPv6Cidr: 'string',
+      srcPortRange: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $tea.Model {
   description?: string;
   jobDuration?: string;
@@ -39635,6 +41216,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
   networkType?: string;
   realBandwidth?: number;
   resourceGroupId?: string;
+  serviceManaged?: number;
   status?: string;
   tags?: DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags;
   vSwitchId?: string;
@@ -39654,6 +41236,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
       networkType: 'NetworkType',
       realBandwidth: 'RealBandwidth',
       resourceGroupId: 'ResourceGroupId',
+      serviceManaged: 'ServiceManaged',
       status: 'Status',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
@@ -39676,6 +41259,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
       networkType: 'string',
       realBandwidth: 'number',
       resourceGroupId: 'string',
+      serviceManaged: 'number',
       status: 'string',
       tags: DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags,
       vSwitchId: 'string',
@@ -43787,6 +45371,7 @@ export class DescribeVpcsResponseBodyVpcsVpc extends $tea.Model {
   description?: string;
   dhcpOptionsSetId?: string;
   dhcpOptionsSetStatus?: string;
+  enabledIpv6?: boolean;
   ipv6CidrBlock?: string;
   ipv6CidrBlocks?: DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocks;
   isDefault?: boolean;
@@ -43811,6 +45396,7 @@ export class DescribeVpcsResponseBodyVpcsVpc extends $tea.Model {
       description: 'Description',
       dhcpOptionsSetId: 'DhcpOptionsSetId',
       dhcpOptionsSetStatus: 'DhcpOptionsSetStatus',
+      enabledIpv6: 'EnabledIpv6',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       ipv6CidrBlocks: 'Ipv6CidrBlocks',
       isDefault: 'IsDefault',
@@ -43838,6 +45424,7 @@ export class DescribeVpcsResponseBodyVpcsVpc extends $tea.Model {
       description: 'string',
       dhcpOptionsSetId: 'string',
       dhcpOptionsSetStatus: 'string',
+      enabledIpv6: 'boolean',
       ipv6CidrBlock: 'string',
       ipv6CidrBlocks: DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocks,
       isDefault: 'boolean',
@@ -47789,6 +49376,50 @@ export class ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations e
       certificateType: 'string',
       regionId: 'string',
       vpnGatewayId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosRequestAddInstanceList extends $tea.Model {
+  instanceId?: string;
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyExpressConnectTrafficQosRequestRemoveInstanceList extends $tea.Model {
+  instanceId?: string;
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceType: 'string',
     };
   }
 
@@ -52594,6 +54225,237 @@ export default class Client extends OpenApi {
     return await this.createExpressCloudConnectionWithOptions(request, runtime);
   }
 
+  async createExpressConnectTrafficQosWithOptions(request: CreateExpressConnectTrafficQosRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressConnectTrafficQosResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosDescription)) {
+      query["QosDescription"] = request.qosDescription;
+    }
+
+    if (!Util.isUnset(request.qosName)) {
+      query["QosName"] = request.qosName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateExpressConnectTrafficQos",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateExpressConnectTrafficQosResponse>(await this.callApi(params, req, runtime), new CreateExpressConnectTrafficQosResponse({}));
+  }
+
+  async createExpressConnectTrafficQos(request: CreateExpressConnectTrafficQosRequest): Promise<CreateExpressConnectTrafficQosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createExpressConnectTrafficQosWithOptions(request, runtime);
+  }
+
+  async createExpressConnectTrafficQosQueueWithOptions(request: CreateExpressConnectTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressConnectTrafficQosQueueResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bandwidthPercent)) {
+      query["BandwidthPercent"] = request.bandwidthPercent;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.queueDescription)) {
+      query["QueueDescription"] = request.queueDescription;
+    }
+
+    if (!Util.isUnset(request.queueName)) {
+      query["QueueName"] = request.queueName;
+    }
+
+    if (!Util.isUnset(request.queueType)) {
+      query["QueueType"] = request.queueType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateExpressConnectTrafficQosQueue",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateExpressConnectTrafficQosQueueResponse>(await this.callApi(params, req, runtime), new CreateExpressConnectTrafficQosQueueResponse({}));
+  }
+
+  async createExpressConnectTrafficQosQueue(request: CreateExpressConnectTrafficQosQueueRequest): Promise<CreateExpressConnectTrafficQosQueueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createExpressConnectTrafficQosQueueWithOptions(request, runtime);
+  }
+
+  async createExpressConnectTrafficQosRuleWithOptions(request: CreateExpressConnectTrafficQosRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressConnectTrafficQosRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dstCidr)) {
+      query["DstCidr"] = request.dstCidr;
+    }
+
+    if (!Util.isUnset(request.dstIPv6Cidr)) {
+      query["DstIPv6Cidr"] = request.dstIPv6Cidr;
+    }
+
+    if (!Util.isUnset(request.dstPortRange)) {
+      query["DstPortRange"] = request.dstPortRange;
+    }
+
+    if (!Util.isUnset(request.matchDscp)) {
+      query["MatchDscp"] = request.matchDscp;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.queueId)) {
+      query["QueueId"] = request.queueId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remarkingDscp)) {
+      query["RemarkingDscp"] = request.remarkingDscp;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.ruleDescription)) {
+      query["RuleDescription"] = request.ruleDescription;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.srcCidr)) {
+      query["SrcCidr"] = request.srcCidr;
+    }
+
+    if (!Util.isUnset(request.srcIPv6Cidr)) {
+      query["SrcIPv6Cidr"] = request.srcIPv6Cidr;
+    }
+
+    if (!Util.isUnset(request.srcPortRange)) {
+      query["SrcPortRange"] = request.srcPortRange;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateExpressConnectTrafficQosRule",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateExpressConnectTrafficQosRuleResponse>(await this.callApi(params, req, runtime), new CreateExpressConnectTrafficQosRuleResponse({}));
+  }
+
+  async createExpressConnectTrafficQosRule(request: CreateExpressConnectTrafficQosRuleRequest): Promise<CreateExpressConnectTrafficQosRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createExpressConnectTrafficQosRuleWithOptions(request, runtime);
+  }
+
   async createFailoverTestJobWithOptions(request: CreateFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateFailoverTestJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52668,7 +54530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateFlowLog** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    * **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of the flow log.
     * *   If the flow log is in the **Activating** state, the flow log is being created.
     * *   If the flow log is in the **Active** state, the flow log is created and started.
     *
@@ -52761,7 +54623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateFlowLog** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
+    * **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of the flow log.
     * *   If the flow log is in the **Activating** state, the flow log is being created.
     * *   If the flow log is in the **Active** state, the flow log is created and started.
     *
@@ -53526,10 +55388,11 @@ export default class Client extends OpenApi {
 
   /**
     * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
-    * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task:
+    * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](~~2526948~~).
+    * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
     *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
     *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
-    * *   You cannot repeatedly call the **CreateIpsecServer** operation for the same VPN gateway within the specified period of time.
+    * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
     *
     * @param request CreateIpsecServerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -53605,10 +55468,11 @@ export default class Client extends OpenApi {
 
   /**
     * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
-    * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task:
+    * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](~~2526948~~).
+    * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
     *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
     *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
-    * *   You cannot repeatedly call the **CreateIpsecServer** operation for the same VPN gateway within the specified period of time.
+    * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
     *
     * @param request CreateIpsecServerRequest
     * @return CreateIpsecServerResponse
@@ -54995,7 +56859,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
     * When you call this operation, take note of the following limits:
     * *   You can create only one pair of interfaces to be connected between two routers.
     * *   You can create a maximum of five router interfaces for a router.
@@ -55149,7 +57012,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
     * When you call this operation, take note of the following limits:
     * *   You can create only one pair of interfaces to be connected between two routers.
     * *   You can create a maximum of five router interfaces for a router.
@@ -55329,7 +57191,9 @@ export default class Client extends OpenApi {
     * *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
     *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
     *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-    * *   You cannot repeatedly call the **CreateSslVpnServer** operation for the same VPN gateway within the specified period of time.
+    * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
+    * ### [](#)Prerequisites
+    * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](~~2526913~~).
     *
     * @param request CreateSslVpnServerRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -55427,7 +57291,9 @@ export default class Client extends OpenApi {
     * *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
     *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
     *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-    * *   You cannot repeatedly call the **CreateSslVpnServer** operation for the same VPN gateway within the specified period of time.
+    * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
+    * ### [](#)Prerequisites
+    * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](~~2526913~~).
     *
     * @param request CreateSslVpnServerRequest
     * @return CreateSslVpnServerResponse
@@ -56031,12 +57897,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](~~468249~~).
     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-    * *   Do not add a route whose destination CIDR block is 100.64.0.0/10, a subset of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. If such a route is added, the status of the IPsec-VPN connection cannot be displayed in the console or IPsec negotiations fail.
-    * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
-    * *   You cannot repeatedly call **CreateVcoRouteEntry** to create a route for the same IPsec-VPN connection within the specified period of time.
+    * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
+    * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](~~53046~~) to query the status of the task.
+    *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
+    *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
+    * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
     *
     * @param request CreateVcoRouteEntryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56107,12 +57974,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+    * *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](~~468249~~).
     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-    * *   Do not add a route whose destination CIDR block is 100.64.0.0/10, a subset of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. If such a route is added, the status of the IPsec-VPN connection cannot be displayed in the console or IPsec negotiations fail.
-    * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
-    * *   You cannot repeatedly call **CreateVcoRouteEntry** to create a route for the same IPsec-VPN connection within the specified period of time.
+    * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
+    * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](~~53046~~) to query the status of the task.
+    *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
+    *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
+    * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
     *
     * @param request CreateVcoRouteEntryRequest
     * @return CreateVcoRouteEntryResponse
@@ -56123,7 +57991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create a VBR, the VBR is in the **active** state by default.
+    * After you create a VBR, the VBR is in the **active** state.
     *
     * @param request CreateVirtualBorderRouterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56238,7 +58106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create a VBR, the VBR is in the **active** state by default.
+    * After you create a VBR, the VBR is in the **active** state.
     *
     * @param request CreateVirtualBorderRouterRequest
     * @return CreateVirtualBorderRouterResponse
@@ -56460,6 +58328,16 @@ export default class Client extends OpenApi {
     return await this.createVpcWithOptions(request, runtime);
   }
 
+  /**
+    * *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](~~448682~~) operation to query the status of the task.
+    *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+    *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+    * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+    *
+    * @param request CreateVpcGatewayEndpointRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateVpcGatewayEndpointResponse
+   */
   async createVpcGatewayEndpointWithOptions(request: CreateVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcGatewayEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56536,13 +58414,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new CreateVpcGatewayEndpointResponse({}));
   }
 
+  /**
+    * *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](~~448682~~) operation to query the status of the task.
+    *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+    *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+    * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+    *
+    * @param request CreateVpcGatewayEndpointRequest
+    * @return CreateVpcGatewayEndpointResponse
+   */
   async createVpcGatewayEndpoint(request: CreateVpcGatewayEndpointRequest): Promise<CreateVpcGatewayEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpcGatewayEndpointWithOptions(request, runtime);
   }
 
   /**
-    * You cannot repeatedly call the **CreateVpcPrefixList** operation to create a prefix list in a region within the specified period of time.
+    * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
     *
     * @param request CreateVpcPrefixListRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -56625,7 +58512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **CreateVpcPrefixList** operation to create a prefix list in a region within the specified period of time.
+    * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
     *
     * @param request CreateVpcPrefixListRequest
     * @return CreateVpcPrefixListResponse
@@ -57785,6 +59672,177 @@ export default class Client extends OpenApi {
   async deleteDhcpOptionsSet(request: DeleteDhcpOptionsSetRequest): Promise<DeleteDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDhcpOptionsSetWithOptions(request, runtime);
+  }
+
+  async deleteExpressConnectTrafficQosWithOptions(request: DeleteExpressConnectTrafficQosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectTrafficQosResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteExpressConnectTrafficQos",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteExpressConnectTrafficQosResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectTrafficQosResponse({}));
+  }
+
+  async deleteExpressConnectTrafficQos(request: DeleteExpressConnectTrafficQosRequest): Promise<DeleteExpressConnectTrafficQosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteExpressConnectTrafficQosWithOptions(request, runtime);
+  }
+
+  async deleteExpressConnectTrafficQosQueueWithOptions(request: DeleteExpressConnectTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectTrafficQosQueueResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.queueId)) {
+      query["QueueId"] = request.queueId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteExpressConnectTrafficQosQueue",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteExpressConnectTrafficQosQueueResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectTrafficQosQueueResponse({}));
+  }
+
+  async deleteExpressConnectTrafficQosQueue(request: DeleteExpressConnectTrafficQosQueueRequest): Promise<DeleteExpressConnectTrafficQosQueueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteExpressConnectTrafficQosQueueWithOptions(request, runtime);
+  }
+
+  async deleteExpressConnectTrafficQosRuleWithOptions(request: DeleteExpressConnectTrafficQosRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectTrafficQosRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.queueId)) {
+      query["QueueId"] = request.queueId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteExpressConnectTrafficQosRule",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteExpressConnectTrafficQosRuleResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectTrafficQosRuleResponse({}));
+  }
+
+  async deleteExpressConnectTrafficQosRule(request: DeleteExpressConnectTrafficQosRuleRequest): Promise<DeleteExpressConnectTrafficQosRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteExpressConnectTrafficQosRuleWithOptions(request, runtime);
   }
 
   async deleteFailoverTestJobWithOptions(request: DeleteFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFailoverTestJobResponse> {
@@ -60372,7 +62430,7 @@ export default class Client extends OpenApi {
     * Before you call this operation, take note of the following limits:
     * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
     * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
-    * *   If the VBR belongs to another Alibaba Cloud account, you can delete the VBR only if it is in the **unconfirmed** state.
+    * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
     *
     * @param request DeleteVirtualBorderRouterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -60430,7 +62488,7 @@ export default class Client extends OpenApi {
     * Before you call this operation, take note of the following limits:
     * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
     * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
-    * *   If the VBR belongs to another Alibaba Cloud account, you can delete the VBR only if it is in the **unconfirmed** state.
+    * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
     *
     * @param request DeleteVirtualBorderRouterRequest
     * @return DeleteVirtualBorderRouterResponse
@@ -60650,8 +62708,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If the IPsec-VPN connection is associated with a transit router, you must first disassociate the IPsec-VPN connection from the transit router before you delete the IPsec-VPN connection.
-    * *   If the IPsec-VPN connection is not associated with a resource, you can call the `DeleteVpnAttachment` to delete the IPsec-VPN connection.
+    * *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](~~468251~~).
+    * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
     *
     * @param request DeleteVpnAttachmentRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -60702,8 +62760,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If the IPsec-VPN connection is associated with a transit router, you must first disassociate the IPsec-VPN connection from the transit router before you delete the IPsec-VPN connection.
-    * *   If the IPsec-VPN connection is not associated with a resource, you can call the `DeleteVpnAttachment` to delete the IPsec-VPN connection.
+    * *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](~~468251~~).
+    * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
     *
     * @param request DeleteVpnAttachmentRequest
     * @return DeleteVpnAttachmentResponse
@@ -61109,6 +63167,63 @@ export default class Client extends OpenApi {
   async deletionProtection(request: DeletionProtectionRequest): Promise<DeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletionProtectionWithOptions(request, runtime);
+  }
+
+  async describe95TrafficWithOptions(request: Describe95TrafficRequest, runtime: $Util.RuntimeOptions): Promise<Describe95TrafficResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.day)) {
+      query["Day"] = request.day;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "Describe95Traffic",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Describe95TrafficResponse>(await this.callApi(params, req, runtime), new Describe95TrafficResponse({}));
+  }
+
+  async describe95Traffic(request: Describe95TrafficRequest): Promise<Describe95TrafficResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describe95TrafficWithOptions(request, runtime);
   }
 
   async describeAccessPointsWithOptions(request: DescribeAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessPointsResponse> {
@@ -61689,6 +63804,10 @@ export default class Client extends OpenApi {
       query["SegmentInstanceId"] = request.segmentInstanceId;
     }
 
+    if (!Util.isUnset(request.serviceManaged)) {
+      query["ServiceManaged"] = request.serviceManaged;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -61928,6 +64047,197 @@ export default class Client extends OpenApi {
   async describeEipSegment(request: DescribeEipSegmentRequest): Promise<DescribeEipSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipSegmentWithOptions(request, runtime);
+  }
+
+  async describeExpressConnectTrafficQosWithOptions(request: DescribeExpressConnectTrafficQosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectTrafficQosResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosIdList)) {
+      query["QosIdList"] = request.qosIdList;
+    }
+
+    if (!Util.isUnset(request.qosNameList)) {
+      query["QosNameList"] = request.qosNameList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeExpressConnectTrafficQos",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExpressConnectTrafficQosResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectTrafficQosResponse({}));
+  }
+
+  async describeExpressConnectTrafficQos(request: DescribeExpressConnectTrafficQosRequest): Promise<DescribeExpressConnectTrafficQosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeExpressConnectTrafficQosWithOptions(request, runtime);
+  }
+
+  async describeExpressConnectTrafficQosQueueWithOptions(request: DescribeExpressConnectTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectTrafficQosQueueResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.queueIdList)) {
+      query["QueueIdList"] = request.queueIdList;
+    }
+
+    if (!Util.isUnset(request.queueNameList)) {
+      query["QueueNameList"] = request.queueNameList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeExpressConnectTrafficQosQueue",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExpressConnectTrafficQosQueueResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectTrafficQosQueueResponse({}));
+  }
+
+  async describeExpressConnectTrafficQosQueue(request: DescribeExpressConnectTrafficQosQueueRequest): Promise<DescribeExpressConnectTrafficQosQueueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeExpressConnectTrafficQosQueueWithOptions(request, runtime);
+  }
+
+  async describeExpressConnectTrafficQosRuleWithOptions(request: DescribeExpressConnectTrafficQosRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectTrafficQosRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.queueId)) {
+      query["QueueId"] = request.queueId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.ruleIdList)) {
+      query["RuleIdList"] = request.ruleIdList;
+    }
+
+    if (!Util.isUnset(request.ruleNameList)) {
+      query["RuleNameList"] = request.ruleNameList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeExpressConnectTrafficQosRule",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExpressConnectTrafficQosRuleResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectTrafficQosRuleResponse({}));
+  }
+
+  async describeExpressConnectTrafficQosRule(request: DescribeExpressConnectTrafficQosRuleRequest): Promise<DescribeExpressConnectTrafficQosRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeExpressConnectTrafficQosRuleWithOptions(request, runtime);
   }
 
   async describeFailoverTestJobWithOptions(request: DescribeFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFailoverTestJobResponse> {
@@ -62926,6 +65236,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.serviceManaged)) {
+      query["ServiceManaged"] = request.serviceManaged;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -63682,7 +65996,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)References
     * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
     *
     * @param request DescribeRouteEntryListRequest
@@ -63782,7 +66095,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)References
     * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
     *
     * @param request DescribeRouteEntryListRequest
@@ -69842,6 +72154,253 @@ export default class Client extends OpenApi {
     return await this.modifyExpressCloudConnectionBandwidthWithOptions(request, runtime);
   }
 
+  async modifyExpressConnectTrafficQosWithOptions(request: ModifyExpressConnectTrafficQosRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectTrafficQosResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addInstanceList)) {
+      query["AddInstanceList"] = request.addInstanceList;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosDescription)) {
+      query["QosDescription"] = request.qosDescription;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.qosName)) {
+      query["QosName"] = request.qosName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.removeInstanceList)) {
+      query["RemoveInstanceList"] = request.removeInstanceList;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyExpressConnectTrafficQos",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyExpressConnectTrafficQosResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectTrafficQosResponse({}));
+  }
+
+  async modifyExpressConnectTrafficQos(request: ModifyExpressConnectTrafficQosRequest): Promise<ModifyExpressConnectTrafficQosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyExpressConnectTrafficQosWithOptions(request, runtime);
+  }
+
+  async modifyExpressConnectTrafficQosQueueWithOptions(request: ModifyExpressConnectTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectTrafficQosQueueResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bandwidthPercent)) {
+      query["BandwidthPercent"] = request.bandwidthPercent;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.queueDescription)) {
+      query["QueueDescription"] = request.queueDescription;
+    }
+
+    if (!Util.isUnset(request.queueId)) {
+      query["QueueId"] = request.queueId;
+    }
+
+    if (!Util.isUnset(request.queueName)) {
+      query["QueueName"] = request.queueName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyExpressConnectTrafficQosQueue",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyExpressConnectTrafficQosQueueResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectTrafficQosQueueResponse({}));
+  }
+
+  async modifyExpressConnectTrafficQosQueue(request: ModifyExpressConnectTrafficQosQueueRequest): Promise<ModifyExpressConnectTrafficQosQueueResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyExpressConnectTrafficQosQueueWithOptions(request, runtime);
+  }
+
+  async modifyExpressConnectTrafficQosRuleWithOptions(request: ModifyExpressConnectTrafficQosRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectTrafficQosRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dstCidr)) {
+      query["DstCidr"] = request.dstCidr;
+    }
+
+    if (!Util.isUnset(request.dstIPv6Cidr)) {
+      query["DstIPv6Cidr"] = request.dstIPv6Cidr;
+    }
+
+    if (!Util.isUnset(request.dstPortRange)) {
+      query["DstPortRange"] = request.dstPortRange;
+    }
+
+    if (!Util.isUnset(request.matchDscp)) {
+      query["MatchDscp"] = request.matchDscp;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.qosId)) {
+      query["QosId"] = request.qosId;
+    }
+
+    if (!Util.isUnset(request.queueId)) {
+      query["QueueId"] = request.queueId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.remarkingDscp)) {
+      query["RemarkingDscp"] = request.remarkingDscp;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.ruleDescription)) {
+      query["RuleDescription"] = request.ruleDescription;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.srcCidr)) {
+      query["SrcCidr"] = request.srcCidr;
+    }
+
+    if (!Util.isUnset(request.srcIPv6Cidr)) {
+      query["SrcIPv6Cidr"] = request.srcIPv6Cidr;
+    }
+
+    if (!Util.isUnset(request.srcPortRange)) {
+      query["SrcPortRange"] = request.srcPortRange;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyExpressConnectTrafficQosRule",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyExpressConnectTrafficQosRuleResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectTrafficQosRuleResponse({}));
+  }
+
+  async modifyExpressConnectTrafficQosRule(request: ModifyExpressConnectTrafficQosRuleRequest): Promise<ModifyExpressConnectTrafficQosRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyExpressConnectTrafficQosRuleWithOptions(request, runtime);
+  }
+
   /**
     * *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
     *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
@@ -71640,7 +74199,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
     * >  You cannot modify the specification of a router interface that has overdue payments.
     *
@@ -71701,7 +74259,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
     * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
     * >  You cannot modify the specification of a router interface that has overdue payments.
     *
@@ -72586,10 +75143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **ModifyVpcPrefixList** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListPrefixLists](~~311535~~) to query the status of a prefix list.
+    * *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](~~311535~~) to query the status of the task.
     *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
     *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
-    *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
+    *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
     * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
     *
     * @param request ModifyVpcPrefixListRequest
@@ -72669,10 +75226,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **ModifyVpcPrefixList** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListPrefixLists](~~311535~~) to query the status of a prefix list.
+    * *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](~~311535~~) to query the status of the task.
     *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
     *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
-    *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
+    *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
     * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
     *
     * @param request ModifyVpcPrefixListRequest
@@ -73857,7 +76414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After the operation is called, the VBR changes from the **terminated** state to the **recovering** state. When the VBR recovers, it enters the **active** state.
+    * After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
     * When you call this operation, take note of the following items:
     * *   Only the owner of the Express Connect circuit can call this operation.
     * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
@@ -73915,7 +76472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After the operation is called, the VBR changes from the **terminated** state to the **recovering** state. When the VBR recovers, it enters the **active** state.
+    * After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
     * When you call this operation, take note of the following items:
     * *   Only the owner of the Express Connect circuit can call this operation.
     * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
@@ -75193,7 +77750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After the operation is performed, the VBR changes from the **active** state to the **terminating** state. After the VBR is terminated, it enters the **terminated** state.
+    * After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
     * >  Only the owner of an Express Connect circuit can call this operation.
     *
     * @param request TerminateVirtualBorderRouterRequest
@@ -75249,7 +77806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After the operation is performed, the VBR changes from the **active** state to the **terminating** state. After the VBR is terminated, it enters the **terminated** state.
+    * After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
     * >  Only the owner of an Express Connect circuit can call this operation.
     *
     * @param request TerminateVirtualBorderRouterRequest
