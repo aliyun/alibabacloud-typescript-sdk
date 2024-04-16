@@ -13751,6 +13751,102 @@ export class ListScenariosResponse extends $tea.Model {
   }
 }
 
+export class ListSensitiveColumnInfoRequest extends $tea.Model {
+  columnName?: string;
+  instanceId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  schemaName?: string;
+  tableName?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      instanceId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      schemaName: 'string',
+      tableName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveColumnInfoResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  sensitiveColumnList?: ListSensitiveColumnInfoResponseBodySensitiveColumnList;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      sensitiveColumnList: 'SensitiveColumnList',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      sensitiveColumnList: ListSensitiveColumnInfoResponseBodySensitiveColumnList,
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveColumnInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSensitiveColumnInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSensitiveColumnInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSensitiveColumnsRequest extends $tea.Model {
   columnName?: string;
   dbId?: number;
@@ -27637,6 +27733,137 @@ export class ListScenariosResponseBodyScenarioList extends $tea.Model {
   }
 }
 
+export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule extends $tea.Model {
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule extends $tea.Model {
+  ruleId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList extends $tea.Model {
+  semiDesensitizationRule?: ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule[];
+  static names(): { [key: string]: string } {
+    return {
+      semiDesensitizationRule: 'SemiDesensitizationRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      semiDesensitizationRule: { 'type': 'array', 'itemType': ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn extends $tea.Model {
+  categoryName?: string;
+  columnName?: string;
+  defaultDesensitizationRule?: ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule;
+  instanceId?: number;
+  isPlain?: boolean;
+  sampleData?: string;
+  schemaName?: string;
+  securityLevel?: string;
+  semiDesensitizationRuleList?: ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList;
+  tableName?: string;
+  userSensitivityLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      columnName: 'ColumnName',
+      defaultDesensitizationRule: 'DefaultDesensitizationRule',
+      instanceId: 'InstanceId',
+      isPlain: 'IsPlain',
+      sampleData: 'SampleData',
+      schemaName: 'SchemaName',
+      securityLevel: 'SecurityLevel',
+      semiDesensitizationRuleList: 'SemiDesensitizationRuleList',
+      tableName: 'TableName',
+      userSensitivityLevel: 'UserSensitivityLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      columnName: 'string',
+      defaultDesensitizationRule: ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule,
+      instanceId: 'number',
+      isPlain: 'boolean',
+      sampleData: 'string',
+      schemaName: 'string',
+      securityLevel: 'string',
+      semiDesensitizationRuleList: ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList,
+      tableName: 'string',
+      userSensitivityLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSensitiveColumnInfoResponseBodySensitiveColumnList extends $tea.Model {
+  sensitiveColumn?: ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn[];
+  static names(): { [key: string]: string } {
+    return {
+      sensitiveColumn: 'SensitiveColumn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sensitiveColumn: { 'type': 'array', 'itemType': ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSensitiveColumnsResponseBodySensitiveColumnListSensitiveColumn extends $tea.Model {
   columnCount?: number;
   columnName?: string;
@@ -36603,6 +36830,59 @@ export default class Client extends OpenApi {
   async listScenarios(request: ListScenariosRequest): Promise<ListScenariosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listScenariosWithOptions(request, runtime);
+  }
+
+  async listSensitiveColumnInfoWithOptions(request: ListSensitiveColumnInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitiveColumnInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.columnName)) {
+      query["ColumnName"] = request.columnName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSensitiveColumnInfo",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSensitiveColumnInfoResponse>(await this.callApi(params, req, runtime), new ListSensitiveColumnInfoResponse({}));
+  }
+
+  async listSensitiveColumnInfo(request: ListSensitiveColumnInfoRequest): Promise<ListSensitiveColumnInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSensitiveColumnInfoWithOptions(request, runtime);
   }
 
   async listSensitiveColumnsWithOptions(request: ListSensitiveColumnsRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitiveColumnsResponse> {
