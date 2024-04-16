@@ -708,11 +708,15 @@ export class ContinueInstancePublishTaskResponse extends $tea.Model {
 
 export class CreateCategoryRequest extends $tea.Model {
   agentKey?: string;
+  bizCode?: string;
+  knowledgeType?: number;
   name?: string;
   parentCategoryId?: number;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
+      bizCode: 'BizCode',
+      knowledgeType: 'KnowledgeType',
       name: 'Name',
       parentCategoryId: 'ParentCategoryId',
     };
@@ -721,6 +725,8 @@ export class CreateCategoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
+      bizCode: 'string',
+      knowledgeType: 'number',
       name: 'string',
       parentCategoryId: 'number',
     };
@@ -1026,6 +1032,93 @@ export class CreateDSEntityValueResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDSEntityValueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocRequest extends $tea.Model {
+  agentKey?: string;
+  categoryId?: number;
+  config?: string;
+  content?: string;
+  endDate?: string;
+  meta?: string;
+  startDate?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      categoryId: 'CategoryId',
+      config: 'Config',
+      content: 'Content',
+      endDate: 'EndDate',
+      meta: 'Meta',
+      startDate: 'StartDate',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      categoryId: 'number',
+      config: 'string',
+      content: 'string',
+      endDate: 'string',
+      meta: 'string',
+      startDate: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocResponseBody extends $tea.Model {
+  knowledgeId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      knowledgeId: 'KnowledgeId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      knowledgeId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDocResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDocResponseBody,
     };
   }
 
@@ -2190,6 +2283,75 @@ export class DeleteDSEntityValueResponse extends $tea.Model {
   }
 }
 
+export class DeleteDocRequest extends $tea.Model {
+  agentKey?: string;
+  knowledgeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      knowledgeId: 'KnowledgeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      knowledgeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocResponseBody extends $tea.Model {
+  knowledgeId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      knowledgeId: 'KnowledgeId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      knowledgeId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDocResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDocResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFaqRequest extends $tea.Model {
   agentKey?: string;
   knowledgeId?: number;
@@ -2929,6 +3091,141 @@ export class DescribeDSEntityResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDSEntityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocRequest extends $tea.Model {
+  agentKey?: string;
+  knowledgeId?: number;
+  showDetail?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      knowledgeId: 'KnowledgeId',
+      showDetail: 'ShowDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      knowledgeId: 'number',
+      showDetail: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocResponseBody extends $tea.Model {
+  bizCode?: string;
+  categoryId?: number;
+  config?: string;
+  createTime?: string;
+  createUserId?: number;
+  createUserName?: string;
+  docInfo?: DescribeDocResponseBodyDocInfo;
+  docName?: string;
+  effectStatus?: number;
+  endDate?: string;
+  knowledgeId?: number;
+  meta?: string;
+  modifyTime?: string;
+  modifyUserId?: number;
+  modifyUserName?: string;
+  processCanRetry?: boolean;
+  processMessage?: string;
+  processStatus?: number;
+  requestId?: string;
+  startDate?: string;
+  status?: number;
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      categoryId: 'CategoryId',
+      config: 'Config',
+      createTime: 'CreateTime',
+      createUserId: 'CreateUserId',
+      createUserName: 'CreateUserName',
+      docInfo: 'DocInfo',
+      docName: 'DocName',
+      effectStatus: 'EffectStatus',
+      endDate: 'EndDate',
+      knowledgeId: 'KnowledgeId',
+      meta: 'Meta',
+      modifyTime: 'ModifyTime',
+      modifyUserId: 'ModifyUserId',
+      modifyUserName: 'ModifyUserName',
+      processCanRetry: 'ProcessCanRetry',
+      processMessage: 'ProcessMessage',
+      processStatus: 'ProcessStatus',
+      requestId: 'RequestId',
+      startDate: 'StartDate',
+      status: 'Status',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      categoryId: 'number',
+      config: 'string',
+      createTime: 'string',
+      createUserId: 'number',
+      createUserName: 'string',
+      docInfo: DescribeDocResponseBodyDocInfo,
+      docName: 'string',
+      effectStatus: 'number',
+      endDate: 'string',
+      knowledgeId: 'number',
+      meta: 'string',
+      modifyTime: 'string',
+      modifyUserId: 'number',
+      modifyUserName: 'string',
+      processCanRetry: 'boolean',
+      processMessage: 'string',
+      processStatus: 'number',
+      requestId: 'string',
+      startDate: 'string',
+      status: 'number',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDocResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDocResponseBody,
     };
   }
 
@@ -3992,12 +4289,14 @@ export class ListAgentRequest extends $tea.Model {
   goodsCodes?: string;
   pageNumber?: number;
   pageSize?: number;
+  productCode?: string;
   static names(): { [key: string]: string } {
     return {
       agentName: 'AgentName',
       goodsCodes: 'GoodsCodes',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      productCode: 'ProductCode',
     };
   }
 
@@ -4007,6 +4306,7 @@ export class ListAgentRequest extends $tea.Model {
       goodsCodes: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      productCode: 'string',
     };
   }
 
@@ -4073,10 +4373,12 @@ export class ListAgentResponse extends $tea.Model {
 
 export class ListCategoryRequest extends $tea.Model {
   agentKey?: string;
+  knowledgeType?: number;
   parentCategoryId?: number;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
+      knowledgeType: 'KnowledgeType',
       parentCategoryId: 'ParentCategoryId',
     };
   }
@@ -4084,6 +4386,7 @@ export class ListCategoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
+      knowledgeType: 'number',
       parentCategoryId: 'number',
     };
   }
@@ -5166,6 +5469,271 @@ export class QueryPerspectivesResponse extends $tea.Model {
   }
 }
 
+export class RetryDocRequest extends $tea.Model {
+  agentKey?: string;
+  knowledgeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      knowledgeId: 'KnowledgeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      knowledgeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryDocResponseBody extends $tea.Model {
+  knowledgeId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      knowledgeId: 'KnowledgeId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      knowledgeId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryDocResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RetryDocResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetryDocResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDocRequest extends $tea.Model {
+  agentKey?: string;
+  categoryIds?: number[];
+  createTimeBegin?: string;
+  createTimeEnd?: string;
+  createUserName?: string;
+  endTimeBegin?: string;
+  endTimeEnd?: string;
+  keyword?: string;
+  modifyTimeBegin?: string;
+  modifyTimeEnd?: string;
+  modifyUserName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  processStatus?: number;
+  searchScope?: number;
+  startTimeBegin?: string;
+  startTimeEnd?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      categoryIds: 'CategoryIds',
+      createTimeBegin: 'CreateTimeBegin',
+      createTimeEnd: 'CreateTimeEnd',
+      createUserName: 'CreateUserName',
+      endTimeBegin: 'EndTimeBegin',
+      endTimeEnd: 'EndTimeEnd',
+      keyword: 'Keyword',
+      modifyTimeBegin: 'ModifyTimeBegin',
+      modifyTimeEnd: 'ModifyTimeEnd',
+      modifyUserName: 'ModifyUserName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      processStatus: 'ProcessStatus',
+      searchScope: 'SearchScope',
+      startTimeBegin: 'StartTimeBegin',
+      startTimeEnd: 'StartTimeEnd',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      categoryIds: { 'type': 'array', 'itemType': 'number' },
+      createTimeBegin: 'string',
+      createTimeEnd: 'string',
+      createUserName: 'string',
+      endTimeBegin: 'string',
+      endTimeEnd: 'string',
+      keyword: 'string',
+      modifyTimeBegin: 'string',
+      modifyTimeEnd: 'string',
+      modifyUserName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      processStatus: 'number',
+      searchScope: 'number',
+      startTimeBegin: 'string',
+      startTimeEnd: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDocShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  categoryIdsShrink?: string;
+  createTimeBegin?: string;
+  createTimeEnd?: string;
+  createUserName?: string;
+  endTimeBegin?: string;
+  endTimeEnd?: string;
+  keyword?: string;
+  modifyTimeBegin?: string;
+  modifyTimeEnd?: string;
+  modifyUserName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  processStatus?: number;
+  searchScope?: number;
+  startTimeBegin?: string;
+  startTimeEnd?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      categoryIdsShrink: 'CategoryIds',
+      createTimeBegin: 'CreateTimeBegin',
+      createTimeEnd: 'CreateTimeEnd',
+      createUserName: 'CreateUserName',
+      endTimeBegin: 'EndTimeBegin',
+      endTimeEnd: 'EndTimeEnd',
+      keyword: 'Keyword',
+      modifyTimeBegin: 'ModifyTimeBegin',
+      modifyTimeEnd: 'ModifyTimeEnd',
+      modifyUserName: 'ModifyUserName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      processStatus: 'ProcessStatus',
+      searchScope: 'SearchScope',
+      startTimeBegin: 'StartTimeBegin',
+      startTimeEnd: 'StartTimeEnd',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      categoryIdsShrink: 'string',
+      createTimeBegin: 'string',
+      createTimeEnd: 'string',
+      createUserName: 'string',
+      endTimeBegin: 'string',
+      endTimeEnd: 'string',
+      keyword: 'string',
+      modifyTimeBegin: 'string',
+      modifyTimeEnd: 'string',
+      modifyUserName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      processStatus: 'number',
+      searchScope: 'number',
+      startTimeBegin: 'string',
+      startTimeEnd: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDocResponseBody extends $tea.Model {
+  docHits?: SearchDocResponseBodyDocHits[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      docHits: 'DocHits',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docHits: { 'type': 'array', 'itemType': SearchDocResponseBodyDocHits },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDocResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchDocResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchDocResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchFaqRequest extends $tea.Model {
   agentKey?: string;
   categoryIds?: number[];
@@ -5358,11 +5926,13 @@ export class SearchFaqResponse extends $tea.Model {
 
 export class UpdateCategoryRequest extends $tea.Model {
   agentKey?: string;
+  bizCode?: string;
   categoryId?: number;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
+      bizCode: 'BizCode',
       categoryId: 'CategoryId',
       name: 'Name',
     };
@@ -5371,6 +5941,7 @@ export class UpdateCategoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
+      bizCode: 'string',
       categoryId: 'number',
       name: 'string',
     };
@@ -5679,6 +6250,99 @@ export class UpdateDSEntityValueResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateDSEntityValueResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDocRequest extends $tea.Model {
+  agentKey?: string;
+  categoryId?: number;
+  config?: string;
+  content?: string;
+  docName?: string;
+  endDate?: string;
+  knowledgeId?: number;
+  meta?: string;
+  startDate?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      categoryId: 'CategoryId',
+      config: 'Config',
+      content: 'Content',
+      docName: 'DocName',
+      endDate: 'EndDate',
+      knowledgeId: 'KnowledgeId',
+      meta: 'Meta',
+      startDate: 'StartDate',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      categoryId: 'number',
+      config: 'string',
+      content: 'string',
+      docName: 'string',
+      endDate: 'string',
+      knowledgeId: 'number',
+      meta: 'string',
+      startDate: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDocResponseBody extends $tea.Model {
+  knowledgeId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      knowledgeId: 'KnowledgeId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      knowledgeId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDocResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDocResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDocResponseBody,
     };
   }
 
@@ -6610,12 +7274,14 @@ export class ChatResponseBodyMessages extends $tea.Model {
 }
 
 export class CreateCategoryResponseBodyCategory extends $tea.Model {
+  bizCode?: string;
   categoryId?: number;
   name?: string;
   parentCategoryId?: number;
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      bizCode: 'BizCode',
       categoryId: 'CategoryId',
       name: 'Name',
       parentCategoryId: 'ParentCategoryId',
@@ -6625,6 +7291,7 @@ export class CreateCategoryResponseBodyCategory extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizCode: 'string',
       categoryId: 'number',
       name: 'string',
       parentCategoryId: 'number',
@@ -6769,12 +7436,14 @@ export class CreateUserSayRequestUserSayDefinition extends $tea.Model {
 }
 
 export class DescribeCategoryResponseBodyCategory extends $tea.Model {
+  bizCode?: string;
   categoryId?: number;
   name?: string;
   parentCategoryId?: number;
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      bizCode: 'BizCode',
       categoryId: 'CategoryId',
       name: 'Name',
       parentCategoryId: 'ParentCategoryId',
@@ -6784,10 +7453,58 @@ export class DescribeCategoryResponseBodyCategory extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizCode: 'string',
       categoryId: 'number',
       name: 'string',
       parentCategoryId: 'number',
       status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocResponseBodyDocInfoDocParas extends $tea.Model {
+  paraLevel?: number;
+  paraNo?: number;
+  paraText?: string;
+  paraType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paraLevel: 'ParaLevel',
+      paraNo: 'ParaNo',
+      paraText: 'ParaText',
+      paraType: 'ParaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paraLevel: 'number',
+      paraNo: 'number',
+      paraText: 'string',
+      paraType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocResponseBodyDocInfo extends $tea.Model {
+  docParas?: DescribeDocResponseBodyDocInfoDocParas[];
+  static names(): { [key: string]: string } {
+    return {
+      docParas: 'DocParas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docParas: { 'type': 'array', 'itemType': DescribeDocResponseBodyDocInfoDocParas },
     };
   }
 
@@ -6977,12 +7694,14 @@ export class ListAgentResponseBodyData extends $tea.Model {
   agentId?: number;
   agentKey?: string;
   agentName?: string;
+  defaultAgent?: boolean;
   instanceInfos?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
       agentKey: 'AgentKey',
       agentName: 'AgentName',
+      defaultAgent: 'DefaultAgent',
       instanceInfos: 'InstanceInfos',
     };
   }
@@ -6992,6 +7711,7 @@ export class ListAgentResponseBodyData extends $tea.Model {
       agentId: 'number',
       agentKey: 'string',
       agentName: 'string',
+      defaultAgent: 'boolean',
       instanceInfos: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -7002,12 +7722,14 @@ export class ListAgentResponseBodyData extends $tea.Model {
 }
 
 export class ListCategoryResponseBodyCategories extends $tea.Model {
+  bizCode?: string;
   categoryId?: number;
   name?: string;
   parentCategoryId?: number;
   status?: number;
   static names(): { [key: string]: string } {
     return {
+      bizCode: 'BizCode',
       categoryId: 'CategoryId',
       name: 'Name',
       parentCategoryId: 'ParentCategoryId',
@@ -7017,6 +7739,7 @@ export class ListCategoryResponseBodyCategories extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizCode: 'string',
       categoryId: 'number',
       name: 'string',
       parentCategoryId: 'number',
@@ -7733,6 +8456,82 @@ export class QueryPerspectivesResponseBodyPerspectives extends $tea.Model {
   }
 }
 
+export class SearchDocResponseBodyDocHits extends $tea.Model {
+  bizCode?: string;
+  categoryId?: number;
+  config?: string;
+  createTime?: string;
+  createUserId?: number;
+  createUserName?: string;
+  docName?: string;
+  effectStatus?: number;
+  endDate?: string;
+  knowledgeId?: number;
+  meta?: string;
+  modifyTime?: string;
+  modifyUserId?: number;
+  modifyUserName?: string;
+  processCanRetry?: boolean;
+  processMessage?: string;
+  processStatus?: number;
+  startDate?: string;
+  status?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      categoryId: 'CategoryId',
+      config: 'Config',
+      createTime: 'CreateTime',
+      createUserId: 'CreateUserId',
+      createUserName: 'CreateUserName',
+      docName: 'DocName',
+      effectStatus: 'EffectStatus',
+      endDate: 'EndDate',
+      knowledgeId: 'KnowledgeId',
+      meta: 'Meta',
+      modifyTime: 'ModifyTime',
+      modifyUserId: 'ModifyUserId',
+      modifyUserName: 'ModifyUserName',
+      processCanRetry: 'ProcessCanRetry',
+      processMessage: 'ProcessMessage',
+      processStatus: 'ProcessStatus',
+      startDate: 'StartDate',
+      status: 'Status',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      categoryId: 'number',
+      config: 'string',
+      createTime: 'string',
+      createUserId: 'number',
+      createUserName: 'string',
+      docName: 'string',
+      effectStatus: 'number',
+      endDate: 'string',
+      knowledgeId: 'number',
+      meta: 'string',
+      modifyTime: 'string',
+      modifyUserId: 'number',
+      modifyUserName: 'string',
+      processCanRetry: 'boolean',
+      processMessage: 'string',
+      processStatus: 'number',
+      startDate: 'string',
+      status: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchFaqResponseBodyFaqHits extends $tea.Model {
   categoryId?: number;
   createTime?: string;
@@ -8249,6 +9048,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizCode)) {
+      body["BizCode"] = request.bizCode;
+    }
+
+    if (!Util.isUnset(request.knowledgeType)) {
+      body["KnowledgeType"] = request.knowledgeType;
+    }
+
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
     }
@@ -8411,6 +9218,63 @@ export default class Client extends OpenApi {
   async createDSEntityValue(request: CreateDSEntityValueRequest): Promise<CreateDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDSEntityValueWithOptions(request, runtime);
+  }
+
+  async createDocWithOptions(request: CreateDocRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.meta)) {
+      query["Meta"] = request.meta;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDoc",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDocResponse>(await this.callApi(params, req, runtime), new CreateDocResponse({}));
+  }
+
+  async createDoc(request: CreateDocRequest): Promise<CreateDocResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDocWithOptions(request, runtime);
   }
 
   async createFaqWithOptions(request: CreateFaqRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaqResponse> {
@@ -8987,6 +9851,39 @@ export default class Client extends OpenApi {
     return await this.deleteDSEntityValueWithOptions(request, runtime);
   }
 
+  async deleteDocWithOptions(request: DeleteDocRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDoc",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDocResponse>(await this.callApi(params, req, runtime), new DeleteDocResponse({}));
+  }
+
+  async deleteDoc(request: DeleteDocRequest): Promise<DeleteDocResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDocWithOptions(request, runtime);
+  }
+
   async deleteFaqWithOptions(request: DeleteFaqRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaqResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9347,6 +10244,43 @@ export default class Client extends OpenApi {
   async describeDSEntity(request: DescribeDSEntityRequest): Promise<DescribeDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDSEntityWithOptions(request, runtime);
+  }
+
+  async describeDocWithOptions(request: DescribeDocRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDocResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
+    if (!Util.isUnset(request.showDetail)) {
+      query["ShowDetail"] = request.showDetail;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDoc",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDocResponse>(await this.callApi(params, req, runtime), new DescribeDocResponse({}));
+  }
+
+  async describeDoc(request: DescribeDocRequest): Promise<DescribeDocResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDocWithOptions(request, runtime);
   }
 
   async describeFaqWithOptions(request: DescribeFaqRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaqResponse> {
@@ -9818,6 +10752,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9848,6 +10786,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.knowledgeType)) {
+      body["KnowledgeType"] = request.knowledgeType;
+    }
+
     if (!Util.isUnset(request.parentCategoryId)) {
       body["ParentCategoryId"] = request.parentCategoryId;
     }
@@ -10404,6 +11346,142 @@ export default class Client extends OpenApi {
     return await this.queryPerspectivesWithOptions(request, runtime);
   }
 
+  async retryDocWithOptions(request: RetryDocRequest, runtime: $Util.RuntimeOptions): Promise<RetryDocResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RetryDoc",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryDocResponse>(await this.callApi(params, req, runtime), new RetryDocResponse({}));
+  }
+
+  async retryDoc(request: RetryDocRequest): Promise<RetryDocResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retryDocWithOptions(request, runtime);
+  }
+
+  async searchDocWithOptions(tmpReq: SearchDocRequest, runtime: $Util.RuntimeOptions): Promise<SearchDocResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SearchDocShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.categoryIds)) {
+      request.categoryIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categoryIds, "CategoryIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.categoryIdsShrink)) {
+      query["CategoryIds"] = request.categoryIdsShrink;
+    }
+
+    if (!Util.isUnset(request.createTimeBegin)) {
+      query["CreateTimeBegin"] = request.createTimeBegin;
+    }
+
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createUserName)) {
+      query["CreateUserName"] = request.createUserName;
+    }
+
+    if (!Util.isUnset(request.endTimeBegin)) {
+      query["EndTimeBegin"] = request.endTimeBegin;
+    }
+
+    if (!Util.isUnset(request.endTimeEnd)) {
+      query["EndTimeEnd"] = request.endTimeEnd;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.modifyTimeBegin)) {
+      query["ModifyTimeBegin"] = request.modifyTimeBegin;
+    }
+
+    if (!Util.isUnset(request.modifyTimeEnd)) {
+      query["ModifyTimeEnd"] = request.modifyTimeEnd;
+    }
+
+    if (!Util.isUnset(request.modifyUserName)) {
+      query["ModifyUserName"] = request.modifyUserName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.processStatus)) {
+      query["ProcessStatus"] = request.processStatus;
+    }
+
+    if (!Util.isUnset(request.searchScope)) {
+      query["SearchScope"] = request.searchScope;
+    }
+
+    if (!Util.isUnset(request.startTimeBegin)) {
+      query["StartTimeBegin"] = request.startTimeBegin;
+    }
+
+    if (!Util.isUnset(request.startTimeEnd)) {
+      query["StartTimeEnd"] = request.startTimeEnd;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchDoc",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchDocResponse>(await this.callApi(params, req, runtime), new SearchDocResponse({}));
+  }
+
+  async searchDoc(request: SearchDocRequest): Promise<SearchDocResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchDocWithOptions(request, runtime);
+  }
+
   async searchFaqWithOptions(tmpReq: SearchFaqRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaqResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchFaqShrinkRequest({ });
@@ -10513,6 +11591,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizCode)) {
+      body["BizCode"] = request.bizCode;
+    }
+
     if (!Util.isUnset(request.categoryId)) {
       body["CategoryId"] = request.categoryId;
     }
@@ -10683,6 +11765,71 @@ export default class Client extends OpenApi {
   async updateDSEntityValue(request: UpdateDSEntityValueRequest): Promise<UpdateDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDSEntityValueWithOptions(request, runtime);
+  }
+
+  async updateDocWithOptions(request: UpdateDocRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDocResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.docName)) {
+      query["DocName"] = request.docName;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
+    if (!Util.isUnset(request.meta)) {
+      query["Meta"] = request.meta;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDoc",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDocResponse>(await this.callApi(params, req, runtime), new UpdateDocResponse({}));
+  }
+
+  async updateDoc(request: UpdateDocRequest): Promise<UpdateDocResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDocWithOptions(request, runtime);
   }
 
   async updateFaqWithOptions(request: UpdateFaqRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaqResponse> {
