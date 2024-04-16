@@ -92,9 +92,9 @@ export class DescribeDomainReportResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -179,9 +179,9 @@ export class DescribeFileReportResponseBody extends $tea.Model {
 }
 
 export class DescribeFileReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeFileReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFileReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -281,9 +281,9 @@ export class DescribeIpReportResponseBody extends $tea.Model {
 }
 
 export class DescribeIpReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeIpReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeIpReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
