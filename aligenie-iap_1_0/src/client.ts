@@ -133,6 +133,307 @@ export class AppUseTimeReportResponse extends $tea.Model {
   }
 }
 
+export class CallBackThirdRightSendPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CallBackThirdRightSendPlanRequest extends $tea.Model {
+  bizGroup?: string;
+  bizType?: string;
+  cardType?: number;
+  errorMsg?: string;
+  extendInfo?: { [key: string]: any };
+  genieOpenId?: string;
+  receiveStatus?: number;
+  sn?: string;
+  supplierId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizGroup: 'BizGroup',
+      bizType: 'BizType',
+      cardType: 'CardType',
+      errorMsg: 'ErrorMsg',
+      extendInfo: 'ExtendInfo',
+      genieOpenId: 'GenieOpenId',
+      receiveStatus: 'ReceiveStatus',
+      sn: 'Sn',
+      supplierId: 'SupplierId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizGroup: 'string',
+      bizType: 'string',
+      cardType: 'number',
+      errorMsg: 'string',
+      extendInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      genieOpenId: 'string',
+      receiveStatus: 'number',
+      sn: 'string',
+      supplierId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CallBackThirdRightSendPlanShrinkRequest extends $tea.Model {
+  bizGroup?: string;
+  bizType?: string;
+  cardType?: number;
+  errorMsg?: string;
+  extendInfoShrink?: string;
+  genieOpenId?: string;
+  receiveStatus?: number;
+  sn?: string;
+  supplierId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizGroup: 'BizGroup',
+      bizType: 'BizType',
+      cardType: 'CardType',
+      errorMsg: 'ErrorMsg',
+      extendInfoShrink: 'ExtendInfo',
+      genieOpenId: 'GenieOpenId',
+      receiveStatus: 'ReceiveStatus',
+      sn: 'Sn',
+      supplierId: 'SupplierId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizGroup: 'string',
+      bizType: 'string',
+      cardType: 'number',
+      errorMsg: 'string',
+      extendInfoShrink: 'string',
+      genieOpenId: 'string',
+      receiveStatus: 'number',
+      sn: 'string',
+      supplierId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CallBackThirdRightSendPlanResponseBody extends $tea.Model {
+  retCode?: string;
+  retMsg?: string;
+  retValue?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      retCode: 'RetCode',
+      retMsg: 'RetMsg',
+      retValue: 'RetValue',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      retCode: 'string',
+      retMsg: 'string',
+      retValue: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CallBackThirdRightSendPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CallBackThirdRightSendPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CallBackThirdRightSendPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckThirdRightSendPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckThirdRightSendPlanRequest extends $tea.Model {
+  bizGroup?: string;
+  bizType?: string;
+  extendInfo?: { [key: string]: any };
+  sn?: string;
+  supplierId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizGroup: 'BizGroup',
+      bizType: 'BizType',
+      extendInfo: 'ExtendInfo',
+      sn: 'Sn',
+      supplierId: 'SupplierId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizGroup: 'string',
+      bizType: 'string',
+      extendInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      sn: 'string',
+      supplierId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckThirdRightSendPlanShrinkRequest extends $tea.Model {
+  bizGroup?: string;
+  bizType?: string;
+  extendInfoShrink?: string;
+  sn?: string;
+  supplierId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizGroup: 'BizGroup',
+      bizType: 'BizType',
+      extendInfoShrink: 'ExtendInfo',
+      sn: 'Sn',
+      supplierId: 'SupplierId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizGroup: 'string',
+      bizType: 'string',
+      extendInfoShrink: 'string',
+      sn: 'string',
+      supplierId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckThirdRightSendPlanResponseBody extends $tea.Model {
+  retCode?: number;
+  retMsg?: string;
+  retValue?: CheckThirdRightSendPlanResponseBodyRetValue;
+  static names(): { [key: string]: string } {
+    return {
+      retCode: 'RetCode',
+      retMsg: 'RetMsg',
+      retValue: 'RetValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      retCode: 'number',
+      retMsg: 'string',
+      retValue: CheckThirdRightSendPlanResponseBodyRetValue,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckThirdRightSendPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckThirdRightSendPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckThirdRightSendPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateReminderHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -1748,6 +2049,43 @@ export class AppUseTimeReportRequestUserInfo extends $tea.Model {
   }
 }
 
+export class CheckThirdRightSendPlanResponseBodyRetValue extends $tea.Model {
+  activateDate?: string;
+  cardType?: number;
+  channelCode?: string;
+  channelName?: string;
+  extendInfo?: { [key: string]: any };
+  requestId?: string;
+  rightsExpiredDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activateDate: 'ActivateDate',
+      cardType: 'CardType',
+      channelCode: 'ChannelCode',
+      channelName: 'ChannelName',
+      extendInfo: 'ExtendInfo',
+      requestId: 'RequestId',
+      rightsExpiredDate: 'RightsExpiredDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activateDate: 'string',
+      cardType: 'number',
+      channelCode: 'string',
+      channelName: 'string',
+      extendInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+      rightsExpiredDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateReminderRequestDeviceInfo extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
@@ -3263,6 +3601,154 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AppUseTimeReportHeaders({ });
     return await this.appUseTimeReportWithOptions(request, headers, runtime);
+  }
+
+  async callBackThirdRightSendPlanWithOptions(tmpReq: CallBackThirdRightSendPlanRequest, headers: CallBackThirdRightSendPlanHeaders, runtime: $Util.RuntimeOptions): Promise<CallBackThirdRightSendPlanResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CallBackThirdRightSendPlanShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extendInfo)) {
+      request.extendInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendInfo, "ExtendInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizGroup)) {
+      query["BizGroup"] = request.bizGroup;
+    }
+
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.cardType)) {
+      query["CardType"] = request.cardType;
+    }
+
+    if (!Util.isUnset(request.errorMsg)) {
+      query["ErrorMsg"] = request.errorMsg;
+    }
+
+    if (!Util.isUnset(request.extendInfoShrink)) {
+      query["ExtendInfo"] = request.extendInfoShrink;
+    }
+
+    if (!Util.isUnset(request.genieOpenId)) {
+      query["GenieOpenId"] = request.genieOpenId;
+    }
+
+    if (!Util.isUnset(request.receiveStatus)) {
+      query["ReceiveStatus"] = request.receiveStatus;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    if (!Util.isUnset(request.supplierId)) {
+      query["SupplierId"] = request.supplierId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CallBackThirdRightSendPlan",
+      version: "iap_1.0",
+      protocol: "HTTPS",
+      pathname: `/1.0/iap/business/CallBackThirdRightSendPlan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CallBackThirdRightSendPlanResponse>(await this.callApi(params, req, runtime), new CallBackThirdRightSendPlanResponse({}));
+  }
+
+  async callBackThirdRightSendPlan(request: CallBackThirdRightSendPlanRequest): Promise<CallBackThirdRightSendPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CallBackThirdRightSendPlanHeaders({ });
+    return await this.callBackThirdRightSendPlanWithOptions(request, headers, runtime);
+  }
+
+  async checkThirdRightSendPlanWithOptions(tmpReq: CheckThirdRightSendPlanRequest, headers: CheckThirdRightSendPlanHeaders, runtime: $Util.RuntimeOptions): Promise<CheckThirdRightSendPlanResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CheckThirdRightSendPlanShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extendInfo)) {
+      request.extendInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendInfo, "ExtendInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizGroup)) {
+      query["BizGroup"] = request.bizGroup;
+    }
+
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.extendInfoShrink)) {
+      query["ExtendInfo"] = request.extendInfoShrink;
+    }
+
+    if (!Util.isUnset(request.sn)) {
+      query["Sn"] = request.sn;
+    }
+
+    if (!Util.isUnset(request.supplierId)) {
+      query["SupplierId"] = request.supplierId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckThirdRightSendPlan",
+      version: "iap_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/iap/business/CheckThirdRightSendPlan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckThirdRightSendPlanResponse>(await this.callApi(params, req, runtime), new CheckThirdRightSendPlanResponse({}));
+  }
+
+  async checkThirdRightSendPlan(request: CheckThirdRightSendPlanRequest): Promise<CheckThirdRightSendPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CheckThirdRightSendPlanHeaders({ });
+    return await this.checkThirdRightSendPlanWithOptions(request, headers, runtime);
   }
 
   async createReminderWithOptions(tmpReq: CreateReminderRequest, headers: CreateReminderHeaders, runtime: $Util.RuntimeOptions): Promise<CreateReminderResponse> {
