@@ -522,6 +522,209 @@ export class DeleteJobsResponse extends $tea.Model {
   }
 }
 
+export class DescribeJobMetricDataRequest extends $tea.Model {
+  arrayIndex?: number[];
+  jobId?: string;
+  metricName?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayIndex: 'ArrayIndex',
+      jobId: 'JobId',
+      metricName: 'MetricName',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayIndex: { 'type': 'array', 'itemType': 'number' },
+      jobId: 'string',
+      metricName: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMetricDataShrinkRequest extends $tea.Model {
+  arrayIndexShrink?: string;
+  jobId?: string;
+  metricName?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayIndexShrink: 'ArrayIndex',
+      jobId: 'JobId',
+      metricName: 'MetricName',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayIndexShrink: 'string',
+      jobId: 'string',
+      metricName: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMetricDataResponseBody extends $tea.Model {
+  dataPoints?: string;
+  period?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataPoints: 'DataPoints',
+      period: 'Period',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPoints: 'string',
+      period: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMetricDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeJobMetricDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeJobMetricDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMetricLastRequest extends $tea.Model {
+  arrayIndex?: number[];
+  jobId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayIndex: 'ArrayIndex',
+      jobId: 'JobId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayIndex: { 'type': 'array', 'itemType': 'number' },
+      jobId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMetricLastShrinkRequest extends $tea.Model {
+  arrayIndexShrink?: string;
+  jobId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayIndexShrink: 'ArrayIndex',
+      jobId: 'JobId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayIndexShrink: 'string',
+      jobId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMetricLastResponseBody extends $tea.Model {
+  metrics?: DescribeJobMetricLastResponseBodyMetrics[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metrics: 'Metrics',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metrics: { 'type': 'array', 'itemType': DescribeJobMetricLastResponseBodyMetrics },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMetricLastResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeJobMetricLastResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeJobMetricLastResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImageRequest extends $tea.Model {
   imageId?: string;
   static names(): { [key: string]: string } {
@@ -712,20 +915,16 @@ export class ListExecutorsShrinkRequest extends $tea.Model {
 
 export class ListExecutorsResponseBody extends $tea.Model {
   executors?: ListExecutorsResponseBodyExecutors[];
-  jobId?: string;
   pageNumber?: string;
   pageSize?: string;
   requestId?: string;
-  taskName?: string;
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       executors: 'Executors',
-      jobId: 'JobId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      taskName: 'TaskName',
       totalCount: 'TotalCount',
     };
   }
@@ -733,11 +932,9 @@ export class ListExecutorsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       executors: { 'type': 'array', 'itemType': ListExecutorsResponseBodyExecutors },
-      jobId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
       requestId: 'string',
-      taskName: 'string',
       totalCount: 'string',
     };
   }
@@ -1471,6 +1668,56 @@ export class CreateJobRequestTasksTaskSpecResource extends $tea.Model {
   }
 }
 
+export class CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars extends $tea.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $tea.Model {
+  command?: string[];
+  environmentVars?: CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars[];
+  image?: string;
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      environmentVars: 'EnvironmentVars',
+      image: 'Image',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+      environmentVars: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars },
+      image: 'string',
+      workingDir: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $tea.Model {
   image?: string;
   prologScript?: string;
@@ -1497,16 +1744,44 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $tea.Model {
 }
 
 export class CreateJobRequestTasksTaskSpecTaskExecutor extends $tea.Model {
+  container?: CreateJobRequestTasksTaskSpecTaskExecutorContainer;
   VM?: CreateJobRequestTasksTaskSpecTaskExecutorVM;
   static names(): { [key: string]: string } {
     return {
+      container: 'Container',
       VM: 'VM',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      container: CreateJobRequestTasksTaskSpecTaskExecutorContainer,
       VM: CreateJobRequestTasksTaskSpecTaskExecutorVM,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestTasksTaskSpecVolumeMount extends $tea.Model {
+  mountOptions?: string;
+  mountPath?: string;
+  volumeDriver?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountOptions: 'MountOptions',
+      mountPath: 'MountPath',
+      volumeDriver: 'VolumeDriver',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountOptions: 'string',
+      mountPath: 'string',
+      volumeDriver: 'string',
     };
   }
 
@@ -1518,10 +1793,12 @@ export class CreateJobRequestTasksTaskSpecTaskExecutor extends $tea.Model {
 export class CreateJobRequestTasksTaskSpec extends $tea.Model {
   resource?: CreateJobRequestTasksTaskSpecResource;
   taskExecutor?: CreateJobRequestTasksTaskSpecTaskExecutor[];
+  volumeMount?: CreateJobRequestTasksTaskSpecVolumeMount[];
   static names(): { [key: string]: string } {
     return {
       resource: 'Resource',
       taskExecutor: 'TaskExecutor',
+      volumeMount: 'VolumeMount',
     };
   }
 
@@ -1529,6 +1806,7 @@ export class CreateJobRequestTasksTaskSpec extends $tea.Model {
     return {
       resource: CreateJobRequestTasksTaskSpecResource,
       taskExecutor: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecTaskExecutor },
+      volumeMount: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecVolumeMount },
     };
   }
 
@@ -1601,6 +1879,28 @@ export class DeleteJobsRequestJobSpec extends $tea.Model {
     return {
       jobId: 'string',
       taskSpec: { 'type': 'array', 'itemType': DeleteJobsRequestJobSpecTaskSpec },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMetricLastResponseBodyMetrics extends $tea.Model {
+  arrayIndex?: number;
+  metric?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayIndex: 'ArrayIndex',
+      metric: 'Metric',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayIndex: 'number',
+      metric: 'string',
     };
   }
 
@@ -2465,6 +2765,96 @@ export default class Client extends OpenApi {
   async deleteJobs(request: DeleteJobsRequest): Promise<DeleteJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteJobsWithOptions(request, runtime);
+  }
+
+  async describeJobMetricDataWithOptions(tmpReq: DescribeJobMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeJobMetricDataResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeJobMetricDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.arrayIndex)) {
+      request.arrayIndexShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.arrayIndex, "ArrayIndex", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.arrayIndexShrink)) {
+      query["ArrayIndex"] = request.arrayIndexShrink;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeJobMetricData",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeJobMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeJobMetricDataResponse({}));
+  }
+
+  async describeJobMetricData(request: DescribeJobMetricDataRequest): Promise<DescribeJobMetricDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeJobMetricDataWithOptions(request, runtime);
+  }
+
+  async describeJobMetricLastWithOptions(tmpReq: DescribeJobMetricLastRequest, runtime: $Util.RuntimeOptions): Promise<DescribeJobMetricLastResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeJobMetricLastShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.arrayIndex)) {
+      request.arrayIndexShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.arrayIndex, "ArrayIndex", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.arrayIndexShrink)) {
+      query["ArrayIndex"] = request.arrayIndexShrink;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeJobMetricLast",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeJobMetricLastResponse>(await this.callApi(params, req, runtime), new DescribeJobMetricLastResponse({}));
+  }
+
+  async describeJobMetricLast(request: DescribeJobMetricLastRequest): Promise<DescribeJobMetricLastResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeJobMetricLastWithOptions(request, runtime);
   }
 
   async getImageWithOptions(request: GetImageRequest, runtime: $Util.RuntimeOptions): Promise<GetImageResponse> {
