@@ -2655,7 +2655,7 @@ export class DescribeBackupStorageResponse extends $tea.Model {
 }
 
 export class DescribeBackupTasksRequest extends $tea.Model {
-  backupJobId?: number;
+  backupJobId?: string;
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2676,7 +2676,7 @@ export class DescribeBackupTasksRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      backupJobId: 'number',
+      backupJobId: 'string',
       DBInstanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -6540,7 +6540,6 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class MigrateAvailableZoneRequest extends $tea.Model {
-  category?: string;
   DBInstanceId?: string;
   effectiveTime?: string;
   ownerAccount?: string;
@@ -6551,7 +6550,6 @@ export class MigrateAvailableZoneRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      category: 'Category',
       DBInstanceId: 'DBInstanceId',
       effectiveTime: 'EffectiveTime',
       ownerAccount: 'OwnerAccount',
@@ -6565,7 +6563,6 @@ export class MigrateAvailableZoneRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      category: 'string',
       DBInstanceId: 'string',
       effectiveTime: 'string',
       ownerAccount: 'string',
@@ -10984,7 +10981,7 @@ export class DescribeBackupDBsResponseBodyDatabases extends $tea.Model {
 export class DescribeBackupTasksResponseBodyBackupJobs extends $tea.Model {
   backupSetStatus?: string;
   backupStartTime?: string;
-  backupjobId?: number;
+  backupjobId?: string;
   jobMode?: string;
   progress?: string;
   static names(): { [key: string]: string } {
@@ -11001,7 +10998,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $tea.Model {
     return {
       backupSetStatus: 'string',
       backupStartTime: 'string',
-      backupjobId: 'number',
+      backupjobId: 'string',
       jobMode: 'string',
       progress: 'string',
     };
@@ -11016,9 +11013,9 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
   backupDBNames?: string;
   backupDownloadURL?: string;
   backupEndTime?: string;
-  backupId?: number;
+  backupId?: string;
   backupIntranetDownloadURL?: string;
-  backupJobId?: number;
+  backupJobId?: string;
   backupMethod?: string;
   backupMode?: string;
   backupSize?: number;
@@ -11047,9 +11044,9 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
       backupDBNames: 'string',
       backupDownloadURL: 'string',
       backupEndTime: 'string',
-      backupId: 'number',
+      backupId: 'string',
       backupIntranetDownloadURL: 'string',
-      backupJobId: 'number',
+      backupJobId: 'string',
       backupMethod: 'string',
       backupMode: 'string',
       backupSize: 'number',
@@ -19472,10 +19469,6 @@ export default class Client extends OpenApi {
   async migrateAvailableZoneWithOptions(request: MigrateAvailableZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateAvailableZoneResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.category)) {
-      query["Category"] = request.category;
-    }
-
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
