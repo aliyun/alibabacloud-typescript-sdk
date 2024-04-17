@@ -44624,6 +44624,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
   eccId?: string;
   ecrAttatchStatus?: string;
   ecrId?: string;
+  ecrOwnerId?: string;
   enableIpv6?: boolean;
   localGatewayIp?: string;
   localIpv6GatewayIp?: string;
@@ -44666,6 +44667,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       eccId: 'EccId',
       ecrAttatchStatus: 'EcrAttatchStatus',
       ecrId: 'EcrId',
+      ecrOwnerId: 'EcrOwnerId',
       enableIpv6: 'EnableIpv6',
       localGatewayIp: 'LocalGatewayIp',
       localIpv6GatewayIp: 'LocalIpv6GatewayIp',
@@ -44711,6 +44713,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       eccId: 'string',
       ecrAttatchStatus: 'string',
       ecrId: 'string',
+      ecrOwnerId: 'string',
       enableIpv6: 'boolean',
       localGatewayIp: 'string',
       localIpv6GatewayIp: 'string',
