@@ -3172,6 +3172,9 @@ export class CreateCycleTaskResponse extends $tea.Model {
 }
 
 export class CreateFileDetectRequest extends $tea.Model {
+  decompress?: boolean;
+  decompressMaxFileCount?: number;
+  decompressMaxLayer?: number;
   downloadUrl?: string;
   hashKey?: string;
   ossKey?: string;
@@ -3179,6 +3182,9 @@ export class CreateFileDetectRequest extends $tea.Model {
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      decompress: 'Decompress',
+      decompressMaxFileCount: 'DecompressMaxFileCount',
+      decompressMaxLayer: 'DecompressMaxLayer',
       downloadUrl: 'DownloadUrl',
       hashKey: 'HashKey',
       ossKey: 'OssKey',
@@ -3189,6 +3195,9 @@ export class CreateFileDetectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      decompress: 'boolean',
+      decompressMaxFileCount: 'number',
+      decompressMaxLayer: 'number',
       downloadUrl: 'string',
       hashKey: 'string',
       ossKey: 'string',
@@ -24760,6 +24769,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
   lastTrailEndTime?: number;
   MVAuthCount?: number;
   MVUnusedAuthCount?: number;
+  newThreatAnalysis?: number;
   openTime?: number;
   postPayInstanceId?: string;
   postPayModuleSwitch?: string;
@@ -24773,6 +24783,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
   sdkCapacity?: number;
   slsCapacity?: number;
   threatAnalysisCapacity?: number;
+  threatAnalysisFlow?: number;
   userDefinedAlarms?: number;
   version?: number;
   vmCores?: number;
@@ -24800,6 +24811,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       lastTrailEndTime: 'LastTrailEndTime',
       MVAuthCount: 'MVAuthCount',
       MVUnusedAuthCount: 'MVUnusedAuthCount',
+      newThreatAnalysis: 'NewThreatAnalysis',
       openTime: 'OpenTime',
       postPayInstanceId: 'PostPayInstanceId',
       postPayModuleSwitch: 'PostPayModuleSwitch',
@@ -24813,6 +24825,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       sdkCapacity: 'SdkCapacity',
       slsCapacity: 'SlsCapacity',
       threatAnalysisCapacity: 'ThreatAnalysisCapacity',
+      threatAnalysisFlow: 'ThreatAnalysisFlow',
       userDefinedAlarms: 'UserDefinedAlarms',
       version: 'Version',
       vmCores: 'VmCores',
@@ -24843,6 +24856,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       lastTrailEndTime: 'number',
       MVAuthCount: 'number',
       MVUnusedAuthCount: 'number',
+      newThreatAnalysis: 'number',
       openTime: 'number',
       postPayInstanceId: 'string',
       postPayModuleSwitch: 'string',
@@ -24856,6 +24870,7 @@ export class DescribeVersionConfigResponseBody extends $tea.Model {
       sdkCapacity: 'number',
       slsCapacity: 'number',
       threatAnalysisCapacity: 'number',
+      threatAnalysisFlow: 'number',
       userDefinedAlarms: 'number',
       version: 'number',
       vmCores: 'number',
@@ -36962,6 +36977,84 @@ export class ListClusterPluginInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListClusterPluginInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCompressFileDetectResultRequest extends $tea.Model {
+  currentPage?: number;
+  hashKey?: string;
+  pageSize?: number;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      hashKey: 'HashKey',
+      pageSize: 'PageSize',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      hashKey: 'string',
+      pageSize: 'number',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCompressFileDetectResultResponseBody extends $tea.Model {
+  pageInfo?: ListCompressFileDetectResultResponseBodyPageInfo;
+  requestId?: string;
+  resultList?: ListCompressFileDetectResultResponseBodyResultList[];
+  static names(): { [key: string]: string } {
+    return {
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      resultList: 'ResultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageInfo: ListCompressFileDetectResultResponseBodyPageInfo,
+      requestId: 'string',
+      resultList: { 'type': 'array', 'itemType': ListCompressFileDetectResultResponseBodyResultList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCompressFileDetectResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCompressFileDetectResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCompressFileDetectResultResponseBody,
     };
   }
 
@@ -53190,6 +53283,7 @@ export class AddSasContainerWebDefenseRuleRequestPathConfDTOList extends $tea.Mo
 
 export class AddSasModuleTrialResponseBodyDataTrialRecordList extends $tea.Model {
   authLimit?: number;
+  authLimitList?: string;
   gmtEnd?: number;
   gmtStart?: number;
   moduleCode?: string;
@@ -53197,6 +53291,7 @@ export class AddSasModuleTrialResponseBodyDataTrialRecordList extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       authLimit: 'AuthLimit',
+      authLimitList: 'AuthLimitList',
       gmtEnd: 'GmtEnd',
       gmtStart: 'GmtStart',
       moduleCode: 'ModuleCode',
@@ -53207,6 +53302,7 @@ export class AddSasModuleTrialResponseBodyDataTrialRecordList extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       authLimit: 'number',
+      authLimitList: 'string',
       gmtEnd: 'number',
       gmtStart: 'number',
       moduleCode: 'string',
@@ -68549,6 +68645,7 @@ export class GetFileDetectReportResponseBodyData extends $tea.Model {
 
 export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
   code?: string;
+  compress?: boolean;
   ext?: string;
   hashKey?: string;
   message?: string;
@@ -68558,6 +68655,7 @@ export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      compress: 'Compress',
       ext: 'Ext',
       hashKey: 'HashKey',
       message: 'Message',
@@ -68570,6 +68668,7 @@ export class GetFileDetectResultResponseBodyResultList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      compress: 'boolean',
       ext: 'string',
       hashKey: 'string',
       message: 'string',
@@ -69678,6 +69777,7 @@ export class GetModuleConfigResponseBodyPageInfo extends $tea.Model {
 
 export class GetModuleTrialAuthInfoResponseBodyDataTrialRecordList extends $tea.Model {
   authLimit?: number;
+  authLimitList?: string;
   gmtEnd?: number;
   gmtStart?: number;
   moduleCode?: string;
@@ -69685,6 +69785,7 @@ export class GetModuleTrialAuthInfoResponseBodyDataTrialRecordList extends $tea.
   static names(): { [key: string]: string } {
     return {
       authLimit: 'AuthLimit',
+      authLimitList: 'AuthLimitList',
       gmtEnd: 'GmtEnd',
       gmtStart: 'GmtStart',
       moduleCode: 'ModuleCode',
@@ -69695,6 +69796,7 @@ export class GetModuleTrialAuthInfoResponseBodyDataTrialRecordList extends $tea.
   static types(): { [key: string]: any } {
     return {
       authLimit: 'number',
+      authLimitList: 'string',
       gmtEnd: 'number',
       gmtStart: 'number',
       moduleCode: 'string',
@@ -72980,6 +73082,65 @@ export class ListClusterPluginInfoResponseBodyData extends $tea.Model {
       clusterName: 'string',
       clusterStatus: 'string',
       nodePluginInfoList: { 'type': 'array', 'itemType': ListClusterPluginInfoResponseBodyDataNodePluginInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCompressFileDetectResultResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCompressFileDetectResultResponseBodyResultList extends $tea.Model {
+  ext?: string;
+  hashKey?: string;
+  path?: string;
+  result?: number;
+  score?: number;
+  virusType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      hashKey: 'HashKey',
+      path: 'Path',
+      result: 'Result',
+      score: 'Score',
+      virusType: 'VirusType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: 'string',
+      hashKey: 'string',
+      path: 'string',
+      result: 'number',
+      score: 'number',
+      virusType: 'string',
     };
   }
 
@@ -80599,6 +80760,18 @@ export default class Client extends OpenApi {
   async createFileDetectWithOptions(request: CreateFileDetectRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileDetectResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.decompress)) {
+      query["Decompress"] = request.decompress;
+    }
+
+    if (!Util.isUnset(request.decompressMaxFileCount)) {
+      query["DecompressMaxFileCount"] = request.decompressMaxFileCount;
+    }
+
+    if (!Util.isUnset(request.decompressMaxLayer)) {
+      query["DecompressMaxLayer"] = request.decompressMaxLayer;
+    }
+
     if (!Util.isUnset(request.downloadUrl)) {
       query["DownloadUrl"] = request.downloadUrl;
     }
@@ -98447,6 +98620,47 @@ export default class Client extends OpenApi {
   async listClusterPluginInfo(request: ListClusterPluginInfoRequest): Promise<ListClusterPluginInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterPluginInfoWithOptions(request, runtime);
+  }
+
+  async listCompressFileDetectResultWithOptions(request: ListCompressFileDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCompressFileDetectResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.hashKey)) {
+      query["HashKey"] = request.hashKey;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCompressFileDetectResult",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCompressFileDetectResultResponse>(await this.callApi(params, req, runtime), new ListCompressFileDetectResultResponse({}));
+  }
+
+  async listCompressFileDetectResult(request: ListCompressFileDetectResultRequest): Promise<ListCompressFileDetectResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCompressFileDetectResultWithOptions(request, runtime);
   }
 
   async listContainerDefenseRuleWithOptions(request: ListContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListContainerDefenseRuleResponse> {
