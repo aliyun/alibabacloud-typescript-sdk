@@ -6002,10 +6002,12 @@ export class ModifyClusterTagsResponse extends $tea.Model {
 
 export class ModifyNodePoolNodeConfigRequest extends $tea.Model {
   kubeletConfig?: KubeletConfig;
+  osConfig?: ModifyNodePoolNodeConfigRequestOsConfig;
   rollingPolicy?: ModifyNodePoolNodeConfigRequestRollingPolicy;
   static names(): { [key: string]: string } {
     return {
       kubeletConfig: 'kubelet_config',
+      osConfig: 'os_config',
       rollingPolicy: 'rolling_policy',
     };
   }
@@ -6013,6 +6015,7 @@ export class ModifyNodePoolNodeConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       kubeletConfig: KubeletConfig,
+      osConfig: ModifyNodePoolNodeConfigRequestOsConfig,
       rollingPolicy: ModifyNodePoolNodeConfigRequestRollingPolicy,
     };
   }
@@ -12943,6 +12946,25 @@ export class ModifyClusterNodePoolRequestTeeConfig extends $tea.Model {
   }
 }
 
+export class ModifyNodePoolNodeConfigRequestOsConfig extends $tea.Model {
+  sysctl?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      sysctl: 'sysctl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sysctl: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyNodePoolNodeConfigRequestRollingPolicy extends $tea.Model {
   maxParallelism?: number;
   static names(): { [key: string]: string } {
@@ -17006,6 +17028,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.kubeletConfig)) {
       body["kubelet_config"] = request.kubeletConfig;
+    }
+
+    if (!Util.isUnset(request.osConfig)) {
+      body["os_config"] = request.osConfig;
     }
 
     if (!Util.isUnset(request.rollingPolicy)) {
