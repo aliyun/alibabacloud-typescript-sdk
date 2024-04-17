@@ -516,18 +516,18 @@ export class EncryptUserCmkConf extends $tea.Model {
 }
 
 export class GroupConfiguration extends $tea.Model {
-  fileds?: string[];
+  fields?: string[];
   type?: string;
   static names(): { [key: string]: string } {
     return {
-      fileds: 'fileds',
+      fields: 'fields',
       type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileds: { 'type': 'array', 'itemType': 'string' },
+      fields: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
     };
   }
@@ -1551,6 +1551,31 @@ export class SinkEventStoreConfiguration extends $tea.Model {
   }
 }
 
+export class StoreViewStore extends $tea.Model {
+  project?: string;
+  query?: string;
+  storeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      project: 'project',
+      query: 'query',
+      storeName: 'storeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      project: 'string',
+      query: 'string',
+      storeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TemplateConfiguration extends $tea.Model {
   aonotations?: { [key: string]: any };
   id?: string;
@@ -1593,6 +1618,7 @@ export class Ticket extends $tea.Model {
   extra?: string;
   name?: string;
   number?: number;
+  sharingTo?: string;
   ticket?: string;
   ticketId?: string;
   usedNumber?: number;
@@ -1606,6 +1632,7 @@ export class Ticket extends $tea.Model {
       extra: 'extra',
       name: 'name',
       number: 'number',
+      sharingTo: 'sharingTo',
       ticket: 'ticket',
       ticketId: 'ticketId',
       usedNumber: 'usedNumber',
@@ -1622,6 +1649,7 @@ export class Ticket extends $tea.Model {
       extra: 'string',
       name: 'string',
       number: 'number',
+      sharingTo: 'string',
       ticket: 'string',
       ticketId: 'string',
       usedNumber: 'number',
@@ -2371,6 +2399,53 @@ export class ConsumerGroupHeartBeatResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConsumerGroupUpdateCheckPointRequest extends $tea.Model {
+  body?: ConsumerGroupUpdateCheckPointRequestBody[];
+  consumer?: string;
+  forceSuccess?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      consumer: 'consumer',
+      forceSuccess: 'forceSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'array', 'itemType': ConsumerGroupUpdateCheckPointRequestBody },
+      consumer: 'string',
+      forceSuccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConsumerGroupUpdateCheckPointResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
@@ -3429,6 +3504,119 @@ export class CreateScheduledSQLResponse extends $tea.Model {
   }
 }
 
+export class CreateSqlInstanceRequest extends $tea.Model {
+  cu?: number;
+  useAsDefault?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'cu',
+      useAsDefault: 'useAsDefault',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'number',
+      useAsDefault: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStoreViewRequest extends $tea.Model {
+  name?: string;
+  storeType?: string;
+  stores?: StoreViewStore[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      storeType: 'storeType',
+      stores: 'stores',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      storeType: 'string',
+      stores: { 'type': 'array', 'itemType': StoreViewStore },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStoreViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicketRequest extends $tea.Model {
+  accessTokenExpirationTime?: number;
+  expirationTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenExpirationTime: 'accessTokenExpirationTime',
+      expirationTime: 'expirationTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenExpirationTime: 'number',
+      expirationTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTicketResponseBody extends $tea.Model {
   ticket?: string;
   static names(): { [key: string]: string } {
@@ -4045,6 +4233,28 @@ export class DeleteShipperResponse extends $tea.Model {
   }
 }
 
+export class DeleteStoreViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableAlertResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -4059,6 +4269,50 @@ export class DisableAlertResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableScheduledSQLResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableScheduledSQLResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableScheduledSQLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableScheduledSQLResponseBody,
     };
   }
 
@@ -5021,7 +5275,6 @@ export class GetLogsV2Request extends $tea.Model {
   query?: string;
   reverse?: boolean;
   session?: string;
-  shard?: number;
   to?: number;
   topic?: string;
   static names(): { [key: string]: string } {
@@ -5035,7 +5288,6 @@ export class GetLogsV2Request extends $tea.Model {
       query: 'query',
       reverse: 'reverse',
       session: 'session',
-      shard: 'shard',
       to: 'to',
       topic: 'topic',
     };
@@ -5052,7 +5304,6 @@ export class GetLogsV2Request extends $tea.Model {
       query: 'string',
       reverse: 'boolean',
       session: 'string',
-      shard: 'number',
       to: 'number',
       topic: 'string',
     };
@@ -5221,6 +5472,50 @@ export class GetMachineGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: MachineGroup,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetricStoreMeteringModeResponseBody extends $tea.Model {
+  meteringMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      meteringMode: 'meteringMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meteringMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetricStoreMeteringModeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMetricStoreMeteringModeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMetricStoreMeteringModeResponseBody,
     };
   }
 
@@ -5527,6 +5822,147 @@ export class GetShipperStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetShipperStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSlsServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ServiceStatus;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ServiceStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSqlInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSqlInstanceResponseBody[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: { 'type': 'array', 'itemType': GetSqlInstanceResponseBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoreViewResponseBody extends $tea.Model {
+  storeType?: string;
+  stores?: StoreViewStore[];
+  static names(): { [key: string]: string } {
+    return {
+      storeType: 'storeType',
+      stores: 'stores',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storeType: 'string',
+      stores: { 'type': 'array', 'itemType': StoreViewStore },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoreViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetStoreViewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetStoreViewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoreViewIndexResponseBody extends $tea.Model {
+  indexes?: GetStoreViewIndexResponseBodyIndexes[];
+  static names(): { [key: string]: string } {
+    return {
+      indexes: 'indexes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexes: { 'type': 'array', 'itemType': GetStoreViewIndexResponseBodyIndexes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoreViewIndexResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetStoreViewIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetStoreViewIndexResponseBody,
     };
   }
 
@@ -6189,10 +6625,12 @@ export class ListDomainsResponse extends $tea.Model {
 }
 
 export class ListETLsRequest extends $tea.Model {
+  logstore?: string;
   offset?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      logstore: 'logstore',
       offset: 'offset',
       size: 'size',
     };
@@ -6200,6 +6638,7 @@ export class ListETLsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      logstore: 'string',
       offset: 'number',
       size: 'number',
     };
@@ -6287,7 +6726,7 @@ export class ListExternalStoreRequest extends $tea.Model {
 
 export class ListExternalStoreResponseBody extends $tea.Model {
   count?: number;
-  externalstores?: ExternalStore[];
+  externalstores?: string[];
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6300,7 +6739,7 @@ export class ListExternalStoreResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       count: 'number',
-      externalstores: { 'type': 'array', 'itemType': ExternalStore },
+      externalstores: { 'type': 'array', 'itemType': 'string' },
       total: 'number',
     };
   }
@@ -6642,10 +7081,12 @@ export class ListMachinesResponse extends $tea.Model {
 }
 
 export class ListOSSExportsRequest extends $tea.Model {
+  logstore?: string;
   offset?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      logstore: 'logstore',
       offset: 'offset',
       size: 'size',
     };
@@ -6653,6 +7094,7 @@ export class ListOSSExportsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      logstore: 'string',
       offset: 'number',
       size: 'number',
     };
@@ -6714,10 +7156,12 @@ export class ListOSSExportsResponse extends $tea.Model {
 }
 
 export class ListOSSHDFSExportsRequest extends $tea.Model {
+  logstore?: string;
   offset?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      logstore: 'logstore',
       offset: 'offset',
       size: 'size',
     };
@@ -6725,6 +7169,7 @@ export class ListOSSHDFSExportsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      logstore: 'string',
       offset: 'number',
       size: 'number',
     };
@@ -6786,10 +7231,12 @@ export class ListOSSHDFSExportsResponse extends $tea.Model {
 }
 
 export class ListOSSIngestionsRequest extends $tea.Model {
+  logstore?: string;
   offset?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      logstore: 'logstore',
       offset: 'offset',
       size: 'size',
     };
@@ -6797,6 +7244,7 @@ export class ListOSSIngestionsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      logstore: 'string',
       offset: 'number',
       size: 'number',
     };
@@ -7008,10 +7456,12 @@ export class ListSavedSearchResponse extends $tea.Model {
 }
 
 export class ListScheduledSQLsRequest extends $tea.Model {
+  logstore?: string;
   offset?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      logstore: 'logstore',
       offset: 'offset',
       size: 'size',
     };
@@ -7019,6 +7469,7 @@ export class ListScheduledSQLsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      logstore: 'string',
       offset: 'number',
       size: 'number',
     };
@@ -7154,6 +7605,84 @@ export class ListShipperResponse extends $tea.Model {
   }
 }
 
+export class ListStoreViewsRequest extends $tea.Model {
+  name?: string;
+  offset?: number;
+  size?: number;
+  storeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      offset: 'offset',
+      size: 'size',
+      storeType: 'storeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      offset: 'number',
+      size: 'number',
+      storeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStoreViewsResponseBody extends $tea.Model {
+  count?: number;
+  storeviews?: string[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      storeviews: 'storeviews',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      storeviews: { 'type': 'array', 'itemType': 'string' },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStoreViewsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListStoreViewsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListStoreViewsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   resourceId?: string[];
   resourceType?: string;
@@ -7268,6 +7797,28 @@ export class MergeShardResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: { 'type': 'array', 'itemType': Shard },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenSlsServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
@@ -7516,6 +8067,72 @@ export class QueryMLServiceResultsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryMLServiceResultsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshTokenRequest extends $tea.Model {
+  accessTokenExpirationTime?: number;
+  ticket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenExpirationTime: 'accessTokenExpirationTime',
+      ticket: 'ticket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenExpirationTime: 'number',
+      ticket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshTokenResponseBody extends $tea.Model {
+  accessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshTokenResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefreshTokenResponseBody,
     };
   }
 
@@ -8557,6 +9174,47 @@ export class UpdateMachineGroupMachineResponse extends $tea.Model {
   }
 }
 
+export class UpdateMetricStoreMeteringModeRequest extends $tea.Model {
+  meteringMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      meteringMode: 'meteringMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meteringMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetricStoreMeteringModeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateOSSExportRequest extends $tea.Model {
   configuration?: OSSExportConfiguration;
   description?: string;
@@ -8939,6 +9597,94 @@ export class UpdateScheduledSQLResponse extends $tea.Model {
   }
 }
 
+export class UpdateSqlInstanceRequest extends $tea.Model {
+  cu?: number;
+  useAsDefault?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'cu',
+      useAsDefault: 'useAsDefault',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'number',
+      useAsDefault: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSqlInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStoreViewRequest extends $tea.Model {
+  storeType?: string;
+  stores?: StoreViewStore[];
+  static names(): { [key: string]: string } {
+    return {
+      storeType: 'storeType',
+      stores: 'stores',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storeType: 'string',
+      stores: { 'type': 'array', 'itemType': StoreViewStore },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStoreViewResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpsertCollectionPolicyRequest extends $tea.Model {
   attribute?: UpsertCollectionPolicyRequestAttribute;
   centralizeConfig?: UpsertCollectionPolicyRequestCentralizeConfig;
@@ -9131,7 +9877,7 @@ export class OSSExportConfigurationSink extends $tea.Model {
   bufferInterval?: number;
   bufferSize?: number;
   compressionType?: string;
-  contentDetail?: string;
+  contentDetail?: { [key: string]: any };
   contentType?: string;
   delaySec?: number;
   endpoint?: string;
@@ -9166,7 +9912,7 @@ export class OSSExportConfigurationSink extends $tea.Model {
       bufferInterval: 'number',
       bufferSize: 'number',
       compressionType: 'string',
-      contentDetail: 'string',
+      contentDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       contentType: 'string',
       delaySec: 'number',
       endpoint: 'string',
@@ -9363,6 +10109,28 @@ export class MachineGroupGroupAttribute extends $tea.Model {
     return {
       externalName: 'string',
       groupTopic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConsumerGroupUpdateCheckPointRequestBody extends $tea.Model {
+  checkpoint?: string;
+  shard?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkpoint: 'checkpoint',
+      shard: 'shard',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkpoint: 'string',
+      shard: 'number',
     };
   }
 
@@ -9919,6 +10687,62 @@ export class GetShipperStatusResponseBodyTasks extends $tea.Model {
   }
 }
 
+export class GetSqlInstanceResponseBody extends $tea.Model {
+  name?: string;
+  cu?: number;
+  createTime?: number;
+  updateTime?: number;
+  useAsDefault?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      cu: 'cu',
+      createTime: 'createTime',
+      updateTime: 'updateTime',
+      useAsDefault: 'useAsDefault',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      cu: 'number',
+      createTime: 'number',
+      updateTime: 'number',
+      useAsDefault: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoreViewIndexResponseBodyIndexes extends $tea.Model {
+  index?: Index;
+  logstore?: string;
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'index',
+      logstore: 'logstore',
+      project: 'project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: Index,
+      logstore: 'string',
+      project: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCollectionPoliciesRequestAttribute extends $tea.Model {
   app?: string;
   policyGroup?: string;
@@ -10413,6 +11237,7 @@ export default class Client extends OpenApi {
     super(config);
     this._client = new GatewayClient();
     this._spi = this._client;
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "central";
   }
 
@@ -10549,6 +11374,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.consumerGroupHeartBeatWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  }
+
+  async consumerGroupUpdateCheckPointWithOptions(project: string, logstore: string, consumerGroup: string, request: ConsumerGroupUpdateCheckPointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConsumerGroupUpdateCheckPointResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.consumer)) {
+      query["consumer"] = request.consumer;
+    }
+
+    if (!Util.isUnset(request.forceSuccess)) {
+      query["forceSuccess"] = request.forceSuccess;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: Util.toArray(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ConsumerGroupUpdateCheckPoint",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/consumergroups/${consumerGroup}?type=checkpoint`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ConsumerGroupUpdateCheckPointResponse>(await this.execute(params, req, runtime), new ConsumerGroupUpdateCheckPointResponse({}));
+  }
+
+  async consumerGroupUpdateCheckPoint(project: string, logstore: string, consumerGroup: string, request: ConsumerGroupUpdateCheckPointRequest): Promise<ConsumerGroupUpdateCheckPointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.consumerGroupUpdateCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
   }
 
   async createAlertWithOptions(project: string, request: CreateAlertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAlertResponse> {
@@ -11692,9 +12556,100 @@ export default class Client extends OpenApi {
     return await this.createScheduledSQLWithOptions(project, request, headers, runtime);
   }
 
-  async createTicketWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
+  async createSqlInstanceWithOptions(project: string, request: CreateSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSqlInstanceResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cu)) {
+      body["cu"] = request.cu;
+    }
+
+    if (!Util.isUnset(request.useAsDefault)) {
+      body["useAsDefault"] = request.useAsDefault;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSqlInstance",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/sqlinstance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateSqlInstanceResponse>(await this.execute(params, req, runtime), new CreateSqlInstanceResponse({}));
+  }
+
+  async createSqlInstance(project: string, request: CreateSqlInstanceRequest): Promise<CreateSqlInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSqlInstanceWithOptions(project, request, headers, runtime);
+  }
+
+  async createStoreViewWithOptions(project: string, request: CreateStoreViewRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateStoreViewResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.storeType)) {
+      body["storeType"] = request.storeType;
+    }
+
+    if (!Util.isUnset(request.stores)) {
+      body["stores"] = request.stores;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateStoreView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/storeviews`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateStoreViewResponse>(await this.execute(params, req, runtime), new CreateStoreViewResponse({}));
+  }
+
+  async createStoreView(project: string, request: CreateStoreViewRequest): Promise<CreateStoreViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createStoreViewWithOptions(project, request, headers, runtime);
+  }
+
+  async createTicketWithOptions(request: CreateTicketRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessTokenExpirationTime)) {
+      query["accessTokenExpirationTime"] = request.accessTokenExpirationTime;
+    }
+
+    if (!Util.isUnset(request.expirationTime)) {
+      query["expirationTime"] = request.expirationTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "CreateTicket",
@@ -11710,10 +12665,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTicketResponse>(await this.execute(params, req, runtime), new CreateTicketResponse({}));
   }
 
-  async createTicket(): Promise<CreateTicketResponse> {
+  async createTicket(request: CreateTicketRequest): Promise<CreateTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTicketWithOptions(headers, runtime);
+    return await this.createTicketWithOptions(request, headers, runtime);
   }
 
   async deleteAlertWithOptions(project: string, alertName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertResponse> {
@@ -12565,6 +13520,33 @@ export default class Client extends OpenApi {
     return await this.deleteShipperWithOptions(project, logstore, shipperName, headers, runtime);
   }
 
+  async deleteStoreViewWithOptions(project: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteStoreViewResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteStoreView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/storeviews/${name}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteStoreViewResponse>(await this.execute(params, req, runtime), new DeleteStoreViewResponse({}));
+  }
+
+  async deleteStoreView(project: string, name: string): Promise<DeleteStoreViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteStoreViewWithOptions(project, name, headers, runtime);
+  }
+
   async disableAlertWithOptions(project: string, alertName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableAlertResponse> {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
@@ -12590,6 +13572,33 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableAlertWithOptions(project, alertName, headers, runtime);
+  }
+
+  async disableScheduledSQLWithOptions(project: string, scheduledSQLName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableScheduledSQLResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableScheduledSQL",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/scheduledsqls/${scheduledSQLName}?action=disable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableScheduledSQLResponse>(await this.execute(params, req, runtime), new DisableScheduledSQLResponse({}));
+  }
+
+  async disableScheduledSQL(project: string, scheduledSQLName: string): Promise<DisableScheduledSQLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableScheduledSQLWithOptions(project, scheduledSQLName, headers, runtime);
   }
 
   async enableAlertWithOptions(project: string, alertName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableAlertResponse> {
@@ -13574,10 +14583,6 @@ export default class Client extends OpenApi {
       body["session"] = request.session;
     }
 
-    if (!Util.isUnset(request.shard)) {
-      body["shard"] = request.shard;
-    }
-
     if (!Util.isUnset(request.to)) {
       body["to"] = request.to;
     }
@@ -13738,6 +14743,33 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMachineGroupWithOptions(project, machineGroup, headers, runtime);
+  }
+
+  async getMetricStoreMeteringModeWithOptions(project: string, metricStore: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMetricStoreMeteringModeResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetMetricStoreMeteringMode",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/metricstores/${metricStore}/meteringmode`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "none",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMetricStoreMeteringModeResponse>(await this.execute(params, req, runtime), new GetMetricStoreMeteringModeResponse({}));
+  }
+
+  async getMetricStoreMeteringMode(project: string, metricStore: string): Promise<GetMetricStoreMeteringModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMetricStoreMeteringModeWithOptions(project, metricStore, headers, runtime);
   }
 
   async getOSSExportWithOptions(project: string, ossExportName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOSSExportResponse> {
@@ -14099,6 +15131,111 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getShipperStatusWithOptions(project, logstore, shipperName, request, headers, runtime);
+  }
+
+  async getSlsServiceWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSlsServiceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSlsService",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/slsservice`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSlsServiceResponse>(await this.execute(params, req, runtime), new GetSlsServiceResponse({}));
+  }
+
+  async getSlsService(): Promise<GetSlsServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSlsServiceWithOptions(headers, runtime);
+  }
+
+  async getSqlInstanceWithOptions(project: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSqlInstanceResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSqlInstance",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/sqlinstance`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<GetSqlInstanceResponse>(await this.execute(params, req, runtime), new GetSqlInstanceResponse({}));
+  }
+
+  async getSqlInstance(project: string): Promise<GetSqlInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSqlInstanceWithOptions(project, headers, runtime);
+  }
+
+  async getStoreViewWithOptions(project: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetStoreViewResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetStoreView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/storeviews/${name}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStoreViewResponse>(await this.execute(params, req, runtime), new GetStoreViewResponse({}));
+  }
+
+  async getStoreView(project: string, name: string): Promise<GetStoreViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStoreViewWithOptions(project, name, headers, runtime);
+  }
+
+  async getStoreViewIndexWithOptions(project: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetStoreViewIndexResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetStoreViewIndex",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/storeviews/${name}/index`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStoreViewIndexResponse>(await this.execute(params, req, runtime), new GetStoreViewIndexResponse({}));
+  }
+
+  async getStoreViewIndex(project: string, name: string): Promise<GetStoreViewIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStoreViewIndexWithOptions(project, name, headers, runtime);
   }
 
   async listAlertsWithOptions(project: string, request: ListAlertsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlertsResponse> {
@@ -14541,6 +15678,10 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
     if (!Util.isUnset(request.offset)) {
       query["offset"] = request.offset;
     }
@@ -14885,6 +16026,10 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
     if (!Util.isUnset(request.offset)) {
       query["offset"] = request.offset;
     }
@@ -14923,6 +16068,10 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
     if (!Util.isUnset(request.offset)) {
       query["offset"] = request.offset;
     }
@@ -14961,6 +16110,10 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
     if (!Util.isUnset(request.offset)) {
       query["offset"] = request.offset;
     }
@@ -15112,6 +16265,10 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
     if (!Util.isUnset(request.offset)) {
       query["offset"] = request.offset;
     }
@@ -15215,6 +16372,52 @@ export default class Client extends OpenApi {
     return await this.listShipperWithOptions(project, logstore, headers, runtime);
   }
 
+  async listStoreViewsWithOptions(project: string, request: ListStoreViewsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListStoreViewsResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.storeType)) {
+      query["storeType"] = request.storeType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListStoreViews",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/storeviews`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStoreViewsResponse>(await this.execute(params, req, runtime), new ListStoreViewsResponse({}));
+  }
+
+  async listStoreViews(project: string, request: ListStoreViewsRequest): Promise<ListStoreViewsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listStoreViewsWithOptions(project, request, headers, runtime);
+  }
+
   /**
     * ### Usage notes
     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
@@ -15305,6 +16508,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.mergeShardWithOptions(project, logstore, shard, headers, runtime);
+  }
+
+  async openSlsServiceWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenSlsServiceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenSlsService",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/slsservice`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<OpenSlsServiceResponse>(await this.execute(params, req, runtime), new OpenSlsServiceResponse({}));
+  }
+
+  async openSlsService(): Promise<OpenSlsServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.openSlsServiceWithOptions(headers, runtime);
   }
 
   async putAnnotationDataWithOptions(datasetId: string, request: PutAnnotationDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutAnnotationDataResponse> {
@@ -15482,7 +16709,7 @@ export default class Client extends OpenApi {
       protocol: "HTTPS",
       pathname: `/logstores/${logstoreName}/track`,
       method: "POST",
-      authType: "AK",
+      authType: "Anonymous",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
@@ -15555,6 +16782,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryMLServiceResultsWithOptions(serviceName, request, headers, runtime);
+  }
+
+  async refreshTokenWithOptions(request: RefreshTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RefreshTokenResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessTokenExpirationTime)) {
+      query["accessTokenExpirationTime"] = request.accessTokenExpirationTime;
+    }
+
+    if (!Util.isUnset(request.ticket)) {
+      query["ticket"] = request.ticket;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefreshToken",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/token/refresh`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshTokenResponse>(await this.execute(params, req, runtime), new RefreshTokenResponse({}));
+  }
+
+  async refreshToken(request: RefreshTokenRequest): Promise<RefreshTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.refreshTokenWithOptions(request, headers, runtime);
   }
 
   /**
@@ -16752,6 +18014,40 @@ export default class Client extends OpenApi {
     return await this.updateMachineGroupMachineWithOptions(project, machineGroup, request, headers, runtime);
   }
 
+  async updateMetricStoreMeteringModeWithOptions(project: string, metricStore: string, request: UpdateMetricStoreMeteringModeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateMetricStoreMeteringModeResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.meteringMode)) {
+      body["meteringMode"] = request.meteringMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateMetricStoreMeteringMode",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/metricstores/${metricStore}/meteringmode`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateMetricStoreMeteringModeResponse>(await this.execute(params, req, runtime), new UpdateMetricStoreMeteringModeResponse({}));
+  }
+
+  async updateMetricStoreMeteringMode(project: string, metricStore: string, request: UpdateMetricStoreMeteringModeRequest): Promise<UpdateMetricStoreMeteringModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMetricStoreMeteringModeWithOptions(project, metricStore, request, headers, runtime);
+  }
+
   async updateOSSExportWithOptions(project: string, ossExportName: string, request: UpdateOSSExportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateOSSExportResponse> {
     Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
@@ -17140,6 +18436,82 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateScheduledSQLWithOptions(project, scheduledSQLName, request, headers, runtime);
+  }
+
+  async updateSqlInstanceWithOptions(project: string, request: UpdateSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSqlInstanceResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cu)) {
+      body["cu"] = request.cu;
+    }
+
+    if (!Util.isUnset(request.useAsDefault)) {
+      body["useAsDefault"] = request.useAsDefault;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSqlInstance",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/sqlinstance`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateSqlInstanceResponse>(await this.execute(params, req, runtime), new UpdateSqlInstanceResponse({}));
+  }
+
+  async updateSqlInstance(project: string, request: UpdateSqlInstanceRequest): Promise<UpdateSqlInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSqlInstanceWithOptions(project, request, headers, runtime);
+  }
+
+  async updateStoreViewWithOptions(project: string, name: string, request: UpdateStoreViewRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateStoreViewResponse> {
+    Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.storeType)) {
+      body["storeType"] = request.storeType;
+    }
+
+    if (!Util.isUnset(request.stores)) {
+      body["stores"] = request.stores;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateStoreView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/storeviews/${name}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateStoreViewResponse>(await this.execute(params, req, runtime), new UpdateStoreViewResponse({}));
+  }
+
+  async updateStoreView(project: string, name: string, request: UpdateStoreViewRequest): Promise<UpdateStoreViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateStoreViewWithOptions(project, name, request, headers, runtime);
   }
 
   async upsertCollectionPolicyWithOptions(request: UpsertCollectionPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpsertCollectionPolicyResponse> {
