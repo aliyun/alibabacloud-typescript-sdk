@@ -1211,6 +1211,7 @@ export class QueryBookingDomainInfoResponseBody extends $tea.Model {
   maxBid?: number;
   partnerType?: string;
   requestId?: string;
+  snatchNo?: string;
   transferInPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1220,6 +1221,7 @@ export class QueryBookingDomainInfoResponseBody extends $tea.Model {
       maxBid: 'MaxBid',
       partnerType: 'PartnerType',
       requestId: 'RequestId',
+      snatchNo: 'SnatchNo',
       transferInPrice: 'TransferInPrice',
     };
   }
@@ -1232,6 +1234,7 @@ export class QueryBookingDomainInfoResponseBody extends $tea.Model {
       maxBid: 'number',
       partnerType: 'string',
       requestId: 'string',
+      snatchNo: 'string',
       transferInPrice: 'number',
     };
   }
