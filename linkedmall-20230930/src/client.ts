@@ -2832,6 +2832,50 @@ export class RenderRefundOrderResponse extends $tea.Model {
   }
 }
 
+export class SplitPurchaseOrderRequest extends $tea.Model {
+  body?: PurchaseOrderRenderQuery;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: PurchaseOrderRenderQuery,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SplitPurchaseOrderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseOrderRenderResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PurchaseOrderRenderResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MoneyCurrency extends $tea.Model {
   currencyCode?: string;
   defaultFractionDigits?: number;
@@ -3514,6 +3558,32 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.renderRefundOrderWithOptions(request, headers, runtime);
+  }
+
+  async splitPurchaseOrderWithOptions(request: SplitPurchaseOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SplitPurchaseOrderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SplitPurchaseOrder",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: `/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/split`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SplitPurchaseOrderResponse>(await this.callApi(params, req, runtime), new SplitPurchaseOrderResponse({}));
+  }
+
+  async splitPurchaseOrder(request: SplitPurchaseOrderRequest): Promise<SplitPurchaseOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.splitPurchaseOrderWithOptions(request, headers, runtime);
   }
 
 }
