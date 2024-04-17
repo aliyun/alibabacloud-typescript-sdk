@@ -2445,6 +2445,99 @@ export class ApplyTagPoliciesResponse extends $tea.Model {
   }
 }
 
+export class BindSentinelBlockFallbackDefinitionRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appName?: string;
+  fallbackId?: number;
+  namespace?: string;
+  resource?: string;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      fallbackId: 'FallbackId',
+      namespace: 'Namespace',
+      resource: 'Resource',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      fallbackId: 'number',
+      namespace: 'string',
+      resource: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindSentinelBlockFallbackDefinitionResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindSentinelBlockFallbackDefinitionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindSentinelBlockFallbackDefinitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindSentinelBlockFallbackDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloneNacosConfigRequest extends $tea.Model {
   acceptLanguage?: string;
   ids?: string;
@@ -14225,6 +14318,118 @@ export class ListSecurityGroupRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSecurityGroupRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSentinelBlockFallbackDefinitionsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appName?: string;
+  classificationSet?: number[];
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      classificationSet: 'ClassificationSet',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      classificationSet: { 'type': 'array', 'itemType': 'number' },
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSentinelBlockFallbackDefinitionsShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  appName?: string;
+  classificationSetShrink?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      classificationSetShrink: 'ClassificationSet',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      classificationSetShrink: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSentinelBlockFallbackDefinitionsResponseBody extends $tea.Model {
+  data?: ListSentinelBlockFallbackDefinitionsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListSentinelBlockFallbackDefinitionsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSentinelBlockFallbackDefinitionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSentinelBlockFallbackDefinitionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSentinelBlockFallbackDefinitionsResponseBody,
     };
   }
 
@@ -31011,6 +31216,43 @@ export class ListSecurityGroupRuleResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListSentinelBlockFallbackDefinitionsResponseBodyData extends $tea.Model {
+  appName?: string;
+  fallbackBehavior?: { [key: string]: any };
+  id?: string;
+  name?: string;
+  namespace?: string;
+  resourceClassification?: string;
+  targetMap?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      fallbackBehavior: 'FallbackBehavior',
+      id: 'Id',
+      name: 'Name',
+      namespace: 'Namespace',
+      resourceClassification: 'ResourceClassification',
+      targetMap: 'TargetMap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      fallbackBehavior: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      id: 'string',
+      name: 'string',
+      namespace: 'string',
+      resourceClassification: 'string',
+      targetMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceSourceResponseBodyDataIngressOptions extends $tea.Model {
   enableIngress?: boolean;
   enableStatus?: boolean;
@@ -35201,6 +35443,55 @@ export default class Client extends OpenApi {
   async applyTagPolicies(request: ApplyTagPoliciesRequest): Promise<ApplyTagPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyTagPoliciesWithOptions(request, runtime);
+  }
+
+  async bindSentinelBlockFallbackDefinitionWithOptions(request: BindSentinelBlockFallbackDefinitionRequest, runtime: $Util.RuntimeOptions): Promise<BindSentinelBlockFallbackDefinitionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.fallbackId)) {
+      query["FallbackId"] = request.fallbackId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindSentinelBlockFallbackDefinition",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindSentinelBlockFallbackDefinitionResponse>(await this.callApi(params, req, runtime), new BindSentinelBlockFallbackDefinitionResponse({}));
+  }
+
+  async bindSentinelBlockFallbackDefinition(request: BindSentinelBlockFallbackDefinitionRequest): Promise<BindSentinelBlockFallbackDefinitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindSentinelBlockFallbackDefinitionWithOptions(request, runtime);
   }
 
   /**
@@ -41418,6 +41709,53 @@ export default class Client extends OpenApi {
   async listSecurityGroupRule(request: ListSecurityGroupRuleRequest): Promise<ListSecurityGroupRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecurityGroupRuleWithOptions(request, runtime);
+  }
+
+  async listSentinelBlockFallbackDefinitionsWithOptions(tmpReq: ListSentinelBlockFallbackDefinitionsRequest, runtime: $Util.RuntimeOptions): Promise<ListSentinelBlockFallbackDefinitionsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSentinelBlockFallbackDefinitionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.classificationSet)) {
+      request.classificationSetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.classificationSet, "ClassificationSet", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.classificationSetShrink)) {
+      query["ClassificationSet"] = request.classificationSetShrink;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSentinelBlockFallbackDefinitions",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSentinelBlockFallbackDefinitionsResponse>(await this.callApi(params, req, runtime), new ListSentinelBlockFallbackDefinitionsResponse({}));
+  }
+
+  async listSentinelBlockFallbackDefinitions(request: ListSentinelBlockFallbackDefinitionsRequest): Promise<ListSentinelBlockFallbackDefinitionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSentinelBlockFallbackDefinitionsWithOptions(request, runtime);
   }
 
   async listServiceSourceWithOptions(request: ListServiceSourceRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceSourceResponse> {
