@@ -129,6 +129,43 @@ export class AckNodeSelector extends $tea.Model {
   }
 }
 
+export class ApiTemplate extends $tea.Model {
+  apiName?: string;
+  content?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  status?: string;
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      content: 'Content',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      content: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Application extends $tea.Model {
   applicationName?: string;
   static names(): { [key: string]: string } {
@@ -3589,6 +3626,81 @@ export class DecreaseNodesResponse extends $tea.Model {
   }
 }
 
+export class DeleteApiTemplateRequest extends $tea.Model {
+  apiName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApiTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApiTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteApiTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteApiTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterRequest extends $tea.Model {
   clusterId?: string;
   regionId?: string;
@@ -3650,6 +3762,75 @@ export class DeleteClusterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApiTemplateRequest extends $tea.Model {
+  regionId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApiTemplateResponseBody extends $tea.Model {
+  data?: ApiTemplate;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ApiTemplate,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApiTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetApiTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetApiTemplateResponseBody,
     };
   }
 
@@ -5282,6 +5463,102 @@ export class JoinResourceGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: JoinResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApiTemplatesRequest extends $tea.Model {
+  apiName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  templateId?: string;
+  templateIds?: string[];
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      templateId: 'TemplateId',
+      templateIds: 'TemplateIds',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      templateId: 'string',
+      templateIds: { 'type': 'array', 'itemType': 'string' },
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApiTemplatesResponseBody extends $tea.Model {
+  apiTemplates?: ApiTemplate[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiTemplates: 'ApiTemplates',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiTemplates: { 'type': 'array', 'itemType': ApiTemplate },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApiTemplatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListApiTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListApiTemplatesResponseBody,
     };
   }
 
@@ -7646,6 +7923,81 @@ export class RemoveAutoScalingPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveAutoScalingPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunApiTemplateRequest extends $tea.Model {
+  apiName?: string;
+  clientToken?: string;
+  regionId?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      clientToken: 'string',
+      regionId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunApiTemplateResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunApiTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunApiTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunApiTemplateResponseBody,
     };
   }
 
@@ -24945,6 +25297,60 @@ export default class Client extends OpenApi {
     return await this.decreaseNodesWithOptions(request, runtime);
   }
 
+  /**
+    * 创建集群模板
+    *
+    * @param request DeleteApiTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteApiTemplateResponse
+   */
+  async deleteApiTemplateWithOptions(request: DeleteApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteApiTemplate",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApiTemplateResponse>(await this.callApi(params, req, runtime), new DeleteApiTemplateResponse({}));
+  }
+
+  /**
+    * 创建集群模板
+    *
+    * @param request DeleteApiTemplateRequest
+    * @return DeleteApiTemplateResponse
+   */
+  async deleteApiTemplate(request: DeleteApiTemplateRequest): Promise<DeleteApiTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApiTemplateWithOptions(request, runtime);
+  }
+
   async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24976,6 +25382,39 @@ export default class Client extends OpenApi {
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
+  }
+
+  async getApiTemplateWithOptions(request: GetApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetApiTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetApiTemplate",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApiTemplateResponse>(await this.callApi(params, req, runtime), new GetApiTemplateResponse({}));
+  }
+
+  async getApiTemplate(request: GetApiTemplateRequest): Promise<GetApiTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getApiTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -26092,6 +26531,63 @@ export default class Client extends OpenApi {
   async joinResourceGroup(request: JoinResourceGroupRequest): Promise<JoinResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinResourceGroupWithOptions(request, runtime);
+  }
+
+  async listApiTemplatesWithOptions(request: ListApiTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListApiTemplatesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateIds)) {
+      query["TemplateIds"] = request.templateIds;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApiTemplates",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApiTemplatesResponse>(await this.callApi(params, req, runtime), new ListApiTemplatesResponse({}));
+  }
+
+  async listApiTemplates(request: ListApiTemplatesRequest): Promise<ListApiTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApiTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -27748,6 +28244,60 @@ export default class Client extends OpenApi {
   async removeAutoScalingPolicy(request: RemoveAutoScalingPolicyRequest): Promise<RemoveAutoScalingPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeAutoScalingPolicyWithOptions(request, runtime);
+  }
+
+  /**
+    * 执行集群模板
+    *
+    * @param request RunApiTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return RunApiTemplateResponse
+   */
+  async runApiTemplateWithOptions(request: RunApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<RunApiTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunApiTemplate",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunApiTemplateResponse>(await this.callApi(params, req, runtime), new RunApiTemplateResponse({}));
+  }
+
+  /**
+    * 执行集群模板
+    *
+    * @param request RunApiTemplateRequest
+    * @return RunApiTemplateResponse
+   */
+  async runApiTemplate(request: RunApiTemplateRequest): Promise<RunApiTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runApiTemplateWithOptions(request, runtime);
   }
 
   async runApplicationActionWithOptions(request: RunApplicationActionRequest, runtime: $Util.RuntimeOptions): Promise<RunApplicationActionResponse> {
