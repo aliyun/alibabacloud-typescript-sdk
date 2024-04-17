@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloud-siem20220616",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -12,11 +12,11 @@
   "author": "Alibaba Cloud SDK",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@types/node": "^12.12.26",
+    "@types/node": "^16.0.0",
     "nyc": "^15.0.0",
     "source-map-support": "^0.5.16",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "ts-node": "^10.0.0",
+    "typescript": "^5"
   },
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",

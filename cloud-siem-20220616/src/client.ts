@@ -610,11 +610,15 @@ export class CloseDeliveryRequest extends $tea.Model {
   logCode?: string;
   productCode?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       logCode: 'LogCode',
       productCode: 'ProductCode',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -623,6 +627,8 @@ export class CloseDeliveryRequest extends $tea.Model {
       logCode: 'string',
       productCode: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -681,10 +687,14 @@ export class CloseDeliveryResponse extends $tea.Model {
 export class DeleteAutomateResponseConfigRequest extends $tea.Model {
   id?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -692,6 +702,8 @@ export class DeleteAutomateResponseConfigRequest extends $tea.Model {
     return {
       id: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -836,10 +848,14 @@ export class DeleteBindAccountResponse extends $tea.Model {
 
 export class DeleteCustomizeRuleRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       ruleId: 'RuleId',
     };
   }
@@ -847,6 +863,8 @@ export class DeleteCustomizeRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       ruleId: 'number',
     };
   }
@@ -1206,10 +1224,14 @@ export class DeleteUserResponse extends $tea.Model {
 export class DeleteWhiteRuleListRequest extends $tea.Model {
   id?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -1217,6 +1239,8 @@ export class DeleteWhiteRuleListRequest extends $tea.Model {
     return {
       id: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -1283,15 +1307,21 @@ export class DeleteWhiteRuleListResponse extends $tea.Model {
 
 export class DescribeAggregateFunctionRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -1358,15 +1388,21 @@ export class DescribeAggregateFunctionResponse extends $tea.Model {
 
 export class DescribeAlertSceneRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -1434,10 +1470,14 @@ export class DescribeAlertSceneResponse extends $tea.Model {
 export class DescribeAlertSceneByEventRequest extends $tea.Model {
   incidentUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       incidentUuid: 'IncidentUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -1445,6 +1485,8 @@ export class DescribeAlertSceneByEventRequest extends $tea.Model {
     return {
       incidentUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -1513,12 +1555,16 @@ export class DescribeAlertSourceRequest extends $tea.Model {
   endTime?: number;
   level?: string[];
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       level: 'Level',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       startTime: 'StartTime',
     };
   }
@@ -1528,6 +1574,8 @@ export class DescribeAlertSourceRequest extends $tea.Model {
       endTime: 'number',
       level: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       startTime: 'number',
     };
   }
@@ -1596,10 +1644,14 @@ export class DescribeAlertSourceResponse extends $tea.Model {
 export class DescribeAlertSourceWithEventRequest extends $tea.Model {
   incidentUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       incidentUuid: 'IncidentUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -1607,6 +1659,8 @@ export class DescribeAlertSourceWithEventRequest extends $tea.Model {
     return {
       incidentUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -1673,15 +1727,24 @@ export class DescribeAlertSourceWithEventResponse extends $tea.Model {
 
 export class DescribeAlertTypeRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
+  ruleType?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
+      ruleType: 'RuleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
+      ruleType: 'string',
     };
   }
 
@@ -1755,6 +1818,8 @@ export class DescribeAlertsRequest extends $tea.Model {
   level?: string[];
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   source?: string;
   startTime?: number;
   subUserId?: string;
@@ -1768,6 +1833,8 @@ export class DescribeAlertsRequest extends $tea.Model {
       level: 'Level',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       source: 'Source',
       startTime: 'StartTime',
       subUserId: 'SubUserId',
@@ -1784,6 +1851,8 @@ export class DescribeAlertsRequest extends $tea.Model {
       level: { 'type': 'array', 'itemType': 'string' },
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       source: 'string',
       startTime: 'number',
       subUserId: 'string',
@@ -1854,11 +1923,15 @@ export class DescribeAlertsResponse extends $tea.Model {
 export class DescribeAlertsCountRequest extends $tea.Model {
   endTime?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       startTime: 'StartTime',
     };
   }
@@ -1867,6 +1940,8 @@ export class DescribeAlertsCountRequest extends $tea.Model {
     return {
       endTime: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       startTime: 'number',
     };
   }
@@ -1938,6 +2013,8 @@ export class DescribeAlertsWithEntityRequest extends $tea.Model {
   incidentUuid?: string;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   sophonTaskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1946,6 +2023,8 @@ export class DescribeAlertsWithEntityRequest extends $tea.Model {
       incidentUuid: 'IncidentUuid',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       sophonTaskId: 'SophonTaskId',
     };
   }
@@ -1957,6 +2036,8 @@ export class DescribeAlertsWithEntityRequest extends $tea.Model {
       incidentUuid: 'string',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       sophonTaskId: 'string',
     };
   }
@@ -2030,6 +2111,8 @@ export class DescribeAlertsWithEventRequest extends $tea.Model {
   level?: string[];
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   source?: string;
   subUserId?: number;
   static names(): { [key: string]: string } {
@@ -2041,6 +2124,8 @@ export class DescribeAlertsWithEventRequest extends $tea.Model {
       level: 'Level',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       source: 'Source',
       subUserId: 'SubUserId',
     };
@@ -2055,6 +2140,8 @@ export class DescribeAlertsWithEventRequest extends $tea.Model {
       level: { 'type': 'array', 'itemType': 'string' },
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       source: 'string',
       subUserId: 'number',
     };
@@ -2126,6 +2213,8 @@ export class DescribeAttackTimeLineRequest extends $tea.Model {
   endTime?: number;
   incidentUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2133,6 +2222,8 @@ export class DescribeAttackTimeLineRequest extends $tea.Model {
       endTime: 'EndTime',
       incidentUuid: 'IncidentUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       startTime: 'StartTime',
     };
   }
@@ -2143,6 +2234,8 @@ export class DescribeAttackTimeLineRequest extends $tea.Model {
       endTime: 'number',
       incidentUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       startTime: 'number',
     };
   }
@@ -2276,15 +2369,21 @@ export class DescribeAuthResponse extends $tea.Model {
 
 export class DescribeAutomateResponseConfigCounterRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -2352,10 +2451,14 @@ export class DescribeAutomateResponseConfigCounterResponse extends $tea.Model {
 export class DescribeAutomateResponseConfigFeatureRequest extends $tea.Model {
   autoResponseType?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       autoResponseType: 'AutoResponseType',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -2363,6 +2466,8 @@ export class DescribeAutomateResponseConfigFeatureRequest extends $tea.Model {
     return {
       autoResponseType: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -2431,11 +2536,15 @@ export class DescribeAutomateResponseConfigPlayBooksRequest extends $tea.Model {
   autoResponseType?: string;
   entityType?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       autoResponseType: 'AutoResponseType',
       entityType: 'EntityType',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -2444,6 +2553,8 @@ export class DescribeAutomateResponseConfigPlayBooksRequest extends $tea.Model {
       autoResponseType: 'string',
       entityType: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -2514,6 +2625,8 @@ export class DescribeCloudSiemAssetsRequest extends $tea.Model {
   incidentUuid?: string;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       assetType: 'AssetType',
@@ -2521,6 +2634,8 @@ export class DescribeCloudSiemAssetsRequest extends $tea.Model {
       incidentUuid: 'IncidentUuid',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -2531,6 +2646,8 @@ export class DescribeCloudSiemAssetsRequest extends $tea.Model {
       incidentUuid: 'string',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -2598,10 +2715,14 @@ export class DescribeCloudSiemAssetsResponse extends $tea.Model {
 export class DescribeCloudSiemAssetsCounterRequest extends $tea.Model {
   incidentUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       incidentUuid: 'IncidentUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -2609,6 +2730,8 @@ export class DescribeCloudSiemAssetsCounterRequest extends $tea.Model {
     return {
       incidentUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -2676,10 +2799,14 @@ export class DescribeCloudSiemAssetsCounterResponse extends $tea.Model {
 export class DescribeCloudSiemEventDetailRequest extends $tea.Model {
   incidentUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       incidentUuid: 'IncidentUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -2687,6 +2814,8 @@ export class DescribeCloudSiemEventDetailRequest extends $tea.Model {
     return {
       incidentUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -2761,6 +2890,8 @@ export class DescribeCloudSiemEventsRequest extends $tea.Model {
   orderField?: string;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   startTime?: number;
   status?: number;
   threadLevel?: string[];
@@ -2775,6 +2906,8 @@ export class DescribeCloudSiemEventsRequest extends $tea.Model {
       orderField: 'OrderField',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       startTime: 'StartTime',
       status: 'Status',
       threadLevel: 'ThreadLevel',
@@ -2792,6 +2925,8 @@ export class DescribeCloudSiemEventsRequest extends $tea.Model {
       orderField: 'string',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       startTime: 'number',
       status: 'number',
       threadLevel: { 'type': 'array', 'itemType': 'string' },
@@ -3011,15 +3146,21 @@ export class DescribeCustomizeRuleResponse extends $tea.Model {
 
 export class DescribeCustomizeRuleCountRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -3087,10 +3228,14 @@ export class DescribeCustomizeRuleCountResponse extends $tea.Model {
 export class DescribeCustomizeRuleTestRequest extends $tea.Model {
   id?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -3098,6 +3243,8 @@ export class DescribeCustomizeRuleTestRequest extends $tea.Model {
     return {
       id: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -3165,10 +3312,14 @@ export class DescribeCustomizeRuleTestResponse extends $tea.Model {
 export class DescribeCustomizeRuleTestHistogramRequest extends $tea.Model {
   id?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -3176,6 +3327,8 @@ export class DescribeCustomizeRuleTestHistogramRequest extends $tea.Model {
     return {
       id: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -3393,6 +3546,8 @@ export class DescribeDisposeAndPlaybookRequest extends $tea.Model {
   incidentUuid?: string;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
@@ -3400,6 +3555,8 @@ export class DescribeDisposeAndPlaybookRequest extends $tea.Model {
       incidentUuid: 'IncidentUuid',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -3410,6 +3567,8 @@ export class DescribeDisposeAndPlaybookRequest extends $tea.Model {
       incidentUuid: 'string',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -3477,11 +3636,15 @@ export class DescribeDisposeAndPlaybookResponse extends $tea.Model {
 export class DescribeDisposeStrategyPlaybookRequest extends $tea.Model {
   endTime?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       startTime: 'StartTime',
     };
   }
@@ -3490,6 +3653,8 @@ export class DescribeDisposeStrategyPlaybookRequest extends $tea.Model {
     return {
       endTime: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       startTime: 'number',
     };
   }
@@ -3560,6 +3725,8 @@ export class DescribeEntityInfoRequest extends $tea.Model {
   entityIdentity?: string;
   incidentUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   sophonTaskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3567,6 +3734,8 @@ export class DescribeEntityInfoRequest extends $tea.Model {
       entityIdentity: 'EntityIdentity',
       incidentUuid: 'IncidentUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       sophonTaskId: 'SophonTaskId',
     };
   }
@@ -3577,6 +3746,8 @@ export class DescribeEntityInfoRequest extends $tea.Model {
       entityIdentity: 'string',
       incidentUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       sophonTaskId: 'string',
     };
   }
@@ -3643,16 +3814,28 @@ export class DescribeEntityInfoResponse extends $tea.Model {
 }
 
 export class DescribeEventCountByThreatLevelRequest extends $tea.Model {
+  endTime?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
+  startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
+      startTime: 'number',
     };
   }
 
@@ -3722,12 +3905,16 @@ export class DescribeEventDisposeRequest extends $tea.Model {
   incidentUuid?: string;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       incidentUuid: 'IncidentUuid',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -3737,6 +3924,8 @@ export class DescribeEventDisposeRequest extends $tea.Model {
       incidentUuid: 'string',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -3952,11 +4141,15 @@ export class DescribeLogFieldsRequest extends $tea.Model {
   logSource?: string;
   logType?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       logSource: 'LogSource',
       logType: 'LogType',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -3965,6 +4158,8 @@ export class DescribeLogFieldsRequest extends $tea.Model {
       logSource: 'string',
       logType: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -4032,10 +4227,14 @@ export class DescribeLogFieldsResponse extends $tea.Model {
 export class DescribeLogSourceRequest extends $tea.Model {
   logType?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       logType: 'LogType',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -4043,6 +4242,8 @@ export class DescribeLogSourceRequest extends $tea.Model {
     return {
       logType: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -4175,15 +4376,21 @@ export class DescribeLogStoreResponse extends $tea.Model {
 
 export class DescribeLogTypeRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -4250,10 +4457,14 @@ export class DescribeLogTypeResponse extends $tea.Model {
 
 export class DescribeOperatorsRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   sceneType?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       sceneType: 'SceneType',
     };
   }
@@ -4261,6 +4472,8 @@ export class DescribeOperatorsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       sceneType: 'string',
     };
   }
@@ -4394,15 +4607,21 @@ export class DescribeProdCountResponse extends $tea.Model {
 
 export class DescribeScopeUsersRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -4535,15 +4754,21 @@ export class DescribeServiceStatusResponse extends $tea.Model {
 
 export class DescribeStorageRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -4671,10 +4896,14 @@ export class DescribeUserBuyStatusResponse extends $tea.Model {
 export class DescribeWafScopeRequest extends $tea.Model {
   entityId?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       entityId: 'EntityId',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -4682,6 +4911,8 @@ export class DescribeWafScopeRequest extends $tea.Model {
     return {
       entityId: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -4753,6 +4984,8 @@ export class DescribeWhiteRuleListRequest extends $tea.Model {
   incidentUuid?: string;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       alertName: 'AlertName',
@@ -4761,6 +4994,8 @@ export class DescribeWhiteRuleListRequest extends $tea.Model {
       incidentUuid: 'IncidentUuid',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -4772,6 +5007,8 @@ export class DescribeWhiteRuleListRequest extends $tea.Model {
       incidentUuid: 'string',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -4993,16 +5230,25 @@ export class DoSelfDelegateResponse extends $tea.Model {
 }
 
 export class EnableAccessForCloudSiemRequest extends $tea.Model {
+  autoSubmit?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
+      autoSubmit: 'AutoSubmit',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoSubmit: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -5126,15 +5372,21 @@ export class EnableServiceForCloudSiemResponse extends $tea.Model {
 
 export class GetCapacityRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -5432,15 +5684,21 @@ export class GetQuickQueryResponse extends $tea.Model {
 
 export class GetStorageRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -5579,12 +5837,16 @@ export class ListAccountsByLogRequest extends $tea.Model {
   logCodes?: string[];
   prodCode?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       cloudCode: 'CloudCode',
       logCodes: 'LogCodes',
       prodCode: 'ProdCode',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -5594,6 +5856,8 @@ export class ListAccountsByLogRequest extends $tea.Model {
       logCodes: { 'type': 'array', 'itemType': 'string' },
       prodCode: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -5651,15 +5915,21 @@ export class ListAccountsByLogResponse extends $tea.Model {
 
 export class ListAllProdsRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -5723,6 +5993,8 @@ export class ListAutomateResponseConfigsRequest extends $tea.Model {
   pageSize?: number;
   playbookUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   ruleName?: string;
   status?: number;
   subUserId?: number;
@@ -5735,6 +6007,8 @@ export class ListAutomateResponseConfigsRequest extends $tea.Model {
       pageSize: 'PageSize',
       playbookUuid: 'PlaybookUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       ruleName: 'RuleName',
       status: 'Status',
       subUserId: 'SubUserId',
@@ -5750,6 +6024,8 @@ export class ListAutomateResponseConfigsRequest extends $tea.Model {
       pageSize: 'number',
       playbookUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       ruleName: 'string',
       status: 'number',
       subUserId: 'number',
@@ -5963,8 +6239,12 @@ export class ListCloudSiemCustomizeRulesRequest extends $tea.Model {
   currentPage?: number;
   endTime?: number;
   id?: string;
+  order?: string;
+  orderField?: string;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   ruleName?: string;
   ruleType?: string;
   startTime?: number;
@@ -5976,8 +6256,12 @@ export class ListCloudSiemCustomizeRulesRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       endTime: 'EndTime',
       id: 'Id',
+      order: 'Order',
+      orderField: 'OrderField',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       ruleName: 'RuleName',
       ruleType: 'RuleType',
       startTime: 'StartTime',
@@ -5992,8 +6276,12 @@ export class ListCloudSiemCustomizeRulesRequest extends $tea.Model {
       currentPage: 'number',
       endTime: 'number',
       id: 'string',
+      order: 'string',
+      orderField: 'string',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       ruleName: 'string',
       ruleType: 'string',
       startTime: 'number',
@@ -6065,11 +6353,18 @@ export class ListCloudSiemCustomizeRulesResponse extends $tea.Model {
 
 export class ListCloudSiemPredefinedRulesRequest extends $tea.Model {
   alertType?: string;
+  attCk?: string;
   currentPage?: number;
   endTime?: number;
+  eventTransferType?: string;
   id?: string;
+  logSource?: string;
+  order?: string;
+  orderField?: string;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   ruleName?: string;
   ruleType?: string;
   startTime?: number;
@@ -6078,11 +6373,18 @@ export class ListCloudSiemPredefinedRulesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alertType: 'AlertType',
+      attCk: 'AttCk',
       currentPage: 'CurrentPage',
       endTime: 'EndTime',
+      eventTransferType: 'EventTransferType',
       id: 'Id',
+      logSource: 'LogSource',
+      order: 'Order',
+      orderField: 'OrderField',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       ruleName: 'RuleName',
       ruleType: 'RuleType',
       startTime: 'StartTime',
@@ -6094,11 +6396,18 @@ export class ListCloudSiemPredefinedRulesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alertType: 'string',
+      attCk: 'string',
       currentPage: 'number',
       endTime: 'number',
+      eventTransferType: 'string',
       id: 'string',
+      logSource: 'string',
+      order: 'string',
+      orderField: 'string',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       ruleName: 'string',
       ruleType: 'string',
       startTime: 'number',
@@ -6173,12 +6482,16 @@ export class ListCustomizeRuleTestResultRequest extends $tea.Model {
   id?: number;
   pageSize?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
       id: 'Id',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -6188,6 +6501,8 @@ export class ListCustomizeRuleTestResultRequest extends $tea.Model {
       id: 'number',
       pageSize: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -6398,15 +6713,21 @@ export class ListDataSourceTypesResponse extends $tea.Model {
 
 export class ListDeliveryRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -6475,6 +6796,8 @@ export class ListDisposeStrategyRequest extends $tea.Model {
   playbookTypes?: string;
   playbookUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   sophonTaskId?: string;
   startTime?: number;
   static names(): { [key: string]: string } {
@@ -6491,6 +6814,8 @@ export class ListDisposeStrategyRequest extends $tea.Model {
       playbookTypes: 'PlaybookTypes',
       playbookUuid: 'PlaybookUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       sophonTaskId: 'SophonTaskId',
       startTime: 'StartTime',
     };
@@ -6510,6 +6835,8 @@ export class ListDisposeStrategyRequest extends $tea.Model {
       playbookTypes: 'string',
       playbookUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       sophonTaskId: 'string',
       startTime: 'number',
     };
@@ -6580,11 +6907,15 @@ export class ListImportedLogsByProdRequest extends $tea.Model {
   cloudCode?: string;
   prodCode?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       cloudCode: 'CloudCode',
       prodCode: 'ProdCode',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -6593,6 +6924,8 @@ export class ListImportedLogsByProdRequest extends $tea.Model {
       cloudCode: 'string',
       prodCode: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -7327,11 +7660,15 @@ export class OpenDeliveryRequest extends $tea.Model {
   logCode?: string;
   productCode?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       logCode: 'LogCode',
       productCode: 'ProductCode',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -7340,6 +7677,8 @@ export class OpenDeliveryRequest extends $tea.Model {
       logCode: 'string',
       productCode: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -7402,6 +7741,8 @@ export class PostAutomateResponseConfigRequest extends $tea.Model {
   executionCondition?: string;
   id?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   ruleName?: string;
   subUserId?: number;
   static names(): { [key: string]: string } {
@@ -7412,6 +7753,8 @@ export class PostAutomateResponseConfigRequest extends $tea.Model {
       executionCondition: 'ExecutionCondition',
       id: 'Id',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       ruleName: 'RuleName',
       subUserId: 'SubUserId',
     };
@@ -7425,6 +7768,8 @@ export class PostAutomateResponseConfigRequest extends $tea.Model {
       executionCondition: 'string',
       id: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       ruleName: 'string',
       subUserId: 'number',
     };
@@ -7494,6 +7839,7 @@ export class PostAutomateResponseConfigResponse extends $tea.Model {
 export class PostCustomizeRuleRequest extends $tea.Model {
   alertType?: string;
   alertTypeMds?: string;
+  attCk?: string;
   eventTransferExt?: string;
   eventTransferSwitch?: number;
   eventTransferType?: string;
@@ -7504,6 +7850,8 @@ export class PostCustomizeRuleRequest extends $tea.Model {
   logTypeMds?: string;
   queryCycle?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   ruleCondition?: string;
   ruleDesc?: string;
   ruleGroup?: string;
@@ -7514,6 +7862,7 @@ export class PostCustomizeRuleRequest extends $tea.Model {
     return {
       alertType: 'AlertType',
       alertTypeMds: 'AlertTypeMds',
+      attCk: 'AttCk',
       eventTransferExt: 'EventTransferExt',
       eventTransferSwitch: 'EventTransferSwitch',
       eventTransferType: 'EventTransferType',
@@ -7524,6 +7873,8 @@ export class PostCustomizeRuleRequest extends $tea.Model {
       logTypeMds: 'LogTypeMds',
       queryCycle: 'QueryCycle',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       ruleCondition: 'RuleCondition',
       ruleDesc: 'RuleDesc',
       ruleGroup: 'RuleGroup',
@@ -7537,6 +7888,7 @@ export class PostCustomizeRuleRequest extends $tea.Model {
     return {
       alertType: 'string',
       alertTypeMds: 'string',
+      attCk: 'string',
       eventTransferExt: 'string',
       eventTransferSwitch: 'number',
       eventTransferType: 'string',
@@ -7547,6 +7899,8 @@ export class PostCustomizeRuleRequest extends $tea.Model {
       logTypeMds: 'string',
       queryCycle: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       ruleCondition: 'string',
       ruleDesc: 'string',
       ruleGroup: 'string',
@@ -7620,12 +7974,16 @@ export class PostCustomizeRuleResponse extends $tea.Model {
 export class PostCustomizeRuleTestRequest extends $tea.Model {
   id?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   simulatedData?: string;
   testType?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       simulatedData: 'SimulatedData',
       testType: 'TestType',
     };
@@ -7635,6 +7993,8 @@ export class PostCustomizeRuleTestRequest extends $tea.Model {
     return {
       id: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       simulatedData: 'string',
       testType: 'string',
     };
@@ -7707,6 +8067,8 @@ export class PostEventDisposeAndWhiteruleListRequest extends $tea.Model {
   receiverInfo?: string;
   regionId?: string;
   remark?: string;
+  roleFor?: number;
+  roleType?: number;
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7715,6 +8077,8 @@ export class PostEventDisposeAndWhiteruleListRequest extends $tea.Model {
       receiverInfo: 'ReceiverInfo',
       regionId: 'RegionId',
       remark: 'Remark',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       status: 'Status',
     };
   }
@@ -7726,6 +8090,8 @@ export class PostEventDisposeAndWhiteruleListRequest extends $tea.Model {
       receiverInfo: 'string',
       regionId: 'string',
       remark: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       status: 'number',
     };
   }
@@ -7794,11 +8160,15 @@ export class PostEventDisposeAndWhiteruleListResponse extends $tea.Model {
 export class PostEventWhiteruleListRequest extends $tea.Model {
   incidentUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   whiteruleList?: string;
   static names(): { [key: string]: string } {
     return {
       incidentUuid: 'IncidentUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       whiteruleList: 'WhiteruleList',
     };
   }
@@ -7807,6 +8177,8 @@ export class PostEventWhiteruleListRequest extends $tea.Model {
     return {
       incidentUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       whiteruleList: 'string',
     };
   }
@@ -7875,10 +8247,14 @@ export class PostEventWhiteruleListResponse extends $tea.Model {
 export class PostFinishCustomizeRuleTestRequest extends $tea.Model {
   id?: number;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -7886,6 +8262,8 @@ export class PostFinishCustomizeRuleTestRequest extends $tea.Model {
     return {
       id: 'number',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -7954,12 +8332,16 @@ export class PostRuleStatusChangeRequest extends $tea.Model {
   ids?: string;
   inUse?: boolean;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   ruleType?: string;
   static names(): { [key: string]: string } {
     return {
       ids: 'Ids',
       inUse: 'InUse',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       ruleType: 'RuleType',
     };
   }
@@ -7969,6 +8351,8 @@ export class PostRuleStatusChangeRequest extends $tea.Model {
       ids: 'string',
       inUse: 'boolean',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       ruleType: 'string',
     };
   }
@@ -8036,15 +8420,21 @@ export class PostRuleStatusChangeResponse extends $tea.Model {
 
 export class RestoreCapacityRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -8175,11 +8565,15 @@ export class SaveQuickQueryResponse extends $tea.Model {
 export class SetStorageRequest extends $tea.Model {
   region?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
       region: 'Region',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       ttl: 'Ttl',
     };
   }
@@ -8188,6 +8582,8 @@ export class SetStorageRequest extends $tea.Model {
     return {
       region: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       ttl: 'number',
     };
   }
@@ -8464,11 +8860,15 @@ export class UpdateAutomateResponseConfigStatusRequest extends $tea.Model {
   ids?: string;
   inUse?: boolean;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   static names(): { [key: string]: string } {
     return {
       ids: 'Ids',
       inUse: 'InUse',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
     };
   }
 
@@ -8477,6 +8877,8 @@ export class UpdateAutomateResponseConfigStatusRequest extends $tea.Model {
       ids: 'string',
       inUse: 'boolean',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
     };
   }
 
@@ -8545,12 +8947,16 @@ export class UpdateWhiteRuleListRequest extends $tea.Model {
   expression?: string;
   incidentUuid?: string;
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   whiteRuleId?: number;
   static names(): { [key: string]: string } {
     return {
       expression: 'Expression',
       incidentUuid: 'IncidentUuid',
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       whiteRuleId: 'WhiteRuleId',
     };
   }
@@ -8560,6 +8966,8 @@ export class UpdateWhiteRuleListRequest extends $tea.Model {
       expression: 'string',
       incidentUuid: 'string',
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       whiteRuleId: 'number',
     };
   }
@@ -9720,6 +10128,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $tea.Mo
   attCk?: string;
   cloudCode?: string;
   endTime?: string;
+  entityList?: string;
   gmtCreate?: string;
   gmtModified?: string;
   id?: number;
@@ -9754,6 +10163,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $tea.Mo
       attCk: 'AttCk',
       cloudCode: 'CloudCode',
       endTime: 'EndTime',
+      entityList: 'EntityList',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       id: 'Id',
@@ -9791,6 +10201,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $tea.Mo
       attCk: 'string',
       cloudCode: 'string',
       endTime: 'string',
+      entityList: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       id: 'number',
@@ -10306,6 +10717,7 @@ export class DescribeCloudSiemEventsResponseBodyDataResponseData extends $tea.Mo
   incidentName?: string;
   incidentNameEn?: string;
   incidentUuid?: string;
+  referAccount?: string;
   remark?: string;
   status?: number;
   threatLevel?: string;
@@ -10325,6 +10737,7 @@ export class DescribeCloudSiemEventsResponseBodyDataResponseData extends $tea.Mo
       incidentName: 'IncidentName',
       incidentNameEn: 'IncidentNameEn',
       incidentUuid: 'IncidentUuid',
+      referAccount: 'ReferAccount',
       remark: 'Remark',
       status: 'Status',
       threatLevel: 'ThreatLevel',
@@ -10347,6 +10760,7 @@ export class DescribeCloudSiemEventsResponseBodyDataResponseData extends $tea.Mo
       incidentName: 'string',
       incidentNameEn: 'string',
       incidentUuid: 'string',
+      referAccount: 'string',
       remark: 'string',
       status: 'number',
       threatLevel: 'string',
@@ -10464,25 +10878,49 @@ export class DescribeCustomizeRuleResponseBodyData extends $tea.Model {
 }
 
 export class DescribeCustomizeRuleCountResponseBodyData extends $tea.Model {
+  aggregationRuleNum?: number;
+  customizeRuleNum?: number;
+  expertRuleNum?: number;
+  graphComputingRuleNum?: number;
   highRuleNum?: number;
   inUseRuleNum?: number;
   lowRuleNum?: number;
   mediumRuleNum?: number;
+  predefinedRuleNum?: number;
+  singleAlertRuleNum?: number;
+  totalRuleNum?: number;
+  unEventRuleNum?: number;
   static names(): { [key: string]: string } {
     return {
+      aggregationRuleNum: 'AggregationRuleNum',
+      customizeRuleNum: 'CustomizeRuleNum',
+      expertRuleNum: 'ExpertRuleNum',
+      graphComputingRuleNum: 'GraphComputingRuleNum',
       highRuleNum: 'HighRuleNum',
       inUseRuleNum: 'InUseRuleNum',
       lowRuleNum: 'LowRuleNum',
       mediumRuleNum: 'MediumRuleNum',
+      predefinedRuleNum: 'PredefinedRuleNum',
+      singleAlertRuleNum: 'SingleAlertRuleNum',
+      totalRuleNum: 'TotalRuleNum',
+      unEventRuleNum: 'UnEventRuleNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aggregationRuleNum: 'number',
+      customizeRuleNum: 'number',
+      expertRuleNum: 'number',
+      graphComputingRuleNum: 'number',
       highRuleNum: 'number',
       inUseRuleNum: 'number',
       lowRuleNum: 'number',
       mediumRuleNum: 'number',
+      predefinedRuleNum: 'number',
+      singleAlertRuleNum: 'number',
+      totalRuleNum: 'number',
+      unEventRuleNum: 'number',
     };
   }
 
@@ -11263,14 +11701,18 @@ export class DescribeProdCountResponseBodyData extends $tea.Model {
 
 export class DescribeScopeUsersResponseBodyData extends $tea.Model {
   aliUid?: number;
+  cloudCode?: string;
   domains?: string[];
   instanceId?: string;
+  userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
+      cloudCode: 'CloudCode',
       domains: 'Domains',
       instanceId: 'InstanceId',
+      userId: 'UserId',
       userName: 'UserName',
     };
   }
@@ -11278,8 +11720,10 @@ export class DescribeScopeUsersResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aliUid: 'number',
+      cloudCode: 'string',
       domains: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
+      userId: 'string',
       userName: 'string',
     };
   }
@@ -11298,6 +11742,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $tea.Model {
   mainUserName?: string;
   masterUserId?: number;
   masterUserName?: string;
+  rdOrder?: number;
   sasInstanceId?: string;
   subUserId?: number;
   subUserName?: string;
@@ -11311,6 +11756,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $tea.Model {
       mainUserName: 'MainUserName',
       masterUserId: 'MasterUserId',
       masterUserName: 'MasterUserName',
+      rdOrder: 'RdOrder',
       sasInstanceId: 'SasInstanceId',
       subUserId: 'SubUserId',
       subUserName: 'SubUserName',
@@ -11327,6 +11773,7 @@ export class DescribeUserBuyStatusResponseBodyData extends $tea.Model {
       mainUserName: 'string',
       masterUserId: 'number',
       masterUserName: 'string',
+      rdOrder: 'number',
       sasInstanceId: 'string',
       subUserId: 'number',
       subUserName: 'string',
@@ -11979,6 +12426,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $te
   actionType?: string;
   aliuid?: number;
   autoResponseType?: string;
+  dataType?: number;
   executionCondition?: string;
   gmtCreate?: string;
   gmtModified?: string;
@@ -11992,6 +12440,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $te
       actionType: 'ActionType',
       aliuid: 'Aliuid',
       autoResponseType: 'AutoResponseType',
+      dataType: 'DataType',
       executionCondition: 'ExecutionCondition',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
@@ -12008,6 +12457,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $te
       actionType: 'string',
       aliuid: 'number',
       autoResponseType: 'string',
+      dataType: 'number',
       executionCondition: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -12157,6 +12607,8 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $te
   alertType?: string;
   alertTypeMds?: string;
   aliuid?: number;
+  attCk?: string;
+  dataType?: number;
   eventTransferExt?: string;
   eventTransferSwitch?: number;
   eventTransferType?: string;
@@ -12181,6 +12633,8 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $te
       alertType: 'AlertType',
       alertTypeMds: 'AlertTypeMds',
       aliuid: 'Aliuid',
+      attCk: 'AttCk',
+      dataType: 'DataType',
       eventTransferExt: 'EventTransferExt',
       eventTransferSwitch: 'EventTransferSwitch',
       eventTransferType: 'EventTransferType',
@@ -12208,6 +12662,8 @@ export class ListCloudSiemCustomizeRulesResponseBodyDataResponseData extends $te
       alertType: 'string',
       alertTypeMds: 'string',
       aliuid: 'number',
+      attCk: 'string',
+      dataType: 'number',
       eventTransferExt: 'string',
       eventTransferSwitch: 'number',
       eventTransferType: 'string',
@@ -12284,11 +12740,15 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataPageInfo extends $tea.M
 
 export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $tea.Model {
   alertType?: string;
+  attCk?: string;
+  eventTransferType?: string;
   gmtCreate?: string;
   gmtModified?: string;
   id?: number;
   ruleDescMds?: string;
   ruleName?: string;
+  ruleNameCn?: string;
+  ruleNameEn?: string;
   ruleNameMds?: string;
   source?: string;
   status?: number;
@@ -12296,11 +12756,15 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $t
   static names(): { [key: string]: string } {
     return {
       alertType: 'AlertType',
+      attCk: 'AttCk',
+      eventTransferType: 'EventTransferType',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       id: 'Id',
       ruleDescMds: 'RuleDescMds',
       ruleName: 'RuleName',
+      ruleNameCn: 'RuleNameCn',
+      ruleNameEn: 'RuleNameEn',
       ruleNameMds: 'RuleNameMds',
       source: 'Source',
       status: 'Status',
@@ -12311,11 +12775,15 @@ export class ListCloudSiemPredefinedRulesResponseBodyDataResponseData extends $t
   static types(): { [key: string]: any } {
     return {
       alertType: 'string',
+      attCk: 'string',
+      eventTransferType: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       id: 'number',
       ruleDescMds: 'string',
       ruleName: 'string',
+      ruleNameCn: 'string',
+      ruleNameEn: 'string',
       ruleNameMds: 'string',
       source: 'string',
       status: 'number',
@@ -12827,6 +13295,7 @@ export class ListImportedLogsByProdResponseBodyData extends $tea.Model {
   importedUserCount?: number;
   logCode?: string;
   logMdsCode?: string;
+  logType?: number;
   modifyTime?: string;
   prodCode?: string;
   totalUserCount?: number;
@@ -12839,6 +13308,7 @@ export class ListImportedLogsByProdResponseBodyData extends $tea.Model {
       importedUserCount: 'ImportedUserCount',
       logCode: 'LogCode',
       logMdsCode: 'LogMdsCode',
+      logType: 'LogType',
       modifyTime: 'ModifyTime',
       prodCode: 'ProdCode',
       totalUserCount: 'TotalUserCount',
@@ -12854,6 +13324,7 @@ export class ListImportedLogsByProdResponseBodyData extends $tea.Model {
       importedUserCount: 'number',
       logCode: 'string',
       logMdsCode: 'string',
+      logType: 'number',
       modifyTime: 'string',
       prodCode: 'string',
       totalUserCount: 'number',
@@ -13168,6 +13639,8 @@ export class PostCustomizeRuleResponseBodyData extends $tea.Model {
   alertType?: string;
   alertTypeMds?: string;
   aliuid?: number;
+  attCk?: string;
+  dataType?: number;
   eventTransferExt?: string;
   eventTransferSwitch?: number;
   eventTransferType?: string;
@@ -13192,6 +13665,8 @@ export class PostCustomizeRuleResponseBodyData extends $tea.Model {
       alertType: 'AlertType',
       alertTypeMds: 'AlertTypeMds',
       aliuid: 'Aliuid',
+      attCk: 'AttCk',
+      dataType: 'DataType',
       eventTransferExt: 'EventTransferExt',
       eventTransferSwitch: 'EventTransferSwitch',
       eventTransferType: 'EventTransferType',
@@ -13219,6 +13694,8 @@ export class PostCustomizeRuleResponseBodyData extends $tea.Model {
       alertType: 'string',
       alertTypeMds: 'string',
       aliuid: 'number',
+      attCk: 'string',
+      dataType: 'number',
       eventTransferExt: 'string',
       eventTransferSwitch: 'number',
       eventTransferType: 'string',
@@ -13621,6 +14098,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -13652,6 +14137,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -13726,6 +14219,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.ruleId)) {
@@ -13917,6 +14418,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -13946,6 +14455,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -13973,6 +14490,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14006,6 +14531,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14045,6 +14578,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
@@ -14082,6 +14623,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -14109,6 +14658,18 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      body["RuleType"] = request.ruleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14168,6 +14729,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.source)) {
       body["Source"] = request.source;
     }
@@ -14211,6 +14780,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -14260,6 +14837,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.sophonTaskId)) {
@@ -14319,6 +14904,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.source)) {
       body["Source"] = request.source;
     }
@@ -14366,6 +14959,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -14430,6 +15031,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -14461,6 +15070,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14498,6 +15115,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14545,6 +15170,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -14578,6 +15211,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -14609,6 +15250,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14670,6 +15319,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -14783,6 +15440,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -14816,6 +15481,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -14847,6 +15520,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -14972,6 +15653,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -15003,6 +15692,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -15050,6 +15747,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.sophonTaskId)) {
       body["SophonTaskId"] = request.sophonTaskId;
     }
@@ -15079,8 +15784,24 @@ export default class Client extends OpenApi {
   async describeEventCountByThreatLevelWithOptions(request: DescribeEventCountByThreatLevelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventCountByThreatLevelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15122,6 +15843,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15223,6 +15952,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -15254,6 +15991,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15314,6 +16059,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -15341,6 +16094,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.sceneType)) {
@@ -15405,6 +16166,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -15461,6 +16230,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15529,6 +16306,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -15576,6 +16361,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15693,8 +16486,20 @@ export default class Client extends OpenApi {
   async enableAccessForCloudSiemWithOptions(request: EnableAccessForCloudSiemRequest, runtime: $Util.RuntimeOptions): Promise<EnableAccessForCloudSiemResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.autoSubmit)) {
+      body["AutoSubmit"] = request.autoSubmit;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15753,6 +16558,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -15915,6 +16728,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -15989,6 +16810,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -16016,6 +16845,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16069,6 +16906,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.ruleName)) {
@@ -16194,12 +17039,28 @@ export default class Client extends OpenApi {
       body["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.orderField)) {
+      body["OrderField"] = request.orderField;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.ruleName)) {
@@ -16251,6 +17112,10 @@ export default class Client extends OpenApi {
       body["AlertType"] = request.alertType;
     }
 
+    if (!Util.isUnset(request.attCk)) {
+      body["AttCk"] = request.attCk;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
@@ -16259,8 +17124,24 @@ export default class Client extends OpenApi {
       body["EndTime"] = request.endTime;
     }
 
+    if (!Util.isUnset(request.eventTransferType)) {
+      body["EventTransferType"] = request.eventTransferType;
+    }
+
     if (!Util.isUnset(request.id)) {
       body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.logSource)) {
+      body["LogSource"] = request.logSource;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.orderField)) {
+      body["OrderField"] = request.orderField;
     }
 
     if (!Util.isUnset(request.pageSize)) {
@@ -16269,6 +17150,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.ruleName)) {
@@ -16330,6 +17219,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16435,6 +17332,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -16508,6 +17413,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.sophonTaskId)) {
       body["SophonTaskId"] = request.sophonTaskId;
     }
@@ -16551,6 +17464,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16959,6 +17880,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -17008,6 +17937,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.ruleName)) {
       body["RuleName"] = request.ruleName;
     }
@@ -17049,6 +17986,10 @@ export default class Client extends OpenApi {
       body["AlertTypeMds"] = request.alertTypeMds;
     }
 
+    if (!Util.isUnset(request.attCk)) {
+      body["AttCk"] = request.attCk;
+    }
+
     if (!Util.isUnset(request.eventTransferExt)) {
       body["EventTransferExt"] = request.eventTransferExt;
     }
@@ -17087,6 +18028,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.ruleCondition)) {
@@ -17146,6 +18095,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.simulatedData)) {
       body["SimulatedData"] = request.simulatedData;
     }
@@ -17199,6 +18156,14 @@ export default class Client extends OpenApi {
       body["Remark"] = request.remark;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.status)) {
       body["Status"] = request.status;
     }
@@ -17234,6 +18199,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.whiteruleList)) {
@@ -17273,6 +18246,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -17310,6 +18291,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.ruleType)) {
       body["RuleType"] = request.ruleType;
     }
@@ -17341,6 +18330,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -17411,6 +18408,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.ttl)) {
@@ -17565,6 +18570,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -17600,6 +18613,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.whiteRuleId)) {
