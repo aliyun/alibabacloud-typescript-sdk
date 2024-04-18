@@ -1273,6 +1273,96 @@ export class ListCountriesResponse extends $tea.Model {
   }
 }
 
+export class ListCouponUsageRequest extends $tea.Model {
+  account?: string;
+  couponTemplateId?: number;
+  page?: number;
+  pageSize?: number;
+  status?: string;
+  uid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      couponTemplateId: 'CouponTemplateId',
+      page: 'Page',
+      pageSize: 'PageSize',
+      status: 'Status',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      couponTemplateId: 'number',
+      page: 'number',
+      pageSize: 'number',
+      status: 'string',
+      uid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponUsageResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCouponUsageResponseBodyData[];
+  message?: string;
+  pageInfo?: ListCouponUsageResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListCouponUsageResponseBodyData },
+      message: 'string',
+      pageInfo: ListCouponUsageResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponUsageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCouponUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCouponUsageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuotaListExportPagedRequest extends $tea.Model {
   currentPage?: number;
   language?: string;
@@ -1434,11 +1524,13 @@ export class ResendEmailResponse extends $tea.Model {
 
 export class SetAccountInfoRequest extends $tea.Model {
   accountNickname?: string;
+  customerBd?: string;
   remark?: string;
   uid?: number;
   static names(): { [key: string]: string } {
     return {
       accountNickname: 'AccountNickname',
+      customerBd: 'CustomerBd',
       remark: 'Remark',
       uid: 'Uid',
     };
@@ -1447,6 +1539,7 @@ export class SetAccountInfoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountNickname: 'string',
+      customerBd: 'string',
       remark: 'string',
       uid: 'number',
     };
@@ -1817,8 +1910,12 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
   aliyunId?: string;
   associationSuccessTime?: string;
   cid?: number;
+  customerBd?: string;
+  delayAmount?: string;
+  delayStatus?: string;
   email?: string;
   mobile?: string;
+  newBuyStatus?: string;
   remark?: string;
   subAccountType?: number;
   uid?: number;
@@ -1828,8 +1925,12 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
       aliyunId: 'AliyunId',
       associationSuccessTime: 'AssociationSuccessTime',
       cid: 'Cid',
+      customerBd: 'CustomerBd',
+      delayAmount: 'DelayAmount',
+      delayStatus: 'DelayStatus',
       email: 'Email',
       mobile: 'Mobile',
+      newBuyStatus: 'NewBuyStatus',
       remark: 'Remark',
       subAccountType: 'SubAccountType',
       uid: 'Uid',
@@ -1842,8 +1943,12 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
       aliyunId: 'string',
       associationSuccessTime: 'string',
       cid: 'number',
+      customerBd: 'string',
+      delayAmount: 'string',
+      delayStatus: 'string',
       email: 'string',
       mobile: 'string',
+      newBuyStatus: 'string',
       remark: 'string',
       subAccountType: 'number',
       uid: 'number',
@@ -2191,6 +2296,7 @@ export class GetUnassociatedCustomerResponseBodyPageInfo extends $tea.Model {
 export class InviteSubAccountRequestAccountInfoList extends $tea.Model {
   accountNickname?: string;
   creditLine?: string;
+  customerBd?: string;
   customerId?: string;
   emailAddress?: string;
   newBuyStatus?: string;
@@ -2201,6 +2307,7 @@ export class InviteSubAccountRequestAccountInfoList extends $tea.Model {
     return {
       accountNickname: 'AccountNickname',
       creditLine: 'CreditLine',
+      customerBd: 'CustomerBd',
       customerId: 'CustomerId',
       emailAddress: 'EmailAddress',
       newBuyStatus: 'NewBuyStatus',
@@ -2214,6 +2321,7 @@ export class InviteSubAccountRequestAccountInfoList extends $tea.Model {
     return {
       accountNickname: 'string',
       creditLine: 'string',
+      customerBd: 'string',
       customerId: 'string',
       emailAddress: 'string',
       newBuyStatus: 'string',
@@ -2292,6 +2400,74 @@ export class InviteSubAccountResponseBodyResults extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       result: { 'type': 'array', 'itemType': InviteSubAccountResponseBodyResultsResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponUsageResponseBodyData extends $tea.Model {
+  account?: string;
+  amount?: number;
+  balance?: number;
+  couponId?: string;
+  couponTemplateId?: number;
+  effDate?: string;
+  publishDate?: string;
+  status?: string;
+  uid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+      amount: 'Amount',
+      balance: 'Balance',
+      couponId: 'CouponId',
+      couponTemplateId: 'CouponTemplateId',
+      effDate: 'EffDate',
+      publishDate: 'PublishDate',
+      status: 'Status',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      amount: 'number',
+      balance: 'number',
+      couponId: 'string',
+      couponTemplateId: 'number',
+      effDate: 'string',
+      publishDate: 'string',
+      status: 'string',
+      uid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponUsageResponseBodyPageInfo extends $tea.Model {
+  page?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      page: 'Page',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      page: 'number',
+      pageSize: 'number',
+      total: 'number',
     };
   }
 
@@ -3028,6 +3204,55 @@ export default class Client extends OpenApi {
     return await this.listCountriesWithOptions(runtime);
   }
 
+  async listCouponUsageWithOptions(request: ListCouponUsageRequest, runtime: $Util.RuntimeOptions): Promise<ListCouponUsageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.account)) {
+      query["Account"] = request.account;
+    }
+
+    if (!Util.isUnset(request.couponTemplateId)) {
+      query["CouponTemplateId"] = request.couponTemplateId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.uid)) {
+      query["Uid"] = request.uid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCouponUsage",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCouponUsageResponse>(await this.callApi(params, req, runtime), new ListCouponUsageResponse({}));
+  }
+
+  async listCouponUsage(request: ListCouponUsageRequest): Promise<ListCouponUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCouponUsageWithOptions(request, runtime);
+  }
+
   /**
     * Caller must be a Partner from International Site, either Distribution or Reseller will do.
     *
@@ -3100,6 +3325,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.accountNickname)) {
       query["AccountNickname"] = request.accountNickname;
+    }
+
+    if (!Util.isUnset(request.customerBd)) {
+      query["CustomerBd"] = request.customerBd;
     }
 
     if (!Util.isUnset(request.remark)) {
