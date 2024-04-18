@@ -3227,6 +3227,75 @@ export class DescribeServiceMirrorResponse extends $tea.Model {
   }
 }
 
+export class DescribeSpotDiscountHistoryRequest extends $tea.Model {
+  instanceType?: string;
+  isProtect?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      isProtect: 'IsProtect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      isProtect: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSpotDiscountHistoryResponseBody extends $tea.Model {
+  requestId?: string;
+  spotDiscounts?: DescribeSpotDiscountHistoryResponseBodySpotDiscounts[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      spotDiscounts: 'SpotDiscounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      spotDiscounts: { 'type': 'array', 'itemType': DescribeSpotDiscountHistoryResponseBodySpotDiscounts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSpotDiscountHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSpotDiscountHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSpotDiscountHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DevelopServiceRequest extends $tea.Model {
   exit?: string;
   static names(): { [key: string]: string } {
@@ -6001,6 +6070,34 @@ export class DescribeServiceInstanceDiagnosisResponseBodyDiagnosis extends $tea.
   }
 }
 
+export class DescribeSpotDiscountHistoryResponseBodySpotDiscounts extends $tea.Model {
+  instanceType?: string;
+  spotDiscount?: string;
+  timestamp?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      spotDiscount: 'SpotDiscount',
+      timestamp: 'Timestamp',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      spotDiscount: 'string',
+      timestamp: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
   availableAgent?: number;
   createTime?: string;
@@ -7670,6 +7767,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+  }
+
+  async describeSpotDiscountHistoryWithOptions(request: DescribeSpotDiscountHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSpotDiscountHistoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.isProtect)) {
+      query["IsProtect"] = request.isProtect;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSpotDiscountHistory",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/public/spot_discount`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSpotDiscountHistoryResponse>(await this.callApi(params, req, runtime), new DescribeSpotDiscountHistoryResponse({}));
+  }
+
+  async describeSpotDiscountHistory(request: DescribeSpotDiscountHistoryRequest): Promise<DescribeSpotDiscountHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeSpotDiscountHistoryWithOptions(request, headers, runtime);
   }
 
   async developServiceWithOptions(ClusterId: string, ServiceName: string, request: DevelopServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DevelopServiceResponse> {
