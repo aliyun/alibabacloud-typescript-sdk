@@ -3669,7 +3669,7 @@ export default class Client extends OpenApi {
       action: "CallBackThirdRightSendPlan",
       version: "iap_1.0",
       protocol: "HTTPS",
-      pathname: `/1.0/iap/business/CallBackThirdRightSendPlan`,
+      pathname: `/v1.0/iap/business/CallBackThirdRightSendPlan`,
       method: "POST",
       authType: "AK",
       style: "ROA",
