@@ -8,84 +8,6 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AddRtcAccountRequest extends $tea.Model {
-  deviceId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddRtcAccountResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddRtcAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddRtcAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddRtcAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AddVirtualNumberRelationRequest extends $tea.Model {
   corpNameList?: string;
   numberList?: string;
@@ -155,11 +77,13 @@ export class AddVirtualNumberRelationResponseBody extends $tea.Model {
 }
 
 export class AddVirtualNumberRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddVirtualNumberRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddVirtualNumberRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -167,6 +91,7 @@ export class AddVirtualNumberRelationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: AddVirtualNumberRelationResponseBody,
     };
   }
@@ -263,11 +188,13 @@ export class BatchRobotSmartCallResponseBody extends $tea.Model {
 }
 
 export class BatchRobotSmartCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BatchRobotSmartCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchRobotSmartCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -275,6 +202,7 @@ export class BatchRobotSmartCallResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: BatchRobotSmartCallResponseBody,
     };
   }
@@ -341,11 +269,13 @@ export class CancelOrderRobotTaskResponseBody extends $tea.Model {
 }
 
 export class CancelOrderRobotTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CancelOrderRobotTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelOrderRobotTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -353,6 +283,7 @@ export class CancelOrderRobotTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelOrderRobotTaskResponseBody,
     };
   }
@@ -419,11 +350,13 @@ export class CancelRobotTaskResponseBody extends $tea.Model {
 }
 
 export class CancelRobotTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CancelRobotTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelRobotTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -431,7 +364,101 @@ export class CancelRobotTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CancelRobotTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeMediaTypeRequest extends $tea.Model {
+  callId?: string;
+  calledNum?: string;
+  mediaType?: string;
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNum: 'CalledNum',
+      mediaType: 'MediaType',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNum: 'string',
+      mediaType: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeMediaTypeResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  model?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      model: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeMediaTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeMediaTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeMediaTypeResponseBody,
     };
   }
 
@@ -524,11 +551,13 @@ export class CreateCallTaskResponseBody extends $tea.Model {
 }
 
 export class CreateCallTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateCallTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCallTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -536,6 +565,7 @@ export class CreateCallTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateCallTaskResponseBody,
     };
   }
@@ -629,11 +659,13 @@ export class CreateRobotTaskResponseBody extends $tea.Model {
 }
 
 export class CreateRobotTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateRobotTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRobotTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -641,7 +673,101 @@ export class CreateRobotTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: CreateRobotTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DegradeVideoFileRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
+  mediaType?: string;
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
+      mediaType: 'MediaType',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNumber: 'string',
+      mediaType: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DegradeVideoFileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: { [key: string]: any };
+  message?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DegradeVideoFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DegradeVideoFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DegradeVideoFileResponseBody,
     };
   }
 
@@ -707,11 +833,13 @@ export class DeleteRobotTaskResponseBody extends $tea.Model {
 }
 
 export class DeleteRobotTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteRobotTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRobotTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -719,6 +847,7 @@ export class DeleteRobotTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DeleteRobotTaskResponseBody,
     };
   }
@@ -788,11 +917,13 @@ export class ExecuteCallTaskResponseBody extends $tea.Model {
 }
 
 export class ExecuteCallTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExecuteCallTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteCallTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -800,6 +931,7 @@ export class ExecuteCallTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ExecuteCallTaskResponseBody,
     };
   }
@@ -809,26 +941,29 @@ export class ExecuteCallTaskResponse extends $tea.Model {
   }
 }
 
-export class GetCallInfoRequest extends $tea.Model {
+export class GetCallProgressRequest extends $tea.Model {
+  callId?: string;
+  calledNum?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  rtcId?: string;
   static names(): { [key: string]: string } {
     return {
+      callId: 'CallId',
+      calledNum: 'CalledNum',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      rtcId: 'RtcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      callId: 'string',
+      calledNum: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      rtcId: 'string',
     };
   }
 
@@ -837,26 +972,29 @@ export class GetCallInfoRequest extends $tea.Model {
   }
 }
 
-export class GetCallInfoResponseBody extends $tea.Model {
+export class GetCallProgressResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
-  data?: GetCallInfoResponseBodyData;
   message?: string;
-  requestId?: string;
+  model?: { [key: string]: any };
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
-      data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      model: 'Model',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
-      data: GetCallInfoResponseBodyData,
       message: 'string',
-      requestId: 'string',
+      model: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      success: 'boolean',
     };
   }
 
@@ -865,12 +1003,14 @@ export class GetCallInfoResponseBody extends $tea.Model {
   }
 }
 
-export class GetCallInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetCallInfoResponseBody;
+export class GetCallProgressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCallProgressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -878,7 +1018,8 @@ export class GetCallInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetCallInfoResponseBody,
+      statusCode: 'number',
+      body: GetCallProgressResponseBody,
     };
   }
 
@@ -944,11 +1085,13 @@ export class GetHotlineQualificationByOrderResponseBody extends $tea.Model {
 }
 
 export class GetHotlineQualificationByOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetHotlineQualificationByOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineQualificationByOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -956,166 +1099,8 @@ export class GetHotlineQualificationByOrderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetHotlineQualificationByOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMqttTokenRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMqttTokenResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetMqttTokenResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetMqttTokenResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMqttTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetMqttTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetMqttTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRtcTokenRequest extends $tea.Model {
-  deviceId?: string;
-  isCustomAccount?: boolean;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      isCustomAccount: 'IsCustomAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      isCustomAccount: 'boolean',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRtcTokenResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRtcTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetRtcTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetRtcTokenResponseBody,
     };
   }
 
@@ -1184,11 +1169,13 @@ export class GetTokenResponseBody extends $tea.Model {
 }
 
 export class GetTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1196,7 +1183,92 @@ export class GetTokenResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: GetTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoFieldUrlRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  videoFile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      videoFile: 'VideoFile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      videoFile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoFieldUrlResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  model?: { [key: string]: any };
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      model: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoFieldUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVideoFieldUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVideoFieldUrlResponseBody,
     };
   }
 
@@ -1289,11 +1361,13 @@ export class IvrCallResponseBody extends $tea.Model {
 }
 
 export class IvrCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: IvrCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: IvrCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1301,6 +1375,7 @@ export class IvrCallResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: IvrCallResponseBody,
     };
   }
@@ -1391,11 +1466,13 @@ export class ListCallTaskResponseBody extends $tea.Model {
 }
 
 export class ListCallTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCallTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCallTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1403,6 +1480,7 @@ export class ListCallTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCallTaskResponseBody,
     };
   }
@@ -1490,11 +1568,13 @@ export class ListCallTaskDetailResponseBody extends $tea.Model {
 }
 
 export class ListCallTaskDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCallTaskDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCallTaskDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1502,6 +1582,7 @@ export class ListCallTaskDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListCallTaskDetailResponseBody,
     };
   }
@@ -1577,11 +1658,13 @@ export class ListHotlineTransferNumberResponseBody extends $tea.Model {
 }
 
 export class ListHotlineTransferNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListHotlineTransferNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotlineTransferNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1589,6 +1672,7 @@ export class ListHotlineTransferNumberResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListHotlineTransferNumberResponseBody,
     };
   }
@@ -1664,11 +1748,13 @@ export class ListHotlineTransferRegisterFileResponseBody extends $tea.Model {
 }
 
 export class ListHotlineTransferRegisterFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListHotlineTransferRegisterFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotlineTransferRegisterFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1676,7 +1762,188 @@ export class ListHotlineTransferRegisterFileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListHotlineTransferRegisterFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseVideoFileRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNumber: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseVideoFileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: { [key: string]: any };
+  message?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseVideoFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PauseVideoFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PauseVideoFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlayVideoFileRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  videoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      videoId: 'VideoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNumber: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      videoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlayVideoFileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  model?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      model: 'Model',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      model: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PlayVideoFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PlayVideoFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PlayVideoFileResponseBody,
     };
   }
 
@@ -1748,11 +2015,13 @@ export class QueryCallDetailByCallIdResponseBody extends $tea.Model {
 }
 
 export class QueryCallDetailByCallIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryCallDetailByCallIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCallDetailByCallIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1760,6 +2029,7 @@ export class QueryCallDetailByCallIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCallDetailByCallIdResponseBody,
     };
   }
@@ -1832,11 +2102,13 @@ export class QueryCallDetailByTaskIdResponseBody extends $tea.Model {
 }
 
 export class QueryCallDetailByTaskIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryCallDetailByTaskIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCallDetailByTaskIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1844,6 +2116,7 @@ export class QueryCallDetailByTaskIdResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCallDetailByTaskIdResponseBody,
     };
   }
@@ -1910,11 +2183,13 @@ export class QueryCallInPoolTransferConfigResponseBody extends $tea.Model {
 }
 
 export class QueryCallInPoolTransferConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryCallInPoolTransferConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCallInPoolTransferConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -1922,6 +2197,7 @@ export class QueryCallInPoolTransferConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCallInPoolTransferConfigResponseBody,
     };
   }
@@ -2000,11 +2276,13 @@ export class QueryCallInTransferRecordResponseBody extends $tea.Model {
 }
 
 export class QueryCallInTransferRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryCallInTransferRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCallInTransferRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2012,6 +2290,7 @@ export class QueryCallInTransferRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryCallInTransferRecordResponseBody,
     };
   }
@@ -2078,11 +2357,13 @@ export class QueryRobotInfoListResponseBody extends $tea.Model {
 }
 
 export class QueryRobotInfoListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryRobotInfoListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRobotInfoListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2090,6 +2371,7 @@ export class QueryRobotInfoListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRobotInfoListResponseBody,
     };
   }
@@ -2162,11 +2444,13 @@ export class QueryRobotTaskCallDetailResponseBody extends $tea.Model {
 }
 
 export class QueryRobotTaskCallDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryRobotTaskCallDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRobotTaskCallDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2174,6 +2458,7 @@ export class QueryRobotTaskCallDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRobotTaskCallDetailResponseBody,
     };
   }
@@ -2267,11 +2552,13 @@ export class QueryRobotTaskCallListResponseBody extends $tea.Model {
 }
 
 export class QueryRobotTaskCallListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryRobotTaskCallListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRobotTaskCallListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2279,6 +2566,7 @@ export class QueryRobotTaskCallListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRobotTaskCallListResponseBody,
     };
   }
@@ -2345,11 +2633,13 @@ export class QueryRobotTaskDetailResponseBody extends $tea.Model {
 }
 
 export class QueryRobotTaskDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryRobotTaskDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRobotTaskDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2357,6 +2647,7 @@ export class QueryRobotTaskDetailResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRobotTaskDetailResponseBody,
     };
   }
@@ -2444,11 +2735,13 @@ export class QueryRobotTaskListResponseBody extends $tea.Model {
 }
 
 export class QueryRobotTaskListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryRobotTaskListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRobotTaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2456,6 +2749,7 @@ export class QueryRobotTaskListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRobotTaskListResponseBody,
     };
   }
@@ -2519,11 +2813,13 @@ export class QueryRobotv2AllListResponseBody extends $tea.Model {
 }
 
 export class QueryRobotv2AllListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryRobotv2AllListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRobotv2AllListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2531,7 +2827,95 @@ export class QueryRobotv2AllListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryRobotv2AllListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoPlayProgressRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNumber: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoPlayProgressResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: { [key: string]: any };
+  message?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoPlayProgressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryVideoPlayProgressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryVideoPlayProgressResponseBody,
     };
   }
 
@@ -2603,11 +2987,13 @@ export class QueryVirtualNumberResponseBody extends $tea.Model {
 }
 
 export class QueryVirtualNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryVirtualNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryVirtualNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2615,6 +3001,7 @@ export class QueryVirtualNumberResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryVirtualNumberResponseBody,
     };
   }
@@ -2702,11 +3089,13 @@ export class QueryVirtualNumberRelationResponseBody extends $tea.Model {
 }
 
 export class QueryVirtualNumberRelationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryVirtualNumberRelationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryVirtualNumberRelationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2714,6 +3103,7 @@ export class QueryVirtualNumberRelationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryVirtualNumberRelationResponseBody,
     };
   }
@@ -2783,11 +3173,13 @@ export class QueryVoiceFileAuditInfoResponseBody extends $tea.Model {
 }
 
 export class QueryVoiceFileAuditInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryVoiceFileAuditInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryVoiceFileAuditInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2795,6 +3187,7 @@ export class QueryVoiceFileAuditInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: QueryVoiceFileAuditInfoResponseBody,
     };
   }
@@ -2861,11 +3254,13 @@ export class RecoverCallInConfigResponseBody extends $tea.Model {
 }
 
 export class RecoverCallInConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecoverCallInConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RecoverCallInConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2873,6 +3268,7 @@ export class RecoverCallInConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: RecoverCallInConfigResponseBody,
     };
   }
@@ -2882,14 +3278,16 @@ export class RecoverCallInConfigResponse extends $tea.Model {
   }
 }
 
-export class RefreshMqttTokenRequest extends $tea.Model {
-  clientId?: string;
+export class ResumeVideoFileRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      clientId: 'ClientId',
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -2898,7 +3296,8 @@ export class RefreshMqttTokenRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      clientId: 'string',
+      callId: 'string',
+      calledNumber: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -2910,26 +3309,29 @@ export class RefreshMqttTokenRequest extends $tea.Model {
   }
 }
 
-export class RefreshMqttTokenResponseBody extends $tea.Model {
+export class ResumeVideoFileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
-  data?: RefreshMqttTokenResponseBodyData;
+  data?: { [key: string]: any };
   message?: string;
-  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
-      data: RefreshMqttTokenResponseBodyData,
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
-      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2938,12 +3340,14 @@ export class RefreshMqttTokenResponseBody extends $tea.Model {
   }
 }
 
-export class RefreshMqttTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RefreshMqttTokenResponseBody;
+export class ResumeVideoFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResumeVideoFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -2951,7 +3355,98 @@ export class RefreshMqttTokenResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RefreshMqttTokenResponseBody,
+      statusCode: 'number',
+      body: ResumeVideoFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SeekVideoFileRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  seekTimes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      seekTimes: 'SeekTimes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNumber: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      seekTimes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SeekVideoFileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: { [key: string]: any };
+  message?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SeekVideoFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SeekVideoFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SeekVideoFileResponseBody,
     };
   }
 
@@ -3023,11 +3518,13 @@ export class SendVerificationResponseBody extends $tea.Model {
 }
 
 export class SendVerificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SendVerificationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendVerificationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3035,6 +3532,7 @@ export class SendVerificationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SendVerificationResponseBody,
     };
   }
@@ -3110,11 +3608,13 @@ export class SetTransferCalleePoolConfigResponseBody extends $tea.Model {
 }
 
 export class SetTransferCalleePoolConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetTransferCalleePoolConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetTransferCalleePoolConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3122,6 +3622,7 @@ export class SetTransferCalleePoolConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SetTransferCalleePoolConfigResponseBody,
     };
   }
@@ -3209,11 +3710,13 @@ export class SingleCallByTtsResponseBody extends $tea.Model {
 }
 
 export class SingleCallByTtsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SingleCallByTtsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SingleCallByTtsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3221,7 +3724,110 @@ export class SingleCallByTtsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SingleCallByTtsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SingleCallByVideoRequest extends $tea.Model {
+  calledNumber?: string;
+  calledShowNumber?: string;
+  outId?: string;
+  ownerId?: number;
+  playTimes?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  speed?: number;
+  videoCode?: string;
+  voiceCode?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      calledNumber: 'CalledNumber',
+      calledShowNumber: 'CalledShowNumber',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      playTimes: 'PlayTimes',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      speed: 'Speed',
+      videoCode: 'VideoCode',
+      voiceCode: 'VoiceCode',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calledNumber: 'string',
+      calledShowNumber: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      playTimes: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      speed: 'number',
+      videoCode: 'string',
+      voiceCode: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SingleCallByVideoResponseBody extends $tea.Model {
+  callId?: string;
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SingleCallByVideoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SingleCallByVideoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SingleCallByVideoResponseBody,
     };
   }
 
@@ -3305,11 +3911,13 @@ export class SingleCallByVoiceResponseBody extends $tea.Model {
 }
 
 export class SingleCallByVoiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SingleCallByVoiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SingleCallByVoiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3317,7 +3925,101 @@ export class SingleCallByVoiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SingleCallByVoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SkipVideoFileRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  skipTimes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      skipTimes: 'SkipTimes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNumber: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      skipTimes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SkipVideoFileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: boolean;
+  message?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SkipVideoFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SkipVideoFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SkipVideoFileResponseBody,
     };
   }
 
@@ -3340,6 +4042,7 @@ export class SmartCallRequest extends $tea.Model {
   earlyMediaAsr?: boolean;
   enableITN?: boolean;
   muteTime?: number;
+  noiseThreshold?: number;
   outId?: string;
   ownerId?: number;
   pauseTime?: number;
@@ -3371,6 +4074,7 @@ export class SmartCallRequest extends $tea.Model {
       earlyMediaAsr: 'EarlyMediaAsr',
       enableITN: 'EnableITN',
       muteTime: 'MuteTime',
+      noiseThreshold: 'NoiseThreshold',
       outId: 'OutId',
       ownerId: 'OwnerId',
       pauseTime: 'PauseTime',
@@ -3405,6 +4109,7 @@ export class SmartCallRequest extends $tea.Model {
       earlyMediaAsr: 'boolean',
       enableITN: 'boolean',
       muteTime: 'number',
+      noiseThreshold: 'number',
       outId: 'string',
       ownerId: 'number',
       pauseTime: 'number',
@@ -3458,11 +4163,13 @@ export class SmartCallResponseBody extends $tea.Model {
 }
 
 export class SmartCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SmartCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmartCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3470,6 +4177,7 @@ export class SmartCallResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SmartCallResponseBody,
     };
   }
@@ -3542,11 +4250,13 @@ export class SmartCallOperateResponseBody extends $tea.Model {
 }
 
 export class SmartCallOperateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SmartCallOperateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmartCallOperateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3554,6 +4264,7 @@ export class SmartCallOperateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SmartCallOperateResponseBody,
     };
   }
@@ -3623,11 +4334,13 @@ export class StartRobotTaskResponseBody extends $tea.Model {
 }
 
 export class StartRobotTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StartRobotTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartRobotTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3635,6 +4348,7 @@ export class StartRobotTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StartRobotTaskResponseBody,
     };
   }
@@ -3701,11 +4415,13 @@ export class StopCallInConfigResponseBody extends $tea.Model {
 }
 
 export class StopCallInConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StopCallInConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopCallInConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3713,6 +4429,7 @@ export class StopCallInConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopCallInConfigResponseBody,
     };
   }
@@ -3779,11 +4496,13 @@ export class StopRobotTaskResponseBody extends $tea.Model {
 }
 
 export class StopRobotTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StopRobotTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopRobotTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3791,6 +4510,7 @@ export class StopRobotTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: StopRobotTaskResponseBody,
     };
   }
@@ -3884,11 +4604,13 @@ export class SubmitHotlineTransferRegisterResponseBody extends $tea.Model {
 }
 
 export class SubmitHotlineTransferRegisterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitHotlineTransferRegisterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitHotlineTransferRegisterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3896,7 +4618,101 @@ export class SubmitHotlineTransferRegisterResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: SubmitHotlineTransferRegisterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeVideoFileRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
+  mediaType?: string;
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
+      mediaType: 'MediaType',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNumber: 'string',
+      mediaType: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeVideoFileResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: { [key: string]: any };
+  message?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeVideoFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeVideoFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeVideoFileResponseBody,
     };
   }
 
@@ -3971,11 +4787,13 @@ export class UploadRobotTaskCalledFileResponseBody extends $tea.Model {
 }
 
 export class UploadRobotTaskCalledFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UploadRobotTaskCalledFileResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadRobotTaskCalledFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -3983,29 +4801,8 @@ export class UploadRobotTaskCalledFileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: UploadRobotTaskCalledFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCallInfoResponseBodyData extends $tea.Model {
-  channelId?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channelId: 'ChannelId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelId: 'string',
-      status: 'string',
     };
   }
 
@@ -4031,46 +4828,6 @@ export class GetHotlineQualificationByOrderResponseBodyData extends $tea.Model {
       orderId: 'string',
       qualificationId: 'string',
       status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMqttTokenResponseBodyData extends $tea.Model {
-  clientId?: string;
-  expireTime?: string;
-  host?: string;
-  instanceId?: string;
-  p2pTopic?: string;
-  serverId?: string;
-  token?: string;
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      expireTime: 'ExpireTime',
-      host: 'Host',
-      instanceId: 'InstanceId',
-      p2pTopic: 'P2pTopic',
-      serverId: 'ServerId',
-      token: 'Token',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      expireTime: 'string',
-      host: 'string',
-      instanceId: 'string',
-      p2pTopic: 'string',
-      serverId: 'string',
-      token: 'string',
-      username: 'string',
     };
   }
 
@@ -4463,46 +5220,6 @@ export class QueryVoiceFileAuditInfoResponseBodyData extends $tea.Model {
   }
 }
 
-export class RefreshMqttTokenResponseBodyData extends $tea.Model {
-  clientId?: string;
-  expireTime?: string;
-  host?: string;
-  instanceId?: string;
-  p2pTopic?: string;
-  serverId?: string;
-  token?: string;
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      expireTime: 'ExpireTime',
-      host: 'Host',
-      instanceId: 'InstanceId',
-      p2pTopic: 'P2pTopic',
-      serverId: 'ServerId',
-      token: 'Token',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      expireTime: 'string',
-      host: 'string',
-      instanceId: 'string',
-      p2pTopic: 'string',
-      serverId: 'string',
-      token: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SetTransferCalleePoolConfigRequestDetails extends $tea.Model {
   called?: string;
   caller?: string;
@@ -4573,47 +5290,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addRtcAccountWithOptions(request: AddRtcAccountRequest, runtime: $Util.RuntimeOptions): Promise<AddRtcAccountResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.deviceId)) {
-      query["DeviceId"] = request.deviceId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddRtcAccount",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AddRtcAccountResponse>(await this.callApi(params, req, runtime), new AddRtcAccountResponse({}));
-  }
-
-  async addRtcAccount(request: AddRtcAccountRequest): Promise<AddRtcAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addRtcAccountWithOptions(request, runtime);
-  }
-
+  /**
+    * ### QPS limits
+    * You can call this operation up to 200 times per second per account.
+    *
+    * @param request AddVirtualNumberRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AddVirtualNumberRelationResponse
+   */
   async addVirtualNumberRelationWithOptions(request: AddVirtualNumberRelationRequest, runtime: $Util.RuntimeOptions): Promise<AddVirtualNumberRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4666,11 +5350,31 @@ export default class Client extends OpenApi {
     return $tea.cast<AddVirtualNumberRelationResponse>(await this.callApi(params, req, runtime), new AddVirtualNumberRelationResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 200 times per second per account.
+    *
+    * @param request AddVirtualNumberRelationRequest
+    * @return AddVirtualNumberRelationResponse
+   */
   async addVirtualNumberRelation(request: AddVirtualNumberRelationRequest): Promise<AddVirtualNumberRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addVirtualNumberRelationWithOptions(request, runtime);
   }
 
+  /**
+    * *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+    * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
+    * ## Prerequisites
+    * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
+    * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
+    * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
+    * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
+    *
+    * @param request BatchRobotSmartCallRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BatchRobotSmartCallResponse
+   */
   async batchRobotSmartCallWithOptions(request: BatchRobotSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<BatchRobotSmartCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4747,11 +5451,31 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchRobotSmartCallResponse>(await this.callApi(params, req, runtime), new BatchRobotSmartCallResponse({}));
   }
 
+  /**
+    * *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+    * *   The BatchRobotSmartCall operation is used to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console.
+    * ## Prerequisites
+    * *   You have passed the real-name verification for an enterprise user and passed the enterprise qualification review.
+    * *   You have purchased numbers in the [Voice Messaging Service console](https://dyvms.console.aliyun.com/dyvms.htm#/number/normal).
+    * *   You have added communication scripts on the [Communication script management](https://dyvms.console.aliyun.com/dyvms.htm#/smart-call/saas/robot/list) page, and the communication scripts have been approved.
+    * > Before you call this operation, make sure that you are familiar with the [billing](https://www.aliyun.com/price/product#/vms/detail) of Voice Messaging Service (VMS).
+    *
+    * @param request BatchRobotSmartCallRequest
+    * @return BatchRobotSmartCallResponse
+   */
   async batchRobotSmartCall(request: BatchRobotSmartCallRequest): Promise<BatchRobotSmartCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchRobotSmartCallWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request CancelOrderRobotTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelOrderRobotTaskResponse
+   */
   async cancelOrderRobotTaskWithOptions(request: CancelOrderRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4788,11 +5512,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelOrderRobotTaskResponse>(await this.callApi(params, req, runtime), new CancelOrderRobotTaskResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request CancelOrderRobotTaskRequest
+    * @return CancelOrderRobotTaskResponse
+   */
   async cancelOrderRobotTask(request: CancelOrderRobotTaskRequest): Promise<CancelOrderRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOrderRobotTaskWithOptions(request, runtime);
   }
 
+  /**
+    * Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request CancelRobotTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CancelRobotTaskResponse
+   */
   async cancelRobotTaskWithOptions(request: CancelRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4829,11 +5569,81 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelRobotTaskResponse>(await this.callApi(params, req, runtime), new CancelRobotTaskResponse({}));
   }
 
+  /**
+    * Only a task in progress can be terminated by calling the CancelRobotTask operation, and the task cannot be resumed after it is terminated.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request CancelRobotTaskRequest
+    * @return CancelRobotTaskResponse
+   */
   async cancelRobotTask(request: CancelRobotTaskRequest): Promise<CancelRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelRobotTaskWithOptions(request, runtime);
   }
 
+  async changeMediaTypeWithOptions(request: ChangeMediaTypeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeMediaTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNum)) {
+      query["CalledNum"] = request.calledNum;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeMediaType",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeMediaTypeResponse>(await this.callApi(params, req, runtime), new ChangeMediaTypeResponse({}));
+  }
+
+  async changeMediaType(request: ChangeMediaTypeRequest): Promise<ChangeMediaTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeMediaTypeWithOptions(request, runtime);
+  }
+
+  /**
+    * You can create up to 1,000 voice notifications for each task.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request CreateCallTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateCallTaskResponse
+   */
   async createCallTaskWithOptions(request: CreateCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCallTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4910,11 +5720,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCallTaskResponse>(await this.callApi(params, req, runtime), new CreateCallTaskResponse({}));
   }
 
+  /**
+    * You can create up to 1,000 voice notifications for each task.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request CreateCallTaskRequest
+    * @return CreateCallTaskResponse
+   */
   async createCallTask(request: CreateCallTaskRequest): Promise<CreateCallTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCallTaskWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request CreateRobotTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateRobotTaskResponse
+   */
   async createRobotTaskWithOptions(request: CreateRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4987,11 +5814,81 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRobotTaskResponse>(await this.callApi(params, req, runtime), new CreateRobotTaskResponse({}));
   }
 
+  /**
+    * You can call this operation to initiate an outbound robocall task by using the robot communication scripts preset in the Voice Messaging Service console. In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request CreateRobotTaskRequest
+    * @return CreateRobotTaskResponse
+   */
   async createRobotTask(request: CreateRobotTaskRequest): Promise<CreateRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRobotTaskWithOptions(request, runtime);
   }
 
+  async degradeVideoFileWithOptions(request: DegradeVideoFileRequest, runtime: $Util.RuntimeOptions): Promise<DegradeVideoFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DegradeVideoFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DegradeVideoFileResponse>(await this.callApi(params, req, runtime), new DegradeVideoFileResponse({}));
+  }
+
+  async degradeVideoFile(request: DegradeVideoFileRequest): Promise<DegradeVideoFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.degradeVideoFileWithOptions(request, runtime);
+  }
+
+  /**
+    * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request DeleteRobotTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteRobotTaskResponse
+   */
   async deleteRobotTaskWithOptions(request: DeleteRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5028,11 +5925,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRobotTaskResponse>(await this.callApi(params, req, runtime), new DeleteRobotTaskResponse({}));
   }
 
+  /**
+    * You can call this operation to delete only tasks that are not started, that are completed, and that are terminated.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request DeleteRobotTaskRequest
+    * @return DeleteRobotTaskResponse
+   */
   async deleteRobotTask(request: DeleteRobotTaskRequest): Promise<DeleteRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRobotTaskWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ExecuteCallTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ExecuteCallTaskResponse
+   */
   async executeCallTaskWithOptions(request: ExecuteCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteCallTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5077,14 +5990,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecuteCallTaskResponse>(await this.callApi(params, req, runtime), new ExecuteCallTaskResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ExecuteCallTaskRequest
+    * @return ExecuteCallTaskResponse
+   */
   async executeCallTask(request: ExecuteCallTaskRequest): Promise<ExecuteCallTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeCallTaskWithOptions(request, runtime);
   }
 
-  async getCallInfoWithOptions(request: GetCallInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetCallInfoResponse> {
+  async getCallProgressWithOptions(request: GetCallProgressRequest, runtime: $Util.RuntimeOptions): Promise<GetCallProgressResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNum)) {
+      query["CalledNum"] = request.calledNum;
+    }
+
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -5097,15 +6025,11 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.rtcId)) {
-      query["RtcId"] = request.rtcId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "GetCallInfo",
+      action: "GetCallProgress",
       version: "2017-05-25",
       protocol: "HTTPS",
       pathname: "/",
@@ -5115,14 +6039,22 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCallInfoResponse>(await this.callApi(params, req, runtime), new GetCallInfoResponse({}));
+    return $tea.cast<GetCallProgressResponse>(await this.callApi(params, req, runtime), new GetCallProgressResponse({}));
   }
 
-  async getCallInfo(request: GetCallInfoRequest): Promise<GetCallInfoResponse> {
+  async getCallProgress(request: GetCallProgressRequest): Promise<GetCallProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCallInfoWithOptions(request, runtime);
+    return await this.getCallProgressWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request GetHotlineQualificationByOrderRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetHotlineQualificationByOrderResponse
+   */
   async getHotlineQualificationByOrderWithOptions(request: GetHotlineQualificationByOrderRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineQualificationByOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5159,97 +6091,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineQualificationByOrderResponse>(await this.callApi(params, req, runtime), new GetHotlineQualificationByOrderResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request GetHotlineQualificationByOrderRequest
+    * @return GetHotlineQualificationByOrderResponse
+   */
   async getHotlineQualificationByOrder(request: GetHotlineQualificationByOrderRequest): Promise<GetHotlineQualificationByOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineQualificationByOrderWithOptions(request, runtime);
   }
 
-  async getMqttTokenWithOptions(request: GetMqttTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetMqttTokenResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetMqttToken",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetMqttTokenResponse>(await this.callApi(params, req, runtime), new GetMqttTokenResponse({}));
-  }
-
-  async getMqttToken(request: GetMqttTokenRequest): Promise<GetMqttTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMqttTokenWithOptions(request, runtime);
-  }
-
-  async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetRtcTokenResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.deviceId)) {
-      query["DeviceId"] = request.deviceId;
-    }
-
-    if (!Util.isUnset(request.isCustomAccount)) {
-      query["IsCustomAccount"] = request.isCustomAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetRtcToken",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetRtcTokenResponse>(await this.callApi(params, req, runtime), new GetRtcTokenResponse({}));
-  }
-
-  async getRtcToken(request: GetRtcTokenRequest): Promise<GetRtcTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getRtcTokenWithOptions(request, runtime);
-  }
-
+  /**
+    * ### QPS limits
+    * You can call this operation up to five times per second per account.
+    *
+    * @param request GetTokenRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetTokenResponse
+   */
   async getTokenWithOptions(request: GetTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5286,11 +6147,70 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to five times per second per account.
+    *
+    * @param request GetTokenRequest
+    * @return GetTokenResponse
+   */
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTokenWithOptions(request, runtime);
   }
 
+  async getVideoFieldUrlWithOptions(request: GetVideoFieldUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoFieldUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.videoFile)) {
+      query["VideoFile"] = request.videoFile;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVideoFieldUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVideoFieldUrlResponse>(await this.callApi(params, req, runtime), new GetVideoFieldUrlResponse({}));
+  }
+
+  async getVideoFieldUrl(request: GetVideoFieldUrlRequest): Promise<GetVideoFieldUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVideoFieldUrlWithOptions(request, runtime);
+  }
+
+  /**
+    * *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](~~149795~~).
+    * *   Voice numbers are purchased. For more information, see [Purchase numbers](~~149794~~).
+    * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](~~112503~~) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
+    * ## QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request IvrCallRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return IvrCallResponse
+   */
   async ivrCallWithOptions(request: IvrCallRequest, runtime: $Util.RuntimeOptions): Promise<IvrCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5363,11 +6283,29 @@ export default class Client extends OpenApi {
     return $tea.cast<IvrCallResponse>(await this.callApi(params, req, runtime), new IvrCallResponse({}));
   }
 
+  /**
+    * *   Your enterprise qualification is approved. For more information, see [Submit enterprise qualifications](~~149795~~).
+    * *   Voice numbers are purchased. For more information, see [Purchase numbers](~~149794~~).
+    * *   When the subscriber answers the call, the subscriber hears a voice that instructs the subscriber to press a key as needed. If the [message receipt](~~112503~~) feature is enabled, the Voice Messaging Service (VMS) platform returns the information about the key pressed by the subscriber to the business system. The key information includes the order confirmation, questionnaire survey, and satisfaction survey completed by the subscriber.
+    * ## QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request IvrCallRequest
+    * @return IvrCallResponse
+   */
   async ivrCall(request: IvrCallRequest): Promise<IvrCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.ivrCallWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListCallTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCallTaskResponse
+   */
   async listCallTaskWithOptions(request: ListCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5428,11 +6366,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCallTaskResponse>(await this.callApi(params, req, runtime), new ListCallTaskResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListCallTaskRequest
+    * @return ListCallTaskResponse
+   */
   async listCallTask(request: ListCallTaskRequest): Promise<ListCallTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCallTaskWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListCallTaskDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListCallTaskDetailResponse
+   */
   async listCallTaskDetailWithOptions(request: ListCallTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5485,11 +6438,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCallTaskDetailResponse>(await this.callApi(params, req, runtime), new ListCallTaskDetailResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListCallTaskDetailRequest
+    * @return ListCallTaskDetailResponse
+   */
   async listCallTaskDetail(request: ListCallTaskDetailRequest): Promise<ListCallTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCallTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListHotlineTransferNumberRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListHotlineTransferNumberResponse
+   */
   async listHotlineTransferNumberWithOptions(request: ListHotlineTransferNumberRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineTransferNumberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5538,11 +6506,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHotlineTransferNumberResponse>(await this.callApi(params, req, runtime), new ListHotlineTransferNumberResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListHotlineTransferNumberRequest
+    * @return ListHotlineTransferNumberResponse
+   */
   async listHotlineTransferNumber(request: ListHotlineTransferNumberRequest): Promise<ListHotlineTransferNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHotlineTransferNumberWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListHotlineTransferRegisterFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListHotlineTransferRegisterFileResponse
+   */
   async listHotlineTransferRegisterFileWithOptions(request: ListHotlineTransferRegisterFileRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineTransferRegisterFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5591,11 +6574,125 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHotlineTransferRegisterFileResponse>(await this.callApi(params, req, runtime), new ListHotlineTransferRegisterFileResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request ListHotlineTransferRegisterFileRequest
+    * @return ListHotlineTransferRegisterFileResponse
+   */
   async listHotlineTransferRegisterFile(request: ListHotlineTransferRegisterFileRequest): Promise<ListHotlineTransferRegisterFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHotlineTransferRegisterFileWithOptions(request, runtime);
   }
 
+  async pauseVideoFileWithOptions(request: PauseVideoFileRequest, runtime: $Util.RuntimeOptions): Promise<PauseVideoFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PauseVideoFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PauseVideoFileResponse>(await this.callApi(params, req, runtime), new PauseVideoFileResponse({}));
+  }
+
+  async pauseVideoFile(request: PauseVideoFileRequest): Promise<PauseVideoFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pauseVideoFileWithOptions(request, runtime);
+  }
+
+  async playVideoFileWithOptions(request: PlayVideoFileRequest, runtime: $Util.RuntimeOptions): Promise<PlayVideoFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.videoId)) {
+      query["VideoId"] = request.videoId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PlayVideoFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PlayVideoFileResponse>(await this.callApi(params, req, runtime), new PlayVideoFileResponse({}));
+  }
+
+  async playVideoFile(request: PlayVideoFileRequest): Promise<PlayVideoFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.playVideoFileWithOptions(request, runtime);
+  }
+
+  /**
+    * QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryCallDetailByCallIdRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryCallDetailByCallIdResponse
+   */
   async queryCallDetailByCallIdWithOptions(request: QueryCallDetailByCallIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallDetailByCallIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5640,6 +6737,14 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCallDetailByCallIdResponse>(await this.callApi(params, req, runtime), new QueryCallDetailByCallIdResponse({}));
   }
 
+  /**
+    * QueryCallDetailByCallId is a common query operation. You can call this operation to query the details of a voice notification, voice verification code, interactive voice response (IVR), intelligent inbound voice call, intelligent outbound voice call, or intelligent robocall.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryCallDetailByCallIdRequest
+    * @return QueryCallDetailByCallIdResponse
+   */
   async queryCallDetailByCallId(request: QueryCallDetailByCallIdRequest): Promise<QueryCallDetailByCallIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCallDetailByCallIdWithOptions(request, runtime);
@@ -5694,6 +6799,14 @@ export default class Client extends OpenApi {
     return await this.queryCallDetailByTaskIdWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryCallInPoolTransferConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryCallInPoolTransferConfigResponse
+   */
   async queryCallInPoolTransferConfigWithOptions(request: QueryCallInPoolTransferConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallInPoolTransferConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5730,11 +6843,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCallInPoolTransferConfigResponse>(await this.callApi(params, req, runtime), new QueryCallInPoolTransferConfigResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryCallInPoolTransferConfigRequest
+    * @return QueryCallInPoolTransferConfigResponse
+   */
   async queryCallInPoolTransferConfig(request: QueryCallInPoolTransferConfigRequest): Promise<QueryCallInPoolTransferConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCallInPoolTransferConfigWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryCallInTransferRecordRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryCallInTransferRecordResponse
+   */
   async queryCallInTransferRecordWithOptions(request: QueryCallInTransferRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallInTransferRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5787,6 +6915,13 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCallInTransferRecordResponse>(await this.callApi(params, req, runtime), new QueryCallInTransferRecordResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryCallInTransferRecordRequest
+    * @return QueryCallInTransferRecordResponse
+   */
   async queryCallInTransferRecord(request: QueryCallInTransferRecordRequest): Promise<QueryCallInTransferRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCallInTransferRecordWithOptions(request, runtime);
@@ -5833,6 +6968,14 @@ export default class Client extends OpenApi {
     return await this.queryRobotInfoListWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotTaskCallDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryRobotTaskCallDetailResponse
+   */
   async queryRobotTaskCallDetailWithOptions(request: QueryRobotTaskCallDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskCallDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5877,11 +7020,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRobotTaskCallDetailResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskCallDetailResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotTaskCallDetailRequest
+    * @return QueryRobotTaskCallDetailResponse
+   */
   async queryRobotTaskCallDetail(request: QueryRobotTaskCallDetailRequest): Promise<QueryRobotTaskCallDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRobotTaskCallDetailWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotTaskCallListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryRobotTaskCallListResponse
+   */
   async queryRobotTaskCallListWithOptions(request: QueryRobotTaskCallListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskCallListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5954,11 +7112,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRobotTaskCallListResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskCallListResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotTaskCallListRequest
+    * @return QueryRobotTaskCallListResponse
+   */
   async queryRobotTaskCallList(request: QueryRobotTaskCallListRequest): Promise<QueryRobotTaskCallListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRobotTaskCallListWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotTaskDetailRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryRobotTaskDetailResponse
+   */
   async queryRobotTaskDetailWithOptions(request: QueryRobotTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5995,11 +7168,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRobotTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskDetailResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotTaskDetailRequest
+    * @return QueryRobotTaskDetailResponse
+   */
   async queryRobotTaskDetail(request: QueryRobotTaskDetailRequest): Promise<QueryRobotTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRobotTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotTaskListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryRobotTaskListResponse
+   */
   async queryRobotTaskListWithOptions(request: QueryRobotTaskListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6052,11 +7240,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRobotTaskListResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskListResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotTaskListRequest
+    * @return QueryRobotTaskListResponse
+   */
   async queryRobotTaskList(request: QueryRobotTaskListRequest): Promise<QueryRobotTaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRobotTaskListWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotv2AllListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryRobotv2AllListResponse
+   */
   async queryRobotv2AllListWithOptions(request: QueryRobotv2AllListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotv2AllListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6089,11 +7292,71 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRobotv2AllListResponse>(await this.callApi(params, req, runtime), new QueryRobotv2AllListResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryRobotv2AllListRequest
+    * @return QueryRobotv2AllListResponse
+   */
   async queryRobotv2AllList(request: QueryRobotv2AllListRequest): Promise<QueryRobotv2AllListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRobotv2AllListWithOptions(request, runtime);
   }
 
+  async queryVideoPlayProgressWithOptions(request: QueryVideoPlayProgressRequest, runtime: $Util.RuntimeOptions): Promise<QueryVideoPlayProgressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryVideoPlayProgress",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryVideoPlayProgressResponse>(await this.callApi(params, req, runtime), new QueryVideoPlayProgressResponse({}));
+  }
+
+  async queryVideoPlayProgress(request: QueryVideoPlayProgressRequest): Promise<QueryVideoPlayProgressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryVideoPlayProgressWithOptions(request, runtime);
+  }
+
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryVirtualNumberRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryVirtualNumberResponse
+   */
   async queryVirtualNumberWithOptions(request: QueryVirtualNumberRequest, runtime: $Util.RuntimeOptions): Promise<QueryVirtualNumberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6142,11 +7405,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryVirtualNumberResponse>(await this.callApi(params, req, runtime), new QueryVirtualNumberResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request QueryVirtualNumberRequest
+    * @return QueryVirtualNumberResponse
+   */
   async queryVirtualNumber(request: QueryVirtualNumberRequest): Promise<QueryVirtualNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryVirtualNumberWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 200 times per second per account.
+    *
+    * @param request QueryVirtualNumberRelationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return QueryVirtualNumberRelationResponse
+   */
   async queryVirtualNumberRelationWithOptions(request: QueryVirtualNumberRelationRequest, runtime: $Util.RuntimeOptions): Promise<QueryVirtualNumberRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6215,6 +7493,13 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryVirtualNumberRelationResponse>(await this.callApi(params, req, runtime), new QueryVirtualNumberRelationResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 200 times per second per account.
+    *
+    * @param request QueryVirtualNumberRelationRequest
+    * @return QueryVirtualNumberRelationResponse
+   */
   async queryVirtualNumberRelation(request: QueryVirtualNumberRelationRequest): Promise<QueryVirtualNumberRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryVirtualNumberRelationWithOptions(request, runtime);
@@ -6306,11 +7591,15 @@ export default class Client extends OpenApi {
     return await this.recoverCallInConfigWithOptions(request, runtime);
   }
 
-  async refreshMqttTokenWithOptions(request: RefreshMqttTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshMqttTokenResponse> {
+  async resumeVideoFileWithOptions(request: ResumeVideoFileRequest, runtime: $Util.RuntimeOptions): Promise<ResumeVideoFileResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
-      query["ClientId"] = request.clientId;
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -6329,7 +7618,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "RefreshMqttToken",
+      action: "ResumeVideoFile",
       version: "2017-05-25",
       protocol: "HTTPS",
       pathname: "/",
@@ -6339,14 +7628,71 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RefreshMqttTokenResponse>(await this.callApi(params, req, runtime), new RefreshMqttTokenResponse({}));
+    return $tea.cast<ResumeVideoFileResponse>(await this.callApi(params, req, runtime), new ResumeVideoFileResponse({}));
   }
 
-  async refreshMqttToken(request: RefreshMqttTokenRequest): Promise<RefreshMqttTokenResponse> {
+  async resumeVideoFile(request: ResumeVideoFileRequest): Promise<ResumeVideoFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.refreshMqttTokenWithOptions(request, runtime);
+    return await this.resumeVideoFileWithOptions(request, runtime);
   }
 
+  async seekVideoFileWithOptions(request: SeekVideoFileRequest, runtime: $Util.RuntimeOptions): Promise<SeekVideoFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.seekTimes)) {
+      query["SeekTimes"] = request.seekTimes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SeekVideoFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SeekVideoFileResponse>(await this.callApi(params, req, runtime), new SeekVideoFileResponse({}));
+  }
+
+  async seekVideoFile(request: SeekVideoFileRequest): Promise<SeekVideoFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.seekVideoFileWithOptions(request, runtime);
+  }
+
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request SendVerificationRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SendVerificationResponse
+   */
   async sendVerificationWithOptions(request: SendVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6391,11 +7737,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SendVerificationResponse>(await this.callApi(params, req, runtime), new SendVerificationResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request SendVerificationRequest
+    * @return SendVerificationResponse
+   */
   async sendVerification(request: SendVerificationRequest): Promise<SendVerificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendVerificationWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request SetTransferCalleePoolConfigRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetTransferCalleePoolConfigResponse
+   */
   async setTransferCalleePoolConfigWithOptions(request: SetTransferCalleePoolConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetTransferCalleePoolConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6444,11 +7805,28 @@ export default class Client extends OpenApi {
     return $tea.cast<SetTransferCalleePoolConfigResponse>(await this.callApi(params, req, runtime), new SetTransferCalleePoolConfigResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request SetTransferCalleePoolConfigRequest
+    * @return SetTransferCalleePoolConfigResponse
+   */
   async setTransferCalleePoolConfig(request: SetTransferCalleePoolConfigRequest): Promise<SetTransferCalleePoolConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setTransferCalleePoolConfigWithOptions(request, runtime);
   }
 
+  /**
+    * *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+    * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](~~150083~~).
+    * ### QPS limits
+    * You can call this operation up to 1,000 times per second per account.
+    *
+    * @param request SingleCallByTtsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SingleCallByTtsResponse
+   */
   async singleCallByTtsWithOptions(request: SingleCallByTtsRequest, runtime: $Util.RuntimeOptions): Promise<SingleCallByTtsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6513,11 +7891,99 @@ export default class Client extends OpenApi {
     return $tea.cast<SingleCallByTtsResponse>(await this.callApi(params, req, runtime), new SingleCallByTtsResponse({}));
   }
 
+  /**
+    * *   Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+    * *   For more information about voice plans or voice service billing, see [Pricing of VMS on China site (aliyun.com)](~~150083~~).
+    * ### QPS limits
+    * You can call this operation up to 1,000 times per second per account.
+    *
+    * @param request SingleCallByTtsRequest
+    * @return SingleCallByTtsResponse
+   */
   async singleCallByTts(request: SingleCallByTtsRequest): Promise<SingleCallByTtsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.singleCallByTtsWithOptions(request, runtime);
   }
 
+  async singleCallByVideoWithOptions(request: SingleCallByVideoRequest, runtime: $Util.RuntimeOptions): Promise<SingleCallByVideoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.calledShowNumber)) {
+      query["CalledShowNumber"] = request.calledShowNumber;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.playTimes)) {
+      query["PlayTimes"] = request.playTimes;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.speed)) {
+      query["Speed"] = request.speed;
+    }
+
+    if (!Util.isUnset(request.videoCode)) {
+      query["VideoCode"] = request.videoCode;
+    }
+
+    if (!Util.isUnset(request.voiceCode)) {
+      query["VoiceCode"] = request.voiceCode;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      query["Volume"] = request.volume;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SingleCallByVideo",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SingleCallByVideoResponse>(await this.callApi(params, req, runtime), new SingleCallByVideoResponse({}));
+  }
+
+  async singleCallByVideo(request: SingleCallByVideoRequest): Promise<SingleCallByVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.singleCallByVideoWithOptions(request, runtime);
+  }
+
+  /**
+    * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+    * You can call the [SingleCallByTts](~~393519~~) operation to send voice notifications with variables.
+    * ### QPS limits
+    * You can call this operation up to 1,200 times per second per account.
+    *
+    * @param request SingleCallByVoiceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SingleCallByVoiceResponse
+   */
   async singleCallByVoiceWithOptions(request: SingleCallByVoiceRequest, runtime: $Util.RuntimeOptions): Promise<SingleCallByVoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6578,11 +8044,83 @@ export default class Client extends OpenApi {
     return $tea.cast<SingleCallByVoiceResponse>(await this.callApi(params, req, runtime), new SingleCallByVoiceResponse({}));
   }
 
+  /**
+    * > Due to business adjustments, the updates of the voice notification and voice verification code services have been stopped in regions outside the Chinese mainland and the services have been discontinued since March 2022. Only qualified customers can continue using the voice notification and voice verification code services.
+    * You can call the [SingleCallByTts](~~393519~~) operation to send voice notifications with variables.
+    * ### QPS limits
+    * You can call this operation up to 1,200 times per second per account.
+    *
+    * @param request SingleCallByVoiceRequest
+    * @return SingleCallByVoiceResponse
+   */
   async singleCallByVoice(request: SingleCallByVoiceRequest): Promise<SingleCallByVoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.singleCallByVoiceWithOptions(request, runtime);
   }
 
+  async skipVideoFileWithOptions(request: SkipVideoFileRequest, runtime: $Util.RuntimeOptions): Promise<SkipVideoFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.skipTimes)) {
+      query["SkipTimes"] = request.skipTimes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SkipVideoFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SkipVideoFileResponse>(await this.callApi(params, req, runtime), new SkipVideoFileResponse({}));
+  }
+
+  async skipVideoFile(request: SkipVideoFileRequest): Promise<SkipVideoFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.skipVideoFileWithOptions(request, runtime);
+  }
+
+  /**
+    * *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](~~112703~~). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
+    * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
+    * ### QPS limits
+    * You can call this operation up to 1,000 times per second per account.
+    *
+    * @param request SmartCallRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SmartCallResponse
+   */
   async smartCallWithOptions(request: SmartCallRequest, runtime: $Util.RuntimeOptions): Promise<SmartCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6636,6 +8174,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.muteTime)) {
       query["MuteTime"] = request.muteTime;
+    }
+
+    if (!Util.isUnset(request.noiseThreshold)) {
+      query["NoiseThreshold"] = request.noiseThreshold;
     }
 
     if (!Util.isUnset(request.outId)) {
@@ -6719,11 +8261,30 @@ export default class Client extends OpenApi {
     return $tea.cast<SmartCallResponse>(await this.callApi(params, req, runtime), new SmartCallResponse({}));
   }
 
+  /**
+    * *   The SmartCall operation must be used together with the [intelligent outbound HTTP operation](~~112703~~). After the call initiated by the Voice Messaging Service (VMS) platform is connected, the VMS platform sends the text converted from speech back to the business side, and the business side then returns the follow-up action to the VMS platform.
+    * *   The SmartCall operation does not support the following characters: `@ = : "" $ { } ^ * ￥`.
+    * ### QPS limits
+    * You can call this operation up to 1,000 times per second per account.
+    *
+    * @param request SmartCallRequest
+    * @return SmartCallResponse
+   */
   async smartCall(request: SmartCallRequest): Promise<SmartCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.smartCallWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
+    * > You can only initiate the action of bridging a called number and an agent of the call center.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request SmartCallOperateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SmartCallOperateResponse
+   */
   async smartCallOperateWithOptions(request: SmartCallOperateRequest, runtime: $Util.RuntimeOptions): Promise<SmartCallOperateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6768,11 +8329,28 @@ export default class Client extends OpenApi {
     return $tea.cast<SmartCallOperateResponse>(await this.callApi(params, req, runtime), new SmartCallOperateResponse({}));
   }
 
+  /**
+    * You can call this operation to initiate a specified action on the called number of an outbound robocall when the call is transferred to an agent of the call center.
+    * > You can only initiate the action of bridging a called number and an agent of the call center.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request SmartCallOperateRequest
+    * @return SmartCallOperateResponse
+   */
   async smartCallOperate(request: SmartCallOperateRequest): Promise<SmartCallOperateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.smartCallOperateWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request StartRobotTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartRobotTaskResponse
+   */
   async startRobotTaskWithOptions(request: StartRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6813,6 +8391,13 @@ export default class Client extends OpenApi {
     return $tea.cast<StartRobotTaskResponse>(await this.callApi(params, req, runtime), new StartRobotTaskResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request StartRobotTaskRequest
+    * @return StartRobotTaskResponse
+   */
   async startRobotTask(request: StartRobotTaskRequest): Promise<StartRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startRobotTaskWithOptions(request, runtime);
@@ -6859,6 +8444,15 @@ export default class Client extends OpenApi {
     return await this.stopCallInConfigWithOptions(request, runtime);
   }
 
+  /**
+    * After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request StopRobotTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopRobotTaskResponse
+   */
   async stopRobotTaskWithOptions(request: StopRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6895,11 +8489,27 @@ export default class Client extends OpenApi {
     return $tea.cast<StopRobotTaskResponse>(await this.callApi(params, req, runtime), new StopRobotTaskResponse({}));
   }
 
+  /**
+    * After you stop a robocall task, you can call the [StartRobotTask](~~StartRobotTask~~) operation to start it again.
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request StopRobotTaskRequest
+    * @return StopRobotTaskResponse
+   */
   async stopRobotTask(request: StopRobotTaskRequest): Promise<StopRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopRobotTaskWithOptions(request, runtime);
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request SubmitHotlineTransferRegisterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitHotlineTransferRegisterResponse
+   */
   async submitHotlineTransferRegisterWithOptions(request: SubmitHotlineTransferRegisterRequest, runtime: $Util.RuntimeOptions): Promise<SubmitHotlineTransferRegisterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6972,11 +8582,79 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitHotlineTransferRegisterResponse>(await this.callApi(params, req, runtime), new SubmitHotlineTransferRegisterResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request SubmitHotlineTransferRegisterRequest
+    * @return SubmitHotlineTransferRegisterResponse
+   */
   async submitHotlineTransferRegister(request: SubmitHotlineTransferRegisterRequest): Promise<SubmitHotlineTransferRegisterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitHotlineTransferRegisterWithOptions(request, runtime);
   }
 
+  async upgradeVideoFileWithOptions(request: UpgradeVideoFileRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeVideoFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeVideoFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeVideoFileResponse>(await this.callApi(params, req, runtime), new UpgradeVideoFileResponse({}));
+  }
+
+  async upgradeVideoFile(request: UpgradeVideoFileRequest): Promise<UpgradeVideoFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeVideoFileWithOptions(request, runtime);
+  }
+
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request UploadRobotTaskCalledFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UploadRobotTaskCalledFileResponse
+   */
   async uploadRobotTaskCalledFileWithOptions(request: UploadRobotTaskCalledFileRequest, runtime: $Util.RuntimeOptions): Promise<UploadRobotTaskCalledFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7025,6 +8703,13 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadRobotTaskCalledFileResponse>(await this.callApi(params, req, runtime), new UploadRobotTaskCalledFileResponse({}));
   }
 
+  /**
+    * ### QPS limits
+    * You can call this operation up to 100 times per second per account.
+    *
+    * @param request UploadRobotTaskCalledFileRequest
+    * @return UploadRobotTaskCalledFileResponse
+   */
   async uploadRobotTaskCalledFile(request: UploadRobotTaskCalledFileRequest): Promise<UploadRobotTaskCalledFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadRobotTaskCalledFileWithOptions(request, runtime);
