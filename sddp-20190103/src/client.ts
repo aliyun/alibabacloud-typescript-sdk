@@ -1356,6 +1356,7 @@ export class DescribeDataLimitsRequest extends $tea.Model {
   engineType?: string;
   featureType?: number;
   lang?: string;
+  memberAccount?: number;
   pageSize?: number;
   parentId?: string;
   resourceType?: number;
@@ -1372,6 +1373,7 @@ export class DescribeDataLimitsRequest extends $tea.Model {
       engineType: 'EngineType',
       featureType: 'FeatureType',
       lang: 'Lang',
+      memberAccount: 'MemberAccount',
       pageSize: 'PageSize',
       parentId: 'ParentId',
       resourceType: 'ResourceType',
@@ -1391,6 +1393,7 @@ export class DescribeDataLimitsRequest extends $tea.Model {
       engineType: 'string',
       featureType: 'number',
       lang: 'string',
+      memberAccount: 'number',
       pageSize: 'number',
       parentId: 'string',
       resourceType: 'number',
@@ -1852,6 +1855,7 @@ export class DescribeDataObjectsRequest extends $tea.Model {
   fileType?: number;
   instanceId?: string;
   lang?: string;
+  memberAccount?: number;
   modelIds?: string;
   modelTagIds?: string;
   pageSize?: number;
@@ -1870,6 +1874,7 @@ export class DescribeDataObjectsRequest extends $tea.Model {
       fileType: 'FileType',
       instanceId: 'InstanceId',
       lang: 'Lang',
+      memberAccount: 'MemberAccount',
       modelIds: 'ModelIds',
       modelTagIds: 'ModelTagIds',
       pageSize: 'PageSize',
@@ -1891,6 +1896,7 @@ export class DescribeDataObjectsRequest extends $tea.Model {
       fileType: 'number',
       instanceId: 'string',
       lang: 'string',
+      memberAccount: 'number',
       modelIds: 'string',
       modelTagIds: 'string',
       pageSize: 'number',
@@ -2861,6 +2867,7 @@ export class DescribeParentInstanceRequest extends $tea.Model {
   engineType?: string;
   instanceId?: string;
   lang?: string;
+  memberAccount?: number;
   pageSize?: number;
   resourceType?: number;
   serviceRegionId?: string;
@@ -2874,6 +2881,7 @@ export class DescribeParentInstanceRequest extends $tea.Model {
       engineType: 'EngineType',
       instanceId: 'InstanceId',
       lang: 'Lang',
+      memberAccount: 'MemberAccount',
       pageSize: 'PageSize',
       resourceType: 'ResourceType',
       serviceRegionId: 'ServiceRegionId',
@@ -2890,6 +2898,7 @@ export class DescribeParentInstanceRequest extends $tea.Model {
       engineType: 'string',
       instanceId: 'string',
       lang: 'string',
+      memberAccount: 'number',
       pageSize: 'number',
       resourceType: 'number',
       serviceRegionId: 'string',
@@ -4825,6 +4834,7 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
   lastFinishedTime?: number;
   localName?: string;
   logStoreDay?: number;
+  memberAccount?: number;
   nextStartTime?: number;
   ocrStatus?: number;
   parentId?: string;
@@ -4866,6 +4876,7 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
       lastFinishedTime: 'LastFinishedTime',
       localName: 'LocalName',
       logStoreDay: 'LogStoreDay',
+      memberAccount: 'MemberAccount',
       nextStartTime: 'NextStartTime',
       ocrStatus: 'OcrStatus',
       parentId: 'ParentId',
@@ -4910,6 +4921,7 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
       lastFinishedTime: 'number',
       localName: 'string',
       logStoreDay: 'number',
+      memberAccount: 'number',
       nextStartTime: 'number',
       ocrStatus: 'number',
       parentId: 'string',
@@ -5013,6 +5025,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
+  dstMemberAccount?: number;
   dstPath?: string;
   dstType?: number;
   dstTypeCode?: string;
@@ -5022,6 +5035,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
   originalTable?: boolean;
   owner?: string;
   runCount?: number;
+  srcMemberAccount?: number;
   srcPath?: string;
   srcType?: number;
   srcTypeCode?: string;
@@ -5031,6 +5045,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
   triggerType?: number;
   static names(): { [key: string]: string } {
     return {
+      dstMemberAccount: 'DstMemberAccount',
       dstPath: 'DstPath',
       dstType: 'DstType',
       dstTypeCode: 'DstTypeCode',
@@ -5040,6 +5055,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
       originalTable: 'OriginalTable',
       owner: 'Owner',
       runCount: 'RunCount',
+      srcMemberAccount: 'SrcMemberAccount',
       srcPath: 'SrcPath',
       srcType: 'SrcType',
       srcTypeCode: 'SrcTypeCode',
@@ -5052,6 +5068,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dstMemberAccount: 'number',
       dstPath: 'string',
       dstType: 'number',
       dstTypeCode: 'string',
@@ -5061,6 +5078,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
       originalTable: 'boolean',
       owner: 'string',
       runCount: 'number',
+      srcMemberAccount: 'number',
       srcPath: 'string',
       srcType: 'number',
       srcTypeCode: 'string',
@@ -5277,6 +5295,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
   instanceDescription?: string;
   instanceId?: string;
   lastScanTime?: number;
+  memberAccount?: number;
   modelTags?: DescribeDataObjectsResponseBodyItemsModelTags[];
   name?: string;
   objectFileCategory?: string;
@@ -5295,6 +5314,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
       instanceDescription: 'InstanceDescription',
       instanceId: 'InstanceId',
       lastScanTime: 'LastScanTime',
+      memberAccount: 'MemberAccount',
       modelTags: 'ModelTags',
       name: 'Name',
       objectFileCategory: 'ObjectFileCategory',
@@ -5316,6 +5336,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
       instanceDescription: 'string',
       instanceId: 'string',
       lastScanTime: 'number',
+      memberAccount: 'number',
       modelTags: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItemsModelTags },
       name: 'string',
       objectFileCategory: 'string',
@@ -6278,6 +6299,7 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
   instanceId?: string;
   instanceSize?: number;
   localName?: string;
+  memberAccount?: number;
   parentId?: string;
   resourceType?: string;
   supportConnectNodes?: string;
@@ -6297,6 +6319,7 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
       instanceId: 'InstanceId',
       instanceSize: 'InstanceSize',
       localName: 'LocalName',
+      memberAccount: 'MemberAccount',
       parentId: 'ParentId',
       resourceType: 'ResourceType',
       supportConnectNodes: 'SupportConnectNodes',
@@ -6319,6 +6342,7 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
       instanceId: 'string',
       instanceSize: 'number',
       localName: 'string',
+      memberAccount: 'number',
       parentId: 'string',
       resourceType: 'string',
       supportConnectNodes: 'string',
@@ -7698,6 +7722,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.memberAccount)) {
+      query["MemberAccount"] = request.memberAccount;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -8033,6 +8061,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!Util.isUnset(request.memberAccount)) {
+      query["MemberAccount"] = request.memberAccount;
+    }
+
     if (!Util.isUnset(request.modelIds)) {
       query["ModelIds"] = request.modelIds;
     }
@@ -8305,9 +8337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the data assets that DSC is not authorized to access. This helps you obtain information about the data assets.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+    * This operation is no longer used for the KMS console of the new version.
+    * # [](#qps-)QPS limits
+    * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeInstanceSourcesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -8386,9 +8419,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the data assets that DSC is not authorized to access. This helps you obtain information about the data assets.
-    * # Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+    * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+    * This operation is no longer used for the KMS console of the new version.
+    * # [](#qps-)QPS limits
+    * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
     *
     * @param request DescribeInstanceSourcesRequest
     * @return DescribeInstanceSourcesResponse
@@ -8747,6 +8781,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.memberAccount)) {
+      query["MemberAccount"] = request.memberAccount;
     }
 
     if (!Util.isUnset(request.pageSize)) {
