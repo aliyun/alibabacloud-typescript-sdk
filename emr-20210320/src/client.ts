@@ -3362,6 +3362,87 @@ export class ValueConstraints extends $tea.Model {
   }
 }
 
+export class CreateApiTemplateRequest extends $tea.Model {
+  apiName?: string;
+  content?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      content: 'Content',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      content: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApiTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApiTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApiTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateApiTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequest extends $tea.Model {
   applicationConfigs?: ApplicationConfig[];
   applications?: Application[];
@@ -8238,6 +8319,87 @@ export class UntagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApiTemplateRequest extends $tea.Model {
+  apiName?: string;
+  content?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      content: 'Content',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      content: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApiTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApiTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateApiTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateApiTemplateResponseBody,
     };
   }
 
@@ -25100,6 +25262,51 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async createApiTemplateWithOptions(request: CreateApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateApiTemplate",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateApiTemplateResponse>(await this.callApi(params, req, runtime), new CreateApiTemplateResponse({}));
+  }
+
+  async createApiTemplate(request: CreateApiTemplateRequest): Promise<CreateApiTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createApiTemplateWithOptions(request, runtime);
+  }
+
   async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28458,6 +28665,68 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+    * 修改集群模板
+    *
+    * @param request UpdateApiTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateApiTemplateResponse
+   */
+  async updateApiTemplateWithOptions(request: UpdateApiTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApiTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateApiTemplate",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateApiTemplateResponse>(await this.callApi(params, req, runtime), new UpdateApiTemplateResponse({}));
+  }
+
+  /**
+    * 修改集群模板
+    *
+    * @param request UpdateApiTemplateRequest
+    * @return UpdateApiTemplateResponse
+   */
+  async updateApiTemplate(request: UpdateApiTemplateRequest): Promise<UpdateApiTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateApiTemplateWithOptions(request, runtime);
   }
 
   async updateApplicationConfigsWithOptions(request: UpdateApplicationConfigsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationConfigsResponse> {
