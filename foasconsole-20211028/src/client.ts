@@ -102,9 +102,9 @@ export class ConvertInstanceResponseBody extends $tea.Model {
 }
 
 export class ConvertInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConvertInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -127,29 +127,49 @@ export class ConvertInstanceResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
+  architectureType?: string;
   autoRenew?: boolean;
   chargeType?: string;
   duration?: number;
+  extra?: string;
+  ha?: boolean;
+  haResourceSpec?: CreateInstanceRequestHaResourceSpec;
+  haVSwitchIds?: string[];
+  haZoneId?: string;
   instanceName?: string;
+  monitorType?: string;
   pricingCycle?: string;
   promotionCode?: string;
   region?: string;
+  resourceGroupId?: string;
   resourceSpec?: CreateInstanceRequestResourceSpec;
   storage?: CreateInstanceRequestStorage;
+  tag?: CreateInstanceRequestTag[];
+  usePromotionCode?: boolean;
   vSwitchIds?: string[];
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      architectureType: 'ArchitectureType',
       autoRenew: 'AutoRenew',
       chargeType: 'ChargeType',
       duration: 'Duration',
+      extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceName: 'InstanceName',
+      monitorType: 'MonitorType',
       pricingCycle: 'PricingCycle',
       promotionCode: 'PromotionCode',
       region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
       resourceSpec: 'ResourceSpec',
       storage: 'Storage',
+      tag: 'Tag',
+      usePromotionCode: 'UsePromotionCode',
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -158,15 +178,25 @@ export class CreateInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      architectureType: 'string',
       autoRenew: 'boolean',
       chargeType: 'string',
       duration: 'number',
+      extra: 'string',
+      ha: 'boolean',
+      haResourceSpec: CreateInstanceRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
       instanceName: 'string',
+      monitorType: 'string',
       pricingCycle: 'string',
       promotionCode: 'string',
       region: 'string',
+      resourceGroupId: 'string',
       resourceSpec: CreateInstanceRequestResourceSpec,
       storage: CreateInstanceRequestStorage,
+      tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
+      usePromotionCode: 'boolean',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       zoneId: 'string',
@@ -179,29 +209,49 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceShrinkRequest extends $tea.Model {
+  architectureType?: string;
   autoRenew?: boolean;
   chargeType?: string;
   duration?: number;
+  extra?: string;
+  ha?: boolean;
+  haResourceSpecShrink?: string;
+  haVSwitchIdsShrink?: string;
+  haZoneId?: string;
   instanceName?: string;
+  monitorType?: string;
   pricingCycle?: string;
   promotionCode?: string;
   region?: string;
+  resourceGroupId?: string;
   resourceSpecShrink?: string;
   storageShrink?: string;
+  tagShrink?: string;
+  usePromotionCode?: boolean;
   vSwitchIdsShrink?: string;
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      architectureType: 'ArchitectureType',
       autoRenew: 'AutoRenew',
       chargeType: 'ChargeType',
       duration: 'Duration',
+      extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpecShrink: 'HaResourceSpec',
+      haVSwitchIdsShrink: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceName: 'InstanceName',
+      monitorType: 'MonitorType',
       pricingCycle: 'PricingCycle',
       promotionCode: 'PromotionCode',
       region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
       resourceSpecShrink: 'ResourceSpec',
       storageShrink: 'Storage',
+      tagShrink: 'Tag',
+      usePromotionCode: 'UsePromotionCode',
       vSwitchIdsShrink: 'VSwitchIds',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -210,15 +260,25 @@ export class CreateInstanceShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      architectureType: 'string',
       autoRenew: 'boolean',
       chargeType: 'string',
       duration: 'number',
+      extra: 'string',
+      ha: 'boolean',
+      haResourceSpecShrink: 'string',
+      haVSwitchIdsShrink: 'string',
+      haZoneId: 'string',
       instanceName: 'string',
+      monitorType: 'string',
       pricingCycle: 'string',
       promotionCode: 'string',
       region: 'string',
+      resourceGroupId: 'string',
       resourceSpecShrink: 'string',
       storageShrink: 'string',
+      tagShrink: 'string',
+      usePromotionCode: 'boolean',
       vSwitchIdsShrink: 'string',
       vpcId: 'string',
       zoneId: 'string',
@@ -256,9 +316,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -281,12 +341,14 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreateNamespaceRequest extends $tea.Model {
+  ha?: boolean;
   instanceId?: string;
   namespace?: string;
   region?: string;
   resourceSpec?: CreateNamespaceRequestResourceSpec;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
       instanceId: 'InstanceId',
       namespace: 'Namespace',
       region: 'Region',
@@ -296,6 +358,7 @@ export class CreateNamespaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
       instanceId: 'string',
       namespace: 'string',
       region: 'string',
@@ -309,12 +372,14 @@ export class CreateNamespaceRequest extends $tea.Model {
 }
 
 export class CreateNamespaceShrinkRequest extends $tea.Model {
+  ha?: boolean;
   instanceId?: string;
   namespace?: string;
   region?: string;
   resourceSpecShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
       instanceId: 'InstanceId',
       namespace: 'Namespace',
       region: 'Region',
@@ -324,6 +389,7 @@ export class CreateNamespaceShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
       instanceId: 'string',
       namespace: 'string',
       region: 'string',
@@ -359,9 +425,9 @@ export class CreateNamespaceResponseBody extends $tea.Model {
 }
 
 export class CreateNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -428,9 +494,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -500,9 +566,9 @@ export class DeleteNamespaceResponseBody extends $tea.Model {
 }
 
 export class DeleteNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -525,30 +591,36 @@ export class DeleteNamespaceResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
+  architectureType?: string;
   chargeType?: string;
   instanceId?: string;
   pageIndex?: number;
   pageSize?: number;
   region?: string;
+  resourceGroupId?: string;
   tags?: DescribeInstancesRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      architectureType: 'ArchitectureType',
       chargeType: 'ChargeType',
       instanceId: 'InstanceId',
       pageIndex: 'PageIndex',
       pageSize: 'PageSize',
       region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      architectureType: 'string',
       chargeType: 'string',
       instanceId: 'string',
       pageIndex: 'number',
       pageSize: 'number',
       region: 'string',
+      resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': DescribeInstancesRequestTags },
     };
   }
@@ -559,30 +631,36 @@ export class DescribeInstancesRequest extends $tea.Model {
 }
 
 export class DescribeInstancesShrinkRequest extends $tea.Model {
+  architectureType?: string;
   chargeType?: string;
   instanceId?: string;
   pageIndex?: number;
   pageSize?: number;
   region?: string;
+  resourceGroupId?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      architectureType: 'ArchitectureType',
       chargeType: 'ChargeType',
       instanceId: 'InstanceId',
       pageIndex: 'PageIndex',
       pageSize: 'PageSize',
       region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
       tagsShrink: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      architectureType: 'string',
       chargeType: 'string',
       instanceId: 'string',
       pageIndex: 'number',
       pageSize: 'number',
       region: 'string',
+      resourceGroupId: 'string',
       tagsShrink: 'string',
     };
   }
@@ -630,9 +708,9 @@ export class DescribeInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -655,6 +733,7 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeNamespacesRequest extends $tea.Model {
+  ha?: boolean;
   instanceId?: string;
   namespace?: string;
   pageIndex?: number;
@@ -663,6 +742,7 @@ export class DescribeNamespacesRequest extends $tea.Model {
   tags?: DescribeNamespacesRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
       instanceId: 'InstanceId',
       namespace: 'Namespace',
       pageIndex: 'PageIndex',
@@ -674,6 +754,7 @@ export class DescribeNamespacesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
       instanceId: 'string',
       namespace: 'string',
       pageIndex: 'number',
@@ -689,6 +770,7 @@ export class DescribeNamespacesRequest extends $tea.Model {
 }
 
 export class DescribeNamespacesShrinkRequest extends $tea.Model {
+  ha?: boolean;
   instanceId?: string;
   namespace?: string;
   pageIndex?: number;
@@ -697,6 +779,7 @@ export class DescribeNamespacesShrinkRequest extends $tea.Model {
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
       instanceId: 'InstanceId',
       namespace: 'Namespace',
       pageIndex: 'PageIndex',
@@ -708,6 +791,7 @@ export class DescribeNamespacesShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
       instanceId: 'string',
       namespace: 'string',
       pageIndex: 'number',
@@ -760,9 +844,9 @@ export class DescribeNamespacesResponseBody extends $tea.Model {
 }
 
 export class DescribeNamespacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeNamespacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNamespacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -822,9 +906,9 @@ export class DescribeSupportedRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeSupportedRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSupportedRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSupportedRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -847,15 +931,18 @@ export class DescribeSupportedRegionsResponse extends $tea.Model {
 }
 
 export class DescribeSupportedZonesRequest extends $tea.Model {
+  architectureType?: string;
   region?: string;
   static names(): { [key: string]: string } {
     return {
+      architectureType: 'ArchitectureType',
       region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      architectureType: 'string',
       region: 'string',
     };
   }
@@ -903,9 +990,9 @@ export class DescribeSupportedZonesResponseBody extends $tea.Model {
 }
 
 export class DescribeSupportedZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSupportedZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSupportedZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -990,9 +1077,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1015,11 +1102,19 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ModifyPrepayInstanceSpecRequest extends $tea.Model {
+  ha?: boolean;
+  haResourceSpec?: ModifyPrepayInstanceSpecRequestHaResourceSpec;
+  haVSwitchIds?: string[];
+  haZoneId?: string;
   instanceId?: string;
   region?: string;
   resourceSpec?: ModifyPrepayInstanceSpecRequestResourceSpec;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceId: 'InstanceId',
       region: 'Region',
       resourceSpec: 'ResourceSpec',
@@ -1028,6 +1123,10 @@ export class ModifyPrepayInstanceSpecRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
+      haResourceSpec: ModifyPrepayInstanceSpecRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
       instanceId: 'string',
       region: 'string',
       resourceSpec: ModifyPrepayInstanceSpecRequestResourceSpec,
@@ -1040,11 +1139,19 @@ export class ModifyPrepayInstanceSpecRequest extends $tea.Model {
 }
 
 export class ModifyPrepayInstanceSpecShrinkRequest extends $tea.Model {
+  ha?: boolean;
+  haResourceSpecShrink?: string;
+  haVSwitchIdsShrink?: string;
+  haZoneId?: string;
   instanceId?: string;
   region?: string;
   resourceSpecShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
+      haResourceSpecShrink: 'HaResourceSpec',
+      haVSwitchIdsShrink: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceId: 'InstanceId',
       region: 'Region',
       resourceSpecShrink: 'ResourceSpec',
@@ -1053,6 +1160,10 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
+      haResourceSpecShrink: 'string',
+      haVSwitchIdsShrink: 'string',
+      haZoneId: 'string',
       instanceId: 'string',
       region: 'string',
       resourceSpecShrink: 'string',
@@ -1090,9 +1201,9 @@ export class ModifyPrepayInstanceSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyPrepayInstanceSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPrepayInstanceSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPrepayInstanceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1193,9 +1304,9 @@ export class ModifyPrepayNamespaceSpecResponseBody extends $tea.Model {
 }
 
 export class ModifyPrepayNamespaceSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyPrepayNamespaceSpecResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPrepayNamespaceSpecResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1311,9 +1422,9 @@ export class QueryConvertInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryConvertInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryConvertInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryConvertInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1336,29 +1447,39 @@ export class QueryConvertInstancePriceResponse extends $tea.Model {
 }
 
 export class QueryCreateInstancePriceRequest extends $tea.Model {
+  architectureType?: string;
   autoRenew?: boolean;
   chargeType?: string;
   duration?: number;
+  extra?: string;
+  ha?: boolean;
+  haResourceSpec?: QueryCreateInstancePriceRequestHaResourceSpec;
   instanceName?: string;
   pricingCycle?: string;
   promotionCode?: string;
   region?: string;
   resourceSpec?: QueryCreateInstancePriceRequestResourceSpec;
   storage?: QueryCreateInstancePriceRequestStorage;
+  usePromotionCode?: boolean;
   vSwitchIds?: string[];
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      architectureType: 'ArchitectureType',
       autoRenew: 'AutoRenew',
       chargeType: 'ChargeType',
       duration: 'Duration',
+      extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
       instanceName: 'InstanceName',
       pricingCycle: 'PricingCycle',
       promotionCode: 'PromotionCode',
       region: 'Region',
       resourceSpec: 'ResourceSpec',
       storage: 'Storage',
+      usePromotionCode: 'UsePromotionCode',
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -1367,15 +1488,20 @@ export class QueryCreateInstancePriceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      architectureType: 'string',
       autoRenew: 'boolean',
       chargeType: 'string',
       duration: 'number',
+      extra: 'string',
+      ha: 'boolean',
+      haResourceSpec: QueryCreateInstancePriceRequestHaResourceSpec,
       instanceName: 'string',
       pricingCycle: 'string',
       promotionCode: 'string',
       region: 'string',
       resourceSpec: QueryCreateInstancePriceRequestResourceSpec,
       storage: QueryCreateInstancePriceRequestStorage,
+      usePromotionCode: 'boolean',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       zoneId: 'string',
@@ -1388,29 +1514,39 @@ export class QueryCreateInstancePriceRequest extends $tea.Model {
 }
 
 export class QueryCreateInstancePriceShrinkRequest extends $tea.Model {
+  architectureType?: string;
   autoRenew?: boolean;
   chargeType?: string;
   duration?: number;
+  extra?: string;
+  ha?: boolean;
+  haResourceSpecShrink?: string;
   instanceName?: string;
   pricingCycle?: string;
   promotionCode?: string;
   region?: string;
   resourceSpecShrink?: string;
   storageShrink?: string;
+  usePromotionCode?: boolean;
   vSwitchIdsShrink?: string;
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      architectureType: 'ArchitectureType',
       autoRenew: 'AutoRenew',
       chargeType: 'ChargeType',
       duration: 'Duration',
+      extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpecShrink: 'HaResourceSpec',
       instanceName: 'InstanceName',
       pricingCycle: 'PricingCycle',
       promotionCode: 'PromotionCode',
       region: 'Region',
       resourceSpecShrink: 'ResourceSpec',
       storageShrink: 'Storage',
+      usePromotionCode: 'UsePromotionCode',
       vSwitchIdsShrink: 'VSwitchIds',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -1419,15 +1555,20 @@ export class QueryCreateInstancePriceShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      architectureType: 'string',
       autoRenew: 'boolean',
       chargeType: 'string',
       duration: 'number',
+      extra: 'string',
+      ha: 'boolean',
+      haResourceSpecShrink: 'string',
       instanceName: 'string',
       pricingCycle: 'string',
       promotionCode: 'string',
       region: 'string',
       resourceSpecShrink: 'string',
       storageShrink: 'string',
+      usePromotionCode: 'boolean',
       vSwitchIdsShrink: 'string',
       vpcId: 'string',
       zoneId: 'string',
@@ -1465,9 +1606,9 @@ export class QueryCreateInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryCreateInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryCreateInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCreateInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1490,11 +1631,19 @@ export class QueryCreateInstancePriceResponse extends $tea.Model {
 }
 
 export class QueryModifyInstancePriceRequest extends $tea.Model {
+  ha?: boolean;
+  haResourceSpec?: QueryModifyInstancePriceRequestHaResourceSpec;
+  haVSwitchIds?: string[];
+  haZoneId?: string;
   instanceId?: string;
   region?: string;
   resourceSpec?: QueryModifyInstancePriceRequestResourceSpec;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceId: 'InstanceId',
       region: 'Region',
       resourceSpec: 'ResourceSpec',
@@ -1503,6 +1652,10 @@ export class QueryModifyInstancePriceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
+      haResourceSpec: QueryModifyInstancePriceRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
       instanceId: 'string',
       region: 'string',
       resourceSpec: QueryModifyInstancePriceRequestResourceSpec,
@@ -1515,11 +1668,19 @@ export class QueryModifyInstancePriceRequest extends $tea.Model {
 }
 
 export class QueryModifyInstancePriceShrinkRequest extends $tea.Model {
+  ha?: boolean;
+  haResourceSpecShrink?: string;
+  haVSwitchIdsShrink?: string;
+  haZoneId?: string;
   instanceId?: string;
   region?: string;
   resourceSpecShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      ha: 'Ha',
+      haResourceSpecShrink: 'HaResourceSpec',
+      haVSwitchIdsShrink: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
       instanceId: 'InstanceId',
       region: 'Region',
       resourceSpecShrink: 'ResourceSpec',
@@ -1528,6 +1689,10 @@ export class QueryModifyInstancePriceShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ha: 'boolean',
+      haResourceSpecShrink: 'string',
+      haVSwitchIdsShrink: 'string',
+      haZoneId: 'string',
       instanceId: 'string',
       region: 'string',
       resourceSpecShrink: 'string',
@@ -1565,9 +1730,9 @@ export class QueryModifyInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryModifyInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryModifyInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryModifyInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1643,9 +1808,9 @@ export class QueryRenewInstancePriceResponseBody extends $tea.Model {
 }
 
 export class QueryRenewInstancePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRenewInstancePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRenewInstancePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1721,9 +1886,9 @@ export class RenewInstanceResponseBody extends $tea.Model {
 }
 
 export class RenewInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1805,9 +1970,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1892,9 +2057,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1952,6 +2117,28 @@ export class ConvertInstanceRequestNamespaceResourceSpecs extends $tea.Model {
     return {
       namespace: 'string',
       resourceSpec: ConvertInstanceRequestNamespaceResourceSpecsResourceSpec,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
     };
   }
 
@@ -2020,6 +2207,28 @@ export class CreateInstanceRequestStorage extends $tea.Model {
   }
 }
 
+export class CreateInstanceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceResponseBodyOrderInfo extends $tea.Model {
   instanceId?: string;
   orderId?: number;
@@ -2078,6 +2287,50 @@ export class DescribeInstancesRequestTags extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesHostAliases extends $tea.Model {
+  hostNames?: string[];
+  ip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostNames: 'HostNames',
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostNames: { 'type': 'array', 'itemType': 'string' },
+      ip: 'string',
     };
   }
 
@@ -2169,14 +2422,23 @@ export class DescribeInstancesResponseBodyInstancesTags extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyInstances extends $tea.Model {
+  architectureType?: string;
+  askClusterId?: string;
   chargeType?: string;
   clusterStatus?: string;
+  ha?: boolean;
+  haResourceSpec?: DescribeInstancesResponseBodyInstancesHaResourceSpec;
+  haVSwitchIds?: string[];
+  haZoneId?: string;
+  hostAliases?: DescribeInstancesResponseBodyInstancesHostAliases[];
   instanceId?: string;
   instanceName?: string;
+  monitorType?: string;
   orderState?: string;
   region?: string;
   resourceCreateTime?: number;
   resourceExpiredTime?: number;
+  resourceGroupId?: string;
   resourceId?: string;
   resourceSpec?: DescribeInstancesResponseBodyInstancesResourceSpec;
   storage?: DescribeInstancesResponseBodyInstancesStorage;
@@ -2187,14 +2449,23 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      architectureType: 'ArchitectureType',
+      askClusterId: 'AskClusterId',
       chargeType: 'ChargeType',
       clusterStatus: 'ClusterStatus',
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
+      hostAliases: 'HostAliases',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      monitorType: 'MonitorType',
       orderState: 'OrderState',
       region: 'Region',
       resourceCreateTime: 'ResourceCreateTime',
       resourceExpiredTime: 'ResourceExpiredTime',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceSpec: 'ResourceSpec',
       storage: 'Storage',
@@ -2208,14 +2479,23 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      architectureType: 'string',
+      askClusterId: 'string',
       chargeType: 'string',
       clusterStatus: 'string',
+      ha: 'boolean',
+      haResourceSpec: DescribeInstancesResponseBodyInstancesHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
+      hostAliases: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesHostAliases },
       instanceId: 'string',
       instanceName: 'string',
+      monitorType: 'string',
       orderState: 'string',
       region: 'string',
       resourceCreateTime: 'number',
       resourceExpiredTime: 'number',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceSpec: DescribeInstancesResponseBodyInstancesResourceSpec,
       storage: DescribeInstancesResponseBodyInstancesStorage,
@@ -2278,10 +2558,12 @@ export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $tea.M
 
 export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $tea.Model {
   cpu?: number;
+  cu?: number;
   memoryGB?: number;
   static names(): { [key: string]: string } {
     return {
       cpu: 'Cpu',
+      cu: 'Cu',
       memoryGB: 'MemoryGB',
     };
   }
@@ -2289,6 +2571,7 @@ export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $tea.M
   static types(): { [key: string]: any } {
     return {
       cpu: 'number',
+      cu: 'number',
       memoryGB: 'number',
     };
   }
@@ -2323,6 +2606,7 @@ export class DescribeNamespacesResponseBodyNamespacesTags extends $tea.Model {
 export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
+  ha?: boolean;
   namespace?: string;
   resourceSpec?: DescribeNamespacesResponseBodyNamespacesResourceSpec;
   resourceUsed?: DescribeNamespacesResponseBodyNamespacesResourceUsed;
@@ -2332,6 +2616,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
     return {
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      ha: 'Ha',
       namespace: 'Namespace',
       resourceSpec: 'ResourceSpec',
       resourceUsed: 'ResourceUsed',
@@ -2344,6 +2629,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
     return {
       gmtCreate: 'number',
       gmtModified: 'number',
+      ha: 'boolean',
       namespace: 'string',
       resourceSpec: DescribeNamespacesResponseBodyNamespacesResourceSpec,
       resourceUsed: DescribeNamespacesResponseBodyNamespacesResourceUsed,
@@ -2421,6 +2707,28 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
       resourceType: 'string',
       tagKey: 'string',
       tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecRequestHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
     };
   }
 
@@ -2517,6 +2825,40 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $tea
   }
 }
 
+export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
   promotionDesc?: string;
   promotionName?: string;
@@ -2570,21 +2912,29 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoRules extends $tea.Mo
 export class QueryConvertInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryConvertInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -2593,12 +2943,38 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $tea.Model {
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryConvertInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCreateInstancePriceRequestHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
     };
   }
 
@@ -2667,6 +3043,40 @@ export class QueryCreateInstancePriceRequestStorage extends $tea.Model {
   }
 }
 
+export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
   promotionDesc?: string;
   promotionName?: string;
@@ -2720,21 +3130,29 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $tea.Mod
 export class QueryCreateInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryCreateInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -2743,12 +3161,38 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $tea.Model {
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryModifyInstancePriceRequestHaResourceSpec extends $tea.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
     };
   }
 
@@ -2771,6 +3215,40 @@ export class QueryModifyInstancePriceRequestResourceSpec extends $tea.Model {
     return {
       cpu: 'number',
       memoryGB: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
     };
   }
 
@@ -2832,21 +3310,29 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoRules extends $tea.Mod
 export class QueryModifyInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryModifyInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -2855,12 +3341,50 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $tea.Model {
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryModifyInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+  cheapRate?: string;
+  cheapStandAmount?: string;
+  isShow?: boolean;
+  monthPrice?: string;
+  originalStandAmount?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      isShow: 'IsShow',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'string',
+      cheapStandAmount: 'string',
+      isShow: 'boolean',
+      monthPrice: 'string',
+      originalStandAmount: 'string',
+      startTime: 'string',
     };
   }
 
@@ -2922,21 +3446,29 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoRules extends $tea.Mode
 export class QueryRenewInstancePriceResponseBodyPriceInfo extends $tea.Model {
   code?: string;
   currency?: string;
+  depreciateInfo?: QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo;
   discountAmount?: number;
+  isContractActivity?: boolean;
   message?: string;
   optionalPromotions?: QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   originalAmount?: number;
   rules?: QueryRenewInstancePriceResponseBodyPriceInfoRules[];
+  standDiscountPrice?: string;
+  standPrice?: string;
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       currency: 'Currency',
+      depreciateInfo: 'DepreciateInfo',
       discountAmount: 'DiscountAmount',
+      isContractActivity: 'IsContractActivity',
       message: 'Message',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
+      standDiscountPrice: 'StandDiscountPrice',
+      standPrice: 'StandPrice',
       tradeAmount: 'TradeAmount',
     };
   }
@@ -2945,11 +3477,15 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $tea.Model {
     return {
       code: 'string',
       currency: 'string',
+      depreciateInfo: QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo,
       discountAmount: 'number',
+      isContractActivity: 'boolean',
       message: 'string',
       optionalPromotions: { 'type': 'array', 'itemType': QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryRenewInstancePriceResponseBodyPriceInfoRules },
+      standDiscountPrice: 'string',
+      standPrice: 'string',
       tradeAmount: 'number',
     };
   }
@@ -3063,12 +3599,24 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.resourceSpec))) {
-      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.resourceSpec), "ResourceSpec", "json");
+    if (!Util.isUnset(tmpReq.haResourceSpec)) {
+      request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.storage))) {
-      request.storageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.storage), "Storage", "json");
+    if (!Util.isUnset(tmpReq.haVSwitchIds)) {
+      request.haVSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds, "HaVSwitchIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.resourceSpec)) {
+      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.storage)) {
+      request.storageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storage, "Storage", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
     }
 
     if (!Util.isUnset(tmpReq.vSwitchIds)) {
@@ -3076,6 +3624,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.architectureType)) {
+      body["ArchitectureType"] = request.architectureType;
+    }
+
     if (!Util.isUnset(request.autoRenew)) {
       body["AutoRenew"] = request.autoRenew;
     }
@@ -3088,8 +3640,32 @@ export default class Client extends OpenApi {
       body["Duration"] = request.duration;
     }
 
+    if (!Util.isUnset(request.extra)) {
+      body["Extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.ha)) {
+      body["Ha"] = request.ha;
+    }
+
+    if (!Util.isUnset(request.haResourceSpecShrink)) {
+      body["HaResourceSpec"] = request.haResourceSpecShrink;
+    }
+
+    if (!Util.isUnset(request.haVSwitchIdsShrink)) {
+      body["HaVSwitchIds"] = request.haVSwitchIdsShrink;
+    }
+
+    if (!Util.isUnset(request.haZoneId)) {
+      body["HaZoneId"] = request.haZoneId;
+    }
+
     if (!Util.isUnset(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.monitorType)) {
+      body["MonitorType"] = request.monitorType;
     }
 
     if (!Util.isUnset(request.pricingCycle)) {
@@ -3104,12 +3680,24 @@ export default class Client extends OpenApi {
       body["Region"] = request.region;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceSpecShrink)) {
       body["ResourceSpec"] = request.resourceSpecShrink;
     }
 
     if (!Util.isUnset(request.storageShrink)) {
       body["Storage"] = request.storageShrink;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      body["Tag"] = request.tagShrink;
+    }
+
+    if (!Util.isUnset(request.usePromotionCode)) {
+      body["UsePromotionCode"] = request.usePromotionCode;
     }
 
     if (!Util.isUnset(request.vSwitchIdsShrink)) {
@@ -3150,11 +3738,15 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateNamespaceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.resourceSpec))) {
-      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.resourceSpec), "ResourceSpec", "json");
+    if (!Util.isUnset(tmpReq.resourceSpec)) {
+      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ha)) {
+      body["Ha"] = request.ha;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
@@ -3416,15 +4008,47 @@ export default class Client extends OpenApi {
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
+    *
+    * @param tmpReq ModifyPrepayInstanceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPrepayInstanceSpecResponse
+   */
+  // Deprecated
   async modifyPrepayInstanceSpecWithOptions(tmpReq: ModifyPrepayInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayInstanceSpecResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyPrepayInstanceSpecShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.resourceSpec))) {
-      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.resourceSpec), "ResourceSpec", "json");
+    if (!Util.isUnset(tmpReq.haResourceSpec)) {
+      request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.haVSwitchIds)) {
+      request.haVSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds, "HaVSwitchIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.resourceSpec)) {
+      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ha)) {
+      body["Ha"] = request.ha;
+    }
+
+    if (!Util.isUnset(request.haResourceSpecShrink)) {
+      body["HaResourceSpec"] = request.haResourceSpecShrink;
+    }
+
+    if (!Util.isUnset(request.haVSwitchIdsShrink)) {
+      body["HaVSwitchIds"] = request.haVSwitchIdsShrink;
+    }
+
+    if (!Util.isUnset(request.haZoneId)) {
+      body["HaZoneId"] = request.haZoneId;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
@@ -3454,17 +4078,32 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPrepayInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayInstanceSpecResponse({}));
   }
 
+  /**
+    * @deprecated : ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
+    *
+    * @param request ModifyPrepayInstanceSpecRequest
+    * @return ModifyPrepayInstanceSpecResponse
+   */
+  // Deprecated
   async modifyPrepayInstanceSpec(request: ModifyPrepayInstanceSpecRequest): Promise<ModifyPrepayInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPrepayInstanceSpecWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
+    *
+    * @param tmpReq ModifyPrepayNamespaceSpecRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyPrepayNamespaceSpecResponse
+   */
+  // Deprecated
   async modifyPrepayNamespaceSpecWithOptions(tmpReq: ModifyPrepayNamespaceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayNamespaceSpecResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyPrepayNamespaceSpecShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.resourceSpec))) {
-      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.resourceSpec), "ResourceSpec", "json");
+    if (!Util.isUnset(tmpReq.resourceSpec)) {
+      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -3501,6 +4140,13 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPrepayNamespaceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayNamespaceSpecResponse({}));
   }
 
+  /**
+    * @deprecated : ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
+    *
+    * @param request ModifyPrepayNamespaceSpecRequest
+    * @return ModifyPrepayNamespaceSpecResponse
+   */
+  // Deprecated
   async modifyPrepayNamespaceSpec(request: ModifyPrepayNamespaceSpecRequest): Promise<ModifyPrepayNamespaceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPrepayNamespaceSpecWithOptions(request, runtime);
@@ -3565,12 +4211,16 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new QueryCreateInstancePriceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.resourceSpec))) {
-      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.resourceSpec), "ResourceSpec", "json");
+    if (!Util.isUnset(tmpReq.haResourceSpec)) {
+      request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.storage))) {
-      request.storageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.storage), "Storage", "json");
+    if (!Util.isUnset(tmpReq.resourceSpec)) {
+      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.storage)) {
+      request.storageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storage, "Storage", "json");
     }
 
     if (!Util.isUnset(tmpReq.vSwitchIds)) {
@@ -3578,6 +4228,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.architectureType)) {
+      body["ArchitectureType"] = request.architectureType;
+    }
+
     if (!Util.isUnset(request.autoRenew)) {
       body["AutoRenew"] = request.autoRenew;
     }
@@ -3588,6 +4242,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.duration)) {
       body["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.extra)) {
+      body["Extra"] = request.extra;
+    }
+
+    if (!Util.isUnset(request.ha)) {
+      body["Ha"] = request.ha;
+    }
+
+    if (!Util.isUnset(request.haResourceSpecShrink)) {
+      body["HaResourceSpec"] = request.haResourceSpecShrink;
     }
 
     if (!Util.isUnset(request.instanceName)) {
@@ -3612,6 +4278,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.storageShrink)) {
       body["Storage"] = request.storageShrink;
+    }
+
+    if (!Util.isUnset(request.usePromotionCode)) {
+      body["UsePromotionCode"] = request.usePromotionCode;
     }
 
     if (!Util.isUnset(request.vSwitchIdsShrink)) {
@@ -3652,11 +4322,35 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new QueryModifyInstancePriceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.resourceSpec))) {
-      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.resourceSpec), "ResourceSpec", "json");
+    if (!Util.isUnset(tmpReq.haResourceSpec)) {
+      request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.haVSwitchIds)) {
+      request.haVSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds, "HaVSwitchIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.resourceSpec)) {
+      request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ha)) {
+      body["Ha"] = request.ha;
+    }
+
+    if (!Util.isUnset(request.haResourceSpecShrink)) {
+      body["HaResourceSpec"] = request.haResourceSpecShrink;
+    }
+
+    if (!Util.isUnset(request.haVSwitchIdsShrink)) {
+      body["HaVSwitchIds"] = request.haVSwitchIdsShrink;
+    }
+
+    if (!Util.isUnset(request.haZoneId)) {
+      body["HaZoneId"] = request.haZoneId;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
