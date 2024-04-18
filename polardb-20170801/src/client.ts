@@ -4012,6 +4012,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   storageUsed?: number;
   strictConsistency?: string;
   subCategory?: string;
+  supportInstantSwitchWithImci?: string;
   tags?: DescribeDBClusterAttributeResponseBodyTags[];
   VPCId?: string;
   vSwitchId?: string;
@@ -4069,6 +4070,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       storageUsed: 'StorageUsed',
       strictConsistency: 'StrictConsistency',
       subCategory: 'SubCategory',
+      supportInstantSwitchWithImci: 'SupportInstantSwitchWithImci',
       tags: 'Tags',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -4129,6 +4131,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
       storageUsed: 'number',
       strictConsistency: 'string',
       subCategory: 'string',
+      supportInstantSwitchWithImci: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDBClusterAttributeResponseBodyTags },
       VPCId: 'string',
       vSwitchId: 'string',
