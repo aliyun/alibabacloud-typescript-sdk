@@ -973,6 +973,7 @@ export class ApproveOrderRequest extends $tea.Model {
   approvalType?: string;
   comment?: string;
   newApprover?: number;
+  newApproverList?: string;
   oldApprover?: number;
   tid?: number;
   workflowInstanceId?: number;
@@ -983,6 +984,7 @@ export class ApproveOrderRequest extends $tea.Model {
       approvalType: 'ApprovalType',
       comment: 'Comment',
       newApprover: 'NewApprover',
+      newApproverList: 'NewApproverList',
       oldApprover: 'OldApprover',
       tid: 'Tid',
       workflowInstanceId: 'WorkflowInstanceId',
@@ -996,6 +998,7 @@ export class ApproveOrderRequest extends $tea.Model {
       approvalType: 'string',
       comment: 'string',
       newApprover: 'number',
+      newApproverList: 'string',
       oldApprover: 'number',
       tid: 'number',
       workflowInstanceId: 'number',
@@ -22179,6 +22182,114 @@ export class GetDataCorrectBackupFilesResponseBodyDataCorrectBackupFiles extends
   }
 }
 
+export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig extends $tea.Model {
+  currentClearTaskCount?: number;
+  optimizeTableAfterEveryClearTimes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentClearTaskCount: 'CurrentClearTaskCount',
+      optimizeTableAfterEveryClearTimes: 'OptimizeTableAfterEveryClearTimes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentClearTaskCount: 'number',
+      optimizeTableAfterEveryClearTimes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig extends $tea.Model {
+  csvFirstRowIsColumnDef?: boolean;
+  ignoreError?: boolean;
+  importMode?: string;
+  insertType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      csvFirstRowIsColumnDef: 'CsvFirstRowIsColumnDef',
+      ignoreError: 'IgnoreError',
+      importMode: 'ImportMode',
+      insertType: 'InsertType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csvFirstRowIsColumnDef: 'boolean',
+      ignoreError: 'boolean',
+      importMode: 'string',
+      insertType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail extends $tea.Model {
+  cron?: boolean;
+  cronCallTimes?: number;
+  cronExtConfig?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig;
+  cronFormat?: string;
+  cronLastCallStartTime?: string;
+  cronNextCallTime?: string;
+  cronStatus?: string;
+  csvTableName?: string;
+  currentTaskId?: number;
+  detailType?: string;
+  duration?: number;
+  fileEncoding?: string;
+  fileType?: string;
+  importExtConfig?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      cronCallTimes: 'CronCallTimes',
+      cronExtConfig: 'CronExtConfig',
+      cronFormat: 'CronFormat',
+      cronLastCallStartTime: 'CronLastCallStartTime',
+      cronNextCallTime: 'CronNextCallTime',
+      cronStatus: 'CronStatus',
+      csvTableName: 'CsvTableName',
+      currentTaskId: 'CurrentTaskId',
+      detailType: 'DetailType',
+      duration: 'Duration',
+      fileEncoding: 'FileEncoding',
+      fileType: 'FileType',
+      importExtConfig: 'ImportExtConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'boolean',
+      cronCallTimes: 'number',
+      cronExtConfig: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig,
+      cronFormat: 'string',
+      cronLastCallStartTime: 'string',
+      cronNextCallTime: 'string',
+      cronStatus: 'string',
+      csvTableName: 'string',
+      currentTaskId: 'number',
+      detailType: 'string',
+      duration: 'number',
+      fileEncoding: 'string',
+      fileType: 'string',
+      importExtConfig: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseListDatabase extends $tea.Model {
   dbId?: number;
   dbType?: string;
@@ -22323,6 +22434,7 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailPreCheck
 }
 
 export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetail extends $tea.Model {
+  configDetail?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail;
   databaseList?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseList;
   execMode?: string;
   orderDetail?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailOrderDetail;
@@ -22330,6 +22442,7 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetail extends
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      configDetail: 'ConfigDetail',
       databaseList: 'DatabaseList',
       execMode: 'ExecMode',
       orderDetail: 'OrderDetail',
@@ -22340,6 +22453,7 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetail extends
 
   static types(): { [key: string]: any } {
     return {
+      configDetail: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail,
       databaseList: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseList,
       execMode: 'string',
       orderDetail: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailOrderDetail,
@@ -30348,6 +30462,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.newApprover)) {
       query["NewApprover"] = request.newApprover;
+    }
+
+    if (!Util.isUnset(request.newApproverList)) {
+      query["NewApproverList"] = request.newApproverList;
     }
 
     if (!Util.isUnset(request.oldApprover)) {
