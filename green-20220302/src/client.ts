@@ -1748,6 +1748,47 @@ export class ImageAsyncModerationResponseBodyData extends $tea.Model {
   }
 }
 
+export class ImageModerationResponseBodyDataExtRecognition extends $tea.Model {
+  classification?: string;
+  confidence?: number;
+  static names(): { [key: string]: string } {
+    return {
+      classification: 'Classification',
+      confidence: 'Confidence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classification: 'string',
+      confidence: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExt extends $tea.Model {
+  recognition?: ImageModerationResponseBodyDataExtRecognition[];
+  static names(): { [key: string]: string } {
+    return {
+      recognition: 'Recognition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recognition: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtRecognition },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataResult extends $tea.Model {
   confidence?: number;
   label?: string;
@@ -1772,10 +1813,12 @@ export class ImageModerationResponseBodyDataResult extends $tea.Model {
 
 export class ImageModerationResponseBodyData extends $tea.Model {
   dataId?: string;
+  ext?: ImageModerationResponseBodyDataExt;
   result?: ImageModerationResponseBodyDataResult[];
   static names(): { [key: string]: string } {
     return {
       dataId: 'DataId',
+      ext: 'Ext',
       result: 'Result',
     };
   }
@@ -1783,6 +1826,7 @@ export class ImageModerationResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dataId: 'string',
+      ext: ImageModerationResponseBodyDataExt,
       result: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataResult },
     };
   }
