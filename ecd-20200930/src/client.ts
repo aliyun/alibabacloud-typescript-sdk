@@ -2641,6 +2641,7 @@ export class CreateCloudDriveServiceResponseBody extends $tea.Model {
   cdsId?: string;
   cdsName?: string;
   cenId?: string;
+  conflictCdsAndOrder?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrder;
   domainName?: string;
   errorCode?: string;
   maxSize?: string;
@@ -2652,6 +2653,7 @@ export class CreateCloudDriveServiceResponseBody extends $tea.Model {
       cdsId: 'CdsId',
       cdsName: 'CdsName',
       cenId: 'CenId',
+      conflictCdsAndOrder: 'ConflictCdsAndOrder',
       domainName: 'DomainName',
       errorCode: 'ErrorCode',
       maxSize: 'MaxSize',
@@ -2666,6 +2668,7 @@ export class CreateCloudDriveServiceResponseBody extends $tea.Model {
       cdsId: 'string',
       cdsName: 'string',
       cenId: 'string',
+      conflictCdsAndOrder: CreateCloudDriveServiceResponseBodyConflictCdsAndOrder,
       domainName: 'string',
       errorCode: 'string',
       maxSize: 'string',
@@ -17465,6 +17468,75 @@ export class CreateCdsFileResponseBodyFileModel extends $tea.Model {
   }
 }
 
+export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds extends $tea.Model {
+  cdsId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cdsId: 'CdsId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cdsId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder extends $tea.Model {
+  cdsId?: string;
+  orderId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cdsId: 'CdsId',
+      orderId: 'OrderId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cdsId: 'string',
+      orderId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $tea.Model {
+  conflictCds?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds[];
+  conflictOrder?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder[];
+  static names(): { [key: string]: string } {
+    return {
+      conflictCds: 'ConflictCds',
+      conflictOrder: 'ConflictOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conflictCds: { 'type': 'array', 'itemType': CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds },
+      conflictOrder: { 'type': 'array', 'itemType': CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDesktopOversoldGroupResponseBodyData extends $tea.Model {
   orderId?: number;
   oversoldGroupId?: string;
@@ -18572,7 +18644,9 @@ export class DescribeDesktopOversoldGroupResponseBodyData extends $tea.Model {
   desktopType?: string;
   directoryId?: string;
   expireTime?: string;
+  idleDisconnectDuration?: string;
   imageId?: string;
+  keepDuration?: string;
   name?: string;
   oversoldGroupId?: string;
   oversoldUserCount?: number;
@@ -18591,7 +18665,9 @@ export class DescribeDesktopOversoldGroupResponseBodyData extends $tea.Model {
       desktopType: 'DesktopType',
       directoryId: 'DirectoryId',
       expireTime: 'ExpireTime',
+      idleDisconnectDuration: 'IdleDisconnectDuration',
       imageId: 'ImageId',
+      keepDuration: 'KeepDuration',
       name: 'Name',
       oversoldGroupId: 'OversoldGroupId',
       oversoldUserCount: 'OversoldUserCount',
@@ -18613,7 +18689,9 @@ export class DescribeDesktopOversoldGroupResponseBodyData extends $tea.Model {
       desktopType: 'string',
       directoryId: 'string',
       expireTime: 'string',
+      idleDisconnectDuration: 'string',
       imageId: 'string',
+      keepDuration: 'string',
       name: 'string',
       oversoldGroupId: 'string',
       oversoldUserCount: 'number',
@@ -23126,6 +23204,13 @@ export default class Client extends OpenApi {
     return await this.applyCoordinationForMonitoringWithOptions(request, runtime);
   }
 
+  /**
+    * The cloud computers for which you want to allow image updates must be in the Running state.
+    *
+    * @param request ApproveFotaUpdateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ApproveFotaUpdateResponse
+   */
   async approveFotaUpdateWithOptions(request: ApproveFotaUpdateRequest, runtime: $Util.RuntimeOptions): Promise<ApproveFotaUpdateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23158,6 +23243,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ApproveFotaUpdateResponse>(await this.callApi(params, req, runtime), new ApproveFotaUpdateResponse({}));
   }
 
+  /**
+    * The cloud computers for which you want to allow image updates must be in the Running state.
+    *
+    * @param request ApproveFotaUpdateRequest
+    * @return ApproveFotaUpdateResponse
+   */
   async approveFotaUpdate(request: ApproveFotaUpdateRequest): Promise<ApproveFotaUpdateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.approveFotaUpdateWithOptions(request, runtime);
@@ -23740,7 +23831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * AD directories are used to connect to enterprise AD systems and are suitable for large-scale desktop deployments. You are charged for AD directories that are used to connect to enterprise AD systems. For more information, see [Billing overview](~~188395~~).
+    * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](~~188395~~).
     *
     * @param request CreateADConnectorDirectoryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23819,7 +23910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * AD directories are used to connect to enterprise AD systems and are suitable for large-scale desktop deployments. You are charged for AD directories that are used to connect to enterprise AD systems. For more information, see [Billing overview](~~188395~~).
+    * An AD directory is used to connect to an enterprise\\"s existing Active Directory and is suitable for large-scale cloud computer deployment. You are charged directory fees when you connect your AD to cloud computers. For more information, see [Billing overview](~~188395~~).
     *
     * @param request CreateADConnectorDirectoryRequest
     * @return CreateADConnectorDirectoryResponse
@@ -25337,9 +25428,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you create a RAM directory, make sure that you have completed the following operations:
-    * *   You have created a virtual private cloud (VPC) by calling the CreateVpc operation in a region where Elastic Desktop Service (EDS) is available.
-    * *   You have created a vSwitch by calling the CreateVSwitch operation in a region where the VPC resides. You can call the [DescribeZones](~~196648~~) operation to obtain the zones where EDS is available in a region.
+    * Before you create a RAM directory, complete the following preparations:
+    * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by WUYING Workspace.
+    * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by WUYING Workspace. You can call the [DescribeZones](~~196648~~) operation to obtain the most recent zone list for a region supported by WUYING Workspace.
     *
     * @param request CreateRAMDirectoryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25390,9 +25481,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you create a RAM directory, make sure that you have completed the following operations:
-    * *   You have created a virtual private cloud (VPC) by calling the CreateVpc operation in a region where Elastic Desktop Service (EDS) is available.
-    * *   You have created a vSwitch by calling the CreateVSwitch operation in a region where the VPC resides. You can call the [DescribeZones](~~196648~~) operation to obtain the zones where EDS is available in a region.
+    * Before you create a RAM directory, complete the following preparations:
+    * *   Call the `CreateVpc` operation to create a virtual private cloud (VPC) in a region supported by WUYING Workspace.
+    * *   Call the `CreateVSwitch` operation to create a vSwitch in the VPC. The vSwitch is in a zone that is supported by WUYING Workspace. You can call the [DescribeZones](~~196648~~) operation to obtain the most recent zone list for a region supported by WUYING Workspace.
     *
     * @param request CreateRAMDirectoryRequest
     * @return CreateRAMDirectoryResponse
@@ -25864,7 +25955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot delete directories that are used by cloud desktops.
+    * You cannot delete a directory that has a cloud computer or is used by a cloud computer.
     *
     * @param request DeleteDirectoriesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25899,7 +25990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot delete directories that are used by cloud desktops.
+    * You cannot delete a directory that has a cloud computer or is used by a cloud computer.
     *
     * @param request DeleteDirectoriesRequest
     * @return DeleteDirectoriesResponse
@@ -30462,6 +30553,13 @@ export default class Client extends OpenApi {
     return await this.migrateImageProtocolWithOptions(request, runtime);
   }
 
+  /**
+    * You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
+    *
+    * @param request ModifyADConnectorDirectoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyADConnectorDirectoryResponse
+   */
   async modifyADConnectorDirectoryWithOptions(request: ModifyADConnectorDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyADConnectorDirectoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30530,6 +30628,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyADConnectorDirectoryResponse>(await this.callApi(params, req, runtime), new ModifyADConnectorDirectoryResponse({}));
   }
 
+  /**
+    * You can modify the following domain name- and Domain Name System (DNS)-related parameters only for Active Directory (AD) directories that are in the ERROR or REGISTERING state: `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress`.
+    *
+    * @param request ModifyADConnectorDirectoryRequest
+    * @return ModifyADConnectorDirectoryResponse
+   */
   async modifyADConnectorDirectory(request: ModifyADConnectorDirectoryRequest): Promise<ModifyADConnectorDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyADConnectorDirectoryWithOptions(request, runtime);
@@ -34025,6 +34129,13 @@ export default class Client extends OpenApi {
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the WUYING Workspace console and choose **Operations > Image Updates** in the left-side navigation pane.
+    *
+    * @param request UpdateFotaTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateFotaTaskResponse
+   */
   async updateFotaTaskWithOptions(request: UpdateFotaTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFotaTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34057,6 +34168,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFotaTaskResponse>(await this.callApi(params, req, runtime), new UpdateFotaTaskResponse({}));
   }
 
+  /**
+    * You can call this operation to manage each image update task. This operation is valid only when the auto-update switch in the image update module for global image updates is turned off. If the auto-update switch is turned on, the switches for each image update task are always turned on. If you want to turn on or off the auto-update switch, go to the WUYING Workspace console and choose **Operations > Image Updates** in the left-side navigation pane.
+    *
+    * @param request UpdateFotaTaskRequest
+    * @return UpdateFotaTaskResponse
+   */
   async updateFotaTask(request: UpdateFotaTaskRequest): Promise<UpdateFotaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFotaTaskWithOptions(request, runtime);
