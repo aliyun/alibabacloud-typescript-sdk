@@ -20290,6 +20290,7 @@ export class CreateWorkitemResponseBodyWorkitem extends $tea.Model {
   categoryIdentifier?: string;
   creator?: string;
   document?: string;
+  documentFormat?: string;
   gmtCreate?: number;
   gmtModified?: number;
   identifier?: string;
@@ -20313,6 +20314,7 @@ export class CreateWorkitemResponseBodyWorkitem extends $tea.Model {
       categoryIdentifier: 'categoryIdentifier',
       creator: 'creator',
       document: 'document',
+      documentFormat: 'documentFormat',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       identifier: 'identifier',
@@ -20339,6 +20341,7 @@ export class CreateWorkitemResponseBodyWorkitem extends $tea.Model {
       categoryIdentifier: 'string',
       creator: 'string',
       document: 'string',
+      documentFormat: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
       identifier: 'string',
@@ -24407,6 +24410,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
   creator?: string;
   customFields?: GetWorkItemInfoResponseBodyWorkitemCustomFields[];
   document?: string;
+  documentFormat?: string;
   finishTime?: number;
   gmtCreate?: number;
   gmtModified?: number;
@@ -24437,6 +24441,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       creator: 'creator',
       customFields: 'customFields',
       document: 'document',
+      documentFormat: 'documentFormat',
       finishTime: 'finishTime',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
@@ -24470,6 +24475,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       creator: 'string',
       customFields: { 'type': 'array', 'itemType': GetWorkItemInfoResponseBodyWorkitemCustomFields },
       document: 'string',
+      documentFormat: 'string',
       finishTime: 'number',
       gmtCreate: 'number',
       gmtModified: 'number',
@@ -31568,6 +31574,7 @@ export class UpdateWorkItemResponseBodyWorkitem extends $tea.Model {
   categoryIdentifier?: string;
   creator?: string;
   document?: string;
+  documentFormat?: string;
   gmtCreate?: number;
   gmtModified?: number;
   identifier?: string;
@@ -31591,6 +31598,7 @@ export class UpdateWorkItemResponseBodyWorkitem extends $tea.Model {
       categoryIdentifier: 'categoryIdentifier',
       creator: 'creator',
       document: 'document',
+      documentFormat: 'documentFormat',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       identifier: 'identifier',
@@ -31617,6 +31625,7 @@ export class UpdateWorkItemResponseBodyWorkitem extends $tea.Model {
       categoryIdentifier: 'string',
       creator: 'string',
       document: 'string',
+      documentFormat: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
       identifier: 'string',
