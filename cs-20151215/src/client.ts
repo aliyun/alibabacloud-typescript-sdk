@@ -8677,15 +8677,21 @@ export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $tea
 
 export class CreateClusterNodePoolRequestManagementAutoUpgradePolicy extends $tea.Model {
   autoUpgradeKubelet?: boolean;
+  autoUpgradeOs?: boolean;
+  autoUpgradeRuntime?: boolean;
   static names(): { [key: string]: string } {
     return {
       autoUpgradeKubelet: 'auto_upgrade_kubelet',
+      autoUpgradeOs: 'auto_upgrade_os',
+      autoUpgradeRuntime: 'auto_upgrade_runtime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       autoUpgradeKubelet: 'boolean',
+      autoUpgradeOs: 'boolean',
+      autoUpgradeRuntime: 'boolean',
     };
   }
 
@@ -12627,15 +12633,21 @@ export class ModifyClusterNodePoolRequestManagementAutoRepairPolicy extends $tea
 
 export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $tea.Model {
   autoUpgradeKubelet?: boolean;
+  autoUpgradeOs?: boolean;
+  autoUpgradeRuntime?: boolean;
   static names(): { [key: string]: string } {
     return {
       autoUpgradeKubelet: 'auto_upgrade_kubelet',
+      autoUpgradeOs: 'auto_upgrade_os',
+      autoUpgradeRuntime: 'auto_upgrade_runtime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       autoUpgradeKubelet: 'boolean',
+      autoUpgradeOs: 'boolean',
+      autoUpgradeRuntime: 'boolean',
     };
   }
 
