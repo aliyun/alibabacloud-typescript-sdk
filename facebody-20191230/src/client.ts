@@ -6073,6 +6073,7 @@ export class DetectFaceResponseBodyData extends $tea.Model {
   faceProbabilityList?: number[];
   faceRectangles?: number[];
   landmarkCount?: number;
+  landmarkScore?: number[];
   landmarks?: number[];
   poseList?: number[];
   pupils?: number[];
@@ -6083,6 +6084,7 @@ export class DetectFaceResponseBodyData extends $tea.Model {
       faceProbabilityList: 'FaceProbabilityList',
       faceRectangles: 'FaceRectangles',
       landmarkCount: 'LandmarkCount',
+      landmarkScore: 'LandmarkScore',
       landmarks: 'Landmarks',
       poseList: 'PoseList',
       pupils: 'Pupils',
@@ -6096,6 +6098,7 @@ export class DetectFaceResponseBodyData extends $tea.Model {
       faceProbabilityList: { 'type': 'array', 'itemType': 'number' },
       faceRectangles: { 'type': 'array', 'itemType': 'number' },
       landmarkCount: 'number',
+      landmarkScore: { 'type': 'array', 'itemType': 'number' },
       landmarks: { 'type': 'array', 'itemType': 'number' },
       poseList: { 'type': 'array', 'itemType': 'number' },
       pupils: { 'type': 'array', 'itemType': 'number' },
