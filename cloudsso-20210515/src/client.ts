@@ -6554,6 +6554,7 @@ export class GetDirectoryStatisticsResponseBodyDirectoryStatistics extends $tea.
   groupCount?: number;
   groupQuota?: number;
   inProgressTaskCount?: number;
+  inlinePolicyPerAccessConfigurationQuota?: number;
   region?: string;
   SCIMServerCredentialCount?: number;
   SCIMSyncEnabled?: boolean;
@@ -6571,6 +6572,7 @@ export class GetDirectoryStatisticsResponseBodyDirectoryStatistics extends $tea.
       groupCount: 'GroupCount',
       groupQuota: 'GroupQuota',
       inProgressTaskCount: 'InProgressTaskCount',
+      inlinePolicyPerAccessConfigurationQuota: 'InlinePolicyPerAccessConfigurationQuota',
       region: 'Region',
       SCIMServerCredentialCount: 'SCIMServerCredentialCount',
       SCIMSyncEnabled: 'SCIMSyncEnabled',
@@ -6591,6 +6593,7 @@ export class GetDirectoryStatisticsResponseBodyDirectoryStatistics extends $tea.
       groupCount: 'number',
       groupQuota: 'number',
       inProgressTaskCount: 'number',
+      inlinePolicyPerAccessConfigurationQuota: 'number',
       region: 'string',
       SCIMServerCredentialCount: 'number',
       SCIMSyncEnabled: 'boolean',
