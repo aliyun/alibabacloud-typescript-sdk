@@ -5384,10 +5384,12 @@ export class DescribeDocTypesResponseBodyDocTypeList extends $tea.Model {
 export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Model {
   x?: string[];
   y?: string[];
+  z?: string[];
   static names(): { [key: string]: string } {
     return {
       x: 'X',
       y: 'Y',
+      z: 'Z',
     };
   }
 
@@ -5395,6 +5397,7 @@ export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Mo
     return {
       x: { 'type': 'array', 'itemType': 'string' },
       y: { 'type': 'array', 'itemType': 'string' },
+      z: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5404,28 +5407,37 @@ export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Mo
 }
 
 export class DescribeEventDetailResponseBodyEventDetailChart extends $tea.Model {
+  chatType?: number;
   data?: DescribeEventDetailResponseBodyEventDetailChartData;
   label?: string;
+  name?: string;
   type?: string;
   XLabel?: string;
   YLabel?: string;
+  ZLabel?: string;
   static names(): { [key: string]: string } {
     return {
+      chatType: 'ChatType',
       data: 'Data',
       label: 'Label',
+      name: 'Name',
       type: 'Type',
       XLabel: 'XLabel',
       YLabel: 'YLabel',
+      ZLabel: 'ZLabel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chatType: 'number',
       data: DescribeEventDetailResponseBodyEventDetailChartData,
       label: 'string',
+      name: 'string',
       type: 'string',
       XLabel: 'string',
       YLabel: 'string',
+      ZLabel: 'string',
     };
   }
 
@@ -5436,10 +5448,12 @@ export class DescribeEventDetailResponseBodyEventDetailChart extends $tea.Model 
 
 export class DescribeEventDetailResponseBodyEventDetailContent extends $tea.Model {
   label?: string;
+  name?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
       label: 'Label',
+      name: 'Name',
       value: 'Value',
     };
   }
@@ -5447,6 +5461,7 @@ export class DescribeEventDetailResponseBodyEventDetailContent extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       label: 'string',
+      name: 'string',
       value: 'string',
     };
   }
@@ -5559,6 +5574,7 @@ export class DescribeEventDetailResponseBodyEvent extends $tea.Model {
   id?: number;
   logDetail?: string;
   loginName?: string;
+  newAlarm?: boolean;
   productCode?: string;
   status?: number;
   statusName?: string;
@@ -5584,6 +5600,7 @@ export class DescribeEventDetailResponseBodyEvent extends $tea.Model {
       id: 'Id',
       logDetail: 'LogDetail',
       loginName: 'LoginName',
+      newAlarm: 'NewAlarm',
       productCode: 'ProductCode',
       status: 'Status',
       statusName: 'StatusName',
@@ -5612,6 +5629,7 @@ export class DescribeEventDetailResponseBodyEvent extends $tea.Model {
       id: 'number',
       logDetail: 'string',
       loginName: 'string',
+      newAlarm: 'boolean',
       productCode: 'string',
       status: 'number',
       statusName: 'string',
