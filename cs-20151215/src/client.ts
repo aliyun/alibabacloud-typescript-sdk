@@ -897,6 +897,7 @@ export class CreateClusterRequest extends $tea.Model {
   resourceGroupId?: string;
   runtime?: Runtime;
   securityGroupId?: string;
+  securityHardeningOs?: boolean;
   serviceAccountIssuer?: string;
   serviceCidr?: string;
   serviceDiscoveryTypes?: string[];
@@ -989,6 +990,7 @@ export class CreateClusterRequest extends $tea.Model {
       resourceGroupId: 'resource_group_id',
       runtime: 'runtime',
       securityGroupId: 'security_group_id',
+      securityHardeningOs: 'security_hardening_os',
       serviceAccountIssuer: 'service_account_issuer',
       serviceCidr: 'service_cidr',
       serviceDiscoveryTypes: 'service_discovery_types',
@@ -1084,6 +1086,7 @@ export class CreateClusterRequest extends $tea.Model {
       resourceGroupId: 'string',
       runtime: Runtime,
       securityGroupId: 'string',
+      securityHardeningOs: 'boolean',
       serviceAccountIssuer: 'string',
       serviceCidr: 'string',
       serviceDiscoveryTypes: { 'type': 'array', 'itemType': 'string' },
@@ -8928,6 +8931,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   scalingPolicy?: string;
   securityGroupId?: string;
   securityGroupIds?: string[];
+  securityHardeningOs?: boolean;
   socEnabled?: boolean;
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
@@ -8973,6 +8977,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
       securityGroupIds: 'security_group_ids',
+      securityHardeningOs: 'security_hardening_os',
       socEnabled: 'soc_enabled',
       spotInstancePools: 'spot_instance_pools',
       spotInstanceRemedy: 'spot_instance_remedy',
@@ -9021,6 +9026,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       scalingPolicy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityHardeningOs: 'boolean',
       socEnabled: 'boolean',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
@@ -9689,6 +9695,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   scalingPolicy?: string;
   securityGroupId?: string;
   securityGroupIds?: string[];
+  securityHardeningOs?: boolean;
   socEnabled?: boolean;
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
@@ -9736,6 +9743,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
       securityGroupIds: 'security_group_ids',
+      securityHardeningOs: 'security_hardening_os',
       socEnabled: 'soc_enabled',
       spotInstancePools: 'spot_instance_pools',
       spotInstanceRemedy: 'spot_instance_remedy',
@@ -9786,6 +9794,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       scalingPolicy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityHardeningOs: 'boolean',
       socEnabled: 'boolean',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
@@ -10241,6 +10250,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   scalingPolicy?: string;
   securityGroupId?: string;
   securityGroupIds?: string[];
+  securityHardeningOs?: boolean;
   socEnabled?: boolean;
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
@@ -10288,6 +10298,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
       securityGroupIds: 'security_group_ids',
+      securityHardeningOs: 'security_hardening_os',
       socEnabled: 'soc_enabled',
       spotInstancePools: 'spot_instance_pools',
       spotInstanceRemedy: 'spot_instance_remedy',
@@ -10338,6 +10349,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       scalingPolicy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityHardeningOs: 'boolean',
       socEnabled: 'boolean',
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
@@ -13898,6 +13910,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityGroupId)) {
       body["security_group_id"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.securityHardeningOs)) {
+      body["security_hardening_os"] = request.securityHardeningOs;
     }
 
     if (!Util.isUnset(request.serviceAccountIssuer)) {
