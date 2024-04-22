@@ -3731,6 +3731,8 @@ export class ListConversationsResponseBodyConversations extends $tea.Model {
   calledNumber?: string;
   callingNumber?: string;
   conversationId?: string;
+  dsReport?: string;
+  dsReportTitles?: string[];
   endReason?: number;
   endTime?: number;
   hasLastPlaybackCompleted?: boolean;
@@ -3744,6 +3746,8 @@ export class ListConversationsResponseBodyConversations extends $tea.Model {
       calledNumber: 'CalledNumber',
       callingNumber: 'CallingNumber',
       conversationId: 'ConversationId',
+      dsReport: 'DsReport',
+      dsReportTitles: 'DsReportTitles',
       endReason: 'EndReason',
       endTime: 'EndTime',
       hasLastPlaybackCompleted: 'HasLastPlaybackCompleted',
@@ -3760,6 +3764,8 @@ export class ListConversationsResponseBodyConversations extends $tea.Model {
       calledNumber: 'string',
       callingNumber: 'string',
       conversationId: 'string',
+      dsReport: 'string',
+      dsReportTitles: { 'type': 'array', 'itemType': 'string' },
       endReason: 'number',
       endTime: 'number',
       hasLastPlaybackCompleted: 'boolean',
