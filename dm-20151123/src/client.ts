@@ -725,6 +725,81 @@ export class CreateTagResponse extends $tea.Model {
   }
 }
 
+export class CreateUserSuppressionRequest extends $tea.Model {
+  address?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserSuppressionResponseBody extends $tea.Model {
+  requestId?: string;
+  suppressionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      suppressionId: 'SuppressionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      suppressionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUserSuppressionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserSuppressionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateUserSuppressionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDomainRequest extends $tea.Model {
   domainId?: number;
   ownerId?: number;
@@ -1664,6 +1739,78 @@ export class GetIpfilterListResponse extends $tea.Model {
   }
 }
 
+export class GetSuppressionListLevelRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuppressionListLevelResponseBody extends $tea.Model {
+  requestId?: string;
+  suppressionListLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      suppressionListLevel: 'SuppressionListLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      suppressionListLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSuppressionListLevelResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSuppressionListLevelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSuppressionListLevelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTrackListRequest extends $tea.Model {
   endTime?: string;
   offset?: string;
@@ -1884,6 +2031,108 @@ export class GetTrackListByMailFromAndTagNameResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTrackListByMailFromAndTagNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserSuppressionRequest extends $tea.Model {
+  address?: string;
+  endBounceTime?: number;
+  endCreateTime?: number;
+  ownerId?: number;
+  pageNo?: number;
+  pageSize?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  startBounceTime?: number;
+  startCreateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      endBounceTime: 'EndBounceTime',
+      endCreateTime: 'EndCreateTime',
+      ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      startBounceTime: 'StartBounceTime',
+      startCreateTime: 'StartCreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      endBounceTime: 'number',
+      endCreateTime: 'number',
+      ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      startBounceTime: 'number',
+      startCreateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserSuppressionResponseBody extends $tea.Model {
+  data?: ListUserSuppressionResponseBodyData;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListUserSuppressionResponseBodyData,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserSuppressionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserSuppressionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserSuppressionResponseBody,
     };
   }
 
@@ -2780,6 +3029,78 @@ export class QueryTaskByParamResponse extends $tea.Model {
   }
 }
 
+export class RemoveUserSuppressionRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  suppressionIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      suppressionIds: 'SuppressionIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      suppressionIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUserSuppressionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUserSuppressionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveUserSuppressionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveUserSuppressionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveReceiverDetailRequest extends $tea.Model {
   detail?: string;
   ownerId?: number;
@@ -3143,6 +3464,81 @@ export class SenderStatisticsDetailByParamResponse extends $tea.Model {
   }
 }
 
+export class SetSuppressionListLevelRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  suppressionListLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      suppressionListLevel: 'SuppressionListLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      suppressionListLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSuppressionListLevelResponseBody extends $tea.Model {
+  requestId?: string;
+  suppressionListLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      suppressionListLevel: 'SuppressionListLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      suppressionListLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSuppressionListLevelResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetSuppressionListLevelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetSuppressionListLevelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SingleSendMailRequest extends $tea.Model {
   accountName?: string;
   addressType?: number;
@@ -3495,6 +3891,56 @@ export class GetTrackListByMailFromAndTagNameResponseBodyTrackList extends $tea.
   static types(): { [key: string]: any } {
     return {
       stat: { 'type': 'array', 'itemType': GetTrackListByMailFromAndTagNameResponseBodyTrackListStat },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserSuppressionResponseBodyDataUserSuppressions extends $tea.Model {
+  address?: string;
+  createTime?: number;
+  lastBounceTime?: number;
+  suppressionId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      createTime: 'CreateTime',
+      lastBounceTime: 'LastBounceTime',
+      suppressionId: 'SuppressionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      createTime: 'number',
+      lastBounceTime: 'number',
+      suppressionId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserSuppressionResponseBodyData extends $tea.Model {
+  userSuppressions?: ListUserSuppressionResponseBodyDataUserSuppressions[];
+  static names(): { [key: string]: string } {
+    return {
+      userSuppressions: 'UserSuppressions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userSuppressions: { 'type': 'array', 'itemType': ListUserSuppressionResponseBodyDataUserSuppressions },
     };
   }
 
@@ -3994,6 +4440,7 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBodyData extends $tea.Mo
 
 export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $tea.Model {
   accountName?: string;
+  errorClassification?: string;
   lastUpdateTime?: string;
   message?: string;
   status?: number;
@@ -4003,6 +4450,7 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $te
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      errorClassification: 'ErrorClassification',
       lastUpdateTime: 'LastUpdateTime',
       message: 'Message',
       status: 'Status',
@@ -4015,6 +4463,7 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $te
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      errorClassification: 'string',
       lastUpdateTime: 'string',
       message: 'string',
       status: 'number',
@@ -4504,6 +4953,47 @@ export default class Client extends OpenApi {
     return await this.createTagWithOptions(request, runtime);
   }
 
+  async createUserSuppressionWithOptions(request: CreateUserSuppressionRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserSuppressionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateUserSuppression",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateUserSuppressionResponse>(await this.callApi(params, req, runtime), new CreateUserSuppressionResponse({}));
+  }
+
+  async createUserSuppression(request: CreateUserSuppressionRequest): Promise<CreateUserSuppressionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createUserSuppressionWithOptions(request, runtime);
+  }
+
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4955,6 +5445,43 @@ export default class Client extends OpenApi {
     return await this.getIpfilterListWithOptions(request, runtime);
   }
 
+  async getSuppressionListLevelWithOptions(request: GetSuppressionListLevelRequest, runtime: $Util.RuntimeOptions): Promise<GetSuppressionListLevelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSuppressionListLevel",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSuppressionListLevelResponse>(await this.callApi(params, req, runtime), new GetSuppressionListLevelResponse({}));
+  }
+
+  async getSuppressionListLevel(request: GetSuppressionListLevelRequest): Promise<GetSuppressionListLevelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSuppressionListLevelWithOptions(request, runtime);
+  }
+
   async getTrackListWithOptions(request: GetTrackListRequest, runtime: $Util.RuntimeOptions): Promise<GetTrackListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5099,6 +5626,71 @@ export default class Client extends OpenApi {
   async getTrackListByMailFromAndTagName(request: GetTrackListByMailFromAndTagNameRequest): Promise<GetTrackListByMailFromAndTagNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTrackListByMailFromAndTagNameWithOptions(request, runtime);
+  }
+
+  async listUserSuppressionWithOptions(request: ListUserSuppressionRequest, runtime: $Util.RuntimeOptions): Promise<ListUserSuppressionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.endBounceTime)) {
+      query["EndBounceTime"] = request.endBounceTime;
+    }
+
+    if (!Util.isUnset(request.endCreateTime)) {
+      query["EndCreateTime"] = request.endCreateTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.startBounceTime)) {
+      query["StartBounceTime"] = request.startBounceTime;
+    }
+
+    if (!Util.isUnset(request.startCreateTime)) {
+      query["StartCreateTime"] = request.startCreateTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserSuppression",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserSuppressionResponse>(await this.callApi(params, req, runtime), new ListUserSuppressionResponse({}));
+  }
+
+  async listUserSuppression(request: ListUserSuppressionRequest): Promise<ListUserSuppressionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserSuppressionWithOptions(request, runtime);
   }
 
   async modifyMailAddressWithOptions(request: ModifyMailAddressRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMailAddressResponse> {
@@ -5615,6 +6207,47 @@ export default class Client extends OpenApi {
     return await this.queryTaskByParamWithOptions(request, runtime);
   }
 
+  async removeUserSuppressionWithOptions(request: RemoveUserSuppressionRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserSuppressionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.suppressionIds)) {
+      query["SuppressionIds"] = request.suppressionIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveUserSuppression",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveUserSuppressionResponse>(await this.callApi(params, req, runtime), new RemoveUserSuppressionResponse({}));
+  }
+
+  async removeUserSuppression(request: RemoveUserSuppressionRequest): Promise<RemoveUserSuppressionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeUserSuppressionWithOptions(request, runtime);
+  }
+
   async saveReceiverDetailWithOptions(request: SaveReceiverDetailRequest, runtime: $Util.RuntimeOptions): Promise<SaveReceiverDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5849,6 +6482,47 @@ export default class Client extends OpenApi {
   async senderStatisticsDetailByParam(request: SenderStatisticsDetailByParamRequest): Promise<SenderStatisticsDetailByParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.senderStatisticsDetailByParamWithOptions(request, runtime);
+  }
+
+  async setSuppressionListLevelWithOptions(request: SetSuppressionListLevelRequest, runtime: $Util.RuntimeOptions): Promise<SetSuppressionListLevelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.suppressionListLevel)) {
+      query["SuppressionListLevel"] = request.suppressionListLevel;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetSuppressionListLevel",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetSuppressionListLevelResponse>(await this.callApi(params, req, runtime), new SetSuppressionListLevelResponse({}));
+  }
+
+  async setSuppressionListLevel(request: SetSuppressionListLevelRequest): Promise<SetSuppressionListLevelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setSuppressionListLevelWithOptions(request, runtime);
   }
 
   async singleSendMailWithOptions(request: SingleSendMailRequest, runtime: $Util.RuntimeOptions): Promise<SingleSendMailResponse> {
