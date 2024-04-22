@@ -138,9 +138,9 @@ export class ApplyCreateDistributionOrderResponseBody extends $tea.Model {
 }
 
 export class ApplyCreateDistributionOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyCreateDistributionOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyCreateDistributionOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -304,9 +304,9 @@ export class ApplyRefund4DistributionResponseBody extends $tea.Model {
 }
 
 export class ApplyRefund4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApplyRefund4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyRefund4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -400,9 +400,9 @@ export class CancelDistributionTradeResponseBody extends $tea.Model {
 }
 
 export class CancelDistributionTradeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelDistributionTradeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelDistributionTradeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -502,9 +502,9 @@ export class CancelRefund4DistributionResponseBody extends $tea.Model {
 }
 
 export class CancelRefund4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelRefund4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelRefund4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -601,9 +601,9 @@ export class ConfirmDisburse4DistributionResponseBody extends $tea.Model {
 }
 
 export class ConfirmDisburse4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ConfirmDisburse4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfirmDisburse4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -706,9 +706,9 @@ export class InitApplyRefund4DistributionResponseBody extends $tea.Model {
 }
 
 export class InitApplyRefund4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InitApplyRefund4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitApplyRefund4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -811,9 +811,9 @@ export class InitModifyRefund4DistributionResponseBody extends $tea.Model {
 }
 
 export class InitModifyRefund4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InitModifyRefund4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitModifyRefund4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -922,9 +922,9 @@ export class ListDistributionItemResponseBody extends $tea.Model {
 }
 
 export class ListDistributionItemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDistributionItemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDistributionItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1033,9 +1033,9 @@ export class ListDistributionItemWithoutCacheResponseBody extends $tea.Model {
 }
 
 export class ListDistributionItemWithoutCacheResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDistributionItemWithoutCacheResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDistributionItemWithoutCacheResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1150,9 +1150,9 @@ export class ListDistributionMallResponseBody extends $tea.Model {
 }
 
 export class ListDistributionMallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDistributionMallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDistributionMallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1322,9 +1322,9 @@ export class ModifyRefund4DistributionResponseBody extends $tea.Model {
 }
 
 export class ModifyRefund4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyRefund4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRefund4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1421,9 +1421,9 @@ export class QueryChildDivisionCodeByIdResponseBody extends $tea.Model {
 }
 
 export class QueryChildDivisionCodeByIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryChildDivisionCodeByIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryChildDivisionCodeByIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1529,9 +1529,9 @@ export class QueryDistributionBillDetailResponseBody extends $tea.Model {
 }
 
 export class QueryDistributionBillDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDistributionBillDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDistributionBillDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1628,9 +1628,9 @@ export class QueryDistributionMallResponseBody extends $tea.Model {
 }
 
 export class QueryDistributionMallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDistributionMallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDistributionMallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1730,9 +1730,9 @@ export class QueryDistributionTradeStatusResponseBody extends $tea.Model {
 }
 
 export class QueryDistributionTradeStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryDistributionTradeStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDistributionTradeStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1835,9 +1835,9 @@ export class QueryItemDetailResponseBody extends $tea.Model {
 }
 
 export class QueryItemDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryItemDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryItemDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1940,9 +1940,9 @@ export class QueryItemDetailWithDivisionResponseBody extends $tea.Model {
 }
 
 export class QueryItemDetailWithDivisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryItemDetailWithDivisionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryItemDetailWithDivisionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2061,9 +2061,9 @@ export class QueryItemGuideRetailPriceResponseBody extends $tea.Model {
 }
 
 export class QueryItemGuideRetailPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryItemGuideRetailPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryItemGuideRetailPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2163,9 +2163,9 @@ export class QueryLogistics4DistributionResponseBody extends $tea.Model {
 }
 
 export class QueryLogistics4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryLogistics4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryLogistics4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2256,9 +2256,9 @@ export class QueryMallCategoryListResponseBody extends $tea.Model {
 }
 
 export class QueryMallCategoryListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryMallCategoryListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryMallCategoryListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2355,9 +2355,9 @@ export class QueryOrderDetail4DistributionResponseBody extends $tea.Model {
 }
 
 export class QueryOrderDetail4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryOrderDetail4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryOrderDetail4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2460,9 +2460,9 @@ export class QueryOrderList4DistributionResponseBody extends $tea.Model {
 }
 
 export class QueryOrderList4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryOrderList4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryOrderList4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2559,9 +2559,9 @@ export class QueryRefundApplicationDetail4DistributionResponseBody extends $tea.
 }
 
 export class QueryRefundApplicationDetail4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryRefundApplicationDetail4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRefundApplicationDetail4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2707,9 +2707,9 @@ export class RenderDistributionOrderResponseBody extends $tea.Model {
 }
 
 export class RenderDistributionOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenderDistributionOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenderDistributionOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2812,9 +2812,9 @@ export class SubmitReturnGoodLogistics4DistributionResponseBody extends $tea.Mod
 }
 
 export class SubmitReturnGoodLogistics4DistributionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitReturnGoodLogistics4DistributionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitReturnGoodLogistics4DistributionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
