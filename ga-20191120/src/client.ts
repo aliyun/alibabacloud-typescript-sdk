@@ -20395,20 +20395,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic access policy of an endpoint. The CreateCustomRoutingEndpointTrafficPolicies operation takes effect only when **TrafficToEndpointPolicy** of an endpoint is set to **AllowCustom**.
+    * This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic access policy of an endpoint. This operation takes effect only if the value of **TrafficToEndpointPolicy** is set to **AllowCustom**, which allows traffic to specific destinations.
     * When you call this operation, take note of the following items:
-    * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group to check whether traffic destinations are created for an endpoint in the endpoint group.
-    *     *   If the endpoint group is in the **updating** state, traffic destinations are being created. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, traffic destinations are created.
-    * *   You cannot repeatedly call the **CreateCustomRoutingEndpointTrafficPolicies** operation for the same Global Accelerator (GA) instance within a specific period of time.
-    * ### Prerequisites
+    * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of the task.
+    *     *   If the endpoint group is in the **updating** state, the traffic destinations are being created. In this state, you can only query the traffic destinations.
+    *     *   If the endpoint group is in the **active** state, the traffic destinations are created.
+    * *   You cannot call the **CreateCustomRoutingEndpointTrafficPolicies** operation repeatedly for the same GA instance in a specific period of time.
+    * ### [](#)Prerequisites
     * Before you call this operation, make sure that the following requirements are met:
     * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
-    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
-    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
-    * *   An endpoint group is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
-    * *   An endpoint is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](~~449382~~).
+    * *   If the bandwidth metering method of the standard GA instance is **pay-by-bandwidth**, a bandwidth plan must be associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   An application that serves as the endpoint of the standard GA instance is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   The permissions to use custom routing listeners are acquired, and a custom routing listener is created. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   Endpoint groups are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
+    * *   Endpoints are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](~~449382~~).
     *
     * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20451,20 +20451,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic access policy of an endpoint. The CreateCustomRoutingEndpointTrafficPolicies operation takes effect only when **TrafficToEndpointPolicy** of an endpoint is set to **AllowCustom**.
+    * This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic access policy of an endpoint. This operation takes effect only if the value of **TrafficToEndpointPolicy** is set to **AllowCustom**, which allows traffic to specific destinations.
     * When you call this operation, take note of the following items:
-    * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group to check whether traffic destinations are created for an endpoint in the endpoint group.
-    *     *   If the endpoint group is in the **updating** state, traffic destinations are being created. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, traffic destinations are created.
-    * *   You cannot repeatedly call the **CreateCustomRoutingEndpointTrafficPolicies** operation for the same Global Accelerator (GA) instance within a specific period of time.
-    * ### Prerequisites
+    * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of the task.
+    *     *   If the endpoint group is in the **updating** state, the traffic destinations are being created. In this state, you can only query the traffic destinations.
+    *     *   If the endpoint group is in the **active** state, the traffic destinations are created.
+    * *   You cannot call the **CreateCustomRoutingEndpointTrafficPolicies** operation repeatedly for the same GA instance in a specific period of time.
+    * ### [](#)Prerequisites
     * Before you call this operation, make sure that the following requirements are met:
     * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
-    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
-    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
-    * *   An endpoint group is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
-    * *   An endpoint is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](~~449382~~).
+    * *   If the bandwidth metering method of the standard GA instance is **pay-by-bandwidth**, a bandwidth plan must be associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
+    * *   An application that serves as the endpoint of the standard GA instance is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+    * *   The permissions to use custom routing listeners are acquired, and a custom routing listener is created. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
+    * *   Endpoint groups are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
+    * *   Endpoints are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](~~449382~~).
     *
     * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
     * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
@@ -20757,10 +20757,6 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.endpointGroupConfigurations)) {
-      query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
-    }
-
     if (!Util.isUnset(request.listenerId)) {
       query["ListenerId"] = request.listenerId;
     }
@@ -20769,8 +20765,19 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endpointGroupConfigurations)) {
+      bodyFlat["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateEndpointGroups",
@@ -20823,10 +20830,6 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.forwardingRules)) {
-      query["ForwardingRules"] = request.forwardingRules;
-    }
-
     if (!Util.isUnset(request.listenerId)) {
       query["ListenerId"] = request.listenerId;
     }
@@ -20835,8 +20838,19 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.forwardingRules)) {
+      bodyFlat["ForwardingRules"] = request.forwardingRules;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateForwardingRules",
@@ -24188,6 +24202,13 @@ export default class Client extends OpenApi {
     return await this.listBandwidthPackagesWithOptions(request, runtime);
   }
 
+  /**
+    * To query the detailed information about a bandwidth plan, call the **ListBandwidthPackages** operation. For more information, see [ListBandwidthPackages](~~2253239~~).
+    *
+    * @param request ListBandwidthackagesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListBandwidthackagesResponse
+   */
   async listBandwidthackagesWithOptions(request: ListBandwidthackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24220,6 +24241,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBandwidthackagesResponse>(await this.callApi(params, req, runtime), new ListBandwidthackagesResponse({}));
   }
 
+  /**
+    * To query the detailed information about a bandwidth plan, call the **ListBandwidthPackages** operation. For more information, see [ListBandwidthPackages](~~2253239~~).
+    *
+    * @param request ListBandwidthackagesRequest
+    * @return ListBandwidthackagesResponse
+   */
   async listBandwidthackages(request: ListBandwidthackagesRequest): Promise<ListBandwidthackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBandwidthackagesWithOptions(request, runtime);
