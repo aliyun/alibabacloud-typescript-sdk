@@ -2502,6 +2502,25 @@ export class DescribeClusterAddonInstanceResponse extends $tea.Model {
   }
 }
 
+export class DescribeClusterAddonMetadataRequest extends $tea.Model {
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterAddonMetadataResponseBody extends $tea.Model {
   configSchema?: string;
   name?: string;
@@ -14864,14 +14883,22 @@ export default class Client extends OpenApi {
   /**
     * @deprecated
     *
+    * @param request DescribeClusterAddonMetadataRequest
     * @param headers map
     * @param runtime runtime options for this request RuntimeOptions
     * @return DescribeClusterAddonMetadataResponse
    */
   // Deprecated
-  async describeClusterAddonMetadataWithOptions(clusterId: string, componentId: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonMetadataResponse> {
+  async describeClusterAddonMetadataWithOptions(clusterId: string, componentId: string, request: DescribeClusterAddonMetadataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonMetadataResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.version)) {
+      query["version"] = request.version;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClusterAddonMetadata",
@@ -14890,13 +14917,14 @@ export default class Client extends OpenApi {
   /**
     * @deprecated
     *
+    * @param request DescribeClusterAddonMetadataRequest
     * @return DescribeClusterAddonMetadataResponse
    */
   // Deprecated
-  async describeClusterAddonMetadata(clusterId: string, componentId: string, version: string): Promise<DescribeClusterAddonMetadataResponse> {
+  async describeClusterAddonMetadata(clusterId: string, componentId: string, request: DescribeClusterAddonMetadataRequest): Promise<DescribeClusterAddonMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterAddonMetadataWithOptions(clusterId, componentId, version, headers, runtime);
+    return await this.describeClusterAddonMetadataWithOptions(clusterId, componentId, request, headers, runtime);
   }
 
   /**
