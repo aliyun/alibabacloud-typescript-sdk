@@ -243,6 +243,7 @@ export class AttachAlbServerGroupsResponse extends $tea.Model {
 }
 
 export class AttachDBInstancesRequest extends $tea.Model {
+  attachMode?: string;
   clientToken?: string;
   DBInstances?: string[];
   forceAttach?: boolean;
@@ -250,8 +251,10 @@ export class AttachDBInstancesRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   scalingGroupId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
+      attachMode: 'AttachMode',
       clientToken: 'ClientToken',
       DBInstances: 'DBInstances',
       forceAttach: 'ForceAttach',
@@ -259,11 +262,13 @@ export class AttachDBInstancesRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       scalingGroupId: 'ScalingGroupId',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attachMode: 'string',
       clientToken: 'string',
       DBInstances: { 'type': 'array', 'itemType': 'string' },
       forceAttach: 'boolean',
@@ -271,6 +276,7 @@ export class AttachDBInstancesRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       scalingGroupId: 'string',
+      type: 'string',
     };
   }
 
@@ -1344,6 +1350,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
   creditSpecification?: string;
   customPriorities?: CreateScalingConfigurationRequestCustomPriorities[];
   dataDisks?: CreateScalingConfigurationRequestDataDisks[];
+  dedicatedHostClusterId?: string;
   dedicatedHostId?: string;
   deletionProtection?: boolean;
   deploymentSetId?: string;
@@ -1402,6 +1409,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       creditSpecification: 'CreditSpecification',
       customPriorities: 'CustomPriorities',
       dataDisks: 'DataDisks',
+      dedicatedHostClusterId: 'DedicatedHostClusterId',
       dedicatedHostId: 'DedicatedHostId',
       deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
@@ -1463,6 +1471,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
       creditSpecification: 'string',
       customPriorities: { 'type': 'array', 'itemType': CreateScalingConfigurationRequestCustomPriorities },
       dataDisks: { 'type': 'array', 'itemType': CreateScalingConfigurationRequestDataDisks },
+      dedicatedHostClusterId: 'string',
       dedicatedHostId: 'string',
       deletionProtection: 'boolean',
       deploymentSetId: 'string',
@@ -1528,6 +1537,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
   creditSpecification?: string;
   customPriorities?: CreateScalingConfigurationShrinkRequestCustomPriorities[];
   dataDisks?: CreateScalingConfigurationShrinkRequestDataDisks[];
+  dedicatedHostClusterId?: string;
   dedicatedHostId?: string;
   deletionProtection?: boolean;
   deploymentSetId?: string;
@@ -1586,6 +1596,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       creditSpecification: 'CreditSpecification',
       customPriorities: 'CustomPriorities',
       dataDisks: 'DataDisks',
+      dedicatedHostClusterId: 'DedicatedHostClusterId',
       dedicatedHostId: 'DedicatedHostId',
       deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
@@ -1647,6 +1658,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
       creditSpecification: 'string',
       customPriorities: { 'type': 'array', 'itemType': CreateScalingConfigurationShrinkRequestCustomPriorities },
       dataDisks: { 'type': 'array', 'itemType': CreateScalingConfigurationShrinkRequestDataDisks },
+      dedicatedHostClusterId: 'string',
       dedicatedHostId: 'string',
       deletionProtection: 'boolean',
       deploymentSetId: 'string',
@@ -1758,6 +1770,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
   containerGroupId?: string;
   customPolicyARN?: string;
   DBInstanceIds?: string;
+  DBInstances?: CreateScalingGroupRequestDBInstances[];
   defaultCooldown?: number;
   desiredCapacity?: number;
   groupDeletionProtection?: boolean;
@@ -1804,6 +1817,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       containerGroupId: 'ContainerGroupId',
       customPolicyARN: 'CustomPolicyARN',
       DBInstanceIds: 'DBInstanceIds',
+      DBInstances: 'DBInstances',
       defaultCooldown: 'DefaultCooldown',
       desiredCapacity: 'DesiredCapacity',
       groupDeletionProtection: 'GroupDeletionProtection',
@@ -1853,6 +1867,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       containerGroupId: 'string',
       customPolicyARN: 'string',
       DBInstanceIds: 'string',
+      DBInstances: { 'type': 'array', 'itemType': CreateScalingGroupRequestDBInstances },
       defaultCooldown: 'number',
       desiredCapacity: 'number',
       groupDeletionProtection: 'boolean',
@@ -4578,6 +4593,7 @@ export class DetachDBInstancesRequest extends $tea.Model {
   forceDetach?: boolean;
   ownerId?: number;
   regionId?: string;
+  removeSecurityGroup?: boolean;
   resourceOwnerAccount?: string;
   scalingGroupId?: string;
   static names(): { [key: string]: string } {
@@ -4587,6 +4603,7 @@ export class DetachDBInstancesRequest extends $tea.Model {
       forceDetach: 'ForceDetach',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      removeSecurityGroup: 'RemoveSecurityGroup',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       scalingGroupId: 'ScalingGroupId',
     };
@@ -4599,6 +4616,7 @@ export class DetachDBInstancesRequest extends $tea.Model {
       forceDetach: 'boolean',
       ownerId: 'number',
       regionId: 'string',
+      removeSecurityGroup: 'boolean',
       resourceOwnerAccount: 'string',
       scalingGroupId: 'string',
     };
@@ -6426,6 +6444,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
   creditSpecification?: string;
   customPriorities?: ModifyScalingConfigurationRequestCustomPriorities[];
   dataDisks?: ModifyScalingConfigurationRequestDataDisks[];
+  dedicatedHostClusterId?: string;
   dedicatedHostId?: string;
   deletionProtection?: boolean;
   deploymentSetId?: string;
@@ -6480,6 +6499,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       creditSpecification: 'CreditSpecification',
       customPriorities: 'CustomPriorities',
       dataDisks: 'DataDisks',
+      dedicatedHostClusterId: 'DedicatedHostClusterId',
       dedicatedHostId: 'DedicatedHostId',
       deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
@@ -6537,6 +6557,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
       creditSpecification: 'string',
       customPriorities: { 'type': 'array', 'itemType': ModifyScalingConfigurationRequestCustomPriorities },
       dataDisks: { 'type': 'array', 'itemType': ModifyScalingConfigurationRequestDataDisks },
+      dedicatedHostClusterId: 'string',
       dedicatedHostId: 'string',
       deletionProtection: 'boolean',
       deploymentSetId: 'string',
@@ -6598,6 +6619,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
   creditSpecification?: string;
   customPriorities?: ModifyScalingConfigurationShrinkRequestCustomPriorities[];
   dataDisks?: ModifyScalingConfigurationShrinkRequestDataDisks[];
+  dedicatedHostClusterId?: string;
   dedicatedHostId?: string;
   deletionProtection?: boolean;
   deploymentSetId?: string;
@@ -6652,6 +6674,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       creditSpecification: 'CreditSpecification',
       customPriorities: 'CustomPriorities',
       dataDisks: 'DataDisks',
+      dedicatedHostClusterId: 'DedicatedHostClusterId',
       dedicatedHostId: 'DedicatedHostId',
       deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
@@ -6709,6 +6732,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
       creditSpecification: 'string',
       customPriorities: { 'type': 'array', 'itemType': ModifyScalingConfigurationShrinkRequestCustomPriorities },
       dataDisks: { 'type': 'array', 'itemType': ModifyScalingConfigurationShrinkRequestDataDisks },
+      dedicatedHostClusterId: 'string',
       dedicatedHostId: 'string',
       deletionProtection: 'boolean',
       deploymentSetId: 'string',
@@ -9994,6 +10018,31 @@ export class CreateScalingGroupRequestAlbServerGroups extends $tea.Model {
   }
 }
 
+export class CreateScalingGroupRequestDBInstances extends $tea.Model {
+  attachMode?: string;
+  DBInstanceId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachMode: 'AttachMode',
+      DBInstanceId: 'DBInstanceId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachMode: 'string',
+      DBInstanceId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingGroupRequestLaunchTemplateOverrides extends $tea.Model {
   instanceType?: string;
   spotPriceLimit?: number;
@@ -12406,6 +12455,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   creditSpecification?: string;
   customPriorities?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsCustomPriorities[];
   dataDisks?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks[];
+  dedicatedHostClusterId?: string;
   dedicatedHostId?: string;
   deletionProtection?: boolean;
   deploymentSetId?: string;
@@ -12475,6 +12525,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       creditSpecification: 'CreditSpecification',
       customPriorities: 'CustomPriorities',
       dataDisks: 'DataDisks',
+      dedicatedHostClusterId: 'DedicatedHostClusterId',
       dedicatedHostId: 'DedicatedHostId',
       deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
@@ -12547,6 +12598,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       creditSpecification: 'string',
       customPriorities: { 'type': 'array', 'itemType': DescribeScalingConfigurationsResponseBodyScalingConfigurationsCustomPriorities },
       dataDisks: { 'type': 'array', 'itemType': DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks },
+      dedicatedHostClusterId: 'string',
       dedicatedHostId: 'string',
       deletionProtection: 'boolean',
       deploymentSetId: 'string',
@@ -13028,6 +13080,31 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups exten
   }
 }
 
+export class DescribeScalingGroupsResponseBodyScalingGroupsDBInstances extends $tea.Model {
+  DBInstanceId?: string;
+  securityGroupIds?: string[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      securityGroupIds: 'SecurityGroupIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingGroupsResponseBodyScalingGroupsLaunchTemplateOverrides extends $tea.Model {
   instanceType?: string;
   spotPriceLimit?: number;
@@ -13186,6 +13263,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
   currentHostName?: string;
   customPolicyARN?: string;
   DBInstanceIds?: string[];
+  DBInstances?: DescribeScalingGroupsResponseBodyScalingGroupsDBInstances[];
   defaultCooldown?: number;
   desiredCapacity?: number;
   enableDesiredCapacity?: boolean;
@@ -13247,6 +13325,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       currentHostName: 'CurrentHostName',
       customPolicyARN: 'CustomPolicyARN',
       DBInstanceIds: 'DBInstanceIds',
+      DBInstances: 'DBInstances',
       defaultCooldown: 'DefaultCooldown',
       desiredCapacity: 'DesiredCapacity',
       enableDesiredCapacity: 'EnableDesiredCapacity',
@@ -13311,6 +13390,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       currentHostName: 'string',
       customPolicyARN: 'string',
       DBInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      DBInstances: { 'type': 'array', 'itemType': DescribeScalingGroupsResponseBodyScalingGroupsDBInstances },
       defaultCooldown: 'number',
       desiredCapacity: 'number',
       enableDesiredCapacity: 'boolean',
@@ -15899,6 +15979,10 @@ export default class Client extends OpenApi {
   async attachDBInstancesWithOptions(request: AttachDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<AttachDBInstancesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.attachMode)) {
+      query["AttachMode"] = request.attachMode;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -15925,6 +16009,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scalingGroupId)) {
       query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16946,6 +17034,10 @@ export default class Client extends OpenApi {
       query["DataDisks"] = request.dataDisks;
     }
 
+    if (!Util.isUnset(request.dedicatedHostClusterId)) {
+      query["DedicatedHostClusterId"] = request.dedicatedHostClusterId;
+    }
+
     if (!Util.isUnset(request.dedicatedHostId)) {
       query["DedicatedHostId"] = request.dedicatedHostId;
     }
@@ -17241,6 +17333,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBInstanceIds)) {
       query["DBInstanceIds"] = request.DBInstanceIds;
+    }
+
+    if (!Util.isUnset(request.DBInstances)) {
+      query["DBInstances"] = request.DBInstances;
     }
 
     if (!Util.isUnset(request.defaultCooldown)) {
@@ -19237,6 +19333,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.removeSecurityGroup)) {
+      query["RemoveSecurityGroup"] = request.removeSecurityGroup;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -20695,6 +20795,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dataDisks)) {
       query["DataDisks"] = request.dataDisks;
+    }
+
+    if (!Util.isUnset(request.dedicatedHostClusterId)) {
+      query["DedicatedHostClusterId"] = request.dedicatedHostClusterId;
     }
 
     if (!Util.isUnset(request.dedicatedHostId)) {
