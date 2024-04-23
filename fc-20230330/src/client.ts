@@ -3736,6 +3736,50 @@ export class GetAsyncInvokeConfigResponse extends $tea.Model {
   }
 }
 
+export class GetAsyncTaskRequest extends $tea.Model {
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AsyncTask;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AsyncTask,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConcurrencyConfigResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -4160,6 +4204,74 @@ export class ListAsyncInvokeConfigsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAsyncInvokeConfigOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAsyncTasksRequest extends $tea.Model {
+  includePayload?: boolean;
+  limit?: number;
+  nextToken?: string;
+  prefix?: string;
+  qualifier?: string;
+  sortOrderByTime?: string;
+  startedTimeBegin?: number;
+  startedTimeEnd?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      includePayload: 'includePayload',
+      limit: 'limit',
+      nextToken: 'nextToken',
+      prefix: 'prefix',
+      qualifier: 'qualifier',
+      sortOrderByTime: 'sortOrderByTime',
+      startedTimeBegin: 'startedTimeBegin',
+      startedTimeEnd: 'startedTimeEnd',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includePayload: 'boolean',
+      limit: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+      qualifier: 'string',
+      sortOrderByTime: 'string',
+      startedTimeBegin: 'number',
+      startedTimeEnd: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAsyncTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAsyncTaskOutput;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAsyncTaskOutput,
     };
   }
 
@@ -4945,6 +5057,47 @@ export class PutProvisionConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ProvisionConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAsyncTaskRequest extends $tea.Model {
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopAsyncTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
@@ -5758,6 +5911,37 @@ export default class Client extends OpenApi {
     return await this.getAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
 
+  async getAsyncTaskWithOptions(functionName: string, taskId: string, request: GetAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncTaskResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAsyncTask",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-tasks/${OpenApiUtil.getEncodeParam(taskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncTaskResponse>(await this.callApi(params, req, runtime), new GetAsyncTaskResponse({}));
+  }
+
+  async getAsyncTask(functionName: string, taskId: string, request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAsyncTaskWithOptions(functionName, taskId, request, headers, runtime);
+  }
+
   async getConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConcurrencyConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6114,6 +6298,69 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAsyncInvokeConfigsWithOptions(request, headers, runtime);
+  }
+
+  async listAsyncTasksWithOptions(functionName: string, request: ListAsyncTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncTasksResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.includePayload)) {
+      query["includePayload"] = request.includePayload;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["prefix"] = request.prefix;
+    }
+
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    if (!Util.isUnset(request.sortOrderByTime)) {
+      query["sortOrderByTime"] = request.sortOrderByTime;
+    }
+
+    if (!Util.isUnset(request.startedTimeBegin)) {
+      query["startedTimeBegin"] = request.startedTimeBegin;
+    }
+
+    if (!Util.isUnset(request.startedTimeEnd)) {
+      query["startedTimeEnd"] = request.startedTimeEnd;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAsyncTasks",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
+  }
+
+  async listAsyncTasks(functionName: string, request: ListAsyncTasksRequest): Promise<ListAsyncTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAsyncTasksWithOptions(functionName, request, headers, runtime);
   }
 
   async listConcurrencyConfigsWithOptions(request: ListConcurrencyConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConcurrencyConfigsResponse> {
@@ -6693,6 +6940,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putProvisionConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  async stopAsyncTaskWithOptions(functionName: string, taskId: string, request: StopAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAsyncTaskResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopAsyncTask",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-tasks/${OpenApiUtil.getEncodeParam(taskId)}/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<StopAsyncTaskResponse>(await this.callApi(params, req, runtime), new StopAsyncTaskResponse({}));
+  }
+
+  async stopAsyncTask(functionName: string, taskId: string, request: StopAsyncTaskRequest): Promise<StopAsyncTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopAsyncTaskWithOptions(functionName, taskId, request, headers, runtime);
   }
 
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
