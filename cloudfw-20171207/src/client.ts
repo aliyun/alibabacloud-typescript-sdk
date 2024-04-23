@@ -644,6 +644,102 @@ export class CreateNatFirewallControlPolicyResponse extends $tea.Model {
   }
 }
 
+export class CreateSecurityProxyRequest extends $tea.Model {
+  firewallSwitch?: string;
+  lang?: string;
+  natGatewayId?: string;
+  natRouteEntryList?: CreateSecurityProxyRequestNatRouteEntryList[];
+  proxyName?: string;
+  regionNo?: string;
+  strictMode?: number;
+  vpcId?: string;
+  vswitchAuto?: string;
+  vswitchCidr?: string;
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      firewallSwitch: 'FirewallSwitch',
+      lang: 'Lang',
+      natGatewayId: 'NatGatewayId',
+      natRouteEntryList: 'NatRouteEntryList',
+      proxyName: 'ProxyName',
+      regionNo: 'RegionNo',
+      strictMode: 'StrictMode',
+      vpcId: 'VpcId',
+      vswitchAuto: 'VswitchAuto',
+      vswitchCidr: 'VswitchCidr',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      firewallSwitch: 'string',
+      lang: 'string',
+      natGatewayId: 'string',
+      natRouteEntryList: { 'type': 'array', 'itemType': CreateSecurityProxyRequestNatRouteEntryList },
+      proxyName: 'string',
+      regionNo: 'string',
+      strictMode: 'number',
+      vpcId: 'string',
+      vswitchAuto: 'string',
+      vswitchCidr: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSecurityProxyResponseBody extends $tea.Model {
+  proxyId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      proxyId: 'ProxyId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      proxyId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSecurityProxyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSecurityProxyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSecurityProxyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTrFirewallV2Request extends $tea.Model {
   cenId?: string;
   firewallDescription?: string;
@@ -8484,6 +8580,34 @@ export class AddInstanceMembersRequestMembers extends $tea.Model {
   }
 }
 
+export class CreateSecurityProxyRequestNatRouteEntryList extends $tea.Model {
+  destinationCidr?: string;
+  nextHopId?: string;
+  nextHopType?: string;
+  routeTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidr: 'DestinationCidr',
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      routeTableId: 'RouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidr: 'string',
+      nextHopId: 'string',
+      nextHopType: 'string',
+      routeTableId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTrFirewallV2RoutePolicyRequestDestCandidateList extends $tea.Model {
   candidateId?: string;
   candidateType?: string;
@@ -12141,6 +12265,75 @@ export default class Client extends OpenApi {
   async createNatFirewallControlPolicy(request: CreateNatFirewallControlPolicyRequest): Promise<CreateNatFirewallControlPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNatFirewallControlPolicyWithOptions(request, runtime);
+  }
+
+  async createSecurityProxyWithOptions(request: CreateSecurityProxyRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityProxyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.firewallSwitch)) {
+      query["FirewallSwitch"] = request.firewallSwitch;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!Util.isUnset(request.natRouteEntryList)) {
+      query["NatRouteEntryList"] = request.natRouteEntryList;
+    }
+
+    if (!Util.isUnset(request.proxyName)) {
+      query["ProxyName"] = request.proxyName;
+    }
+
+    if (!Util.isUnset(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!Util.isUnset(request.strictMode)) {
+      query["StrictMode"] = request.strictMode;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vswitchAuto)) {
+      query["VswitchAuto"] = request.vswitchAuto;
+    }
+
+    if (!Util.isUnset(request.vswitchCidr)) {
+      query["VswitchCidr"] = request.vswitchCidr;
+    }
+
+    if (!Util.isUnset(request.vswitchId)) {
+      query["VswitchId"] = request.vswitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSecurityProxy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSecurityProxyResponse>(await this.callApi(params, req, runtime), new CreateSecurityProxyResponse({}));
+  }
+
+  async createSecurityProxy(request: CreateSecurityProxyRequest): Promise<CreateSecurityProxyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSecurityProxyWithOptions(request, runtime);
   }
 
   async createTrFirewallV2WithOptions(request: CreateTrFirewallV2Request, runtime: $Util.RuntimeOptions): Promise<CreateTrFirewallV2Response> {
