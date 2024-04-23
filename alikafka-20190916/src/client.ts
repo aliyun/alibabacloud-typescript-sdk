@@ -1977,6 +1977,7 @@ export class GetInstanceListRequest extends $tea.Model {
   orderId?: string;
   regionId?: string;
   resourceGroupId?: string;
+  series?: string;
   tag?: GetInstanceListRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -1984,6 +1985,7 @@ export class GetInstanceListRequest extends $tea.Model {
       orderId: 'OrderId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      series: 'Series',
       tag: 'Tag',
     };
   }
@@ -1994,6 +1996,7 @@ export class GetInstanceListRequest extends $tea.Model {
       orderId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      series: 'string',
       tag: { 'type': 'array', 'itemType': GetInstanceListRequestTag },
     };
   }
@@ -4936,6 +4939,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   resourceGroupId?: string;
   saslDomainEndpoint?: string;
   securityGroup?: string;
+  series?: string;
   serviceStatus?: number;
   specType?: string;
   sslDomainEndpoint?: string;
@@ -4978,6 +4982,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       resourceGroupId: 'ResourceGroupId',
       saslDomainEndpoint: 'SaslDomainEndpoint',
       securityGroup: 'SecurityGroup',
+      series: 'Series',
       serviceStatus: 'ServiceStatus',
       specType: 'SpecType',
       sslDomainEndpoint: 'SslDomainEndpoint',
@@ -5023,6 +5028,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       resourceGroupId: 'string',
       saslDomainEndpoint: 'string',
       securityGroup: 'string',
+      series: 'string',
       serviceStatus: 'number',
       specType: 'string',
       sslDomainEndpoint: 'string',
@@ -6684,6 +6690,10 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.series)) {
+      query["Series"] = request.series;
+    }
+
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -7101,6 +7111,13 @@ export default class Client extends OpenApi {
     return await this.releaseInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You can call this operation only if your instance is in the Stopped state.
+    *
+    * @param request ReopenInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ReopenInstanceResponse
+   */
   async reopenInstanceWithOptions(request: ReopenInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReopenInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7129,6 +7146,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ReopenInstanceResponse>(await this.callApi(params, req, runtime), new ReopenInstanceResponse({}));
   }
 
+  /**
+    * You can call this operation only if your instance is in the Stopped state.
+    *
+    * @param request ReopenInstanceRequest
+    * @return ReopenInstanceResponse
+   */
   async reopenInstance(request: ReopenInstanceRequest): Promise<ReopenInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reopenInstanceWithOptions(request, runtime);
@@ -7256,6 +7279,13 @@ export default class Client extends OpenApi {
     return await this.startInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+    *
+    * @param request StopInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StopInstanceResponse
+   */
   async stopInstanceWithOptions(request: StopInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7284,6 +7314,12 @@ export default class Client extends OpenApi {
     return $tea.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
   }
 
+  /**
+    * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+    *
+    * @param request StopInstanceRequest
+    * @return StopInstanceResponse
+   */
   async stopInstance(request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopInstanceWithOptions(request, runtime);
