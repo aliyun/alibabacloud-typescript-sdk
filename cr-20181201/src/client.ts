@@ -339,6 +339,102 @@ export class CreateArtifactBuildRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateArtifactLifecycleRuleRequest extends $tea.Model {
+  auto?: boolean;
+  enableDeleteTag?: boolean;
+  instanceId?: string;
+  namespaceName?: string;
+  repoName?: string;
+  retentionTagCount?: number;
+  scheduleTime?: string;
+  scope?: string;
+  tagRegexp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auto: 'Auto',
+      enableDeleteTag: 'EnableDeleteTag',
+      instanceId: 'InstanceId',
+      namespaceName: 'NamespaceName',
+      repoName: 'RepoName',
+      retentionTagCount: 'RetentionTagCount',
+      scheduleTime: 'ScheduleTime',
+      scope: 'Scope',
+      tagRegexp: 'TagRegexp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auto: 'boolean',
+      enableDeleteTag: 'boolean',
+      instanceId: 'string',
+      namespaceName: 'string',
+      repoName: 'string',
+      retentionTagCount: 'number',
+      scheduleTime: 'string',
+      scope: 'string',
+      tagRegexp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactLifecycleRuleResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactLifecycleRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateArtifactLifecycleRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateArtifactLifecycleRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBuildRecordByRecordRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
@@ -1797,6 +1893,78 @@ export class CreateRepositoryResponse extends $tea.Model {
   }
 }
 
+export class DeleteArtifactLifecycleRuleRequest extends $tea.Model {
+  instanceId?: string;
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteArtifactLifecycleRuleResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteArtifactLifecycleRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteArtifactLifecycleRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteArtifactLifecycleRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteChainRequest extends $tea.Model {
   chainId?: string;
   instanceId?: string;
@@ -2953,6 +3121,117 @@ export class GetArtifactBuildTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetArtifactBuildTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactLifecycleRuleRequest extends $tea.Model {
+  instanceId?: string;
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactLifecycleRuleResponseBody extends $tea.Model {
+  auto?: boolean;
+  code?: string;
+  createTime?: number;
+  enableDeleteTag?: boolean;
+  instanceId?: string;
+  isSuccess?: boolean;
+  modifiedTime?: number;
+  namespaceName?: string;
+  nextTime?: number;
+  repoName?: string;
+  requestId?: string;
+  retentionTagCount?: number;
+  ruleId?: string;
+  scheduleTime?: string;
+  scope?: string;
+  tagRegexp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auto: 'Auto',
+      code: 'Code',
+      createTime: 'CreateTime',
+      enableDeleteTag: 'EnableDeleteTag',
+      instanceId: 'InstanceId',
+      isSuccess: 'IsSuccess',
+      modifiedTime: 'ModifiedTime',
+      namespaceName: 'NamespaceName',
+      nextTime: 'NextTime',
+      repoName: 'RepoName',
+      requestId: 'RequestId',
+      retentionTagCount: 'RetentionTagCount',
+      ruleId: 'RuleId',
+      scheduleTime: 'ScheduleTime',
+      scope: 'Scope',
+      tagRegexp: 'TagRegexp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auto: 'boolean',
+      code: 'string',
+      createTime: 'number',
+      enableDeleteTag: 'boolean',
+      instanceId: 'string',
+      isSuccess: 'boolean',
+      modifiedTime: 'number',
+      namespaceName: 'string',
+      nextTime: 'number',
+      repoName: 'string',
+      requestId: 'string',
+      retentionTagCount: 'number',
+      ruleId: 'string',
+      scheduleTime: 'string',
+      scope: 'string',
+      tagRegexp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactLifecycleRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetArtifactLifecycleRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetArtifactLifecycleRuleResponseBody,
     };
   }
 
@@ -4854,6 +5133,96 @@ export class ListArtifactBuildTaskLogResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListArtifactBuildTaskLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactLifecycleRuleRequest extends $tea.Model {
+  enableDeleteTag?: boolean;
+  instanceId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableDeleteTag: 'EnableDeleteTag',
+      instanceId: 'InstanceId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableDeleteTag: 'boolean',
+      instanceId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactLifecycleRuleResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  rules?: ListArtifactLifecycleRuleResponseBodyRules[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      rules: 'Rules',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      rules: { 'type': 'array', 'itemType': ListArtifactLifecycleRuleResponseBodyRules },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactLifecycleRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListArtifactLifecycleRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListArtifactLifecycleRuleResponseBody,
     };
   }
 
@@ -7187,6 +7556,102 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateArtifactLifecycleRuleRequest extends $tea.Model {
+  auto?: boolean;
+  enableDeleteTag?: boolean;
+  instanceId?: string;
+  namespaceName?: string;
+  repoName?: string;
+  retentionTagCount?: number;
+  ruleId?: string;
+  scheduleTime?: string;
+  scope?: string;
+  tagRegexp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auto: 'Auto',
+      enableDeleteTag: 'EnableDeleteTag',
+      instanceId: 'InstanceId',
+      namespaceName: 'NamespaceName',
+      repoName: 'RepoName',
+      retentionTagCount: 'RetentionTagCount',
+      ruleId: 'RuleId',
+      scheduleTime: 'ScheduleTime',
+      scope: 'Scope',
+      tagRegexp: 'TagRegexp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auto: 'boolean',
+      enableDeleteTag: 'boolean',
+      instanceId: 'string',
+      namespaceName: 'string',
+      repoName: 'string',
+      retentionTagCount: 'number',
+      ruleId: 'string',
+      scheduleTime: 'string',
+      scope: 'string',
+      tagRegexp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateArtifactLifecycleRuleResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateArtifactLifecycleRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateArtifactLifecycleRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateArtifactLifecycleRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateChainRequest extends $tea.Model {
   chainConfig?: string;
   chainId?: string;
@@ -8777,6 +9242,61 @@ export class ListArtifactBuildTaskLogResponseBodyBuildTaskLogs extends $tea.Mode
   }
 }
 
+export class ListArtifactLifecycleRuleResponseBodyRules extends $tea.Model {
+  auto?: boolean;
+  createTime?: number;
+  enableDeleteTag?: boolean;
+  instanceId?: string;
+  modifiedTime?: number;
+  namespaceName?: string;
+  nextTime?: number;
+  repoName?: string;
+  retentionTagCount?: number;
+  ruleId?: string;
+  scheduleTime?: string;
+  scope?: string;
+  tagRegexp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auto: 'Auto',
+      createTime: 'CreateTime',
+      enableDeleteTag: 'EnableDeleteTag',
+      instanceId: 'InstanceId',
+      modifiedTime: 'ModifiedTime',
+      namespaceName: 'NamespaceName',
+      nextTime: 'NextTime',
+      repoName: 'RepoName',
+      retentionTagCount: 'RetentionTagCount',
+      ruleId: 'RuleId',
+      scheduleTime: 'ScheduleTime',
+      scope: 'Scope',
+      tagRegexp: 'TagRegexp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auto: 'boolean',
+      createTime: 'number',
+      enableDeleteTag: 'boolean',
+      instanceId: 'string',
+      modifiedTime: 'number',
+      namespaceName: 'string',
+      nextTime: 'number',
+      repoName: 'string',
+      retentionTagCount: 'number',
+      ruleId: 'string',
+      scheduleTime: 'string',
+      scope: 'string',
+      tagRegexp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListChainResponseBodyChains extends $tea.Model {
   chainId?: string;
   createTime?: number;
@@ -10177,6 +10697,67 @@ export default class Client extends OpenApi {
     return await this.createArtifactBuildRuleWithOptions(request, runtime);
   }
 
+  async createArtifactLifecycleRuleWithOptions(request: CreateArtifactLifecycleRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateArtifactLifecycleRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auto)) {
+      query["Auto"] = request.auto;
+    }
+
+    if (!Util.isUnset(request.enableDeleteTag)) {
+      query["EnableDeleteTag"] = request.enableDeleteTag;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.retentionTagCount)) {
+      query["RetentionTagCount"] = request.retentionTagCount;
+    }
+
+    if (!Util.isUnset(request.scheduleTime)) {
+      query["ScheduleTime"] = request.scheduleTime;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.tagRegexp)) {
+      query["TagRegexp"] = request.tagRegexp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateArtifactLifecycleRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateArtifactLifecycleRuleResponse>(await this.callApi(params, req, runtime), new CreateArtifactLifecycleRuleResponse({}));
+  }
+
+  async createArtifactLifecycleRule(request: CreateArtifactLifecycleRuleRequest): Promise<CreateArtifactLifecycleRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createArtifactLifecycleRuleWithOptions(request, runtime);
+  }
+
   async createBuildRecordByRecordWithOptions(request: CreateBuildRecordByRecordRequest, runtime: $Util.RuntimeOptions): Promise<CreateBuildRecordByRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11023,6 +11604,39 @@ export default class Client extends OpenApi {
     return await this.createRepositoryWithOptions(request, runtime);
   }
 
+  async deleteArtifactLifecycleRuleWithOptions(request: DeleteArtifactLifecycleRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteArtifactLifecycleRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteArtifactLifecycleRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteArtifactLifecycleRuleResponse>(await this.callApi(params, req, runtime), new DeleteArtifactLifecycleRuleResponse({}));
+  }
+
+  async deleteArtifactLifecycleRule(request: DeleteArtifactLifecycleRuleRequest): Promise<DeleteArtifactLifecycleRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteArtifactLifecycleRuleWithOptions(request, runtime);
+  }
+
   async deleteChainWithOptions(request: DeleteChainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11591,6 +12205,31 @@ export default class Client extends OpenApi {
   async getArtifactBuildTask(request: GetArtifactBuildTaskRequest): Promise<GetArtifactBuildTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getArtifactBuildTaskWithOptions(request, runtime);
+  }
+
+  async getArtifactLifecycleRuleWithOptions(request: GetArtifactLifecycleRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactLifecycleRuleResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetArtifactLifecycleRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetArtifactLifecycleRuleResponse>(await this.callApi(params, req, runtime), new GetArtifactLifecycleRuleResponse({}));
+  }
+
+  async getArtifactLifecycleRule(request: GetArtifactLifecycleRuleRequest): Promise<GetArtifactLifecycleRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getArtifactLifecycleRuleWithOptions(request, runtime);
   }
 
   /**
@@ -12334,6 +12973,31 @@ export default class Client extends OpenApi {
   async listArtifactBuildTaskLog(request: ListArtifactBuildTaskLogRequest): Promise<ListArtifactBuildTaskLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listArtifactBuildTaskLogWithOptions(request, runtime);
+  }
+
+  async listArtifactLifecycleRuleWithOptions(request: ListArtifactLifecycleRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactLifecycleRuleResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListArtifactLifecycleRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListArtifactLifecycleRuleResponse>(await this.callApi(params, req, runtime), new ListArtifactLifecycleRuleResponse({}));
+  }
+
+  async listArtifactLifecycleRule(request: ListArtifactLifecycleRuleRequest): Promise<ListArtifactLifecycleRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listArtifactLifecycleRuleWithOptions(request, runtime);
   }
 
   async listChainWithOptions(request: ListChainRequest, runtime: $Util.RuntimeOptions): Promise<ListChainResponse> {
@@ -13408,6 +14072,71 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  async updateArtifactLifecycleRuleWithOptions(request: UpdateArtifactLifecycleRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateArtifactLifecycleRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auto)) {
+      query["Auto"] = request.auto;
+    }
+
+    if (!Util.isUnset(request.enableDeleteTag)) {
+      query["EnableDeleteTag"] = request.enableDeleteTag;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.retentionTagCount)) {
+      query["RetentionTagCount"] = request.retentionTagCount;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.scheduleTime)) {
+      query["ScheduleTime"] = request.scheduleTime;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.tagRegexp)) {
+      query["TagRegexp"] = request.tagRegexp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateArtifactLifecycleRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateArtifactLifecycleRuleResponse>(await this.callApi(params, req, runtime), new UpdateArtifactLifecycleRuleResponse({}));
+  }
+
+  async updateArtifactLifecycleRule(request: UpdateArtifactLifecycleRuleRequest): Promise<UpdateArtifactLifecycleRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateArtifactLifecycleRuleWithOptions(request, runtime);
   }
 
   async updateChainWithOptions(request: UpdateChainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChainResponse> {
