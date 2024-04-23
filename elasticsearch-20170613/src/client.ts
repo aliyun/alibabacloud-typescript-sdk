@@ -1760,75 +1760,6 @@ export class CreateDataStreamResponse extends $tea.Model {
   }
 }
 
-export class CreateDataTasksRequest extends $tea.Model {
-  clientToken?: string;
-  body?: CreateDataTasksRequestBody[];
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      body: { 'type': 'array', 'itemType': CreateDataTasksRequestBody },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataTasksResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: CreateDataTasksResponseBodyResult[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: { 'type': 'array', 'itemType': CreateDataTasksResponseBodyResult },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDataTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDataTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateILMPolicyRequest extends $tea.Model {
   clientToken?: string;
   body?: string;
@@ -4290,6 +4221,128 @@ export class DiagnoseInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DiagnoseInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableKibanaPvlNetworkResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableKibanaPvlNetworkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableKibanaPvlNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableKibanaPvlNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableKibanaPvlNetworkRequest extends $tea.Model {
+  endpointName?: string;
+  securityGroups?: string[];
+  vSwitchIdsZone?: EnableKibanaPvlNetworkRequestVSwitchIdsZone[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointName: 'endpointName',
+      securityGroups: 'securityGroups',
+      vSwitchIdsZone: 'vSwitchIdsZone',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointName: 'string',
+      securityGroups: { 'type': 'array', 'itemType': 'string' },
+      vSwitchIdsZone: { 'type': 'array', 'itemType': EnableKibanaPvlNetworkRequestVSwitchIdsZone },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableKibanaPvlNetworkResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableKibanaPvlNetworkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableKibanaPvlNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableKibanaPvlNetworkResponseBody,
     };
   }
 
@@ -7713,6 +7766,53 @@ export class ListKibanaPluginsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListKibanaPluginsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKibanaPvlNetworkResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListKibanaPvlNetworkResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListKibanaPvlNetworkResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKibanaPvlNetworkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListKibanaPvlNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListKibanaPvlNetworkResponseBody,
     };
   }
 
@@ -12436,6 +12536,78 @@ export class UpdateInstanceSettingsResponse extends $tea.Model {
   }
 }
 
+export class UpdateKibanaPvlNetworkRequest extends $tea.Model {
+  endpointName?: string;
+  securityGroups?: string[];
+  pvlId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointName: 'endpointName',
+      securityGroups: 'securityGroups',
+      pvlId: 'pvlId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointName: 'string',
+      securityGroups: { 'type': 'array', 'itemType': 'string' },
+      pvlId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateKibanaPvlNetworkResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateKibanaPvlNetworkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateKibanaPvlNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateKibanaPvlNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateKibanaSettingsRequest extends $tea.Model {
   body?: string;
   clientToken?: string;
@@ -14566,247 +14738,6 @@ export class CreateDataStreamResponseBodyResult extends $tea.Model {
   }
 }
 
-export class CreateDataTasksRequestBodyMigrateConfig extends $tea.Model {
-  sourceFilterParams?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceFilterParams: 'sourceFilterParams',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceFilterParams: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataTasksRequestBodySinkCluster extends $tea.Model {
-  dataSourceType?: string;
-  index?: string;
-  mapping?: string;
-  password?: string;
-  routing?: string;
-  settings?: string;
-  type?: string;
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceType: 'dataSourceType',
-      index: 'index',
-      mapping: 'mapping',
-      password: 'password',
-      routing: 'routing',
-      settings: 'settings',
-      type: 'type',
-      username: 'username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceType: 'string',
-      index: 'string',
-      mapping: 'string',
-      password: 'string',
-      routing: 'string',
-      settings: 'string',
-      type: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataTasksRequestBodySourceCluster extends $tea.Model {
-  dataSourceType?: string;
-  endpoint?: string;
-  index?: string;
-  password?: string;
-  type?: string;
-  username?: string;
-  vpcId?: string;
-  vpcInstanceId?: string;
-  vpcInstancePort?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceType: 'dataSourceType',
-      endpoint: 'endpoint',
-      index: 'index',
-      password: 'password',
-      type: 'type',
-      username: 'username',
-      vpcId: 'vpcId',
-      vpcInstanceId: 'vpcInstanceId',
-      vpcInstancePort: 'vpcInstancePort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceType: 'string',
-      endpoint: 'string',
-      index: 'string',
-      password: 'string',
-      type: 'string',
-      username: 'string',
-      vpcId: 'string',
-      vpcInstanceId: 'string',
-      vpcInstancePort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataTasksRequestBody extends $tea.Model {
-  migrateConfig?: CreateDataTasksRequestBodyMigrateConfig;
-  sinkCluster?: CreateDataTasksRequestBodySinkCluster;
-  sourceCluster?: CreateDataTasksRequestBodySourceCluster;
-  static names(): { [key: string]: string } {
-    return {
-      migrateConfig: 'migrateConfig',
-      sinkCluster: 'sinkCluster',
-      sourceCluster: 'sourceCluster',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      migrateConfig: CreateDataTasksRequestBodyMigrateConfig,
-      sinkCluster: CreateDataTasksRequestBodySinkCluster,
-      sourceCluster: CreateDataTasksRequestBodySourceCluster,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataTasksResponseBodyResultSinkCluster extends $tea.Model {
-  dataSourceType?: string;
-  index?: string;
-  mapping?: string;
-  password?: string;
-  routing?: string;
-  settings?: string;
-  type?: string;
-  username?: string;
-  vpcId?: string;
-  vpcInstanceId?: string;
-  vpcInstancePort?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceType: 'dataSourceType',
-      index: 'index',
-      mapping: 'mapping',
-      password: 'password',
-      routing: 'routing',
-      settings: 'settings',
-      type: 'type',
-      username: 'username',
-      vpcId: 'vpcId',
-      vpcInstanceId: 'vpcInstanceId',
-      vpcInstancePort: 'vpcInstancePort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceType: 'string',
-      index: 'string',
-      mapping: 'string',
-      password: 'string',
-      routing: 'string',
-      settings: 'string',
-      type: 'string',
-      username: 'string',
-      vpcId: 'string',
-      vpcInstanceId: 'string',
-      vpcInstancePort: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataTasksResponseBodyResultSourceCluster extends $tea.Model {
-  dataSourceType?: string;
-  endpoint?: string;
-  index?: string;
-  password?: string;
-  type?: string;
-  username?: string;
-  vpcId?: string;
-  vpcInstanceId?: string;
-  vpcInstancePort?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceType: 'dataSourceType',
-      endpoint: 'endpoint',
-      index: 'index',
-      password: 'password',
-      type: 'type',
-      username: 'username',
-      vpcId: 'vpcId',
-      vpcInstanceId: 'vpcInstanceId',
-      vpcInstancePort: 'vpcInstancePort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceType: 'string',
-      endpoint: 'string',
-      index: 'string',
-      password: 'string',
-      type: 'string',
-      username: 'string',
-      vpcId: 'string',
-      vpcInstanceId: 'string',
-      vpcInstancePort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataTasksResponseBodyResult extends $tea.Model {
-  sinkCluster?: CreateDataTasksResponseBodyResultSinkCluster;
-  sourceCluster?: CreateDataTasksResponseBodyResultSourceCluster;
-  static names(): { [key: string]: string } {
-    return {
-      sinkCluster: 'sinkCluster',
-      sourceCluster: 'sourceCluster',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sinkCluster: CreateDataTasksResponseBodyResultSinkCluster,
-      sourceCluster: CreateDataTasksResponseBodyResultSourceCluster,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateIndexTemplateRequestTemplate extends $tea.Model {
   aliases?: string;
   mappings?: string;
@@ -16538,6 +16469,28 @@ export class DiagnoseInstanceResponseBodyResult extends $tea.Model {
       instanceId: 'string',
       reportId: 'string',
       state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableKibanaPvlNetworkRequestVSwitchIdsZone extends $tea.Model {
+  vswitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vswitchId: 'vswitchId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vswitchId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -19819,6 +19772,68 @@ export class ListKibanaPluginsResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone extends $tea.Model {
+  vswitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vswitchId: 'vswitchId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vswitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKibanaPvlNetworkResponseBodyResult extends $tea.Model {
+  createTime?: string;
+  endpointId?: string;
+  endpointName?: string;
+  endpointStatus?: string;
+  pvlId?: string;
+  securityGroups?: string[];
+  vSwitchIdsZone?: ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      endpointId: 'endpointId',
+      endpointName: 'endpointName',
+      endpointStatus: 'endpointStatus',
+      pvlId: 'pvlId',
+      securityGroups: 'securityGroups',
+      vSwitchIdsZone: 'vSwitchIdsZone',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      endpointId: 'string',
+      endpointName: 'string',
+      endpointStatus: 'string',
+      pvlId: 'string',
+      securityGroups: { 'type': 'array', 'itemType': 'string' },
+      vSwitchIdsZone: { 'type': 'array', 'itemType': ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLogstashResponseBodyHeaders extends $tea.Model {
   xTotalCount?: number;
   static names(): { [key: string]: string } {
@@ -22782,60 +22797,6 @@ export default class Client extends OpenApi {
     return await this.createDataStreamWithOptions(InstanceId, request, headers, runtime);
   }
 
-  /**
-    * @deprecated
-    * Before you call this operation, note that:
-    * *   Currently, the one-click index migration feature only supports the China (Beijing) region.
-    * *   The source and destination Elasticsearch clusters must meet the following requirements: a user-created or Alibaba Cloud Elasticsearch Elasticsearch cluster with a source of version 6.7.0 and a Alibaba Cloud Elasticsearch Elasticsearch cluster with a destination of version 6.3.2 or 6.7.0.
-    *
-    * @param request CreateDataTasksRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataTasksResponse
-   */
-  // Deprecated
-  async createDataTasksWithOptions(InstanceId: string, request: CreateDataTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataTasksResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-      body: Util.toArray(request.body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateDataTasks",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/data-task`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDataTasksResponse>(await this.callApi(params, req, runtime), new CreateDataTasksResponse({}));
-  }
-
-  /**
-    * @deprecated
-    * Before you call this operation, note that:
-    * *   Currently, the one-click index migration feature only supports the China (Beijing) region.
-    * *   The source and destination Elasticsearch clusters must meet the following requirements: a user-created or Alibaba Cloud Elasticsearch Elasticsearch cluster with a source of version 6.7.0 and a Alibaba Cloud Elasticsearch Elasticsearch cluster with a destination of version 6.3.2 or 6.7.0.
-    *
-    * @param request CreateDataTasksRequest
-    * @return CreateDataTasksResponse
-   */
-  // Deprecated
-  async createDataTasks(InstanceId: string, request: CreateDataTasksRequest): Promise<CreateDataTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createDataTasksWithOptions(InstanceId, request, headers, runtime);
-  }
-
   async createILMPolicyWithOptions(InstanceId: string, request: CreateILMPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateILMPolicyResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -24171,6 +24132,73 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.diagnoseInstanceWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  async disableKibanaPvlNetworkWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableKibanaPvlNetworkResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableKibanaPvlNetwork",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/disable-kibana-private`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableKibanaPvlNetworkResponse>(await this.callApi(params, req, runtime), new DisableKibanaPvlNetworkResponse({}));
+  }
+
+  async disableKibanaPvlNetwork(InstanceId: string): Promise<DisableKibanaPvlNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableKibanaPvlNetworkWithOptions(InstanceId, headers, runtime);
+  }
+
+  async enableKibanaPvlNetworkWithOptions(InstanceId: string, request: EnableKibanaPvlNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableKibanaPvlNetworkResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endpointName)) {
+      body["endpointName"] = request.endpointName;
+    }
+
+    if (!Util.isUnset(request.securityGroups)) {
+      body["securityGroups"] = request.securityGroups;
+    }
+
+    if (!Util.isUnset(request.vSwitchIdsZone)) {
+      body["vSwitchIdsZone"] = request.vSwitchIdsZone;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["vpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableKibanaPvlNetwork",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/enable-kibana-private`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableKibanaPvlNetworkResponse>(await this.callApi(params, req, runtime), new EnableKibanaPvlNetworkResponse({}));
+  }
+
+  async enableKibanaPvlNetwork(InstanceId: string, request: EnableKibanaPvlNetworkRequest): Promise<EnableKibanaPvlNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableKibanaPvlNetworkWithOptions(InstanceId, request, headers, runtime);
   }
 
   async estimatedLogstashRestartTimeWithOptions(InstanceId: string, request: EstimatedLogstashRestartTimeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EstimatedLogstashRestartTimeResponse> {
@@ -25989,6 +26017,30 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listKibanaPluginsWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  async listKibanaPvlNetworkWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListKibanaPvlNetworkResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListKibanaPvlNetwork",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/get-kibana-private`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListKibanaPvlNetworkResponse>(await this.callApi(params, req, runtime), new ListKibanaPvlNetworkResponse({}));
+  }
+
+  async listKibanaPvlNetwork(InstanceId: string): Promise<ListKibanaPvlNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listKibanaPvlNetworkWithOptions(InstanceId, headers, runtime);
   }
 
   async listLogstashWithOptions(request: ListLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashResponse> {
@@ -28631,6 +28683,47 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceSettingsWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  async updateKibanaPvlNetworkWithOptions(InstanceId: string, request: UpdateKibanaPvlNetworkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaPvlNetworkResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pvlId)) {
+      query["pvlId"] = request.pvlId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endpointName)) {
+      body["endpointName"] = request.endpointName;
+    }
+
+    if (!Util.isUnset(request.securityGroups)) {
+      body["securityGroups"] = request.securityGroups;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateKibanaPvlNetwork",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/actions/update-kibana-private`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateKibanaPvlNetworkResponse>(await this.callApi(params, req, runtime), new UpdateKibanaPvlNetworkResponse({}));
+  }
+
+  async updateKibanaPvlNetwork(InstanceId: string, request: UpdateKibanaPvlNetworkRequest): Promise<UpdateKibanaPvlNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateKibanaPvlNetworkWithOptions(InstanceId, request, headers, runtime);
   }
 
   async updateKibanaSettingsWithOptions(InstanceId: string, request: UpdateKibanaSettingsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateKibanaSettingsResponse> {
