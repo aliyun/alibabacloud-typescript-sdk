@@ -2140,6 +2140,102 @@ export class DescribeEnterpriseSnapshotPolicyResponse extends $tea.Model {
   }
 }
 
+export class DescribeEventsRequest extends $tea.Model {
+  endTime?: string;
+  eventName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      eventName: 'EventName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      eventName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  resourceEvents?: DescribeEventsResponseBodyResourceEvents[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resourceEvents: 'ResourceEvents',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      resourceEvents: { 'type': 'array', 'itemType': DescribeEventsResponseBodyResourceEvents },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLensServiceStatusResponseBody extends $tea.Model {
   requestId?: string;
   status?: string;
@@ -5917,6 +6013,55 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $tea.M
   }
 }
 
+export class DescribeEventsResponseBodyResourceEvents extends $tea.Model {
+  description?: string;
+  endTime?: string;
+  eventLevel?: string;
+  eventName?: string;
+  eventType?: string;
+  recommendAction?: string;
+  recommendParams?: string;
+  resourceId?: string;
+  resourceType?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      endTime: 'EndTime',
+      eventLevel: 'EventLevel',
+      eventName: 'EventName',
+      eventType: 'EventType',
+      recommendAction: 'RecommendAction',
+      recommendParams: 'RecommendParams',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      endTime: 'string',
+      eventLevel: 'string',
+      eventName: 'string',
+      eventType: 'string',
+      recommendAction: 'string',
+      recommendParams: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMetricDataResponseBodyDataList extends $tea.Model {
   datapoints?: any;
   labels?: any;
@@ -8189,6 +8334,67 @@ export default class Client extends OpenApi {
   async describeEnterpriseSnapshotPolicy(request: DescribeEnterpriseSnapshotPolicyRequest): Promise<DescribeEnterpriseSnapshotPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnterpriseSnapshotPolicyWithOptions(request, runtime);
+  }
+
+  async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.eventName)) {
+      query["EventName"] = request.eventName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEvents",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
+  }
+
+  async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEventsWithOptions(request, runtime);
   }
 
   /**
