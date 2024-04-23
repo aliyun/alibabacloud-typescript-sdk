@@ -5389,10 +5389,12 @@ export class GetLogtailPipelineConfigResponse extends $tea.Model {
 export class GetMLServiceResultsRequest extends $tea.Model {
   allowBuiltin?: boolean;
   body?: MLServiceAnalysisParam;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       allowBuiltin: 'allowBuiltin',
       body: 'body',
+      version: 'version',
     };
   }
 
@@ -5400,6 +5402,7 @@ export class GetMLServiceResultsRequest extends $tea.Model {
     return {
       allowBuiltin: 'boolean',
       body: MLServiceAnalysisParam,
+      version: 'string',
     };
   }
 
@@ -14679,6 +14682,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.allowBuiltin)) {
       query["allowBuiltin"] = request.allowBuiltin;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      query["version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
