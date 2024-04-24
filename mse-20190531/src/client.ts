@@ -2637,6 +2637,84 @@ export class CloneNacosConfigResponse extends $tea.Model {
   }
 }
 
+export class CloneSentinelRuleFromAhasRequest extends $tea.Model {
+  acceptLanguage?: string;
+  ahasNamespace?: string;
+  appName?: string;
+  isAHASPublicRegion?: boolean;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      ahasNamespace: 'AhasNamespace',
+      appName: 'AppName',
+      isAHASPublicRegion: 'IsAHASPublicRegion',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      ahasNamespace: 'string',
+      appName: 'string',
+      isAHASPublicRegion: 'boolean',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneSentinelRuleFromAhasResponseBody extends $tea.Model {
+  data?: { [key: string]: string[] };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneSentinelRuleFromAhasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneSentinelRuleFromAhasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloneSentinelRuleFromAhasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequest extends $tea.Model {
   acceptLanguage?: string;
   appName?: string;
@@ -35554,6 +35632,51 @@ export default class Client extends OpenApi {
   async cloneNacosConfig(request: CloneNacosConfigRequest): Promise<CloneNacosConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneNacosConfigWithOptions(request, runtime);
+  }
+
+  async cloneSentinelRuleFromAhasWithOptions(request: CloneSentinelRuleFromAhasRequest, runtime: $Util.RuntimeOptions): Promise<CloneSentinelRuleFromAhasResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.ahasNamespace)) {
+      query["AhasNamespace"] = request.ahasNamespace;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.isAHASPublicRegion)) {
+      query["IsAHASPublicRegion"] = request.isAHASPublicRegion;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloneSentinelRuleFromAhas",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneSentinelRuleFromAhasResponse>(await this.callApi(params, req, runtime), new CloneSentinelRuleFromAhasResponse({}));
+  }
+
+  async cloneSentinelRuleFromAhas(request: CloneSentinelRuleFromAhasRequest): Promise<CloneSentinelRuleFromAhasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cloneSentinelRuleFromAhasWithOptions(request, runtime);
   }
 
   async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
