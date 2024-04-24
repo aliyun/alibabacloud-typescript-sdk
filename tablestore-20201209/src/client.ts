@@ -50,9 +50,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -76,6 +76,7 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 
 export class CreateInstanceRequest extends $tea.Model {
   clusterType?: string;
+  disableReplication?: boolean;
   instanceDescription?: string;
   instanceName?: string;
   network?: string;
@@ -87,6 +88,7 @@ export class CreateInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clusterType: 'ClusterType',
+      disableReplication: 'DisableReplication',
       instanceDescription: 'InstanceDescription',
       instanceName: 'InstanceName',
       network: 'Network',
@@ -101,6 +103,7 @@ export class CreateInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterType: 'string',
+      disableReplication: 'boolean',
       instanceDescription: 'string',
       instanceName: 'string',
       network: 'string',
@@ -143,9 +146,9 @@ export class CreateInstanceResponseBody extends $tea.Model {
 }
 
 export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -206,9 +209,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -272,9 +275,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -395,9 +398,9 @@ export class GetInstanceResponseBody extends $tea.Model {
 }
 
 export class GetInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -479,9 +482,9 @@ export class ListInstancesResponseBody extends $tea.Model {
 }
 
 export class ListInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -594,9 +597,9 @@ export class ListTagResourcesResponseBody extends $tea.Model {
 }
 
 export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -663,9 +666,9 @@ export class TagResourcesResponseBody extends $tea.Model {
 }
 
 export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -735,9 +738,9 @@ export class UntagResourcesResponseBody extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UntagResourcesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -813,9 +816,9 @@ export class UpdateInstanceResponseBody extends $tea.Model {
 }
 
 export class UpdateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -882,19 +885,25 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyTags extends $tea.Model {
+  key?: string;
   tagKey?: string;
   tagValue?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
+      key: 'Key',
       tagKey: 'TagKey',
       tagValue: 'TagValue',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      key: 'string',
       tagKey: 'string',
       tagValue: 'string',
+      value: 'string',
     };
   }
 
@@ -1093,6 +1102,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clusterType)) {
       body["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.disableReplication)) {
+      body["DisableReplication"] = request.disableReplication;
     }
 
     if (!Util.isUnset(request.instanceDescription)) {
