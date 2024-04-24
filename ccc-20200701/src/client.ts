@@ -26577,9 +26577,19 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   averageDialingTime?: number;
   averageTalkTime?: number;
   averageWorkTime?: number;
+  callsAbandoned?: number;
+  callsAgentHandled?: number;
   callsAnswered?: number;
   callsDialed?: number;
+  callsOffered?: number;
+  callsQueuingCancelled?: number;
+  callsQueuingFailed?: number;
+  callsQueuingFailure?: number;
+  callsQueuingOverflow?: number;
+  callsQueuingRerouted?: number;
+  callsQueuingTimeout?: number;
   callsServiceLevel30?: string;
+  callsServiceLevel30V2?: number;
   maxDialingTime?: number;
   maxTalkTime?: number;
   maxWorkTime?: number;
@@ -26588,6 +26598,7 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   satisfactionSurveysResponded?: number;
   totalDialingTime?: number;
   totalTalkTime?: number;
+  totalWaitTime?: number;
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26595,9 +26606,19 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       averageDialingTime: 'AverageDialingTime',
       averageTalkTime: 'AverageTalkTime',
       averageWorkTime: 'AverageWorkTime',
+      callsAbandoned: 'CallsAbandoned',
+      callsAgentHandled: 'CallsAgentHandled',
       callsAnswered: 'CallsAnswered',
       callsDialed: 'CallsDialed',
+      callsOffered: 'CallsOffered',
+      callsQueuingCancelled: 'CallsQueuingCancelled',
+      callsQueuingFailed: 'CallsQueuingFailed',
+      callsQueuingFailure: 'CallsQueuingFailure',
+      callsQueuingOverflow: 'CallsQueuingOverflow',
+      callsQueuingRerouted: 'CallsQueuingRerouted',
+      callsQueuingTimeout: 'CallsQueuingTimeout',
       callsServiceLevel30: 'CallsServiceLevel30',
+      callsServiceLevel30V2: 'CallsServiceLevel30V2',
       maxDialingTime: 'MaxDialingTime',
       maxTalkTime: 'MaxTalkTime',
       maxWorkTime: 'MaxWorkTime',
@@ -26606,6 +26627,7 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
       totalDialingTime: 'TotalDialingTime',
       totalTalkTime: 'TotalTalkTime',
+      totalWaitTime: 'TotalWaitTime',
       totalWorkTime: 'TotalWorkTime',
     };
   }
@@ -26616,9 +26638,19 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       averageDialingTime: 'number',
       averageTalkTime: 'number',
       averageWorkTime: 'number',
+      callsAbandoned: 'number',
+      callsAgentHandled: 'number',
       callsAnswered: 'number',
       callsDialed: 'number',
+      callsOffered: 'number',
+      callsQueuingCancelled: 'number',
+      callsQueuingFailed: 'number',
+      callsQueuingFailure: 'number',
+      callsQueuingOverflow: 'number',
+      callsQueuingRerouted: 'number',
+      callsQueuingTimeout: 'number',
       callsServiceLevel30: 'string',
+      callsServiceLevel30V2: 'number',
       maxDialingTime: 'number',
       maxTalkTime: 'number',
       maxWorkTime: 'number',
@@ -26627,6 +26659,7 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       satisfactionSurveysResponded: 'number',
       totalDialingTime: 'number',
       totalTalkTime: 'number',
+      totalWaitTime: 'number',
       totalWorkTime: 'number',
     };
   }
