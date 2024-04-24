@@ -8,6 +8,31 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DentriesAppPropertiesValue extends $tea.Model {
+  name?: string;
+  value?: string;
+  visibility?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      visibility: 'Visibility',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      visibility: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddAttendeeHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: AddAttendeeHeadersAccountContext;
@@ -1843,6 +1868,122 @@ export class CancelScheduleConferenceResponse extends $tea.Model {
   }
 }
 
+export class CheckUserIsGroupMemberHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CheckUserIsGroupMemberHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CheckUserIsGroupMemberHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckUserIsGroupMemberShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckUserIsGroupMemberRequest extends $tea.Model {
+  openConversationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openConversationId: 'OpenConversationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openConversationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckUserIsGroupMemberResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckUserIsGroupMemberResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckUserIsGroupMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckUserIsGroupMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClearHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: ClearHeadersAccountContext;
@@ -2512,6 +2653,7 @@ export class CreateEventRequest extends $tea.Model {
   onlineMeetingInfo?: CreateEventRequestOnlineMeetingInfo;
   recurrence?: CreateEventRequestRecurrence;
   reminders?: CreateEventRequestReminders[];
+  richTextDescription?: CreateEventRequestRichTextDescription;
   summary?: string;
   uiConfigs?: CreateEventRequestUiConfigs[];
   calendarId?: string;
@@ -2527,6 +2669,7 @@ export class CreateEventRequest extends $tea.Model {
       onlineMeetingInfo: 'OnlineMeetingInfo',
       recurrence: 'Recurrence',
       reminders: 'Reminders',
+      richTextDescription: 'RichTextDescription',
       summary: 'Summary',
       uiConfigs: 'UiConfigs',
       calendarId: 'calendarId',
@@ -2545,6 +2688,7 @@ export class CreateEventRequest extends $tea.Model {
       onlineMeetingInfo: CreateEventRequestOnlineMeetingInfo,
       recurrence: CreateEventRequestRecurrence,
       reminders: { 'type': 'array', 'itemType': CreateEventRequestReminders },
+      richTextDescription: CreateEventRequestRichTextDescription,
       summary: 'string',
       uiConfigs: { 'type': 'array', 'itemType': CreateEventRequestUiConfigs },
       calendarId: 'string',
@@ -2567,6 +2711,7 @@ export class CreateEventShrinkRequest extends $tea.Model {
   onlineMeetingInfoShrink?: string;
   recurrenceShrink?: string;
   remindersShrink?: string;
+  richTextDescriptionShrink?: string;
   summary?: string;
   uiConfigsShrink?: string;
   calendarId?: string;
@@ -2582,6 +2727,7 @@ export class CreateEventShrinkRequest extends $tea.Model {
       onlineMeetingInfoShrink: 'OnlineMeetingInfo',
       recurrenceShrink: 'Recurrence',
       remindersShrink: 'Reminders',
+      richTextDescriptionShrink: 'RichTextDescription',
       summary: 'Summary',
       uiConfigsShrink: 'UiConfigs',
       calendarId: 'calendarId',
@@ -2600,6 +2746,7 @@ export class CreateEventShrinkRequest extends $tea.Model {
       onlineMeetingInfoShrink: 'string',
       recurrenceShrink: 'string',
       remindersShrink: 'string',
+      richTextDescriptionShrink: 'string',
       summary: 'string',
       uiConfigsShrink: 'string',
       calendarId: 'string',
@@ -2625,6 +2772,7 @@ export class CreateEventResponseBody extends $tea.Model {
   recurrence?: CreateEventResponseBodyRecurrence;
   reminders?: CreateEventResponseBodyReminders[];
   requestId?: string;
+  richTextDescription?: CreateEventResponseBodyRichTextDescription;
   start?: CreateEventResponseBodyStart;
   summary?: string;
   uiConfigs?: CreateEventResponseBodyUiConfigs[];
@@ -2643,6 +2791,7 @@ export class CreateEventResponseBody extends $tea.Model {
       recurrence: 'recurrence',
       reminders: 'reminders',
       requestId: 'requestId',
+      richTextDescription: 'richTextDescription',
       start: 'start',
       summary: 'summary',
       uiConfigs: 'uiConfigs',
@@ -2664,6 +2813,7 @@ export class CreateEventResponseBody extends $tea.Model {
       recurrence: CreateEventResponseBodyRecurrence,
       reminders: { 'type': 'array', 'itemType': CreateEventResponseBodyReminders },
       requestId: 'string',
+      richTextDescription: CreateEventResponseBodyRichTextDescription,
       start: CreateEventResponseBodyStart,
       summary: 'string',
       uiConfigs: { 'type': 'array', 'itemType': CreateEventResponseBodyUiConfigs },
@@ -7827,6 +7977,147 @@ export class ExecuteTaskResponse extends $tea.Model {
   }
 }
 
+export class ExpandGroupCapacityHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: ExpandGroupCapacityHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: ExpandGroupCapacityHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpandGroupCapacityShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpandGroupCapacityRequest extends $tea.Model {
+  openConversationId?: string;
+  tenantContext?: ExpandGroupCapacityRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      openConversationId: 'OpenConversationId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openConversationId: 'string',
+      tenantContext: ExpandGroupCapacityRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpandGroupCapacityShrinkRequest extends $tea.Model {
+  openConversationId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openConversationId: 'OpenConversationId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openConversationId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpandGroupCapacityResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpandGroupCapacityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExpandGroupCapacityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExpandGroupCapacityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetActivityListHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetActivityListHeadersAccountContext;
@@ -8079,6 +8370,147 @@ export class GetAllSheetsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAllSheetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetConversaionSpaceHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetConversaionSpaceHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceRequest extends $tea.Model {
+  openConversationId?: string;
+  tenantContext?: GetConversaionSpaceRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      openConversationId: 'OpenConversationId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openConversationId: 'string',
+      tenantContext: GetConversaionSpaceRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceShrinkRequest extends $tea.Model {
+  openConversationId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openConversationId: 'OpenConversationId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openConversationId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceResponseBody extends $tea.Model {
+  requestId?: string;
+  space?: GetConversaionSpaceResponseBodySpace;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      space: 'space',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      space: GetConversaionSpaceResponseBodySpace,
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConversaionSpaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConversaionSpaceResponseBody,
     };
   }
 
@@ -8433,11 +8865,13 @@ export class GetDocContentRequest extends $tea.Model {
   dentryUuid?: string;
   targetFormat?: string;
   tenantContext?: GetDocContentRequestTenantContext;
+  userToken?: string;
   static names(): { [key: string]: string } {
     return {
       dentryUuid: 'DentryUuid',
       targetFormat: 'TargetFormat',
       tenantContext: 'TenantContext',
+      userToken: 'userToken',
     };
   }
 
@@ -8446,6 +8880,7 @@ export class GetDocContentRequest extends $tea.Model {
       dentryUuid: 'string',
       targetFormat: 'string',
       tenantContext: GetDocContentRequestTenantContext,
+      userToken: 'string',
     };
   }
 
@@ -8458,11 +8893,13 @@ export class GetDocContentShrinkRequest extends $tea.Model {
   dentryUuid?: string;
   targetFormat?: string;
   tenantContextShrink?: string;
+  userToken?: string;
   static names(): { [key: string]: string } {
     return {
       dentryUuid: 'DentryUuid',
       targetFormat: 'TargetFormat',
       tenantContextShrink: 'TenantContext',
+      userToken: 'userToken',
     };
   }
 
@@ -8471,6 +8908,7 @@ export class GetDocContentShrinkRequest extends $tea.Model {
       dentryUuid: 'string',
       targetFormat: 'string',
       tenantContextShrink: 'string',
+      userToken: 'string',
     };
   }
 
@@ -8825,6 +9263,162 @@ export class GetFieldDefByUuidResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetFieldDefByUuidResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetFileDownloadInfoHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetFileDownloadInfoHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoRequest extends $tea.Model {
+  dentryId?: string;
+  option?: GetFileDownloadInfoRequestOption;
+  spaceId?: string;
+  tenantContext?: GetFileDownloadInfoRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      dentryId: 'DentryId',
+      option: 'Option',
+      spaceId: 'SpaceId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryId: 'string',
+      option: GetFileDownloadInfoRequestOption,
+      spaceId: 'string',
+      tenantContext: GetFileDownloadInfoRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoShrinkRequest extends $tea.Model {
+  dentryId?: string;
+  optionShrink?: string;
+  spaceId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dentryId: 'DentryId',
+      optionShrink: 'Option',
+      spaceId: 'SpaceId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryId: 'string',
+      optionShrink: 'string',
+      spaceId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoResponseBody extends $tea.Model {
+  headerSignatureInfo?: GetFileDownloadInfoResponseBodyHeaderSignatureInfo;
+  protocol?: string;
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headerSignatureInfo: 'headerSignatureInfo',
+      protocol: 'protocol',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerSignatureInfo: GetFileDownloadInfoResponseBodyHeaderSignatureInfo,
+      protocol: 'string',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFileDownloadInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFileDownloadInfoResponseBody,
     };
   }
 
@@ -9221,6 +9815,134 @@ export class GetFormListInAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetFormListInAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInnerGroupMembersHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetInnerGroupMembersHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetInnerGroupMembersHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInnerGroupMembersShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInnerGroupMembersRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  openConversationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      openConversationId: 'OpenConversationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      openConversationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInnerGroupMembersResponseBody extends $tea.Model {
+  hasMore?: boolean;
+  nextToken?: string;
+  requestId?: string;
+  userIds?: string[];
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'hasMore',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      userIds: 'userIds',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      nextToken: 'string',
+      requestId: 'string',
+      userIds: { 'type': 'array', 'itemType': 'string' },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInnerGroupMembersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInnerGroupMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInnerGroupMembersResponseBody,
     };
   }
 
@@ -10409,6 +11131,141 @@ export class GetMineWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class GetNewestInnerGroupsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetNewestInnerGroupsHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetNewestInnerGroupsHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNewestInnerGroupsShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNewestInnerGroupsRequest extends $tea.Model {
+  request?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      request: 'Request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNewestInnerGroupsShrinkRequest extends $tea.Model {
+  requestShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestShrink: 'Request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNewestInnerGroupsResponseBody extends $tea.Model {
+  groupInfos?: GetNewestInnerGroupsResponseBodyGroupInfos[];
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupInfos: 'groupInfos',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupInfos: { 'type': 'array', 'itemType': GetNewestInnerGroupsResponseBodyGroupInfos },
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNewestInnerGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNewestInnerGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNewestInnerGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNodeHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetNodeHeadersAccountContext;
@@ -11561,6 +12418,147 @@ export class GetRangeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRangeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetRelatedWorkspacesHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetRelatedWorkspacesHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesRequest extends $tea.Model {
+  includeRecent?: boolean;
+  tenantContext?: GetRelatedWorkspacesRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      includeRecent: 'IncludeRecent',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeRecent: 'boolean',
+      tenantContext: GetRelatedWorkspacesRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesShrinkRequest extends $tea.Model {
+  includeRecent?: boolean;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      includeRecent: 'IncludeRecent',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeRecent: 'boolean',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesResponseBody extends $tea.Model {
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  workspaces?: GetRelatedWorkspacesResponseBodyWorkspaces[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+      workspaces: 'workspaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+      workspaces: { 'type': 'array', 'itemType': GetRelatedWorkspacesResponseBodyWorkspaces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRelatedWorkspacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRelatedWorkspacesResponseBody,
     };
   }
 
@@ -13774,11 +14772,13 @@ export class InviteUsersRequest extends $tea.Model {
   inviteeList?: InviteUsersRequestInviteeList[];
   tenantContext?: InviteUsersRequestTenantContext;
   conferenceId?: string;
+  phoneInviteeList?: InviteUsersRequestPhoneInviteeList[];
   static names(): { [key: string]: string } {
     return {
       inviteeList: 'InviteeList',
       tenantContext: 'TenantContext',
       conferenceId: 'conferenceId',
+      phoneInviteeList: 'phoneInviteeList',
     };
   }
 
@@ -13787,6 +14787,7 @@ export class InviteUsersRequest extends $tea.Model {
       inviteeList: { 'type': 'array', 'itemType': InviteUsersRequestInviteeList },
       tenantContext: InviteUsersRequestTenantContext,
       conferenceId: 'string',
+      phoneInviteeList: { 'type': 'array', 'itemType': InviteUsersRequestPhoneInviteeList },
     };
   }
 
@@ -13799,11 +14800,13 @@ export class InviteUsersShrinkRequest extends $tea.Model {
   inviteeListShrink?: string;
   tenantContextShrink?: string;
   conferenceId?: string;
+  phoneInviteeListShrink?: string;
   static names(): { [key: string]: string } {
     return {
       inviteeListShrink: 'InviteeList',
       tenantContextShrink: 'TenantContext',
       conferenceId: 'conferenceId',
+      phoneInviteeListShrink: 'phoneInviteeList',
     };
   }
 
@@ -13812,6 +14815,7 @@ export class InviteUsersShrinkRequest extends $tea.Model {
       inviteeListShrink: 'string',
       tenantContextShrink: 'string',
       conferenceId: 'string',
+      phoneInviteeListShrink: 'string',
     };
   }
 
@@ -14125,6 +15129,186 @@ export class ListCalendarsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCalendarsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: ListDentriesHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: ListDentriesHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  order?: string;
+  orderBy?: string;
+  parentId?: string;
+  spaceId?: string;
+  tenantContext?: ListDentriesRequestTenantContext;
+  withThumbnail?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      order: 'Order',
+      orderBy: 'OrderBy',
+      parentId: 'ParentId',
+      spaceId: 'SpaceId',
+      tenantContext: 'TenantContext',
+      withThumbnail: 'WithThumbnail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      order: 'string',
+      orderBy: 'string',
+      parentId: 'string',
+      spaceId: 'string',
+      tenantContext: ListDentriesRequestTenantContext,
+      withThumbnail: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesShrinkRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  order?: string;
+  orderBy?: string;
+  parentId?: string;
+  spaceId?: string;
+  tenantContextShrink?: string;
+  withThumbnail?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      order: 'Order',
+      orderBy: 'OrderBy',
+      parentId: 'ParentId',
+      spaceId: 'SpaceId',
+      tenantContextShrink: 'TenantContext',
+      withThumbnail: 'WithThumbnail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      order: 'string',
+      orderBy: 'string',
+      parentId: 'string',
+      spaceId: 'string',
+      tenantContextShrink: 'string',
+      withThumbnail: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesResponseBody extends $tea.Model {
+  dentries?: ListDentriesResponseBodyDentries[];
+  nextToken?: string;
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dentries: 'dentries',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentries: { 'type': 'array', 'itemType': ListDentriesResponseBodyDentries },
+      nextToken: 'string',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDentriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDentriesResponseBody,
     };
   }
 
@@ -17998,19 +19182,19 @@ export class QueryScheduleConferenceShrinkHeaders extends $tea.Model {
 }
 
 export class QueryScheduleConferenceRequest extends $tea.Model {
-  requestUnionId?: string;
   tenantContext?: QueryScheduleConferenceRequestTenantContext;
+  scheduleConferenceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestUnionId: 'RequestUnionId',
       tenantContext: 'TenantContext',
+      scheduleConferenceId: 'scheduleConferenceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestUnionId: 'string',
       tenantContext: QueryScheduleConferenceRequestTenantContext,
+      scheduleConferenceId: 'string',
     };
   }
 
@@ -18020,19 +19204,19 @@ export class QueryScheduleConferenceRequest extends $tea.Model {
 }
 
 export class QueryScheduleConferenceShrinkRequest extends $tea.Model {
-  requestUnionId?: string;
   tenantContextShrink?: string;
+  scheduleConferenceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestUnionId: 'RequestUnionId',
       tenantContextShrink: 'TenantContext',
+      scheduleConferenceId: 'scheduleConferenceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestUnionId: 'string',
       tenantContextShrink: 'string',
+      scheduleConferenceId: 'string',
     };
   }
 
@@ -20186,6 +21370,125 @@ export class SearchFormDatasResponse extends $tea.Model {
   }
 }
 
+export class SearchInnerGroupsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: SearchInnerGroupsHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: SearchInnerGroupsHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchInnerGroupsShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchInnerGroupsRequest extends $tea.Model {
+  maxResults?: number;
+  searchKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      searchKey: 'SearchKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      searchKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchInnerGroupsResponseBody extends $tea.Model {
+  groupInfos?: SearchInnerGroupsResponseBodyGroupInfos[];
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupInfos: 'groupInfos',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupInfos: { 'type': 'array', 'itemType': SearchInnerGroupsResponseBodyGroupInfos },
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchInnerGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchInnerGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchInnerGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendBannerHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: SendBannerHeadersAccountContext;
@@ -21338,6 +22641,7 @@ export class StartInstanceRequest extends $tea.Model {
   formUuid?: string;
   language?: string;
   processCode?: string;
+  processData?: string;
   systemToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21347,6 +22651,7 @@ export class StartInstanceRequest extends $tea.Model {
       formUuid: 'FormUuid',
       language: 'Language',
       processCode: 'ProcessCode',
+      processData: 'ProcessData',
       systemToken: 'SystemToken',
     };
   }
@@ -21359,6 +22664,7 @@ export class StartInstanceRequest extends $tea.Model {
       formUuid: 'string',
       language: 'string',
       processCode: 'string',
+      processData: 'string',
       systemToken: 'string',
     };
   }
@@ -23121,6 +24427,153 @@ export class UpdateRangeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateRangeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: UpdateScheduleConfSettingsHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: UpdateScheduleConfSettingsHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsRequest extends $tea.Model {
+  scheduleConfSettingModel?: UpdateScheduleConfSettingsRequestScheduleConfSettingModel;
+  scheduleConferenceId?: string;
+  tenantContext?: UpdateScheduleConfSettingsRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      scheduleConfSettingModel: 'ScheduleConfSettingModel',
+      scheduleConferenceId: 'ScheduleConferenceId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scheduleConfSettingModel: UpdateScheduleConfSettingsRequestScheduleConfSettingModel,
+      scheduleConferenceId: 'string',
+      tenantContext: UpdateScheduleConfSettingsRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsShrinkRequest extends $tea.Model {
+  scheduleConfSettingModelShrink?: string;
+  scheduleConferenceId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scheduleConfSettingModelShrink: 'ScheduleConfSettingModel',
+      scheduleConferenceId: 'ScheduleConferenceId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scheduleConfSettingModelShrink: 'string',
+      scheduleConferenceId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateScheduleConfSettingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateScheduleConfSettingsResponseBody,
     };
   }
 
@@ -25305,6 +26758,25 @@ export class CancelScheduleConferenceRequestTenantContext extends $tea.Model {
   }
 }
 
+export class CheckUserIsGroupMemberHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClearHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -25686,6 +27158,25 @@ export class CreateEventRequestReminders extends $tea.Model {
   }
 }
 
+export class CreateEventRequestRichTextDescription extends $tea.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventRequestUiConfigs extends $tea.Model {
   uiName?: string;
   uiStatus?: string;
@@ -25953,6 +27444,25 @@ export class CreateEventResponseBodyReminders extends $tea.Model {
     return {
       method: 'string',
       minutes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventResponseBodyRichTextDescription extends $tea.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
     };
   }
 
@@ -26246,16 +27756,16 @@ export class CreateOrgHonorTemplateRequestTenantContext extends $tea.Model {
 }
 
 export class CreatePersonalTodoTaskHeadersAccountContext extends $tea.Model {
-  userToken?: string;
+  accountId?: string;
   static names(): { [key: string]: string } {
     return {
-      userToken: 'userToken',
+      accountId: 'accountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userToken: 'string',
+      accountId: 'string',
     };
   }
 
@@ -27396,6 +28906,44 @@ export class ExecuteTaskHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class ExpandGroupCapacityHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpandGroupCapacityRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetActivityListHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -27492,6 +29040,72 @@ export class GetAllSheetsResponseBodyValue extends $tea.Model {
     return {
       id: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversaionSpaceResponseBodySpace extends $tea.Model {
+  corpId?: string;
+  createTime?: string;
+  modifiedTime?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      createTime: 'CreateTime',
+      modifiedTime: 'ModifiedTime',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      createTime: 'string',
+      modifiedTime: 'string',
+      spaceId: 'string',
     };
   }
 
@@ -27682,16 +29296,16 @@ export class GetCorpTasksResponseBodyData extends $tea.Model {
 }
 
 export class GetDocContentHeadersAccountContext extends $tea.Model {
-  userToken?: string;
+  accountId?: string;
   static names(): { [key: string]: string } {
     return {
-      userToken: 'userToken',
+      accountId: 'accountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userToken: 'string',
+      accountId: 'string',
     };
   }
 
@@ -28176,6 +29790,97 @@ export class GetFieldDefByUuidResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetFileDownloadInfoHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoRequestOption extends $tea.Model {
+  preferIntranet?: boolean;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      preferIntranet: 'PreferIntranet',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preferIntranet: 'boolean',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoResponseBodyHeaderSignatureInfo extends $tea.Model {
+  expirationSeconds?: number;
+  headers?: { [key: string]: string };
+  internalResourceUrls?: string[];
+  region?: string;
+  resourceUrls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      expirationSeconds: 'ExpirationSeconds',
+      headers: 'Headers',
+      internalResourceUrls: 'InternalResourceUrls',
+      region: 'Region',
+      resourceUrls: 'ResourceUrls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expirationSeconds: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      internalResourceUrls: { 'type': 'array', 'itemType': 'string' },
+      region: 'string',
+      resourceUrls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFormComponentDefinitionListHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -28359,6 +30064,25 @@ export class GetFormListInAppResponseBodyData extends $tea.Model {
       formUuid: 'string',
       gmtCreate: 'string',
       title: GetFormListInAppResponseBodyDataTitle,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInnerGroupMembersHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
     };
   }
 
@@ -29367,6 +31091,53 @@ export class GetMineWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class GetNewestInnerGroupsHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNewestInnerGroupsResponseBodyGroupInfos extends $tea.Model {
+  icon?: string;
+  memberAmount?: string;
+  openConversationId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icon: 'Icon',
+      memberAmount: 'MemberAmount',
+      openConversationId: 'OpenConversationId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icon: 'string',
+      memberAmount: 'string',
+      openConversationId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNodeHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -30261,6 +32032,112 @@ export class GetRangeResponseBodyBackgroundColors extends $tea.Model {
       green: 'number',
       blue: 'number',
       hexString: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesResponseBodyWorkspacesRecentList extends $tea.Model {
+  lastEditTime?: number;
+  name?: string;
+  nodeId?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lastEditTime: 'LastEditTime',
+      name: 'Name',
+      nodeId: 'NodeId',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastEditTime: 'number',
+      name: 'string',
+      nodeId: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRelatedWorkspacesResponseBodyWorkspaces extends $tea.Model {
+  createTime?: number;
+  deleted?: boolean;
+  name?: string;
+  owner?: string;
+  recentList?: GetRelatedWorkspacesResponseBodyWorkspacesRecentList[];
+  role?: string;
+  url?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      deleted: 'Deleted',
+      name: 'Name',
+      owner: 'Owner',
+      recentList: 'RecentList',
+      role: 'Role',
+      url: 'Url',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      deleted: 'boolean',
+      name: 'string',
+      owner: 'string',
+      recentList: { 'type': 'array', 'itemType': GetRelatedWorkspacesResponseBodyWorkspacesRecentList },
+      role: 'string',
+      url: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -31761,6 +33638,28 @@ export class InviteUsersRequestTenantContext extends $tea.Model {
   }
 }
 
+export class InviteUsersRequestPhoneInviteeList extends $tea.Model {
+  nick?: string;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nick: 'Nick',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nick: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -31893,6 +33792,164 @@ export class ListCalendarsResponseBodyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       calendars: { 'type': 'array', 'itemType': ListCalendarsResponseBodyResponseCalendars },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesResponseBodyDentriesProperties extends $tea.Model {
+  readOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      readOnly: 'ReadOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      readOnly: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesResponseBodyDentriesThumbnail extends $tea.Model {
+  height?: number;
+  url?: string;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      url: 'string',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDentriesResponseBodyDentries extends $tea.Model {
+  appProperties?: { [key: string]: DentriesAppPropertiesValue[] };
+  createTime?: string;
+  creatorId?: string;
+  extension?: string;
+  id?: string;
+  modifiedTime?: string;
+  modifierId?: string;
+  name?: string;
+  parentId?: string;
+  partitionType?: string;
+  path?: string;
+  properties?: ListDentriesResponseBodyDentriesProperties;
+  size?: number;
+  spaceId?: string;
+  status?: string;
+  storageDriver?: string;
+  thumbnail?: ListDentriesResponseBodyDentriesThumbnail;
+  type?: string;
+  uuid?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appProperties: 'AppProperties',
+      createTime: 'CreateTime',
+      creatorId: 'CreatorId',
+      extension: 'Extension',
+      id: 'Id',
+      modifiedTime: 'ModifiedTime',
+      modifierId: 'ModifierId',
+      name: 'Name',
+      parentId: 'ParentId',
+      partitionType: 'PartitionType',
+      path: 'Path',
+      properties: 'Properties',
+      size: 'Size',
+      spaceId: 'SpaceId',
+      status: 'Status',
+      storageDriver: 'StorageDriver',
+      thumbnail: 'Thumbnail',
+      type: 'Type',
+      uuid: 'Uuid',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appProperties: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': DentriesAppPropertiesValue } },
+      createTime: 'string',
+      creatorId: 'string',
+      extension: 'string',
+      id: 'string',
+      modifiedTime: 'string',
+      modifierId: 'string',
+      name: 'string',
+      parentId: 'string',
+      partitionType: 'string',
+      path: 'string',
+      properties: ListDentriesResponseBodyDentriesProperties,
+      size: 'number',
+      spaceId: 'string',
+      status: 'string',
+      storageDriver: 'string',
+      thumbnail: ListDentriesResponseBodyDentriesThumbnail,
+      type: 'string',
+      uuid: 'string',
+      version: 'number',
     };
   }
 
@@ -36572,6 +38629,53 @@ export class SearchFormDatasResponseBodyData extends $tea.Model {
   }
 }
 
+export class SearchInnerGroupsHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchInnerGroupsResponseBodyGroupInfos extends $tea.Model {
+  icon?: string;
+  memberAmount?: string;
+  openConversationId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icon: 'Icon',
+      memberAmount: 'MemberAmount',
+      openConversationId: 'OpenConversationId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icon: 'string',
+      memberAmount: 'string',
+      openConversationId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendBannerHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -37328,6 +39432,115 @@ export class UpdateRangeRequestHyperlinks extends $tea.Model {
 }
 
 export class UpdateRangeRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting extends $tea.Model {
+  enableChat?: number;
+  enableWebAnonymousJoin?: boolean;
+  joinBeforeHost?: number;
+  lockMediaStatusMicMute?: number;
+  lockNick?: number;
+  waitingRoom?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableChat: 'EnableChat',
+      enableWebAnonymousJoin: 'EnableWebAnonymousJoin',
+      joinBeforeHost: 'JoinBeforeHost',
+      lockMediaStatusMicMute: 'LockMediaStatusMicMute',
+      lockNick: 'LockNick',
+      waitingRoom: 'WaitingRoom',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableChat: 'number',
+      enableWebAnonymousJoin: 'boolean',
+      joinBeforeHost: 'number',
+      lockMediaStatusMicMute: 'number',
+      lockNick: 'number',
+      waitingRoom: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsRequestScheduleConfSettingModel extends $tea.Model {
+  cohostUserIds?: string[];
+  confAllowedCorpId?: string;
+  hostUserId?: string;
+  lockRoom?: number;
+  moziConfVirtualExtraSetting?: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting;
+  muteOnJoin?: number;
+  screenShareForbidden?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cohostUserIds: 'CohostUserIds',
+      confAllowedCorpId: 'ConfAllowedCorpId',
+      hostUserId: 'HostUserId',
+      lockRoom: 'LockRoom',
+      moziConfVirtualExtraSetting: 'MoziConfVirtualExtraSetting',
+      muteOnJoin: 'MuteOnJoin',
+      screenShareForbidden: 'ScreenShareForbidden',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cohostUserIds: { 'type': 'array', 'itemType': 'string' },
+      confAllowedCorpId: 'string',
+      hostUserId: 'string',
+      lockRoom: 'number',
+      moziConfVirtualExtraSetting: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting,
+      muteOnJoin: 'number',
+      screenShareForbidden: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsRequestTenantContext extends $tea.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38612,6 +40825,52 @@ export default class Client extends OpenApi {
     return await this.cancelScheduleConferenceWithOptions(request, headers, runtime);
   }
 
+  async checkUserIsGroupMemberWithOptions(request: CheckUserIsGroupMemberRequest, tmpHeader: CheckUserIsGroupMemberHeaders, runtime: $Util.RuntimeOptions): Promise<CheckUserIsGroupMemberResponse> {
+    Util.validateModel(request);
+    let headers = new CheckUserIsGroupMemberShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckUserIsGroupMember",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/checkUserIsGroupMember`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckUserIsGroupMemberResponse>(await this.callApi(params, req, runtime), new CheckUserIsGroupMemberResponse({}));
+  }
+
+  async checkUserIsGroupMember(request: CheckUserIsGroupMemberRequest): Promise<CheckUserIsGroupMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CheckUserIsGroupMemberHeaders({ });
+    return await this.checkUserIsGroupMemberWithOptions(request, headers, runtime);
+  }
+
   async clearWithOptions(tmpReq: ClearRequest, tmpHeader: ClearHeaders, runtime: $Util.RuntimeOptions): Promise<ClearResponse> {
     Util.validateModel(tmpReq);
     let request = new ClearShrinkRequest({ });
@@ -38922,6 +41181,10 @@ export default class Client extends OpenApi {
       request.remindersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reminders, "Reminders", "json");
     }
 
+    if (!Util.isUnset(tmpReq.richTextDescription)) {
+      request.richTextDescriptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.richTextDescription, "RichTextDescription", "json");
+    }
+
     if (!Util.isUnset(tmpReq.uiConfigs)) {
       request.uiConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.uiConfigs, "UiConfigs", "json");
     }
@@ -38965,6 +41228,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.remindersShrink)) {
       body["Reminders"] = request.remindersShrink;
+    }
+
+    if (!Util.isUnset(request.richTextDescriptionShrink)) {
+      body["RichTextDescription"] = request.richTextDescriptionShrink;
     }
 
     if (!Util.isUnset(request.summary)) {
@@ -41410,6 +43677,62 @@ export default class Client extends OpenApi {
     return await this.executeTaskWithOptions(request, headers, runtime);
   }
 
+  async expandGroupCapacityWithOptions(tmpReq: ExpandGroupCapacityRequest, tmpHeader: ExpandGroupCapacityHeaders, runtime: $Util.RuntimeOptions): Promise<ExpandGroupCapacityResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ExpandGroupCapacityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new ExpandGroupCapacityShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExpandGroupCapacity",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/aliding/v1/im/expandGroupCapacity`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExpandGroupCapacityResponse>(await this.callApi(params, req, runtime), new ExpandGroupCapacityResponse({}));
+  }
+
+  async expandGroupCapacity(request: ExpandGroupCapacityRequest): Promise<ExpandGroupCapacityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ExpandGroupCapacityHeaders({ });
+    return await this.expandGroupCapacityWithOptions(request, headers, runtime);
+  }
+
   async getActivityListWithOptions(request: GetActivityListRequest, tmpHeader: GetActivityListHeaders, runtime: $Util.RuntimeOptions): Promise<GetActivityListResponse> {
     Util.validateModel(request);
     let headers = new GetActivityListShrinkHeaders({ });
@@ -41522,6 +43845,62 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetAllSheetsHeaders({ });
     return await this.getAllSheetsWithOptions(request, headers, runtime);
+  }
+
+  async getConversaionSpaceWithOptions(tmpReq: GetConversaionSpaceRequest, tmpHeader: GetConversaionSpaceHeaders, runtime: $Util.RuntimeOptions): Promise<GetConversaionSpaceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetConversaionSpaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetConversaionSpaceShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetConversaionSpace",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/getConversaionSpace`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConversaionSpaceResponse>(await this.callApi(params, req, runtime), new GetConversaionSpaceResponse({}));
+  }
+
+  async getConversaionSpace(request: GetConversaionSpaceRequest): Promise<GetConversaionSpaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetConversaionSpaceHeaders({ });
+    return await this.getConversaionSpaceWithOptions(request, headers, runtime);
   }
 
   async getCorpAccomplishmentTasksWithOptions(request: GetCorpAccomplishmentTasksRequest, tmpHeader: GetCorpAccomplishmentTasksHeaders, runtime: $Util.RuntimeOptions): Promise<GetCorpAccomplishmentTasksResponse> {
@@ -41715,6 +44094,10 @@ export default class Client extends OpenApi {
       body["TenantContext"] = request.tenantContextShrink;
     }
 
+    if (!Util.isUnset(request.userToken)) {
+      body["userToken"] = request.userToken;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -41856,6 +44239,74 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetFieldDefByUuidHeaders({ });
     return await this.getFieldDefByUuidWithOptions(request, headers, runtime);
+  }
+
+  async getFileDownloadInfoWithOptions(tmpReq: GetFileDownloadInfoRequest, tmpHeader: GetFileDownloadInfoHeaders, runtime: $Util.RuntimeOptions): Promise<GetFileDownloadInfoResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetFileDownloadInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetFileDownloadInfoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.option)) {
+      request.optionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.option, "Option", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dentryId)) {
+      body["DentryId"] = request.dentryId;
+    }
+
+    if (!Util.isUnset(request.optionShrink)) {
+      body["Option"] = request.optionShrink;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFileDownloadInfo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/getFileDownloadInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFileDownloadInfoResponse>(await this.callApi(params, req, runtime), new GetFileDownloadInfoResponse({}));
+  }
+
+  async getFileDownloadInfo(request: GetFileDownloadInfoRequest): Promise<GetFileDownloadInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetFileDownloadInfoHeaders({ });
+    return await this.getFileDownloadInfoWithOptions(request, headers, runtime);
   }
 
   async getFormComponentDefinitionListWithOptions(request: GetFormComponentDefinitionListRequest, tmpHeader: GetFormComponentDefinitionListHeaders, runtime: $Util.RuntimeOptions): Promise<GetFormComponentDefinitionListResponse> {
@@ -42034,6 +44485,60 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetFormListInAppHeaders({ });
     return await this.getFormListInAppWithOptions(request, headers, runtime);
+  }
+
+  async getInnerGroupMembersWithOptions(request: GetInnerGroupMembersRequest, tmpHeader: GetInnerGroupMembersHeaders, runtime: $Util.RuntimeOptions): Promise<GetInnerGroupMembersResponse> {
+    Util.validateModel(request);
+    let headers = new GetInnerGroupMembersShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInnerGroupMembers",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/getInnerGroupMembers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInnerGroupMembersResponse>(await this.callApi(params, req, runtime), new GetInnerGroupMembersResponse({}));
+  }
+
+  async getInnerGroupMembers(request: GetInnerGroupMembersRequest): Promise<GetInnerGroupMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetInnerGroupMembersHeaders({ });
+    return await this.getInnerGroupMembersWithOptions(request, headers, runtime);
   }
 
   async getInstanceByIdWithOptions(request: GetInstanceByIdRequest, tmpHeader: GetInstanceByIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetInstanceByIdResponse> {
@@ -42618,6 +45123,58 @@ export default class Client extends OpenApi {
     return await this.getMineWorkspaceWithOptions(request, headers, runtime);
   }
 
+  async getNewestInnerGroupsWithOptions(tmpReq: GetNewestInnerGroupsRequest, tmpHeader: GetNewestInnerGroupsHeaders, runtime: $Util.RuntimeOptions): Promise<GetNewestInnerGroupsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetNewestInnerGroupsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetNewestInnerGroupsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.request)) {
+      request.requestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.request, "Request", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.requestShrink)) {
+      body["Request"] = request.requestShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetNewestInnerGroups",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/getNewestInnerGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNewestInnerGroupsResponse>(await this.callApi(params, req, runtime), new GetNewestInnerGroupsResponse({}));
+  }
+
+  async getNewestInnerGroups(request: GetNewestInnerGroupsRequest): Promise<GetNewestInnerGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetNewestInnerGroupsHeaders({ });
+    return await this.getNewestInnerGroupsWithOptions(request, headers, runtime);
+  }
+
   async getNodeWithOptions(tmpReq: GetNodeRequest, tmpHeader: GetNodeHeaders, runtime: $Util.RuntimeOptions): Promise<GetNodeResponse> {
     Util.validateModel(tmpReq);
     let request = new GetNodeShrinkRequest({ });
@@ -43168,6 +45725,62 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetRangeHeaders({ });
     return await this.getRangeWithOptions(request, headers, runtime);
+  }
+
+  async getRelatedWorkspacesWithOptions(tmpReq: GetRelatedWorkspacesRequest, tmpHeader: GetRelatedWorkspacesHeaders, runtime: $Util.RuntimeOptions): Promise<GetRelatedWorkspacesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetRelatedWorkspacesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetRelatedWorkspacesShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.includeRecent)) {
+      body["IncludeRecent"] = request.includeRecent;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRelatedWorkspaces",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/getRelatedWorkspaces`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRelatedWorkspacesResponse>(await this.callApi(params, req, runtime), new GetRelatedWorkspacesResponse({}));
+  }
+
+  async getRelatedWorkspaces(request: GetRelatedWorkspacesRequest): Promise<GetRelatedWorkspacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetRelatedWorkspacesHeaders({ });
+    return await this.getRelatedWorkspacesWithOptions(request, headers, runtime);
   }
 
   async getReportTemplateByNameWithOptions(tmpReq: GetReportTemplateByNameRequest, tmpHeader: GetReportTemplateByNameHeaders, runtime: $Util.RuntimeOptions): Promise<GetReportTemplateByNameResponse> {
@@ -44098,6 +46711,10 @@ export default class Client extends OpenApi {
       request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
     }
 
+    if (!Util.isUnset(tmpReq.phoneInviteeList)) {
+      request.phoneInviteeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.phoneInviteeList, "phoneInviteeList", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.inviteeListShrink)) {
       body["InviteeList"] = request.inviteeListShrink;
@@ -44109,6 +46726,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.conferenceId)) {
       body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!Util.isUnset(request.phoneInviteeListShrink)) {
+      body["phoneInviteeList"] = request.phoneInviteeListShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -44260,6 +46881,86 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListCalendarsHeaders({ });
     return await this.listCalendarsWithOptions(request, headers, runtime);
+  }
+
+  async listDentriesWithOptions(tmpReq: ListDentriesRequest, tmpHeader: ListDentriesHeaders, runtime: $Util.RuntimeOptions): Promise<ListDentriesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDentriesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new ListDentriesShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      body["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      body["ParentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.withThumbnail)) {
+      body["WithThumbnail"] = request.withThumbnail;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDentries",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/listDentries`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDentriesResponse>(await this.callApi(params, req, runtime), new ListDentriesResponse({}));
+  }
+
+  async listDentries(request: ListDentriesRequest): Promise<ListDentriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListDentriesHeaders({ });
+    return await this.listDentriesWithOptions(request, headers, runtime);
   }
 
   async listEventsWithOptions(request: ListEventsRequest, tmpHeader: ListEventsHeaders, runtime: $Util.RuntimeOptions): Promise<ListEventsResponse> {
@@ -45911,12 +48612,12 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.requestUnionId)) {
-      body["RequestUnionId"] = request.requestUnionId;
-    }
-
     if (!Util.isUnset(request.tenantContextShrink)) {
       body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.scheduleConferenceId)) {
+      body["scheduleConferenceId"] = request.scheduleConferenceId;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -46992,6 +49693,56 @@ export default class Client extends OpenApi {
     return await this.searchFormDatasWithOptions(request, headers, runtime);
   }
 
+  async searchInnerGroupsWithOptions(request: SearchInnerGroupsRequest, tmpHeader: SearchInnerGroupsHeaders, runtime: $Util.RuntimeOptions): Promise<SearchInnerGroupsResponse> {
+    Util.validateModel(request);
+    let headers = new SearchInnerGroupsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      body["SearchKey"] = request.searchKey;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchInnerGroups",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/searchInnerGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchInnerGroupsResponse>(await this.callApi(params, req, runtime), new SearchInnerGroupsResponse({}));
+  }
+
+  async searchInnerGroups(request: SearchInnerGroupsRequest): Promise<SearchInnerGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SearchInnerGroupsHeaders({ });
+    return await this.searchInnerGroupsWithOptions(request, headers, runtime);
+  }
+
   async sendBannerWithOptions(tmpReq: SendBannerRequest, tmpHeader: SendBannerHeaders, runtime: $Util.RuntimeOptions): Promise<SendBannerResponse> {
     Util.validateModel(tmpReq);
     let request = new SendBannerShrinkRequest({ });
@@ -47507,6 +50258,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.processCode)) {
       body["ProcessCode"] = request.processCode;
+    }
+
+    if (!Util.isUnset(request.processData)) {
+      body["ProcessData"] = request.processData;
     }
 
     if (!Util.isUnset(request.systemToken)) {
@@ -48338,6 +51093,70 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateRangeHeaders({ });
     return await this.updateRangeWithOptions(request, headers, runtime);
+  }
+
+  async updateScheduleConfSettingsWithOptions(tmpReq: UpdateScheduleConfSettingsRequest, tmpHeader: UpdateScheduleConfSettingsHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateScheduleConfSettingsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateScheduleConfSettingsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new UpdateScheduleConfSettingsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.scheduleConfSettingModel)) {
+      request.scheduleConfSettingModelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfSettingModel, "ScheduleConfSettingModel", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.scheduleConfSettingModelShrink)) {
+      body["ScheduleConfSettingModel"] = request.scheduleConfSettingModelShrink;
+    }
+
+    if (!Util.isUnset(request.scheduleConferenceId)) {
+      body["ScheduleConferenceId"] = request.scheduleConferenceId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateScheduleConfSettings",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/updateScheduleConfSettings`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateScheduleConfSettingsResponse>(await this.callApi(params, req, runtime), new UpdateScheduleConfSettingsResponse({}));
+  }
+
+  async updateScheduleConfSettings(request: UpdateScheduleConfSettingsRequest): Promise<UpdateScheduleConfSettingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateScheduleConfSettingsHeaders({ });
+    return await this.updateScheduleConfSettingsWithOptions(request, headers, runtime);
   }
 
   async updateScheduleConferenceWithOptions(tmpReq: UpdateScheduleConferenceRequest, tmpHeader: UpdateScheduleConferenceHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateScheduleConferenceResponse> {
