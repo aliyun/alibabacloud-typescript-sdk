@@ -418,6 +418,135 @@ export class AddProjectMemberToRoleResponse extends $tea.Model {
   }
 }
 
+export class AddRecognizeRuleRequest extends $tea.Model {
+  accountName?: string;
+  colExclude?: string;
+  colScan?: string;
+  commentScan?: string;
+  contentScan?: string;
+  hitThreshold?: number;
+  level?: string;
+  levelName?: string;
+  nodeId?: string;
+  nodeParent?: string;
+  operationType?: number;
+  recognizeRules?: string;
+  recognizeRulesType?: string;
+  sensitiveDescription?: string;
+  sensitiveName?: string;
+  status?: number;
+  templateId?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      colExclude: 'ColExclude',
+      colScan: 'ColScan',
+      commentScan: 'CommentScan',
+      contentScan: 'ContentScan',
+      hitThreshold: 'HitThreshold',
+      level: 'Level',
+      levelName: 'LevelName',
+      nodeId: 'NodeId',
+      nodeParent: 'NodeParent',
+      operationType: 'OperationType',
+      recognizeRules: 'RecognizeRules',
+      recognizeRulesType: 'RecognizeRulesType',
+      sensitiveDescription: 'SensitiveDescription',
+      sensitiveName: 'SensitiveName',
+      status: 'Status',
+      templateId: 'TemplateId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      colExclude: 'string',
+      colScan: 'string',
+      commentScan: 'string',
+      contentScan: 'string',
+      hitThreshold: 'number',
+      level: 'string',
+      levelName: 'string',
+      nodeId: 'string',
+      nodeParent: 'string',
+      operationType: 'number',
+      recognizeRules: 'string',
+      recognizeRulesType: 'string',
+      sensitiveDescription: 'string',
+      sensitiveName: 'string',
+      status: 'number',
+      templateId: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecognizeRuleResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRecognizeRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddRecognizeRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddRecognizeRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddToMetaCategoryRequest extends $tea.Model {
   categoryId?: number;
   tableGuid?: string;
@@ -6048,6 +6177,87 @@ export class DeleteQualityRuleResponse extends $tea.Model {
   }
 }
 
+export class DeleteRecognizeRuleRequest extends $tea.Model {
+  sensitiveId?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sensitiveId: 'SensitiveId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sensitiveId: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRecognizeRuleResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRecognizeRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRecognizeRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRecognizeRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRemindRequest extends $tea.Model {
   remindId?: number;
   static names(): { [key: string]: string } {
@@ -6706,6 +6916,322 @@ export class DsgQuerySensResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DsgQuerySensResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgRunSensIdentifyRequest extends $tea.Model {
+  esMetaParams?: DsgRunSensIdentifyRequestEsMetaParams[];
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      esMetaParams: 'EsMetaParams',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      esMetaParams: { 'type': 'array', 'itemType': DsgRunSensIdentifyRequestEsMetaParams },
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgRunSensIdentifyShrinkRequest extends $tea.Model {
+  esMetaParamsShrink?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      esMetaParamsShrink: 'EsMetaParams',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      esMetaParamsShrink: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgRunSensIdentifyResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgRunSensIdentifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgRunSensIdentifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgRunSensIdentifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgStopSensIdentifyRequest extends $tea.Model {
+  jobId?: number;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgStopSensIdentifyResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgStopSensIdentifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgStopSensIdentifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgStopSensIdentifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditRecognizeRuleRequest extends $tea.Model {
+  accountName?: string;
+  colExclude?: string;
+  colScan?: string;
+  commentScan?: string;
+  contentScan?: string;
+  hitThreshold?: number;
+  levelName?: string;
+  nodeId?: string;
+  nodeParent?: string;
+  operationType?: number;
+  recognizeRules?: string;
+  recognizeRulesType?: string;
+  sensitiveDescription?: string;
+  sensitiveId?: string;
+  sensitiveName?: string;
+  status?: number;
+  templateId?: string;
+  tenantId?: string;
+  level?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      colExclude: 'ColExclude',
+      colScan: 'ColScan',
+      commentScan: 'CommentScan',
+      contentScan: 'ContentScan',
+      hitThreshold: 'HitThreshold',
+      levelName: 'LevelName',
+      nodeId: 'NodeId',
+      nodeParent: 'NodeParent',
+      operationType: 'OperationType',
+      recognizeRules: 'RecognizeRules',
+      recognizeRulesType: 'RecognizeRulesType',
+      sensitiveDescription: 'SensitiveDescription',
+      sensitiveId: 'SensitiveId',
+      sensitiveName: 'SensitiveName',
+      status: 'Status',
+      templateId: 'TemplateId',
+      tenantId: 'TenantId',
+      level: 'level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      colExclude: 'string',
+      colScan: 'string',
+      commentScan: 'string',
+      contentScan: 'string',
+      hitThreshold: 'number',
+      levelName: 'string',
+      nodeId: 'string',
+      nodeParent: 'string',
+      operationType: 'number',
+      recognizeRules: 'string',
+      recognizeRulesType: 'string',
+      sensitiveDescription: 'string',
+      sensitiveId: 'string',
+      sensitiveName: 'string',
+      status: 'number',
+      templateId: 'string',
+      tenantId: 'string',
+      level: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditRecognizeRuleResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditRecognizeRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EditRecognizeRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EditRecognizeRuleResponseBody,
     };
   }
 
@@ -18625,6 +19151,84 @@ export class QueryDISyncTaskConfigProcessResultResponse extends $tea.Model {
   }
 }
 
+export class QueryDefaultTemplateRequest extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDefaultTemplateResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDefaultTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDefaultTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDefaultTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryPublicModelEngineRequest extends $tea.Model {
   projectId?: string;
   text?: string;
@@ -18686,6 +19290,485 @@ export class QueryPublicModelEngineResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryPublicModelEngineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecognizeDataByRuleTypeRequest extends $tea.Model {
+  recognizeRulesType?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      recognizeRulesType: 'RecognizeRulesType',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recognizeRulesType: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecognizeDataByRuleTypeResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecognizeDataByRuleTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecognizeDataByRuleTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRecognizeDataByRuleTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecognizeRuleDetailRequest extends $tea.Model {
+  sensitiveName?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sensitiveName: 'SensitiveName',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sensitiveName: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecognizeRuleDetailResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecognizeRuleDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecognizeRuleDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRecognizeRuleDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecognizeRulesTypeResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRecognizeRulesTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRecognizeRulesTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRecognizeRulesTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensClassificationRequest extends $tea.Model {
+  templateId?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensClassificationResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensClassificationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySensClassificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySensClassificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensLevelRequest extends $tea.Model {
+  templateId?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensLevelResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensLevelResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySensLevelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySensLevelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensNodeInfoRequest extends $tea.Model {
+  nodeId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  sensitiveName?: string;
+  templateId?: string;
+  tenantId?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sensitiveName: 'SensitiveName',
+      templateId: 'TemplateId',
+      tenantId: 'TenantId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      sensitiveName: 'string',
+      templateId: 'string',
+      tenantId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensNodeInfoResponseBody extends $tea.Model {
+  data?: any;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySensNodeInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySensNodeInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySensNodeInfoResponseBody,
     };
   }
 
@@ -24868,6 +25951,46 @@ export class DeployDISyncTaskResponseBodyData extends $tea.Model {
     return {
       message: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgRunSensIdentifyRequestEsMetaParams extends $tea.Model {
+  clusterId?: string;
+  dbType?: string;
+  instanceId?: number;
+  projectName?: string;
+  schemaName?: string;
+  tableName?: string;
+  tableNameList?: string[];
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dbType: 'DbType',
+      instanceId: 'InstanceId',
+      projectName: 'ProjectName',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+      tableNameList: 'TableNameList',
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbType: 'string',
+      instanceId: 'number',
+      projectName: 'string',
+      schemaName: 'string',
+      tableName: 'string',
+      tableNameList: { 'type': 'array', 'itemType': 'string' },
+      user: 'string',
     };
   }
 
@@ -38216,6 +39339,103 @@ export default class Client extends OpenApi {
     return await this.addProjectMemberToRoleWithOptions(request, runtime);
   }
 
+  async addRecognizeRuleWithOptions(request: AddRecognizeRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddRecognizeRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accountName)) {
+      body["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.colExclude)) {
+      body["ColExclude"] = request.colExclude;
+    }
+
+    if (!Util.isUnset(request.colScan)) {
+      body["ColScan"] = request.colScan;
+    }
+
+    if (!Util.isUnset(request.commentScan)) {
+      body["CommentScan"] = request.commentScan;
+    }
+
+    if (!Util.isUnset(request.contentScan)) {
+      body["ContentScan"] = request.contentScan;
+    }
+
+    if (!Util.isUnset(request.hitThreshold)) {
+      body["HitThreshold"] = request.hitThreshold;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      body["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.levelName)) {
+      body["LevelName"] = request.levelName;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.nodeParent)) {
+      body["NodeParent"] = request.nodeParent;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.recognizeRules)) {
+      body["RecognizeRules"] = request.recognizeRules;
+    }
+
+    if (!Util.isUnset(request.recognizeRulesType)) {
+      body["RecognizeRulesType"] = request.recognizeRulesType;
+    }
+
+    if (!Util.isUnset(request.sensitiveDescription)) {
+      body["SensitiveDescription"] = request.sensitiveDescription;
+    }
+
+    if (!Util.isUnset(request.sensitiveName)) {
+      body["SensitiveName"] = request.sensitiveName;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddRecognizeRule",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddRecognizeRuleResponse>(await this.callApi(params, req, runtime), new AddRecognizeRuleResponse({}));
+  }
+
+  async addRecognizeRule(request: AddRecognizeRuleRequest): Promise<AddRecognizeRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addRecognizeRuleWithOptions(request, runtime);
+  }
+
   async addToMetaCategoryWithOptions(request: AddToMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddToMetaCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41592,6 +42812,39 @@ export default class Client extends OpenApi {
     return await this.deleteQualityRuleWithOptions(request, runtime);
   }
 
+  async deleteRecognizeRuleWithOptions(request: DeleteRecognizeRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRecognizeRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sensitiveId)) {
+      body["SensitiveId"] = request.sensitiveId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRecognizeRule",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRecognizeRuleResponse>(await this.callApi(params, req, runtime), new DeleteRecognizeRuleResponse({}));
+  }
+
+  async deleteRecognizeRule(request: DeleteRecognizeRuleRequest): Promise<DeleteRecognizeRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRecognizeRuleWithOptions(request, runtime);
+  }
+
   async deleteRemindWithOptions(request: DeleteRemindRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRemindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -41922,6 +43175,179 @@ export default class Client extends OpenApi {
   async dsgQuerySensResult(request: DsgQuerySensResultRequest): Promise<DsgQuerySensResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dsgQuerySensResultWithOptions(request, runtime);
+  }
+
+  async dsgRunSensIdentifyWithOptions(tmpReq: DsgRunSensIdentifyRequest, runtime: $Util.RuntimeOptions): Promise<DsgRunSensIdentifyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgRunSensIdentifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.esMetaParams)) {
+      request.esMetaParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.esMetaParams, "EsMetaParams", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.esMetaParamsShrink)) {
+      body["EsMetaParams"] = request.esMetaParamsShrink;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgRunSensIdentify",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgRunSensIdentifyResponse>(await this.callApi(params, req, runtime), new DsgRunSensIdentifyResponse({}));
+  }
+
+  async dsgRunSensIdentify(request: DsgRunSensIdentifyRequest): Promise<DsgRunSensIdentifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgRunSensIdentifyWithOptions(request, runtime);
+  }
+
+  async dsgStopSensIdentifyWithOptions(request: DsgStopSensIdentifyRequest, runtime: $Util.RuntimeOptions): Promise<DsgStopSensIdentifyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgStopSensIdentify",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgStopSensIdentifyResponse>(await this.callApi(params, req, runtime), new DsgStopSensIdentifyResponse({}));
+  }
+
+  async dsgStopSensIdentify(request: DsgStopSensIdentifyRequest): Promise<DsgStopSensIdentifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgStopSensIdentifyWithOptions(request, runtime);
+  }
+
+  async editRecognizeRuleWithOptions(request: EditRecognizeRuleRequest, runtime: $Util.RuntimeOptions): Promise<EditRecognizeRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accountName)) {
+      body["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.colExclude)) {
+      body["ColExclude"] = request.colExclude;
+    }
+
+    if (!Util.isUnset(request.colScan)) {
+      body["ColScan"] = request.colScan;
+    }
+
+    if (!Util.isUnset(request.commentScan)) {
+      body["CommentScan"] = request.commentScan;
+    }
+
+    if (!Util.isUnset(request.contentScan)) {
+      body["ContentScan"] = request.contentScan;
+    }
+
+    if (!Util.isUnset(request.hitThreshold)) {
+      body["HitThreshold"] = request.hitThreshold;
+    }
+
+    if (!Util.isUnset(request.levelName)) {
+      body["LevelName"] = request.levelName;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.nodeParent)) {
+      body["NodeParent"] = request.nodeParent;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.recognizeRules)) {
+      body["RecognizeRules"] = request.recognizeRules;
+    }
+
+    if (!Util.isUnset(request.recognizeRulesType)) {
+      body["RecognizeRulesType"] = request.recognizeRulesType;
+    }
+
+    if (!Util.isUnset(request.sensitiveDescription)) {
+      body["SensitiveDescription"] = request.sensitiveDescription;
+    }
+
+    if (!Util.isUnset(request.sensitiveId)) {
+      body["SensitiveId"] = request.sensitiveId;
+    }
+
+    if (!Util.isUnset(request.sensitiveName)) {
+      body["SensitiveName"] = request.sensitiveName;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      body["level"] = request.level;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "EditRecognizeRule",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EditRecognizeRuleResponse>(await this.callApi(params, req, runtime), new EditRecognizeRuleResponse({}));
+  }
+
+  async editRecognizeRule(request: EditRecognizeRuleRequest): Promise<EditRecognizeRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.editRecognizeRuleWithOptions(request, runtime);
   }
 
   async establishRelationTableToBusinessWithOptions(request: EstablishRelationTableToBusinessRequest, runtime: $Util.RuntimeOptions): Promise<EstablishRelationTableToBusinessResponse> {
@@ -47942,6 +49368,35 @@ export default class Client extends OpenApi {
     return await this.queryDISyncTaskConfigProcessResultWithOptions(request, runtime);
   }
 
+  async queryDefaultTemplateWithOptions(request: QueryDefaultTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryDefaultTemplateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDefaultTemplate",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDefaultTemplateResponse>(await this.callApi(params, req, runtime), new QueryDefaultTemplateResponse({}));
+  }
+
+  async queryDefaultTemplate(request: QueryDefaultTemplateRequest): Promise<QueryDefaultTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDefaultTemplateWithOptions(request, runtime);
+  }
+
   async queryPublicModelEngineWithOptions(request: QueryPublicModelEngineRequest, runtime: $Util.RuntimeOptions): Promise<QueryPublicModelEngineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47973,6 +49428,212 @@ export default class Client extends OpenApi {
   async queryPublicModelEngine(request: QueryPublicModelEngineRequest): Promise<QueryPublicModelEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPublicModelEngineWithOptions(request, runtime);
+  }
+
+  async queryRecognizeDataByRuleTypeWithOptions(request: QueryRecognizeDataByRuleTypeRequest, runtime: $Util.RuntimeOptions): Promise<QueryRecognizeDataByRuleTypeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.recognizeRulesType)) {
+      body["RecognizeRulesType"] = request.recognizeRulesType;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryRecognizeDataByRuleType",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRecognizeDataByRuleTypeResponse>(await this.callApi(params, req, runtime), new QueryRecognizeDataByRuleTypeResponse({}));
+  }
+
+  async queryRecognizeDataByRuleType(request: QueryRecognizeDataByRuleTypeRequest): Promise<QueryRecognizeDataByRuleTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryRecognizeDataByRuleTypeWithOptions(request, runtime);
+  }
+
+  async queryRecognizeRuleDetailWithOptions(request: QueryRecognizeRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRecognizeRuleDetailResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sensitiveName)) {
+      body["SensitiveName"] = request.sensitiveName;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryRecognizeRuleDetail",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRecognizeRuleDetailResponse>(await this.callApi(params, req, runtime), new QueryRecognizeRuleDetailResponse({}));
+  }
+
+  async queryRecognizeRuleDetail(request: QueryRecognizeRuleDetailRequest): Promise<QueryRecognizeRuleDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryRecognizeRuleDetailWithOptions(request, runtime);
+  }
+
+  async queryRecognizeRulesTypeWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryRecognizeRulesTypeResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "QueryRecognizeRulesType",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRecognizeRulesTypeResponse>(await this.callApi(params, req, runtime), new QueryRecognizeRulesTypeResponse({}));
+  }
+
+  async queryRecognizeRulesType(): Promise<QueryRecognizeRulesTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryRecognizeRulesTypeWithOptions(runtime);
+  }
+
+  async querySensClassificationWithOptions(request: QuerySensClassificationRequest, runtime: $Util.RuntimeOptions): Promise<QuerySensClassificationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySensClassification",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySensClassificationResponse>(await this.callApi(params, req, runtime), new QuerySensClassificationResponse({}));
+  }
+
+  async querySensClassification(request: QuerySensClassificationRequest): Promise<QuerySensClassificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySensClassificationWithOptions(request, runtime);
+  }
+
+  async querySensLevelWithOptions(request: QuerySensLevelRequest, runtime: $Util.RuntimeOptions): Promise<QuerySensLevelResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["tenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySensLevel",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySensLevelResponse>(await this.callApi(params, req, runtime), new QuerySensLevelResponse({}));
+  }
+
+  async querySensLevel(request: QuerySensLevelRequest): Promise<QuerySensLevelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySensLevelWithOptions(request, runtime);
+  }
+
+  async querySensNodeInfoWithOptions(request: QuerySensNodeInfoRequest, runtime: $Util.RuntimeOptions): Promise<QuerySensNodeInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sensitiveName)) {
+      body["SensitiveName"] = request.sensitiveName;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySensNodeInfo",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySensNodeInfoResponse>(await this.callApi(params, req, runtime), new QuerySensNodeInfoResponse({}));
+  }
+
+  async querySensNodeInfo(request: QuerySensNodeInfoRequest): Promise<QuerySensNodeInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySensNodeInfoWithOptions(request, runtime);
   }
 
   async registerLineageRelationWithOptions(tmpReq: RegisterLineageRelationRequest, runtime: $Util.RuntimeOptions): Promise<RegisterLineageRelationResponse> {
