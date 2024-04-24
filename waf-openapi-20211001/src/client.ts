@@ -83,6 +83,81 @@ export class ClearMajorProtectionBlackIpResponse extends $tea.Model {
   }
 }
 
+export class CopyDefenseTemplateRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDefenseTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDefenseTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CopyDefenseTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CopyDefenseTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDefenseResourceGroupRequest extends $tea.Model {
   addList?: string;
   description?: string;
@@ -601,6 +676,75 @@ export class CreateMemberAccountsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateMemberAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostpaidInstanceRequest extends $tea.Model {
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostpaidInstanceResponseBody extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostpaidInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePostpaidInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePostpaidInstanceResponseBody,
     };
   }
 
@@ -1134,6 +1278,81 @@ export class DescribeAccountDelegatedStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeCertDetailRequest extends $tea.Model {
+  certIdentifier?: string;
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certIdentifier: 'CertIdentifier',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certIdentifier: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCertDetailResponseBody extends $tea.Model {
+  certDetail?: DescribeCertDetailResponseBodyCertDetail;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certDetail: 'CertDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certDetail: DescribeCertDetailResponseBodyCertDetail,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCertDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCertDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCertDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCertsRequest extends $tea.Model {
   algorithm?: string;
   domain?: string;
@@ -1326,6 +1545,81 @@ export class DescribeCloudResourcesResponse extends $tea.Model {
   }
 }
 
+export class DescribeDefenseResourceRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resource?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resource: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceResponseBody extends $tea.Model {
+  requestId?: string;
+  resource?: DescribeDefenseResourceResponseBodyResource;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resource: 'Resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resource: DescribeDefenseResourceResponseBodyResource,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDefenseResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDefenseResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDefenseResourceGroupRequest extends $tea.Model {
   groupName?: string;
   instanceId?: string;
@@ -1393,6 +1687,261 @@ export class DescribeDefenseResourceGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDefenseResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceGroupNamesRequest extends $tea.Model {
+  groupNameLike?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupNameLike: 'GroupNameLike',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupNameLike: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceGroupNamesResponseBody extends $tea.Model {
+  groupNames?: string[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupNames: 'GroupNames',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupNames: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceGroupNamesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDefenseResourceGroupNamesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDefenseResourceGroupNamesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceGroupsRequest extends $tea.Model {
+  groupNameLike?: string;
+  groupNames?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupNameLike: 'GroupNameLike',
+      groupNames: 'GroupNames',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupNameLike: 'string',
+      groupNames: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceGroupsResponseBody extends $tea.Model {
+  groups?: DescribeDefenseResourceGroupsResponseBodyGroups[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: { 'type': 'array', 'itemType': DescribeDefenseResourceGroupsResponseBodyGroups },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDefenseResourceGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDefenseResourceGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceNamesRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resource?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resource: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceNamesResponseBody extends $tea.Model {
+  requestId?: string;
+  resources?: string[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resources: 'Resources',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': 'string' },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceNamesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDefenseResourceNamesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDefenseResourceNamesResponseBody,
     };
   }
 
@@ -1804,6 +2353,96 @@ export class DescribeDefenseTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDefenseTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseTemplateValidGroupsRequest extends $tea.Model {
+  defenseScene?: string;
+  groupName?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      defenseScene: 'DefenseScene',
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defenseScene: 'string',
+      groupName: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseTemplateValidGroupsResponseBody extends $tea.Model {
+  groups?: string[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseTemplateValidGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDefenseTemplateValidGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDefenseTemplateValidGroupsResponseBody,
     };
   }
 
@@ -3114,6 +3753,81 @@ export class DescribeProductInstancesResponse extends $tea.Model {
   }
 }
 
+export class DescribePunishedDomainsRequest extends $tea.Model {
+  domains?: string[];
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePunishedDomainsResponseBody extends $tea.Model {
+  punishedDomains?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      punishedDomains: 'PunishedDomains',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      punishedDomains: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePunishedDomainsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePunishedDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePunishedDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeResourceInstanceCertsRequest extends $tea.Model {
   instanceId?: string;
   pageNumber?: number;
@@ -4389,6 +5103,81 @@ export class DescribeSlsLogStoreStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeTemplateResourceCountRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  templateIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      templateIds: 'TemplateIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      templateIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateResourceCountResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceCount?: DescribeTemplateResourceCountResponseBodyResourceCount[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceCount: 'ResourceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceCount: { 'type': 'array', 'itemType': DescribeTemplateResourceCountResponseBodyResourceCount },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateResourceCountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTemplateResourceCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTemplateResourceCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTemplateResourcesRequest extends $tea.Model {
   instanceId?: string;
   regionId?: string;
@@ -4840,6 +5629,243 @@ export class DescribeWafSourceIpSegmentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeWafSourceIpSegmentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysRequest extends $tea.Model {
+  instanceId?: string;
+  nextToken?: string;
+  regionId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBody extends $tea.Model {
+  keys?: ListTagKeysResponseBodyKeys[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keys: 'Keys',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keys: { 'type': 'array', 'itemType': ListTagKeysResponseBodyKeys },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesRequest extends $tea.Model {
+  key?: string;
+  nextToken?: string;
+  regionId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagValuesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagValuesResponseBody,
     };
   }
 
@@ -5515,6 +6541,78 @@ export class ModifyDomainResponse extends $tea.Model {
   }
 }
 
+export class ModifyDomainPunishStatusRequest extends $tea.Model {
+  domain?: string;
+  instanceId?: string;
+  regionId?: string;
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDomainPunishStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDomainPunishStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDomainPunishStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDomainPunishStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyHybridCloudClusterBypassStatusRequest extends $tea.Model {
   clusterResourceId?: string;
   instanceId?: string;
@@ -5977,6 +7075,153 @@ export class SyncProductInstanceResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesRequest extends $tea.Model {
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDomainRequestListen extends $tea.Model {
   certId?: string;
   cipherSuite?: number;
@@ -6152,6 +7397,43 @@ export class CreateDomainResponseBodyDomainInfo extends $tea.Model {
   }
 }
 
+export class DescribeCertDetailResponseBodyCertDetail extends $tea.Model {
+  afterDate?: number;
+  beforeDate?: number;
+  certIdentifier?: string;
+  certName?: string;
+  commonName?: string;
+  domain?: string;
+  sans?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      afterDate: 'AfterDate',
+      beforeDate: 'BeforeDate',
+      certIdentifier: 'CertIdentifier',
+      certName: 'CertName',
+      commonName: 'CommonName',
+      domain: 'Domain',
+      sans: 'Sans',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      afterDate: 'number',
+      beforeDate: 'number',
+      certIdentifier: 'string',
+      certName: 'string',
+      commonName: 'string',
+      domain: 'string',
+      sans: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCertsResponseBodyCerts extends $tea.Model {
   afterDate?: number;
   beforeDate?: number;
@@ -6232,7 +7514,102 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model
   }
 }
 
+export class DescribeDefenseResourceResponseBodyResource extends $tea.Model {
+  acwCookieStatus?: number;
+  acwSecureStatus?: number;
+  acwV3SecureStatus?: number;
+  customHeaders?: string[];
+  description?: string;
+  detail?: { [key: string]: any };
+  gmtCreate?: number;
+  gmtModified?: number;
+  ownerUserId?: string;
+  pattern?: string;
+  product?: string;
+  resource?: string;
+  resourceGroup?: string;
+  resourceManagerResourceGroupId?: string;
+  resourceOrigin?: string;
+  xffStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acwCookieStatus: 'AcwCookieStatus',
+      acwSecureStatus: 'AcwSecureStatus',
+      acwV3SecureStatus: 'AcwV3SecureStatus',
+      customHeaders: 'CustomHeaders',
+      description: 'Description',
+      detail: 'Detail',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      ownerUserId: 'OwnerUserId',
+      pattern: 'Pattern',
+      product: 'Product',
+      resource: 'Resource',
+      resourceGroup: 'ResourceGroup',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resourceOrigin: 'ResourceOrigin',
+      xffStatus: 'XffStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acwCookieStatus: 'number',
+      acwSecureStatus: 'number',
+      acwV3SecureStatus: 'number',
+      customHeaders: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      ownerUserId: 'string',
+      pattern: 'string',
+      product: 'string',
+      resource: 'string',
+      resourceGroup: 'string',
+      resourceManagerResourceGroupId: 'string',
+      resourceOrigin: 'string',
+      xffStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDefenseResourceGroupResponseBodyGroup extends $tea.Model {
+  description?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  groupName?: string;
+  resourceList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      groupName: 'GroupName',
+      resourceList: 'ResourceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      groupName: 'string',
+      resourceList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDefenseResourceGroupsResponseBodyGroups extends $tea.Model {
   description?: string;
   gmtCreate?: number;
   gmtModified?: number;
@@ -7728,6 +9105,7 @@ export class DescribeResourceLogStatusResponseBodyResult extends $tea.Model {
 export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $tea.Model {
   code302Pv?: number;
   code405Pv?: number;
+  code444Pv?: number;
   code499Pv?: number;
   code5xxPv?: number;
   index?: number;
@@ -7735,6 +9113,7 @@ export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $te
     return {
       code302Pv: '302Pv',
       code405Pv: '405Pv',
+      code444Pv: '444Pv',
       code499Pv: '499Pv',
       code5xxPv: '5xxPv',
       index: 'Index',
@@ -7745,6 +9124,7 @@ export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $te
     return {
       code302Pv: 'number',
       code405Pv: 'number',
+      code444Pv: 'number',
       code499Pv: 'number',
       code5xxPv: 'number',
       index: 'number',
@@ -7925,6 +9305,31 @@ export class DescribeRuleHitsTopUrlResponseBodyRuleHitsTopUrl extends $tea.Model
   }
 }
 
+export class DescribeTemplateResourceCountResponseBodyResourceCount extends $tea.Model {
+  groupCount?: number;
+  singleCount?: number;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupCount: 'GroupCount',
+      singleCount: 'SingleCount',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupCount: 'number',
+      singleCount: 'number',
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVisitTopIpResponseBodyTopIp extends $tea.Model {
   area?: string;
   count?: number;
@@ -7989,6 +9394,78 @@ export class DescribeWafSourceIpSegmentResponseBodyWafSourceIp extends $tea.Mode
     return {
       IPv4: { 'type': 'array', 'itemType': 'string' },
       IPv6: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBodyKeys extends $tea.Model {
+  category?: string;
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -8175,6 +9652,28 @@ export class ModifyDomainResponseBodyDomainInfo extends $tea.Model {
   }
 }
 
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -8267,6 +9766,47 @@ export default class Client extends OpenApi {
   async clearMajorProtectionBlackIp(request: ClearMajorProtectionBlackIpRequest): Promise<ClearMajorProtectionBlackIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clearMajorProtectionBlackIpWithOptions(request, runtime);
+  }
+
+  async copyDefenseTemplateWithOptions(request: CopyDefenseTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CopyDefenseTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CopyDefenseTemplate",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CopyDefenseTemplateResponse>(await this.callApi(params, req, runtime), new CopyDefenseTemplateResponse({}));
+  }
+
+  async copyDefenseTemplate(request: CopyDefenseTemplateRequest): Promise<CopyDefenseTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.copyDefenseTemplateWithOptions(request, runtime);
   }
 
   async createDefenseResourceGroupWithOptions(request: CreateDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDefenseResourceGroupResponse> {
@@ -8606,6 +10146,39 @@ export default class Client extends OpenApi {
     return await this.createMemberAccountsWithOptions(request, runtime);
   }
 
+  async createPostpaidInstanceWithOptions(request: CreatePostpaidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostpaidInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePostpaidInstance",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePostpaidInstanceResponse>(await this.callApi(params, req, runtime), new CreatePostpaidInstanceResponse({}));
+  }
+
+  async createPostpaidInstance(request: CreatePostpaidInstanceRequest): Promise<CreatePostpaidInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPostpaidInstanceWithOptions(request, runtime);
+  }
+
   async deleteDefenseResourceGroupWithOptions(request: DeleteDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDefenseResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8909,6 +10482,47 @@ export default class Client extends OpenApi {
     return await this.describeAccountDelegatedStatusWithOptions(request, runtime);
   }
 
+  async describeCertDetailWithOptions(request: DescribeCertDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCertDetail",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCertDetailResponse>(await this.callApi(params, req, runtime), new DescribeCertDetailResponse({}));
+  }
+
+  async describeCertDetail(request: DescribeCertDetailRequest): Promise<DescribeCertDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCertDetailWithOptions(request, runtime);
+  }
+
   async describeCertsWithOptions(request: DescribeCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9039,6 +10653,47 @@ export default class Client extends OpenApi {
     return await this.describeCloudResourcesWithOptions(request, runtime);
   }
 
+  async describeDefenseResourceWithOptions(request: DescribeDefenseResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDefenseResource",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDefenseResourceResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceResponse({}));
+  }
+
+  async describeDefenseResource(request: DescribeDefenseResourceRequest): Promise<DescribeDefenseResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDefenseResourceWithOptions(request, runtime);
+  }
+
   async describeDefenseResourceGroupWithOptions(request: DescribeDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9078,6 +10733,157 @@ export default class Client extends OpenApi {
   async describeDefenseResourceGroup(request: DescribeDefenseResourceGroupRequest): Promise<DescribeDefenseResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseResourceGroupWithOptions(request, runtime);
+  }
+
+  async describeDefenseResourceGroupNamesWithOptions(request: DescribeDefenseResourceGroupNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceGroupNamesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupNameLike)) {
+      query["GroupNameLike"] = request.groupNameLike;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDefenseResourceGroupNames",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDefenseResourceGroupNamesResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceGroupNamesResponse({}));
+  }
+
+  async describeDefenseResourceGroupNames(request: DescribeDefenseResourceGroupNamesRequest): Promise<DescribeDefenseResourceGroupNamesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDefenseResourceGroupNamesWithOptions(request, runtime);
+  }
+
+  async describeDefenseResourceGroupsWithOptions(request: DescribeDefenseResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupNameLike)) {
+      query["GroupNameLike"] = request.groupNameLike;
+    }
+
+    if (!Util.isUnset(request.groupNames)) {
+      query["GroupNames"] = request.groupNames;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDefenseResourceGroups",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDefenseResourceGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceGroupsResponse({}));
+  }
+
+  async describeDefenseResourceGroups(request: DescribeDefenseResourceGroupsRequest): Promise<DescribeDefenseResourceGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDefenseResourceGroupsWithOptions(request, runtime);
+  }
+
+  async describeDefenseResourceNamesWithOptions(request: DescribeDefenseResourceNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceNamesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDefenseResourceNames",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDefenseResourceNamesResponse>(await this.callApi(params, req, runtime), new DescribeDefenseResourceNamesResponse({}));
+  }
+
+  async describeDefenseResourceNames(request: DescribeDefenseResourceNamesRequest): Promise<DescribeDefenseResourceNamesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDefenseResourceNamesWithOptions(request, runtime);
   }
 
   async describeDefenseResourceTemplatesWithOptions(request: DescribeDefenseResourceTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseResourceTemplatesResponse> {
@@ -9323,6 +11129,63 @@ export default class Client extends OpenApi {
   async describeDefenseTemplate(request: DescribeDefenseTemplateRequest): Promise<DescribeDefenseTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefenseTemplateWithOptions(request, runtime);
+  }
+
+  async describeDefenseTemplateValidGroupsWithOptions(request: DescribeDefenseTemplateValidGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseTemplateValidGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defenseScene)) {
+      query["DefenseScene"] = request.defenseScene;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDefenseTemplateValidGroups",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDefenseTemplateValidGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDefenseTemplateValidGroupsResponse({}));
+  }
+
+  async describeDefenseTemplateValidGroups(request: DescribeDefenseTemplateValidGroupsRequest): Promise<DescribeDefenseTemplateValidGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDefenseTemplateValidGroupsWithOptions(request, runtime);
   }
 
   async describeDefenseTemplatesWithOptions(request: DescribeDefenseTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseTemplatesResponse> {
@@ -10092,6 +11955,47 @@ export default class Client extends OpenApi {
     return await this.describeProductInstancesWithOptions(request, runtime);
   }
 
+  async describePunishedDomainsWithOptions(request: DescribePunishedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePunishedDomainsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domains)) {
+      query["Domains"] = request.domains;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePunishedDomains",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePunishedDomainsResponse>(await this.callApi(params, req, runtime), new DescribePunishedDomainsResponse({}));
+  }
+
+  async describePunishedDomains(request: DescribePunishedDomainsRequest): Promise<DescribePunishedDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePunishedDomainsWithOptions(request, runtime);
+  }
+
   async describeResourceInstanceCertsWithOptions(request: DescribeResourceInstanceCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceInstanceCertsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10824,6 +12728,47 @@ export default class Client extends OpenApi {
     return await this.describeSlsLogStoreStatusWithOptions(request, runtime);
   }
 
+  async describeTemplateResourceCountWithOptions(request: DescribeTemplateResourceCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateResourceCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateIds)) {
+      query["TemplateIds"] = request.templateIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTemplateResourceCount",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTemplateResourceCountResponse>(await this.callApi(params, req, runtime), new DescribeTemplateResourceCountResponse({}));
+  }
+
+  async describeTemplateResourceCount(request: DescribeTemplateResourceCountRequest): Promise<DescribeTemplateResourceCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTemplateResourceCountWithOptions(request, runtime);
+  }
+
   async describeTemplateResourcesWithOptions(request: DescribeTemplateResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11072,6 +13017,133 @@ export default class Client extends OpenApi {
   async describeWafSourceIpSegment(request: DescribeWafSourceIpSegmentRequest): Promise<DescribeWafSourceIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWafSourceIpSegmentWithOptions(request, runtime);
+  }
+
+  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagKeys",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+  }
+
+  async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagKeysWithOptions(request, runtime);
+  }
+
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagValues",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+  }
+
+  async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagValuesWithOptions(request, runtime);
   }
 
   async modifyDefenseResourceGroupWithOptions(request: ModifyDefenseResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefenseResourceGroupResponse> {
@@ -11484,6 +13556,47 @@ export default class Client extends OpenApi {
     return await this.modifyDomainWithOptions(request, runtime);
   }
 
+  async modifyDomainPunishStatusWithOptions(request: ModifyDomainPunishStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainPunishStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDomainPunishStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDomainPunishStatusResponse>(await this.callApi(params, req, runtime), new ModifyDomainPunishStatusResponse({}));
+  }
+
+  async modifyDomainPunishStatus(request: ModifyDomainPunishStatusRequest): Promise<ModifyDomainPunishStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDomainPunishStatusWithOptions(request, runtime);
+  }
+
   async modifyHybridCloudClusterBypassStatusWithOptions(request: ModifyHybridCloudClusterBypassStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHybridCloudClusterBypassStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11777,6 +13890,92 @@ export default class Client extends OpenApi {
   async syncProductInstance(request: SyncProductInstanceRequest): Promise<SyncProductInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.syncProductInstanceWithOptions(request, runtime);
+  }
+
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
 }
