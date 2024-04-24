@@ -5706,6 +5706,7 @@ export class MigrateClusterResponse extends $tea.Model {
 
 export class ModifyClusterRequest extends $tea.Model {
   accessControlList?: string[];
+  apiServerCustomCertSans?: ModifyClusterRequestApiServerCustomCertSans;
   apiServerEip?: boolean;
   apiServerEipId?: string;
   clusterName?: string;
@@ -5721,6 +5722,7 @@ export class ModifyClusterRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accessControlList: 'access_control_list',
+      apiServerCustomCertSans: 'api_server_custom_cert_sans',
       apiServerEip: 'api_server_eip',
       apiServerEipId: 'api_server_eip_id',
       clusterName: 'cluster_name',
@@ -5739,6 +5741,7 @@ export class ModifyClusterRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accessControlList: { 'type': 'array', 'itemType': 'string' },
+      apiServerCustomCertSans: ModifyClusterRequestApiServerCustomCertSans,
       apiServerEip: 'boolean',
       apiServerEipId: 'string',
       clusterName: 'string',
@@ -12459,6 +12462,28 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ModifyClusterRequestApiServerCustomCertSans extends $tea.Model {
+  action?: string;
+  subjectAlternativeNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+      subjectAlternativeNames: 'subject_alternative_names',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      subjectAlternativeNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyClusterRequestOperationPolicyClusterAutoUpgrade extends $tea.Model {
   channel?: string;
   enabled?: boolean;
@@ -16830,6 +16855,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accessControlList)) {
       body["access_control_list"] = request.accessControlList;
+    }
+
+    if (!Util.isUnset(request.apiServerCustomCertSans)) {
+      body["api_server_custom_cert_sans"] = request.apiServerCustomCertSans;
     }
 
     if (!Util.isUnset(request.apiServerEip)) {
