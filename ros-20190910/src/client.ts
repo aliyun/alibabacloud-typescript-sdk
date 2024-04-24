@@ -8049,11 +8049,13 @@ export class CreateTemplateScratchRequestSourceResourceGroup extends $tea.Model 
 
 export class CreateTemplateScratchRequestSourceResources extends $tea.Model {
   regionId?: string;
+  relatedResourceTypeFilter?: string[];
   resourceId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      relatedResourceTypeFilter: 'RelatedResourceTypeFilter',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
     };
@@ -8062,6 +8064,7 @@ export class CreateTemplateScratchRequestSourceResources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      relatedResourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
       resourceId: 'string',
       resourceType: 'string',
     };
@@ -9822,10 +9825,12 @@ export class GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup ex
 }
 
 export class GetTemplateScratchResponseBodyTemplateScratchSourceResources extends $tea.Model {
+  relatedResourceTypeFilter?: string[];
   resourceId?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      relatedResourceTypeFilter: 'RelatedResourceTypeFilter',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
     };
@@ -9833,6 +9838,7 @@ export class GetTemplateScratchResponseBodyTemplateScratchSourceResources extend
 
   static types(): { [key: string]: any } {
     return {
+      relatedResourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
       resourceId: 'string',
       resourceType: 'string',
     };
