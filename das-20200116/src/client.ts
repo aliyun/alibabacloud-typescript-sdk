@@ -189,9 +189,9 @@ export class AddHDMInstanceResponseBody extends $tea.Model {
 }
 
 export class AddHDMInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddHDMInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddHDMInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -297,9 +297,9 @@ export class CreateAdamBenchTaskResponseBody extends $tea.Model {
 }
 
 export class CreateAdamBenchTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAdamBenchTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAdamBenchTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -381,9 +381,9 @@ export class CreateCacheAnalysisJobResponseBody extends $tea.Model {
 }
 
 export class CreateCacheAnalysisJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCacheAnalysisJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCacheAnalysisJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -534,9 +534,9 @@ export class CreateCloudBenchTasksResponseBody extends $tea.Model {
 }
 
 export class CreateCloudBenchTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCloudBenchTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCloudBenchTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -615,9 +615,9 @@ export class CreateDiagnosticReportResponseBody extends $tea.Model {
 }
 
 export class CreateDiagnosticReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDiagnosticReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiagnosticReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -708,9 +708,9 @@ export class CreateKillInstanceSessionTaskResponseBody extends $tea.Model {
 }
 
 export class CreateKillInstanceSessionTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateKillInstanceSessionTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateKillInstanceSessionTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -795,9 +795,9 @@ export class CreateKillInstanceSessionTaskWithMaintainUserResponseBody extends $
 }
 
 export class CreateKillInstanceSessionTaskWithMaintainUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateKillInstanceSessionTaskWithMaintainUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateKillInstanceSessionTaskWithMaintainUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -885,9 +885,9 @@ export class CreateQueryOptimizeTagResponseBody extends $tea.Model {
 }
 
 export class CreateQueryOptimizeTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQueryOptimizeTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQueryOptimizeTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -969,9 +969,9 @@ export class CreateRequestDiagnosisResponseBody extends $tea.Model {
 }
 
 export class CreateRequestDiagnosisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRequestDiagnosisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRequestDiagnosisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -985,6 +985,102 @@ export class CreateRequestDiagnosisResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateRequestDiagnosisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlLogTaskRequest extends $tea.Model {
+  endTime?: number;
+  filters?: CreateSqlLogTaskRequestFilters[];
+  instanceId?: string;
+  name?: string;
+  nodeId?: string;
+  role?: string;
+  startTime?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      filters: 'Filters',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      nodeId: 'NodeId',
+      role: 'Role',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      filters: { 'type': 'array', 'itemType': CreateSqlLogTaskRequestFilters },
+      instanceId: 'string',
+      name: 'string',
+      nodeId: 'string',
+      role: 'string',
+      startTime: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlLogTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateSqlLogTaskResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateSqlLogTaskResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlLogTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSqlLogTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSqlLogTaskResponseBody,
     };
   }
 
@@ -1053,9 +1149,9 @@ export class CreateStorageAnalysisTaskResponseBody extends $tea.Model {
 }
 
 export class CreateStorageAnalysisTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateStorageAnalysisTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateStorageAnalysisTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1128,9 +1224,9 @@ export class DeleteCloudBenchTaskResponseBody extends $tea.Model {
 }
 
 export class DeleteCloudBenchTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteCloudBenchTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCloudBenchTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1203,9 +1299,9 @@ export class DeleteStopGatewayResponseBody extends $tea.Model {
 }
 
 export class DeleteStopGatewayResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteStopGatewayResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteStopGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1278,9 +1374,9 @@ export class DescribeAutoScalingConfigResponseBody extends $tea.Model {
 }
 
 export class DescribeAutoScalingConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAutoScalingConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAutoScalingConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1362,9 +1458,9 @@ export class DescribeAutoScalingHistoryResponseBody extends $tea.Model {
 }
 
 export class DescribeAutoScalingHistoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeAutoScalingHistoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAutoScalingHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1440,9 +1536,9 @@ export class DescribeCacheAnalysisJobResponseBody extends $tea.Model {
 }
 
 export class DescribeCacheAnalysisJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCacheAnalysisJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCacheAnalysisJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1527,9 +1623,9 @@ export class DescribeCacheAnalysisJobsResponseBody extends $tea.Model {
 }
 
 export class DescribeCacheAnalysisJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCacheAnalysisJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCacheAnalysisJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1617,9 +1713,9 @@ export class DescribeCloudBenchTasksResponseBody extends $tea.Model {
 }
 
 export class DescribeCloudBenchTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCloudBenchTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudBenchTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1692,9 +1788,9 @@ export class DescribeCloudbenchTaskResponseBody extends $tea.Model {
 }
 
 export class DescribeCloudbenchTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCloudbenchTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudbenchTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1767,9 +1863,9 @@ export class DescribeCloudbenchTaskConfigResponseBody extends $tea.Model {
 }
 
 export class DescribeCloudbenchTaskConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCloudbenchTaskConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudbenchTaskConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1857,9 +1953,9 @@ export class DescribeDiagnosticReportListResponseBody extends $tea.Model {
 }
 
 export class DescribeDiagnosticReportListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDiagnosticReportListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiagnosticReportListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1938,9 +2034,9 @@ export class DescribeHotBigKeysResponseBody extends $tea.Model {
 }
 
 export class DescribeHotBigKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHotBigKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHotBigKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2016,9 +2112,9 @@ export class DescribeHotKeysResponseBody extends $tea.Model {
 }
 
 export class DescribeHotKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeHotKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHotKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2091,9 +2187,9 @@ export class DescribeInstanceDasProResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceDasProResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceDasProResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceDasProResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2107,6 +2203,429 @@ export class DescribeInstanceDasProResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstanceDasProResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogConfigRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeSqlLogConfigResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeSqlLogConfigResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSqlLogConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSqlLogConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogRecordsRequest extends $tea.Model {
+  endTime?: number;
+  filters?: DescribeSqlLogRecordsRequestFilters[];
+  instanceId?: string;
+  nodeId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  role?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      filters: 'Filters',
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      role: 'Role',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      filters: { 'type': 'array', 'itemType': DescribeSqlLogRecordsRequestFilters },
+      instanceId: 'string',
+      nodeId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      role: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogRecordsResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeSqlLogRecordsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeSqlLogRecordsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogRecordsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSqlLogRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSqlLogRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogStatisticRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogStatisticResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeSqlLogStatisticResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeSqlLogStatisticResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSqlLogStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSqlLogStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTaskRequest extends $tea.Model {
+  instanceId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeSqlLogTaskResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeSqlLogTaskResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSqlLogTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSqlLogTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTasksRequest extends $tea.Model {
+  endTime?: number;
+  filters?: DescribeSqlLogTasksRequestFilters[];
+  instanceId?: string;
+  nodeId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      filters: 'Filters',
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      filters: { 'type': 'array', 'itemType': DescribeSqlLogTasksRequestFilters },
+      instanceId: 'string',
+      nodeId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTasksResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeSqlLogTasksResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeSqlLogTasksResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSqlLogTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSqlLogTasksResponseBody,
     };
   }
 
@@ -2178,9 +2697,9 @@ export class DescribeTopBigKeysResponseBody extends $tea.Model {
 }
 
 export class DescribeTopBigKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTopBigKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTopBigKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2265,9 +2784,9 @@ export class DescribeTopHotKeysResponseBody extends $tea.Model {
 }
 
 export class DescribeTopHotKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTopHotKeysResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTopHotKeysResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2343,9 +2862,9 @@ export class DisableAllSqlConcurrencyControlRulesResponseBody extends $tea.Model
 }
 
 export class DisableAllSqlConcurrencyControlRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableAllSqlConcurrencyControlRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableAllSqlConcurrencyControlRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2421,9 +2940,9 @@ export class DisableAutoResourceOptimizeRulesResponseBody extends $tea.Model {
 }
 
 export class DisableAutoResourceOptimizeRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableAutoResourceOptimizeRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableAutoResourceOptimizeRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2499,9 +3018,9 @@ export class DisableAutoThrottleRulesResponseBody extends $tea.Model {
 }
 
 export class DisableAutoThrottleRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableAutoThrottleRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableAutoThrottleRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2580,9 +3099,9 @@ export class DisableDasProResponseBody extends $tea.Model {
 }
 
 export class DisableDasProResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableDasProResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableDasProResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2661,9 +3180,9 @@ export class DisableInstanceDasConfigResponseBody extends $tea.Model {
 }
 
 export class DisableInstanceDasConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableInstanceDasConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableInstanceDasConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2742,9 +3261,9 @@ export class DisableSqlConcurrencyControlResponseBody extends $tea.Model {
 }
 
 export class DisableSqlConcurrencyControlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableSqlConcurrencyControlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableSqlConcurrencyControlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2826,9 +3345,9 @@ export class EnableDasProResponseBody extends $tea.Model {
 }
 
 export class EnableDasProResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableDasProResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableDasProResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2916,9 +3435,9 @@ export class EnableSqlConcurrencyControlResponseBody extends $tea.Model {
 }
 
 export class EnableSqlConcurrencyControlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableSqlConcurrencyControlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableSqlConcurrencyControlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3003,9 +3522,9 @@ export class GetAsyncErrorRequestListByCodeResponseBody extends $tea.Model {
 }
 
 export class GetAsyncErrorRequestListByCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAsyncErrorRequestListByCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAsyncErrorRequestListByCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3090,9 +3609,9 @@ export class GetAsyncErrorRequestStatByCodeResponseBody extends $tea.Model {
 }
 
 export class GetAsyncErrorRequestStatByCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAsyncErrorRequestStatByCodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAsyncErrorRequestStatByCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3180,9 +3699,9 @@ export class GetAsyncErrorRequestStatResultResponseBody extends $tea.Model {
 }
 
 export class GetAsyncErrorRequestStatResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAsyncErrorRequestStatResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAsyncErrorRequestStatResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3264,9 +3783,9 @@ export class GetAutoIncrementUsageStatisticResponseBody extends $tea.Model {
 }
 
 export class GetAutoIncrementUsageStatisticResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAutoIncrementUsageStatisticResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAutoIncrementUsageStatisticResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3342,9 +3861,9 @@ export class GetAutoResourceOptimizeRulesResponseBody extends $tea.Model {
 }
 
 export class GetAutoResourceOptimizeRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAutoResourceOptimizeRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAutoResourceOptimizeRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3420,9 +3939,9 @@ export class GetAutoThrottleRulesResponseBody extends $tea.Model {
 }
 
 export class GetAutoThrottleRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAutoThrottleRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAutoThrottleRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3501,9 +4020,9 @@ export class GetAutonomousNotifyEventContentResponseBody extends $tea.Model {
 }
 
 export class GetAutonomousNotifyEventContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAutonomousNotifyEventContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAutonomousNotifyEventContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3603,9 +4122,9 @@ export class GetAutonomousNotifyEventsInRangeResponseBody extends $tea.Model {
 }
 
 export class GetAutonomousNotifyEventsInRangeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAutonomousNotifyEventsInRangeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAutonomousNotifyEventsInRangeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3696,9 +4215,9 @@ export class GetBlockingDetailListResponseBody extends $tea.Model {
 }
 
 export class GetBlockingDetailListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetBlockingDetailListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetBlockingDetailListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3774,9 +4293,9 @@ export class GetDBInstanceConnectivityDiagnosisResponseBody extends $tea.Model {
 }
 
 export class GetDBInstanceConnectivityDiagnosisResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDBInstanceConnectivityDiagnosisResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDBInstanceConnectivityDiagnosisResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3852,9 +4371,9 @@ export class GetDasProServiceUsageResponseBody extends $tea.Model {
 }
 
 export class GetDasProServiceUsageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDasProServiceUsageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDasProServiceUsageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4008,9 +4527,9 @@ export class GetDasSQLLogHotDataResponseBody extends $tea.Model {
 }
 
 export class GetDasSQLLogHotDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDasSQLLogHotDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDasSQLLogHotDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4098,9 +4617,9 @@ export class GetDeadLockDetailListResponseBody extends $tea.Model {
 }
 
 export class GetDeadLockDetailListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDeadLockDetailListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeadLockDetailListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4197,9 +4716,9 @@ export class GetEndpointSwitchTaskResponseBody extends $tea.Model {
 }
 
 export class GetEndpointSwitchTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEndpointSwitchTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEndpointSwitchTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4287,9 +4806,9 @@ export class GetErrorRequestSampleResponseBody extends $tea.Model {
 }
 
 export class GetErrorRequestSampleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetErrorRequestSampleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErrorRequestSampleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4362,9 +4881,9 @@ export class GetEventSubscriptionResponseBody extends $tea.Model {
 }
 
 export class GetEventSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetEventSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEventSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4467,9 +4986,9 @@ export class GetFullRequestOriginStatByInstanceIdResponseBody extends $tea.Model
 }
 
 export class GetFullRequestOriginStatByInstanceIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFullRequestOriginStatByInstanceIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFullRequestOriginStatByInstanceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4557,9 +5076,9 @@ export class GetFullRequestSampleByInstanceIdResponseBody extends $tea.Model {
 }
 
 export class GetFullRequestSampleByInstanceIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFullRequestSampleByInstanceIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFullRequestSampleByInstanceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4674,9 +5193,9 @@ export class GetFullRequestStatResultByInstanceIdResponseBody extends $tea.Model
 }
 
 export class GetFullRequestStatResultByInstanceIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFullRequestStatResultByInstanceIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFullRequestStatResultByInstanceIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4773,9 +5292,9 @@ export class GetHDMAliyunResourceSyncResultResponseBody extends $tea.Model {
 }
 
 export class GetHDMAliyunResourceSyncResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHDMAliyunResourceSyncResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHDMAliyunResourceSyncResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4869,9 +5388,9 @@ export class GetHDMLastAliyunResourceSyncResultResponseBody extends $tea.Model {
 }
 
 export class GetHDMLastAliyunResourceSyncResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHDMLastAliyunResourceSyncResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHDMLastAliyunResourceSyncResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4965,9 +5484,9 @@ export class GetInstanceInspectionsResponseBody extends $tea.Model {
 }
 
 export class GetInstanceInspectionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceInspectionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceInspectionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5082,9 +5601,9 @@ export class GetInstanceMissingIndexListResponseBody extends $tea.Model {
 }
 
 export class GetInstanceMissingIndexListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceMissingIndexListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceMissingIndexListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5175,9 +5694,9 @@ export class GetInstanceSqlOptimizeStatisticResponseBody extends $tea.Model {
 }
 
 export class GetInstanceSqlOptimizeStatisticResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceSqlOptimizeStatisticResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceSqlOptimizeStatisticResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5256,9 +5775,9 @@ export class GetKillInstanceSessionTaskResultResponseBody extends $tea.Model {
 }
 
 export class GetKillInstanceSessionTaskResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetKillInstanceSessionTaskResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetKillInstanceSessionTaskResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5340,9 +5859,9 @@ export class GetMongoDBCurrentOpResponseBody extends $tea.Model {
 }
 
 export class GetMongoDBCurrentOpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMongoDBCurrentOpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMongoDBCurrentOpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5421,9 +5940,9 @@ export class GetMySQLAllSessionAsyncResponseBody extends $tea.Model {
 }
 
 export class GetMySQLAllSessionAsyncResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMySQLAllSessionAsyncResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMySQLAllSessionAsyncResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5505,9 +6024,9 @@ export class GetPartitionsHeatmapResponseBody extends $tea.Model {
 }
 
 export class GetPartitionsHeatmapResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPartitionsHeatmapResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPartitionsHeatmapResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5592,9 +6111,9 @@ export class GetPfsMetricTrendsResponseBody extends $tea.Model {
 }
 
 export class GetPfsMetricTrendsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPfsMetricTrendsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPfsMetricTrendsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5679,9 +6198,9 @@ export class GetPfsSqlSampleResponseBody extends $tea.Model {
 }
 
 export class GetPfsSqlSampleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPfsSqlSampleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPfsSqlSampleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5781,9 +6300,9 @@ export class GetPfsSqlSummariesResponseBody extends $tea.Model {
 }
 
 export class GetPfsSqlSummariesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPfsSqlSummariesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPfsSqlSummariesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5901,9 +6420,9 @@ export class GetQueryOptimizeDataStatsResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeDataStatsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeDataStatsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeDataStatsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5991,9 +6510,9 @@ export class GetQueryOptimizeDataTopResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeDataTopResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeDataTopResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeDataTopResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6081,9 +6600,9 @@ export class GetQueryOptimizeDataTrendResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeDataTrendResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeDataTrendResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeDataTrendResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6165,9 +6684,9 @@ export class GetQueryOptimizeExecErrorSampleResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeExecErrorSampleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeExecErrorSampleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeExecErrorSampleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6270,9 +6789,9 @@ export class GetQueryOptimizeExecErrorStatsResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeExecErrorStatsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeExecErrorStatsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeExecErrorStatsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6354,9 +6873,9 @@ export class GetQueryOptimizeRuleListResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeRuleListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeRuleListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeRuleListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6474,9 +6993,9 @@ export class GetQueryOptimizeShareUrlResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeShareUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeShareUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeShareUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6558,9 +7077,9 @@ export class GetQueryOptimizeSolutionResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeSolutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeSolutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeSolutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6639,9 +7158,9 @@ export class GetQueryOptimizeTagResponseBody extends $tea.Model {
 }
 
 export class GetQueryOptimizeTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueryOptimizeTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueryOptimizeTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6717,9 +7236,9 @@ export class GetRedisAllSessionResponseBody extends $tea.Model {
 }
 
 export class GetRedisAllSessionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRedisAllSessionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRedisAllSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6807,9 +7326,9 @@ export class GetRequestDiagnosisPageResponseBody extends $tea.Model {
 }
 
 export class GetRequestDiagnosisPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRequestDiagnosisPageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRequestDiagnosisPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6894,9 +7413,9 @@ export class GetRequestDiagnosisResultResponseBody extends $tea.Model {
 }
 
 export class GetRequestDiagnosisResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRequestDiagnosisResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRequestDiagnosisResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6978,9 +7497,9 @@ export class GetRunningSqlConcurrencyControlRulesResponseBody extends $tea.Model
 }
 
 export class GetRunningSqlConcurrencyControlRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRunningSqlConcurrencyControlRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRunningSqlConcurrencyControlRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7059,9 +7578,9 @@ export class GetSqlConcurrencyControlKeywordsFromSqlTextResponseBody extends $te
 }
 
 export class GetSqlConcurrencyControlKeywordsFromSqlTextResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSqlConcurrencyControlKeywordsFromSqlTextResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSqlConcurrencyControlKeywordsFromSqlTextResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7143,9 +7662,9 @@ export class GetSqlConcurrencyControlRulesHistoryResponseBody extends $tea.Model
 }
 
 export class GetSqlConcurrencyControlRulesHistoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSqlConcurrencyControlRulesHistoryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSqlConcurrencyControlRulesHistoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7233,9 +7752,9 @@ export class GetSqlOptimizeAdviceResponseBody extends $tea.Model {
 }
 
 export class GetSqlOptimizeAdviceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSqlOptimizeAdviceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSqlOptimizeAdviceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7314,9 +7833,9 @@ export class GetStorageAnalysisResultResponseBody extends $tea.Model {
 }
 
 export class GetStorageAnalysisResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetStorageAnalysisResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetStorageAnalysisResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7392,9 +7911,9 @@ export class KillInstanceAllSessionResponseBody extends $tea.Model {
 }
 
 export class KillInstanceAllSessionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: KillInstanceAllSessionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: KillInstanceAllSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7479,9 +7998,9 @@ export class ModifyAutoScalingConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyAutoScalingConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAutoScalingConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAutoScalingConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7495,6 +8014,96 @@ export class ModifyAutoScalingConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAutoScalingConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySqlLogConfigRequest extends $tea.Model {
+  enable?: boolean;
+  filters?: ModifySqlLogConfigRequestFilters[];
+  hotRetention?: number;
+  instanceId?: string;
+  requestEnable?: boolean;
+  retention?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      filters: 'Filters',
+      hotRetention: 'HotRetention',
+      instanceId: 'InstanceId',
+      requestEnable: 'RequestEnable',
+      retention: 'Retention',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      filters: { 'type': 'array', 'itemType': ModifySqlLogConfigRequestFilters },
+      hotRetention: 'number',
+      instanceId: 'string',
+      requestEnable: 'boolean',
+      retention: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySqlLogConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: ModifySqlLogConfigResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ModifySqlLogConfigResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySqlLogConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySqlLogConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifySqlLogConfigResponseBody,
     };
   }
 
@@ -7554,9 +8163,9 @@ export class RunCloudBenchTaskResponseBody extends $tea.Model {
 }
 
 export class RunCloudBenchTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RunCloudBenchTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunCloudBenchTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7659,9 +8268,9 @@ export class SetEventSubscriptionResponseBody extends $tea.Model {
 }
 
 export class SetEventSubscriptionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetEventSubscriptionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetEventSubscriptionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7734,9 +8343,9 @@ export class StopCloudBenchTaskResponseBody extends $tea.Model {
 }
 
 export class StopCloudBenchTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopCloudBenchTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopCloudBenchTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7839,9 +8448,9 @@ export class SyncHDMAliyunResourceResponseBody extends $tea.Model {
 }
 
 export class SyncHDMAliyunResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SyncHDMAliyunResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SyncHDMAliyunResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7926,9 +8535,9 @@ export class UpdateAutoResourceOptimizeRulesAsyncResponseBody extends $tea.Model
 }
 
 export class UpdateAutoResourceOptimizeRulesAsyncResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAutoResourceOptimizeRulesAsyncResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAutoResourceOptimizeRulesAsyncResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8004,9 +8613,9 @@ export class UpdateAutoSqlOptimizeStatusResponseBody extends $tea.Model {
 }
 
 export class UpdateAutoSqlOptimizeStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAutoSqlOptimizeStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAutoSqlOptimizeStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8109,9 +8718,9 @@ export class UpdateAutoThrottleRulesAsyncResponseBody extends $tea.Model {
 }
 
 export class UpdateAutoThrottleRulesAsyncResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAutoThrottleRulesAsyncResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAutoThrottleRulesAsyncResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8289,6 +8898,65 @@ export class CreateCloudBenchTasksResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       taskIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlLogTaskRequestFilters extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSqlLogTaskResponseBodyData extends $tea.Model {
+  createTime?: number;
+  end?: number;
+  instanceId?: string;
+  name?: string;
+  start?: number;
+  status?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      end: 'End',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      start: 'Start',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      end: 'number',
+      instanceId: 'string',
+      name: 'string',
+      start: 'number',
+      status: 'string',
+      taskId: 'string',
     };
   }
 
@@ -9643,6 +10311,619 @@ export class DescribeHotKeysResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       hotKey: { 'type': 'array', 'itemType': DescribeHotKeysResponseBodyDataHotKey },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogConfigResponseBodyData extends $tea.Model {
+  coldEnable?: boolean;
+  coldRetention?: number;
+  coldStartTime?: number;
+  collectorVersion?: string;
+  hotEnable?: boolean;
+  hotRetention?: number;
+  hotStartTime?: number;
+  logFilter?: string;
+  requestEnable?: boolean;
+  requestStartTime?: number;
+  requestStopTime?: number;
+  retention?: number;
+  sqlLogEnable?: boolean;
+  sqlLogState?: string;
+  sqlLogVisibleTime?: number;
+  supportVersion?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coldEnable: 'ColdEnable',
+      coldRetention: 'ColdRetention',
+      coldStartTime: 'ColdStartTime',
+      collectorVersion: 'CollectorVersion',
+      hotEnable: 'HotEnable',
+      hotRetention: 'HotRetention',
+      hotStartTime: 'HotStartTime',
+      logFilter: 'LogFilter',
+      requestEnable: 'RequestEnable',
+      requestStartTime: 'RequestStartTime',
+      requestStopTime: 'RequestStopTime',
+      retention: 'Retention',
+      sqlLogEnable: 'SqlLogEnable',
+      sqlLogState: 'SqlLogState',
+      sqlLogVisibleTime: 'SqlLogVisibleTime',
+      supportVersion: 'SupportVersion',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coldEnable: 'boolean',
+      coldRetention: 'number',
+      coldStartTime: 'number',
+      collectorVersion: 'string',
+      hotEnable: 'boolean',
+      hotRetention: 'number',
+      hotStartTime: 'number',
+      logFilter: 'string',
+      requestEnable: 'boolean',
+      requestStartTime: 'number',
+      requestStopTime: 'number',
+      retention: 'number',
+      sqlLogEnable: 'boolean',
+      sqlLogState: 'string',
+      sqlLogVisibleTime: 'number',
+      supportVersion: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogRecordsRequestFilters extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $tea.Model {
+  accountName?: string;
+  collection?: string;
+  consume?: number;
+  cpuTime?: number;
+  DBName?: string;
+  executeTime?: string;
+  ext?: string;
+  frows?: number;
+  hostAddress?: string;
+  lockTime?: number;
+  logicRead?: number;
+  nodeId?: string;
+  originTime?: number;
+  parallelDegree?: string;
+  parallelQueueTime?: string;
+  physicAsyncRead?: number;
+  physicRead?: number;
+  physicSyncRead?: number;
+  returnRows?: number;
+  rows?: number;
+  scanRows?: number;
+  scnt?: number;
+  sqlId?: string;
+  sqlText?: string;
+  sqlType?: string;
+  state?: string;
+  threadId?: number;
+  traceId?: string;
+  trxId?: number;
+  updateRows?: number;
+  useImciEngine?: string;
+  vip?: string;
+  writes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      collection: 'Collection',
+      consume: 'Consume',
+      cpuTime: 'CpuTime',
+      DBName: 'DBName',
+      executeTime: 'ExecuteTime',
+      ext: 'Ext',
+      frows: 'Frows',
+      hostAddress: 'HostAddress',
+      lockTime: 'LockTime',
+      logicRead: 'LogicRead',
+      nodeId: 'NodeId',
+      originTime: 'OriginTime',
+      parallelDegree: 'ParallelDegree',
+      parallelQueueTime: 'ParallelQueueTime',
+      physicAsyncRead: 'PhysicAsyncRead',
+      physicRead: 'PhysicRead',
+      physicSyncRead: 'PhysicSyncRead',
+      returnRows: 'ReturnRows',
+      rows: 'Rows',
+      scanRows: 'ScanRows',
+      scnt: 'Scnt',
+      sqlId: 'SqlId',
+      sqlText: 'SqlText',
+      sqlType: 'SqlType',
+      state: 'State',
+      threadId: 'ThreadId',
+      traceId: 'TraceId',
+      trxId: 'TrxId',
+      updateRows: 'UpdateRows',
+      useImciEngine: 'UseImciEngine',
+      vip: 'Vip',
+      writes: 'Writes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      collection: 'string',
+      consume: 'number',
+      cpuTime: 'number',
+      DBName: 'string',
+      executeTime: 'string',
+      ext: 'string',
+      frows: 'number',
+      hostAddress: 'string',
+      lockTime: 'number',
+      logicRead: 'number',
+      nodeId: 'string',
+      originTime: 'number',
+      parallelDegree: 'string',
+      parallelQueueTime: 'string',
+      physicAsyncRead: 'number',
+      physicRead: 'number',
+      physicSyncRead: 'number',
+      returnRows: 'number',
+      rows: 'number',
+      scanRows: 'number',
+      scnt: 'number',
+      sqlId: 'string',
+      sqlText: 'string',
+      sqlType: 'string',
+      state: 'string',
+      threadId: 'number',
+      traceId: 'string',
+      trxId: 'number',
+      updateRows: 'number',
+      useImciEngine: 'string',
+      vip: 'string',
+      writes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogRecordsResponseBodyDataItems extends $tea.Model {
+  SQLLogRecord?: DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord[];
+  static names(): { [key: string]: string } {
+    return {
+      SQLLogRecord: 'SQLLogRecord',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SQLLogRecord: { 'type': 'array', 'itemType': DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogRecordsResponseBodyData extends $tea.Model {
+  endTime?: number;
+  finish?: string;
+  items?: DescribeSqlLogRecordsResponseBodyDataItems;
+  jobId?: string;
+  startTime?: number;
+  totalRecords?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      finish: 'Finish',
+      items: 'Items',
+      jobId: 'JobId',
+      startTime: 'StartTime',
+      totalRecords: 'TotalRecords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      finish: 'string',
+      items: DescribeSqlLogRecordsResponseBodyDataItems,
+      jobId: 'string',
+      startTime: 'number',
+      totalRecords: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogStatisticResponseBodyData extends $tea.Model {
+  coldSqlSize?: number;
+  freeColdSqlSize?: number;
+  freeHotSqlSize?: number;
+  hotSqlSize?: number;
+  importSqlSize?: number;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coldSqlSize: 'ColdSqlSize',
+      freeColdSqlSize: 'FreeColdSqlSize',
+      freeHotSqlSize: 'FreeHotSqlSize',
+      hotSqlSize: 'HotSqlSize',
+      importSqlSize: 'ImportSqlSize',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coldSqlSize: 'number',
+      freeColdSqlSize: 'number',
+      freeHotSqlSize: 'number',
+      hotSqlSize: 'number',
+      importSqlSize: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTaskResponseBodyDataFilters extends $tea.Model {
+  key?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTaskResponseBodyDataQueries extends $tea.Model {
+  accountName?: string;
+  consume?: number;
+  cpuTime?: number;
+  DBName?: string;
+  executeTime?: string;
+  ext?: string;
+  frows?: number;
+  hostAddress?: string;
+  lockTime?: number;
+  logicRead?: number;
+  nodeId?: string;
+  originTime?: number;
+  parallelDegree?: string;
+  parallelQueueTime?: string;
+  physicAsyncRead?: number;
+  physicRead?: number;
+  physicSyncRead?: number;
+  returnRows?: number;
+  rows?: number;
+  scanRows?: number;
+  scnt?: number;
+  sqlId?: string;
+  sqlText?: string;
+  sqlType?: string;
+  state?: string;
+  threadId?: number;
+  traceId?: string;
+  trxId?: number;
+  updateRows?: number;
+  useImciEngine?: string;
+  vip?: string;
+  writes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      consume: 'Consume',
+      cpuTime: 'CpuTime',
+      DBName: 'DBName',
+      executeTime: 'ExecuteTime',
+      ext: 'Ext',
+      frows: 'Frows',
+      hostAddress: 'HostAddress',
+      lockTime: 'LockTime',
+      logicRead: 'LogicRead',
+      nodeId: 'NodeId',
+      originTime: 'OriginTime',
+      parallelDegree: 'ParallelDegree',
+      parallelQueueTime: 'ParallelQueueTime',
+      physicAsyncRead: 'PhysicAsyncRead',
+      physicRead: 'PhysicRead',
+      physicSyncRead: 'PhysicSyncRead',
+      returnRows: 'ReturnRows',
+      rows: 'Rows',
+      scanRows: 'ScanRows',
+      scnt: 'Scnt',
+      sqlId: 'SqlId',
+      sqlText: 'SqlText',
+      sqlType: 'SqlType',
+      state: 'State',
+      threadId: 'ThreadId',
+      traceId: 'TraceId',
+      trxId: 'TrxId',
+      updateRows: 'UpdateRows',
+      useImciEngine: 'UseImciEngine',
+      vip: 'Vip',
+      writes: 'Writes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      consume: 'number',
+      cpuTime: 'number',
+      DBName: 'string',
+      executeTime: 'string',
+      ext: 'string',
+      frows: 'number',
+      hostAddress: 'string',
+      lockTime: 'number',
+      logicRead: 'number',
+      nodeId: 'string',
+      originTime: 'number',
+      parallelDegree: 'string',
+      parallelQueueTime: 'string',
+      physicAsyncRead: 'number',
+      physicRead: 'number',
+      physicSyncRead: 'number',
+      returnRows: 'number',
+      rows: 'number',
+      scanRows: 'number',
+      scnt: 'number',
+      sqlId: 'string',
+      sqlText: 'string',
+      sqlType: 'string',
+      state: 'string',
+      threadId: 'number',
+      traceId: 'string',
+      trxId: 'number',
+      updateRows: 'number',
+      useImciEngine: 'string',
+      vip: 'string',
+      writes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTaskResponseBodyData extends $tea.Model {
+  createTime?: number;
+  end?: number;
+  expire?: boolean;
+  export?: string;
+  filters?: DescribeSqlLogTaskResponseBodyDataFilters[];
+  name?: string;
+  queries?: DescribeSqlLogTaskResponseBodyDataQueries[];
+  start?: number;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      end: 'End',
+      expire: 'Expire',
+      export: 'Export',
+      filters: 'Filters',
+      name: 'Name',
+      queries: 'Queries',
+      start: 'Start',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      end: 'number',
+      expire: 'boolean',
+      export: 'string',
+      filters: { 'type': 'array', 'itemType': DescribeSqlLogTaskResponseBodyDataFilters },
+      name: 'string',
+      queries: { 'type': 'array', 'itemType': DescribeSqlLogTaskResponseBodyDataQueries },
+      start: 'number',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTasksRequestFilters extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTasksResponseBodyDataListFilters extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTasksResponseBodyDataList extends $tea.Model {
+  analysisTaskFinishTime?: number;
+  analysisTaskStatus?: string;
+  createTime?: number;
+  end?: number;
+  expire?: boolean;
+  filters?: DescribeSqlLogTasksResponseBodyDataListFilters[];
+  instanceId?: string;
+  logCount?: number;
+  name?: string;
+  progress?: number;
+  result?: string;
+  scanFileSize?: number;
+  start?: number;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisTaskFinishTime: 'AnalysisTaskFinishTime',
+      analysisTaskStatus: 'AnalysisTaskStatus',
+      createTime: 'CreateTime',
+      end: 'End',
+      expire: 'Expire',
+      filters: 'Filters',
+      instanceId: 'InstanceId',
+      logCount: 'LogCount',
+      name: 'Name',
+      progress: 'Progress',
+      result: 'Result',
+      scanFileSize: 'ScanFileSize',
+      start: 'Start',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisTaskFinishTime: 'number',
+      analysisTaskStatus: 'string',
+      createTime: 'number',
+      end: 'number',
+      expire: 'boolean',
+      filters: { 'type': 'array', 'itemType': DescribeSqlLogTasksResponseBodyDataListFilters },
+      instanceId: 'string',
+      logCount: 'number',
+      name: 'string',
+      progress: 'number',
+      result: 'string',
+      scanFileSize: 'number',
+      start: 'number',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlLogTasksResponseBodyData extends $tea.Model {
+  list?: DescribeSqlLogTasksResponseBodyDataList[];
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': DescribeSqlLogTasksResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
     };
   }
 
@@ -14061,6 +15342,95 @@ export class ModifyAutoScalingConfigRequestStorage extends $tea.Model {
   }
 }
 
+export class ModifySqlLogConfigRequestFilters extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySqlLogConfigResponseBodyData extends $tea.Model {
+  coldEnable?: boolean;
+  coldRetention?: number;
+  coldStartTime?: number;
+  collectorVersion?: string;
+  hotEnable?: boolean;
+  hotRetention?: number;
+  hotStartTime?: number;
+  logFilter?: string;
+  requestEnable?: boolean;
+  requestStartTime?: number;
+  requestStopTime?: number;
+  retention?: number;
+  sqlLogEnable?: boolean;
+  sqlLogState?: string;
+  sqlLogVisibleTime?: number;
+  supportVersion?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coldEnable: 'ColdEnable',
+      coldRetention: 'ColdRetention',
+      coldStartTime: 'ColdStartTime',
+      collectorVersion: 'CollectorVersion',
+      hotEnable: 'HotEnable',
+      hotRetention: 'HotRetention',
+      hotStartTime: 'HotStartTime',
+      logFilter: 'LogFilter',
+      requestEnable: 'RequestEnable',
+      requestStartTime: 'RequestStartTime',
+      requestStopTime: 'RequestStopTime',
+      retention: 'Retention',
+      sqlLogEnable: 'SqlLogEnable',
+      sqlLogState: 'SqlLogState',
+      sqlLogVisibleTime: 'SqlLogVisibleTime',
+      supportVersion: 'SupportVersion',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coldEnable: 'boolean',
+      coldRetention: 'number',
+      coldStartTime: 'number',
+      collectorVersion: 'string',
+      hotEnable: 'boolean',
+      hotRetention: 'number',
+      hotStartTime: 'number',
+      logFilter: 'string',
+      requestEnable: 'boolean',
+      requestStartTime: 'number',
+      requestStopTime: 'number',
+      retention: 'number',
+      sqlLogEnable: 'boolean',
+      sqlLogState: 'string',
+      sqlLogVisibleTime: 'number',
+      supportVersion: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCloudBenchTaskResponseBodyDataPreCheckItem extends $tea.Model {
   code?: number;
   details?: string;
@@ -14536,12 +15906,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. You use an ADAM stress testing task to check whether you need to scale up or scale out your database instance to handle workloads during peak hours. For more information, see [Intelligent Stress Testing](~~155068~~).
+    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. You can create an Advanced Database & Application Migration (ADAM) stress testing task to check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](~~155068~~).
     * Make sure that your database instances meet the following requirements:
-    * *   The source instance supports the following database engines: ApsaraDB RDS for MySQL on High-availability Edition or Enterprise Edition, and PolarDB for MySQL on Cluster Edition or X-Engine.
-    * *   The destination instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance.
-    * *   The database instance is connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](~~65405~~).
-    * *   DAS Professional Edition is activated for the source and destination database instances. For more information, see [DAS Professional Edition](~~190912~~).
+    * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition cluster.
+    * *   The destination instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+    * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](~~65405~~).
+    * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](~~190912~~).
     *
     * @param request CreateAdamBenchTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14616,12 +15986,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. You use an ADAM stress testing task to check whether you need to scale up or scale out your database instance to handle workloads during peak hours. For more information, see [Intelligent Stress Testing](~~155068~~).
+    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. You can create an Advanced Database & Application Migration (ADAM) stress testing task to check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](~~155068~~).
     * Make sure that your database instances meet the following requirements:
-    * *   The source instance supports the following database engines: ApsaraDB RDS for MySQL on High-availability Edition or Enterprise Edition, and PolarDB for MySQL on Cluster Edition or X-Engine.
-    * *   The destination instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance.
-    * *   The database instance is connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](~~65405~~).
-    * *   DAS Professional Edition is activated for the source and destination database instances. For more information, see [DAS Professional Edition](~~190912~~).
+    * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition cluster.
+    * *   The destination instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+    * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](~~65405~~).
+    * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](~~190912~~).
     *
     * @param request CreateAdamBenchTaskRequest
     * @return CreateAdamBenchTaskResponse
@@ -14694,11 +16064,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](~~155068~~). Before you call this API operation, make sure that your database instances meet the following requirements:
-    * *   The source database instance must be an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition instance.
-    * *   The destination instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance.
-    * *   The source instance and the destination instance are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](~~65405~~).
-    * *   DAS Professional Edition is enabled for the source instance and the destination instance. For more information, see [DAS Professional Edition](~~190912~~).
+    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](~~155068~~). Before you call this API operation, make sure that your database instances meet the following requirements:
+    * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition cluster.
+    * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance.
+    * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](~~65405~~).
+    * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](~~190912~~).
     *
     * @param request CreateCloudBenchTasksRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14833,11 +16203,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](~~155068~~). Before you call this API operation, make sure that your database instances meet the following requirements:
-    * *   The source database instance must be an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition instance.
-    * *   The destination instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance.
-    * *   The source instance and the destination instance are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](~~65405~~).
-    * *   DAS Professional Edition is enabled for the source instance and the destination instance. For more information, see [DAS Professional Edition](~~190912~~).
+    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](~~155068~~). Before you call this API operation, make sure that your database instances meet the following requirements:
+    * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition cluster.
+    * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance.
+    * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](~~65405~~).
+    * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](~~190912~~).
     *
     * @param request CreateCloudBenchTasksRequest
     * @return CreateCloudBenchTasksResponse
@@ -15170,6 +16540,74 @@ export default class Client extends OpenApi {
     return await this.createRequestDiagnosisWithOptions(request, runtime);
   }
 
+  async createSqlLogTaskWithOptions(request: CreateSqlLogTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateSqlLogTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSqlLogTask",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSqlLogTaskResponse>(await this.callApi(params, req, runtime), new CreateSqlLogTaskResponse({}));
+  }
+
+  async createSqlLogTask(request: CreateSqlLogTaskRequest): Promise<CreateSqlLogTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSqlLogTaskWithOptions(request, runtime);
+  }
+
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+    *
+    * @param request CreateStorageAnalysisTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateStorageAnalysisTaskResponse
+   */
   async createStorageAnalysisTaskWithOptions(request: CreateStorageAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateStorageAnalysisTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15206,6 +16644,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStorageAnalysisTaskResponse>(await this.callApi(params, req, runtime), new CreateStorageAnalysisTaskResponse({}));
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+    *
+    * @param request CreateStorageAnalysisTaskRequest
+    * @return CreateStorageAnalysisTaskResponse
+   */
   async createStorageAnalysisTask(request: CreateStorageAnalysisTaskRequest): Promise<CreateStorageAnalysisTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStorageAnalysisTaskWithOptions(request, runtime);
@@ -15346,9 +16792,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can query only the history of automatic performance scaling of ApsaraDB RDS for MySQL instances.
+    * *   You can call this operation to query the history information about the automatic performance scaling only of ApsaraDB RDS for MySQL High-availability Edition instances.
     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-    * *   If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
+    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request DescribeAutoScalingHistoryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15375,9 +16821,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can query only the history of automatic performance scaling of ApsaraDB RDS for MySQL instances.
+    * *   You can call this operation to query the history information about the automatic performance scaling only of ApsaraDB RDS for MySQL High-availability Edition instances.
     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-    * *   If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
+    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request DescribeAutoScalingHistoryRequest
     * @return DescribeAutoScalingHistoryResponse
@@ -15844,8 +17290,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For more information about database instances that support DAS Professional Edition, see [Overview](~~190912~~).
-    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+    * *   For more information about database instances that support DAS Enterprise Edition, see [Overview](~~190912~~).
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request DescribeInstanceDasProRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15876,8 +17322,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For more information about database instances that support DAS Professional Edition, see [Overview](~~190912~~).
-    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+    * *   For more information about database instances that support DAS Enterprise Edition, see [Overview](~~190912~~).
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request DescribeInstanceDasProRequest
     * @return DescribeInstanceDasProResponse
@@ -15885,6 +17331,217 @@ export default class Client extends OpenApi {
   async describeInstanceDasPro(request: DescribeInstanceDasProRequest): Promise<DescribeInstanceDasProResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceDasProWithOptions(request, runtime);
+  }
+
+  async describeSqlLogConfigWithOptions(request: DescribeSqlLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSqlLogConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSqlLogConfig",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSqlLogConfigResponse>(await this.callApi(params, req, runtime), new DescribeSqlLogConfigResponse({}));
+  }
+
+  async describeSqlLogConfig(request: DescribeSqlLogConfigRequest): Promise<DescribeSqlLogConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSqlLogConfigWithOptions(request, runtime);
+  }
+
+  async describeSqlLogRecordsWithOptions(request: DescribeSqlLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSqlLogRecordsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSqlLogRecords",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSqlLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSqlLogRecordsResponse({}));
+  }
+
+  async describeSqlLogRecords(request: DescribeSqlLogRecordsRequest): Promise<DescribeSqlLogRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSqlLogRecordsWithOptions(request, runtime);
+  }
+
+  async describeSqlLogStatisticWithOptions(request: DescribeSqlLogStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSqlLogStatisticResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSqlLogStatistic",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSqlLogStatisticResponse>(await this.callApi(params, req, runtime), new DescribeSqlLogStatisticResponse({}));
+  }
+
+  async describeSqlLogStatistic(request: DescribeSqlLogStatisticRequest): Promise<DescribeSqlLogStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSqlLogStatisticWithOptions(request, runtime);
+  }
+
+  async describeSqlLogTaskWithOptions(request: DescribeSqlLogTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSqlLogTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSqlLogTask",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSqlLogTaskResponse>(await this.callApi(params, req, runtime), new DescribeSqlLogTaskResponse({}));
+  }
+
+  async describeSqlLogTask(request: DescribeSqlLogTaskRequest): Promise<DescribeSqlLogTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSqlLogTaskWithOptions(request, runtime);
+  }
+
+  async describeSqlLogTasksWithOptions(request: DescribeSqlLogTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSqlLogTasksResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      body["Filters"] = request.filters;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSqlLogTasks",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSqlLogTasksResponse>(await this.callApi(params, req, runtime), new DescribeSqlLogTasksResponse({}));
+  }
+
+  async describeSqlLogTasks(request: DescribeSqlLogTasksRequest): Promise<DescribeSqlLogTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSqlLogTasksWithOptions(request, runtime);
   }
 
   /**
@@ -16174,8 +17831,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For information about database instances that support DAS Professional Edition, see [Overview](~~190912~~).
-    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+    * *   For more information about database instances that support DAS Enterprise Edition, see [Overview](~~190912~~).
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request DisableDasProRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16210,8 +17867,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For information about database instances that support DAS Professional Edition, see [Overview](~~190912~~).
-    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+    * *   For more information about database instances that support DAS Enterprise Edition, see [Overview](~~190912~~).
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request DisableDasProRequest
     * @return DisableDasProResponse
@@ -16332,8 +17989,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For more information about database instances that support DAS Professional Edition, see [Overview](~~190912~~).
-    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+    * *   For more information about database instances that support DAS Enterprise Edition, see [Overview](~~190912~~).
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request EnableDasProRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16372,8 +18029,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For more information about database instances that support DAS Professional Edition, see [Overview](~~190912~~).
-    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+    * *   For more information about database instances that support DAS Enterprise Edition, see [Overview](~~190912~~).
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request EnableDasProRequest
     * @return EnableDasProResponse
@@ -16450,9 +18107,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not immediately returned. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
-    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which DAS Professional Edition is enabled. For more information, see [Purchase DAS Professional Edition](~~163298~~).
-    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+    * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](~~163298~~).
+    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetAsyncErrorRequestListByCodeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -16499,9 +18156,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not immediately returned. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
-    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which DAS Professional Edition is enabled. For more information, see [Purchase DAS Professional Edition](~~163298~~).
-    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+    * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](~~163298~~).
+    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetAsyncErrorRequestListByCodeRequest
     * @return GetAsyncErrorRequestListByCodeResponse
@@ -16512,8 +18169,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
-    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Professional Edition is enabled. For more information, see [Purchase DAS Professional Edition](~~163298~~).
+    * >  GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](~~163298~~).
     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetAsyncErrorRequestStatByCodeRequest
@@ -16561,8 +18218,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
-    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Professional Edition is enabled. For more information, see [Purchase DAS Professional Edition](~~163298~~).
+    * >  GetAsyncErrorRequestStatByCode is an asynchronous operation After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](~~163298~~).
     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetAsyncErrorRequestStatByCodeRequest
@@ -16574,8 +18231,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
-    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Professional Edition is enabled. For more information, see [Purchase DAS Professional Edition](~~163298~~).
+    * >  GetAsyncErrorRequestStatResult is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](~~163298~~).
     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetAsyncErrorRequestStatResultRequest
@@ -16627,8 +18284,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
-    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Professional Edition is enabled. For more information, see [Purchase DAS Professional Edition](~~163298~~).
+    * >  GetAsyncErrorRequestStatResult is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](~~163298~~).
     * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetAsyncErrorRequestStatResultRequest
@@ -16639,6 +18296,15 @@ export default class Client extends OpenApi {
     return await this.getAsyncErrorRequestStatResultWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+    *
+    * @param request GetAutoIncrementUsageStatisticRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetAutoIncrementUsageStatisticResponse
+   */
   async getAutoIncrementUsageStatisticWithOptions(request: GetAutoIncrementUsageStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoIncrementUsageStatisticResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16675,6 +18341,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAutoIncrementUsageStatisticResponse>(await this.callApi(params, req, runtime), new GetAutoIncrementUsageStatisticResponse({}));
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
+    *
+    * @param request GetAutoIncrementUsageStatisticRequest
+    * @return GetAutoIncrementUsageStatisticResponse
+   */
   async getAutoIncrementUsageStatistic(request: GetAutoIncrementUsageStatisticRequest): Promise<GetAutoIncrementUsageStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAutoIncrementUsageStatisticWithOptions(request, runtime);
@@ -16682,8 +18356,8 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, take note of the following items:
-    * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-    * *   The database instance for which you want to query automatic fragment recycling rules is an ApsaraDB RDS for MySQL High-availability Edition instance.
+    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+    * *   The database instance is an ApsaraDB RDS for MySQL instance of High-availability Edition.
     * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
     *
     * @param request GetAutoResourceOptimizeRulesRequest
@@ -16720,8 +18394,8 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, take note of the following items:
-    * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-    * *   The database instance for which you want to query automatic fragment recycling rules is an ApsaraDB RDS for MySQL High-availability Edition instance.
+    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+    * *   The database instance is an ApsaraDB RDS for MySQL instance of High-availability Edition.
     * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
     *
     * @param request GetAutoResourceOptimizeRulesRequest
@@ -16930,6 +18604,15 @@ export default class Client extends OpenApi {
     return await this.getAutonomousNotifyEventsInRangeWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+    *
+    * @param request GetBlockingDetailListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetBlockingDetailListResponse
+   */
   async getBlockingDetailListWithOptions(request: GetBlockingDetailListRequest, runtime: $Util.RuntimeOptions): Promise<GetBlockingDetailListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16978,6 +18661,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBlockingDetailListResponse>(await this.callApi(params, req, runtime), new GetBlockingDetailListResponse({}));
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+    *
+    * @param request GetBlockingDetailListRequest
+    * @return GetBlockingDetailListResponse
+   */
   async getBlockingDetailList(request: GetBlockingDetailListRequest): Promise<GetBlockingDetailListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBlockingDetailListWithOptions(request, runtime);
@@ -17036,8 +18727,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For information about databases that are supported, see [Overview](~~190912~~).
-    * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   For information about database instances that support Database Autonomy Service (DAS) Enterprise Edition, see [Overview](~~190912~~).
+    * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetDasProServiceUsageRequest
@@ -17073,8 +18764,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For information about databases that are supported, see [Overview](~~190912~~).
-    * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   For information about database instances that support Database Autonomy Service (DAS) Enterprise Edition, see [Overview](~~190912~~).
+    * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
     * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetDasProServiceUsageRequest
@@ -17245,6 +18936,15 @@ export default class Client extends OpenApi {
     return await this.getDasSQLLogHotDataWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+    *
+    * @param request GetDeadLockDetailListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDeadLockDetailListResponse
+   */
   async getDeadLockDetailListWithOptions(request: GetDeadLockDetailListRequest, runtime: $Util.RuntimeOptions): Promise<GetDeadLockDetailListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17289,6 +18989,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeadLockDetailListResponse>(await this.callApi(params, req, runtime), new GetDeadLockDetailListResponse({}));
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+    *
+    * @param request GetDeadLockDetailListRequest
+    * @return GetDeadLockDetailListResponse
+   */
   async getDeadLockDetailList(request: GetDeadLockDetailListRequest): Promise<GetDeadLockDetailListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeadLockDetailListWithOptions(request, runtime);
@@ -17352,9 +19060,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The complete query results are not immediately returned after an asynchronous request is sent. If the value of **isFinish** is **false** in the response, wait for 1 second and send the request again. The complete query results are returned until the value of **isFinish** is **true**.
-    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Professional Edition is enabled. For more information, see [Purchase DAS Professional Edition](~~163298~~).
-    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+    * >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](~~163298~~).
+    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetErrorRequestSampleRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17405,9 +19113,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The complete query results are not immediately returned after an asynchronous request is sent. If the value of **isFinish** is **false** in the response, wait for 1 second and send the request again. The complete query results are returned until the value of **isFinish** is **true**.
-    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Professional Edition is enabled. For more information, see [Purchase DAS Professional Edition](~~163298~~).
-    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+    * >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
+    * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](~~163298~~).
+    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request GetErrorRequestSampleRequest
     * @return GetErrorRequestSampleResponse
@@ -17467,8 +19175,8 @@ export default class Client extends OpenApi {
 
   /**
     * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](~~204096~~).
-    * *   For information about database instances that support SQL Explorer, see [Overview](~~190912~~).
-    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+    * *   For more information about database instances that support this feature, see [Overview](~~190912~~).
+    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
     *
     * @param request GetFullRequestOriginStatByInstanceIdRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17540,8 +19248,8 @@ export default class Client extends OpenApi {
 
   /**
     * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](~~204096~~).
-    * *   For information about database instances that support SQL Explorer, see [Overview](~~190912~~).
-    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
+    * *   For more information about database instances that support this feature, see [Overview](~~190912~~).
+    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
     *
     * @param request GetFullRequestOriginStatByInstanceIdRequest
     * @return GetFullRequestOriginStatByInstanceIdResponse
@@ -17913,6 +19621,15 @@ export default class Client extends OpenApi {
     return await this.getInstanceInspectionsWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+    *
+    * @param request GetInstanceMissingIndexListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetInstanceMissingIndexListResponse
+   */
   async getInstanceMissingIndexListWithOptions(request: GetInstanceMissingIndexListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceMissingIndexListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17993,6 +19710,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceMissingIndexListResponse>(await this.callApi(params, req, runtime), new GetInstanceMissingIndexListResponse({}));
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
+    * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+    *
+    * @param request GetInstanceMissingIndexListRequest
+    * @return GetInstanceMissingIndexListResponse
+   */
   async getInstanceMissingIndexList(request: GetInstanceMissingIndexListRequest): Promise<GetInstanceMissingIndexListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceMissingIndexListWithOptions(request, runtime);
@@ -19400,6 +21125,14 @@ export default class Client extends OpenApi {
     return await this.getSqlOptimizeAdviceWithOptions(request, runtime);
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+    * *   The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from information_schema.tables. Due to the asynchronicity of the statistics update mechanism in MySQL, statistics and analysis results may not be perfectly accurate. You can execute the ANALYZE TABLE statement on related tables during off-peak hours to obtain the latest information.
+    *
+    * @param request GetStorageAnalysisResultRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetStorageAnalysisResultResponse
+   */
   async getStorageAnalysisResultWithOptions(request: GetStorageAnalysisResultRequest, runtime: $Util.RuntimeOptions): Promise<GetStorageAnalysisResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19432,6 +21165,13 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStorageAnalysisResultResponse>(await this.callApi(params, req, runtime), new GetStorageAnalysisResultResponse({}));
   }
 
+  /**
+    * *   This operation is applicable only to ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters.
+    * *   The physical file size indicates the actual size of an obtained file. Only specific deployment modes of database instances support the display of physical file sizes. The statistics on tables are obtained from information_schema.tables. Due to the asynchronicity of the statistics update mechanism in MySQL, statistics and analysis results may not be perfectly accurate. You can execute the ANALYZE TABLE statement on related tables during off-peak hours to obtain the latest information.
+    *
+    * @param request GetStorageAnalysisResultRequest
+    * @return GetStorageAnalysisResultResponse
+   */
   async getStorageAnalysisResult(request: GetStorageAnalysisResultRequest): Promise<GetStorageAnalysisResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStorageAnalysisResultWithOptions(request, runtime);
@@ -19501,7 +21241,7 @@ export default class Client extends OpenApi {
     * *   You can modify the configurations of the **auto scaling feature for resources** for the following types of database instances:
     *     *   General-purpose ApsaraDB RDS for MySQL Enterprise Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](~~169686~~).
     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request ModifyAutoScalingConfigRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19563,7 +21303,7 @@ export default class Client extends OpenApi {
     * *   You can modify the configurations of the **auto scaling feature for resources** for the following types of database instances:
     *     *   General-purpose ApsaraDB RDS for MySQL Enterprise Edition instances. For more information about the feature and the billing rules, see [Automatic performance scaling](~~169686~~).
     * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+    * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
     *
     * @param request ModifyAutoScalingConfigRequest
     * @return ModifyAutoScalingConfigResponse
@@ -19571,6 +21311,57 @@ export default class Client extends OpenApi {
   async modifyAutoScalingConfig(request: ModifyAutoScalingConfigRequest): Promise<ModifyAutoScalingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoScalingConfigWithOptions(request, runtime);
+  }
+
+  async modifySqlLogConfigWithOptions(request: ModifySqlLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifySqlLogConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enable)) {
+      body["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.hotRetention)) {
+      body["HotRetention"] = request.hotRetention;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requestEnable)) {
+      body["RequestEnable"] = request.requestEnable;
+    }
+
+    if (!Util.isUnset(request.retention)) {
+      body["Retention"] = request.retention;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifySqlLogConfig",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySqlLogConfigResponse>(await this.callApi(params, req, runtime), new ModifySqlLogConfigResponse({}));
+  }
+
+  async modifySqlLogConfig(request: ModifySqlLogConfigRequest): Promise<ModifySqlLogConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifySqlLogConfigWithOptions(request, runtime);
   }
 
   /**
@@ -19811,12 +21602,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not immediately returned. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
+    * >  UpdateAutoResourceOptimizeRulesAsync is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
     * Before you call this operation, take note of the following items:
-    * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-    * *   The database instance is an ApsaraDB RDS for MySQL High-availability Edition instance.
-    * *   DAS Professional Edition is enabled for the database instance. You can call the [DescribeInstanceDasPro](~~413866~~) operation to check whether DAS Professional Edition is enabled for a database instance.
-    * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
+    * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+    * *   The database instances must be an ApsaraDB RDS for MySQL High-availability Edition instance.
+    * *   DAS Enterprise Edition must be enabled for the database instance. You can call the call [DescribeInstanceDasPro](~~413866~~) operation to query whether DAS Enterprise Edition is enabled.
+    * *   The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
     *
     * @param request UpdateAutoResourceOptimizeRulesAsyncRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19863,12 +21654,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not immediately returned. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
+    * >  UpdateAutoResourceOptimizeRulesAsync is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
     * Before you call this operation, take note of the following items:
-    * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-    * *   The database instance is an ApsaraDB RDS for MySQL High-availability Edition instance.
-    * *   DAS Professional Edition is enabled for the database instance. You can call the [DescribeInstanceDasPro](~~413866~~) operation to check whether DAS Professional Edition is enabled for a database instance.
-    * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
+    * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+    * *   The database instances must be an ApsaraDB RDS for MySQL High-availability Edition instance.
+    * *   DAS Enterprise Edition must be enabled for the database instance. You can call the call [DescribeInstanceDasPro](~~413866~~) operation to query whether DAS Enterprise Edition is enabled.
+    * *   The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
     *
     * @param request UpdateAutoResourceOptimizeRulesAsyncRequest
     * @return UpdateAutoResourceOptimizeRulesAsyncResponse
@@ -19880,12 +21671,12 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, take note of the following items:
-    * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-    * *   DAS Professional Edition is enabled for the database instance that you want to manage. To enable DAS Professional Edition for a database instance, you can call the [EnableDasPro](~~411645~~) operation.
-    * *   The autonomy service is enabled for the database instance. For more information, see [Autonomy center](~~152139~~).
+    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+    * *   DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](~~411645~~) operation.
+    * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](~~152139~~).
     * *   This operation supports the following database engines:
-    *     *   ApsaraDB RDS for MySQL High-availability Edition and Enterprise Edition
-    *     *   PolarDB for MySQL Cluster Edition and X-Engine Edition
+    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
+    *     *   PolarDB for MySQL Cluster Edition or X-Engine Edition
     *
     * @param request UpdateAutoSqlOptimizeStatusRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -19921,12 +21712,12 @@ export default class Client extends OpenApi {
 
   /**
     * Before you call this operation, take note of the following items:
-    * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-    * *   DAS Professional Edition is enabled for the database instance that you want to manage. To enable DAS Professional Edition for a database instance, you can call the [EnableDasPro](~~411645~~) operation.
-    * *   The autonomy service is enabled for the database instance. For more information, see [Autonomy center](~~152139~~).
+    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+    * *   DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](~~411645~~) operation.
+    * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](~~152139~~).
     * *   This operation supports the following database engines:
-    *     *   ApsaraDB RDS for MySQL High-availability Edition and Enterprise Edition
-    *     *   PolarDB for MySQL Cluster Edition and X-Engine Edition
+    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
+    *     *   PolarDB for MySQL Cluster Edition or X-Engine Edition
     *
     * @param request UpdateAutoSqlOptimizeStatusRequest
     * @return UpdateAutoSqlOptimizeStatusResponse
@@ -19937,13 +21728,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not immediately returned. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
+    * >  An asynchronous call does not immediately return complete results. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. If the value of **isFinish** is **true**, the complete results are returned.
     * Before you call this operation, take note of the following items:
-    * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-    * *   Enable Autonomy Service is turned on for the database instance. For more information, see [Autonomy center](~~152139~~).
-    * *   The database instance that you want to manage is of one of the following types:
-    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0.
-    *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0, and PolarDB for MySQL X-Engine Edition that runs MySQL 8.0.
+    * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+    * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](~~152139~~).
+    * *   The database instance that you want to manage must be of one of the following types:
+    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+    *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0, and PolarDB for MySQL X-Engine Edition that runs MySQL 8.0
     *
     * @param request UpdateAutoThrottleRulesAsyncRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -20014,13 +21805,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  When an asynchronous call is made, the complete query results are not immediately returned. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. The complete query results are returned until the value of **isFinish** is **true**.
+    * >  An asynchronous call does not immediately return complete results. If the value of **isFinish** is **false** in the response, wait for 1 second and then re-initiate the call. If the value of **isFinish** is **true**, the complete results are returned.
     * Before you call this operation, take note of the following items:
-    * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-    * *   Enable Autonomy Service is turned on for the database instance. For more information, see [Autonomy center](~~152139~~).
-    * *   The database instance that you want to manage is of one of the following types:
-    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0.
-    *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0, and PolarDB for MySQL X-Engine Edition that runs MySQL 8.0.
+    * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+    * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](~~152139~~).
+    * *   The database instance that you want to manage must be of one of the following types:
+    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+    *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0, and PolarDB for MySQL X-Engine Edition that runs MySQL 8.0
     *
     * @param request UpdateAutoThrottleRulesAsyncRequest
     * @return UpdateAutoThrottleRulesAsyncResponse
