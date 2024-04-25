@@ -2284,6 +2284,7 @@ export class AssociateVpcCidrBlockRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   secondaryCidrBlock?: string;
+  secondaryCidrMask?: number;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2297,6 +2298,7 @@ export class AssociateVpcCidrBlockRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       secondaryCidrBlock: 'SecondaryCidrBlock',
+      secondaryCidrMask: 'SecondaryCidrMask',
       vpcId: 'VpcId',
     };
   }
@@ -2313,6 +2315,7 @@ export class AssociateVpcCidrBlockRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       secondaryCidrBlock: 'string',
+      secondaryCidrMask: 'number',
       vpcId: 'string',
     };
   }
@@ -8615,6 +8618,7 @@ export class CreateVpcRequest extends $tea.Model {
   description?: string;
   dryRun?: boolean;
   enableIpv6?: boolean;
+  ipv4CidrMask?: number;
   ipv4IpamPoolId?: string;
   ipv6CidrBlock?: string;
   ipv6Isp?: string;
@@ -8634,6 +8638,7 @@ export class CreateVpcRequest extends $tea.Model {
       description: 'Description',
       dryRun: 'DryRun',
       enableIpv6: 'EnableIpv6',
+      ipv4CidrMask: 'Ipv4CidrMask',
       ipv4IpamPoolId: 'Ipv4IpamPoolId',
       ipv6CidrBlock: 'Ipv6CidrBlock',
       ipv6Isp: 'Ipv6Isp',
@@ -8656,6 +8661,7 @@ export class CreateVpcRequest extends $tea.Model {
       description: 'string',
       dryRun: 'boolean',
       enableIpv6: 'boolean',
+      ipv4CidrMask: 'number',
       ipv4IpamPoolId: 'string',
       ipv6CidrBlock: 'string',
       ipv6Isp: 'string',
@@ -52623,6 +52629,10 @@ export default class Client extends OpenApi {
       query["SecondaryCidrBlock"] = request.secondaryCidrBlock;
     }
 
+    if (!Util.isUnset(request.secondaryCidrMask)) {
+      query["SecondaryCidrMask"] = request.secondaryCidrMask;
+    }
+
     if (!Util.isUnset(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
@@ -58244,6 +58254,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableIpv6)) {
       query["EnableIpv6"] = request.enableIpv6;
+    }
+
+    if (!Util.isUnset(request.ipv4CidrMask)) {
+      query["Ipv4CidrMask"] = request.ipv4CidrMask;
     }
 
     if (!Util.isUnset(request.ipv4IpamPoolId)) {
