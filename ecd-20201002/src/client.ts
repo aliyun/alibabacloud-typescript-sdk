@@ -1116,6 +1116,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
   props?: { [key: string]: string };
   qrCodePng?: string;
   requestId?: string;
+  riskVerifyInfo?: GetLoginTokenResponseBodyRiskVerifyInfo;
   secret?: string;
   sessionId?: string;
   tenantId?: number;
@@ -1133,6 +1134,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
       props: 'Props',
       qrCodePng: 'QrCodePng',
       requestId: 'RequestId',
+      riskVerifyInfo: 'RiskVerifyInfo',
       secret: 'Secret',
       sessionId: 'SessionId',
       tenantId: 'TenantId',
@@ -1153,6 +1155,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
       props: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       qrCodePng: 'string',
       requestId: 'string',
+      riskVerifyInfo: GetLoginTokenResponseBodyRiskVerifyInfo,
       secret: 'string',
       sessionId: 'string',
       tenantId: 'number',
@@ -1350,6 +1353,7 @@ export class RebootDesktopsRequest extends $tea.Model {
   regionId?: string;
   sessionId?: string;
   sessionToken?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
@@ -1361,6 +1365,7 @@ export class RebootDesktopsRequest extends $tea.Model {
       regionId: 'RegionId',
       sessionId: 'SessionId',
       sessionToken: 'SessionToken',
+      uuid: 'Uuid',
     };
   }
 
@@ -1375,6 +1380,7 @@ export class RebootDesktopsRequest extends $tea.Model {
       regionId: 'string',
       sessionId: 'string',
       sessionToken: 'string',
+      uuid: 'string',
     };
   }
 
@@ -2087,6 +2093,7 @@ export class StartDesktopsRequest extends $tea.Model {
   loginToken?: string;
   regionId?: string;
   sessionId?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
@@ -2097,6 +2104,7 @@ export class StartDesktopsRequest extends $tea.Model {
       loginToken: 'LoginToken',
       regionId: 'RegionId',
       sessionId: 'SessionId',
+      uuid: 'Uuid',
     };
   }
 
@@ -2110,6 +2118,7 @@ export class StartDesktopsRequest extends $tea.Model {
       loginToken: 'string',
       regionId: 'string',
       sessionId: 'string',
+      uuid: 'string',
     };
   }
 
@@ -3068,6 +3077,34 @@ export class GetCloudDriveServiceMountTokenResponseBodyToken extends $tea.Model 
   }
 }
 
+export class GetLoginTokenResponseBodyRiskVerifyInfo extends $tea.Model {
+  email?: string;
+  lastLockDuration?: number;
+  locked?: string;
+  phone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      email: 'Email',
+      lastLockDuration: 'LastLockDuration',
+      locked: 'Locked',
+      phone: 'Phone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      email: 'string',
+      lastLockDuration: 'number',
+      locked: 'string',
+      phone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryEdsAgentReportConfigResponseBodyData extends $tea.Model {
   config?: string;
   static names(): { [key: string]: string } {
@@ -3965,6 +4002,10 @@ export default class Client extends OpenApi {
       query["SessionToken"] = request.sessionToken;
     }
 
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4404,7 +4445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the client.
+    * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
     *
     * @param request StartDesktopsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4445,6 +4486,10 @@ export default class Client extends OpenApi {
       query["SessionId"] = request.sessionId;
     }
 
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4463,7 +4508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the client.
+    * The cloud computers that you want to start must be in the Stopped state. After you call this operation, the cloud computers enter the Running state.
     *
     * @param request StartDesktopsRequest
     * @return StartDesktopsResponse
@@ -4531,7 +4576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud desktops that you want to stop by calling this operation must be in the Running state. If the call is successful, the cloud desktops enter the Stopped state.
+    * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
     *
     * @param request StopDesktopsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -4594,7 +4639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The cloud desktops that you want to stop by calling this operation must be in the Running state. If the call is successful, the cloud desktops enter the Stopped state.
+    * The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
     *
     * @param request StopDesktopsRequest
     * @return StopDesktopsResponse
