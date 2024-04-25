@@ -3470,6 +3470,96 @@ export class DescribeVodDomainBpsDataResponse extends $tea.Model {
   }
 }
 
+export class DescribeVodDomainBpsDataByLayerRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  interval?: string;
+  ispNameEn?: string;
+  layer?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ispNameEn: 'IspNameEn',
+      layer: 'Layer',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ispNameEn: 'string',
+      layer: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainBpsDataByLayerResponseBody extends $tea.Model {
+  bpsDataInterval?: DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval;
+  dataInterval?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bpsDataInterval: 'BpsDataInterval',
+      dataInterval: 'DataInterval',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bpsDataInterval: DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval,
+      dataInterval: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainBpsDataByLayerResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainBpsDataByLayerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainBpsDataByLayerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodDomainCertificateInfoRequest extends $tea.Model {
   domainName?: string;
   ownerId?: number;
@@ -3686,6 +3776,96 @@ export class DescribeVodDomainDetailResponse extends $tea.Model {
   }
 }
 
+export class DescribeVodDomainHitRateDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  interval?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainHitRateDataResponseBody extends $tea.Model {
+  dataInterval?: string;
+  domainName?: string;
+  endTime?: string;
+  hitRateInterval?: DescribeVodDomainHitRateDataResponseBodyHitRateInterval;
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      hitRateInterval: 'HitRateInterval',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      hitRateInterval: DescribeVodDomainHitRateDataResponseBodyHitRateInterval,
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainHitRateDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainHitRateDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainHitRateDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodDomainLogRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
@@ -3759,6 +3939,591 @@ export class DescribeVodDomainLogResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVodDomainLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeBpsDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ispNameEn?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ispNameEn: 'IspNameEn',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ispNameEn: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeBpsDataResponseBody extends $tea.Model {
+  data?: DescribeVodDomainRealTimeBpsDataResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeVodDomainRealTimeBpsDataResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeBpsDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainRealTimeBpsDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainRealTimeBpsDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeByteHitRateDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeByteHitRateDataResponseBody extends $tea.Model {
+  data?: DescribeVodDomainRealTimeByteHitRateDataResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeVodDomainRealTimeByteHitRateDataResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeByteHitRateDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainRealTimeByteHitRateDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainRealTimeByteHitRateDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeHttpCodeDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ispNameEn?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ispNameEn: 'IspNameEn',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ispNameEn: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends $tea.Model {
+  dataInterval?: string;
+  domainName?: string;
+  endTime?: string;
+  realTimeHttpCodeData?: DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData;
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      realTimeHttpCodeData: 'RealTimeHttpCodeData',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      realTimeHttpCodeData: DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData,
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeHttpCodeDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainRealTimeHttpCodeDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainRealTimeHttpCodeDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeQpsDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ispNameEn?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ispNameEn: 'IspNameEn',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ispNameEn: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeQpsDataResponseBody extends $tea.Model {
+  data?: DescribeVodDomainRealTimeQpsDataResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeVodDomainRealTimeQpsDataResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeQpsDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainRealTimeQpsDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainRealTimeQpsDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeReqHitRateDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeReqHitRateDataResponseBody extends $tea.Model {
+  data?: DescribeVodDomainRealTimeReqHitRateDataResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeVodDomainRealTimeReqHitRateDataResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeReqHitRateDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainRealTimeReqHitRateDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainRealTimeReqHitRateDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeTrafficDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ispNameEn?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ispNameEn: 'IspNameEn',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ispNameEn: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeTrafficDataResponseBody extends $tea.Model {
+  dataInterval?: string;
+  domainName?: string;
+  endTime?: string;
+  realTimeTrafficDataPerInterval?: DescribeVodDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval;
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      realTimeTrafficDataPerInterval: 'RealTimeTrafficDataPerInterval',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      realTimeTrafficDataPerInterval: DescribeVodDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval,
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeTrafficDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainRealTimeTrafficDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainRealTimeTrafficDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainReqHitRateDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  interval?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      interval: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainReqHitRateDataResponseBody extends $tea.Model {
+  data?: DescribeVodDomainReqHitRateDataResponseBodyData;
+  dataInterval?: string;
+  domainName?: string;
+  endTime?: string;
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      dataInterval: 'DataInterval',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeVodDomainReqHitRateDataResponseBodyData,
+      dataInterval: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainReqHitRateDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainReqHitRateDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainReqHitRateDataResponseBody,
     };
   }
 
@@ -4245,6 +5010,87 @@ export class DescribeVodMediaPlayDataResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVodMediaPlayDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodRangeDataByLocateAndIspServiceRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  ispNameEn?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      ispNameEn: 'IspNameEn',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      ispNameEn: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodRangeDataByLocateAndIspServiceResponseBody extends $tea.Model {
+  jsonResult?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jsonResult: 'JsonResult',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jsonResult: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodRangeDataByLocateAndIspServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodRangeDataByLocateAndIspServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodRangeDataByLocateAndIspServiceResponseBody,
     };
   }
 
@@ -12683,6 +13529,50 @@ export class DescribeVodDomainBpsDataResponseBodyBpsDataPerInterval extends $tea
   }
 }
 
+export class DescribeVodDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule extends $tea.Model {
+  timeStamp?: string;
+  trafficValue?: number;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      trafficValue: 'TrafficValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'string',
+      trafficValue: 'number',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval extends $tea.Model {
+  dataModule?: DescribeVodDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeVodDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodDomainCertificateInfoResponseBodyCertInfosCertInfo extends $tea.Model {
   certDomainName?: string;
   certExpireTime?: string;
@@ -12935,6 +13825,50 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $tea.Model 
   }
 }
 
+export class DescribeVodDomainHitRateDataResponseBodyHitRateIntervalDataModule extends $tea.Model {
+  httpsValue?: string;
+  timeStamp?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpsValue: 'HttpsValue',
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpsValue: 'string',
+      timeStamp: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainHitRateDataResponseBodyHitRateInterval extends $tea.Model {
+  dataModule?: DescribeVodDomainHitRateDataResponseBodyHitRateIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeVodDomainHitRateDataResponseBodyHitRateIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $tea.Model {
   endTime?: string;
   logName?: string;
@@ -13049,6 +13983,340 @@ export class DescribeVodDomainLogResponseBodyDomainLogDetails extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       domainLogDetail: { 'type': 'array', 'itemType': DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeBpsDataResponseBodyDataBpsModel extends $tea.Model {
+  bps?: number;
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeBpsDataResponseBodyData extends $tea.Model {
+  bpsModel?: DescribeVodDomainRealTimeBpsDataResponseBodyDataBpsModel[];
+  static names(): { [key: string]: string } {
+    return {
+      bpsModel: 'BpsModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bpsModel: { 'type': 'array', 'itemType': DescribeVodDomainRealTimeBpsDataResponseBodyDataBpsModel },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeByteHitRateDataResponseBodyDataByteHitRateDataModel extends $tea.Model {
+  byteHitRate?: number;
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      byteHitRate: 'ByteHitRate',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      byteHitRate: 'number',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeByteHitRateDataResponseBodyData extends $tea.Model {
+  byteHitRateDataModel?: DescribeVodDomainRealTimeByteHitRateDataResponseBodyDataByteHitRateDataModel[];
+  static names(): { [key: string]: string } {
+    return {
+      byteHitRateDataModel: 'ByteHitRateDataModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      byteHitRateDataModel: { 'type': 'array', 'itemType': DescribeVodDomainRealTimeByteHitRateDataResponseBodyDataByteHitRateDataModel },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValueRealTimeCodeProportionData extends $tea.Model {
+  code?: string;
+  count?: string;
+  proportion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      proportion: 'Proportion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'string',
+      proportion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue extends $tea.Model {
+  realTimeCodeProportionData?: DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValueRealTimeCodeProportionData[];
+  static names(): { [key: string]: string } {
+    return {
+      realTimeCodeProportionData: 'RealTimeCodeProportionData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      realTimeCodeProportionData: { 'type': 'array', 'itemType': DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValueRealTimeCodeProportionData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageData extends $tea.Model {
+  timeStamp?: string;
+  value?: DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'string',
+      value: DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData extends $tea.Model {
+  usageData?: DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageData[];
+  static names(): { [key: string]: string } {
+    return {
+      usageData: 'UsageData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      usageData: { 'type': 'array', 'itemType': DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeQpsDataResponseBodyDataQpsModel extends $tea.Model {
+  qps?: number;
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qps: 'Qps',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qps: 'number',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeQpsDataResponseBodyData extends $tea.Model {
+  qpsModel?: DescribeVodDomainRealTimeQpsDataResponseBodyDataQpsModel[];
+  static names(): { [key: string]: string } {
+    return {
+      qpsModel: 'QpsModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qpsModel: { 'type': 'array', 'itemType': DescribeVodDomainRealTimeQpsDataResponseBodyDataQpsModel },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeReqHitRateDataResponseBodyDataReqHitRateDataModel extends $tea.Model {
+  reqHitRate?: number;
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reqHitRate: 'ReqHitRate',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reqHitRate: 'number',
+      timeStamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeReqHitRateDataResponseBodyData extends $tea.Model {
+  reqHitRateDataModel?: DescribeVodDomainRealTimeReqHitRateDataResponseBodyDataReqHitRateDataModel[];
+  static names(): { [key: string]: string } {
+    return {
+      reqHitRateDataModel: 'ReqHitRateDataModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reqHitRateDataModel: { 'type': 'array', 'itemType': DescribeVodDomainRealTimeReqHitRateDataResponseBodyDataReqHitRateDataModel },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerIntervalDataModule extends $tea.Model {
+  timeStamp?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval extends $tea.Model {
+  dataModule?: DescribeVodDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeVodDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainReqHitRateDataResponseBodyDataDataModule extends $tea.Model {
+  httpsValue?: string;
+  timeStamp?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpsValue: 'HttpsValue',
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpsValue: 'string',
+      timeStamp: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainReqHitRateDataResponseBodyData extends $tea.Model {
+  dataModule?: DescribeVodDomainReqHitRateDataResponseBodyDataDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeVodDomainReqHitRateDataResponseBodyDataDataModule },
     };
   }
 
@@ -21602,8 +22870,65 @@ export default class Client extends OpenApi {
     return await this.describeVodDomainBpsDataWithOptions(request, runtime);
   }
 
+  async describeVodDomainBpsDataByLayerWithOptions(request: DescribeVodDomainBpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainBpsDataByLayerResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.layer)) {
+      query["Layer"] = request.layer;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainBpsDataByLayer",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainBpsDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainBpsDataByLayerResponse({}));
+  }
+
+  async describeVodDomainBpsDataByLayer(request: DescribeVodDomainBpsDataByLayerRequest): Promise<DescribeVodDomainBpsDataByLayerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainBpsDataByLayerWithOptions(request, runtime);
+  }
+
   /**
-    * > This operation is available only in the **China (Shanghai)** region.
+    * This operation is available only in the **China (Shanghai)** region.
     *
     * @param request DescribeVodDomainCertificateInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -21638,7 +22963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is available only in the **China (Shanghai)** region.
+    * This operation is available only in the **China (Shanghai)** region.
     *
     * @param request DescribeVodDomainCertificateInfoRequest
     * @return DescribeVodDomainCertificateInfoResponse
@@ -21752,6 +23077,51 @@ export default class Client extends OpenApi {
     return await this.describeVodDomainDetailWithOptions(request, runtime);
   }
 
+  async describeVodDomainHitRateDataWithOptions(request: DescribeVodDomainHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainHitRateDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainHitRateData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainHitRateDataResponse({}));
+  }
+
+  async describeVodDomainHitRateData(request: DescribeVodDomainHitRateDataRequest): Promise<DescribeVodDomainHitRateDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainHitRateDataWithOptions(request, runtime);
+  }
+
   /**
     * *   This operation is available only in the **China (Shanghai)** region.
     * *   For more information about the log format and latency, see [Download logs](~~86099~~).
@@ -21822,6 +23192,245 @@ export default class Client extends OpenApi {
   async describeVodDomainLog(request: DescribeVodDomainLogRequest): Promise<DescribeVodDomainLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainLogWithOptions(request, runtime);
+  }
+
+  async describeVodDomainRealTimeBpsDataWithOptions(request: DescribeVodDomainRealTimeBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainRealTimeBpsDataResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainRealTimeBpsData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainRealTimeBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainRealTimeBpsDataResponse({}));
+  }
+
+  async describeVodDomainRealTimeBpsData(request: DescribeVodDomainRealTimeBpsDataRequest): Promise<DescribeVodDomainRealTimeBpsDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainRealTimeBpsDataWithOptions(request, runtime);
+  }
+
+  async describeVodDomainRealTimeByteHitRateDataWithOptions(request: DescribeVodDomainRealTimeByteHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainRealTimeByteHitRateDataResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainRealTimeByteHitRateData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainRealTimeByteHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainRealTimeByteHitRateDataResponse({}));
+  }
+
+  async describeVodDomainRealTimeByteHitRateData(request: DescribeVodDomainRealTimeByteHitRateDataRequest): Promise<DescribeVodDomainRealTimeByteHitRateDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainRealTimeByteHitRateDataWithOptions(request, runtime);
+  }
+
+  async describeVodDomainRealTimeHttpCodeDataWithOptions(request: DescribeVodDomainRealTimeHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainRealTimeHttpCodeDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainRealTimeHttpCodeData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainRealTimeHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainRealTimeHttpCodeDataResponse({}));
+  }
+
+  async describeVodDomainRealTimeHttpCodeData(request: DescribeVodDomainRealTimeHttpCodeDataRequest): Promise<DescribeVodDomainRealTimeHttpCodeDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainRealTimeHttpCodeDataWithOptions(request, runtime);
+  }
+
+  async describeVodDomainRealTimeQpsDataWithOptions(request: DescribeVodDomainRealTimeQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainRealTimeQpsDataResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainRealTimeQpsData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainRealTimeQpsDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainRealTimeQpsDataResponse({}));
+  }
+
+  async describeVodDomainRealTimeQpsData(request: DescribeVodDomainRealTimeQpsDataRequest): Promise<DescribeVodDomainRealTimeQpsDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainRealTimeQpsDataWithOptions(request, runtime);
+  }
+
+  async describeVodDomainRealTimeReqHitRateDataWithOptions(request: DescribeVodDomainRealTimeReqHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainRealTimeReqHitRateDataResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainRealTimeReqHitRateData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainRealTimeReqHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainRealTimeReqHitRateDataResponse({}));
+  }
+
+  async describeVodDomainRealTimeReqHitRateData(request: DescribeVodDomainRealTimeReqHitRateDataRequest): Promise<DescribeVodDomainRealTimeReqHitRateDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainRealTimeReqHitRateDataWithOptions(request, runtime);
+  }
+
+  async describeVodDomainRealTimeTrafficDataWithOptions(request: DescribeVodDomainRealTimeTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainRealTimeTrafficDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainRealTimeTrafficData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainRealTimeTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainRealTimeTrafficDataResponse({}));
+  }
+
+  async describeVodDomainRealTimeTrafficData(request: DescribeVodDomainRealTimeTrafficDataRequest): Promise<DescribeVodDomainRealTimeTrafficDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainRealTimeTrafficDataWithOptions(request, runtime);
+  }
+
+  async describeVodDomainReqHitRateDataWithOptions(request: DescribeVodDomainReqHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainReqHitRateDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainReqHitRateData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainReqHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainReqHitRateDataResponse({}));
+  }
+
+  async describeVodDomainReqHitRateData(request: DescribeVodDomainReqHitRateDataRequest): Promise<DescribeVodDomainReqHitRateDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainReqHitRateDataWithOptions(request, runtime);
   }
 
   /**
@@ -22189,6 +23798,55 @@ export default class Client extends OpenApi {
     return await this.describeVodMediaPlayDataWithOptions(request, runtime);
   }
 
+  async describeVodRangeDataByLocateAndIspServiceWithOptions(request: DescribeVodRangeDataByLocateAndIspServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodRangeDataByLocateAndIspServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodRangeDataByLocateAndIspService",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodRangeDataByLocateAndIspServiceResponse>(await this.callApi(params, req, runtime), new DescribeVodRangeDataByLocateAndIspServiceResponse({}));
+  }
+
+  async describeVodRangeDataByLocateAndIspService(request: DescribeVodRangeDataByLocateAndIspServiceRequest): Promise<DescribeVodRangeDataByLocateAndIspServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodRangeDataByLocateAndIspServiceWithOptions(request, runtime);
+  }
+
   /**
     * > *   This operation is available only in the **China (Shanghai)** region.
     * > *   You can call the [RefreshVodObjectCaches](~~69215~~) operation to refresh content and the [PreloadVodObjectCaches](~~69211~~) operation to prefetch content.
@@ -22457,6 +24115,14 @@ export default class Client extends OpenApi {
     return await this.describeVodTranscodeDataWithOptions(request, runtime);
   }
 
+  /**
+    * *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
+    * *   This operation is available only in the China (Shanghai) region.
+    *
+    * @param request DescribeVodUserDomainsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeVodUserDomainsResponse
+   */
   async describeVodUserDomainsWithOptions(request: DescribeVodUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodUserDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22509,6 +24175,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVodUserDomainsResponse>(await this.callApi(params, req, runtime), new DescribeVodUserDomainsResponse({}));
   }
 
+  /**
+    * *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
+    * *   This operation is available only in the China (Shanghai) region.
+    *
+    * @param request DescribeVodUserDomainsRequest
+    * @return DescribeVodUserDomainsResponse
+   */
   async describeVodUserDomains(request: DescribeVodUserDomainsRequest): Promise<DescribeVodUserDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodUserDomainsWithOptions(request, runtime);
@@ -22911,7 +24584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Supports batch query.
+    * You can specify multiple accelerated domain names in a request.
     *
     * @param request GetAppInfosRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -22942,7 +24615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Supports batch query.
+    * You can specify multiple accelerated domain names in a request.
     *
     * @param request GetAppInfosRequest
     * @return GetAppInfosResponse
@@ -23848,10 +25521,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A media file may be transcoded multiple times. This operation returns only the latest transcoding summary.
-    * *   You can query transcoding summaries for a maximum of 10 media files in one request.
+    * *   An audio or video file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+    * *   You can query transcoding summaries for a maximum of 10 audio and video files in one request.
     * *   You can call the [ListTranscodeTask](~~109120~~) operation to query historical transcoding tasks.
-    * *   **You can call this operation to query information only about transcoding tasks created within the past year.**
+    * *   **You can call this operation to query information only about transcoding tasks created within the past year.
     *
     * @param request GetTranscodeSummaryRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23882,10 +25555,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   A media file may be transcoded multiple times. This operation returns only the latest transcoding summary.
-    * *   You can query transcoding summaries for a maximum of 10 media files in one request.
+    * *   An audio or video file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+    * *   You can query transcoding summaries for a maximum of 10 audio and video files in one request.
     * *   You can call the [ListTranscodeTask](~~109120~~) operation to query historical transcoding tasks.
-    * *   **You can call this operation to query information only about transcoding tasks created within the past year.**
+    * *   **You can call this operation to query information only about transcoding tasks created within the past year.
     *
     * @param request GetTranscodeSummaryRequest
     * @return GetTranscodeSummaryResponse
@@ -23938,7 +25611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+    * This operation returns information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
     *
     * @param request GetTranscodeTemplateGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -23969,7 +25642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation returns the information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+    * This operation returns information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
     *
     * @param request GetTranscodeTemplateGroupRequest
     * @return GetTranscodeTemplateGroupResponse
@@ -24670,7 +26343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query a maximum of 5,000 videos based on the specified filter condition.
+    * You can query up to 5,000 videos based on the specified filter condition.
     *
     * @param request ListLiveRecordVideoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -24729,7 +26402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query a maximum of 5,000 videos based on the specified filter condition.
+    * You can query up to 5,000 videos based on the specified filter condition.
     *
     * @param request ListLiveRecordVideoRequest
     * @return ListLiveRecordVideoResponse
@@ -25540,12 +27213,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
-    * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter condition. This allows you to traverse data page by page. If the number of data records that meet the specified filter condition exceeds 5,000, use Method 2.
-    * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter condition, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the target page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
-    *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
-    *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
-    *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
+    * The maximum number of data records that you can query varies based on the method used to query the data. You can use the following methods to query data:
+    * *   Method 1: Traverse data by page
+    *     You can use the PageNo and PageSize parameters to traverse up to 5,000 data records that meet the specified filter condition. PageNo specifies the page number and PageSize specifies the number of data records displayed on a page. If the number of data records that meet the specified filter condition exceeds 5,000, change the filter conditions to narrow down the results. You cannot use this method to traverse all data records. If you want to traverse more data records, use Method 2.
+    * *   Method 2: Traverse all data (available only for audio and video files)
+    *     You can use this method to traverse up to 2 million data records related to audio and video files. If the number of data records that meet the specified filter condition exceeds 2 million, change the filter conditions to narrow down the results. To traverse data page by page, you must set the PageNo, PageSize, and ScrollToken parameters. The total number of data records from the current page to the target page cannot exceed 100. For example, you set PageSize to 20. The following content describes the traverse logic:
+    *     *   When the PageNo parameter is set to 1, you can traverse data records from page 1 to page 5.
+    *     *   When the PageNo parameter is set to 2, you can traverse data records from page 2 to page 6.
+    * Make sure that you set the appropriate page number and page size, and use a traverse method based on the number of results that meet your filter condition.
     *
     * @param request SearchMediaRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -25600,12 +27275,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The maximum number of data records that you can query is limited based on the method used to query the data. You can use the following methods to query data:
-    * *   Method 1: You must use the PageNo and PageSize parameters for the first 5,000 data records that meet the specified filter condition. This allows you to traverse data page by page. If the number of data records that meet the specified filter condition exceeds 5,000, use Method 2.
-    * *   Method 2: This method applies only to the data of video and audio files. To traverse all the data records that meet the specified filter condition, you must set the PageNo, PageSize, and ScrollToken parameters to traverse data page by page. The total number of data records from the current page to the target page cannot exceed 1,200. Assume that the PageSize parameter is set to **20**:
-    *     *   When the PageNo parameter is set to **1**, you can scroll forward to traverse data records from page 1 to page **60** at most.
-    *     *   When the PageNo parameter is set to **2**, you can scroll forward to traverse data records from page 2 to page **61** at most.
-    *     *   When the PageNo parameter is set to **61**, you can scroll backward to traverse data records from page 61 to page **2** at most or scroll forward to traverse data records from page 61 to page **120** at most.
+    * The maximum number of data records that you can query varies based on the method used to query the data. You can use the following methods to query data:
+    * *   Method 1: Traverse data by page
+    *     You can use the PageNo and PageSize parameters to traverse up to 5,000 data records that meet the specified filter condition. PageNo specifies the page number and PageSize specifies the number of data records displayed on a page. If the number of data records that meet the specified filter condition exceeds 5,000, change the filter conditions to narrow down the results. You cannot use this method to traverse all data records. If you want to traverse more data records, use Method 2.
+    * *   Method 2: Traverse all data (available only for audio and video files)
+    *     You can use this method to traverse up to 2 million data records related to audio and video files. If the number of data records that meet the specified filter condition exceeds 2 million, change the filter conditions to narrow down the results. To traverse data page by page, you must set the PageNo, PageSize, and ScrollToken parameters. The total number of data records from the current page to the target page cannot exceed 100. For example, you set PageSize to 20. The following content describes the traverse logic:
+    *     *   When the PageNo parameter is set to 1, you can traverse data records from page 1 to page 5.
+    *     *   When the PageNo parameter is set to 2, you can traverse data records from page 2 to page 6.
+    * Make sure that you set the appropriate page number and page size, and use a traverse method based on the number of results that meet your filter condition.
     *
     * @param request SearchMediaRequest
     * @return SearchMediaResponse
@@ -26022,6 +27699,13 @@ export default class Client extends OpenApi {
     return await this.setVodDomainCertificateWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only in the Singapore region.
+    *
+    * @param request SubmitAIImageAuditJobRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitAIImageAuditJobResponse
+   */
   async submitAIImageAuditJobWithOptions(request: SubmitAIImageAuditJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAIImageAuditJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26070,6 +27754,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitAIImageAuditJobResponse>(await this.callApi(params, req, runtime), new SubmitAIImageAuditJobResponse({}));
   }
 
+  /**
+    * This operation is available only in the Singapore region.
+    *
+    * @param request SubmitAIImageAuditJobRequest
+    * @return SubmitAIImageAuditJobResponse
+   */
   async submitAIImageAuditJob(request: SubmitAIImageAuditJobRequest): Promise<SubmitAIImageAuditJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAIImageAuditJobWithOptions(request, runtime);
@@ -27067,7 +28757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and check whether Locked is returned in the response. If the transcoding template group is locked, you can all this operation to unlock the transcoding template group before you add, modify, or delete transcoding templates in the transcoding template group.
+    * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the configurations of a transcoding template group, check whether the transcoding template group is locked by using the response parameter Locked, and unlock the transcoding template group before you perform operations such as add, modify, and delete transcoding templates.
     *
     * @param request UpdateTranscodeTemplateGroupRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -27110,7 +28800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and check whether Locked is returned in the response. If the transcoding template group is locked, you can all this operation to unlock the transcoding template group before you add, modify, or delete transcoding templates in the transcoding template group.
+    * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the configurations of a transcoding template group, check whether the transcoding template group is locked by using the response parameter Locked, and unlock the transcoding template group before you perform operations such as add, modify, and delete transcoding templates.
     *
     * @param request UpdateTranscodeTemplateGroupRequest
     * @return UpdateTranscodeTemplateGroupResponse
@@ -27517,6 +29207,13 @@ export default class Client extends OpenApi {
     return await this.uploadStreamByURLWithOptions(request, runtime);
   }
 
+  /**
+    * This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request VerifyVodDomainOwnerRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return VerifyVodDomainOwnerResponse
+   */
   async verifyVodDomainOwnerWithOptions(request: VerifyVodDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyVodDomainOwnerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27549,6 +29246,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyVodDomainOwnerResponse>(await this.callApi(params, req, runtime), new VerifyVodDomainOwnerResponse({}));
   }
 
+  /**
+    * This operation is available only in the **China (Shanghai)** region.
+    *
+    * @param request VerifyVodDomainOwnerRequest
+    * @return VerifyVodDomainOwnerResponse
+   */
   async verifyVodDomainOwner(request: VerifyVodDomainOwnerRequest): Promise<VerifyVodDomainOwnerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyVodDomainOwnerWithOptions(request, runtime);
