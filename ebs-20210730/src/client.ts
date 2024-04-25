@@ -2236,6 +2236,93 @@ export class DescribeEventsResponse extends $tea.Model {
   }
 }
 
+export class DescribeLensMonitorDisksRequest extends $tea.Model {
+  diskCategory?: string;
+  diskIds?: string[];
+  lensTags?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskCategory: 'DiskCategory',
+      diskIds: 'DiskIds',
+      lensTags: 'LensTags',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskCategory: 'string',
+      diskIds: { 'type': 'array', 'itemType': 'string' },
+      lensTags: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLensMonitorDisksResponseBody extends $tea.Model {
+  diskInfos?: DescribeLensMonitorDisksResponseBodyDiskInfos[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      diskInfos: 'DiskInfos',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskInfos: { 'type': 'array', 'itemType': DescribeLensMonitorDisksResponseBodyDiskInfos },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLensMonitorDisksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLensMonitorDisksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLensMonitorDisksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLensServiceStatusResponseBody extends $tea.Model {
   requestId?: string;
   status?: string;
@@ -6062,6 +6149,89 @@ export class DescribeEventsResponseBodyResourceEvents extends $tea.Model {
   }
 }
 
+export class DescribeLensMonitorDisksResponseBodyDiskInfosTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $tea.Model {
+  bps?: number;
+  burstingEnabled?: boolean;
+  diskCategory?: string;
+  diskId?: string;
+  diskName?: string;
+  diskStatus?: string;
+  diskType?: string;
+  iops?: number;
+  lensTags?: string[];
+  performanceLevel?: string;
+  provisionedIops?: number;
+  regionId?: string;
+  size?: number;
+  tags?: DescribeLensMonitorDisksResponseBodyDiskInfosTags[];
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      burstingEnabled: 'BurstingEnabled',
+      diskCategory: 'DiskCategory',
+      diskId: 'DiskId',
+      diskName: 'DiskName',
+      diskStatus: 'DiskStatus',
+      diskType: 'DiskType',
+      iops: 'Iops',
+      lensTags: 'LensTags',
+      performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
+      regionId: 'RegionId',
+      size: 'Size',
+      tags: 'Tags',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      burstingEnabled: 'boolean',
+      diskCategory: 'string',
+      diskId: 'string',
+      diskName: 'string',
+      diskStatus: 'string',
+      diskType: 'string',
+      iops: 'number',
+      lensTags: { 'type': 'array', 'itemType': 'string' },
+      performanceLevel: 'string',
+      provisionedIops: 'number',
+      regionId: 'string',
+      size: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeLensMonitorDisksResponseBodyDiskInfosTags },
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMetricDataResponseBodyDataList extends $tea.Model {
   datapoints?: any;
   labels?: any;
@@ -8395,6 +8565,55 @@ export default class Client extends OpenApi {
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventsWithOptions(request, runtime);
+  }
+
+  async describeLensMonitorDisksWithOptions(request: DescribeLensMonitorDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLensMonitorDisksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diskCategory)) {
+      query["DiskCategory"] = request.diskCategory;
+    }
+
+    if (!Util.isUnset(request.diskIds)) {
+      query["DiskIds"] = request.diskIds;
+    }
+
+    if (!Util.isUnset(request.lensTags)) {
+      query["LensTags"] = request.lensTags;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLensMonitorDisks",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLensMonitorDisksResponse>(await this.callApi(params, req, runtime), new DescribeLensMonitorDisksResponse({}));
+  }
+
+  async describeLensMonitorDisks(request: DescribeLensMonitorDisksRequest): Promise<DescribeLensMonitorDisksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLensMonitorDisksWithOptions(request, runtime);
   }
 
   /**
