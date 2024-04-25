@@ -13944,6 +13944,174 @@ export class GetUserResponse extends $tea.Model {
   }
 }
 
+export class GetUserLatestPlanHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetUserLatestPlanHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetUserLatestPlanHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserLatestPlanShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserLatestPlanRequest extends $tea.Model {
+  tenantContext?: GetUserLatestPlanRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: GetUserLatestPlanRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserLatestPlanShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserLatestPlanResponseBody extends $tea.Model {
+  accountHandleStatus?: number;
+  accountHandleTime?: string;
+  accountType?: number;
+  agreementFirstSignTime?: string;
+  agreementLastSignTime?: string;
+  agreementStatus?: number;
+  dataHandleEndTime?: string;
+  dataHandleStartTime?: string;
+  dataHandleStatus?: number;
+  exclusivePlan?: number;
+  newAccountUid?: number;
+  requestId?: string;
+  status?: number;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountHandleStatus: 'accountHandleStatus',
+      accountHandleTime: 'accountHandleTime',
+      accountType: 'accountType',
+      agreementFirstSignTime: 'agreementFirstSignTime',
+      agreementLastSignTime: 'agreementLastSignTime',
+      agreementStatus: 'agreementStatus',
+      dataHandleEndTime: 'dataHandleEndTime',
+      dataHandleStartTime: 'dataHandleStartTime',
+      dataHandleStatus: 'dataHandleStatus',
+      exclusivePlan: 'exclusivePlan',
+      newAccountUid: 'newAccountUid',
+      requestId: 'requestId',
+      status: 'status',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountHandleStatus: 'number',
+      accountHandleTime: 'string',
+      accountType: 'number',
+      agreementFirstSignTime: 'string',
+      agreementLastSignTime: 'string',
+      agreementStatus: 'number',
+      dataHandleEndTime: 'string',
+      dataHandleStartTime: 'string',
+      dataHandleStatus: 'number',
+      exclusivePlan: 'number',
+      newAccountUid: 'number',
+      requestId: 'string',
+      status: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserLatestPlanResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserLatestPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserLatestPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkspaceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetWorkspaceHeadersAccountContext;
@@ -23264,6 +23432,159 @@ export class SubscribeCalendarResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubscribeCalendarResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDingTypeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: SyncDingTypeHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: SyncDingTypeHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDingTypeShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDingTypeRequest extends $tea.Model {
+  dingType?: string;
+  source?: string;
+  tenantContext?: SyncDingTypeRequestTenantContext;
+  workNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingType: 'DingType',
+      source: 'Source',
+      tenantContext: 'TenantContext',
+      workNo: 'WorkNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingType: 'string',
+      source: 'string',
+      tenantContext: SyncDingTypeRequestTenantContext,
+      workNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDingTypeShrinkRequest extends $tea.Model {
+  dingType?: string;
+  source?: string;
+  tenantContextShrink?: string;
+  workNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingType: 'DingType',
+      source: 'Source',
+      tenantContextShrink: 'TenantContext',
+      workNo: 'WorkNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingType: 'string',
+      source: 'string',
+      tenantContextShrink: 'string',
+      workNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDingTypeResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDingTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SyncDingTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SyncDingTypeResponseBody,
     };
   }
 
@@ -33203,6 +33524,44 @@ export class GetUserResponseBodyUnionEmpExt extends $tea.Model {
   }
 }
 
+export class GetUserLatestPlanHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserLatestPlanRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkspaceHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -39123,6 +39482,44 @@ export class SubscribeCalendarHeadersAccountContext extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDingTypeHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDingTypeRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -46329,6 +46726,58 @@ export default class Client extends OpenApi {
     return await this.getUserWithOptions(request, headers, runtime);
   }
 
+  async getUserLatestPlanWithOptions(tmpReq: GetUserLatestPlanRequest, tmpHeader: GetUserLatestPlanHeaders, runtime: $Util.RuntimeOptions): Promise<GetUserLatestPlanResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetUserLatestPlanShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetUserLatestPlanShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserLatestPlan",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/aliding/v1/indepding/getUserLatestPlan`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserLatestPlanResponse>(await this.callApi(params, req, runtime), new GetUserLatestPlanResponse({}));
+  }
+
+  async getUserLatestPlan(request: GetUserLatestPlanRequest): Promise<GetUserLatestPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetUserLatestPlanHeaders({ });
+    return await this.getUserLatestPlanWithOptions(request, headers, runtime);
+  }
+
   async getWorkspaceWithOptions(tmpReq: GetWorkspaceRequest, tmpHeader: GetWorkspaceHeaders, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
     Util.validateModel(tmpReq);
     let request = new GetWorkspaceShrinkRequest({ });
@@ -50525,6 +50974,70 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new SubscribeCalendarHeaders({ });
     return await this.subscribeCalendarWithOptions(request, headers, runtime);
+  }
+
+  async syncDingTypeWithOptions(tmpReq: SyncDingTypeRequest, tmpHeader: SyncDingTypeHeaders, runtime: $Util.RuntimeOptions): Promise<SyncDingTypeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SyncDingTypeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new SyncDingTypeShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dingType)) {
+      body["DingType"] = request.dingType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      body["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.workNo)) {
+      body["WorkNo"] = request.workNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SyncDingType",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/aliding/v1/indepding/syncDingType`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SyncDingTypeResponse>(await this.callApi(params, req, runtime), new SyncDingTypeResponse({}));
+  }
+
+  async syncDingType(request: SyncDingTypeRequest): Promise<SyncDingTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SyncDingTypeHeaders({ });
+    return await this.syncDingTypeWithOptions(request, headers, runtime);
   }
 
   async terminateInstanceWithOptions(request: TerminateInstanceRequest, tmpHeader: TerminateInstanceHeaders, runtime: $Util.RuntimeOptions): Promise<TerminateInstanceResponse> {
