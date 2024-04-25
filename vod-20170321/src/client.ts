@@ -4103,6 +4103,96 @@ export class DescribeVodDomainRealTimeByteHitRateDataResponse extends $tea.Model
   }
 }
 
+export class DescribeVodDomainRealTimeDetailDataRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  field?: string;
+  ispNameEn?: string;
+  locationNameEn?: string;
+  merge?: string;
+  mergeLocIsp?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      field: 'Field',
+      ispNameEn: 'IspNameEn',
+      locationNameEn: 'LocationNameEn',
+      merge: 'Merge',
+      mergeLocIsp: 'MergeLocIsp',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      field: 'string',
+      ispNameEn: 'string',
+      locationNameEn: 'string',
+      merge: 'string',
+      mergeLocIsp: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeDetailDataResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVodDomainRealTimeDetailDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVodDomainRealTimeDetailDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVodDomainRealTimeDetailDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVodDomainRealTimeHttpCodeDataRequest extends $tea.Model {
   domainName?: string;
   endTime?: string;
@@ -23242,6 +23332,31 @@ export default class Client extends OpenApi {
   async describeVodDomainRealTimeByteHitRateData(request: DescribeVodDomainRealTimeByteHitRateDataRequest): Promise<DescribeVodDomainRealTimeByteHitRateDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVodDomainRealTimeByteHitRateDataWithOptions(request, runtime);
+  }
+
+  async describeVodDomainRealTimeDetailDataWithOptions(request: DescribeVodDomainRealTimeDetailDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainRealTimeDetailDataResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVodDomainRealTimeDetailData",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVodDomainRealTimeDetailDataResponse>(await this.callApi(params, req, runtime), new DescribeVodDomainRealTimeDetailDataResponse({}));
+  }
+
+  async describeVodDomainRealTimeDetailData(request: DescribeVodDomainRealTimeDetailDataRequest): Promise<DescribeVodDomainRealTimeDetailDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVodDomainRealTimeDetailDataWithOptions(request, runtime);
   }
 
   async describeVodDomainRealTimeHttpCodeDataWithOptions(request: DescribeVodDomainRealTimeHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVodDomainRealTimeHttpCodeDataResponse> {
