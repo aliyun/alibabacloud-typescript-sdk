@@ -96,6 +96,90 @@ export class AttachApplication2ConnectorResponse extends $tea.Model {
   }
 }
 
+export class CreateClientUserRequest extends $tea.Model {
+  departmentId?: string;
+  description?: string;
+  email?: string;
+  idpConfigId?: string;
+  mobileNumber?: string;
+  password?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      description: 'Description',
+      email: 'Email',
+      idpConfigId: 'IdpConfigId',
+      mobileNumber: 'MobileNumber',
+      password: 'Password',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'string',
+      description: 'string',
+      email: 'string',
+      idpConfigId: 'string',
+      mobileNumber: 'string',
+      password: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientUserResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateClientUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateClientUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDynamicRouteRequest extends $tea.Model {
   applicationIds?: string[];
   applicationType?: string;
@@ -181,6 +265,75 @@ export class CreateDynamicRouteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDynamicRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdpDepartmentRequest extends $tea.Model {
+  departmentName?: string;
+  idpConfigId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentName: 'DepartmentName',
+      idpConfigId: 'IdpConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentName: 'string',
+      idpConfigId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdpDepartmentResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdpDepartmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIdpDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIdpDepartmentResponseBody,
     };
   }
 
@@ -658,6 +811,69 @@ export class CreateUserGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteClientUserRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientUserResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteClientUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteClientUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDynamicRouteRequest extends $tea.Model {
   dynamicRouteId?: string;
   static names(): { [key: string]: string } {
@@ -713,6 +929,72 @@ export class DeleteDynamicRouteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDynamicRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIdpDepartmentRequest extends $tea.Model {
+  departmentId?: string;
+  idpConfigId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      idpConfigId: 'IdpConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'string',
+      idpConfigId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIdpDepartmentResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIdpDepartmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIdpDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIdpDepartmentResponseBody,
     };
   }
 
@@ -1124,6 +1406,122 @@ export class DetachApplication2ConnectorResponse extends $tea.Model {
   }
 }
 
+export class GetActiveIdpConfigResponseBody extends $tea.Model {
+  data?: GetActiveIdpConfigResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetActiveIdpConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetActiveIdpConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetActiveIdpConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetActiveIdpConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserRequest extends $tea.Model {
+  idpConfigId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idpConfigId: 'IdpConfigId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idpConfigId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserResponseBody extends $tea.Model {
+  data?: GetClientUserResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetClientUserResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClientUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClientUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDynamicRouteRequest extends $tea.Model {
   dynamicRouteId?: string;
   static names(): { [key: string]: string } {
@@ -1182,6 +1580,72 @@ export class GetDynamicRouteResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDynamicRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdpConfigRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdpConfigResponseBody extends $tea.Model {
+  data?: GetIdpConfigResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetIdpConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdpConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIdpConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIdpConfigResponseBody,
     };
   }
 
@@ -1679,6 +2143,93 @@ export class ListApplicationsForPrivateAccessTagResponse extends $tea.Model {
   }
 }
 
+export class ListClientUsersRequest extends $tea.Model {
+  currentPage?: number;
+  departmentId?: string;
+  email?: string;
+  idpConfigId?: string;
+  mobileNumber?: string;
+  pageSize?: number;
+  status?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      departmentId: 'DepartmentId',
+      email: 'Email',
+      idpConfigId: 'IdpConfigId',
+      mobileNumber: 'MobileNumber',
+      pageSize: 'PageSize',
+      status: 'Status',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      departmentId: 'string',
+      email: 'string',
+      idpConfigId: 'string',
+      mobileNumber: 'string',
+      pageSize: 'number',
+      status: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientUsersResponseBody extends $tea.Model {
+  data?: ListClientUsersResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListClientUsersResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientUsersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClientUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClientUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConnectorsRequest extends $tea.Model {
   connectorIds?: string[];
   currentPage?: number;
@@ -1994,6 +2545,150 @@ export class ListExcessiveDeviceRegistrationApplicationsResponse extends $tea.Mo
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListExcessiveDeviceRegistrationApplicationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpConfigsRequest extends $tea.Model {
+  currentPage?: number;
+  include?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      include: 'Include',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      include: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpConfigsResponseBody extends $tea.Model {
+  data?: ListIdpConfigsResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListIdpConfigsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpConfigsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIdpConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIdpConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpDepartmentsRequest extends $tea.Model {
+  currentPage?: number;
+  idpConfigId?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      idpConfigId: 'IdpConfigId',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      idpConfigId: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpDepartmentsResponseBody extends $tea.Model {
+  data?: ListIdpDepartmentsResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListIdpDepartmentsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpDepartmentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIdpDepartmentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIdpDepartmentsResponseBody,
     };
   }
 
@@ -3472,6 +4167,216 @@ export class ListUsersResponse extends $tea.Model {
   }
 }
 
+export class UpdateClientUserRequest extends $tea.Model {
+  departmentId?: string;
+  description?: string;
+  email?: string;
+  id?: string;
+  mobileNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      description: 'Description',
+      email: 'Email',
+      id: 'Id',
+      mobileNumber: 'MobileNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'string',
+      description: 'string',
+      email: 'string',
+      id: 'string',
+      mobileNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateClientUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateClientUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserPasswordRequest extends $tea.Model {
+  id?: string;
+  password?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      password: 'Password',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      password: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserPasswordResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserPasswordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateClientUserPasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateClientUserPasswordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserStatusRequest extends $tea.Model {
+  id?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClientUserStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateClientUserStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateClientUserStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDynamicRouteRequest extends $tea.Model {
   applicationIds?: string[];
   applicationType?: string;
@@ -3629,6 +4534,75 @@ export class UpdateExcessiveDeviceRegistrationApplicationsStatusResponse extends
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdpDepartmentRequest extends $tea.Model {
+  departmentId?: string;
+  departmentName?: string;
+  idpConfigId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      departmentName: 'DepartmentName',
+      idpConfigId: 'IdpConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'string',
+      departmentName: 'string',
+      idpConfigId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdpDepartmentResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdpDepartmentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateIdpDepartmentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateIdpDepartmentResponseBody,
     };
   }
 
@@ -4471,6 +5445,102 @@ export class CreateUserGroupRequestAttributes extends $tea.Model {
   }
 }
 
+export class GetActiveIdpConfigResponseBodyData extends $tea.Model {
+  description?: string;
+  id?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserResponseBodyDataDepartment extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientUserResponseBodyData extends $tea.Model {
+  department?: GetClientUserResponseBodyDataDepartment;
+  departmentId?: string;
+  description?: string;
+  email?: string;
+  id?: string;
+  idpConfigId?: string;
+  mobileNumber?: string;
+  status?: string;
+  userId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      department: 'Department',
+      departmentId: 'DepartmentId',
+      description: 'Description',
+      email: 'Email',
+      id: 'Id',
+      idpConfigId: 'IdpConfigId',
+      mobileNumber: 'MobileNumber',
+      status: 'Status',
+      userId: 'UserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      department: GetClientUserResponseBodyDataDepartment,
+      departmentId: 'string',
+      description: 'string',
+      email: 'string',
+      id: 'string',
+      idpConfigId: 'string',
+      mobileNumber: 'string',
+      status: 'string',
+      userId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDynamicRouteResponseBodyDynamicRoute extends $tea.Model {
   applicationIds?: string[];
   applicationType?: string;
@@ -4515,6 +5585,76 @@ export class GetDynamicRouteResponseBodyDynamicRoute extends $tea.Model {
       regionIds: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       tagIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdpConfigResponseBodyData extends $tea.Model {
+  accessKey?: string;
+  accessKeySecret?: string;
+  description?: string;
+  getGroupUrl?: string;
+  id?: string;
+  idpMetadata?: string;
+  mfaConfigType?: string;
+  mobileLoginType?: string;
+  mobileMfaConfigType?: string;
+  multiIdpInfo?: string;
+  name?: string;
+  pcLoginType?: string;
+  status?: string;
+  type?: string;
+  updateTime?: string;
+  verifyAesKey?: string;
+  verifyToken?: string;
+  verifyUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      accessKeySecret: 'AccessKeySecret',
+      description: 'Description',
+      getGroupUrl: 'GetGroupUrl',
+      id: 'Id',
+      idpMetadata: 'IdpMetadata',
+      mfaConfigType: 'MfaConfigType',
+      mobileLoginType: 'MobileLoginType',
+      mobileMfaConfigType: 'MobileMfaConfigType',
+      multiIdpInfo: 'MultiIdpInfo',
+      name: 'Name',
+      pcLoginType: 'PcLoginType',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      verifyAesKey: 'VerifyAesKey',
+      verifyToken: 'VerifyToken',
+      verifyUrl: 'VerifyUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      accessKeySecret: 'string',
+      description: 'string',
+      getGroupUrl: 'string',
+      id: 'string',
+      idpMetadata: 'string',
+      mfaConfigType: 'string',
+      mobileLoginType: 'string',
+      mobileMfaConfigType: 'string',
+      multiIdpInfo: 'string',
+      name: 'string',
+      pcLoginType: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+      verifyAesKey: 'string',
+      verifyToken: 'string',
+      verifyUrl: 'string',
     };
   }
 
@@ -5073,6 +6213,96 @@ export class ListApplicationsForPrivateAccessTagResponseBodyTags extends $tea.Mo
   }
 }
 
+export class ListClientUsersResponseBodyDataDataListDepartment extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientUsersResponseBodyDataDataList extends $tea.Model {
+  department?: ListClientUsersResponseBodyDataDataListDepartment;
+  departmentId?: string;
+  description?: string;
+  email?: string;
+  id?: string;
+  idpConfigId?: string;
+  mobileNumber?: string;
+  status?: string;
+  userId?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      department: 'Department',
+      departmentId: 'DepartmentId',
+      description: 'Description',
+      email: 'Email',
+      id: 'Id',
+      idpConfigId: 'IdpConfigId',
+      mobileNumber: 'MobileNumber',
+      status: 'Status',
+      userId: 'UserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      department: ListClientUsersResponseBodyDataDataListDepartment,
+      departmentId: 'string',
+      description: 'string',
+      email: 'string',
+      id: 'string',
+      idpConfigId: 'string',
+      mobileNumber: 'string',
+      status: 'string',
+      userId: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientUsersResponseBodyData extends $tea.Model {
+  dataList?: ListClientUsersResponseBodyDataDataList[];
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': ListClientUsersResponseBodyDataDataList },
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConnectorsResponseBodyConnectorsApplications extends $tea.Model {
   applicationId?: string;
   applicationName?: string;
@@ -5284,6 +6514,124 @@ export class ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications
       saseUserId: 'string',
       status: 'string',
       username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpConfigsResponseBodyDataDataList extends $tea.Model {
+  description?: string;
+  id?: string;
+  mfa?: string;
+  mobileLoginType?: string;
+  mobileMfaConfigType?: string;
+  multiIdpInfo?: string;
+  name?: string;
+  pcLoginType?: string;
+  status?: string;
+  type?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      mfa: 'Mfa',
+      mobileLoginType: 'MobileLoginType',
+      mobileMfaConfigType: 'MobileMfaConfigType',
+      multiIdpInfo: 'MultiIdpInfo',
+      name: 'Name',
+      pcLoginType: 'PcLoginType',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+      mfa: 'string',
+      mobileLoginType: 'string',
+      mobileMfaConfigType: 'string',
+      multiIdpInfo: 'string',
+      name: 'string',
+      pcLoginType: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpConfigsResponseBodyData extends $tea.Model {
+  dataList?: ListIdpConfigsResponseBodyDataDataList[];
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': ListIdpConfigsResponseBodyDataDataList },
+      totalNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpDepartmentsResponseBodyDataDataList extends $tea.Model {
+  id?: string;
+  idpConfigId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      idpConfigId: 'IdpConfigId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      idpConfigId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdpDepartmentsResponseBodyData extends $tea.Model {
+  dataList?: ListIdpDepartmentsResponseBodyDataDataList[];
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': ListIdpDepartmentsResponseBodyDataDataList },
+      totalNum: 'number',
     };
   }
 
@@ -7120,6 +8468,59 @@ export default class Client extends OpenApi {
     return await this.attachApplication2ConnectorWithOptions(request, runtime);
   }
 
+  async createClientUserWithOptions(request: CreateClientUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientUserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.departmentId)) {
+      query["DepartmentId"] = request.departmentId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.idpConfigId)) {
+      query["IdpConfigId"] = request.idpConfigId;
+    }
+
+    if (!Util.isUnset(request.mobileNumber)) {
+      query["MobileNumber"] = request.mobileNumber;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateClientUser",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClientUserResponse>(await this.callApi(params, req, runtime), new CreateClientUserResponse({}));
+  }
+
+  async createClientUser(request: CreateClientUserRequest): Promise<CreateClientUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createClientUserWithOptions(request, runtime);
+  }
+
   async createDynamicRouteWithOptions(request: CreateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateDynamicRouteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7188,6 +8589,39 @@ export default class Client extends OpenApi {
   async createDynamicRoute(request: CreateDynamicRouteRequest): Promise<CreateDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDynamicRouteWithOptions(request, runtime);
+  }
+
+  async createIdpDepartmentWithOptions(request: CreateIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateIdpDepartmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.departmentName)) {
+      query["DepartmentName"] = request.departmentName;
+    }
+
+    if (!Util.isUnset(request.idpConfigId)) {
+      query["IdpConfigId"] = request.idpConfigId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIdpDepartment",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIdpDepartmentResponse>(await this.callApi(params, req, runtime), new CreateIdpDepartmentResponse({}));
+  }
+
+  async createIdpDepartment(request: CreateIdpDepartmentRequest): Promise<CreateIdpDepartmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createIdpDepartmentWithOptions(request, runtime);
   }
 
   async createPrivateAccessApplicationWithOptions(request: CreatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessApplicationResponse> {
@@ -7485,6 +8919,35 @@ export default class Client extends OpenApi {
     return await this.createUserGroupWithOptions(request, runtime);
   }
 
+  async deleteClientUserWithOptions(request: DeleteClientUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientUserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteClientUser",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClientUserResponse>(await this.callApi(params, req, runtime), new DeleteClientUserResponse({}));
+  }
+
+  async deleteClientUser(request: DeleteClientUserRequest): Promise<DeleteClientUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteClientUserWithOptions(request, runtime);
+  }
+
   async deleteDynamicRouteWithOptions(request: DeleteDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDynamicRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7512,6 +8975,39 @@ export default class Client extends OpenApi {
   async deleteDynamicRoute(request: DeleteDynamicRouteRequest): Promise<DeleteDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDynamicRouteWithOptions(request, runtime);
+  }
+
+  async deleteIdpDepartmentWithOptions(request: DeleteIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIdpDepartmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.departmentId)) {
+      query["DepartmentId"] = request.departmentId;
+    }
+
+    if (!Util.isUnset(request.idpConfigId)) {
+      query["IdpConfigId"] = request.idpConfigId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIdpDepartment",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIdpDepartmentResponse>(await this.callApi(params, req, runtime), new DeleteIdpDepartmentResponse({}));
+  }
+
+  async deleteIdpDepartment(request: DeleteIdpDepartmentRequest): Promise<DeleteIdpDepartmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteIdpDepartmentWithOptions(request, runtime);
   }
 
   async deletePrivateAccessApplicationWithOptions(request: DeletePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessApplicationResponse> {
@@ -7703,6 +9199,52 @@ export default class Client extends OpenApi {
     return await this.detachApplication2ConnectorWithOptions(request, runtime);
   }
 
+  async getActiveIdpConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetActiveIdpConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetActiveIdpConfig",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetActiveIdpConfigResponse>(await this.callApi(params, req, runtime), new GetActiveIdpConfigResponse({}));
+  }
+
+  async getActiveIdpConfig(): Promise<GetActiveIdpConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getActiveIdpConfigWithOptions(runtime);
+  }
+
+  async getClientUserWithOptions(request: GetClientUserRequest, runtime: $Util.RuntimeOptions): Promise<GetClientUserResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClientUser",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClientUserResponse>(await this.callApi(params, req, runtime), new GetClientUserResponse({}));
+  }
+
+  async getClientUser(request: GetClientUserRequest): Promise<GetClientUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClientUserWithOptions(request, runtime);
+  }
+
   async getDynamicRouteWithOptions(request: GetDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<GetDynamicRouteResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7726,6 +9268,31 @@ export default class Client extends OpenApi {
   async getDynamicRoute(request: GetDynamicRouteRequest): Promise<GetDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDynamicRouteWithOptions(request, runtime);
+  }
+
+  async getIdpConfigWithOptions(request: GetIdpConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetIdpConfigResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIdpConfig",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIdpConfigResponse>(await this.callApi(params, req, runtime), new GetIdpConfigResponse({}));
+  }
+
+  async getIdpConfig(request: GetIdpConfigRequest): Promise<GetIdpConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIdpConfigWithOptions(request, runtime);
   }
 
   async getPrivateAccessApplicationWithOptions(request: GetPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetPrivateAccessApplicationResponse> {
@@ -7903,6 +9470,31 @@ export default class Client extends OpenApi {
     return await this.listApplicationsForPrivateAccessTagWithOptions(request, runtime);
   }
 
+  async listClientUsersWithOptions(request: ListClientUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListClientUsersResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClientUsers",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClientUsersResponse>(await this.callApi(params, req, runtime), new ListClientUsersResponse({}));
+  }
+
+  async listClientUsers(request: ListClientUsersRequest): Promise<ListClientUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listClientUsersWithOptions(request, runtime);
+  }
+
   async listConnectorsWithOptions(request: ListConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectorsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7997,6 +9589,56 @@ export default class Client extends OpenApi {
   async listExcessiveDeviceRegistrationApplications(request: ListExcessiveDeviceRegistrationApplicationsRequest): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExcessiveDeviceRegistrationApplicationsWithOptions(request, runtime);
+  }
+
+  async listIdpConfigsWithOptions(request: ListIdpConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListIdpConfigsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIdpConfigs",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIdpConfigsResponse>(await this.callApi(params, req, runtime), new ListIdpConfigsResponse({}));
+  }
+
+  async listIdpConfigs(request: ListIdpConfigsRequest): Promise<ListIdpConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIdpConfigsWithOptions(request, runtime);
+  }
+
+  async listIdpDepartmentsWithOptions(request: ListIdpDepartmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListIdpDepartmentsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIdpDepartments",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIdpDepartmentsResponse>(await this.callApi(params, req, runtime), new ListIdpDepartmentsResponse({}));
+  }
+
+  async listIdpDepartments(request: ListIdpDepartmentsRequest): Promise<ListIdpDepartmentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIdpDepartmentsWithOptions(request, runtime);
   }
 
   async listPolicesForPrivateAccessApplicationWithOptions(request: ListPolicesForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
@@ -8474,6 +10116,121 @@ export default class Client extends OpenApi {
     return await this.listUsersWithOptions(request, runtime);
   }
 
+  async updateClientUserWithOptions(request: UpdateClientUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.departmentId)) {
+      query["DepartmentId"] = request.departmentId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.mobileNumber)) {
+      query["MobileNumber"] = request.mobileNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateClientUser",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateClientUserResponse>(await this.callApi(params, req, runtime), new UpdateClientUserResponse({}));
+  }
+
+  async updateClientUser(request: UpdateClientUserRequest): Promise<UpdateClientUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateClientUserWithOptions(request, runtime);
+  }
+
+  async updateClientUserPasswordWithOptions(request: UpdateClientUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserPasswordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateClientUserPassword",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateClientUserPasswordResponse>(await this.callApi(params, req, runtime), new UpdateClientUserPasswordResponse({}));
+  }
+
+  async updateClientUserPassword(request: UpdateClientUserPasswordRequest): Promise<UpdateClientUserPasswordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateClientUserPasswordWithOptions(request, runtime);
+  }
+
+  async updateClientUserStatusWithOptions(request: UpdateClientUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateClientUserStatus",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateClientUserStatusResponse>(await this.callApi(params, req, runtime), new UpdateClientUserStatusResponse({}));
+  }
+
+  async updateClientUserStatus(request: UpdateClientUserStatusRequest): Promise<UpdateClientUserStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateClientUserStatusWithOptions(request, runtime);
+  }
+
   async updateDynamicRouteWithOptions(request: UpdateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicRouteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8588,6 +10345,43 @@ export default class Client extends OpenApi {
   async updateExcessiveDeviceRegistrationApplicationsStatus(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request, runtime);
+  }
+
+  async updateIdpDepartmentWithOptions(request: UpdateIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIdpDepartmentResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.departmentId)) {
+      query["DepartmentId"] = request.departmentId;
+    }
+
+    if (!Util.isUnset(request.departmentName)) {
+      query["DepartmentName"] = request.departmentName;
+    }
+
+    if (!Util.isUnset(request.idpConfigId)) {
+      query["IdpConfigId"] = request.idpConfigId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateIdpDepartment",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIdpDepartmentResponse>(await this.callApi(params, req, runtime), new UpdateIdpDepartmentResponse({}));
+  }
+
+  async updateIdpDepartment(request: UpdateIdpDepartmentRequest): Promise<UpdateIdpDepartmentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateIdpDepartmentWithOptions(request, runtime);
   }
 
   async updatePrivateAccessApplicationWithOptions(request: UpdatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
