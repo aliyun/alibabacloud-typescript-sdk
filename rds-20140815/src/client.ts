@@ -2142,6 +2142,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   userBackupId?: string;
   VPCId?: string;
   vSwitchId?: string;
+  whitelistTemplateList?: string;
   zoneId?: string;
   zoneIdSlave1?: string;
   zoneIdSlave2?: string;
@@ -2199,6 +2200,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       userBackupId: 'UserBackupId',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
+      whitelistTemplateList: 'WhitelistTemplateList',
       zoneId: 'ZoneId',
       zoneIdSlave1: 'ZoneIdSlave1',
       zoneIdSlave2: 'ZoneIdSlave2',
@@ -2259,6 +2261,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       userBackupId: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
+      whitelistTemplateList: 'string',
       zoneId: 'string',
       zoneIdSlave1: 'string',
       zoneIdSlave2: 'string',
@@ -2323,6 +2326,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   userBackupId?: string;
   VPCId?: string;
   vSwitchId?: string;
+  whitelistTemplateList?: string;
   zoneId?: string;
   zoneIdSlave1?: string;
   zoneIdSlave2?: string;
@@ -2380,6 +2384,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       userBackupId: 'UserBackupId',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
+      whitelistTemplateList: 'WhitelistTemplateList',
       zoneId: 'ZoneId',
       zoneIdSlave1: 'ZoneIdSlave1',
       zoneIdSlave2: 'ZoneIdSlave2',
@@ -2440,6 +2445,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       userBackupId: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
+      whitelistTemplateList: 'string',
       zoneId: 'string',
       zoneIdSlave1: 'string',
       zoneIdSlave2: 'string',
@@ -22314,6 +22320,7 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  vSwitchIds?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -22326,6 +22333,7 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      vSwitchIds: 'VSwitchIds',
     };
   }
 
@@ -22341,6 +22349,7 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      vSwitchIds: 'string',
     };
   }
 
@@ -38837,6 +38846,10 @@ export default class Client extends OpenApi {
       query["VSwitchId"] = request.vSwitchId;
     }
 
+    if (!Util.isUnset(request.whitelistTemplateList)) {
+      query["WhitelistTemplateList"] = request.whitelistTemplateList;
+    }
+
     if (!Util.isUnset(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
@@ -55258,6 +55271,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.vSwitchIds)) {
+      query["VSwitchIds"] = request.vSwitchIds;
     }
 
     let req = new $OpenApi.OpenApiRequest({
