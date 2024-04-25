@@ -188,81 +188,6 @@ export class CheckResultResponse extends $tea.Model {
   }
 }
 
-export class DeletePictureRequest extends $tea.Model {
-  deletePicAfterQuery?: string;
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deletePicAfterQuery: 'DeletePicAfterQuery',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deletePicAfterQuery: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePictureResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  result?: DeletePictureResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: DeletePictureResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePictureResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeletePictureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeletePictureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteVerifyResultRequest extends $tea.Model {
   deleteAfterQuery?: string;
   deleteType?: string;
@@ -1559,7 +1484,6 @@ export class InitializeRequest extends $tea.Model {
   docType?: string;
   facePictureBase64?: string;
   facePictureUrl?: string;
-  flowType?: string;
   idFaceQuality?: string;
   idSpoof?: string;
   languageConfig?: string;
@@ -1567,15 +1491,12 @@ export class InitializeRequest extends $tea.Model {
   merchantUserId?: string;
   metaInfo?: string;
   ocr?: string;
-  operationMode?: string;
-  pages?: string;
   productCode?: string;
-  productConfig?: string;
   productFlow?: string;
   returnUrl?: string;
   sceneCode?: string;
   securityLevel?: string;
-  serviceLevel?: string;
+  styleConfig?: string;
   static names(): { [key: string]: string } {
     return {
       authorize: 'Authorize',
@@ -1586,7 +1507,6 @@ export class InitializeRequest extends $tea.Model {
       docType: 'DocType',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
-      flowType: 'FlowType',
       idFaceQuality: 'IdFaceQuality',
       idSpoof: 'IdSpoof',
       languageConfig: 'LanguageConfig',
@@ -1594,15 +1514,12 @@ export class InitializeRequest extends $tea.Model {
       merchantUserId: 'MerchantUserId',
       metaInfo: 'MetaInfo',
       ocr: 'Ocr',
-      operationMode: 'OperationMode',
-      pages: 'Pages',
       productCode: 'ProductCode',
-      productConfig: 'ProductConfig',
       productFlow: 'ProductFlow',
       returnUrl: 'ReturnUrl',
       sceneCode: 'SceneCode',
       securityLevel: 'SecurityLevel',
-      serviceLevel: 'ServiceLevel',
+      styleConfig: 'StyleConfig',
     };
   }
 
@@ -1616,7 +1533,6 @@ export class InitializeRequest extends $tea.Model {
       docType: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
-      flowType: 'string',
       idFaceQuality: 'string',
       idSpoof: 'string',
       languageConfig: 'string',
@@ -1624,15 +1540,12 @@ export class InitializeRequest extends $tea.Model {
       merchantUserId: 'string',
       metaInfo: 'string',
       ocr: 'string',
-      operationMode: 'string',
-      pages: 'string',
       productCode: 'string',
-      productConfig: 'string',
       productFlow: 'string',
       returnUrl: 'string',
       sceneCode: 'string',
       securityLevel: 'string',
-      serviceLevel: 'string',
+      styleConfig: 'string',
     };
   }
 
@@ -1838,28 +1751,6 @@ export class CheckResultResponseBodyResult extends $tea.Model {
       extRiskInfo: 'string',
       passed: 'string',
       subCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePictureResponseBodyResult extends $tea.Model {
-  deleteResult?: string;
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleteResult: 'DeleteResult',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteResult: 'string',
-      transactionId: 'string',
     };
   }
 
@@ -2782,39 +2673,6 @@ export default class Client extends OpenApi {
     return await this.checkResultWithOptions(request, runtime);
   }
 
-  async deletePictureWithOptions(request: DeletePictureRequest, runtime: $Util.RuntimeOptions): Promise<DeletePictureResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.deletePicAfterQuery)) {
-      query["DeletePicAfterQuery"] = request.deletePicAfterQuery;
-    }
-
-    if (!Util.isUnset(request.transactionId)) {
-      query["TransactionId"] = request.transactionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeletePicture",
-      version: "2022-08-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeletePictureResponse>(await this.callApi(params, req, runtime), new DeletePictureResponse({}));
-  }
-
-  async deletePicture(request: DeletePictureRequest): Promise<DeletePictureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deletePictureWithOptions(request, runtime);
-  }
-
   async deleteVerifyResultWithOptions(request: DeleteVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVerifyResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3533,10 +3391,6 @@ export default class Client extends OpenApi {
       query["FacePictureUrl"] = request.facePictureUrl;
     }
 
-    if (!Util.isUnset(request.flowType)) {
-      query["FlowType"] = request.flowType;
-    }
-
     if (!Util.isUnset(request.idFaceQuality)) {
       query["IdFaceQuality"] = request.idFaceQuality;
     }
@@ -3565,20 +3419,8 @@ export default class Client extends OpenApi {
       query["Ocr"] = request.ocr;
     }
 
-    if (!Util.isUnset(request.operationMode)) {
-      query["OperationMode"] = request.operationMode;
-    }
-
-    if (!Util.isUnset(request.pages)) {
-      query["Pages"] = request.pages;
-    }
-
     if (!Util.isUnset(request.productCode)) {
       query["ProductCode"] = request.productCode;
-    }
-
-    if (!Util.isUnset(request.productConfig)) {
-      query["ProductConfig"] = request.productConfig;
     }
 
     if (!Util.isUnset(request.productFlow)) {
@@ -3597,8 +3439,8 @@ export default class Client extends OpenApi {
       query["SecurityLevel"] = request.securityLevel;
     }
 
-    if (!Util.isUnset(request.serviceLevel)) {
-      query["ServiceLevel"] = request.serviceLevel;
+    if (!Util.isUnset(request.styleConfig)) {
+      query["StyleConfig"] = request.styleConfig;
     }
 
     let body : {[key: string ]: any} = { };
