@@ -5672,6 +5672,8 @@ export class GetApplicationRequest extends $tea.Model {
 }
 
 export class GetApplicationResponseBody extends $tea.Model {
+  appTemplateDisplayName?: string;
+  appTemplateName?: string;
   creatorAccountId?: string;
   description?: string;
   gmtCreate?: string;
@@ -5679,6 +5681,8 @@ export class GetApplicationResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      appTemplateDisplayName: 'appTemplateDisplayName',
+      appTemplateName: 'appTemplateName',
       creatorAccountId: 'creatorAccountId',
       description: 'description',
       gmtCreate: 'gmtCreate',
@@ -5689,6 +5693,8 @@ export class GetApplicationResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appTemplateDisplayName: 'string',
+      appTemplateName: 'string',
       creatorAccountId: 'string',
       description: 'string',
       gmtCreate: 'string',
