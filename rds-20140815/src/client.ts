@@ -379,6 +379,7 @@ export class AllocateReadWriteSplittingConnectionResponse extends $tea.Model {
 
 export class AttachWhitelistTemplateToInstanceRequest extends $tea.Model {
   insName?: string;
+  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -386,6 +387,7 @@ export class AttachWhitelistTemplateToInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       insName: 'InsName',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -396,6 +398,7 @@ export class AttachWhitelistTemplateToInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       insName: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -6541,6 +6544,7 @@ export class DescribeAllWhitelistTemplateRequest extends $tea.Model {
   fuzzySearch?: boolean;
   maxRecordsPerPage?: number;
   pageNumbers?: number;
+  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -6550,6 +6554,7 @@ export class DescribeAllWhitelistTemplateRequest extends $tea.Model {
       fuzzySearch: 'FuzzySearch',
       maxRecordsPerPage: 'MaxRecordsPerPage',
       pageNumbers: 'PageNumbers',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -6562,6 +6567,7 @@ export class DescribeAllWhitelistTemplateRequest extends $tea.Model {
       fuzzySearch: 'boolean',
       maxRecordsPerPage: 'number',
       pageNumbers: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -13358,12 +13364,14 @@ export class DescribeInstanceKeywordsResponse extends $tea.Model {
 
 export class DescribeInstanceLinkedWhitelistTemplateRequest extends $tea.Model {
   insName?: string;
+  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       insName: 'InsName',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -13373,6 +13381,7 @@ export class DescribeInstanceLinkedWhitelistTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       insName: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -17534,12 +17543,14 @@ export class DescribeVSwitchesResponse extends $tea.Model {
 }
 
 export class DescribeWhitelistTemplateRequest extends $tea.Model {
+  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -17549,6 +17560,7 @@ export class DescribeWhitelistTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -17621,12 +17633,14 @@ export class DescribeWhitelistTemplateResponse extends $tea.Model {
 }
 
 export class DescribeWhitelistTemplateLinkedInstanceRequest extends $tea.Model {
+  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -17636,6 +17650,7 @@ export class DescribeWhitelistTemplateLinkedInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -17859,6 +17874,7 @@ export class DetachGadInstanceMemberResponse extends $tea.Model {
 
 export class DetachWhitelistTemplateToInstanceRequest extends $tea.Model {
   insName?: string;
+  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -17866,6 +17882,7 @@ export class DetachWhitelistTemplateToInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       insName: 'InsName',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -17876,6 +17893,7 @@ export class DetachWhitelistTemplateToInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       insName: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -24132,6 +24150,7 @@ export class ModifyTaskInfoResponse extends $tea.Model {
 
 export class ModifyWhitelistTemplateRequest extends $tea.Model {
   ipWhitelist?: string;
+  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -24140,6 +24159,7 @@ export class ModifyWhitelistTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ipWhitelist: 'IpWhitelist',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -24151,6 +24171,7 @@ export class ModifyWhitelistTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ipWhitelist: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -27777,12 +27798,12 @@ export class CreateDBInstanceEndpointAddressResponseBodyData extends $tea.Model 
 
 export class CreateDBNodesRequestDBNode extends $tea.Model {
   classCode?: string;
-  vswId?: string;
+  vswitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       classCode: 'classCode',
-      vswId: 'vswId',
+      vswitchId: 'vswitchId',
       zoneId: 'zoneId',
     };
   }
@@ -27790,7 +27811,7 @@ export class CreateDBNodesRequestDBNode extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       classCode: 'string',
-      vswId: 'string',
+      vswitchId: 'string',
       zoneId: 'string',
     };
   }
@@ -37128,6 +37149,10 @@ export default class Client extends OpenApi {
       query["InsName"] = request.insName;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -42409,6 +42434,10 @@ export default class Client extends OpenApi {
       query["PageNumbers"] = request.pageNumbers;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -42815,11 +42844,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
+    * ### [](#)Supported database engines
+    * *   RDS MySQL
+    * *   RDS PostgreSQL
+    * *   RDS SQL Server
+    * *   RDS MariaDB
+    * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
     *
     * @param request DescribeAvailableZonesRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -42882,11 +42912,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Supported database engines
-    * *   MySQL
-    * *   PostgreSQL
-    * *   SQL Server
-    * *   MariaDB
+    * ### [](#)Supported database engines
+    * *   RDS MySQL
+    * *   RDS PostgreSQL
+    * *   RDS SQL Server
+    * *   RDS MariaDB
+    * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
     *
     * @param request DescribeAvailableZonesRequest
     * @return DescribeAvailableZonesResponse
@@ -47753,6 +47784,10 @@ export default class Client extends OpenApi {
       query["InsName"] = request.insName;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -47796,6 +47831,16 @@ export default class Client extends OpenApi {
     return await this.describeInstanceLinkedWhitelistTemplateWithOptions(request, runtime);
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    *
+    * @param request DescribeKmsAssociateResourcesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeKmsAssociateResourcesResponse
+   */
   async describeKmsAssociateResourcesWithOptions(request: DescribeKmsAssociateResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKmsAssociateResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47860,6 +47905,15 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKmsAssociateResourcesResponse>(await this.callApi(params, req, runtime), new DescribeKmsAssociateResourcesResponse({}));
   }
 
+  /**
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    *
+    * @param request DescribeKmsAssociateResourcesRequest
+    * @return DescribeKmsAssociateResourcesResponse
+   */
   async describeKmsAssociateResources(request: DescribeKmsAssociateResourcesRequest): Promise<DescribeKmsAssociateResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeKmsAssociateResourcesWithOptions(request, runtime);
@@ -50985,6 +51039,10 @@ export default class Client extends OpenApi {
   async describeWhitelistTemplateWithOptions(request: DescribeWhitelistTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistTemplateResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -51045,6 +51103,10 @@ export default class Client extends OpenApi {
   async describeWhitelistTemplateLinkedInstanceWithOptions(request: DescribeWhitelistTemplateLinkedInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistTemplateLinkedInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -51231,6 +51293,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.insName)) {
       query["InsName"] = request.insName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
@@ -54939,9 +55005,9 @@ export default class Client extends OpenApi {
     * *   RDS MySQL
     * *   RDS PostgreSQL
     * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Enable and configure the dedicated proxy feature](~~197456~~)
-    * *   [Create a database proxy terminal for an ApsaraDB RDS for PostgreSQL instance](~~418273~~)
+    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](~~2621331~~)
+    * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418273~~)
     *
     * @param request ModifyDBProxyEndpointRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -55036,9 +55102,9 @@ export default class Client extends OpenApi {
     * *   RDS MySQL
     * *   RDS PostgreSQL
     * ### [](#)References
-    * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-    * *   [Enable and configure the dedicated proxy feature](~~197456~~)
-    * *   [Create a database proxy terminal for an ApsaraDB RDS for PostgreSQL instance](~~418273~~)
+    * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+    * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](~~2621331~~)
+    * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418273~~)
     *
     * @param request ModifyDBProxyEndpointRequest
     * @return ModifyDBProxyEndpointResponse
@@ -56857,6 +56923,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.ipWhitelist)) {
       query["IpWhitelist"] = request.ipWhitelist;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
