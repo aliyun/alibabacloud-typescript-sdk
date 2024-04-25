@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloudsso20210515",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
