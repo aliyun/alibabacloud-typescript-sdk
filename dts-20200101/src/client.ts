@@ -2087,10 +2087,14 @@ export class CreateMigrationJobResponse extends $tea.Model {
 export class CreateReverseDtsJobRequest extends $tea.Model {
   dtsJobId?: string;
   resourceGroupId?: string;
+  shardPassword?: string;
+  shardUsername?: string;
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
       resourceGroupId: 'ResourceGroupId',
+      shardPassword: 'ShardPassword',
+      shardUsername: 'ShardUsername',
     };
   }
 
@@ -2098,6 +2102,8 @@ export class CreateReverseDtsJobRequest extends $tea.Model {
     return {
       dtsJobId: 'string',
       resourceGroupId: 'string',
+      shardPassword: 'string',
+      shardUsername: 'string',
     };
   }
 
@@ -8770,6 +8776,7 @@ export class ModifyDtsJobEndpointRequest extends $tea.Model {
   endpointInstanceType?: string;
   endpointIp?: string;
   endpointPort?: string;
+  endpointRegionId?: string;
   password?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -8790,6 +8797,7 @@ export class ModifyDtsJobEndpointRequest extends $tea.Model {
       endpointInstanceType: 'EndpointInstanceType',
       endpointIp: 'EndpointIp',
       endpointPort: 'EndpointPort',
+      endpointRegionId: 'EndpointRegionId',
       password: 'Password',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -8813,6 +8821,7 @@ export class ModifyDtsJobEndpointRequest extends $tea.Model {
       endpointInstanceType: 'string',
       endpointIp: 'string',
       endpointPort: 'string',
+      endpointRegionId: 'string',
       password: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -22771,6 +22780,14 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.shardPassword)) {
+      query["ShardPassword"] = request.shardPassword;
+    }
+
+    if (!Util.isUnset(request.shardUsername)) {
+      query["ShardUsername"] = request.shardUsername;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26463,6 +26480,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endpointPort)) {
       query["EndpointPort"] = request.endpointPort;
+    }
+
+    if (!Util.isUnset(request.endpointRegionId)) {
+      query["EndpointRegionId"] = request.endpointRegionId;
     }
 
     if (!Util.isUnset(request.password)) {
