@@ -941,6 +941,93 @@ export class ExecuteCallTaskResponse extends $tea.Model {
   }
 }
 
+export class GetCallMediaTypeRequest extends $tea.Model {
+  callId?: string;
+  calledNumber?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      calledNumber: 'CalledNumber',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      calledNumber: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCallMediaTypeResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: { [key: string]: any };
+  message?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCallMediaTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCallMediaTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCallMediaTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCallProgressRequest extends $tea.Model {
   callId?: string;
   calledNum?: string;
@@ -1101,6 +1188,93 @@ export class GetHotlineQualificationByOrderResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetHotlineQualificationByOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemporaryFileUrlRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  videoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      videoId: 'VideoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      videoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemporaryFileUrlResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemporaryFileUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTemporaryFileUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTemporaryFileUrlResponseBody,
     };
   }
 
@@ -6002,6 +6176,51 @@ export default class Client extends OpenApi {
     return await this.executeCallTaskWithOptions(request, runtime);
   }
 
+  async getCallMediaTypeWithOptions(request: GetCallMediaTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetCallMediaTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCallMediaType",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCallMediaTypeResponse>(await this.callApi(params, req, runtime), new GetCallMediaTypeResponse({}));
+  }
+
+  async getCallMediaType(request: GetCallMediaTypeRequest): Promise<GetCallMediaTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCallMediaTypeWithOptions(request, runtime);
+  }
+
   async getCallProgressWithOptions(request: GetCallProgressRequest, runtime: $Util.RuntimeOptions): Promise<GetCallProgressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6101,6 +6320,47 @@ export default class Client extends OpenApi {
   async getHotlineQualificationByOrder(request: GetHotlineQualificationByOrderRequest): Promise<GetHotlineQualificationByOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineQualificationByOrderWithOptions(request, runtime);
+  }
+
+  async getTemporaryFileUrlWithOptions(request: GetTemporaryFileUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetTemporaryFileUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.videoId)) {
+      query["VideoId"] = request.videoId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTemporaryFileUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemporaryFileUrlResponse>(await this.callApi(params, req, runtime), new GetTemporaryFileUrlResponse({}));
+  }
+
+  async getTemporaryFileUrl(request: GetTemporaryFileUrlRequest): Promise<GetTemporaryFileUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemporaryFileUrlWithOptions(request, runtime);
   }
 
   /**
