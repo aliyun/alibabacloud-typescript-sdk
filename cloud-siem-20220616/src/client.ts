@@ -7262,11 +7262,15 @@ export class ListRdUsersResponse extends $tea.Model {
 
 export class ListUserProdLogsRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   sourceLogCode?: string;
   sourceProdCode?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       sourceLogCode: 'SourceLogCode',
       sourceProdCode: 'SourceProdCode',
     };
@@ -7275,6 +7279,8 @@ export class ListUserProdLogsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       sourceLogCode: 'string',
       sourceProdCode: 'string',
     };
@@ -7334,10 +7340,14 @@ export class ListUserProdLogsResponse extends $tea.Model {
 
 export class ListUsersByProdRequest extends $tea.Model {
   regionId?: string;
+  roleFor?: number;
+  roleType?: number;
   sourceProdCode?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      roleFor: 'RoleFor',
+      roleType: 'RoleType',
       sourceProdCode: 'SourceProdCode',
     };
   }
@@ -7345,6 +7355,8 @@ export class ListUsersByProdRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      roleFor: 'number',
+      roleType: 'number',
       sourceProdCode: 'string',
     };
   }
@@ -17639,6 +17651,14 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
     if (!Util.isUnset(request.sourceLogCode)) {
       body["SourceLogCode"] = request.sourceLogCode;
     }
@@ -17674,6 +17694,14 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!Util.isUnset(request.roleType)) {
+      body["RoleType"] = request.roleType;
     }
 
     if (!Util.isUnset(request.sourceProdCode)) {
