@@ -10072,6 +10072,162 @@ export class GetTableDBTopologyResponse extends $tea.Model {
   }
 }
 
+export class GetTableDesignProjectFlowRequest extends $tea.Model {
+  orderId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableDesignProjectFlowResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  projectFlow?: GetTableDesignProjectFlowResponseBodyProjectFlow;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      projectFlow: 'ProjectFlow',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      projectFlow: GetTableDesignProjectFlowResponseBodyProjectFlow,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableDesignProjectFlowResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTableDesignProjectFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTableDesignProjectFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableDesignProjectInfoRequest extends $tea.Model {
+  orderId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableDesignProjectInfoResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  projectInfo?: GetTableDesignProjectInfoResponseBodyProjectInfo;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      projectInfo: 'ProjectInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      projectInfo: GetTableDesignProjectInfoResponseBodyProjectInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableDesignProjectInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTableDesignProjectInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTableDesignProjectInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTableTopologyRequest extends $tea.Model {
   tableGuid?: string;
   tid?: number;
@@ -24997,6 +25153,151 @@ export class GetTableDBTopologyResponseBodyDBTopology extends $tea.Model {
   }
 }
 
+export class GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray extends $tea.Model {
+  backToDesign?: boolean;
+  canSkip?: boolean;
+  nodeRole?: string;
+  nodeTitle?: string;
+  position?: number;
+  publishAnchor?: boolean;
+  publishStrategies?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      backToDesign: 'BackToDesign',
+      canSkip: 'CanSkip',
+      nodeRole: 'NodeRole',
+      nodeTitle: 'NodeTitle',
+      position: 'Position',
+      publishAnchor: 'PublishAnchor',
+      publishStrategies: 'PublishStrategies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backToDesign: 'boolean',
+      canSkip: 'boolean',
+      nodeRole: 'string',
+      nodeTitle: 'string',
+      position: 'number',
+      publishAnchor: 'boolean',
+      publishStrategies: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableDesignProjectFlowResponseBodyProjectFlow extends $tea.Model {
+  currentPosition?: number;
+  flowNodeArray?: GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray[];
+  ruleComment?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPosition: 'CurrentPosition',
+      flowNodeArray: 'FlowNodeArray',
+      ruleComment: 'RuleComment',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPosition: 'number',
+      flowNodeArray: { 'type': 'array', 'itemType': GetTableDesignProjectFlowResponseBodyProjectFlowFlowNodeArray },
+      ruleComment: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase extends $tea.Model {
+  alias?: string;
+  dbId?: number;
+  dbType?: string;
+  envType?: string;
+  logic?: boolean;
+  schemaName?: string;
+  searchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      dbId: 'DbId',
+      dbType: 'DbType',
+      envType: 'EnvType',
+      logic: 'Logic',
+      schemaName: 'SchemaName',
+      searchName: 'SearchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      dbId: 'number',
+      dbType: 'string',
+      envType: 'string',
+      logic: 'boolean',
+      schemaName: 'string',
+      searchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableDesignProjectInfoResponseBodyProjectInfo extends $tea.Model {
+  baseDatabase?: GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase;
+  creatorId?: number;
+  description?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  orderId?: number;
+  projectId?: number;
+  status?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseDatabase: 'BaseDatabase',
+      creatorId: 'CreatorId',
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      orderId: 'OrderId',
+      projectId: 'ProjectId',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseDatabase: GetTableDesignProjectInfoResponseBodyProjectInfoBaseDatabase,
+      creatorId: 'number',
+      description: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      orderId: 'number',
+      projectId: 'number',
+      status: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTableTopologyResponseBodyTableTopologyTableTopologyInfoList extends $tea.Model {
   dbId?: number;
   dbName?: string;
@@ -35085,6 +35386,72 @@ export default class Client extends OpenApi {
   async getTableDBTopology(request: GetTableDBTopologyRequest): Promise<GetTableDBTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTableDBTopologyWithOptions(request, runtime);
+  }
+
+  async getTableDesignProjectFlowWithOptions(request: GetTableDesignProjectFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetTableDesignProjectFlowResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTableDesignProjectFlow",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTableDesignProjectFlowResponse>(await this.callApi(params, req, runtime), new GetTableDesignProjectFlowResponse({}));
+  }
+
+  async getTableDesignProjectFlow(request: GetTableDesignProjectFlowRequest): Promise<GetTableDesignProjectFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTableDesignProjectFlowWithOptions(request, runtime);
+  }
+
+  async getTableDesignProjectInfoWithOptions(request: GetTableDesignProjectInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetTableDesignProjectInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTableDesignProjectInfo",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTableDesignProjectInfoResponse>(await this.callApi(params, req, runtime), new GetTableDesignProjectInfoResponse({}));
+  }
+
+  async getTableDesignProjectInfo(request: GetTableDesignProjectInfoRequest): Promise<GetTableDesignProjectInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTableDesignProjectInfoWithOptions(request, runtime);
   }
 
   async getTableTopologyWithOptions(request: GetTableTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetTableTopologyResponse> {
