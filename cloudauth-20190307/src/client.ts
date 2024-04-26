@@ -752,6 +752,102 @@ export class CreateVerifySettingResponse extends $tea.Model {
   }
 }
 
+export class CredentialVerifyRequest extends $tea.Model {
+  certNum?: string;
+  credName?: string;
+  credType?: string;
+  identifyNum?: string;
+  imageContext?: string;
+  imageUrl?: string;
+  isCheck?: string;
+  isOCR?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certNum: 'CertNum',
+      credName: 'CredName',
+      credType: 'CredType',
+      identifyNum: 'IdentifyNum',
+      imageContext: 'ImageContext',
+      imageUrl: 'ImageUrl',
+      isCheck: 'IsCheck',
+      isOCR: 'IsOCR',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certNum: 'string',
+      credName: 'string',
+      credType: 'string',
+      identifyNum: 'string',
+      imageContext: 'string',
+      imageUrl: 'string',
+      isCheck: 'string',
+      isOCR: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: CredentialVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: CredentialVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CredentialVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CredentialVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeviceInfoRequest extends $tea.Model {
   bizType?: string;
   currentPage?: number;
@@ -2562,6 +2658,40 @@ export class ContrastFaceVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
+export class CredentialVerifyResponseBodyResultObject extends $tea.Model {
+  ocrInfo?: string;
+  result?: string;
+  riskScore?: { [key: string]: string };
+  riskTag?: string;
+  verifyDetail?: string;
+  verifyResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ocrInfo: 'OcrInfo',
+      result: 'Result',
+      riskScore: 'RiskScore',
+      riskTag: 'RiskTag',
+      verifyDetail: 'VerifyDetail',
+      verifyResult: 'VerifyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ocrInfo: 'string',
+      result: 'string',
+      riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      riskTag: 'string',
+      verifyDetail: 'string',
+      verifyResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo extends $tea.Model {
   beginDay?: string;
   bizType?: string;
@@ -3884,6 +4014,69 @@ export default class Client extends OpenApi {
   async createVerifySetting(request: CreateVerifySettingRequest): Promise<CreateVerifySettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVerifySettingWithOptions(request, runtime);
+  }
+
+  async credentialVerifyWithOptions(request: CredentialVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CredentialVerifyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.certNum)) {
+      query["CertNum"] = request.certNum;
+    }
+
+    if (!Util.isUnset(request.credName)) {
+      query["CredName"] = request.credName;
+    }
+
+    if (!Util.isUnset(request.credType)) {
+      query["CredType"] = request.credType;
+    }
+
+    if (!Util.isUnset(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.isCheck)) {
+      query["IsCheck"] = request.isCheck;
+    }
+
+    if (!Util.isUnset(request.isOCR)) {
+      query["IsOCR"] = request.isOCR;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageContext)) {
+      body["ImageContext"] = request.imageContext;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CredentialVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CredentialVerifyResponse>(await this.callApi(params, req, runtime), new CredentialVerifyResponse({}));
+  }
+
+  async credentialVerify(request: CredentialVerifyRequest): Promise<CredentialVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.credentialVerifyWithOptions(request, runtime);
   }
 
   async describeDeviceInfoWithOptions(request: DescribeDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeviceInfoResponse> {
