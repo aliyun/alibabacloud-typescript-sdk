@@ -4227,15 +4227,30 @@ export class GetAvatarTrainingJobResponse extends $tea.Model {
 
 export class GetBatchMediaProducingJobRequest extends $tea.Model {
   jobId?: string;
+  signature?: string;
+  signatureMehtod?: string;
+  signatureNonce?: string;
+  signatureType?: string;
+  signatureVersion?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
+      signature: 'Signature',
+      signatureMehtod: 'SignatureMehtod',
+      signatureNonce: 'SignatureNonce',
+      signatureType: 'SignatureType',
+      signatureVersion: 'SignatureVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
+      signature: 'string',
+      signatureMehtod: 'string',
+      signatureNonce: 'string',
+      signatureType: 'string',
+      signatureVersion: 'string',
     };
   }
 
@@ -5630,11 +5645,13 @@ export class GetMediaInfoRequest extends $tea.Model {
   inputURL?: string;
   mediaId?: string;
   outputType?: string;
+  returnDetailedInfo?: string;
   static names(): { [key: string]: string } {
     return {
       inputURL: 'InputURL',
       mediaId: 'MediaId',
       outputType: 'OutputType',
+      returnDetailedInfo: 'ReturnDetailedInfo',
     };
   }
 
@@ -5643,6 +5660,7 @@ export class GetMediaInfoRequest extends $tea.Model {
       inputURL: 'string',
       mediaId: 'string',
       outputType: 'string',
+      returnDetailedInfo: 'string',
     };
   }
 
@@ -7276,6 +7294,99 @@ export class ListAvatarsResponse extends $tea.Model {
   }
 }
 
+export class ListBatchMediaProducingJobsRequest extends $tea.Model {
+  endTime?: string;
+  jobId?: string;
+  jobType?: string;
+  maxResults?: number;
+  nextToken?: string;
+  sortBy?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      jobId: 'JobId',
+      jobType: 'JobType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      sortBy: 'SortBy',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      jobId: 'string',
+      jobType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      sortBy: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchMediaProducingJobsResponseBody extends $tea.Model {
+  editingBatchJobList?: ListBatchMediaProducingJobsResponseBodyEditingBatchJobList[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      editingBatchJobList: 'EditingBatchJobList',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editingBatchJobList: { 'type': 'array', 'itemType': ListBatchMediaProducingJobsResponseBodyEditingBatchJobList },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBatchMediaProducingJobsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBatchMediaProducingJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBatchMediaProducingJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomTemplatesRequest extends $tea.Model {
   name?: string;
   orderBy?: string;
@@ -8750,6 +8861,102 @@ export class ListMediaMarksResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListMediaMarksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaProducingJobsRequest extends $tea.Model {
+  endTime?: string;
+  jobType?: string;
+  keyword?: string;
+  masterJobId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  sortBy?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      jobType: 'JobType',
+      keyword: 'Keyword',
+      masterJobId: 'MasterJobId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      sortBy: 'SortBy',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      jobType: 'string',
+      keyword: 'string',
+      masterJobId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      sortBy: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaProducingJobsResponseBody extends $tea.Model {
+  maxResults?: string;
+  mediaProducingJobList?: ListMediaProducingJobsResponseBodyMediaProducingJobList[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      mediaProducingJobList: 'MediaProducingJobList',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      mediaProducingJobList: { 'type': 'array', 'itemType': ListMediaProducingJobsResponseBodyMediaProducingJobList },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaProducingJobsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMediaProducingJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMediaProducingJobsResponseBody,
     };
   }
 
@@ -10332,6 +10539,7 @@ export class RegisterMediaInfoRequest extends $tea.Model {
   overwrite?: boolean;
   referenceId?: string;
   registerConfig?: string;
+  smartTagTemplateId?: string;
   title?: string;
   userData?: string;
   workflowId?: string;
@@ -10348,6 +10556,7 @@ export class RegisterMediaInfoRequest extends $tea.Model {
       overwrite: 'Overwrite',
       referenceId: 'ReferenceId',
       registerConfig: 'RegisterConfig',
+      smartTagTemplateId: 'SmartTagTemplateId',
       title: 'Title',
       userData: 'UserData',
       workflowId: 'WorkflowId',
@@ -10367,6 +10576,7 @@ export class RegisterMediaInfoRequest extends $tea.Model {
       overwrite: 'boolean',
       referenceId: 'string',
       registerConfig: 'string',
+      smartTagTemplateId: 'string',
       title: 'string',
       userData: 'string',
       workflowId: 'string',
@@ -13835,93 +14045,6 @@ export class SubmitStandardCustomizedVoiceJobResponse extends $tea.Model {
   }
 }
 
-export class SubmitSubtitleProduceJobRequest extends $tea.Model {
-  description?: string;
-  editingConfig?: string;
-  inputConfig?: string;
-  isAsync?: number;
-  outputConfig?: string;
-  title?: string;
-  type?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      editingConfig: 'EditingConfig',
-      inputConfig: 'InputConfig',
-      isAsync: 'IsAsync',
-      outputConfig: 'OutputConfig',
-      title: 'Title',
-      type: 'Type',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      editingConfig: 'string',
-      inputConfig: 'string',
-      isAsync: 'number',
-      outputConfig: 'string',
-      title: 'string',
-      type: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSubtitleProduceJobResponseBody extends $tea.Model {
-  jobId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSubtitleProduceJobResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitSubtitleProduceJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitSubtitleProduceJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SubmitSyncMediaInfoJobRequest extends $tea.Model {
   input?: SubmitSyncMediaInfoJobRequestInput;
   name?: string;
@@ -14017,6 +14140,84 @@ export class SubmitSyncMediaInfoJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitSyncMediaInfoJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTextGenerateJobRequest extends $tea.Model {
+  description?: string;
+  generateConfig?: string;
+  title?: string;
+  type?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      generateConfig: 'GenerateConfig',
+      title: 'Title',
+      type: 'Type',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      generateConfig: 'string',
+      title: 'string',
+      type: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTextGenerateJobResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTextGenerateJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTextGenerateJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTextGenerateJobResponseBody,
     };
   }
 
@@ -16735,20 +16936,28 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
 }
 
 export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.Model {
+  completeTime?: string;
+  createTime?: string;
   editingConfig?: string;
   extend?: string;
   inputConfig?: string;
   jobId?: string;
+  jobType?: string;
+  modifiedTime?: string;
   outputConfig?: string;
   status?: string;
   subJobList?: GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList[];
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
       editingConfig: 'EditingConfig',
       extend: 'Extend',
       inputConfig: 'InputConfig',
       jobId: 'JobId',
+      jobType: 'JobType',
+      modifiedTime: 'ModifiedTime',
       outputConfig: 'OutputConfig',
       status: 'Status',
       subJobList: 'SubJobList',
@@ -16758,10 +16967,14 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      completeTime: 'string',
+      createTime: 'string',
       editingConfig: 'string',
       extend: 'string',
       inputConfig: 'string',
       jobId: 'string',
+      jobType: 'string',
+      modifiedTime: 'string',
       outputConfig: 'string',
       status: 'string',
       subJobList: { 'type': 'array', 'itemType': GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList },
@@ -18102,11 +18315,62 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $tea.Mo
   }
 }
 
+export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResults extends $tea.Model {
+  data?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob extends $tea.Model {
+  aiJobId?: string;
+  resultUrl?: string;
+  results?: GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResults[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiJobId: 'AiJobId',
+      resultUrl: 'ResultUrl',
+      results: 'Results',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiJobId: 'string',
+      resultUrl: 'string',
+      results: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJobResults },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
   aiCategory?: string;
   aiJobId?: string;
   result?: string;
   saveType?: string;
+  standardSmartTagJob?: GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18114,6 +18378,7 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
       aiJobId: 'AiJobId',
       result: 'Result',
       saveType: 'SaveType',
+      standardSmartTagJob: 'StandardSmartTagJob',
       status: 'Status',
     };
   }
@@ -18124,6 +18389,7 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
       aiJobId: 'string',
       result: 'string',
       saveType: 'string',
+      standardSmartTagJob: GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob,
       status: 'string',
     };
   }
@@ -19603,10 +19869,12 @@ export class GetPublicMediaInfoResponseBodyMediaInfo extends $tea.Model {
 export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
   aiResult?: string;
   mediaId?: string;
+  usage?: string;
   static names(): { [key: string]: string } {
     return {
       aiResult: 'AiResult',
       mediaId: 'MediaId',
+      usage: 'Usage',
     };
   }
 
@@ -19614,6 +19882,7 @@ export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
     return {
       aiResult: 'string',
       mediaId: 'string',
+      usage: 'string',
     };
   }
 
@@ -22122,6 +22391,55 @@ export class ListAvatarsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends $tea.Model {
+  completeTime?: string;
+  createTime?: string;
+  editingConfig?: string;
+  extend?: string;
+  inputConfig?: string;
+  jobId?: string;
+  jobType?: string;
+  modifiedTime?: string;
+  outputConfig?: string;
+  status?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
+      editingConfig: 'EditingConfig',
+      extend: 'Extend',
+      inputConfig: 'InputConfig',
+      jobId: 'JobId',
+      jobType: 'JobType',
+      modifiedTime: 'ModifiedTime',
+      outputConfig: 'OutputConfig',
+      status: 'Status',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completeTime: 'string',
+      createTime: 'string',
+      editingConfig: 'string',
+      extend: 'string',
+      inputConfig: 'string',
+      jobId: 'string',
+      jobType: 'string',
+      modifiedTime: 'string',
+      outputConfig: 'string',
+      status: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Model {
   createTime?: string;
   isDefault?: boolean;
@@ -23542,6 +23860,64 @@ export class ListMediaInfoJobsResponseBodyJobs extends $tea.Model {
       submitResultJson: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       submitTime: 'string',
       triggerSource: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaProducingJobsResponseBodyMediaProducingJobList extends $tea.Model {
+  clipsParam?: string;
+  code?: string;
+  completeTime?: string;
+  createTime?: string;
+  duration?: number;
+  jobId?: string;
+  mediaId?: string;
+  mediaURL?: string;
+  message?: string;
+  modifiedTime?: string;
+  projectId?: string;
+  status?: string;
+  templateId?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipsParam: 'ClipsParam',
+      code: 'Code',
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
+      duration: 'Duration',
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      mediaURL: 'MediaURL',
+      message: 'Message',
+      modifiedTime: 'ModifiedTime',
+      projectId: 'ProjectId',
+      status: 'Status',
+      templateId: 'TemplateId',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipsParam: 'string',
+      code: 'string',
+      completeTime: 'string',
+      createTime: 'string',
+      duration: 'number',
+      jobId: 'string',
+      mediaId: 'string',
+      mediaURL: 'string',
+      message: 'string',
+      modifiedTime: 'string',
+      projectId: 'string',
+      status: 'string',
+      templateId: 'string',
       userData: 'string',
     };
   }
@@ -33699,6 +34075,26 @@ export default class Client extends OpenApi {
       query["JobId"] = request.jobId;
     }
 
+    if (!Util.isUnset(request.signature)) {
+      query["Signature"] = request.signature;
+    }
+
+    if (!Util.isUnset(request.signatureMehtod)) {
+      query["SignatureMehtod"] = request.signatureMehtod;
+    }
+
+    if (!Util.isUnset(request.signatureNonce)) {
+      query["SignatureNonce"] = request.signatureNonce;
+    }
+
+    if (!Util.isUnset(request.signatureType)) {
+      query["SignatureType"] = request.signatureType;
+    }
+
+    if (!Util.isUnset(request.signatureVersion)) {
+      query["SignatureVersion"] = request.signatureVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -34285,6 +34681,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.outputType)) {
       query["OutputType"] = request.outputType;
+    }
+
+    if (!Util.isUnset(request.returnDetailedInfo)) {
+      query["ReturnDetailedInfo"] = request.returnDetailedInfo;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -35035,6 +35435,63 @@ export default class Client extends OpenApi {
     return await this.listAvatarsWithOptions(request, runtime);
   }
 
+  async listBatchMediaProducingJobsWithOptions(request: ListBatchMediaProducingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListBatchMediaProducingJobsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBatchMediaProducingJobs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBatchMediaProducingJobsResponse>(await this.callApi(params, req, runtime), new ListBatchMediaProducingJobsResponse({}));
+  }
+
+  async listBatchMediaProducingJobs(request: ListBatchMediaProducingJobsRequest): Promise<ListBatchMediaProducingJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBatchMediaProducingJobsWithOptions(request, runtime);
+  }
+
   async listCustomTemplatesWithOptions(request: ListCustomTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35722,6 +36179,67 @@ export default class Client extends OpenApi {
   async listMediaMarks(request: ListMediaMarksRequest): Promise<ListMediaMarksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMediaMarksWithOptions(request, runtime);
+  }
+
+  async listMediaProducingJobsWithOptions(request: ListMediaProducingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaProducingJobsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.masterJobId)) {
+      query["MasterJobId"] = request.masterJobId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMediaProducingJobs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMediaProducingJobsResponse>(await this.callApi(params, req, runtime), new ListMediaProducingJobsResponse({}));
+  }
+
+  async listMediaProducingJobs(request: ListMediaProducingJobsRequest): Promise<ListMediaProducingJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMediaProducingJobsWithOptions(request, runtime);
   }
 
   async listPackageJobsWithOptions(request: ListPackageJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListPackageJobsResponse> {
@@ -36556,6 +37074,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.registerConfig)) {
       query["RegisterConfig"] = request.registerConfig;
+    }
+
+    if (!Util.isUnset(request.smartTagTemplateId)) {
+      query["SmartTagTemplateId"] = request.smartTagTemplateId;
     }
 
     if (!Util.isUnset(request.title)) {
@@ -38486,78 +39008,6 @@ export default class Client extends OpenApi {
     return await this.submitStandardCustomizedVoiceJobWithOptions(request, runtime);
   }
 
-  /**
-    * @deprecated
-    *
-    * @param request SubmitSubtitleProduceJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SubmitSubtitleProduceJobResponse
-   */
-  // Deprecated
-  async submitSubtitleProduceJobWithOptions(request: SubmitSubtitleProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSubtitleProduceJobResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.editingConfig)) {
-      query["EditingConfig"] = request.editingConfig;
-    }
-
-    if (!Util.isUnset(request.inputConfig)) {
-      query["InputConfig"] = request.inputConfig;
-    }
-
-    if (!Util.isUnset(request.isAsync)) {
-      query["IsAsync"] = request.isAsync;
-    }
-
-    if (!Util.isUnset(request.outputConfig)) {
-      query["OutputConfig"] = request.outputConfig;
-    }
-
-    if (!Util.isUnset(request.title)) {
-      query["Title"] = request.title;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    if (!Util.isUnset(request.userData)) {
-      query["UserData"] = request.userData;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SubmitSubtitleProduceJob",
-      version: "2020-11-09",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SubmitSubtitleProduceJobResponse>(await this.callApi(params, req, runtime), new SubmitSubtitleProduceJobResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request SubmitSubtitleProduceJobRequest
-    * @return SubmitSubtitleProduceJobResponse
-   */
-  // Deprecated
-  async submitSubtitleProduceJob(request: SubmitSubtitleProduceJobRequest): Promise<SubmitSubtitleProduceJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitSubtitleProduceJobWithOptions(request, runtime);
-  }
-
   async submitSyncMediaInfoJobWithOptions(tmpReq: SubmitSyncMediaInfoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSyncMediaInfoJobResponse> {
     Util.validateModel(tmpReq);
     let request = new SubmitSyncMediaInfoJobShrinkRequest({ });
@@ -38607,6 +39057,51 @@ export default class Client extends OpenApi {
   async submitSyncMediaInfoJob(request: SubmitSyncMediaInfoJobRequest): Promise<SubmitSyncMediaInfoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSyncMediaInfoJobWithOptions(request, runtime);
+  }
+
+  async submitTextGenerateJobWithOptions(request: SubmitTextGenerateJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTextGenerateJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.generateConfig)) {
+      query["GenerateConfig"] = request.generateConfig;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTextGenerateJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTextGenerateJobResponse>(await this.callApi(params, req, runtime), new SubmitTextGenerateJobResponse({}));
+  }
+
+  async submitTextGenerateJob(request: SubmitTextGenerateJobRequest): Promise<SubmitTextGenerateJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTextGenerateJobWithOptions(request, runtime);
   }
 
   async submitTranscodeJobWithOptions(tmpReq: SubmitTranscodeJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTranscodeJobResponse> {
