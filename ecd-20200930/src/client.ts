@@ -3086,6 +3086,7 @@ export class CreateDesktopsRequest extends $tea.Model {
   endUserId?: string[];
   groupId?: string;
   hostname?: string;
+  monthDesktopSetting?: CreateDesktopsRequestMonthDesktopSetting;
   officeSiteId?: string;
   period?: number;
   periodUnit?: string;
@@ -3115,6 +3116,7 @@ export class CreateDesktopsRequest extends $tea.Model {
       endUserId: 'EndUserId',
       groupId: 'GroupId',
       hostname: 'Hostname',
+      monthDesktopSetting: 'MonthDesktopSetting',
       officeSiteId: 'OfficeSiteId',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -3147,6 +3149,7 @@ export class CreateDesktopsRequest extends $tea.Model {
       endUserId: { 'type': 'array', 'itemType': 'string' },
       groupId: 'string',
       hostname: 'string',
+      monthDesktopSetting: CreateDesktopsRequestMonthDesktopSetting,
       officeSiteId: 'string',
       period: 'number',
       periodUnit: 'string',
@@ -15296,6 +15299,7 @@ export class RenewDesktopsRequest extends $tea.Model {
   periodUnit?: string;
   promotionId?: string;
   regionId?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -15304,6 +15308,7 @@ export class RenewDesktopsRequest extends $tea.Model {
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -15315,6 +15320,7 @@ export class RenewDesktopsRequest extends $tea.Model {
       periodUnit: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -17625,6 +17631,31 @@ export class CreateDesktopsRequestDesktopTimers extends $tea.Model {
       operationType: 'string',
       resetType: 'string',
       timerType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDesktopsRequestMonthDesktopSetting extends $tea.Model {
+  buyerId?: number;
+  desktopId?: string;
+  useDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      buyerId: 'BuyerId',
+      desktopId: 'DesktopId',
+      useDuration: 'UseDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buyerId: 'number',
+      desktopId: 'string',
+      useDuration: 'number',
     };
   }
 
@@ -20254,6 +20285,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesLogs extends $tea.Model {
 export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
   ADConnectors?: DescribeOfficeSitesResponseBodyOfficeSitesADConnectors[];
   adHostname?: string;
+  backupDCHostname?: string;
+  backupDns?: string;
   bandwidth?: number;
   cenAttachStatus?: string;
   cenId?: string;
@@ -20272,6 +20305,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
   enableAdminAccess?: boolean;
   enableCrossDesktopAccess?: boolean;
   enableInternetAccess?: boolean;
+  enableServiceRoute?: boolean;
   fileSystemIds?: string[];
   logs?: DescribeOfficeSitesResponseBodyOfficeSitesLogs[];
   mfaEnabled?: boolean;
@@ -20301,6 +20335,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
     return {
       ADConnectors: 'ADConnectors',
       adHostname: 'AdHostname',
+      backupDCHostname: 'BackupDCHostname',
+      backupDns: 'BackupDns',
       bandwidth: 'Bandwidth',
       cenAttachStatus: 'CenAttachStatus',
       cenId: 'CenId',
@@ -20319,6 +20355,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       enableAdminAccess: 'EnableAdminAccess',
       enableCrossDesktopAccess: 'EnableCrossDesktopAccess',
       enableInternetAccess: 'EnableInternetAccess',
+      enableServiceRoute: 'EnableServiceRoute',
       fileSystemIds: 'FileSystemIds',
       logs: 'Logs',
       mfaEnabled: 'MfaEnabled',
@@ -20351,6 +20388,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
     return {
       ADConnectors: { 'type': 'array', 'itemType': DescribeOfficeSitesResponseBodyOfficeSitesADConnectors },
       adHostname: 'string',
+      backupDCHostname: 'string',
+      backupDns: 'string',
       bandwidth: 'number',
       cenAttachStatus: 'string',
       cenId: 'string',
@@ -20369,6 +20408,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       enableAdminAccess: 'boolean',
       enableCrossDesktopAccess: 'boolean',
       enableInternetAccess: 'boolean',
+      enableServiceRoute: 'boolean',
       fileSystemIds: { 'type': 'array', 'itemType': 'string' },
       logs: { 'type': 'array', 'itemType': DescribeOfficeSitesResponseBodyOfficeSitesLogs },
       mfaEnabled: 'boolean',
@@ -24885,6 +24925,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.hostname)) {
       query["Hostname"] = request.hostname;
+    }
+
+    if (!Util.isUnset(request.monthDesktopSetting)) {
+      query["MonthDesktopSetting"] = request.monthDesktopSetting;
     }
 
     if (!Util.isUnset(request.officeSiteId)) {
@@ -33085,6 +33129,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
