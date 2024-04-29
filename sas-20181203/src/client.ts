@@ -2034,11 +2034,13 @@ export class ChangeCheckCustomConfigRequest extends $tea.Model {
   checkId?: number;
   customConfigs?: ChangeCheckCustomConfigRequestCustomConfigs[];
   regionId?: string;
+  repairConfigs?: ChangeCheckCustomConfigRequestRepairConfigs[];
   static names(): { [key: string]: string } {
     return {
       checkId: 'CheckId',
       customConfigs: 'CustomConfigs',
       regionId: 'RegionId',
+      repairConfigs: 'RepairConfigs',
     };
   }
 
@@ -2047,6 +2049,7 @@ export class ChangeCheckCustomConfigRequest extends $tea.Model {
       checkId: 'number',
       customConfigs: { 'type': 'array', 'itemType': ChangeCheckCustomConfigRequestCustomConfigs },
       regionId: 'string',
+      repairConfigs: { 'type': 'array', 'itemType': ChangeCheckCustomConfigRequestRepairConfigs },
     };
   }
 
@@ -2057,10 +2060,12 @@ export class ChangeCheckCustomConfigRequest extends $tea.Model {
 
 export class ChangeCheckCustomConfigResponseBody extends $tea.Model {
   illegalCustomConfigs?: ChangeCheckCustomConfigResponseBodyIllegalCustomConfigs[];
+  illegalRepairConfigs?: ChangeCheckCustomConfigResponseBodyIllegalRepairConfigs[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       illegalCustomConfigs: 'IllegalCustomConfigs',
+      illegalRepairConfigs: 'IllegalRepairConfigs',
       requestId: 'RequestId',
     };
   }
@@ -2068,6 +2073,7 @@ export class ChangeCheckCustomConfigResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       illegalCustomConfigs: { 'type': 'array', 'itemType': ChangeCheckCustomConfigResponseBodyIllegalCustomConfigs },
+      illegalRepairConfigs: { 'type': 'array', 'itemType': ChangeCheckCustomConfigResponseBodyIllegalRepairConfigs },
       requestId: 'string',
     };
   }
@@ -8390,15 +8396,18 @@ export class DeleteVulWhitelistResponse extends $tea.Model {
 
 export class DescribeAccessKeyLeakDetailRequest extends $tea.Model {
   id?: number;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       id: 'number',
+      resourceDirectoryAccountId: 'number',
     };
   }
 
@@ -8518,6 +8527,7 @@ export class DescribeAccesskeyLeakListRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
   query?: string;
+  resourceDirectoryAccountId?: number;
   startTs?: number;
   status?: string;
   static names(): { [key: string]: string } {
@@ -8525,6 +8535,7 @@ export class DescribeAccesskeyLeakListRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       query: 'Query',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       startTs: 'StartTs',
       status: 'Status',
     };
@@ -8535,6 +8546,7 @@ export class DescribeAccesskeyLeakListRequest extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       query: 'string',
+      resourceDirectoryAccountId: 'number',
       startTs: 'number',
       status: 'string',
     };
@@ -10327,14 +10339,18 @@ export class DescribeBackupRestoreCountResponse extends $tea.Model {
 export class DescribeBruteForceRecordsRequest extends $tea.Model {
   blockIp?: string;
   currentPage?: number;
+  instanceId?: string;
   pageSize?: number;
+  remark?: string;
   resourceOwnerId?: number;
   status?: number;
   static names(): { [key: string]: string } {
     return {
       blockIp: 'BlockIp',
       currentPage: 'CurrentPage',
+      instanceId: 'InstanceId',
       pageSize: 'PageSize',
+      remark: 'Remark',
       resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
     };
@@ -10344,7 +10360,9 @@ export class DescribeBruteForceRecordsRequest extends $tea.Model {
     return {
       blockIp: 'string',
       currentPage: 'number',
+      instanceId: 'string',
       pageSize: 'number',
+      remark: 'string',
       resourceOwnerId: 'number',
       status: 'number',
     };
@@ -29115,6 +29133,9 @@ export class GetCheckDetailResponseBody extends $tea.Model {
   assistInfo?: GetCheckDetailResponseBodyAssistInfo;
   customConfigs?: GetCheckDetailResponseBodyCustomConfigs[];
   description?: GetCheckDetailResponseBodyDescription;
+  repairReset?: string;
+  repairSetting?: GetCheckDetailResponseBodyRepairSetting;
+  repairSupportType?: number;
   requestId?: string;
   solution?: GetCheckDetailResponseBodySolution;
   static names(): { [key: string]: string } {
@@ -29122,6 +29143,9 @@ export class GetCheckDetailResponseBody extends $tea.Model {
       assistInfo: 'AssistInfo',
       customConfigs: 'CustomConfigs',
       description: 'Description',
+      repairReset: 'RepairReset',
+      repairSetting: 'RepairSetting',
+      repairSupportType: 'RepairSupportType',
       requestId: 'RequestId',
       solution: 'Solution',
     };
@@ -29132,6 +29156,9 @@ export class GetCheckDetailResponseBody extends $tea.Model {
       assistInfo: GetCheckDetailResponseBodyAssistInfo,
       customConfigs: { 'type': 'array', 'itemType': GetCheckDetailResponseBodyCustomConfigs },
       description: GetCheckDetailResponseBodyDescription,
+      repairReset: 'string',
+      repairSetting: GetCheckDetailResponseBodyRepairSetting,
+      repairSupportType: 'number',
       requestId: 'string',
       solution: GetCheckDetailResponseBodySolution,
     };
@@ -37311,16 +37338,30 @@ export class ListCriteriaStrategyResponse extends $tea.Model {
 export class ListFileProtectEventRequest extends $tea.Model {
   alertLevels?: number[];
   currentPage?: number;
+  endTime?: number;
+  instanceId?: string;
+  instanceName?: string;
+  internetIp?: string;
+  intranetIp?: string;
   pageSize?: string;
   ruleName?: string;
+  startTime?: number;
   status?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       alertLevels: 'AlertLevels',
       currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      internetIp: 'InternetIp',
+      intranetIp: 'IntranetIp',
       pageSize: 'PageSize',
       ruleName: 'RuleName',
+      startTime: 'StartTime',
       status: 'Status',
+      uuid: 'Uuid',
     };
   }
 
@@ -37328,9 +37369,16 @@ export class ListFileProtectEventRequest extends $tea.Model {
     return {
       alertLevels: { 'type': 'array', 'itemType': 'number' },
       currentPage: 'number',
+      endTime: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      internetIp: 'string',
+      intranetIp: 'string',
       pageSize: 'string',
       ruleName: 'string',
+      startTime: 'number',
       status: 'string',
+      uuid: 'string',
     };
   }
 
@@ -53652,7 +53700,54 @@ export class ChangeCheckCustomConfigRequestCustomConfigs extends $tea.Model {
   }
 }
 
+export class ChangeCheckCustomConfigRequestRepairConfigs extends $tea.Model {
+  flowId?: string;
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeCheckCustomConfigResponseBodyIllegalCustomConfigs extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCheckCustomConfigResponseBodyIllegalRepairConfigs extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67329,6 +67424,99 @@ export class GetCheckDetailResponseBodyDescription extends $tea.Model {
   }
 }
 
+export class GetCheckDetailResponseBodyRepairSettingFlowStep extends $tea.Model {
+  showText?: string;
+  step?: string;
+  static names(): { [key: string]: string } {
+    return {
+      showText: 'ShowText',
+      step: 'Step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      showText: 'string',
+      step: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckDetailResponseBodyRepairSettingRepairConfigs extends $tea.Model {
+  customFlag?: boolean;
+  defaultValue?: string;
+  exclusiveName?: string[];
+  flowId?: string;
+  name?: string;
+  showName?: string;
+  typeDefine?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customFlag: 'CustomFlag',
+      defaultValue: 'DefaultValue',
+      exclusiveName: 'ExclusiveName',
+      flowId: 'FlowId',
+      name: 'Name',
+      showName: 'ShowName',
+      typeDefine: 'TypeDefine',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customFlag: 'boolean',
+      defaultValue: 'string',
+      exclusiveName: { 'type': 'array', 'itemType': 'string' },
+      flowId: 'string',
+      name: 'string',
+      showName: 'string',
+      typeDefine: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCheckDetailResponseBodyRepairSetting extends $tea.Model {
+  flowStep?: GetCheckDetailResponseBodyRepairSettingFlowStep[];
+  repairConfigs?: GetCheckDetailResponseBodyRepairSettingRepairConfigs[];
+  repairReset?: boolean;
+  repairSupport?: boolean;
+  repairSupportType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flowStep: 'FlowStep',
+      repairConfigs: 'RepairConfigs',
+      repairReset: 'RepairReset',
+      repairSupport: 'RepairSupport',
+      repairSupportType: 'RepairSupportType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowStep: { 'type': 'array', 'itemType': GetCheckDetailResponseBodyRepairSettingFlowStep },
+      repairConfigs: { 'type': 'array', 'itemType': GetCheckDetailResponseBodyRepairSettingRepairConfigs },
+      repairReset: 'boolean',
+      repairSupport: 'boolean',
+      repairSupportType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCheckDetailResponseBodySolution extends $tea.Model {
   link?: string;
   type?: string;
@@ -71968,9 +72156,60 @@ export class ListBackupRecordResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfoConfig extends $tea.Model {
+  name?: string;
+  showName?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      showName: 'ShowName',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      showName: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckInstanceResultResponseBodyBasicDataInstanceInfo extends $tea.Model {
+  config?: ListCheckInstanceResultResponseBodyBasicDataInstanceInfoConfig[];
+  firstUpdateTime?: number;
+  lastUpdateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      firstUpdateTime: 'FirstUpdateTime',
+      lastUpdateTime: 'LastUpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: { 'type': 'array', 'itemType': ListCheckInstanceResultResponseBodyBasicDataInstanceInfoConfig },
+      firstUpdateTime: 'number',
+      lastUpdateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCheckInstanceResultResponseBodyBasicData extends $tea.Model {
   id?: number;
   instanceId?: string;
+  instanceInfo?: ListCheckInstanceResultResponseBodyBasicDataInstanceInfo;
   instanceName?: string;
   regionId?: string;
   status?: string;
@@ -71979,6 +72218,7 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $tea.Model {
     return {
       id: 'Id',
       instanceId: 'InstanceId',
+      instanceInfo: 'InstanceInfo',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
       status: 'Status',
@@ -71990,6 +72230,7 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $tea.Model {
     return {
       id: 'number',
       instanceId: 'string',
+      instanceInfo: ListCheckInstanceResultResponseBodyBasicDataInstanceInfo,
       instanceName: 'string',
       regionId: 'string',
       status: 'string',
@@ -80160,6 +80401,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.repairConfigs)) {
+      query["RepairConfigs"] = request.repairConfigs;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -83526,6 +83771,10 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -83561,6 +83810,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.query)) {
       query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!Util.isUnset(request.startTs)) {
@@ -84549,8 +84802,16 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
     }
 
     if (!Util.isUnset(request.resourceOwnerId)) {
@@ -98789,6 +99050,26 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    if (!Util.isUnset(request.intranetIp)) {
+      query["IntranetIp"] = request.intranetIp;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -98797,8 +99078,16 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
     }
 
     let req = new $OpenApi.OpenApiRequest({
