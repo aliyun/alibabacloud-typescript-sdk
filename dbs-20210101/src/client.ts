@@ -77,9 +77,9 @@ export class ChangeResourceGroupResponseBody extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -188,9 +188,9 @@ export class CreateDownloadResponseBody extends $tea.Model {
 }
 
 export class CreateDownloadResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDownloadResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDownloadResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -204,117 +204,6 @@ export class CreateDownloadResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDownloadResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSandboxInstanceRequest extends $tea.Model {
-  backupPlanId?: string;
-  backupSetId?: string;
-  restoreTime?: string;
-  sandboxInstanceName?: string;
-  sandboxPassword?: string;
-  sandboxSpecification?: string;
-  sandboxType?: string;
-  sandboxUser?: string;
-  vpcId?: string;
-  vpcSwitchId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupPlanId: 'BackupPlanId',
-      backupSetId: 'BackupSetId',
-      restoreTime: 'RestoreTime',
-      sandboxInstanceName: 'SandboxInstanceName',
-      sandboxPassword: 'SandboxPassword',
-      sandboxSpecification: 'SandboxSpecification',
-      sandboxType: 'SandboxType',
-      sandboxUser: 'SandboxUser',
-      vpcId: 'VpcId',
-      vpcSwitchId: 'VpcSwitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupPlanId: 'string',
-      backupSetId: 'string',
-      restoreTime: 'string',
-      sandboxInstanceName: 'string',
-      sandboxPassword: 'string',
-      sandboxSpecification: 'string',
-      sandboxType: 'string',
-      sandboxUser: 'string',
-      vpcId: 'string',
-      vpcSwitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSandboxInstanceResponseBody extends $tea.Model {
-  code?: string;
-  data?: CreateSandboxInstanceResponseBodyData;
-  errCode?: string;
-  errMessage?: string;
-  message?: string;
-  requestId?: string;
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      errCode: 'ErrCode',
-      errMessage: 'ErrMessage',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateSandboxInstanceResponseBodyData,
-      errCode: 'string',
-      errMessage: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSandboxInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSandboxInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateSandboxInstanceResponseBody,
     };
   }
 
@@ -386,9 +275,9 @@ export class DeleteSandboxInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteSandboxInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSandboxInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSandboxInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -402,6 +291,216 @@ export class DeleteSandboxInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSandboxInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupDataListRequest extends $tea.Model {
+  backupId?: string;
+  backupMethod?: string;
+  backupMode?: string;
+  backupScale?: string;
+  backupStatus?: string;
+  backupType?: string;
+  dataSourceId?: string;
+  endTime?: string;
+  instanceIsDeleted?: boolean;
+  instanceName?: string;
+  instanceRegion?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionCode?: string;
+  sceneType?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupId: 'BackupId',
+      backupMethod: 'BackupMethod',
+      backupMode: 'BackupMode',
+      backupScale: 'BackupScale',
+      backupStatus: 'BackupStatus',
+      backupType: 'BackupType',
+      dataSourceId: 'DataSourceId',
+      endTime: 'EndTime',
+      instanceIsDeleted: 'InstanceIsDeleted',
+      instanceName: 'InstanceName',
+      instanceRegion: 'InstanceRegion',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionCode: 'RegionCode',
+      sceneType: 'SceneType',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupId: 'string',
+      backupMethod: 'string',
+      backupMode: 'string',
+      backupScale: 'string',
+      backupStatus: 'string',
+      backupType: 'string',
+      dataSourceId: 'string',
+      endTime: 'string',
+      instanceIsDeleted: 'boolean',
+      instanceName: 'string',
+      instanceRegion: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionCode: 'string',
+      sceneType: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupDataListResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeBackupDataListResponseBodyData;
+  errCode?: string;
+  errMessage?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeBackupDataListResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupDataListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupDataListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupDataListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyRequest extends $tea.Model {
+  instanceName?: string;
+  regionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceName: 'InstanceName',
+      regionCode: 'RegionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceName: 'string',
+      regionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeBackupPolicyResponseBodyData;
+  errCode?: string;
+  errMessage?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeBackupPolicyResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupPolicyResponseBody,
     };
   }
 
@@ -470,9 +569,9 @@ export class DescribeDBTablesRecoveryBackupSetResponseBody extends $tea.Model {
 }
 
 export class DescribeDBTablesRecoveryBackupSetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBTablesRecoveryBackupSetResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBTablesRecoveryBackupSetResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -554,9 +653,9 @@ export class DescribeDBTablesRecoveryStateResponseBody extends $tea.Model {
 }
 
 export class DescribeDBTablesRecoveryStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBTablesRecoveryStateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBTablesRecoveryStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -638,9 +737,9 @@ export class DescribeDBTablesRecoveryTimeRangeResponseBody extends $tea.Model {
 }
 
 export class DescribeDBTablesRecoveryTimeRangeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDBTablesRecoveryTimeRangeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBTablesRecoveryTimeRangeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -731,9 +830,9 @@ export class DescribeDownloadBackupSetStorageInfoResponseBody extends $tea.Model
 }
 
 export class DescribeDownloadBackupSetStorageInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDownloadBackupSetStorageInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDownloadBackupSetStorageInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -815,9 +914,9 @@ export class DescribeDownloadSupportResponseBody extends $tea.Model {
 }
 
 export class DescribeDownloadSupportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDownloadSupportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDownloadSupportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -929,9 +1028,9 @@ export class DescribeDownloadTaskResponseBody extends $tea.Model {
 }
 
 export class DescribeDownloadTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDownloadTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDownloadTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1019,9 +1118,9 @@ export class DescribeSandboxBackupSetsResponseBody extends $tea.Model {
 }
 
 export class DescribeSandboxBackupSetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSandboxBackupSetsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSandboxBackupSetsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1109,9 +1208,9 @@ export class DescribeSandboxInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeSandboxInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSandboxInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSandboxInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1190,9 +1289,9 @@ export class DescribeSandboxRecoveryTimeResponseBody extends $tea.Model {
 }
 
 export class DescribeSandboxRecoveryTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeSandboxRecoveryTimeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSandboxRecoveryTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1280,9 +1379,9 @@ export class ModifyDBTablesRecoveryStateResponseBody extends $tea.Model {
 }
 
 export class ModifyDBTablesRecoveryStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDBTablesRecoveryStateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBTablesRecoveryStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1364,9 +1463,9 @@ export class SupportDBTableRecoveryResponseBody extends $tea.Model {
 }
 
 export class SupportDBTableRecoveryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SupportDBTableRecoveryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SupportDBTableRecoveryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1443,20 +1542,316 @@ export class CreateDownloadResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateSandboxInstanceResponseBodyData extends $tea.Model {
-  backupPlanId?: string;
-  instanceId?: string;
+export class DescribeBackupDataListResponseBodyDataContentPolarSnapshot extends $tea.Model {
+  dumpId?: number;
+  dumpSize?: number;
+  expectExpireTime?: string;
+  expectExpireType?: string;
   static names(): { [key: string]: string } {
     return {
-      backupPlanId: 'BackupPlanId',
-      instanceId: 'InstanceId',
+      dumpId: 'DumpId',
+      dumpSize: 'DumpSize',
+      expectExpireTime: 'ExpectExpireTime',
+      expectExpireType: 'expectExpireType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backupPlanId: 'string',
-      instanceId: 'string',
+      dumpId: 'number',
+      dumpSize: 'number',
+      expectExpireTime: 'string',
+      expectExpireType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupDataListResponseBodyDataContent extends $tea.Model {
+  backupDownloadURL?: string;
+  backupEndTime?: string;
+  backupId?: string;
+  backupIntranetDownloadURL?: string;
+  backupLocation?: string;
+  backupMethod?: string;
+  backupMode?: string;
+  backupName?: string;
+  backupScale?: string;
+  backupSize?: number;
+  backupStartTime?: string;
+  backupStatus?: string;
+  backupType?: string;
+  checksum?: string;
+  consistentTime?: number;
+  encryption?: string;
+  engine?: string;
+  engineVersion?: string;
+  expectExpireTime?: string;
+  expectExpireType?: string;
+  instanceName?: string;
+  isAvail?: number;
+  polarSnapshot?: DescribeBackupDataListResponseBodyDataContentPolarSnapshot;
+  supportDeletion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupDownloadURL: 'BackupDownloadURL',
+      backupEndTime: 'BackupEndTime',
+      backupId: 'BackupId',
+      backupIntranetDownloadURL: 'BackupIntranetDownloadURL',
+      backupLocation: 'BackupLocation',
+      backupMethod: 'BackupMethod',
+      backupMode: 'BackupMode',
+      backupName: 'BackupName',
+      backupScale: 'BackupScale',
+      backupSize: 'BackupSize',
+      backupStartTime: 'BackupStartTime',
+      backupStatus: 'BackupStatus',
+      backupType: 'BackupType',
+      checksum: 'Checksum',
+      consistentTime: 'ConsistentTime',
+      encryption: 'Encryption',
+      engine: 'Engine',
+      engineVersion: 'EngineVersion',
+      expectExpireTime: 'ExpectExpireTime',
+      expectExpireType: 'ExpectExpireType',
+      instanceName: 'InstanceName',
+      isAvail: 'IsAvail',
+      polarSnapshot: 'PolarSnapshot',
+      supportDeletion: 'SupportDeletion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupDownloadURL: 'string',
+      backupEndTime: 'string',
+      backupId: 'string',
+      backupIntranetDownloadURL: 'string',
+      backupLocation: 'string',
+      backupMethod: 'string',
+      backupMode: 'string',
+      backupName: 'string',
+      backupScale: 'string',
+      backupSize: 'number',
+      backupStartTime: 'string',
+      backupStatus: 'string',
+      backupType: 'string',
+      checksum: 'string',
+      consistentTime: 'number',
+      encryption: 'string',
+      engine: 'string',
+      engineVersion: 'string',
+      expectExpireTime: 'string',
+      expectExpireType: 'string',
+      instanceName: 'string',
+      isAvail: 'number',
+      polarSnapshot: DescribeBackupDataListResponseBodyDataContentPolarSnapshot,
+      supportDeletion: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupDataListResponseBodyData extends $tea.Model {
+  content?: DescribeBackupDataListResponseBodyDataContent[];
+  extra?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  totalElements?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      extra: 'Extra',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalElements: 'TotalElements',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': DescribeBackupDataListResponseBodyDataContent },
+      extra: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalElements: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponseBodyDataAdvanceDataPolicies extends $tea.Model {
+  autoCreated?: boolean;
+  bakType?: string;
+  destRegion?: string;
+  destType?: string;
+  dumpAction?: string;
+  filterKey?: string;
+  filterType?: string;
+  filterValue?: string;
+  retentionType?: string;
+  retentionValue?: string;
+  srcRegion?: string;
+  srcType?: string;
+  strategyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCreated: 'AutoCreated',
+      bakType: 'BakType',
+      destRegion: 'DestRegion',
+      destType: 'DestType',
+      dumpAction: 'DumpAction',
+      filterKey: 'FilterKey',
+      filterType: 'FilterType',
+      filterValue: 'FilterValue',
+      retentionType: 'RetentionType',
+      retentionValue: 'RetentionValue',
+      srcRegion: 'SrcRegion',
+      srcType: 'SrcType',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCreated: 'boolean',
+      bakType: 'string',
+      destRegion: 'string',
+      destType: 'string',
+      dumpAction: 'string',
+      filterKey: 'string',
+      filterType: 'string',
+      filterValue: 'string',
+      retentionType: 'string',
+      retentionValue: 'string',
+      srcRegion: 'string',
+      srcType: 'string',
+      strategyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponseBodyDataAdvanceLogPolicies extends $tea.Model {
+  destRegion?: string;
+  destType?: string;
+  enableLogBackup?: boolean;
+  logRetentionType?: string;
+  logRetentionValue?: string;
+  srcRegion?: string;
+  srcType?: string;
+  strategyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destRegion: 'DestRegion',
+      destType: 'DestType',
+      enableLogBackup: 'EnableLogBackup',
+      logRetentionType: 'LogRetentionType',
+      logRetentionValue: 'LogRetentionValue',
+      srcRegion: 'SrcRegion',
+      srcType: 'SrcType',
+      strategyId: 'StrategyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destRegion: 'string',
+      destType: 'string',
+      enableLogBackup: 'boolean',
+      logRetentionType: 'string',
+      logRetentionValue: 'string',
+      srcRegion: 'string',
+      srcType: 'string',
+      strategyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponseBodyData extends $tea.Model {
+  advanceDataPolicies?: DescribeBackupPolicyResponseBodyDataAdvanceDataPolicies[];
+  advanceLogPolicies?: DescribeBackupPolicyResponseBodyDataAdvanceLogPolicies[];
+  backupMethod?: string;
+  backupPriority?: number;
+  backupRetentionPeriod?: number;
+  backupRetentionPolicyOnClusterDeletion?: string;
+  category?: string;
+  enableBackup?: number;
+  enableIncBackup?: number;
+  enableLogBackup?: number;
+  highFrequencyBakInterval?: number;
+  highSpaceUsageProtection?: string;
+  incBackupInterval?: number;
+  localLogRetentionSpace?: number;
+  logBackupLocalRetentionNumber?: string;
+  logBackupRetention?: number;
+  preferredBackupDate?: string;
+  preferredBackupWindow?: string;
+  preferredBackupWindowBegin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceDataPolicies: 'AdvanceDataPolicies',
+      advanceLogPolicies: 'AdvanceLogPolicies',
+      backupMethod: 'BackupMethod',
+      backupPriority: 'BackupPriority',
+      backupRetentionPeriod: 'BackupRetentionPeriod',
+      backupRetentionPolicyOnClusterDeletion: 'BackupRetentionPolicyOnClusterDeletion',
+      category: 'Category',
+      enableBackup: 'EnableBackup',
+      enableIncBackup: 'EnableIncBackup',
+      enableLogBackup: 'EnableLogBackup',
+      highFrequencyBakInterval: 'HighFrequencyBakInterval',
+      highSpaceUsageProtection: 'HighSpaceUsageProtection',
+      incBackupInterval: 'IncBackupInterval',
+      localLogRetentionSpace: 'LocalLogRetentionSpace',
+      logBackupLocalRetentionNumber: 'LogBackupLocalRetentionNumber',
+      logBackupRetention: 'LogBackupRetention',
+      preferredBackupDate: 'PreferredBackupDate',
+      preferredBackupWindow: 'PreferredBackupWindow',
+      preferredBackupWindowBegin: 'PreferredBackupWindowBegin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceDataPolicies: { 'type': 'array', 'itemType': DescribeBackupPolicyResponseBodyDataAdvanceDataPolicies },
+      advanceLogPolicies: { 'type': 'array', 'itemType': DescribeBackupPolicyResponseBodyDataAdvanceLogPolicies },
+      backupMethod: 'string',
+      backupPriority: 'number',
+      backupRetentionPeriod: 'number',
+      backupRetentionPolicyOnClusterDeletion: 'string',
+      category: 'string',
+      enableBackup: 'number',
+      enableIncBackup: 'number',
+      enableLogBackup: 'number',
+      highFrequencyBakInterval: 'number',
+      highSpaceUsageProtection: 'string',
+      incBackupInterval: 'number',
+      localLogRetentionSpace: 'number',
+      logBackupLocalRetentionNumber: 'string',
+      logBackupRetention: 'number',
+      preferredBackupDate: 'string',
+      preferredBackupWindow: 'string',
+      preferredBackupWindowBegin: 'string',
     };
   }
 
@@ -1717,7 +2112,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For ApsaraDB RDS for MySQL instances that use standard SSDs or enhanced SSDs (ESSDs) and meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+    * ### [](#)Supported database engines
+    * *   ApsaraDB RDS for MySQL
+    * *   ApsaraDB RDS for PostgreSQL
+    * *   PolarDB for MySQL
+    * ### [](#)References
+    * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
     *
     * @param request CreateDownloadRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -1788,7 +2191,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For ApsaraDB RDS for MySQL instances that use standard SSDs or enhanced SSDs (ESSDs) and meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+    * ### [](#)Supported database engines
+    * *   ApsaraDB RDS for MySQL
+    * *   ApsaraDB RDS for PostgreSQL
+    * *   PolarDB for MySQL
+    * ### [](#)References
+    * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
     *
     * @param request CreateDownloadRequest
     * @return CreateDownloadResponse
@@ -1796,88 +2207,6 @@ export default class Client extends OpenApi {
   async createDownload(request: CreateDownloadRequest): Promise<CreateDownloadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDownloadWithOptions(request, runtime);
-  }
-
-  /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request CreateSandboxInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSandboxInstanceResponse
-   */
-  async createSandboxInstanceWithOptions(request: CreateSandboxInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateSandboxInstanceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.backupPlanId)) {
-      query["BackupPlanId"] = request.backupPlanId;
-    }
-
-    if (!Util.isUnset(request.backupSetId)) {
-      query["BackupSetId"] = request.backupSetId;
-    }
-
-    if (!Util.isUnset(request.restoreTime)) {
-      query["RestoreTime"] = request.restoreTime;
-    }
-
-    if (!Util.isUnset(request.sandboxInstanceName)) {
-      query["SandboxInstanceName"] = request.sandboxInstanceName;
-    }
-
-    if (!Util.isUnset(request.sandboxPassword)) {
-      query["SandboxPassword"] = request.sandboxPassword;
-    }
-
-    if (!Util.isUnset(request.sandboxSpecification)) {
-      query["SandboxSpecification"] = request.sandboxSpecification;
-    }
-
-    if (!Util.isUnset(request.sandboxType)) {
-      query["SandboxType"] = request.sandboxType;
-    }
-
-    if (!Util.isUnset(request.sandboxUser)) {
-      query["SandboxUser"] = request.sandboxUser;
-    }
-
-    if (!Util.isUnset(request.vpcId)) {
-      query["VpcId"] = request.vpcId;
-    }
-
-    if (!Util.isUnset(request.vpcSwitchId)) {
-      query["VpcSwitchId"] = request.vpcSwitchId;
-    }
-
-    if (!Util.isUnset(request.zoneId)) {
-      query["ZoneId"] = request.zoneId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateSandboxInstance",
-      version: "2021-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateSandboxInstanceResponse>(await this.callApi(params, req, runtime), new CreateSandboxInstanceResponse({}));
-  }
-
-  /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request CreateSandboxInstanceRequest
-    * @return CreateSandboxInstanceResponse
-   */
-  async createSandboxInstance(request: CreateSandboxInstanceRequest): Promise<CreateSandboxInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSandboxInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -1928,6 +2257,128 @@ export default class Client extends OpenApi {
   async deleteSandboxInstance(request: DeleteSandboxInstanceRequest): Promise<DeleteSandboxInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSandboxInstanceWithOptions(request, runtime);
+  }
+
+  async describeBackupDataListWithOptions(request: DescribeBackupDataListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupDataListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!Util.isUnset(request.backupMethod)) {
+      query["BackupMethod"] = request.backupMethod;
+    }
+
+    if (!Util.isUnset(request.backupMode)) {
+      query["BackupMode"] = request.backupMode;
+    }
+
+    if (!Util.isUnset(request.backupScale)) {
+      query["BackupScale"] = request.backupScale;
+    }
+
+    if (!Util.isUnset(request.backupStatus)) {
+      query["BackupStatus"] = request.backupStatus;
+    }
+
+    if (!Util.isUnset(request.backupType)) {
+      query["BackupType"] = request.backupType;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceIsDeleted)) {
+      query["InstanceIsDeleted"] = request.instanceIsDeleted;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.instanceRegion)) {
+      query["InstanceRegion"] = request.instanceRegion;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionCode)) {
+      query["RegionCode"] = request.regionCode;
+    }
+
+    if (!Util.isUnset(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupDataList",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupDataListResponse>(await this.callApi(params, req, runtime), new DescribeBackupDataListResponse({}));
+  }
+
+  async describeBackupDataList(request: DescribeBackupDataListRequest): Promise<DescribeBackupDataListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackupDataListWithOptions(request, runtime);
+  }
+
+  async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.regionCode)) {
+      query["RegionCode"] = request.regionCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupPolicy",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
+  }
+
+  async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
   async describeDBTablesRecoveryBackupSetWithOptions(request: DescribeDBTablesRecoveryBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBTablesRecoveryBackupSetResponse> {
@@ -2030,7 +2481,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+    * ### [](#)Supported database engines
+    * *   ApsaraDB RDS for MySQL
+    * *   ApsaraDB RDS for PostgreSQL
+    * *   PolarDB for MySQL
+    * ### [](#)References
+    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
     *
     * @param request DescribeDownloadBackupSetStorageInfoRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2077,7 +2535,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+    * ### [](#)Supported database engines
+    * *   ApsaraDB RDS for MySQL
+    * *   ApsaraDB RDS for PostgreSQL
+    * *   PolarDB for MySQL
+    * ### [](#)References
+    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
     *
     * @param request DescribeDownloadBackupSetStorageInfoRequest
     * @return DescribeDownloadBackupSetStorageInfoResponse
@@ -2088,7 +2553,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+    * ### [](#)Supported database engines
+    * *   ApsaraDB RDS for MySQL
+    * *   ApsaraDB RDS for PostgreSQL
+    * *   PolarDB for MySQL
+    * ### [](#)References
+    * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
     *
     * @param request DescribeDownloadSupportRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2123,7 +2596,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup set. You can set the download destination to an URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+    * ### [](#)Supported database engines
+    * *   ApsaraDB RDS for MySQL
+    * *   ApsaraDB RDS for PostgreSQL
+    * *   PolarDB for MySQL
+    * ### [](#)References
+    * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
     *
     * @param request DescribeDownloadSupportRequest
     * @return DescribeDownloadSupportResponse
@@ -2134,7 +2615,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup set. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+    * ### [](#)Supported database engines
+    * *   ApsaraDB RDS for MySQL
+    * *   ApsaraDB RDS for PostgreSQL
+    * *   PolarDB for MySQL
+    * ### [](#)References
+    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
     *
     * @param request DescribeDownloadTaskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -2209,7 +2697,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can create an advanced download task by point in time or backup set. You can set the Download Destination parameter to URL or directly upload the downloaded data to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving. For more information, see [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~).
+    * ### [](#)Supported database engines
+    * *   ApsaraDB RDS for MySQL
+    * *   ApsaraDB RDS for PostgreSQL
+    * *   PolarDB for MySQL
+    * ### [](#)References
+    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
+    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
+    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
     *
     * @param request DescribeDownloadTaskRequest
     * @return DescribeDownloadTaskResponse
