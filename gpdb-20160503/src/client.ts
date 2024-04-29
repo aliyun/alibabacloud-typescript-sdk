@@ -8391,10 +8391,13 @@ export class QueryCollectionDataRequest extends $tea.Model {
   filter?: string;
   hybridSearch?: string;
   hybridSearchArgs?: { [key: string]: {[key: string]: any} };
+  includeMetadataFields?: string;
   includeValues?: boolean;
   metrics?: string;
   namespace?: string;
   namespacePassword?: string;
+  offset?: number;
+  orderBy?: string;
   ownerId?: number;
   regionId?: string;
   topK?: number;
@@ -8407,10 +8410,13 @@ export class QueryCollectionDataRequest extends $tea.Model {
       filter: 'Filter',
       hybridSearch: 'HybridSearch',
       hybridSearchArgs: 'HybridSearchArgs',
+      includeMetadataFields: 'IncludeMetadataFields',
       includeValues: 'IncludeValues',
       metrics: 'Metrics',
       namespace: 'Namespace',
       namespacePassword: 'NamespacePassword',
+      offset: 'Offset',
+      orderBy: 'OrderBy',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       topK: 'TopK',
@@ -8426,10 +8432,13 @@ export class QueryCollectionDataRequest extends $tea.Model {
       filter: 'string',
       hybridSearch: 'string',
       hybridSearchArgs: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
+      includeMetadataFields: 'string',
       includeValues: 'boolean',
       metrics: 'string',
       namespace: 'string',
       namespacePassword: 'string',
+      offset: 'number',
+      orderBy: 'string',
       ownerId: 'number',
       regionId: 'string',
       topK: 'number',
@@ -8449,10 +8458,13 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   filter?: string;
   hybridSearch?: string;
   hybridSearchArgsShrink?: string;
+  includeMetadataFields?: string;
   includeValues?: boolean;
   metrics?: string;
   namespace?: string;
   namespacePassword?: string;
+  offset?: number;
+  orderBy?: string;
   ownerId?: number;
   regionId?: string;
   topK?: number;
@@ -8465,10 +8477,13 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
       filter: 'Filter',
       hybridSearch: 'HybridSearch',
       hybridSearchArgsShrink: 'HybridSearchArgs',
+      includeMetadataFields: 'IncludeMetadataFields',
       includeValues: 'IncludeValues',
       metrics: 'Metrics',
       namespace: 'Namespace',
       namespacePassword: 'NamespacePassword',
+      offset: 'Offset',
+      orderBy: 'OrderBy',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       topK: 'TopK',
@@ -8484,10 +8499,13 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
       filter: 'string',
       hybridSearch: 'string',
       hybridSearchArgsShrink: 'string',
+      includeMetadataFields: 'string',
       includeValues: 'boolean',
       metrics: 'string',
       namespace: 'string',
       namespacePassword: 'string',
+      offset: 'number',
+      orderBy: 'string',
       ownerId: 'number',
       regionId: 'string',
       topK: 'number',
@@ -8505,12 +8523,14 @@ export class QueryCollectionDataResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
   status?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       matches: 'Matches',
       message: 'Message',
       requestId: 'RequestId',
       status: 'Status',
+      total: 'Total',
     };
   }
 
@@ -8520,6 +8540,7 @@ export class QueryCollectionDataResponseBody extends $tea.Model {
       message: 'string',
       requestId: 'string',
       status: 'string',
+      total: 'number',
     };
   }
 
@@ -8562,6 +8583,7 @@ export class QueryContentRequest extends $tea.Model {
   filter?: string;
   hybridSearch?: string;
   hybridSearchArgs?: { [key: string]: {[key: string]: any} };
+  includeMetadataFields?: string;
   includeVector?: boolean;
   metrics?: string;
   namespace?: string;
@@ -8582,6 +8604,7 @@ export class QueryContentRequest extends $tea.Model {
       filter: 'Filter',
       hybridSearch: 'HybridSearch',
       hybridSearchArgs: 'HybridSearchArgs',
+      includeMetadataFields: 'IncludeMetadataFields',
       includeVector: 'IncludeVector',
       metrics: 'Metrics',
       namespace: 'Namespace',
@@ -8605,6 +8628,7 @@ export class QueryContentRequest extends $tea.Model {
       filter: 'string',
       hybridSearch: 'string',
       hybridSearchArgs: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
+      includeMetadataFields: 'string',
       includeVector: 'boolean',
       metrics: 'string',
       namespace: 'string',
@@ -8632,6 +8656,7 @@ export class QueryContentAdvanceRequest extends $tea.Model {
   filter?: string;
   hybridSearch?: string;
   hybridSearchArgs?: { [key: string]: {[key: string]: any} };
+  includeMetadataFields?: string;
   includeVector?: boolean;
   metrics?: string;
   namespace?: string;
@@ -8652,6 +8677,7 @@ export class QueryContentAdvanceRequest extends $tea.Model {
       filter: 'Filter',
       hybridSearch: 'HybridSearch',
       hybridSearchArgs: 'HybridSearchArgs',
+      includeMetadataFields: 'IncludeMetadataFields',
       includeVector: 'IncludeVector',
       metrics: 'Metrics',
       namespace: 'Namespace',
@@ -8675,6 +8701,7 @@ export class QueryContentAdvanceRequest extends $tea.Model {
       filter: 'string',
       hybridSearch: 'string',
       hybridSearchArgs: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
+      includeMetadataFields: 'string',
       includeVector: 'boolean',
       metrics: 'string',
       namespace: 'string',
@@ -8702,6 +8729,7 @@ export class QueryContentShrinkRequest extends $tea.Model {
   filter?: string;
   hybridSearch?: string;
   hybridSearchArgsShrink?: string;
+  includeMetadataFields?: string;
   includeVector?: boolean;
   metrics?: string;
   namespace?: string;
@@ -8722,6 +8750,7 @@ export class QueryContentShrinkRequest extends $tea.Model {
       filter: 'Filter',
       hybridSearch: 'HybridSearch',
       hybridSearchArgsShrink: 'HybridSearchArgs',
+      includeMetadataFields: 'IncludeMetadataFields',
       includeVector: 'IncludeVector',
       metrics: 'Metrics',
       namespace: 'Namespace',
@@ -8745,6 +8774,7 @@ export class QueryContentShrinkRequest extends $tea.Model {
       filter: 'string',
       hybridSearch: 'string',
       hybridSearchArgsShrink: 'string',
+      includeMetadataFields: 'string',
       includeVector: 'boolean',
       metrics: 'string',
       namespace: 'string',
@@ -19846,6 +19876,10 @@ export default class Client extends OpenApi {
       query["HybridSearchArgs"] = request.hybridSearchArgsShrink;
     }
 
+    if (!Util.isUnset(request.includeMetadataFields)) {
+      query["IncludeMetadataFields"] = request.includeMetadataFields;
+    }
+
     if (!Util.isUnset(request.includeValues)) {
       query["IncludeValues"] = request.includeValues;
     }
@@ -19860,6 +19894,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.namespacePassword)) {
       query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
     }
 
     if (!Util.isUnset(request.ownerId)) {
@@ -19943,6 +19985,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.hybridSearchArgsShrink)) {
       query["HybridSearchArgs"] = request.hybridSearchArgsShrink;
+    }
+
+    if (!Util.isUnset(request.includeMetadataFields)) {
+      query["IncludeMetadataFields"] = request.includeMetadataFields;
     }
 
     if (!Util.isUnset(request.includeVector)) {
