@@ -3619,6 +3619,139 @@ export class CreateGadInstanceMemberResponse extends $tea.Model {
   }
 }
 
+export class CreateMaskingRulesRequest extends $tea.Model {
+  DBInstanceName?: string;
+  defaultAlgo?: string;
+  maskingAlgo?: string;
+  ownerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ruleConfig?: CreateMaskingRulesRequestRuleConfig;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      defaultAlgo: 'DefaultAlgo',
+      maskingAlgo: 'MaskingAlgo',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ruleConfig: 'RuleConfig',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      defaultAlgo: 'string',
+      maskingAlgo: 'string',
+      ownerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ruleConfig: CreateMaskingRulesRequestRuleConfig,
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMaskingRulesShrinkRequest extends $tea.Model {
+  DBInstanceName?: string;
+  defaultAlgo?: string;
+  maskingAlgo?: string;
+  ownerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ruleConfigShrink?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      defaultAlgo: 'DefaultAlgo',
+      maskingAlgo: 'MaskingAlgo',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ruleConfigShrink: 'RuleConfig',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      defaultAlgo: 'string',
+      maskingAlgo: 'string',
+      ownerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ruleConfigShrink: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMaskingRulesResponseBody extends $tea.Model {
+  data?: { [key: string]: string };
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMaskingRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMaskingRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMaskingRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMigrateTaskRequest extends $tea.Model {
   backupMode?: string;
   checkDBMode?: string;
@@ -5610,6 +5743,90 @@ export class DeleteGadInstanceResponse extends $tea.Model {
   }
 }
 
+export class DeleteMaskingRulesRequest extends $tea.Model {
+  DBInstanceName?: string;
+  ownerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      ownerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMaskingRulesResponseBody extends $tea.Model {
+  data?: { [key: string]: string };
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMaskingRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMaskingRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMaskingRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteParameterGroupRequest extends $tea.Model {
   ownerId?: number;
   parameterGroupId?: string;
@@ -6244,6 +6461,84 @@ export class DescribeADInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeADInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountMaskingPrivilegeRequest extends $tea.Model {
+  DBInstanceName?: string;
+  ownerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      ownerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountMaskingPrivilegeResponseBody extends $tea.Model {
+  data?: DescribeAccountMaskingPrivilegeResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeAccountMaskingPrivilegeResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountMaskingPrivilegeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccountMaskingPrivilegeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAccountMaskingPrivilegeResponseBody,
     };
   }
 
@@ -13845,6 +14140,84 @@ export class DescribeMarketingActivityResponse extends $tea.Model {
   }
 }
 
+export class DescribeMaskingRulesRequest extends $tea.Model {
+  DBInstanceName?: string;
+  ownerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      ownerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaskingRulesResponseBody extends $tea.Model {
+  data?: DescribeMaskingRulesResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeMaskingRulesResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaskingRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMaskingRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMaskingRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMetaListRequest extends $tea.Model {
   backupSetID?: number;
   clientToken?: string;
@@ -19369,6 +19742,96 @@ export class ModifyAccountDescriptionResponse extends $tea.Model {
   }
 }
 
+export class ModifyAccountMaskingPrivilegeRequest extends $tea.Model {
+  DBInstanceName?: string;
+  expireTime?: string;
+  ownerId?: string;
+  privilege?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      expireTime: 'ExpireTime',
+      ownerId: 'OwnerId',
+      privilege: 'Privilege',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      expireTime: 'string',
+      ownerId: 'string',
+      privilege: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountMaskingPrivilegeResponseBody extends $tea.Model {
+  data?: { [key: string]: string };
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountMaskingPrivilegeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccountMaskingPrivilegeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAccountMaskingPrivilegeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyActionEventPolicyRequest extends $tea.Model {
   enableEventLog?: string;
   ownerId?: number;
@@ -23192,6 +23655,145 @@ export class ModifyInstanceCrossBackupPolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyInstanceCrossBackupPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyMaskingRulesRequest extends $tea.Model {
+  DBInstanceName?: string;
+  defaultAlgo?: string;
+  enabled?: string;
+  maskingAlgo?: string;
+  ownerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ruleConfig?: ModifyMaskingRulesRequestRuleConfig;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      defaultAlgo: 'DefaultAlgo',
+      enabled: 'Enabled',
+      maskingAlgo: 'MaskingAlgo',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ruleConfig: 'RuleConfig',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      defaultAlgo: 'string',
+      enabled: 'string',
+      maskingAlgo: 'string',
+      ownerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ruleConfig: ModifyMaskingRulesRequestRuleConfig,
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyMaskingRulesShrinkRequest extends $tea.Model {
+  DBInstanceName?: string;
+  defaultAlgo?: string;
+  enabled?: string;
+  maskingAlgo?: string;
+  ownerId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ruleConfigShrink?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      defaultAlgo: 'DefaultAlgo',
+      enabled: 'Enabled',
+      maskingAlgo: 'MaskingAlgo',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ruleConfigShrink: 'RuleConfig',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      defaultAlgo: 'string',
+      enabled: 'string',
+      maskingAlgo: 'string',
+      ownerId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ruleConfigShrink: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyMaskingRulesResponseBody extends $tea.Model {
+  data?: { [key: string]: string };
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyMaskingRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyMaskingRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyMaskingRulesResponseBody,
     };
   }
 
@@ -28024,6 +28626,31 @@ export class CreateGadInstanceMemberResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateMaskingRulesRequestRuleConfig extends $tea.Model {
+  columns?: string[];
+  databases?: string[];
+  tables?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      databases: 'Databases',
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      databases: { 'type': 'array', 'itemType': 'string' },
+      tables: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBackupFileResponseBodyDeletedBaksetIds extends $tea.Model {
   deletedBaksetIds?: number[];
   static names(): { [key: string]: string } {
@@ -28129,6 +28756,50 @@ export class DescibeImportsFromDatabaseResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       importResultFromDB: { 'type': 'array', 'itemType': DescibeImportsFromDatabaseResponseBodyItemsImportResultFromDB },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege extends $tea.Model {
+  expireTime?: string;
+  privilege?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireTime: 'ExpireTime',
+      privilege: 'Privilege',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireTime: 'string',
+      privilege: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountMaskingPrivilegeResponseBodyData extends $tea.Model {
+  userPrivilege?: DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege[];
+  static names(): { [key: string]: string } {
+    return {
+      userPrivilege: 'UserPrivilege',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrivilege: { 'type': 'array', 'itemType': DescribeAccountMaskingPrivilegeResponseBodyDataUserPrivilege },
     };
   }
 
@@ -33272,6 +33943,81 @@ export class DescribeMarketingActivityResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeMaskingRulesResponseBodyDataRulesRuleConfig extends $tea.Model {
+  columns?: string[];
+  databases?: string[];
+  tables?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      databases: 'Databases',
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      databases: { 'type': 'array', 'itemType': 'string' },
+      tables: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaskingRulesResponseBodyDataRules extends $tea.Model {
+  defaultAlgo?: string;
+  enabled?: string;
+  maskingAlgo?: string;
+  ruleConfig?: DescribeMaskingRulesResponseBodyDataRulesRuleConfig;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultAlgo: 'DefaultAlgo',
+      enabled: 'Enabled',
+      maskingAlgo: 'MaskingAlgo',
+      ruleConfig: 'RuleConfig',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultAlgo: 'string',
+      enabled: 'string',
+      maskingAlgo: 'string',
+      ruleConfig: DescribeMaskingRulesResponseBodyDataRulesRuleConfig,
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaskingRulesResponseBodyData extends $tea.Model {
+  rules?: DescribeMaskingRulesResponseBodyDataRules[];
+  static names(): { [key: string]: string } {
+    return {
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rules: { 'type': 'array', 'itemType': DescribeMaskingRulesResponseBodyDataRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMetaListResponseBodyItemsMeta extends $tea.Model {
   database?: string;
   size?: string;
@@ -36419,6 +37165,31 @@ export class ModifyDBNodeRequestDBNode extends $tea.Model {
     return {
       classCode: 'string',
       nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyMaskingRulesRequestRuleConfig extends $tea.Model {
+  columns?: string[];
+  databases?: string[];
+  tables?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      databases: 'Databases',
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': 'string' },
+      databases: { 'type': 'array', 'itemType': 'string' },
+      tables: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -39880,6 +40651,69 @@ export default class Client extends OpenApi {
     return await this.createGadInstanceMemberWithOptions(request, runtime);
   }
 
+  async createMaskingRulesWithOptions(tmpReq: CreateMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateMaskingRulesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateMaskingRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ruleConfig)) {
+      request.ruleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ruleConfig, "RuleConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.defaultAlgo)) {
+      query["DefaultAlgo"] = request.defaultAlgo;
+    }
+
+    if (!Util.isUnset(request.maskingAlgo)) {
+      query["MaskingAlgo"] = request.maskingAlgo;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleConfigShrink)) {
+      query["RuleConfig"] = request.ruleConfigShrink;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateMaskingRules",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMaskingRulesResponse>(await this.callApi(params, req, runtime), new CreateMaskingRulesResponse({}));
+  }
+
+  async createMaskingRules(request: CreateMaskingRulesRequest): Promise<CreateMaskingRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createMaskingRulesWithOptions(request, runtime);
+  }
+
   /**
     * ### [](#)Supported database engine
     * SQL Server
@@ -41649,6 +42483,51 @@ export default class Client extends OpenApi {
     return await this.deleteGadInstanceWithOptions(request, runtime);
   }
 
+  async deleteMaskingRulesWithOptions(request: DeleteMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaskingRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMaskingRules",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMaskingRulesResponse>(await this.callApi(params, req, runtime), new DeleteMaskingRulesResponse({}));
+  }
+
+  async deleteMaskingRules(request: DeleteMaskingRulesRequest): Promise<DeleteMaskingRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMaskingRulesWithOptions(request, runtime);
+  }
+
   /**
     * ### [](#)Supported database engines
     * *   MySQL
@@ -42174,6 +43053,51 @@ export default class Client extends OpenApi {
   async describeADInfo(request: DescribeADInfoRequest): Promise<DescribeADInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeADInfoWithOptions(request, runtime);
+  }
+
+  async describeAccountMaskingPrivilegeWithOptions(request: DescribeAccountMaskingPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountMaskingPrivilegeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAccountMaskingPrivilege",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccountMaskingPrivilegeResponse>(await this.callApi(params, req, runtime), new DescribeAccountMaskingPrivilegeResponse({}));
+  }
+
+  async describeAccountMaskingPrivilege(request: DescribeAccountMaskingPrivilegeRequest): Promise<DescribeAccountMaskingPrivilegeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAccountMaskingPrivilegeWithOptions(request, runtime);
   }
 
   /**
@@ -48139,6 +49063,51 @@ export default class Client extends OpenApi {
     return await this.describeMarketingActivityWithOptions(request, runtime);
   }
 
+  async describeMaskingRulesWithOptions(request: DescribeMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMaskingRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMaskingRules",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMaskingRulesResponse>(await this.callApi(params, req, runtime), new DescribeMaskingRulesResponse({}));
+  }
+
+  async describeMaskingRules(request: DescribeMaskingRulesRequest): Promise<DescribeMaskingRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMaskingRulesWithOptions(request, runtime);
+  }
+
   /**
     * ### [](#)Supported database engines
     * MySQL
@@ -49437,8 +50406,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call the [CreateDBInstance](~~26228~~) operation to create an RDS instance, you can call the DescribeRegions operation to query the available regions and zones.
-    * >  If a zone supports the multi-zone deployment method, the value of the ZoneId parameter for the zone contains an MAZ part. Examples: cn-hangzhou-MAZ6(b,f) and cn-hangzhou-MAZ5(b,e,f).
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
     *
     * @param request DescribeRegionsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -49473,8 +50445,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call the [CreateDBInstance](~~26228~~) operation to create an RDS instance, you can call the DescribeRegions operation to query the available regions and zones.
-    * >  If a zone supports the multi-zone deployment method, the value of the ZoneId parameter for the zone contains an MAZ part. Examples: cn-hangzhou-MAZ6(b,f) and cn-hangzhou-MAZ5(b,e,f).
+    * ### [](#)Supported database engines
+    * *   MySQL
+    * *   PostgreSQL
+    * *   SQL Server
+    * *   MariaDB
     *
     * @param request DescribeRegionsRequest
     * @return DescribeRegionsResponse
@@ -52582,6 +53557,59 @@ export default class Client extends OpenApi {
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
+  }
+
+  async modifyAccountMaskingPrivilegeWithOptions(request: ModifyAccountMaskingPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountMaskingPrivilegeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.privilege)) {
+      query["Privilege"] = request.privilege;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAccountMaskingPrivilege",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAccountMaskingPrivilegeResponse>(await this.callApi(params, req, runtime), new ModifyAccountMaskingPrivilegeResponse({}));
+  }
+
+  async modifyAccountMaskingPrivilege(request: ModifyAccountMaskingPrivilegeRequest): Promise<ModifyAccountMaskingPrivilegeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAccountMaskingPrivilegeWithOptions(request, runtime);
   }
 
   /**
@@ -56014,6 +57042,73 @@ export default class Client extends OpenApi {
   async modifyInstanceCrossBackupPolicy(request: ModifyInstanceCrossBackupPolicyRequest): Promise<ModifyInstanceCrossBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceCrossBackupPolicyWithOptions(request, runtime);
+  }
+
+  async modifyMaskingRulesWithOptions(tmpReq: ModifyMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMaskingRulesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyMaskingRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ruleConfig)) {
+      request.ruleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ruleConfig, "RuleConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.defaultAlgo)) {
+      query["DefaultAlgo"] = request.defaultAlgo;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.maskingAlgo)) {
+      query["MaskingAlgo"] = request.maskingAlgo;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleConfigShrink)) {
+      query["RuleConfig"] = request.ruleConfigShrink;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyMaskingRules",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyMaskingRulesResponse>(await this.callApi(params, req, runtime), new ModifyMaskingRulesResponse({}));
+  }
+
+  async modifyMaskingRules(request: ModifyMaskingRulesRequest): Promise<ModifyMaskingRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyMaskingRulesWithOptions(request, runtime);
   }
 
   /**
