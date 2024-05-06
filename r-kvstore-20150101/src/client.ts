@@ -624,6 +624,7 @@ export class CreateCacheAnalysisTaskResponse extends $tea.Model {
 }
 
 export class CreateGlobalDistributeCacheRequest extends $tea.Model {
+  effectiveTime?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceGroupId?: string;
@@ -633,6 +634,7 @@ export class CreateGlobalDistributeCacheRequest extends $tea.Model {
   seedSubInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      effectiveTime: 'EffectiveTime',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
@@ -645,6 +647,7 @@ export class CreateGlobalDistributeCacheRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      effectiveTime: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceGroupId: 'string',
@@ -1187,6 +1190,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  restoreTime?: string;
   secondaryZoneId?: string;
   securityToken?: string;
   shardCount?: number;
@@ -1230,6 +1234,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      restoreTime: 'RestoreTime',
       secondaryZoneId: 'SecondaryZoneId',
       securityToken: 'SecurityToken',
       shardCount: 'ShardCount',
@@ -1276,6 +1281,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      restoreTime: 'string',
       secondaryZoneId: 'string',
       securityToken: 'string',
       shardCount: 'number',
@@ -3477,6 +3483,7 @@ export class DescribeEngineVersionResponseBody extends $tea.Model {
   isAutoUpgradeOpen?: string;
   isLatestVersion?: boolean;
   isNewSSLMode?: string;
+  isOpenNGLB?: string;
   isRedisCompatibleVersion?: string;
   isSSLEnable?: string;
   majorVersion?: string;
@@ -3495,6 +3502,7 @@ export class DescribeEngineVersionResponseBody extends $tea.Model {
       isAutoUpgradeOpen: 'IsAutoUpgradeOpen',
       isLatestVersion: 'IsLatestVersion',
       isNewSSLMode: 'IsNewSSLMode',
+      isOpenNGLB: 'IsOpenNGLB',
       isRedisCompatibleVersion: 'IsRedisCompatibleVersion',
       isSSLEnable: 'IsSSLEnable',
       majorVersion: 'MajorVersion',
@@ -3516,6 +3524,7 @@ export class DescribeEngineVersionResponseBody extends $tea.Model {
       isAutoUpgradeOpen: 'string',
       isLatestVersion: 'boolean',
       isNewSSLMode: 'string',
+      isOpenNGLB: 'string',
       isRedisCompatibleVersion: 'string',
       isSSLEnable: 'string',
       majorVersion: 'string',
@@ -13837,6 +13846,52 @@ export class DescribePriceResponseBodySubOrdersSubOrderDepreciateInfo extends $t
   }
 }
 
+export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceDepreciateInfo extends $tea.Model {
+  cheapRate?: number;
+  cheapStandAmount?: number;
+  differential?: number;
+  differentialName?: string;
+  isContractActivity?: boolean;
+  isShow?: boolean;
+  listPrice?: number;
+  monthPrice?: number;
+  originalStandAmount?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cheapRate: 'CheapRate',
+      cheapStandAmount: 'CheapStandAmount',
+      differential: 'Differential',
+      differentialName: 'DifferentialName',
+      isContractActivity: 'IsContractActivity',
+      isShow: 'IsShow',
+      listPrice: 'ListPrice',
+      monthPrice: 'MonthPrice',
+      originalStandAmount: 'OriginalStandAmount',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cheapRate: 'number',
+      cheapStandAmount: 'number',
+      differential: 'number',
+      differentialName: 'string',
+      isContractActivity: 'boolean',
+      isShow: 'boolean',
+      listPrice: 'number',
+      monthPrice: 'number',
+      originalStandAmount: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrsModuleAttr extends $tea.Model {
   code?: string;
   name?: string;
@@ -13886,6 +13941,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
 
 export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstance extends $tea.Model {
   contractActivity?: boolean;
+  depreciateInfo?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceDepreciateInfo;
   discountFee?: number;
   moduleAttrs?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs;
   moduleCode?: string;
@@ -13899,6 +13955,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
   static names(): { [key: string]: string } {
     return {
       contractActivity: 'ContractActivity',
+      depreciateInfo: 'DepreciateInfo',
       discountFee: 'DiscountFee',
       moduleAttrs: 'ModuleAttrs',
       moduleCode: 'ModuleCode',
@@ -13915,6 +13972,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
   static types(): { [key: string]: any } {
     return {
       contractActivity: 'boolean',
+      depreciateInfo: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceDepreciateInfo,
       discountFee: 'number',
       moduleAttrs: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstanceModuleAttrs,
       moduleCode: 'string',
@@ -15365,6 +15423,10 @@ export default class Client extends OpenApi {
   async createGlobalDistributeCacheWithOptions(request: CreateGlobalDistributeCacheRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalDistributeCacheResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.effectiveTime)) {
+      query["EffectiveTime"] = request.effectiveTime;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -15928,6 +15990,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.restoreTime)) {
+      query["RestoreTime"] = request.restoreTime;
     }
 
     if (!Util.isUnset(request.secondaryZoneId)) {
