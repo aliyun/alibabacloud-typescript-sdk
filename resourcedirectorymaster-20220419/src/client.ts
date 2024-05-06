@@ -5320,6 +5320,7 @@ export class GetAccountResponseBodyAccount extends $tea.Model {
   displayName?: string;
   emailStatus?: string;
   folderId?: string;
+  hasSecureMobilePhone?: boolean;
   identityInformation?: string;
   joinMethod?: string;
   joinTime?: string;
@@ -5337,6 +5338,7 @@ export class GetAccountResponseBodyAccount extends $tea.Model {
       displayName: 'DisplayName',
       emailStatus: 'EmailStatus',
       folderId: 'FolderId',
+      hasSecureMobilePhone: 'HasSecureMobilePhone',
       identityInformation: 'IdentityInformation',
       joinMethod: 'JoinMethod',
       joinTime: 'JoinTime',
@@ -5357,6 +5359,7 @@ export class GetAccountResponseBodyAccount extends $tea.Model {
       displayName: 'string',
       emailStatus: 'string',
       folderId: 'string',
+      hasSecureMobilePhone: 'boolean',
       identityInformation: 'string',
       joinMethod: 'string',
       joinTime: 'string',
@@ -6947,6 +6950,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("resourcedirectorymaster", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
