@@ -21646,6 +21646,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
   disasterRecoveryVSwitchId?: string;
   enableBgp?: boolean;
   endTime?: number;
+  eniInstanceIds?: DescribeVpnGatewayResponseBodyEniInstanceIds;
   internetIp?: string;
   ipsecVpn?: string;
   name?: string;
@@ -21675,6 +21676,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       disasterRecoveryVSwitchId: 'DisasterRecoveryVSwitchId',
       enableBgp: 'EnableBgp',
       endTime: 'EndTime',
+      eniInstanceIds: 'EniInstanceIds',
       internetIp: 'InternetIp',
       ipsecVpn: 'IpsecVpn',
       name: 'Name',
@@ -21707,6 +21709,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
       disasterRecoveryVSwitchId: 'string',
       enableBgp: 'boolean',
       endTime: 'number',
+      eniInstanceIds: DescribeVpnGatewayResponseBodyEniInstanceIds,
       internetIp: 'string',
       ipsecVpn: 'string',
       name: 'string',
@@ -30400,6 +30403,7 @@ export class ModifyRouterInterfaceSpecResponse extends $tea.Model {
 
 export class ModifySnatEntryRequest extends $tea.Model {
   clientToken?: string;
+  eipAffinity?: number;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -30412,6 +30416,7 @@ export class ModifySnatEntryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      eipAffinity: 'EipAffinity',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -30427,6 +30432,7 @@ export class ModifySnatEntryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      eipAffinity: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -43658,6 +43664,7 @@ export class DescribeServerRelatedGlobalAccelerationInstancesResponseBodyGlobalA
 }
 
 export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry extends $tea.Model {
+  eipAffinity?: string;
   natGatewayId?: string;
   snatEntryId?: string;
   snatEntryName?: string;
@@ -43668,6 +43675,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      eipAffinity: 'EipAffinity',
       natGatewayId: 'NatGatewayId',
       snatEntryId: 'SnatEntryId',
       snatEntryName: 'SnatEntryName',
@@ -43681,6 +43689,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntriesSnatTableEntry 
 
   static types(): { [key: string]: any } {
     return {
+      eipAffinity: 'string',
       natGatewayId: 'string',
       snatEntryId: 'string',
       snatEntryName: 'string',
@@ -46444,6 +46453,25 @@ export class DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthor
   }
 }
 
+export class DescribeVpnGatewayResponseBodyEniInstanceIds extends $tea.Model {
+  eniInstanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      eniInstanceId: 'EniInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eniInstanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnGatewayResponseBodyReservationData extends $tea.Model {
   reservationEndTime?: string;
   reservationIpsec?: string;
@@ -46566,6 +46594,25 @@ export class DescribeVpnGatewaysRequestTag extends $tea.Model {
   }
 }
 
+export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds extends $tea.Model {
+  eniInstanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      eniInstanceId: 'EniInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eniInstanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData extends $tea.Model {
   reservationEndTime?: string;
   reservationIpsec?: string;
@@ -46654,6 +46701,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
   disasterRecoveryVSwitchId?: string;
   enableBgp?: boolean;
   endTime?: number;
+  eniInstanceIds?: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds;
   internetIp?: string;
   ipsecVpn?: string;
   name?: string;
@@ -46682,6 +46730,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
       disasterRecoveryVSwitchId: 'DisasterRecoveryVSwitchId',
       enableBgp: 'EnableBgp',
       endTime: 'EndTime',
+      eniInstanceIds: 'EniInstanceIds',
       internetIp: 'InternetIp',
       ipsecVpn: 'IpsecVpn',
       name: 'Name',
@@ -46713,6 +46762,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
       disasterRecoveryVSwitchId: 'string',
       enableBgp: 'boolean',
       endTime: 'number',
+      eniInstanceIds: DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayEniInstanceIds,
       internetIp: 'string',
       ipsecVpn: 'string',
       name: 'string',
@@ -74304,6 +74354,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.eipAffinity)) {
+      query["EipAffinity"] = request.eipAffinity;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
