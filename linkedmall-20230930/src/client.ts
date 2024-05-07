@@ -2986,6 +2986,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 取消逆向单
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelRefundOrderResponse
+   */
   async cancelRefundOrderWithOptions(disputeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelRefundOrderResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3004,12 +3011,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelRefundOrderResponse>(await this.callApi(params, req, runtime), new CancelRefundOrderResponse({}));
   }
 
+  /**
+   * @summary 取消逆向单
+   *
+   * @return CancelRefundOrderResponse
+   */
   async cancelRefundOrder(disputeId: string): Promise<CancelRefundOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelRefundOrderWithOptions(disputeId, headers, runtime);
   }
 
+  /**
+   * @summary 确认收货（订单）
+   *
+   * @param request ConfirmDisburseRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfirmDisburseResponse
+   */
   async confirmDisburseWithOptions(request: ConfirmDisburseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ConfirmDisburseResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3030,12 +3050,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfirmDisburseResponse>(await this.callApi(params, req, runtime), new ConfirmDisburseResponse({}));
   }
 
+  /**
+   * @summary 确认收货（订单）
+   *
+   * @param request ConfirmDisburseRequest
+   * @return ConfirmDisburseResponse
+   */
   async confirmDisburse(request: ConfirmDisburseRequest): Promise<ConfirmDisburseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.confirmDisburseWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 提交运单信息
+   *
+   * @param request CreateGoodsShippingNoticeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGoodsShippingNoticeResponse
+   */
   async createGoodsShippingNoticeWithOptions(request: CreateGoodsShippingNoticeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGoodsShippingNoticeResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3056,12 +3090,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGoodsShippingNoticeResponse>(await this.callApi(params, req, runtime), new CreateGoodsShippingNoticeResponse({}));
   }
 
+  /**
+   * @summary 提交运单信息
+   *
+   * @param request CreateGoodsShippingNoticeRequest
+   * @return CreateGoodsShippingNoticeResponse
+   */
   async createGoodsShippingNotice(request: CreateGoodsShippingNoticeRequest): Promise<CreateGoodsShippingNoticeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createGoodsShippingNoticeWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建采购单
+   *
+   * @param request CreatePurchaseOrderRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePurchaseOrderResponse
+   */
   async createPurchaseOrderWithOptions(request: CreatePurchaseOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePurchaseOrderResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3082,12 +3130,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePurchaseOrderResponse>(await this.callApi(params, req, runtime), new CreatePurchaseOrderResponse({}));
   }
 
+  /**
+   * @summary 创建采购单
+   *
+   * @param request CreatePurchaseOrderRequest
+   * @return CreatePurchaseOrderResponse
+   */
   async createPurchaseOrder(request: CreatePurchaseOrderRequest): Promise<CreatePurchaseOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createPurchaseOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建逆向单
+   *
+   * @param request CreateRefundOrderRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRefundOrderResponse
+   */
   async createRefundOrderWithOptions(request: CreateRefundOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRefundOrderResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3108,12 +3170,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRefundOrderResponse>(await this.callApi(params, req, runtime), new CreateRefundOrderResponse({}));
   }
 
+  /**
+   * @summary 创建逆向单
+   *
+   * @param request CreateRefundOrderRequest
+   * @return CreateRefundOrderResponse
+   */
   async createRefundOrder(request: CreateRefundOrderRequest): Promise<CreateRefundOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createRefundOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询主单详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOrderResponse
+   */
   async getOrderWithOptions(orderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrderResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3132,12 +3207,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrderResponse>(await this.callApi(params, req, runtime), new GetOrderResponse({}));
   }
 
+  /**
+   * @summary 查询主单详情
+   *
+   * @return GetOrderResponse
+   */
   async getOrder(orderId: string): Promise<GetOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getOrderWithOptions(orderId, headers, runtime);
   }
 
+  /**
+   * @summary 查询采购单状态
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPurchaseOrderStatusResponse
+   */
   async getPurchaseOrderStatusWithOptions(purchaseOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPurchaseOrderStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3156,12 +3243,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPurchaseOrderStatusResponse>(await this.callApi(params, req, runtime), new GetPurchaseOrderStatusResponse({}));
   }
 
+  /**
+   * @summary 查询采购单状态
+   *
+   * @return GetPurchaseOrderStatusResponse
+   */
   async getPurchaseOrderStatus(purchaseOrderId: string): Promise<GetPurchaseOrderStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPurchaseOrderStatusWithOptions(purchaseOrderId, headers, runtime);
   }
 
+  /**
+   * @summary 查询分销商店铺
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPurchaserShopResponse
+   */
   async getPurchaserShopWithOptions(purchaserId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPurchaserShopResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3180,12 +3279,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPurchaserShopResponse>(await this.callApi(params, req, runtime), new GetPurchaserShopResponse({}));
   }
 
+  /**
+   * @summary 查询分销商店铺
+   *
+   * @return GetPurchaserShopResponse
+   */
   async getPurchaserShop(purchaserId: string): Promise<GetPurchaserShopResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPurchaserShopWithOptions(purchaserId, headers, runtime);
   }
 
+  /**
+   * @summary 查询逆向单详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRefundOrderResponse
+   */
   async getRefundOrderWithOptions(disputeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRefundOrderResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3204,12 +3315,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRefundOrderResponse>(await this.callApi(params, req, runtime), new GetRefundOrderResponse({}));
   }
 
+  /**
+   * @summary 查询逆向单详情
+   *
+   * @return GetRefundOrderResponse
+   */
   async getRefundOrder(disputeId: string): Promise<GetRefundOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRefundOrderWithOptions(disputeId, headers, runtime);
   }
 
+  /**
+   * @summary 查询选品池商品详情
+   *
+   * @param request GetSelectionProductRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSelectionProductResponse
+   */
   async getSelectionProductWithOptions(productId: string, request: GetSelectionProductRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSelectionProductResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3239,12 +3363,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSelectionProductResponse>(await this.callApi(params, req, runtime), new GetSelectionProductResponse({}));
   }
 
+  /**
+   * @summary 查询选品池商品详情
+   *
+   * @param request GetSelectionProductRequest
+   * @return GetSelectionProductResponse
+   */
   async getSelectionProduct(productId: string, request: GetSelectionProductRequest): Promise<GetSelectionProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSelectionProductWithOptions(productId, request, headers, runtime);
   }
 
+  /**
+   * @summary 查询选品池商品库存
+   *
+   * @param request GetSelectionProductSaleInfoRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSelectionProductSaleInfoResponse
+   */
   async getSelectionProductSaleInfoWithOptions(productId: string, request: GetSelectionProductSaleInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSelectionProductSaleInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3274,12 +3412,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSelectionProductSaleInfoResponse>(await this.callApi(params, req, runtime), new GetSelectionProductSaleInfoResponse({}));
   }
 
+  /**
+   * @summary 查询选品池商品库存
+   *
+   * @param request GetSelectionProductSaleInfoRequest
+   * @return GetSelectionProductSaleInfoResponse
+   */
   async getSelectionProductSaleInfo(productId: string, request: GetSelectionProductSaleInfoRequest): Promise<GetSelectionProductSaleInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSelectionProductSaleInfoWithOptions(productId, request, headers, runtime);
   }
 
+  /**
+   * @summary 查询类目
+   *
+   * @param request ListCategoriesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCategoriesResponse
+   */
   async listCategoriesWithOptions(request: ListCategoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCategoriesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3300,12 +3452,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCategoriesResponse>(await this.callApi(params, req, runtime), new ListCategoriesResponse({}));
   }
 
+  /**
+   * @summary 查询类目
+   *
+   * @param request ListCategoriesRequest
+   * @return ListCategoriesResponse
+   */
   async listCategories(request: ListCategoriesRequest): Promise<ListCategoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCategoriesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询物流信息（订单）
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLogisticsOrdersResponse
+   */
   async listLogisticsOrdersWithOptions(orderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogisticsOrdersResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -3324,12 +3489,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogisticsOrdersResponse>(await this.callApi(params, req, runtime), new ListLogisticsOrdersResponse({}));
   }
 
+  /**
+   * @summary 查询物流信息（订单）
+   *
+   * @return ListLogisticsOrdersResponse
+   */
   async listLogisticsOrders(orderId: string): Promise<ListLogisticsOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLogisticsOrdersWithOptions(orderId, headers, runtime);
   }
 
+  /**
+   * @summary 采购方店铺列表查询
+   *
+   * @param request ListPurchaserShopsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPurchaserShopsResponse
+   */
   async listPurchaserShopsWithOptions(request: ListPurchaserShopsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPurchaserShopsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3359,12 +3537,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPurchaserShopsResponse>(await this.callApi(params, req, runtime), new ListPurchaserShopsResponse({}));
   }
 
+  /**
+   * @summary 采购方店铺列表查询
+   *
+   * @param request ListPurchaserShopsRequest
+   * @return ListPurchaserShopsResponse
+   */
   async listPurchaserShops(request: ListPurchaserShopsRequest): Promise<ListPurchaserShopsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPurchaserShopsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 批量查询选品池商品库存
+   *
+   * @param request ListSelectionProductSaleInfosRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSelectionProductSaleInfosResponse
+   */
   async listSelectionProductSaleInfosWithOptions(request: ListSelectionProductSaleInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionProductSaleInfosResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3385,12 +3577,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSelectionProductSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSelectionProductSaleInfosResponse({}));
   }
 
+  /**
+   * @summary 批量查询选品池商品库存
+   *
+   * @param request ListSelectionProductSaleInfosRequest
+   * @return ListSelectionProductSaleInfosResponse
+   */
   async listSelectionProductSaleInfos(request: ListSelectionProductSaleInfosRequest): Promise<ListSelectionProductSaleInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSelectionProductSaleInfosWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询商品列表
+   *
+   * @param request ListSelectionProductsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSelectionProductsResponse
+   */
   async listSelectionProductsWithOptions(request: ListSelectionProductsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionProductsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -3424,12 +3630,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSelectionProductsResponse>(await this.callApi(params, req, runtime), new ListSelectionProductsResponse({}));
   }
 
+  /**
+   * @summary 查询商品列表
+   *
+   * @param request ListSelectionProductsRequest
+   * @return ListSelectionProductsResponse
+   */
   async listSelectionProducts(request: ListSelectionProductsRequest): Promise<ListSelectionProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSelectionProductsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 批量查询选品池商品SKU库存
+   *
+   * @param request ListSelectionSkuSaleInfosRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSelectionSkuSaleInfosResponse
+   */
   async listSelectionSkuSaleInfosWithOptions(request: ListSelectionSkuSaleInfosRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSelectionSkuSaleInfosResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3450,12 +3670,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSelectionSkuSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSelectionSkuSaleInfosResponse({}));
   }
 
+  /**
+   * @summary 批量查询选品池商品SKU库存
+   *
+   * @param request ListSelectionSkuSaleInfosRequest
+   * @return ListSelectionSkuSaleInfosResponse
+   */
   async listSelectionSkuSaleInfos(request: ListSelectionSkuSaleInfosRequest): Promise<ListSelectionSkuSaleInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSelectionSkuSaleInfosWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询地址divisionCode
+   *
+   * @param request QueryChildDivisionCodeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryChildDivisionCodeResponse
+   */
   async queryChildDivisionCodeWithOptions(request: QueryChildDivisionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryChildDivisionCodeResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3476,12 +3710,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryChildDivisionCodeResponse>(await this.callApi(params, req, runtime), new QueryChildDivisionCodeResponse({}));
   }
 
+  /**
+   * @summary 查询地址divisionCode
+   *
+   * @param request QueryChildDivisionCodeRequest
+   * @return QueryChildDivisionCodeResponse
+   */
   async queryChildDivisionCode(request: QueryChildDivisionCodeRequest): Promise<QueryChildDivisionCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryChildDivisionCodeWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询主单列表
+   *
+   * @param request QueryOrdersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryOrdersResponse
+   */
   async queryOrdersWithOptions(request: QueryOrdersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryOrdersResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3502,12 +3750,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryOrdersResponse>(await this.callApi(params, req, runtime), new QueryOrdersResponse({}));
   }
 
+  /**
+   * @summary 查询主单列表
+   *
+   * @param request QueryOrdersRequest
+   * @return QueryOrdersResponse
+   */
   async queryOrders(request: QueryOrdersRequest): Promise<QueryOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryOrdersWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 渲染采购单
+   *
+   * @param request RenderPurchaseOrderRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenderPurchaseOrderResponse
+   */
   async renderPurchaseOrderWithOptions(request: RenderPurchaseOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenderPurchaseOrderResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3528,12 +3790,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RenderPurchaseOrderResponse>(await this.callApi(params, req, runtime), new RenderPurchaseOrderResponse({}));
   }
 
+  /**
+   * @summary 渲染采购单
+   *
+   * @param request RenderPurchaseOrderRequest
+   * @return RenderPurchaseOrderResponse
+   */
   async renderPurchaseOrder(request: RenderPurchaseOrderRequest): Promise<RenderPurchaseOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.renderPurchaseOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 逆向单渲染
+   *
+   * @param request RenderRefundOrderRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenderRefundOrderResponse
+   */
   async renderRefundOrderWithOptions(request: RenderRefundOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenderRefundOrderResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3554,12 +3830,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RenderRefundOrderResponse>(await this.callApi(params, req, runtime), new RenderRefundOrderResponse({}));
   }
 
+  /**
+   * @summary 逆向单渲染
+   *
+   * @param request RenderRefundOrderRequest
+   * @return RenderRefundOrderResponse
+   */
   async renderRefundOrder(request: RenderRefundOrderRequest): Promise<RenderRefundOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.renderRefundOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 渲染拆分采购单
+   *
+   * @param request SplitPurchaseOrderRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SplitPurchaseOrderResponse
+   */
   async splitPurchaseOrderWithOptions(request: SplitPurchaseOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SplitPurchaseOrderResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3580,6 +3870,12 @@ export default class Client extends OpenApi {
     return $tea.cast<SplitPurchaseOrderResponse>(await this.callApi(params, req, runtime), new SplitPurchaseOrderResponse({}));
   }
 
+  /**
+   * @summary 渲染拆分采购单
+   *
+   * @param request SplitPurchaseOrderRequest
+   * @return SplitPurchaseOrderResponse
+   */
   async splitPurchaseOrder(request: SplitPurchaseOrderRequest): Promise<SplitPurchaseOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
