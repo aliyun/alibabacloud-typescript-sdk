@@ -3655,6 +3655,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   alertType?: string;
   annotations?: string;
   autoAddNewApplication?: boolean;
+  autoAddTargetConfig?: string;
   clusterId?: string;
   dataConfig?: string;
   duration?: number;
@@ -3669,6 +3670,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
   notifyMode?: string;
   notifyStrategy?: string;
   pids?: string;
+  product?: string;
   promQL?: string;
   regionId?: string;
   tags?: CreateOrUpdateAlertRuleRequestTags[];
@@ -3684,6 +3686,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       alertType: 'AlertType',
       annotations: 'Annotations',
       autoAddNewApplication: 'AutoAddNewApplication',
+      autoAddTargetConfig: 'AutoAddTargetConfig',
       clusterId: 'ClusterId',
       dataConfig: 'DataConfig',
       duration: 'Duration',
@@ -3698,6 +3701,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       notifyMode: 'NotifyMode',
       notifyStrategy: 'NotifyStrategy',
       pids: 'Pids',
+      product: 'Product',
       promQL: 'PromQL',
       regionId: 'RegionId',
       tags: 'Tags',
@@ -3716,6 +3720,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       alertType: 'string',
       annotations: 'string',
       autoAddNewApplication: 'boolean',
+      autoAddTargetConfig: 'string',
       clusterId: 'string',
       dataConfig: 'string',
       duration: 'number',
@@ -3730,6 +3735,7 @@ export class CreateOrUpdateAlertRuleRequest extends $tea.Model {
       notifyMode: 'string',
       notifyStrategy: 'string',
       pids: 'string',
+      product: 'string',
       promQL: 'string',
       regionId: 'string',
       tags: { 'type': 'array', 'itemType': CreateOrUpdateAlertRuleRequestTags },
@@ -8560,11 +8566,13 @@ export class DescribeEnvironmentResponse extends $tea.Model {
 }
 
 export class DescribeEnvironmentFeatureRequest extends $tea.Model {
+  aliyunLang?: string;
   environmentId?: string;
   featureName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      aliyunLang: 'AliyunLang',
       environmentId: 'EnvironmentId',
       featureName: 'FeatureName',
       regionId: 'RegionId',
@@ -8573,6 +8581,7 @@ export class DescribeEnvironmentFeatureRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aliyunLang: 'string',
       environmentId: 'string',
       featureName: 'string',
       regionId: 'string',
@@ -13433,6 +13442,7 @@ export class ListEnvironmentsRequest extends $tea.Model {
   addonName?: string;
   bindResourceId?: string;
   environmentType?: string;
+  feePackage?: string;
   regionId?: string;
   resourceGroupId?: string;
   tag?: ListEnvironmentsRequestTag[];
@@ -13441,6 +13451,7 @@ export class ListEnvironmentsRequest extends $tea.Model {
       addonName: 'AddonName',
       bindResourceId: 'BindResourceId',
       environmentType: 'EnvironmentType',
+      feePackage: 'FeePackage',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
@@ -13452,6 +13463,7 @@ export class ListEnvironmentsRequest extends $tea.Model {
       addonName: 'string',
       bindResourceId: 'string',
       environmentType: 'string',
+      feePackage: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': ListEnvironmentsRequestTag },
@@ -13467,6 +13479,7 @@ export class ListEnvironmentsShrinkRequest extends $tea.Model {
   addonName?: string;
   bindResourceId?: string;
   environmentType?: string;
+  feePackage?: string;
   regionId?: string;
   resourceGroupId?: string;
   tagShrink?: string;
@@ -13475,6 +13488,7 @@ export class ListEnvironmentsShrinkRequest extends $tea.Model {
       addonName: 'AddonName',
       bindResourceId: 'BindResourceId',
       environmentType: 'EnvironmentType',
+      feePackage: 'FeePackage',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tagShrink: 'Tag',
@@ -13486,6 +13500,7 @@ export class ListEnvironmentsShrinkRequest extends $tea.Model {
       addonName: 'string',
       bindResourceId: 'string',
       environmentType: 'string',
+      feePackage: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tagShrink: 'string',
@@ -24048,25 +24063,34 @@ export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureConta
 }
 
 export class DescribeEnvironmentFeatureResponseBodyDataFeatureStatus extends $tea.Model {
+  bindResourceId?: string;
   featureContainers?: DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers[];
   name?: string;
   namespace?: string;
+  securityGroupId?: string;
   status?: string;
+  vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      bindResourceId: 'BindResourceId',
       featureContainers: 'FeatureContainers',
       name: 'Name',
       namespace: 'Namespace',
+      securityGroupId: 'SecurityGroupId',
       status: 'Status',
+      vSwitchId: 'VSwitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bindResourceId: 'string',
       featureContainers: { 'type': 'array', 'itemType': DescribeEnvironmentFeatureResponseBodyDataFeatureStatusFeatureContainers },
       name: 'string',
       namespace: 'string',
+      securityGroupId: 'string',
       status: 'string',
+      vSwitchId: 'string',
     };
   }
 
@@ -29060,6 +29084,7 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $tea.Model {
   environmentName?: string;
   environmentType?: string;
   features?: ListEnvironmentsResponseBodyDataEnvironmentsFeatures[];
+  feePackage?: string;
   grafanaDatasourceUid?: string;
   grafanaFolderTitle?: string;
   grafanaFolderUid?: string;
@@ -29085,6 +29110,7 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $tea.Model {
       environmentName: 'EnvironmentName',
       environmentType: 'EnvironmentType',
       features: 'Features',
+      feePackage: 'FeePackage',
       grafanaDatasourceUid: 'GrafanaDatasourceUid',
       grafanaFolderTitle: 'GrafanaFolderTitle',
       grafanaFolderUid: 'GrafanaFolderUid',
@@ -29113,6 +29139,7 @@ export class ListEnvironmentsResponseBodyDataEnvironments extends $tea.Model {
       environmentName: 'string',
       environmentType: 'string',
       features: { 'type': 'array', 'itemType': ListEnvironmentsResponseBodyDataEnvironmentsFeatures },
+      feePackage: 'string',
       grafanaDatasourceUid: 'string',
       grafanaFolderTitle: 'string',
       grafanaFolderUid: 'string',
@@ -34770,6 +34797,10 @@ export default class Client extends OpenApi {
       body["AutoAddNewApplication"] = request.autoAddNewApplication;
     }
 
+    if (!Util.isUnset(request.autoAddTargetConfig)) {
+      body["AutoAddTargetConfig"] = request.autoAddTargetConfig;
+    }
+
     if (!Util.isUnset(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
@@ -34824,6 +34855,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pids)) {
       body["Pids"] = request.pids;
+    }
+
+    if (!Util.isUnset(request.product)) {
+      body["Product"] = request.product;
     }
 
     if (!Util.isUnset(request.promQL)) {
@@ -37406,6 +37441,10 @@ export default class Client extends OpenApi {
   async describeEnvironmentFeatureWithOptions(request: DescribeEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvironmentFeatureResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
     if (!Util.isUnset(request.environmentId)) {
       query["EnvironmentId"] = request.environmentId;
     }
@@ -39974,6 +40013,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.environmentType)) {
       query["EnvironmentType"] = request.environmentType;
+    }
+
+    if (!Util.isUnset(request.feePackage)) {
+      query["FeePackage"] = request.feePackage;
     }
 
     if (!Util.isUnset(request.regionId)) {
