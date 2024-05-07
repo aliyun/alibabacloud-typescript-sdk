@@ -1563,6 +1563,174 @@ export class CreateParamResponse extends $tea.Model {
   }
 }
 
+export class CreateResourceRuleRequest extends $tea.Model {
+  description?: string;
+  instanceId?: string;
+  metricOperationType?: string;
+  metricPullInfo?: string;
+  metricPullPeriod?: string;
+  name?: string;
+  ruleComputingDefinition?: string;
+  ruleItems?: CreateResourceRuleRequestRuleItems[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      instanceId: 'InstanceId',
+      metricOperationType: 'MetricOperationType',
+      metricPullInfo: 'MetricPullInfo',
+      metricPullPeriod: 'MetricPullPeriod',
+      name: 'Name',
+      ruleComputingDefinition: 'RuleComputingDefinition',
+      ruleItems: 'RuleItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      instanceId: 'string',
+      metricOperationType: 'string',
+      metricPullInfo: 'string',
+      metricPullPeriod: 'string',
+      name: 'string',
+      ruleComputingDefinition: 'string',
+      ruleItems: { 'type': 'array', 'itemType': CreateResourceRuleRequestRuleItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceRuleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceRuleId: 'ResourceRuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceRuleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateResourceRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceRuleItemRequest extends $tea.Model {
+  description?: string;
+  instanceId?: string;
+  maxValue?: number;
+  minValue?: number;
+  name?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      instanceId: 'InstanceId',
+      maxValue: 'MaxValue',
+      minValue: 'MinValue',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      instanceId: 'string',
+      maxValue: 'number',
+      minValue: 'number',
+      name: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceRuleItemResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceRuleItemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceRuleItemId: 'ResourceRuleItemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceRuleItemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceRuleItemResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourceRuleItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateResourceRuleItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSceneRequest extends $tea.Model {
   description?: string;
   flows?: CreateSceneRequestFlows[];
@@ -1786,6 +1954,106 @@ export class CreateTableMetaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateTableMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DebugResourceRuleRequest extends $tea.Model {
+  instanceId?: string;
+  metricInfo?: { [key: string]: any };
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      metricInfo: 'MetricInfo',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      metricInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DebugResourceRuleShrinkRequest extends $tea.Model {
+  instanceId?: string;
+  metricInfoShrink?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      metricInfoShrink: 'MetricInfo',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      metricInfoShrink: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DebugResourceRuleResponseBody extends $tea.Model {
+  currentValues?: { [key: string]: any };
+  outputValues?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentValues: 'CurrentValues',
+      outputValues: 'OutputValues',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentValues: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      outputValues: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DebugResourceRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DebugResourceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DebugResourceRuleResponseBody,
     };
   }
 
@@ -2334,6 +2602,132 @@ export class DeleteParamResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteParamResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceRuleRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteResourceRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceRuleItemRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceRuleItemResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceRuleItemResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceRuleItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteResourceRuleItemResponseBody,
     };
   }
 
@@ -3675,6 +4069,93 @@ export class GetLayerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetLayerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceRuleRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceRuleResponseBody extends $tea.Model {
+  description?: string;
+  metricOperationType?: string;
+  metricPullInfo?: string;
+  metricPullPeriod?: string;
+  name?: string;
+  requestId?: string;
+  resourceRuleId?: string;
+  ruleComputingDefinition?: string;
+  ruleItems?: GetResourceRuleResponseBodyRuleItems[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      metricOperationType: 'MetricOperationType',
+      metricPullInfo: 'MetricPullInfo',
+      metricPullPeriod: 'MetricPullPeriod',
+      name: 'Name',
+      requestId: 'RequestId',
+      resourceRuleId: 'ResourceRuleId',
+      ruleComputingDefinition: 'RuleComputingDefinition',
+      ruleItems: 'RuleItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      metricOperationType: 'string',
+      metricPullInfo: 'string',
+      metricPullPeriod: 'string',
+      name: 'string',
+      requestId: 'string',
+      resourceRuleId: 'string',
+      ruleComputingDefinition: 'string',
+      ruleItems: { 'type': 'array', 'itemType': GetResourceRuleResponseBodyRuleItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResourceRuleResponseBody,
     };
   }
 
@@ -5223,6 +5704,96 @@ export class ListParamsResponse extends $tea.Model {
   }
 }
 
+export class ListResourceRulesRequest extends $tea.Model {
+  all?: boolean;
+  instanceId?: string;
+  order?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  resourceRuleId?: string;
+  resourceRuleName?: string;
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      instanceId: 'InstanceId',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceRuleId: 'ResourceRuleId',
+      resourceRuleName: 'ResourceRuleName',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      instanceId: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceRuleId: 'string',
+      resourceRuleName: 'string',
+      sortBy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceRules?: ListResourceRulesResponseBodyResourceRules[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceRules: 'ResourceRules',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceRules: { 'type': 'array', 'itemType': ListResourceRulesResponseBodyResourceRules },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResourceRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListResourceRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListScenesRequest extends $tea.Model {
   instanceId?: string;
   name?: string;
@@ -5881,6 +6452,118 @@ export class PushAllExperimentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: PushAllExperimentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushResourceRuleRequest extends $tea.Model {
+  instanceId?: string;
+  metricInfo?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      metricInfo: 'MetricInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      metricInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushResourceRuleShrinkRequest extends $tea.Model {
+  instanceId?: string;
+  metricInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      metricInfoShrink: 'MetricInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      metricInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushResourceRuleResponseBody extends $tea.Model {
+  description?: string;
+  metricOperationType?: string;
+  metricPullInfo?: string;
+  metricPullPeriod?: string;
+  name?: string;
+  requestId?: string;
+  resourceRuleId?: string;
+  ruleComputingDefinition?: string;
+  ruleItems?: PushResourceRuleResponseBodyRuleItems[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      metricOperationType: 'MetricOperationType',
+      metricPullInfo: 'MetricPullInfo',
+      metricPullPeriod: 'MetricPullPeriod',
+      name: 'Name',
+      requestId: 'RequestId',
+      resourceRuleId: 'ResourceRuleId',
+      ruleComputingDefinition: 'RuleComputingDefinition',
+      ruleItems: 'RuleItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      metricOperationType: 'string',
+      metricPullInfo: 'string',
+      metricPullPeriod: 'string',
+      name: 'string',
+      requestId: 'string',
+      resourceRuleId: 'string',
+      ruleComputingDefinition: 'string',
+      ruleItems: { 'type': 'array', 'itemType': PushResourceRuleResponseBodyRuleItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushResourceRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushResourceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PushResourceRuleResponseBody,
     };
   }
 
@@ -7023,6 +7706,165 @@ export class UpdateParamResponse extends $tea.Model {
   }
 }
 
+export class UpdateResourceRuleRequest extends $tea.Model {
+  description?: string;
+  instanceId?: string;
+  metricOperationType?: string;
+  metricPullInfo?: string;
+  metricPullPeriod?: string;
+  name?: string;
+  ruleComputingDefinition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      instanceId: 'InstanceId',
+      metricOperationType: 'MetricOperationType',
+      metricPullInfo: 'MetricPullInfo',
+      metricPullPeriod: 'MetricPullPeriod',
+      name: 'Name',
+      ruleComputingDefinition: 'RuleComputingDefinition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      instanceId: 'string',
+      metricOperationType: 'string',
+      metricPullInfo: 'string',
+      metricPullPeriod: 'string',
+      name: 'string',
+      ruleComputingDefinition: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateResourceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateResourceRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRuleItemRequest extends $tea.Model {
+  description?: string;
+  instanceId?: string;
+  maxValue?: number;
+  minValue?: number;
+  name?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      instanceId: 'InstanceId',
+      maxValue: 'MaxValue',
+      minValue: 'MinValue',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      instanceId: 'string',
+      maxValue: 'number',
+      minValue: 'number',
+      name: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRuleItemResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRuleItemResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateResourceRuleItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateResourceRuleItemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSceneRequest extends $tea.Model {
   description?: string;
   flows?: UpdateSceneRequestFlows[];
@@ -7273,6 +8115,37 @@ export class CheckInstanceResourcesResponseBodyResources extends $tea.Model {
   }
 }
 
+export class CreateResourceRuleRequestRuleItems extends $tea.Model {
+  description?: string;
+  maxValue?: number;
+  minValue?: number;
+  name?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      maxValue: 'MaxValue',
+      minValue: 'MinValue',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      maxValue: 'number',
+      minValue: 'number',
+      name: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSceneRequestFlows extends $tea.Model {
   flowCode?: string;
   flowName?: string;
@@ -7452,6 +8325,37 @@ export class GetInstanceResourceTableResponseBodyFields extends $tea.Model {
       meaning: 'string',
       name: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceRuleResponseBodyRuleItems extends $tea.Model {
+  description?: string;
+  maxValue?: string;
+  minValue?: string;
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      maxValue: 'MaxValue',
+      minValue: 'MinValue',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      maxValue: 'string',
+      minValue: 'string',
+      name: 'string',
+      value: 'string',
     };
   }
 
@@ -8393,6 +9297,77 @@ export class ListParamsResponseBodyParams extends $tea.Model {
   }
 }
 
+export class ListResourceRulesResponseBodyResourceRulesRuleItems extends $tea.Model {
+  description?: string;
+  maxValue?: string;
+  minValue?: string;
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      maxValue: 'MaxValue',
+      minValue: 'MinValue',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      maxValue: 'string',
+      minValue: 'string',
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceRulesResponseBodyResourceRules extends $tea.Model {
+  description?: string;
+  metricOperationType?: string;
+  metricPullInfo?: string;
+  metricPullPeriod?: string;
+  name?: string;
+  resourceRuleId?: string;
+  ruleComputingDefinition?: string;
+  ruleItems?: ListResourceRulesResponseBodyResourceRulesRuleItems[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      metricOperationType: 'MetricOperationType',
+      metricPullInfo: 'MetricPullInfo',
+      metricPullPeriod: 'MetricPullPeriod',
+      name: 'Name',
+      resourceRuleId: 'ResourceRuleId',
+      ruleComputingDefinition: 'RuleComputingDefinition',
+      ruleItems: 'RuleItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      metricOperationType: 'string',
+      metricPullInfo: 'string',
+      metricPullPeriod: 'string',
+      name: 'string',
+      resourceRuleId: 'string',
+      ruleComputingDefinition: 'string',
+      ruleItems: { 'type': 'array', 'itemType': ListResourceRulesResponseBodyResourceRulesRuleItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListScenesResponseBodyScenesFlows extends $tea.Model {
   flowCode?: string;
   flowName?: string;
@@ -8552,6 +9527,37 @@ export class ListTableMetasResponseBodyTableMetas extends $tea.Model {
       tableName: 'string',
       type: 'string',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushResourceRuleResponseBodyRuleItems extends $tea.Model {
+  description?: string;
+  maxValue?: string;
+  minValue?: string;
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      maxValue: 'MaxValue',
+      minValue: 'MinValue',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      maxValue: 'string',
+      minValue: 'string',
+      name: 'string',
+      value: 'string',
     };
   }
 
@@ -9683,6 +10689,116 @@ export default class Client extends OpenApi {
     return await this.createParamWithOptions(request, headers, runtime);
   }
 
+  async createResourceRuleWithOptions(request: CreateResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.metricOperationType)) {
+      body["MetricOperationType"] = request.metricOperationType;
+    }
+
+    if (!Util.isUnset(request.metricPullInfo)) {
+      body["MetricPullInfo"] = request.metricPullInfo;
+    }
+
+    if (!Util.isUnset(request.metricPullPeriod)) {
+      body["MetricPullPeriod"] = request.metricPullPeriod;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ruleComputingDefinition)) {
+      body["RuleComputingDefinition"] = request.ruleComputingDefinition;
+    }
+
+    if (!Util.isUnset(request.ruleItems)) {
+      body["RuleItems"] = request.ruleItems;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateResourceRule",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResourceRuleResponse>(await this.callApi(params, req, runtime), new CreateResourceRuleResponse({}));
+  }
+
+  async createResourceRule(request: CreateResourceRuleRequest): Promise<CreateResourceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createResourceRuleWithOptions(request, headers, runtime);
+  }
+
+  async createResourceRuleItemWithOptions(ResourceRuleId: string, request: CreateResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceRuleItemResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maxValue)) {
+      body["MaxValue"] = request.maxValue;
+    }
+
+    if (!Util.isUnset(request.minValue)) {
+      body["MinValue"] = request.minValue;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateResourceRuleItem",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules/${OpenApiUtil.getEncodeParam(ResourceRuleId)}/items`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResourceRuleItemResponse>(await this.callApi(params, req, runtime), new CreateResourceRuleItemResponse({}));
+  }
+
+  async createResourceRuleItem(ResourceRuleId: string, request: CreateResourceRuleItemRequest): Promise<CreateResourceRuleItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createResourceRuleItemWithOptions(ResourceRuleId, request, headers, runtime);
+  }
+
   async createSceneWithOptions(request: CreateSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSceneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9818,6 +10934,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTableMetaWithOptions(request, headers, runtime);
+  }
+
+  async debugResourceRuleWithOptions(ResourceRuleId: string, tmpReq: DebugResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DebugResourceRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DebugResourceRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.metricInfo)) {
+      request.metricInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metricInfo, "MetricInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.metricInfoShrink)) {
+      query["MetricInfo"] = request.metricInfoShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DebugResourceRule",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules/${OpenApiUtil.getEncodeParam(ResourceRuleId)}/action/debug`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DebugResourceRuleResponse>(await this.callApi(params, req, runtime), new DebugResourceRuleResponse({}));
+  }
+
+  async debugResourceRule(ResourceRuleId: string, request: DebugResourceRuleRequest): Promise<DebugResourceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.debugResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
   async deleteABMetricWithOptions(ABMetricId: string, request: DeleteABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteABMetricResponse> {
@@ -10090,6 +11251,68 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteParamWithOptions(ParamId, request, headers, runtime);
+  }
+
+  async deleteResourceRuleWithOptions(ResourceRuleId: string, request: DeleteResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceRuleResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteResourceRule",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules/${OpenApiUtil.getEncodeParam(ResourceRuleId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteResourceRuleResponse>(await this.callApi(params, req, runtime), new DeleteResourceRuleResponse({}));
+  }
+
+  async deleteResourceRule(ResourceRuleId: string, request: DeleteResourceRuleRequest): Promise<DeleteResourceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
+  }
+
+  async deleteResourceRuleItemWithOptions(ResourceRuleId: string, ResourceRuleItemId: string, request: DeleteResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceRuleItemResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteResourceRuleItem",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules/${OpenApiUtil.getEncodeParam(ResourceRuleId)}/items/${OpenApiUtil.getEncodeParam(ResourceRuleItemId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteResourceRuleItemResponse>(await this.callApi(params, req, runtime), new DeleteResourceRuleItemResponse({}));
+  }
+
+  async deleteResourceRuleItem(ResourceRuleId: string, ResourceRuleItemId: string, request: DeleteResourceRuleItemRequest): Promise<DeleteResourceRuleItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteResourceRuleItemWithOptions(ResourceRuleId, ResourceRuleItemId, request, headers, runtime);
   }
 
   async deleteSceneWithOptions(SceneId: string, request: DeleteSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSceneResponse> {
@@ -10534,6 +11757,37 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLayerWithOptions(LayerId, request, headers, runtime);
+  }
+
+  async getResourceRuleWithOptions(ResourceRuleId: string, request: GetResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceRuleResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetResourceRule",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules/${OpenApiUtil.getEncodeParam(ResourceRuleId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceRuleResponse>(await this.callApi(params, req, runtime), new GetResourceRuleResponse({}));
+  }
+
+  async getResourceRule(ResourceRuleId: string, request: GetResourceRuleRequest): Promise<GetResourceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
   async getSceneWithOptions(SceneId: string, request: GetSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSceneResponse> {
@@ -11339,6 +12593,65 @@ export default class Client extends OpenApi {
     return await this.listParamsWithOptions(request, headers, runtime);
   }
 
+  async listResourceRulesWithOptions(request: ListResourceRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceRulesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceRuleId)) {
+      query["ResourceRuleId"] = request.resourceRuleId;
+    }
+
+    if (!Util.isUnset(request.resourceRuleName)) {
+      query["ResourceRuleName"] = request.resourceRuleName;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListResourceRules",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceRulesResponse>(await this.callApi(params, req, runtime), new ListResourceRulesResponse({}));
+  }
+
+  async listResourceRules(request: ListResourceRulesRequest): Promise<ListResourceRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listResourceRulesWithOptions(request, headers, runtime);
+  }
+
   async listScenesWithOptions(request: ListScenesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListScenesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11671,6 +12984,47 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.pushAllExperimentWithOptions(ExperimentId, request, headers, runtime);
+  }
+
+  async pushResourceRuleWithOptions(ResourceRuleId: string, tmpReq: PushResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushResourceRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PushResourceRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.metricInfo)) {
+      request.metricInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metricInfo, "MetricInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.metricInfoShrink)) {
+      query["MetricInfo"] = request.metricInfoShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PushResourceRule",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules/${OpenApiUtil.getEncodeParam(ResourceRuleId)}/action/push`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PushResourceRuleResponse>(await this.callApi(params, req, runtime), new PushResourceRuleResponse({}));
+  }
+
+  async pushResourceRule(ResourceRuleId: string, request: PushResourceRuleRequest): Promise<PushResourceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.pushResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
   }
 
   async reportABMetricGroupWithOptions(ABMetricGroupId: string, request: ReportABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReportABMetricGroupResponse> {
@@ -12486,6 +13840,112 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateParamWithOptions(ParamId, request, headers, runtime);
+  }
+
+  async updateResourceRuleWithOptions(ResourceRuleId: string, request: UpdateResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.metricOperationType)) {
+      body["MetricOperationType"] = request.metricOperationType;
+    }
+
+    if (!Util.isUnset(request.metricPullInfo)) {
+      body["MetricPullInfo"] = request.metricPullInfo;
+    }
+
+    if (!Util.isUnset(request.metricPullPeriod)) {
+      body["MetricPullPeriod"] = request.metricPullPeriod;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ruleComputingDefinition)) {
+      body["RuleComputingDefinition"] = request.ruleComputingDefinition;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateResourceRule",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules/${OpenApiUtil.getEncodeParam(ResourceRuleId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateResourceRuleResponse>(await this.callApi(params, req, runtime), new UpdateResourceRuleResponse({}));
+  }
+
+  async updateResourceRule(ResourceRuleId: string, request: UpdateResourceRuleRequest): Promise<UpdateResourceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateResourceRuleWithOptions(ResourceRuleId, request, headers, runtime);
+  }
+
+  async updateResourceRuleItemWithOptions(ResourceRuleId: string, ResourceRuleItemId: string, request: UpdateResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceRuleItemResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maxValue)) {
+      body["MaxValue"] = request.maxValue;
+    }
+
+    if (!Util.isUnset(request.minValue)) {
+      body["MinValue"] = request.minValue;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateResourceRuleItem",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resourcerules/${OpenApiUtil.getEncodeParam(ResourceRuleId)}/items/${OpenApiUtil.getEncodeParam(ResourceRuleItemId)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateResourceRuleItemResponse>(await this.callApi(params, req, runtime), new UpdateResourceRuleItemResponse({}));
+  }
+
+  async updateResourceRuleItem(ResourceRuleId: string, ResourceRuleItemId: string, request: UpdateResourceRuleItemRequest): Promise<UpdateResourceRuleItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateResourceRuleItemWithOptions(ResourceRuleId, ResourceRuleItemId, request, headers, runtime);
   }
 
   async updateSceneWithOptions(SceneId: string, request: UpdateSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSceneResponse> {
