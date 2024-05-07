@@ -5435,6 +5435,7 @@ export class CreateNatGatewayResponse extends $tea.Model {
 export class CreateNetworkInterfaceRequest extends $tea.Model {
   businessType?: string;
   clientToken?: string;
+  connectionTrackingConfiguration?: CreateNetworkInterfaceRequestConnectionTrackingConfiguration;
   deleteOnRelease?: boolean;
   description?: string;
   instanceType?: string;
@@ -5468,6 +5469,7 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
     return {
       businessType: 'BusinessType',
       clientToken: 'ClientToken',
+      connectionTrackingConfiguration: 'ConnectionTrackingConfiguration',
       deleteOnRelease: 'DeleteOnRelease',
       description: 'Description',
       instanceType: 'InstanceType',
@@ -5504,6 +5506,7 @@ export class CreateNetworkInterfaceRequest extends $tea.Model {
     return {
       businessType: 'string',
       clientToken: 'string',
+      connectionTrackingConfiguration: CreateNetworkInterfaceRequestConnectionTrackingConfiguration,
       deleteOnRelease: 'boolean',
       description: 'string',
       instanceType: 'string',
@@ -17512,6 +17515,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
   associatedPublicIp?: DescribeNetworkInterfaceAttributeResponseBodyAssociatedPublicIp;
   attachment?: DescribeNetworkInterfaceAttributeResponseBodyAttachment;
   bondInterfaceSpecification?: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification;
+  connectionTrackingConfiguration?: DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration;
   creationTime?: string;
   deleteOnRelease?: boolean;
   description?: string;
@@ -17546,6 +17550,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
       associatedPublicIp: 'AssociatedPublicIp',
       attachment: 'Attachment',
       bondInterfaceSpecification: 'BondInterfaceSpecification',
+      connectionTrackingConfiguration: 'ConnectionTrackingConfiguration',
       creationTime: 'CreationTime',
       deleteOnRelease: 'DeleteOnRelease',
       description: 'Description',
@@ -17583,6 +17588,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $tea.Model {
       associatedPublicIp: DescribeNetworkInterfaceAttributeResponseBodyAssociatedPublicIp,
       attachment: DescribeNetworkInterfaceAttributeResponseBodyAttachment,
       bondInterfaceSpecification: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification,
+      connectionTrackingConfiguration: DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration,
       creationTime: 'string',
       deleteOnRelease: 'boolean',
       description: 'string',
@@ -28536,6 +28542,7 @@ export class ModifyManagedInstanceResponse extends $tea.Model {
 }
 
 export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
+  connectionTrackingConfiguration?: ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration;
   deleteOnRelease?: boolean;
   description?: string;
   networkInterfaceId?: string;
@@ -28551,6 +28558,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
   txQueueSize?: number;
   static names(): { [key: string]: string } {
     return {
+      connectionTrackingConfiguration: 'ConnectionTrackingConfiguration',
       deleteOnRelease: 'DeleteOnRelease',
       description: 'Description',
       networkInterfaceId: 'NetworkInterfaceId',
@@ -28569,6 +28577,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectionTrackingConfiguration: ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration,
       deleteOnRelease: 'boolean',
       description: 'string',
       networkInterfaceId: 'string',
@@ -35485,26 +35494,32 @@ export class CreateAutoProvisioningGroupRequestLaunchConfigurationArn extends $t
 }
 
 export class CreateAutoProvisioningGroupRequestLaunchConfigurationDataDisk extends $tea.Model {
+  burstingEnabled?: boolean;
   category?: string;
   deleteWithInstance?: boolean;
   description?: string;
   device?: string;
   diskName?: string;
+  encryptAlgorithm?: string;
   encrypted?: boolean;
   kmsKeyId?: string;
   performanceLevel?: string;
+  provisionedIops?: number;
   size?: number;
   snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       deleteWithInstance: 'DeleteWithInstance',
       description: 'Description',
       device: 'Device',
       diskName: 'DiskName',
+      encryptAlgorithm: 'EncryptAlgorithm',
       encrypted: 'Encrypted',
       kmsKeyId: 'KmsKeyId',
       performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
       size: 'Size',
       snapshotId: 'SnapshotId',
     };
@@ -35512,14 +35527,17 @@ export class CreateAutoProvisioningGroupRequestLaunchConfigurationDataDisk exten
 
   static types(): { [key: string]: any } {
     return {
+      burstingEnabled: 'boolean',
       category: 'string',
       deleteWithInstance: 'boolean',
       description: 'string',
       device: 'string',
       diskName: 'string',
+      encryptAlgorithm: 'string',
       encrypted: 'boolean',
       kmsKeyId: 'string',
       performanceLevel: 'string',
+      provisionedIops: 'number',
       size: 'number',
       snapshotId: 'string',
     };
@@ -35531,22 +35549,28 @@ export class CreateAutoProvisioningGroupRequestLaunchConfigurationDataDisk exten
 }
 
 export class CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk extends $tea.Model {
+  burstingEnabled?: boolean;
   encryptAlgorithm?: string;
   encrypted?: string;
   KMSKeyId?: string;
+  provisionedIops?: number;
   static names(): { [key: string]: string } {
     return {
+      burstingEnabled: 'BurstingEnabled',
       encryptAlgorithm: 'EncryptAlgorithm',
       encrypted: 'Encrypted',
       KMSKeyId: 'KMSKeyId',
+      provisionedIops: 'ProvisionedIops',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      burstingEnabled: 'boolean',
       encryptAlgorithm: 'string',
       encrypted: 'string',
       KMSKeyId: 'string',
+      provisionedIops: 'number',
     };
   }
 
@@ -36817,6 +36841,31 @@ export class CreateNatGatewayResponseBodyForwardTableIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       forwardTableId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceRequestConnectionTrackingConfiguration extends $tea.Model {
+  tcpClosedAndTimeWaitTimeout?: number;
+  tcpEstablishedTimeout?: number;
+  udpTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'TcpClosedAndTimeWaitTimeout',
+      tcpEstablishedTimeout: 'TcpEstablishedTimeout',
+      udpTimeout: 'UdpTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'number',
+      tcpEstablishedTimeout: 'number',
+      udpTimeout: 'number',
     };
   }
 
@@ -47614,6 +47663,31 @@ export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecifica
   }
 }
 
+export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration extends $tea.Model {
+  tcpClosedAndTimeWaitTimeout?: number;
+  tcpEstablishedTimeout?: number;
+  udpTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'TcpClosedAndTimeWaitTimeout',
+      tcpEstablishedTimeout: 'TcpEstablishedTimeout',
+      udpTimeout: 'UdpTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'number',
+      tcpEstablishedTimeout: 'number',
+      udpTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSetsIpv4PrefixSet extends $tea.Model {
   ipv4Prefix?: string;
   static names(): { [key: string]: string } {
@@ -53964,6 +54038,31 @@ export class ModifyManagedInstanceResponseBodyInstance extends $tea.Model {
   }
 }
 
+export class ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration extends $tea.Model {
+  tcpClosedAndTimeWaitTimeout?: number;
+  tcpEstablishedTimeout?: number;
+  udpTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'TcpClosedAndTimeWaitTimeout',
+      tcpEstablishedTimeout: 'TcpEstablishedTimeout',
+      udpTimeout: 'UdpTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'number',
+      tcpEstablishedTimeout: 'number',
+      udpTimeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPrefixListRequestAddEntry extends $tea.Model {
   cidr?: string;
   description?: string;
@@ -59289,18 +59388,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can use the created custom image only when the image is in the Available state.
-    * *   If the responses contain `{"OperationLocks": {"LockReason" : "security"}}` when you query instance information, the instance is locked for security reasons. In this case, no operation can be performed on the instance.
-    * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more parameters, the custom image is created based on the parameter that has a higher priority.
-    * *   **Method 1**: Create a custom image from an instance. You need to only specify the instance ID (`InstanceId`). The instance must be in the `Running` or `Stopped` state. After the CreateImage operation is called, a snapshot is created for each disk of the instance. When you create a custom image from a running instance, some cache data may not be written to the disks. As a result, the data of the created custom image may be slightly inconsistent with that of the instance. We recommend that you create custom images from instances after you stop the instances ([StopInstances](~~155372~~)).
-    * *   **Method 2**: Create a custom image from the system disk snapshot of an instance. You need to only specify the ID of the system disk snapshot (`SnapshotId`). The specified snapshot must be created on or after July 15, 2013.
-    * *   **Method 3**: Create a custom image from multiple disk snapshots. You must specify the data mapping between the disks and the snapshots (`DiskDeviceMapping`).
-    * When you use method 3 to create a custom image, take note of the following items:
-    * *   You can specify only one system disk snapshot. The device name of the system disk must be /dev/xvda.
-    * *   You can specify multiple data disk snapshots. The device names of the data disks must be unique and in alphabetical order from /dev/xvdb to /dev/xvdz.
-    * *   You can leave the `SnapshotId` parameter empty. In this case, an empty data disk with a specified size is created.
-    * *   The specified disk snapshot must be created on or after July 15, 2013.
+    * ## [](#)Usage notes
+    * Take note of the following items:
+    * *   You can use the created custom image only if the image is in the Available (Available) state.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
+    * *   To optimize the image, we recommend that you specify DetectionStrategy when you create the image. For more information, see [Overview of image check](~~439819~~).
+    * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more of these parameters, the custom image is created based on the parameter that has a higher priority.
+    * *   **Method 1**: Create a custom image from an instance. You need to only specify the ID of the instance by using `InstanceId`. The instance must be in the Running (`Running`) or Stopped (`Stopped`) state. After you call the CreateImage operation, a snapshot is created for each disk of the instance. When you create a custom image from a running instance, cache data may not be written to disks. In this case, the data of the custom image may be slightly different from the data of the instance. We recommend that you stop instances by calling the [StopInstances](~~155372~~) operation before you create custom images from the instances.
+    * *   **Method 2**: Create a custom image from the system disk snapshot of an instance. You need to only specify the ID of the system disk snapshot by using `SnapshotId`. The specified system disk snapshot must be created after July 15, 2013.
+    * *   **Method 3**: Create a custom image from multiple disk snapshots. You must specify data mappings between the snapshots and the disks to be created by using the parameters that start with `DiskDeviceMapping`.
+    * When you use Method 3 to create a custom image, take note of the following items:
+    * *   You can specify only one snapshot to use to create the system disk in the custom image. The device name of the system disk must be /dev/xvda.
+    * *   You can specify up to 16 snapshots to use to create data disks in the custom image. The device names of the data disks are unique and range from /dev/xvdb to /dev/xvdz in alphabetical order.
+    * *   You can leave `SnapshotId` empty. In this case, an empty data disk with the specified size is created.
+    * *   The specified disk snapshot must be created after July 15, 2013.
     *
     * @param request CreateImageRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -59403,18 +59504,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can use the created custom image only when the image is in the Available state.
-    * *   If the responses contain `{"OperationLocks": {"LockReason" : "security"}}` when you query instance information, the instance is locked for security reasons. In this case, no operation can be performed on the instance.
-    * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more parameters, the custom image is created based on the parameter that has a higher priority.
-    * *   **Method 1**: Create a custom image from an instance. You need to only specify the instance ID (`InstanceId`). The instance must be in the `Running` or `Stopped` state. After the CreateImage operation is called, a snapshot is created for each disk of the instance. When you create a custom image from a running instance, some cache data may not be written to the disks. As a result, the data of the created custom image may be slightly inconsistent with that of the instance. We recommend that you create custom images from instances after you stop the instances ([StopInstances](~~155372~~)).
-    * *   **Method 2**: Create a custom image from the system disk snapshot of an instance. You need to only specify the ID of the system disk snapshot (`SnapshotId`). The specified snapshot must be created on or after July 15, 2013.
-    * *   **Method 3**: Create a custom image from multiple disk snapshots. You must specify the data mapping between the disks and the snapshots (`DiskDeviceMapping`).
-    * When you use method 3 to create a custom image, take note of the following items:
-    * *   You can specify only one system disk snapshot. The device name of the system disk must be /dev/xvda.
-    * *   You can specify multiple data disk snapshots. The device names of the data disks must be unique and in alphabetical order from /dev/xvdb to /dev/xvdz.
-    * *   You can leave the `SnapshotId` parameter empty. In this case, an empty data disk with a specified size is created.
-    * *   The specified disk snapshot must be created on or after July 15, 2013.
+    * ## [](#)Usage notes
+    * Take note of the following items:
+    * *   You can use the created custom image only if the image is in the Available (Available) state.
+    * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
+    * *   To optimize the image, we recommend that you specify DetectionStrategy when you create the image. For more information, see [Overview of image check](~~439819~~).
+    * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more of these parameters, the custom image is created based on the parameter that has a higher priority.
+    * *   **Method 1**: Create a custom image from an instance. You need to only specify the ID of the instance by using `InstanceId`. The instance must be in the Running (`Running`) or Stopped (`Stopped`) state. After you call the CreateImage operation, a snapshot is created for each disk of the instance. When you create a custom image from a running instance, cache data may not be written to disks. In this case, the data of the custom image may be slightly different from the data of the instance. We recommend that you stop instances by calling the [StopInstances](~~155372~~) operation before you create custom images from the instances.
+    * *   **Method 2**: Create a custom image from the system disk snapshot of an instance. You need to only specify the ID of the system disk snapshot by using `SnapshotId`. The specified system disk snapshot must be created after July 15, 2013.
+    * *   **Method 3**: Create a custom image from multiple disk snapshots. You must specify data mappings between the snapshots and the disks to be created by using the parameters that start with `DiskDeviceMapping`.
+    * When you use Method 3 to create a custom image, take note of the following items:
+    * *   You can specify only one snapshot to use to create the system disk in the custom image. The device name of the system disk must be /dev/xvda.
+    * *   You can specify up to 16 snapshots to use to create data disks in the custom image. The device names of the data disks are unique and range from /dev/xvdb to /dev/xvdz in alphabetical order.
+    * *   You can leave `SnapshotId` empty. In this case, an empty data disk with the specified size is created.
+    * *   The specified disk snapshot must be created after July 15, 2013.
     *
     * @param request CreateImageRequest
     * @return CreateImageResponse
@@ -60677,6 +60780,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionTrackingConfiguration)) {
+      query["ConnectionTrackingConfiguration"] = request.connectionTrackingConfiguration;
     }
 
     if (!Util.isUnset(request.deleteOnRelease)) {
@@ -69045,11 +69152,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * Before you call this operation, take note of the following items:
-    * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results.
-    * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to this return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
-    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specified region, call the [DescribeAvailableResource](~~66186~~) operation.
+    * ## [](#)Usage notes
+    * Take note of the following items:
+    * *   MaxResults specifies the maximum number of entries per page. The maximum value of this parameter is changed from 1600 to 100. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you called the DescribeInstanceTypes operation in 2022, you can use 1600 as the maximum value before November 15, 2023. If you do not specify NextToken when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify NextToken to perform paged queries, or specify filter conditions to filter results.
+    * *   We recommend that you specify MaxResults and NextToken to perform paged queries. The first time you call the DescribeInstanceTypes operation, set MaxResults to specify the maximum number of entries to return in a single call. If the number of entries to return exceeds the specified MaxResults value, the response includes a NextToken value. You can set NextToken to the returned value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
+    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
     * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
     *
     * @param request DescribeInstanceTypesRequest
@@ -69265,11 +69372,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * Before you call this operation, take note of the following items:
-    * *   The MaxResults parameter specifies the maximum number of entries to return on each page. The maximum value of this parameter is changed from 1600 to 100. If you called this operation in 2022, you can continue to use 1600 as the maximum value of MaxResults until November 15, 2023. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you do not specify the NextToken parameter when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify the NextToken parameter to perform paged queries, or specify filter conditions to filter results.
-    * *   We recommend that you specify the MaxResults and NextToken parameters to perform paged queries. The first time you call the DescribeInstanceTypes operation, specify MaxResults to limit the maximum number of entries to return in the call. If the number of entries to return exceeds the specified value of MaxResults, the response includes a NextToken value. You can set NextToken to this return value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
-    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specified region, call the [DescribeAvailableResource](~~66186~~) operation.
+    * ## [](#)Usage notes
+    * Take note of the following items:
+    * *   MaxResults specifies the maximum number of entries per page. The maximum value of this parameter is changed from 1600 to 100. As of November 15, 2023, only 100 can be used as the maximum value of MaxResults. If you called the DescribeInstanceTypes operation in 2022, you can use 1600 as the maximum value before November 15, 2023. If you do not specify NextToken when you call the DescribeInstanceTypes operation, only the first page of results that contains up to 100 entries is returned. If you want to retrieve more results, specify NextToken to perform paged queries, or specify filter conditions to filter results.
+    * *   We recommend that you specify MaxResults and NextToken to perform paged queries. The first time you call the DescribeInstanceTypes operation, set MaxResults to specify the maximum number of entries to return in a single call. If the number of entries to return exceeds the specified MaxResults value, the response includes a NextToken value. You can set NextToken to the returned value and specify MaxResults in your next request to DescribeInstanceTypes to retrieve the next page of results.
+    * *   The DescribeInstanceTypes operation is used to query only the specifications and performance information of instance types. To query instance types that are available in a specific region, call the [DescribeAvailableResource](~~66186~~) operation.
     * *   To use special instance types such as instance types that are unavailable for purchase, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
     *
     * @param request DescribeInstanceTypesRequest
@@ -75632,20 +75739,20 @@ export default class Client extends OpenApi {
 
   /**
     * ## [](#)Usage notes
-    * *   The Elastic Compute Service (ECS) instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
+    * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
     *     *   The instances are in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query the status of instances.
-    *     *   Cloud Assistant Agent is installed on the instances. For more information, see [Install Cloud Assistant Agent on an ECS instance](~~64921~~).
-    *     *   Before you run PowerShell commands on the instances, make sure that the instances have the PowerShell module configured.
+    *     *   Cloud Assistant Agent is installed on the instances. For more information, see [Install Cloud Assistant Agent](~~64921~~).
+    *     *   If the command is a PowerShell command, make sure that the instances have the PowerShell module configured.
     * *   You can configure the command to run only once on the instances.
-    * *   You can configure the command to run multiple times on the instances based on a schedule.
-    *     *   The schedule is specified by the Frequency parameter. The results of each execution of the command do not affect the next execution of the command.
-    *     *   If you use a cron expression to specify a schedule, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instances meets your business requirements. For more information, see [Manage the time synchronization service](~~92803~~).[](~~51890~~)
-    *     To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. A scheduled task can run a command at a fixed interval, only once at a specific time, or at specific times based on a cron expression in a specified year or time zone. If the ClientNeedUpgrade error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Upgrade or disable upgrades for Cloud Assistant Agent](~~134383~~).
+    * *   You can configure the command to run on the instances based on a schedule.
+    *     *   The schedule is specified by Frequency. The results of each execution of the command do not affect the next execution of the command.
+    *     *   When you use a cron expression to specify a schedule, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instances. Make sure that the time or time zone of the instances meets your business requirements. For more information, see [Manage the time synchronization service](~~92704~~).
+    *     To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following versions. A scheduled task can run a command at a fixed interval, only once at a specific time, or at specific times based on a cron expression in a specified year or time zone. If the ClientNeedUpgrade error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Upgrade or disable upgrades for Cloud Assistant Agent](~~134383~~).
     *     *   Linux: 2.2.3.282
     *     *   Windows: 2.1.3.282
     * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command execution fails, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
     * *   If you enable the custom parameter feature when you create the command, you must specify custom parameters (`Parameters`) to run the command.
-    * *   Before you run the command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the status of Cloud Assistant Agent on the instances. Run the command when the return value of CloudAssistantStatus is true.
+    * *   Before you run the command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the status of Cloud Assistant Agent on the instances and run the command when the value of CloudAssistantStatus in the response is true for the instances.
     *
     * @param tmpReq InvokeCommandRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -75763,20 +75870,20 @@ export default class Client extends OpenApi {
 
   /**
     * ## [](#)Usage notes
-    * *   The Elastic Compute Service (ECS) instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
+    * *   The ECS instances on which you want to run the Cloud Assistant command must meet the following requirements. If multiple ECS instances are specified and one of the instances does not meet the requirements for running the command, the call fails. You must specify instances that meet the requirements and call the InvokeCommand operation again.
     *     *   The instances are in the Running (`Running`) state. You can call the [DescribeInstances](~~25506~~) operation to query the status of instances.
-    *     *   Cloud Assistant Agent is installed on the instances. For more information, see [Install Cloud Assistant Agent on an ECS instance](~~64921~~).
-    *     *   Before you run PowerShell commands on the instances, make sure that the instances have the PowerShell module configured.
+    *     *   Cloud Assistant Agent is installed on the instances. For more information, see [Install Cloud Assistant Agent](~~64921~~).
+    *     *   If the command is a PowerShell command, make sure that the instances have the PowerShell module configured.
     * *   You can configure the command to run only once on the instances.
-    * *   You can configure the command to run multiple times on the instances based on a schedule.
-    *     *   The schedule is specified by the Frequency parameter. The results of each execution of the command do not affect the next execution of the command.
-    *     *   If you use a cron expression to specify a schedule, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instance. Make sure that the time or time zone of the instances meets your business requirements. For more information, see [Manage the time synchronization service](~~92803~~).[](~~51890~~)
-    *     To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following ones. A scheduled task can run a command at a fixed interval, only once at a specific time, or at specific times based on a cron expression in a specified year or time zone. If the ClientNeedUpgrade error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Upgrade or disable upgrades for Cloud Assistant Agent](~~134383~~).
+    * *   You can configure the command to run on the instances based on a schedule.
+    *     *   The schedule is specified by Frequency. The results of each execution of the command do not affect the next execution of the command.
+    *     *   When you use a cron expression to specify a schedule, you can specify a time zone based on your business requirements. If you do not specify a time zone, the schedule is determined by the system time of the instances. Make sure that the time or time zone of the instances meets your business requirements. For more information, see [Manage the time synchronization service](~~92704~~).
+    *     To ensure that scheduled tasks can run as expected, make sure that the version of Cloud Assistant Agent is not earlier than the following versions. A scheduled task can run a command at a fixed interval, only once at a specific time, or at specific times based on a cron expression in a specified year or time zone. If the ClientNeedUpgrade error code is returned, you must upgrade Cloud Assistant Agent to the latest version. For more information, see [Upgrade or disable upgrades for Cloud Assistant Agent](~~134383~~).
     *     *   Linux: 2.2.3.282
     *     *   Windows: 2.1.3.282
     * *   Command executions may fail due to instance status exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If a command execution fails, no execution information is generated. For more information, see [Check execution results and troubleshoot common issues](~~87029~~).
     * *   If you enable the custom parameter feature when you create the command, you must specify custom parameters (`Parameters`) to run the command.
-    * *   Before you run the command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the status of Cloud Assistant Agent on the instances. Run the command when the return value of CloudAssistantStatus is true.
+    * *   Before you run the command on instances, especially new instances, we recommend that you call the [DescribeCloudAssistantStatus](~~87346~~) operation to query the status of Cloud Assistant Agent on the instances and run the command when the value of CloudAssistantStatus in the response is true for the instances.
     *
     * @param request InvokeCommandRequest
     * @return InvokeCommandResponse
@@ -79795,6 +79902,10 @@ export default class Client extends OpenApi {
   async modifyNetworkInterfaceAttributeWithOptions(request: ModifyNetworkInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkInterfaceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.connectionTrackingConfiguration)) {
+      query["ConnectionTrackingConfiguration"] = request.connectionTrackingConfiguration;
+    }
+
     if (!Util.isUnset(request.deleteOnRelease)) {
       query["DeleteOnRelease"] = request.deleteOnRelease;
     }
@@ -83332,7 +83443,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the disk. You can call the [DescribeDisks](~~25514~~) operation to query the ID of a disk.
+    * ## [](#)Usage notes
+    * >  Before you call this operation to resize a disk, you must check the partition format of the disk. A master boot record (MBR) disk cannot be resized to a size that is larger than 2 TiB. If you resize an MBR disk to a size that is larger than 2 TiB, data may be lost. If you want to resize an MBR disk to a size that is larger than 2 TiB, we recommend that you perform the following steps: Create another data disk that is larger than 2 TiB in size, partition and format the new data disk to GUID partition table (GPT), and then copy data from the MBR disk to the new GPT data disk. For more information, see [Step 1: Resize a disk to extend its capacity](~~44986~~).
+    * *   You can resize the following categories of disks: basic disks (`cloud`), ultra disks (`cloud_efficiency`), SSDs (`cloud_ssd`), enhanced SSDs (ESSDs)(`cloud_essd`), and ESSD AutoPL disks (cloud_auto).
+    * *   A disk cannot be resized when a snapshot is being created for the disk.
+    * *   The Elastic Compute Service (ECS) instance to which the disk is attached must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    * *   After you resize a disk, the partitions and file systems of the disk are not changed. You must allocate the storage space on the disk after the disk is resized.
+    * *   Disks for which the multi-attach feature is enabled support online resizing and offline resizing. Before you resize the disks offline, make sure that the instances to which the disks are attached are in the **Stopped** (`Stopped`) state.
     *
     * @param request ResizeDiskRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -83391,7 +83508,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the disk. You can call the [DescribeDisks](~~25514~~) operation to query the ID of a disk.
+    * ## [](#)Usage notes
+    * >  Before you call this operation to resize a disk, you must check the partition format of the disk. A master boot record (MBR) disk cannot be resized to a size that is larger than 2 TiB. If you resize an MBR disk to a size that is larger than 2 TiB, data may be lost. If you want to resize an MBR disk to a size that is larger than 2 TiB, we recommend that you perform the following steps: Create another data disk that is larger than 2 TiB in size, partition and format the new data disk to GUID partition table (GPT), and then copy data from the MBR disk to the new GPT data disk. For more information, see [Step 1: Resize a disk to extend its capacity](~~44986~~).
+    * *   You can resize the following categories of disks: basic disks (`cloud`), ultra disks (`cloud_efficiency`), SSDs (`cloud_ssd`), enhanced SSDs (ESSDs)(`cloud_essd`), and ESSD AutoPL disks (cloud_auto).
+    * *   A disk cannot be resized when a snapshot is being created for the disk.
+    * *   The Elastic Compute Service (ECS) instance to which the disk is attached must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
+    * *   After you resize a disk, the partitions and file systems of the disk are not changed. You must allocate the storage space on the disk after the disk is resized.
+    * *   Disks for which the multi-attach feature is enabled support online resizing and offline resizing. Before you resize the disks offline, make sure that the instances to which the disks are attached are in the **Stopped** (`Stopped`) state.
     *
     * @param request ResizeDiskRequest
     * @return ResizeDiskResponse
