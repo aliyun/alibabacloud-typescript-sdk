@@ -747,6 +747,90 @@ export class AddUsersToSkillGroupResponse extends $tea.Model {
   }
 }
 
+export class AnalyzeConversationRequest extends $tea.Model {
+  contactId?: string;
+  fieldListJson?: string;
+  instanceId?: string;
+  taskListJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      fieldListJson: 'FieldListJson',
+      instanceId: 'InstanceId',
+      taskListJson: 'TaskListJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      fieldListJson: 'string',
+      instanceId: 'string',
+      taskListJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeConversationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AnalyzeConversationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AnalyzeConversationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AnswerCallRequest extends $tea.Model {
   deviceId?: string;
   instanceId?: string;
@@ -30206,6 +30290,47 @@ export default class Client extends OpenApi {
   async addUsersToSkillGroup(request: AddUsersToSkillGroupRequest): Promise<AddUsersToSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUsersToSkillGroupWithOptions(request, runtime);
+  }
+
+  async analyzeConversationWithOptions(request: AnalyzeConversationRequest, runtime: $Util.RuntimeOptions): Promise<AnalyzeConversationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.fieldListJson)) {
+      query["FieldListJson"] = request.fieldListJson;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.taskListJson)) {
+      query["TaskListJson"] = request.taskListJson;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AnalyzeConversation",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AnalyzeConversationResponse>(await this.callApi(params, req, runtime), new AnalyzeConversationResponse({}));
+  }
+
+  async analyzeConversation(request: AnalyzeConversationRequest): Promise<AnalyzeConversationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.analyzeConversationWithOptions(request, runtime);
   }
 
   async answerCallWithOptions(request: AnswerCallRequest, runtime: $Util.RuntimeOptions): Promise<AnswerCallResponse> {
