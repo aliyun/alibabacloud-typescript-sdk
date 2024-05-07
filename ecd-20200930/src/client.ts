@@ -18627,6 +18627,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $tea.Model {
 export class DescribeDesktopInfoResponseBodyDesktops extends $tea.Model {
   connectionStatus?: string;
   currentAppVersion?: string;
+  desktopGroupId?: string;
   desktopId?: string;
   desktopStatus?: string;
   managementFlag?: string[];
@@ -18638,6 +18639,7 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $tea.Model {
     return {
       connectionStatus: 'ConnectionStatus',
       currentAppVersion: 'CurrentAppVersion',
+      desktopGroupId: 'DesktopGroupId',
       desktopId: 'DesktopId',
       desktopStatus: 'DesktopStatus',
       managementFlag: 'ManagementFlag',
@@ -18652,6 +18654,7 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $tea.Model {
     return {
       connectionStatus: 'string',
       currentAppVersion: 'string',
+      desktopGroupId: 'string',
       desktopId: 'string',
       desktopStatus: 'string',
       managementFlag: { 'type': 'array', 'itemType': 'string' },
