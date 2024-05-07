@@ -8883,11 +8883,13 @@ export class GetMseSourceRequest extends $tea.Model {
   acceptLanguage?: string;
   gatewayUniqueId?: string;
   type?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
       type: 'Type',
+      vpcId: 'VpcId',
     };
   }
 
@@ -8896,6 +8898,7 @@ export class GetMseSourceRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
       type: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -26355,6 +26358,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
   namespace?: string;
   portTrafficPolicyList?: GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList[];
   ports?: number[];
+  serviceFQDN?: string;
   serviceNameInRegistry?: string;
   serviceProtocol?: string;
   sourceId?: number;
@@ -26379,6 +26383,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       namespace: 'Namespace',
       portTrafficPolicyList: 'PortTrafficPolicyList',
       ports: 'Ports',
+      serviceFQDN: 'ServiceFQDN',
       serviceNameInRegistry: 'ServiceNameInRegistry',
       serviceProtocol: 'ServiceProtocol',
       sourceId: 'SourceId',
@@ -26406,6 +26411,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
       namespace: 'string',
       portTrafficPolicyList: { 'type': 'array', 'itemType': GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList },
       ports: { 'type': 'array', 'itemType': 'number' },
+      serviceFQDN: 'string',
       serviceNameInRegistry: 'string',
       serviceProtocol: 'string',
       sourceId: 'number',
@@ -30687,6 +30693,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
   name?: string;
   namespace?: string;
   ports?: number[];
+  serviceFQDN?: string;
   serviceNameInRegistry?: string;
   servicePort?: number;
   serviceProtocol?: string;
@@ -30712,6 +30719,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
       name: 'Name',
       namespace: 'Namespace',
       ports: 'Ports',
+      serviceFQDN: 'ServiceFQDN',
       serviceNameInRegistry: 'ServiceNameInRegistry',
       servicePort: 'ServicePort',
       serviceProtocol: 'ServiceProtocol',
@@ -30740,6 +30748,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
       name: 'string',
       namespace: 'string',
       ports: { 'type': 'array', 'itemType': 'number' },
+      serviceFQDN: 'string',
       serviceNameInRegistry: 'string',
       servicePort: 'number',
       serviceProtocol: 'string',
@@ -39078,6 +39087,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
