@@ -3817,14 +3817,12 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
   aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
   aclId?: string;
   aclName?: string;
-  isUsed?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       aclEntrys: 'AclEntrys',
       aclId: 'AclId',
       aclName: 'AclName',
-      isUsed: 'IsUsed',
       requestId: 'RequestId',
     };
   }
@@ -3834,7 +3832,6 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
       aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
       aclId: 'string',
       aclName: 'string',
-      isUsed: 'string',
       requestId: 'string',
     };
   }
@@ -6168,6 +6165,90 @@ export class DescribeApisByTrafficControlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeApisByTrafficControlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisByVpcAccessRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  vpcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+      vpcName: 'VpcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+      vpcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisByVpcAccessResponseBody extends $tea.Model {
+  apiVpcAccessInfos?: DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiVpcAccessInfos: 'ApiVpcAccessInfos',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiVpcAccessInfos: DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisByVpcAccessResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisByVpcAccessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisByVpcAccessResponseBody,
     };
   }
 
@@ -19937,6 +20018,83 @@ export class DescribeApisByTrafficControlResponseBodyApiInfos extends $tea.Model
   }
 }
 
+export class DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo extends $tea.Model {
+  apiId?: string;
+  apiName?: string;
+  description?: string;
+  groupId?: string;
+  groupName?: string;
+  instanceId?: string;
+  method?: string;
+  path?: string;
+  port?: number;
+  regionId?: string;
+  stageId?: string;
+  stageName?: string;
+  vpcId?: string;
+  vpcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      method: 'Method',
+      path: 'Path',
+      port: 'Port',
+      regionId: 'RegionId',
+      stageId: 'StageId',
+      stageName: 'StageName',
+      vpcId: 'VpcId',
+      vpcName: 'VpcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiName: 'string',
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      instanceId: 'string',
+      method: 'string',
+      path: 'string',
+      port: 'number',
+      regionId: 'string',
+      stageId: 'string',
+      stageName: 'string',
+      vpcId: 'string',
+      vpcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisByVpcAccessResponseBodyApiVpcAccessInfos extends $tea.Model {
+  apiVpcAccessInfo?: DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      apiVpcAccessInfo: 'ApiVpcAccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiVpcAccessInfo: { 'type': 'array', 'itemType': DescribeApisByVpcAccessResponseBodyApiVpcAccessInfosApiVpcAccessInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfosAppApiRelationInfo extends $tea.Model {
   apiId?: string;
   apiName?: string;
@@ -20315,6 +20473,7 @@ export class DescribeAuthorizedApisResponseBodyAuthorizedApis extends $tea.Model
 }
 
 export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp extends $tea.Model {
+  appDescription?: string;
   appId?: number;
   appName?: string;
   authVaildTime?: string;
@@ -20326,6 +20485,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
+      appDescription: 'AppDescription',
       appId: 'AppId',
       appName: 'AppName',
       authVaildTime: 'AuthVaildTime',
@@ -20340,6 +20500,7 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp exten
 
   static types(): { [key: string]: any } {
     return {
+      appDescription: 'string',
       appId: 'number',
       appName: 'string',
       authVaildTime: 'string',
@@ -22691,6 +22852,47 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttributePrivateDnsLi
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesInstanceAttributeTags extends $tea.Model {
+  tagInfo?: DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      tagInfo: 'TagInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagInfo: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesInstanceAttributeTagsTagInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $tea.Model {
   aclId?: string;
   aclName?: string;
@@ -22726,6 +22928,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
   regionId?: string;
   status?: string;
   supportIpv6?: boolean;
+  tags?: DescribeInstancesResponseBodyInstancesInstanceAttributeTags;
   userVpcId?: string;
   userVswitchId?: string;
   vpcEgressAddress?: string;
@@ -22770,6 +22973,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       regionId: 'RegionId',
       status: 'Status',
       supportIpv6: 'SupportIpv6',
+      tags: 'Tags',
       userVpcId: 'UserVpcId',
       userVswitchId: 'UserVswitchId',
       vpcEgressAddress: 'VpcEgressAddress',
@@ -22817,6 +23021,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceAttribute extends $te
       regionId: 'string',
       status: 'string',
       supportIpv6: 'boolean',
+      tags: DescribeInstancesResponseBodyInstancesInstanceAttributeTags,
       userVpcId: 'string',
       userVswitchId: 'string',
       vpcEgressAddress: 'string',
@@ -29364,6 +29569,47 @@ export default class Client extends OpenApi {
   async describeApisByTrafficControl(request: DescribeApisByTrafficControlRequest): Promise<DescribeApisByTrafficControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisByTrafficControlWithOptions(request, runtime);
+  }
+
+  async describeApisByVpcAccessWithOptions(request: DescribeApisByVpcAccessRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByVpcAccessResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcName)) {
+      query["VpcName"] = request.vpcName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisByVpcAccess",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisByVpcAccessResponse>(await this.callApi(params, req, runtime), new DescribeApisByVpcAccessResponse({}));
+  }
+
+  async describeApisByVpcAccess(request: DescribeApisByVpcAccessRequest): Promise<DescribeApisByVpcAccessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisByVpcAccessWithOptions(request, runtime);
   }
 
   async describeApisWithStageNameIntegratedByAppWithOptions(request: DescribeApisWithStageNameIntegratedByAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisWithStageNameIntegratedByAppResponse> {
