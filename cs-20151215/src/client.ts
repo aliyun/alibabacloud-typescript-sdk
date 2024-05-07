@@ -3045,6 +3045,25 @@ export class DescribeClusterNodePoolDetailResponse extends $tea.Model {
   }
 }
 
+export class DescribeClusterNodePoolsRequest extends $tea.Model {
+  nodepoolName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodepoolName: 'NodepoolName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodepoolName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolsResponseBody extends $tea.Model {
   nodepools?: DescribeClusterNodePoolsResponseBodyNodepools[];
   static names(): { [key: string]: string } {
@@ -15243,9 +15262,16 @@ export default class Client extends OpenApi {
     return await this.describeClusterNodePoolDetailWithOptions(ClusterId, NodepoolId, headers, runtime);
   }
 
-  async describeClusterNodePoolsWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodePoolsResponse> {
+  async describeClusterNodePoolsWithOptions(ClusterId: string, request: DescribeClusterNodePoolsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodePoolsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodepoolName)) {
+      query["NodepoolName"] = request.nodepoolName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClusterNodePools",
@@ -15261,10 +15287,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNodePoolsResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodePoolsResponse({}));
   }
 
-  async describeClusterNodePools(ClusterId: string): Promise<DescribeClusterNodePoolsResponse> {
+  async describeClusterNodePools(ClusterId: string, request: DescribeClusterNodePoolsRequest): Promise<DescribeClusterNodePoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeClusterNodePoolsWithOptions(ClusterId, headers, runtime);
+    return await this.describeClusterNodePoolsWithOptions(ClusterId, request, headers, runtime);
   }
 
   async describeClusterNodesWithOptions(ClusterId: string, request: DescribeClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodesResponse> {
