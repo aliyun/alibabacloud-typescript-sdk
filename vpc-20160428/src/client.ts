@@ -23755,10 +23755,12 @@ export class GetNatGatewayAttributeResponseBody extends $tea.Model {
   deletionProtectionInfo?: GetNatGatewayAttributeResponseBodyDeletionProtectionInfo;
   description?: string;
   ecsMetricEnabled?: boolean;
+  enableSessionLog?: boolean;
   expiredTime?: string;
   forwardTable?: GetNatGatewayAttributeResponseBodyForwardTable;
   fullNatTable?: GetNatGatewayAttributeResponseBodyFullNatTable;
   ipList?: GetNatGatewayAttributeResponseBodyIpList[];
+  logDelivery?: GetNatGatewayAttributeResponseBodyLogDelivery;
   name?: string;
   natGatewayId?: string;
   natType?: string;
@@ -23780,10 +23782,12 @@ export class GetNatGatewayAttributeResponseBody extends $tea.Model {
       deletionProtectionInfo: 'DeletionProtectionInfo',
       description: 'Description',
       ecsMetricEnabled: 'EcsMetricEnabled',
+      enableSessionLog: 'EnableSessionLog',
       expiredTime: 'ExpiredTime',
       forwardTable: 'ForwardTable',
       fullNatTable: 'FullNatTable',
       ipList: 'IpList',
+      logDelivery: 'LogDelivery',
       name: 'Name',
       natGatewayId: 'NatGatewayId',
       natType: 'NatType',
@@ -23808,10 +23812,12 @@ export class GetNatGatewayAttributeResponseBody extends $tea.Model {
       deletionProtectionInfo: GetNatGatewayAttributeResponseBodyDeletionProtectionInfo,
       description: 'string',
       ecsMetricEnabled: 'boolean',
+      enableSessionLog: 'boolean',
       expiredTime: 'string',
       forwardTable: GetNatGatewayAttributeResponseBodyForwardTable,
       fullNatTable: GetNatGatewayAttributeResponseBodyFullNatTable,
       ipList: { 'type': 'array', 'itemType': GetNatGatewayAttributeResponseBodyIpList },
+      logDelivery: GetNatGatewayAttributeResponseBodyLogDelivery,
       name: 'string',
       natGatewayId: 'string',
       natType: 'string',
@@ -29480,7 +29486,9 @@ export class ModifyIpv6InternetBandwidthResponse extends $tea.Model {
 export class ModifyNatGatewayAttributeRequest extends $tea.Model {
   description?: string;
   eipBindMode?: string;
+  enableSessionLog?: boolean;
   icmpReplyEnabled?: boolean;
+  logDelivery?: ModifyNatGatewayAttributeRequestLogDelivery;
   name?: string;
   natGatewayId?: string;
   ownerAccount?: string;
@@ -29492,7 +29500,9 @@ export class ModifyNatGatewayAttributeRequest extends $tea.Model {
     return {
       description: 'Description',
       eipBindMode: 'EipBindMode',
+      enableSessionLog: 'EnableSessionLog',
       icmpReplyEnabled: 'IcmpReplyEnabled',
+      logDelivery: 'LogDelivery',
       name: 'Name',
       natGatewayId: 'NatGatewayId',
       ownerAccount: 'OwnerAccount',
@@ -29507,7 +29517,61 @@ export class ModifyNatGatewayAttributeRequest extends $tea.Model {
     return {
       description: 'string',
       eipBindMode: 'string',
+      enableSessionLog: 'boolean',
       icmpReplyEnabled: 'boolean',
+      logDelivery: ModifyNatGatewayAttributeRequestLogDelivery,
+      name: 'string',
+      natGatewayId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNatGatewayAttributeShrinkRequest extends $tea.Model {
+  description?: string;
+  eipBindMode?: string;
+  enableSessionLog?: boolean;
+  icmpReplyEnabled?: boolean;
+  logDeliveryShrink?: string;
+  name?: string;
+  natGatewayId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      eipBindMode: 'EipBindMode',
+      enableSessionLog: 'EnableSessionLog',
+      icmpReplyEnabled: 'IcmpReplyEnabled',
+      logDeliveryShrink: 'LogDelivery',
+      name: 'Name',
+      natGatewayId: 'NatGatewayId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      eipBindMode: 'string',
+      enableSessionLog: 'boolean',
+      icmpReplyEnabled: 'boolean',
+      logDeliveryShrink: 'string',
       name: 'string',
       natGatewayId: 'string',
       ownerAccount: 'string',
@@ -41749,6 +41813,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
   description?: string;
   ecsMetricEnabled?: boolean;
   eipBindMode?: string;
+  enableSessionLog?: string;
   expiredTime?: string;
   forwardTableIds?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayForwardTableIds;
   fullNatTableIds?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayFullNatTableIds;
@@ -41780,6 +41845,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
       description: 'Description',
       ecsMetricEnabled: 'EcsMetricEnabled',
       eipBindMode: 'EipBindMode',
+      enableSessionLog: 'EnableSessionLog',
       expiredTime: 'ExpiredTime',
       forwardTableIds: 'ForwardTableIds',
       fullNatTableIds: 'FullNatTableIds',
@@ -41814,6 +41880,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $tea.M
       description: 'string',
       ecsMetricEnabled: 'boolean',
       eipBindMode: 'string',
+      enableSessionLog: 'string',
       expiredTime: 'string',
       forwardTableIds: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayForwardTableIds,
       fullNatTableIds: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayFullNatTableIds,
@@ -47482,6 +47549,34 @@ export class GetNatGatewayAttributeResponseBodyIpList extends $tea.Model {
   }
 }
 
+export class GetNatGatewayAttributeResponseBodyLogDelivery extends $tea.Model {
+  deliverLogsErrorMessage?: string;
+  deliveryStatus?: string;
+  logDeliveryType?: string;
+  logDestination?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliverLogsErrorMessage: 'DeliverLogsErrorMessage',
+      deliveryStatus: 'DeliveryStatus',
+      logDeliveryType: 'LogDeliveryType',
+      logDestination: 'LogDestination',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliverLogsErrorMessage: 'string',
+      deliveryStatus: 'string',
+      logDeliveryType: 'string',
+      logDestination: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNatGatewayAttributeResponseBodyPrivateInfo extends $tea.Model {
   eniInstanceId?: string;
   izNo?: string;
@@ -49479,6 +49574,28 @@ export class ModifyExpressConnectTrafficQosRequestRemoveInstanceList extends $te
     return {
       instanceId: 'string',
       instanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNatGatewayAttributeRequestLogDelivery extends $tea.Model {
+  logDeliveryType?: string;
+  logDestination?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logDeliveryType: 'LogDeliveryType',
+      logDestination: 'LogDestination',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logDeliveryType: 'string',
+      logDestination: 'string',
     };
   }
 
@@ -73524,12 +73641,18 @@ export default class Client extends OpenApi {
     * ## [](#)Description
     * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
     *
-    * @param request ModifyNatGatewayAttributeRequest
+    * @param tmpReq ModifyNatGatewayAttributeRequest
     * @param runtime runtime options for this request RuntimeOptions
     * @return ModifyNatGatewayAttributeResponse
    */
-  async modifyNatGatewayAttributeWithOptions(request: ModifyNatGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatGatewayAttributeResponse> {
-    Util.validateModel(request);
+  async modifyNatGatewayAttributeWithOptions(tmpReq: ModifyNatGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatGatewayAttributeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyNatGatewayAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.logDelivery)) {
+      request.logDeliveryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.logDelivery, "LogDelivery", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
@@ -73539,8 +73662,16 @@ export default class Client extends OpenApi {
       query["EipBindMode"] = request.eipBindMode;
     }
 
+    if (!Util.isUnset(request.enableSessionLog)) {
+      query["EnableSessionLog"] = request.enableSessionLog;
+    }
+
     if (!Util.isUnset(request.icmpReplyEnabled)) {
       query["IcmpReplyEnabled"] = request.icmpReplyEnabled;
+    }
+
+    if (!Util.isUnset(request.logDeliveryShrink)) {
+      query["LogDelivery"] = request.logDeliveryShrink;
     }
 
     if (!Util.isUnset(request.name)) {
