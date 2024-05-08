@@ -23486,12 +23486,14 @@ export class SyncDingTypeShrinkHeaders extends $tea.Model {
 
 export class SyncDingTypeRequest extends $tea.Model {
   dingType?: string;
+  isDimission?: string;
   source?: string;
   tenantContext?: SyncDingTypeRequestTenantContext;
   workNo?: string;
   static names(): { [key: string]: string } {
     return {
       dingType: 'DingType',
+      isDimission: 'IsDimission',
       source: 'Source',
       tenantContext: 'TenantContext',
       workNo: 'WorkNo',
@@ -23501,6 +23503,7 @@ export class SyncDingTypeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dingType: 'string',
+      isDimission: 'string',
       source: 'string',
       tenantContext: SyncDingTypeRequestTenantContext,
       workNo: 'string',
@@ -23514,12 +23517,14 @@ export class SyncDingTypeRequest extends $tea.Model {
 
 export class SyncDingTypeShrinkRequest extends $tea.Model {
   dingType?: string;
+  isDimission?: string;
   source?: string;
   tenantContextShrink?: string;
   workNo?: string;
   static names(): { [key: string]: string } {
     return {
       dingType: 'DingType',
+      isDimission: 'IsDimission',
       source: 'Source',
       tenantContextShrink: 'TenantContext',
       workNo: 'WorkNo',
@@ -23529,6 +23534,7 @@ export class SyncDingTypeShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dingType: 'string',
+      isDimission: 'string',
       source: 'string',
       tenantContextShrink: 'string',
       workNo: 'string',
@@ -50993,6 +50999,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.dingType)) {
       body["DingType"] = request.dingType;
+    }
+
+    if (!Util.isUnset(request.isDimission)) {
+      body["IsDimission"] = request.isDimission;
     }
 
     if (!Util.isUnset(request.source)) {
