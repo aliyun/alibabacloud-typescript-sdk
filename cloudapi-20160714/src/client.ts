@@ -616,15 +616,18 @@ export class CreateAccessControlListRequest extends $tea.Model {
 }
 
 export class CreateAccessControlListResponseBody extends $tea.Model {
+  aclId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      aclId: 'AclId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aclId: 'string',
       requestId: 'string',
     };
   }
@@ -3817,12 +3820,14 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
   aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
   aclId?: string;
   aclName?: string;
+  addressIPVersion?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       aclEntrys: 'AclEntrys',
       aclId: 'AclId',
       aclName: 'AclName',
+      addressIPVersion: 'AddressIPVersion',
       requestId: 'RequestId',
     };
   }
@@ -3832,6 +3837,7 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
       aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
       aclId: 'string',
       aclName: 'string',
+      addressIPVersion: 'string',
       requestId: 'string',
     };
   }
