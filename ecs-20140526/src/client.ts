@@ -1174,6 +1174,7 @@ export class AttachDiskRequest extends $tea.Model {
   deleteWithInstance?: boolean;
   device?: string;
   diskId?: string;
+  force?: boolean;
   instanceId?: string;
   keyPairName?: string;
   ownerAccount?: string;
@@ -1187,6 +1188,7 @@ export class AttachDiskRequest extends $tea.Model {
       deleteWithInstance: 'DeleteWithInstance',
       device: 'Device',
       diskId: 'DiskId',
+      force: 'Force',
       instanceId: 'InstanceId',
       keyPairName: 'KeyPairName',
       ownerAccount: 'OwnerAccount',
@@ -1203,6 +1205,7 @@ export class AttachDiskRequest extends $tea.Model {
       deleteWithInstance: 'boolean',
       device: 'string',
       diskId: 'string',
+      force: 'boolean',
       instanceId: 'string',
       keyPairName: 'string',
       ownerAccount: 'string',
@@ -41348,6 +41351,25 @@ export class DescribeDisksResponseBodyDisksDiskOperationLocks extends $tea.Model
   }
 }
 
+export class DescribeDisksResponseBodyDisksDiskPlacement extends $tea.Model {
+  zoneIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      zoneIds: 'ZoneIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      zoneIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDisksResponseBodyDisksDiskTagsTag extends $tea.Model {
   tagKey?: string;
   tagValue?: string;
@@ -41420,6 +41442,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $tea.Model {
   multiAttach?: string;
   operationLocks?: DescribeDisksResponseBodyDisksDiskOperationLocks;
   performanceLevel?: string;
+  placement?: DescribeDisksResponseBodyDisksDiskPlacement;
   portable?: boolean;
   productCode?: string;
   provisionedIops?: number;
@@ -41470,6 +41493,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $tea.Model {
       multiAttach: 'MultiAttach',
       operationLocks: 'OperationLocks',
       performanceLevel: 'PerformanceLevel',
+      placement: 'Placement',
       portable: 'Portable',
       productCode: 'ProductCode',
       provisionedIops: 'ProvisionedIops',
@@ -41523,6 +41547,7 @@ export class DescribeDisksResponseBodyDisksDisk extends $tea.Model {
       multiAttach: 'string',
       operationLocks: DescribeDisksResponseBodyDisksDiskOperationLocks,
       performanceLevel: 'string',
+      placement: DescribeDisksResponseBodyDisksDiskPlacement,
       portable: 'boolean',
       productCode: 'string',
       provisionedIops: 'number',
@@ -56468,6 +56493,10 @@ export default class Client extends OpenApi {
       query["DiskId"] = request.diskId;
     }
 
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -60450,7 +60479,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. A maximum of 30 versions can be created for each launch template.
+    * ## [](#)Usage notes
+    * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. You can create up to 30 versions for each launch template.
     *
     * @param request CreateLaunchTemplateVersionRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -60665,7 +60695,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. A maximum of 30 versions can be created for each launch template.
+    * ## [](#)Usage notes
+    * If you want to modify the parameters of a launch template version, you can create another version with different parameter settings for the launch template. You can create up to 30 versions for each launch template.
     *
     * @param request CreateLaunchTemplateVersionRequest
     * @return CreateLaunchTemplateVersionResponse
