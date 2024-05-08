@@ -1654,7 +1654,9 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
   maxMessageSize?: number;
   messageCount?: number;
   messageRetentionPeriod?: number;
+  topicInnerUrl?: string;
   topicName?: string;
+  topicUrl?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -1663,7 +1665,9 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
       maxMessageSize: 'MaxMessageSize',
       messageCount: 'MessageCount',
       messageRetentionPeriod: 'MessageRetentionPeriod',
+      topicInnerUrl: 'TopicInnerUrl',
       topicName: 'TopicName',
+      topicUrl: 'TopicUrl',
     };
   }
 
@@ -1675,7 +1679,9 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
       maxMessageSize: 'number',
       messageCount: 'number',
       messageRetentionPeriod: 'number',
+      topicInnerUrl: 'string',
       topicName: 'string',
+      topicUrl: 'string',
     };
   }
 

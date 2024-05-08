@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/mns-open20220119",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
