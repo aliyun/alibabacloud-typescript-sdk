@@ -72619,6 +72619,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $tea.Model {
   checkType?: string;
   containerCheckItem?: boolean;
   description?: string;
+  enableRisks?: string[];
   riskType?: string;
   status?: number;
   warningMachineCount?: number;
@@ -72634,6 +72635,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $tea.Model {
       checkType: 'CheckType',
       containerCheckItem: 'ContainerCheckItem',
       description: 'Description',
+      enableRisks: 'EnableRisks',
       riskType: 'RiskType',
       status: 'Status',
       warningMachineCount: 'WarningMachineCount',
@@ -72652,6 +72654,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $tea.Model {
       checkType: 'string',
       containerCheckItem: 'boolean',
       description: 'string',
+      enableRisks: { 'type': 'array', 'itemType': 'string' },
       riskType: 'string',
       status: 'number',
       warningMachineCount: 'number',
@@ -79231,38 +79234,49 @@ export default class Client extends OpenApi {
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hangzhou': "tds.aliyuncs.com",
-      'cn-qingdao': "tds.aliyuncs.com",
-      'cn-beijing': "tds.aliyuncs.com",
-      'cn-zhangjiakou': "tds.aliyuncs.com",
-      'cn-huhehaote': "tds.aliyuncs.com",
-      'cn-wulanchabu': "tds.aliyuncs.com",
-      'cn-shanghai': "tds.aliyuncs.com",
-      'cn-nanjing': "tds.aliyuncs.com",
-      'cn-fuzhou': "tds.aliyuncs.com",
-      'cn-shenzhen': "tds.aliyuncs.com",
-      'cn-heyuan': "tds.aliyuncs.com",
-      'cn-guangzhou': "tds.aliyuncs.com",
-      'cn-chengdu': "tds.aliyuncs.com",
-      'cn-hongkong': "tds.aliyuncs.com",
+      'cn-shanghai': "tds.cn-shanghai.aliyuncs.com",
       'ap-southeast-1': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-1': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-2': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-5': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-6': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-7': "tds.ap-southeast-1.aliyuncs.com",
-      'us-east-1': "tds.ap-southeast-1.aliyuncs.com",
-      'us-west-1': "tds.ap-southeast-1.aliyuncs.com",
-      'eu-west-1': "tds.ap-southeast-1.aliyuncs.com",
       'eu-central-1': "tds.ap-southeast-1.aliyuncs.com",
-      'ap-south-1': "tds.ap-southeast-1.aliyuncs.com",
-      'me-east-1': "tds.ap-southeast-1.aliyuncs.com",
-      'me-central-1': "tds.ap-southeast-1.aliyuncs.com",
-      'cn-hangzhou-finance': "tds.aliyuncs.com",
-      'cn-shanghai-finance-1': "tds.aliyuncs.com",
-      'cn-shenzhen-finance-1': "tds.aliyuncs.com",
-      'cn-beijing-finance-1': "tds.aliyuncs.com",
+      'ap-northeast-2-pop': "sas.aliyuncs.com",
+      'ap-south-1': "tds-vpc.ap-south-1.aliyuncs.com",
+      'ap-southeast-3': "tds.ap-southeast-3.aliyuncs.com",
+      'cn-beijing-finance-1': "sas.aliyuncs.com",
+      'cn-beijing-finance-pop': "sas.aliyuncs.com",
+      'cn-beijing-gov-1': "sas.aliyuncs.com",
+      'cn-beijing-nu16-b01': "sas.aliyuncs.com",
+      'cn-edge-1': "sas.aliyuncs.com",
+      'cn-fujian': "sas.aliyuncs.com",
+      'cn-haidian-cm12-c01': "sas.aliyuncs.com",
+      'cn-hangzhou-bj-b01': "sas.aliyuncs.com",
+      'cn-hangzhou-finance': "sas.aliyuncs.com",
+      'cn-hangzhou-internal-prod-1': "sas.aliyuncs.com",
+      'cn-hangzhou-internal-test-1': "sas.aliyuncs.com",
+      'cn-hangzhou-internal-test-2': "sas.aliyuncs.com",
+      'cn-hangzhou-internal-test-3': "sas.aliyuncs.com",
+      'cn-hangzhou-test-306': "sas.aliyuncs.com",
+      'cn-hongkong-finance-pop': "sas.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "sas.aliyuncs.com",
+      'cn-north-2-gov-1': "sas.aliyuncs.com",
+      'cn-qingdao-nebula': "sas.aliyuncs.com",
+      'cn-shanghai-et15-b01': "sas.aliyuncs.com",
+      'cn-shanghai-et2-b01': "sas.aliyuncs.com",
+      'cn-shanghai-inner': "sas.aliyuncs.com",
+      'cn-shanghai-internal-test-1': "sas.aliyuncs.com",
+      'cn-shenzhen-inner': "sas.aliyuncs.com",
+      'cn-shenzhen-st4-d01': "sas.aliyuncs.com",
+      'cn-shenzhen-su18-b01': "sas.aliyuncs.com",
+      'cn-wuhan': "sas.aliyuncs.com",
+      'cn-wulanchabu': "sas.aliyuncs.com",
+      'cn-yushanfang': "sas.aliyuncs.com",
+      'cn-zhangbei': "sas.aliyuncs.com",
+      'cn-zhangbei-na61-b01': "sas.aliyuncs.com",
+      'cn-zhangjiakou-na62-a01': "sas.aliyuncs.com",
+      'cn-zhengzhou-nebula-1': "sas.aliyuncs.com",
+      'eu-west-1-oxs': "sas.aliyuncs.com",
+      'me-east-1': "sas.aliyuncs.com",
+      'rus-west-1-pop': "sas.aliyuncs.com",
+      'us-east-1': "tds-vpc.us-east-1.aliyuncs.com",
+      'us-west-1': "tds.us-west-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("sas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -85476,6 +85490,14 @@ export default class Client extends OpenApi {
     return await this.describeCloudCenterInstancesWithOptions(request, runtime);
   }
 
+  /**
+    * @deprecated : DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
+    *
+    * @param request DescribeCloudProductFieldStatisticsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeCloudProductFieldStatisticsResponse
+   */
+  // Deprecated
   async describeCloudProductFieldStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCloudProductFieldStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -85492,6 +85514,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudProductFieldStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeCloudProductFieldStatisticsResponse({}));
   }
 
+  /**
+    * @deprecated : DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
+    *
+    * @return DescribeCloudProductFieldStatisticsResponse
+   */
+  // Deprecated
   async describeCloudProductFieldStatistics(): Promise<DescribeCloudProductFieldStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudProductFieldStatisticsWithOptions(runtime);
