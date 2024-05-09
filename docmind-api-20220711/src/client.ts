@@ -110,9 +110,9 @@ export class AyncTradeDocumentPackageExtractSmartAppResponseBody extends $tea.Mo
 }
 
 export class AyncTradeDocumentPackageExtractSmartAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AyncTradeDocumentPackageExtractSmartAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AyncTradeDocumentPackageExtractSmartAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -194,9 +194,9 @@ export class GetDocStructureResultResponseBody extends $tea.Model {
 }
 
 export class GetDocStructureResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDocStructureResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocStructureResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -272,9 +272,9 @@ export class GetDocumentCompareResultResponseBody extends $tea.Model {
 }
 
 export class GetDocumentCompareResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDocumentCompareResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocumentCompareResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -350,9 +350,9 @@ export class GetDocumentConvertResultResponseBody extends $tea.Model {
 }
 
 export class GetDocumentConvertResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDocumentConvertResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocumentConvertResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -428,9 +428,9 @@ export class GetDocumentExtractResultResponseBody extends $tea.Model {
 }
 
 export class GetDocumentExtractResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDocumentExtractResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocumentExtractResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -506,9 +506,9 @@ export class GetPageNumResponseBody extends $tea.Model {
 }
 
 export class GetPageNumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPageNumResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPageNumResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -584,9 +584,9 @@ export class GetTableUnderstandingResultResponseBody extends $tea.Model {
 }
 
 export class GetTableUnderstandingResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTableUnderstandingResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTableUnderstandingResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -693,9 +693,9 @@ export class SubmitConvertImageToExcelJobResponseBody extends $tea.Model {
 }
 
 export class SubmitConvertImageToExcelJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitConvertImageToExcelJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitConvertImageToExcelJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -709,6 +709,109 @@ export class SubmitConvertImageToExcelJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitConvertImageToExcelJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertImageToMarkdownJobRequest extends $tea.Model {
+  imageNameExtension?: string;
+  imageNames?: string[];
+  imageUrls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      imageNameExtension: 'ImageNameExtension',
+      imageNames: 'ImageNames',
+      imageUrls: 'ImageUrls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageNameExtension: 'string',
+      imageNames: { 'type': 'array', 'itemType': 'string' },
+      imageUrls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertImageToMarkdownJobShrinkRequest extends $tea.Model {
+  imageNameExtension?: string;
+  imageNamesShrink?: string;
+  imageUrlsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageNameExtension: 'ImageNameExtension',
+      imageNamesShrink: 'ImageNames',
+      imageUrlsShrink: 'ImageUrls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageNameExtension: 'string',
+      imageNamesShrink: 'string',
+      imageUrlsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertImageToMarkdownJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitConvertImageToMarkdownJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitConvertImageToMarkdownJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertImageToMarkdownJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitConvertImageToMarkdownJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitConvertImageToMarkdownJobResponseBody,
     };
   }
 
@@ -796,9 +899,9 @@ export class SubmitConvertImageToPdfJobResponseBody extends $tea.Model {
 }
 
 export class SubmitConvertImageToPdfJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitConvertImageToPdfJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitConvertImageToPdfJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -899,9 +1002,9 @@ export class SubmitConvertImageToWordJobResponseBody extends $tea.Model {
 }
 
 export class SubmitConvertImageToWordJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitConvertImageToWordJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitConvertImageToWordJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1008,9 +1111,9 @@ export class SubmitConvertPdfToExcelJobResponseBody extends $tea.Model {
 }
 
 export class SubmitConvertPdfToExcelJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitConvertPdfToExcelJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitConvertPdfToExcelJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1105,9 +1208,9 @@ export class SubmitConvertPdfToImageJobResponseBody extends $tea.Model {
 }
 
 export class SubmitConvertPdfToImageJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitConvertPdfToImageJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitConvertPdfToImageJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1121,6 +1224,103 @@ export class SubmitConvertPdfToImageJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitConvertPdfToImageJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertPdfToMarkdownJobRequest extends $tea.Model {
+  fileName?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertPdfToMarkdownJobAdvanceRequest extends $tea.Model {
+  fileName?: string;
+  fileUrlObject?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      fileUrlObject: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertPdfToMarkdownJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: SubmitConvertPdfToMarkdownJobResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitConvertPdfToMarkdownJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertPdfToMarkdownJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitConvertPdfToMarkdownJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitConvertPdfToMarkdownJobResponseBody,
     };
   }
 
@@ -1208,9 +1408,9 @@ export class SubmitConvertPdfToWordJobResponseBody extends $tea.Model {
 }
 
 export class SubmitConvertPdfToWordJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitConvertPdfToWordJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitConvertPdfToWordJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1329,9 +1529,9 @@ export class SubmitDigitalDocStructureJobResponseBody extends $tea.Model {
 }
 
 export class SubmitDigitalDocStructureJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitDigitalDocStructureJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDigitalDocStructureJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1357,12 +1557,14 @@ export class SubmitDocStructureJobRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrl?: string;
+  formulaEnhancement?: boolean;
   structureType?: string;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
+      formulaEnhancement: 'FormulaEnhancement',
       structureType: 'StructureType',
     };
   }
@@ -1372,6 +1574,7 @@ export class SubmitDocStructureJobRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
+      formulaEnhancement: 'boolean',
       structureType: 'string',
     };
   }
@@ -1385,12 +1588,14 @@ export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
   fileName?: string;
   fileNameExtension?: string;
   fileUrlObject?: Readable;
+  formulaEnhancement?: boolean;
   structureType?: string;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
+      formulaEnhancement: 'FormulaEnhancement',
       structureType: 'StructureType',
     };
   }
@@ -1400,6 +1605,7 @@ export class SubmitDocStructureJobAdvanceRequest extends $tea.Model {
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
+      formulaEnhancement: 'boolean',
       structureType: 'string',
     };
   }
@@ -1438,9 +1644,9 @@ export class SubmitDocStructureJobResponseBody extends $tea.Model {
 }
 
 export class SubmitDocStructureJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitDocStructureJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDocStructureJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1519,9 +1725,9 @@ export class SubmitDocumentCompareJobResponseBody extends $tea.Model {
 }
 
 export class SubmitDocumentCompareJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitDocumentCompareJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDocumentCompareJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1622,9 +1828,9 @@ export class SubmitDocumentExtractJobResponseBody extends $tea.Model {
 }
 
 export class SubmitDocumentExtractJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitDocumentExtractJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDocumentExtractJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1725,9 +1931,9 @@ export class SubmitTableUnderstandingJobResponseBody extends $tea.Model {
 }
 
 export class SubmitTableUnderstandingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitTableUnderstandingJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTableUnderstandingJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1815,6 +2021,25 @@ export class SubmitConvertImageToExcelJobResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitConvertImageToMarkdownJobResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitConvertImageToPdfJobResponseBodyData extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -1873,6 +2098,25 @@ export class SubmitConvertPdfToExcelJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitConvertPdfToImageJobResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitConvertPdfToMarkdownJobResponseBodyData extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2351,6 +2595,53 @@ export default class Client extends OpenApi {
     return await this.submitConvertImageToExcelJobWithOptions(request, runtime);
   }
 
+  async submitConvertImageToMarkdownJobWithOptions(tmpReq: SubmitConvertImageToMarkdownJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToMarkdownJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitConvertImageToMarkdownJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.imageNames)) {
+      request.imageNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageNames, "ImageNames", "simple");
+    }
+
+    if (!Util.isUnset(tmpReq.imageUrls)) {
+      request.imageUrlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageUrls, "ImageUrls", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.imageNameExtension)) {
+      query["ImageNameExtension"] = request.imageNameExtension;
+    }
+
+    if (!Util.isUnset(request.imageNamesShrink)) {
+      query["ImageNames"] = request.imageNamesShrink;
+    }
+
+    if (!Util.isUnset(request.imageUrlsShrink)) {
+      query["ImageUrls"] = request.imageUrlsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitConvertImageToMarkdownJob",
+      version: "2022-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitConvertImageToMarkdownJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToMarkdownJobResponse({}));
+  }
+
+  async submitConvertImageToMarkdownJob(request: SubmitConvertImageToMarkdownJobRequest): Promise<SubmitConvertImageToMarkdownJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitConvertImageToMarkdownJobWithOptions(request, runtime);
+  }
+
   async submitConvertImageToPdfJobWithOptions(tmpReq: SubmitConvertImageToPdfJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertImageToPdfJobResponse> {
     Util.validateModel(tmpReq);
     let request = new SubmitConvertImageToPdfJobShrinkRequest({ });
@@ -2667,6 +2958,113 @@ export default class Client extends OpenApi {
     return submitConvertPdfToImageJobResp;
   }
 
+  async submitConvertPdfToMarkdownJobWithOptions(request: SubmitConvertPdfToMarkdownJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToMarkdownJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitConvertPdfToMarkdownJob",
+      version: "2022-07-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitConvertPdfToMarkdownJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToMarkdownJobResponse({}));
+  }
+
+  async submitConvertPdfToMarkdownJob(request: SubmitConvertPdfToMarkdownJobRequest): Promise<SubmitConvertPdfToMarkdownJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitConvertPdfToMarkdownJobWithOptions(request, runtime);
+  }
+
+  async submitConvertPdfToMarkdownJobAdvance(request: SubmitConvertPdfToMarkdownJobAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToMarkdownJobResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApi.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "docmind-api",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitConvertPdfToMarkdownJobReq = new SubmitConvertPdfToMarkdownJobRequest({ });
+    OpenApiUtil.convert(request, submitConvertPdfToMarkdownJobReq);
+    if (!Util.isUnset(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitConvertPdfToMarkdownJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitConvertPdfToMarkdownJobResp = await this.submitConvertPdfToMarkdownJobWithOptions(submitConvertPdfToMarkdownJobReq, runtime);
+    return submitConvertPdfToMarkdownJobResp;
+  }
+
   async submitConvertPdfToWordJobWithOptions(request: SubmitConvertPdfToWordJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitConvertPdfToWordJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2910,6 +3308,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.fileUrl)) {
       query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!Util.isUnset(request.formulaEnhancement)) {
+      query["FormulaEnhancement"] = request.formulaEnhancement;
     }
 
     if (!Util.isUnset(request.structureType)) {
