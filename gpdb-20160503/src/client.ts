@@ -3674,6 +3674,75 @@ export class DescribeDBInstancesResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBResourceManagementModeRequest extends $tea.Model {
+  DBInstanceId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBResourceManagementModeResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceManagementMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceManagementMode: 'ResourceManagementMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceManagementMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBResourceManagementModeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBResourceManagementModeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBResourceManagementModeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBVersionInfosRequest extends $tea.Model {
   DBInstanceMode?: string;
   DBVersion?: string;
@@ -16789,6 +16858,31 @@ export default class Client extends OpenApi {
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesWithOptions(request, runtime);
+  }
+
+  async describeDBResourceManagementModeWithOptions(request: DescribeDBResourceManagementModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBResourceManagementModeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBResourceManagementMode",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBResourceManagementModeResponse>(await this.callApi(params, req, runtime), new DescribeDBResourceManagementModeResponse({}));
+  }
+
+  async describeDBResourceManagementMode(request: DescribeDBResourceManagementModeRequest): Promise<DescribeDBResourceManagementModeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBResourceManagementModeWithOptions(request, runtime);
   }
 
   async describeDBVersionInfosWithOptions(request: DescribeDBVersionInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBVersionInfosResponse> {
