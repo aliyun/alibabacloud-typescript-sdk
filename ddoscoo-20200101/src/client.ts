@@ -306,11 +306,13 @@ export class ConfigL7RsPolicyRequest extends $tea.Model {
   domain?: string;
   policy?: string;
   resourceGroupId?: string;
+  upstreamRetry?: number;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
       policy: 'Policy',
       resourceGroupId: 'ResourceGroupId',
+      upstreamRetry: 'UpstreamRetry',
     };
   }
 
@@ -319,6 +321,7 @@ export class ConfigL7RsPolicyRequest extends $tea.Model {
       domain: 'string',
       policy: 'string',
       resourceGroupId: 'string',
+      upstreamRetry: 'number',
     };
   }
 
@@ -5920,11 +5923,13 @@ export class DescribeL7RsPolicyResponseBody extends $tea.Model {
   attributes?: DescribeL7RsPolicyResponseBodyAttributes[];
   proxyMode?: string;
   requestId?: string;
+  upstreamRetry?: number;
   static names(): { [key: string]: string } {
     return {
       attributes: 'Attributes',
       proxyMode: 'ProxyMode',
       requestId: 'RequestId',
+      upstreamRetry: 'UpstreamRetry',
     };
   }
 
@@ -5933,6 +5938,7 @@ export class DescribeL7RsPolicyResponseBody extends $tea.Model {
       attributes: { 'type': 'array', 'itemType': DescribeL7RsPolicyResponseBodyAttributes },
       proxyMode: 'string',
       requestId: 'string',
+      upstreamRetry: 'number',
     };
   }
 
@@ -14072,15 +14078,33 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeL7RsPolicyResponseBodyAttributesAttribute extends $tea.Model {
+  connectTimeout?: number;
+  failTimeout?: number;
+  maxFails?: number;
+  mode?: string;
+  readTimeout?: number;
+  sendTimeout?: number;
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      connectTimeout: 'ConnectTimeout',
+      failTimeout: 'FailTimeout',
+      maxFails: 'MaxFails',
+      mode: 'Mode',
+      readTimeout: 'ReadTimeout',
+      sendTimeout: 'SendTimeout',
       weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      connectTimeout: 'number',
+      failTimeout: 'number',
+      maxFails: 'number',
+      mode: 'string',
+      readTimeout: 'number',
+      sendTimeout: 'number',
       weight: 'number',
     };
   }
@@ -15960,6 +15984,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.upstreamRetry)) {
+      query["UpstreamRetry"] = request.upstreamRetry;
     }
 
     let req = new $OpenApi.OpenApiRequest({
