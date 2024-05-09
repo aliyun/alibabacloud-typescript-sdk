@@ -3797,6 +3797,7 @@ export class CreateOrUpdateAlertRuleResponse extends $tea.Model {
 export class CreateOrUpdateContactRequest extends $tea.Model {
   contactId?: number;
   contactName?: string;
+  corpUserId?: string;
   dingRobotUrl?: string;
   email?: string;
   isEmailVerify?: boolean;
@@ -3807,6 +3808,7 @@ export class CreateOrUpdateContactRequest extends $tea.Model {
     return {
       contactId: 'ContactId',
       contactName: 'ContactName',
+      corpUserId: 'CorpUserId',
       dingRobotUrl: 'DingRobotUrl',
       email: 'Email',
       isEmailVerify: 'IsEmailVerify',
@@ -3820,6 +3822,7 @@ export class CreateOrUpdateContactRequest extends $tea.Model {
     return {
       contactId: 'number',
       contactName: 'string',
+      corpUserId: 'string',
       dingRobotUrl: 'string',
       email: 'string',
       isEmailVerify: 'boolean',
@@ -4785,6 +4788,210 @@ export class CreateRetcodeAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateRetcodeAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRumAppRequest extends $tea.Model {
+  appGroup?: string;
+  appName?: string;
+  description?: string;
+  packageName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  siteType?: string;
+  source?: string;
+  tag?: CreateRumAppRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      appGroup: 'AppGroup',
+      appName: 'AppName',
+      description: 'Description',
+      packageName: 'PackageName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      siteType: 'SiteType',
+      source: 'Source',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appGroup: 'string',
+      appName: 'string',
+      description: 'string',
+      packageName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      siteType: 'string',
+      source: 'string',
+      tag: { 'type': 'array', 'itemType': CreateRumAppRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRumAppResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  resourceGroupId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRumAppResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRumAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRumAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRumUploadFileUrlRequest extends $tea.Model {
+  appName?: string;
+  contentType?: string;
+  fileName?: string;
+  pid?: string;
+  regionId?: string;
+  sourcemapType?: string;
+  uuid?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      contentType: 'ContentType',
+      fileName: 'FileName',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      sourcemapType: 'SourcemapType',
+      uuid: 'Uuid',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      contentType: 'string',
+      fileName: 'string',
+      pid: 'string',
+      regionId: 'string',
+      sourcemapType: 'string',
+      uuid: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRumUploadFileUrlResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRumUploadFileUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRumUploadFileUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRumUploadFileUrlResponseBody,
     };
   }
 
@@ -7358,6 +7565,183 @@ export class DeleteRetcodeAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteRetcodeAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRumAppRequest extends $tea.Model {
+  appGroup?: string;
+  appId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appGroup: 'AppGroup',
+      appId: 'AppId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appGroup: 'string',
+      appId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRumAppResponseBody extends $tea.Model {
+  code?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  resourceGroupId?: string;
+  result?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      result: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRumAppResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRumAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRumAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRumUploadFileRequest extends $tea.Model {
+  fileName?: string;
+  pid?: string;
+  regionId?: string;
+  uuid?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      uuid: 'Uuid',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      pid: 'string',
+      regionId: 'string',
+      uuid: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRumUploadFileResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRumUploadFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRumUploadFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRumUploadFileResponseBody,
     };
   }
 
@@ -10963,6 +11347,456 @@ export class GetRetcodeShareUrlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRetcodeShareUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppInfoRequest extends $tea.Model {
+  appGroup?: string;
+  pid?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appGroup: 'AppGroup',
+      pid: 'Pid',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appGroup: 'string',
+      pid: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppInfoResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetRumAppInfoResponseBodyData;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetRumAppInfoResponseBodyData,
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRumAppInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRumAppInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppsRequest extends $tea.Model {
+  appGroup?: string;
+  appId?: string;
+  appName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tags?: GetRumAppsRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      appGroup: 'AppGroup',
+      appId: 'AppId',
+      appName: 'AppName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appGroup: 'string',
+      appId: 'string',
+      appName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': GetRumAppsRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppsResponseBody extends $tea.Model {
+  appList?: GetRumAppsResponseBodyAppList[];
+  code?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appList: 'AppList',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appList: { 'type': 'array', 'itemType': GetRumAppsResponseBodyAppList },
+      code: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRumAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRumAppsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumDataForPageRequest extends $tea.Model {
+  appGroup?: string;
+  currentPage?: number;
+  endTime?: number;
+  pageSize?: number;
+  pid?: string;
+  query?: string;
+  regionId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appGroup: 'AppGroup',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      pageSize: 'PageSize',
+      pid: 'Pid',
+      query: 'Query',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appGroup: 'string',
+      currentPage: 'number',
+      endTime: 'number',
+      pageSize: 'number',
+      pid: 'string',
+      query: 'string',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumDataForPageResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetRumDataForPageResponseBodyData;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetRumDataForPageResponseBodyData,
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumDataForPageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRumDataForPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRumDataForPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumExceptionStackRequest extends $tea.Model {
+  exceptionBinaryImages?: string;
+  exceptionStack?: string;
+  exceptionThreadId?: string;
+  pid?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exceptionBinaryImages: 'ExceptionBinaryImages',
+      exceptionStack: 'ExceptionStack',
+      exceptionThreadId: 'ExceptionThreadId',
+      pid: 'Pid',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exceptionBinaryImages: 'string',
+      exceptionStack: 'string',
+      exceptionThreadId: 'string',
+      pid: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumExceptionStackResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetRumExceptionStackResponseBodyData;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetRumExceptionStackResponseBodyData,
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumExceptionStackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRumExceptionStackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRumExceptionStackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumUploadFilesRequest extends $tea.Model {
+  appType?: string;
+  pid?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      pid: 'Pid',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      pid: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumUploadFilesResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetRumUploadFilesResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetRumUploadFilesResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumUploadFilesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRumUploadFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRumUploadFilesResponseBody,
     };
   }
 
@@ -20165,6 +20999,189 @@ export class UpdatePrometheusRemoteWriteResponse extends $tea.Model {
   }
 }
 
+export class UpdateRumAppRequest extends $tea.Model {
+  autoRestart?: boolean;
+  description?: string;
+  isSubscribe?: boolean;
+  nickname?: string;
+  pid?: string;
+  regionId?: string;
+  restart?: boolean;
+  serviceDomainOperationJson?: string;
+  stop?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoRestart: 'AutoRestart',
+      description: 'Description',
+      isSubscribe: 'IsSubscribe',
+      nickname: 'Nickname',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      restart: 'Restart',
+      serviceDomainOperationJson: 'ServiceDomainOperationJson',
+      stop: 'Stop',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRestart: 'boolean',
+      description: 'string',
+      isSubscribe: 'boolean',
+      nickname: 'string',
+      pid: 'string',
+      regionId: 'string',
+      restart: 'boolean',
+      serviceDomainOperationJson: 'string',
+      stop: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRumAppResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateRumAppResponseBodyData;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateRumAppResponseBodyData,
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRumAppResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRumAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRumAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRumFileStatusRequest extends $tea.Model {
+  fileName?: string;
+  pid?: string;
+  regionId?: string;
+  size?: string;
+  status?: string;
+  uuid?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      size: 'Size',
+      status: 'Status',
+      uuid: 'Uuid',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      pid: 'string',
+      regionId: 'string',
+      size: 'string',
+      status: 'string',
+      uuid: 'string',
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRumFileStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRumFileStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRumFileStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRumFileStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTimingSyntheticTaskRequest extends $tea.Model {
   availableAssertions?: UpdateTimingSyntheticTaskRequestAvailableAssertions[];
   commonSetting?: UpdateTimingSyntheticTaskRequestCommonSetting;
@@ -22080,6 +23097,28 @@ export class CreateRetcodeAppResponseBodyRetcodeAppDataBean extends $tea.Model {
       pid: 'string',
       resourceGroupId: 'string',
       tags: CreateRetcodeAppResponseBodyRetcodeAppDataBeanTags,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRumAppRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -25653,6 +26692,352 @@ export class GetRetcodeLogstoreResponseBodyData extends $tea.Model {
       message: 'string',
       retcodeSLSConfig: GetRetcodeLogstoreResponseBodyDataRetcodeSLSConfig,
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $tea.Model {
+  description?: string;
+  domain?: string;
+  propagatorTypes?: string[];
+  tracing?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      domain: 'Domain',
+      propagatorTypes: 'PropagatorTypes',
+      tracing: 'Tracing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domain: 'string',
+      propagatorTypes: { 'type': 'array', 'itemType': 'string' },
+      tracing: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppInfoResponseBodyDataTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppInfoResponseBodyData extends $tea.Model {
+  appType?: string;
+  createTime?: string;
+  description?: string;
+  endpoint?: string;
+  isSubscription?: string;
+  name?: string;
+  nickName?: string;
+  packageName?: string;
+  pid?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  serviceDomainConfigs?: GetRumAppInfoResponseBodyDataServiceDomainConfigs[];
+  slsLogstore?: string;
+  slsProject?: string;
+  status?: string;
+  tags?: GetRumAppInfoResponseBodyDataTags[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      createTime: 'CreateTime',
+      description: 'Description',
+      endpoint: 'Endpoint',
+      isSubscription: 'IsSubscription',
+      name: 'Name',
+      nickName: 'NickName',
+      packageName: 'PackageName',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serviceDomainConfigs: 'ServiceDomainConfigs',
+      slsLogstore: 'SlsLogstore',
+      slsProject: 'SlsProject',
+      status: 'Status',
+      tags: 'Tags',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      createTime: 'string',
+      description: 'string',
+      endpoint: 'string',
+      isSubscription: 'string',
+      name: 'string',
+      nickName: 'string',
+      packageName: 'string',
+      pid: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serviceDomainConfigs: { 'type': 'array', 'itemType': GetRumAppInfoResponseBodyDataServiceDomainConfigs },
+      slsLogstore: 'string',
+      slsProject: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': GetRumAppInfoResponseBodyDataTags },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppsRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppsResponseBodyAppListServiceDomainConfigs extends $tea.Model {
+  description?: string;
+  domain?: string;
+  propagatorTypes?: string[];
+  tracing?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      domain: 'Domain',
+      propagatorTypes: 'PropagatorTypes',
+      tracing: 'Tracing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domain: 'string',
+      propagatorTypes: { 'type': 'array', 'itemType': 'string' },
+      tracing: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppsResponseBodyAppListTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumAppsResponseBodyAppList extends $tea.Model {
+  appType?: string;
+  createTime?: any;
+  description?: string;
+  endpoint?: string;
+  isSubscription?: boolean;
+  name?: string;
+  nickName?: string;
+  packageName?: string;
+  pid?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  serviceDomainConfigs?: GetRumAppsResponseBodyAppListServiceDomainConfigs[];
+  slsLogstore?: string;
+  slsProject?: string;
+  status?: string;
+  tags?: GetRumAppsResponseBodyAppListTags[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appType: 'AppType',
+      createTime: 'CreateTime',
+      description: 'Description',
+      endpoint: 'Endpoint',
+      isSubscription: 'IsSubscription',
+      name: 'Name',
+      nickName: 'NickName',
+      packageName: 'PackageName',
+      pid: 'Pid',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serviceDomainConfigs: 'ServiceDomainConfigs',
+      slsLogstore: 'SlsLogstore',
+      slsProject: 'SlsProject',
+      status: 'Status',
+      tags: 'Tags',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appType: 'string',
+      createTime: 'any',
+      description: 'string',
+      endpoint: 'string',
+      isSubscription: 'boolean',
+      name: 'string',
+      nickName: 'string',
+      packageName: 'string',
+      pid: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serviceDomainConfigs: { 'type': 'array', 'itemType': GetRumAppsResponseBodyAppListServiceDomainConfigs },
+      slsLogstore: 'string',
+      slsProject: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': GetRumAppsResponseBodyAppListTags },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumDataForPageResponseBodyData extends $tea.Model {
+  authentication?: string;
+  completion?: string;
+  items?: { [key: string]: any }[];
+  page?: string;
+  pageSize?: string;
+  preference?: string;
+  total?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authentication: 'Authentication',
+      completion: 'Completion',
+      items: 'Items',
+      page: 'Page',
+      pageSize: 'PageSize',
+      preference: 'Preference',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authentication: 'string',
+      completion: 'string',
+      items: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      page: 'string',
+      pageSize: 'string',
+      preference: 'string',
+      total: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumExceptionStackResponseBodyData extends $tea.Model {
+  lines?: string[];
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lines: 'Lines',
+      threadId: 'ThreadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lines: { 'type': 'array', 'itemType': 'string' },
+      threadId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumUploadFilesResponseBodyData extends $tea.Model {
+  fileName?: string;
+  lastModifiedTime?: any;
+  size?: string;
+  uuid?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      lastModifiedTime: 'LastModifiedTime',
+      size: 'Size',
+      uuid: 'Uuid',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      lastModifiedTime: 'any',
+      size: 'string',
+      uuid: 'string',
+      versionId: 'string',
     };
   }
 
@@ -32655,6 +34040,34 @@ export class UpdatePrometheusIntegrationResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpdateRumAppResponseBodyData extends $tea.Model {
+  config?: string;
+  limit?: number;
+  limited?: boolean;
+  usage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      limit: 'Limit',
+      limited: 'Limited',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      limit: 'number',
+      limited: 'boolean',
+      usage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTimingSyntheticTaskRequestAvailableAssertions extends $tea.Model {
   expect?: string;
   operator?: string;
@@ -34915,6 +36328,10 @@ export default class Client extends OpenApi {
       body["ContactName"] = request.contactName;
     }
 
+    if (!Util.isUnset(request.corpUserId)) {
+      body["CorpUserId"] = request.corpUserId;
+    }
+
     if (!Util.isUnset(request.email)) {
       body["Email"] = request.email;
     }
@@ -35536,6 +36953,124 @@ export default class Client extends OpenApi {
   async createRetcodeApp(request: CreateRetcodeAppRequest): Promise<CreateRetcodeAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRetcodeAppWithOptions(request, runtime);
+  }
+
+  async createRumAppWithOptions(request: CreateRumAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateRumAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appGroup)) {
+      query["AppGroup"] = request.appGroup;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.packageName)) {
+      query["PackageName"] = request.packageName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.siteType)) {
+      query["SiteType"] = request.siteType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRumApp",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRumAppResponse>(await this.callApi(params, req, runtime), new CreateRumAppResponse({}));
+  }
+
+  async createRumApp(request: CreateRumAppRequest): Promise<CreateRumAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRumAppWithOptions(request, runtime);
+  }
+
+  async createRumUploadFileUrlWithOptions(request: CreateRumUploadFileUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateRumUploadFileUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourcemapType)) {
+      query["SourcemapType"] = request.sourcemapType;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRumUploadFileUrl",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRumUploadFileUrlResponse>(await this.callApi(params, req, runtime), new CreateRumUploadFileUrlResponse({}));
+  }
+
+  async createRumUploadFileUrl(request: CreateRumUploadFileUrlRequest): Promise<CreateRumUploadFileUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRumUploadFileUrlWithOptions(request, runtime);
   }
 
   async createSyntheticTaskWithOptions(tmpReq: CreateSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateSyntheticTaskResponse> {
@@ -36849,6 +38384,88 @@ export default class Client extends OpenApi {
   async deleteRetcodeApp(request: DeleteRetcodeAppRequest): Promise<DeleteRetcodeAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRetcodeAppWithOptions(request, runtime);
+  }
+
+  async deleteRumAppWithOptions(request: DeleteRumAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRumAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appGroup)) {
+      query["AppGroup"] = request.appGroup;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRumApp",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRumAppResponse>(await this.callApi(params, req, runtime), new DeleteRumAppResponse({}));
+  }
+
+  async deleteRumApp(request: DeleteRumAppRequest): Promise<DeleteRumAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRumAppWithOptions(request, runtime);
+  }
+
+  async deleteRumUploadFileWithOptions(request: DeleteRumUploadFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRumUploadFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRumUploadFile",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRumUploadFileResponse>(await this.callApi(params, req, runtime), new DeleteRumUploadFileResponse({}));
+  }
+
+  async deleteRumUploadFile(request: DeleteRumUploadFileRequest): Promise<DeleteRumUploadFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRumUploadFileWithOptions(request, runtime);
   }
 
   async deleteScenarioWithOptions(request: DeleteScenarioRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScenarioResponse> {
@@ -38590,6 +40207,231 @@ export default class Client extends OpenApi {
   async getRetcodeShareUrl(request: GetRetcodeShareUrlRequest): Promise<GetRetcodeShareUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRetcodeShareUrlWithOptions(request, runtime);
+  }
+
+  async getRumAppInfoWithOptions(request: GetRumAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetRumAppInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appGroup)) {
+      query["AppGroup"] = request.appGroup;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRumAppInfo",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRumAppInfoResponse>(await this.callApi(params, req, runtime), new GetRumAppInfoResponse({}));
+  }
+
+  async getRumAppInfo(request: GetRumAppInfoRequest): Promise<GetRumAppInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRumAppInfoWithOptions(request, runtime);
+  }
+
+  async getRumAppsWithOptions(request: GetRumAppsRequest, runtime: $Util.RuntimeOptions): Promise<GetRumAppsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appGroup)) {
+      query["AppGroup"] = request.appGroup;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRumApps",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRumAppsResponse>(await this.callApi(params, req, runtime), new GetRumAppsResponse({}));
+  }
+
+  async getRumApps(request: GetRumAppsRequest): Promise<GetRumAppsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRumAppsWithOptions(request, runtime);
+  }
+
+  async getRumDataForPageWithOptions(request: GetRumDataForPageRequest, runtime: $Util.RuntimeOptions): Promise<GetRumDataForPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appGroup)) {
+      query["AppGroup"] = request.appGroup;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRumDataForPage",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRumDataForPageResponse>(await this.callApi(params, req, runtime), new GetRumDataForPageResponse({}));
+  }
+
+  async getRumDataForPage(request: GetRumDataForPageRequest): Promise<GetRumDataForPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRumDataForPageWithOptions(request, runtime);
+  }
+
+  async getRumExceptionStackWithOptions(request: GetRumExceptionStackRequest, runtime: $Util.RuntimeOptions): Promise<GetRumExceptionStackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.exceptionBinaryImages)) {
+      query["ExceptionBinaryImages"] = request.exceptionBinaryImages;
+    }
+
+    if (!Util.isUnset(request.exceptionStack)) {
+      query["ExceptionStack"] = request.exceptionStack;
+    }
+
+    if (!Util.isUnset(request.exceptionThreadId)) {
+      query["ExceptionThreadId"] = request.exceptionThreadId;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRumExceptionStack",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRumExceptionStackResponse>(await this.callApi(params, req, runtime), new GetRumExceptionStackResponse({}));
+  }
+
+  async getRumExceptionStack(request: GetRumExceptionStackRequest): Promise<GetRumExceptionStackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRumExceptionStackWithOptions(request, runtime);
+  }
+
+  async getRumUploadFilesWithOptions(request: GetRumUploadFilesRequest, runtime: $Util.RuntimeOptions): Promise<GetRumUploadFilesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRumUploadFiles",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRumUploadFilesResponse>(await this.callApi(params, req, runtime), new GetRumUploadFilesResponse({}));
+  }
+
+  async getRumUploadFiles(request: GetRumUploadFilesRequest): Promise<GetRumUploadFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRumUploadFilesWithOptions(request, runtime);
   }
 
   async getSourceMapInfoWithOptions(request: GetSourceMapInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetSourceMapInfoResponse> {
@@ -43642,6 +45484,120 @@ export default class Client extends OpenApi {
   async updatePrometheusRemoteWrite(request: UpdatePrometheusRemoteWriteRequest): Promise<UpdatePrometheusRemoteWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusRemoteWriteWithOptions(request, runtime);
+  }
+
+  async updateRumAppWithOptions(request: UpdateRumAppRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRumAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoRestart)) {
+      query["AutoRestart"] = request.autoRestart;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.isSubscribe)) {
+      query["IsSubscribe"] = request.isSubscribe;
+    }
+
+    if (!Util.isUnset(request.nickname)) {
+      query["Nickname"] = request.nickname;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.restart)) {
+      query["Restart"] = request.restart;
+    }
+
+    if (!Util.isUnset(request.serviceDomainOperationJson)) {
+      query["ServiceDomainOperationJson"] = request.serviceDomainOperationJson;
+    }
+
+    if (!Util.isUnset(request.stop)) {
+      query["Stop"] = request.stop;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRumApp",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRumAppResponse>(await this.callApi(params, req, runtime), new UpdateRumAppResponse({}));
+  }
+
+  async updateRumApp(request: UpdateRumAppRequest): Promise<UpdateRumAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRumAppWithOptions(request, runtime);
+  }
+
+  async updateRumFileStatusWithOptions(request: UpdateRumFileStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRumFileStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRumFileStatus",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRumFileStatusResponse>(await this.callApi(params, req, runtime), new UpdateRumFileStatusResponse({}));
+  }
+
+  async updateRumFileStatus(request: UpdateRumFileStatusRequest): Promise<UpdateRumFileStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRumFileStatusWithOptions(request, runtime);
   }
 
   async updateTimingSyntheticTaskWithOptions(tmpReq: UpdateTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTimingSyntheticTaskResponse> {
