@@ -1713,11 +1713,13 @@ export class DeleteAlertContactGroupResponse extends $tea.Model {
 }
 
 export class DeleteClusterRequest extends $tea.Model {
+  deleteOptions?: DeleteClusterRequestDeleteOptions[];
   keepSlb?: boolean;
   retainAllResources?: boolean;
   retainResources?: string[];
   static names(): { [key: string]: string } {
     return {
+      deleteOptions: 'delete_options',
       keepSlb: 'keep_slb',
       retainAllResources: 'retain_all_resources',
       retainResources: 'retain_resources',
@@ -1726,6 +1728,7 @@ export class DeleteClusterRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deleteOptions: { 'type': 'array', 'itemType': DeleteClusterRequestDeleteOptions },
       keepSlb: 'boolean',
       retainAllResources: 'boolean',
       retainResources: { 'type': 'array', 'itemType': 'string' },
@@ -1738,11 +1741,13 @@ export class DeleteClusterRequest extends $tea.Model {
 }
 
 export class DeleteClusterShrinkRequest extends $tea.Model {
+  deleteOptionsShrink?: string;
   keepSlb?: boolean;
   retainAllResources?: boolean;
   retainResourcesShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      deleteOptionsShrink: 'delete_options',
       keepSlb: 'keep_slb',
       retainAllResources: 'retain_all_resources',
       retainResourcesShrink: 'retain_resources',
@@ -1751,6 +1756,7 @@ export class DeleteClusterShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deleteOptionsShrink: 'string',
       keepSlb: 'boolean',
       retainAllResources: 'boolean',
       retainResourcesShrink: 'string',
@@ -9180,6 +9186,28 @@ export class DeleteAlertContactGroupResponseBody extends $tea.Model {
   }
 }
 
+export class DeleteClusterRequestDeleteOptions extends $tea.Model {
+  deleteMode?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteMode: 'delete_mode',
+      resourceType: 'resource_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteMode: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddonResponseBodyNewerVersions extends $tea.Model {
   minimumClusterVersion?: string;
   upgradable?: boolean;
@@ -14444,11 +14472,19 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DeleteClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deleteOptions)) {
+      request.deleteOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteOptions, "delete_options", "json");
+    }
+
     if (!Util.isUnset(tmpReq.retainResources)) {
       request.retainResourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retainResources, "retain_resources", "json");
     }
 
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deleteOptionsShrink)) {
+      query["delete_options"] = request.deleteOptionsShrink;
+    }
+
     if (!Util.isUnset(request.keepSlb)) {
       query["keep_slb"] = request.keepSlb;
     }
