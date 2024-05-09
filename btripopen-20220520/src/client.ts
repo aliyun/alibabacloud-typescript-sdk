@@ -2165,6 +2165,8 @@ export class ApplyAddRequest extends $tea.Model {
   itineraryRule?: number;
   itinerarySetList?: ApplyAddRequestItinerarySetList[];
   limitTraveler?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   status?: number;
   subCorpId?: string;
   thirdpartApplyId?: string;
@@ -2201,6 +2203,8 @@ export class ApplyAddRequest extends $tea.Model {
       itineraryRule: 'itinerary_rule',
       itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       status: 'status',
       subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -2240,6 +2244,8 @@ export class ApplyAddRequest extends $tea.Model {
       itineraryRule: 'number',
       itinerarySetList: { 'type': 'array', 'itemType': ApplyAddRequestItinerarySetList },
       limitTraveler: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       status: 'number',
       subCorpId: 'string',
       thirdpartApplyId: 'string',
@@ -2283,6 +2289,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
   itineraryRule?: number;
   itinerarySetListShrink?: string;
   limitTraveler?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   status?: number;
   subCorpId?: string;
   thirdpartApplyId?: string;
@@ -2319,6 +2327,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       itineraryRule: 'itinerary_rule',
       itinerarySetListShrink: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       status: 'status',
       subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -2358,6 +2368,8 @@ export class ApplyAddShrinkRequest extends $tea.Model {
       itineraryRule: 'number',
       itinerarySetListShrink: 'string',
       limitTraveler: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       status: 'number',
       subCorpId: 'string',
       thirdpartApplyId: 'string',
@@ -2985,6 +2997,8 @@ export class ApplyModifyRequest extends $tea.Model {
   itineraryRule?: number;
   itinerarySetList?: ApplyModifyRequestItinerarySetList[];
   limitTraveler?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   status?: number;
   subCorpId?: string;
   thirdpartApplyId?: string;
@@ -3019,6 +3033,8 @@ export class ApplyModifyRequest extends $tea.Model {
       itineraryRule: 'itinerary_rule',
       itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       status: 'status',
       subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -3056,6 +3072,8 @@ export class ApplyModifyRequest extends $tea.Model {
       itineraryRule: 'number',
       itinerarySetList: { 'type': 'array', 'itemType': ApplyModifyRequestItinerarySetList },
       limitTraveler: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       status: 'number',
       subCorpId: 'string',
       thirdpartApplyId: 'string',
@@ -3097,6 +3115,8 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
   itineraryRule?: number;
   itinerarySetListShrink?: string;
   limitTraveler?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   status?: number;
   subCorpId?: string;
   thirdpartApplyId?: string;
@@ -3131,6 +3151,8 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
       itineraryRule: 'itinerary_rule',
       itinerarySetListShrink: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       status: 'status',
       subCorpId: 'sub_corp_id',
       thirdpartApplyId: 'thirdpart_apply_id',
@@ -3168,6 +3190,8 @@ export class ApplyModifyShrinkRequest extends $tea.Model {
       itineraryRule: 'number',
       itinerarySetListShrink: 'string',
       limitTraveler: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       status: 'number',
       subCorpId: 'string',
       thirdpartApplyId: 'string',
@@ -8117,11 +8141,13 @@ export class FlightModifyListingSearchV2Headers extends $tea.Model {
 export class FlightModifyListingSearchV2Request extends $tea.Model {
   cabinClass?: number[];
   depDate?: string[];
+  interfaceCallerIsSupportRetry?: boolean;
   isvName?: string;
   orderId?: number;
   outOrderId?: string;
   passengerSegmentRelations?: FlightModifyListingSearchV2RequestPassengerSegmentRelations[];
   searchMode?: number;
+  searchRetryToken?: string;
   selectedSegments?: FlightModifyListingSearchV2RequestSelectedSegments[];
   sessionId?: string;
   voluntary?: boolean;
@@ -8129,11 +8155,13 @@ export class FlightModifyListingSearchV2Request extends $tea.Model {
     return {
       cabinClass: 'cabin_class',
       depDate: 'dep_date',
+      interfaceCallerIsSupportRetry: 'interface_caller_is_support_retry',
       isvName: 'isv_name',
       orderId: 'order_id',
       outOrderId: 'out_order_id',
       passengerSegmentRelations: 'passenger_segment_relations',
       searchMode: 'search_mode',
+      searchRetryToken: 'search_retry_token',
       selectedSegments: 'selected_segments',
       sessionId: 'session_id',
       voluntary: 'voluntary',
@@ -8144,11 +8172,13 @@ export class FlightModifyListingSearchV2Request extends $tea.Model {
     return {
       cabinClass: { 'type': 'array', 'itemType': 'number' },
       depDate: { 'type': 'array', 'itemType': 'string' },
+      interfaceCallerIsSupportRetry: 'boolean',
       isvName: 'string',
       orderId: 'number',
       outOrderId: 'string',
       passengerSegmentRelations: { 'type': 'array', 'itemType': FlightModifyListingSearchV2RequestPassengerSegmentRelations },
       searchMode: 'number',
+      searchRetryToken: 'string',
       selectedSegments: { 'type': 'array', 'itemType': FlightModifyListingSearchV2RequestSelectedSegments },
       sessionId: 'string',
       voluntary: 'boolean',
@@ -8163,11 +8193,13 @@ export class FlightModifyListingSearchV2Request extends $tea.Model {
 export class FlightModifyListingSearchV2ShrinkRequest extends $tea.Model {
   cabinClassShrink?: string;
   depDateShrink?: string;
+  interfaceCallerIsSupportRetry?: boolean;
   isvName?: string;
   orderId?: number;
   outOrderId?: string;
   passengerSegmentRelationsShrink?: string;
   searchMode?: number;
+  searchRetryToken?: string;
   selectedSegmentsShrink?: string;
   sessionId?: string;
   voluntary?: boolean;
@@ -8175,11 +8207,13 @@ export class FlightModifyListingSearchV2ShrinkRequest extends $tea.Model {
     return {
       cabinClassShrink: 'cabin_class',
       depDateShrink: 'dep_date',
+      interfaceCallerIsSupportRetry: 'interface_caller_is_support_retry',
       isvName: 'isv_name',
       orderId: 'order_id',
       outOrderId: 'out_order_id',
       passengerSegmentRelationsShrink: 'passenger_segment_relations',
       searchMode: 'search_mode',
+      searchRetryToken: 'search_retry_token',
       selectedSegmentsShrink: 'selected_segments',
       sessionId: 'session_id',
       voluntary: 'voluntary',
@@ -8190,11 +8224,13 @@ export class FlightModifyListingSearchV2ShrinkRequest extends $tea.Model {
     return {
       cabinClassShrink: 'string',
       depDateShrink: 'string',
+      interfaceCallerIsSupportRetry: 'boolean',
       isvName: 'string',
       orderId: 'number',
       outOrderId: 'string',
       passengerSegmentRelationsShrink: 'string',
       searchMode: 'number',
+      searchRetryToken: 'string',
       selectedSegmentsShrink: 'string',
       sessionId: 'string',
       voluntary: 'boolean',
@@ -10837,6 +10873,7 @@ export class GroupCorpTokenResponseBody extends $tea.Model {
   message?: string;
   module?: GroupCorpTokenResponseBodyModule;
   requestId?: string;
+  success?: string;
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10844,6 +10881,7 @@ export class GroupCorpTokenResponseBody extends $tea.Model {
       message: 'message',
       module: 'module',
       requestId: 'requestId',
+      success: 'success',
       traceId: 'traceId',
     };
   }
@@ -10854,6 +10892,7 @@ export class GroupCorpTokenResponseBody extends $tea.Model {
       message: 'string',
       module: GroupCorpTokenResponseBodyModule,
       requestId: 'string',
+      success: 'string',
       traceId: 'string',
     };
   }
@@ -17053,10 +17092,12 @@ export class InvoiceSearchHeaders extends $tea.Model {
 }
 
 export class InvoiceSearchRequest extends $tea.Model {
+  thirdPartId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      thirdPartId: 'third_part_id',
       title: 'title',
       userId: 'user_id',
     };
@@ -17064,6 +17105,7 @@ export class InvoiceSearchRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      thirdPartId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -19570,6 +19612,298 @@ export class TicketChangingPayResponse extends $tea.Model {
   }
 }
 
+export class TrainApplyChangeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyChangeRequest extends $tea.Model {
+  acceptNoSeat?: string;
+  changeTrainInfoS?: TrainApplyChangeRequestChangeTrainInfoS[];
+  forceMatch?: string;
+  isPayNow?: boolean;
+  orderId?: string;
+  outChangeApplyId?: string;
+  outOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptNoSeat: 'accept_no_seat',
+      changeTrainInfoS: 'change_train_info_s',
+      forceMatch: 'force_match',
+      isPayNow: 'is_pay_now',
+      orderId: 'order_id',
+      outChangeApplyId: 'out_change_apply_id',
+      outOrderId: 'out_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptNoSeat: 'string',
+      changeTrainInfoS: { 'type': 'array', 'itemType': TrainApplyChangeRequestChangeTrainInfoS },
+      forceMatch: 'string',
+      isPayNow: 'boolean',
+      orderId: 'string',
+      outChangeApplyId: 'string',
+      outOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyChangeShrinkRequest extends $tea.Model {
+  acceptNoSeat?: string;
+  changeTrainInfoSShrink?: string;
+  forceMatch?: string;
+  isPayNow?: boolean;
+  orderId?: string;
+  outChangeApplyId?: string;
+  outOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptNoSeat: 'accept_no_seat',
+      changeTrainInfoSShrink: 'change_train_info_s',
+      forceMatch: 'force_match',
+      isPayNow: 'is_pay_now',
+      orderId: 'order_id',
+      outChangeApplyId: 'out_change_apply_id',
+      outOrderId: 'out_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptNoSeat: 'string',
+      changeTrainInfoSShrink: 'string',
+      forceMatch: 'string',
+      isPayNow: 'boolean',
+      orderId: 'string',
+      outChangeApplyId: 'string',
+      outOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyChangeResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainApplyChangeResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainApplyChangeResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyChangeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainApplyChangeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainApplyChangeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyRefundHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyRefundRequest extends $tea.Model {
+  orderId?: string;
+  outOrderId?: string;
+  outRefundId?: string;
+  refundTrainInfos?: TrainApplyRefundRequestRefundTrainInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      outRefundId: 'out_refund_id',
+      refundTrainInfos: 'refund_train_infos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      outOrderId: 'string',
+      outRefundId: 'string',
+      refundTrainInfos: { 'type': 'array', 'itemType': TrainApplyRefundRequestRefundTrainInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyRefundShrinkRequest extends $tea.Model {
+  orderId?: string;
+  outOrderId?: string;
+  outRefundId?: string;
+  refundTrainInfosShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      outRefundId: 'out_refund_id',
+      refundTrainInfosShrink: 'refund_train_infos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      outOrderId: 'string',
+      outRefundId: 'string',
+      refundTrainInfosShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyRefundResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainApplyRefundResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainApplyRefundResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyRefundResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainApplyRefundResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainApplyRefundResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrainBillSettlementQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -19779,6 +20113,1029 @@ export class TrainExceedApplyQueryResponse extends $tea.Model {
   }
 }
 
+export class TrainFeeCalculateChangeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeRequest extends $tea.Model {
+  changeTrainDetails?: TrainFeeCalculateChangeRequestChangeTrainDetails[];
+  distributeOrderId?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeTrainDetails: 'change_train_details',
+      distributeOrderId: 'distribute_order_id',
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeTrainDetails: { 'type': 'array', 'itemType': TrainFeeCalculateChangeRequestChangeTrainDetails },
+      distributeOrderId: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeShrinkRequest extends $tea.Model {
+  changeTrainDetailsShrink?: string;
+  distributeOrderId?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeTrainDetailsShrink: 'change_train_details',
+      distributeOrderId: 'distribute_order_id',
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeTrainDetailsShrink: 'string',
+      distributeOrderId: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainFeeCalculateChangeResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainFeeCalculateChangeResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainFeeCalculateChangeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainFeeCalculateChangeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundRequest extends $tea.Model {
+  distributeOrderId?: string;
+  orderId?: string;
+  refundTrainInfos?: TrainFeeCalculateRefundRequestRefundTrainInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      distributeOrderId: 'distribute_order_id',
+      orderId: 'order_id',
+      refundTrainInfos: 'refund_train_infos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributeOrderId: 'string',
+      orderId: 'string',
+      refundTrainInfos: { 'type': 'array', 'itemType': TrainFeeCalculateRefundRequestRefundTrainInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundShrinkRequest extends $tea.Model {
+  distributeOrderId?: string;
+  orderId?: string;
+  refundTrainInfosShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      distributeOrderId: 'distribute_order_id',
+      orderId: 'order_id',
+      refundTrainInfosShrink: 'refund_train_infos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributeOrderId: 'string',
+      orderId: 'string',
+      refundTrainInfosShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainFeeCalculateRefundResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainFeeCalculateRefundResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainFeeCalculateRefundResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainFeeCalculateRefundResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchRequest extends $tea.Model {
+  arrLocation?: string;
+  depDate?: string;
+  depLocation?: string;
+  lineKey?: string;
+  middleDate?: string;
+  middleStation?: string;
+  orderId?: string;
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrLocation: 'arr_location',
+      depDate: 'dep_date',
+      depLocation: 'dep_location',
+      lineKey: 'line_key',
+      middleDate: 'middle_date',
+      middleStation: 'middle_station',
+      orderId: 'order_id',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrLocation: 'string',
+      depDate: 'string',
+      depLocation: 'string',
+      lineKey: 'string',
+      middleDate: 'string',
+      middleStation: 'string',
+      orderId: 'string',
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainNoInfoSearchResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainNoInfoSearchResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainNoInfoSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainNoInfoSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchRequest extends $tea.Model {
+  arrLocation?: string;
+  depDate?: string;
+  depLocation?: string;
+  option?: TrainNoListSearchRequestOption;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrLocation: 'arr_location',
+      depDate: 'dep_date',
+      depLocation: 'dep_location',
+      option: 'option',
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrLocation: 'string',
+      depDate: 'string',
+      depLocation: 'string',
+      option: TrainNoListSearchRequestOption,
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchShrinkRequest extends $tea.Model {
+  arrLocation?: string;
+  depDate?: string;
+  depLocation?: string;
+  optionShrink?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrLocation: 'arr_location',
+      depDate: 'dep_date',
+      depLocation: 'dep_location',
+      optionShrink: 'option',
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrLocation: 'string',
+      depDate: 'string',
+      depLocation: 'string',
+      optionShrink: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainNoListSearchResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainNoListSearchResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainNoListSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainNoListSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCancelHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCancelRequest extends $tea.Model {
+  changeOrderId?: string;
+  orderId?: string;
+  outChangeOrderId?: string;
+  outOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeOrderId: 'change_order_id',
+      orderId: 'order_id',
+      outChangeOrderId: 'out_change_order_id',
+      outOrderId: 'out_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeOrderId: 'string',
+      orderId: 'string',
+      outChangeOrderId: 'string',
+      outOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCancelResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainOrderCancelResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainOrderCancelResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCancelResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainOrderCancelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainOrderCancelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderChangeConfirmHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderChangeConfirmRequest extends $tea.Model {
+  changeApplyId?: string;
+  changeSettleAmount?: number;
+  orderId?: string;
+  outChangeApplyId?: string;
+  outOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeApplyId: 'change_apply_id',
+      changeSettleAmount: 'change_settle_amount',
+      orderId: 'order_id',
+      outChangeApplyId: 'out_change_apply_id',
+      outOrderId: 'out_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeApplyId: 'string',
+      changeSettleAmount: 'number',
+      orderId: 'string',
+      outChangeApplyId: 'string',
+      outOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderChangeConfirmResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainOrderChangeConfirmResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainOrderChangeConfirmResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderChangeConfirmResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainOrderChangeConfirmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainOrderChangeConfirmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateRequest extends $tea.Model {
+  acceptNoSeat?: string;
+  bookTrainInfos?: TrainOrderCreateRequestBookTrainInfos[];
+  btripUserId?: string;
+  btripUserName?: string;
+  businessInfo?: TrainOrderCreateRequestBusinessInfo;
+  contactInfo?: TrainOrderCreateRequestContactInfo;
+  forceMatch?: string;
+  isPayNow?: boolean;
+  outOrderId?: string;
+  passengerOpenInfoS?: TrainOrderCreateRequestPassengerOpenInfoS[];
+  static names(): { [key: string]: string } {
+    return {
+      acceptNoSeat: 'accept_no_seat',
+      bookTrainInfos: 'book_train_infos',
+      btripUserId: 'btrip_user_id',
+      btripUserName: 'btrip_user_name',
+      businessInfo: 'business_info',
+      contactInfo: 'contact_info',
+      forceMatch: 'force_match',
+      isPayNow: 'is_pay_now',
+      outOrderId: 'out_order_id',
+      passengerOpenInfoS: 'passenger_open_info_s',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptNoSeat: 'string',
+      bookTrainInfos: { 'type': 'array', 'itemType': TrainOrderCreateRequestBookTrainInfos },
+      btripUserId: 'string',
+      btripUserName: 'string',
+      businessInfo: TrainOrderCreateRequestBusinessInfo,
+      contactInfo: TrainOrderCreateRequestContactInfo,
+      forceMatch: 'string',
+      isPayNow: 'boolean',
+      outOrderId: 'string',
+      passengerOpenInfoS: { 'type': 'array', 'itemType': TrainOrderCreateRequestPassengerOpenInfoS },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateShrinkRequest extends $tea.Model {
+  acceptNoSeat?: string;
+  bookTrainInfosShrink?: string;
+  btripUserId?: string;
+  btripUserName?: string;
+  businessInfoShrink?: string;
+  contactInfoShrink?: string;
+  forceMatch?: string;
+  isPayNow?: boolean;
+  outOrderId?: string;
+  passengerOpenInfoSShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptNoSeat: 'accept_no_seat',
+      bookTrainInfosShrink: 'book_train_infos',
+      btripUserId: 'btrip_user_id',
+      btripUserName: 'btrip_user_name',
+      businessInfoShrink: 'business_info',
+      contactInfoShrink: 'contact_info',
+      forceMatch: 'force_match',
+      isPayNow: 'is_pay_now',
+      outOrderId: 'out_order_id',
+      passengerOpenInfoSShrink: 'passenger_open_info_s',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptNoSeat: 'string',
+      bookTrainInfosShrink: 'string',
+      btripUserId: 'string',
+      btripUserName: 'string',
+      businessInfoShrink: 'string',
+      contactInfoShrink: 'string',
+      forceMatch: 'string',
+      isPayNow: 'boolean',
+      outOrderId: 'string',
+      passengerOpenInfoSShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainOrderCreateResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainOrderCreateResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainOrderCreateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainOrderCreateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryRequest extends $tea.Model {
+  orderId?: string;
+  outOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      outOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainOrderDetailQueryResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainOrderDetailQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainOrderDetailQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainOrderDetailQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrainOrderListQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -19904,6 +21261,112 @@ export class TrainOrderListQueryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TrainOrderListQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderPayHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderPayRequest extends $tea.Model {
+  orderId?: string;
+  outOrderId?: string;
+  payAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      payAmount: 'pay_amount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      outOrderId: 'string',
+      payAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderPayResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainOrderPayResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: TrainOrderPayResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderPayResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainOrderPayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainOrderPayResponseBody,
     };
   }
 
@@ -20210,6 +21673,115 @@ export class TrainStationSearchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TrainStationSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStopoverSearchHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStopoverSearchRequest extends $tea.Model {
+  arrStation?: string;
+  depStation?: string;
+  trainDate?: string;
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStation: 'arr_station',
+      depStation: 'dep_station',
+      trainDate: 'train_date',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStation: 'string',
+      depStation: 'string',
+      trainDate: 'string',
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStopoverSearchResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: TrainStopoverSearchResponseBodyModule[];
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: { 'type': 'array', 'itemType': TrainStopoverSearchResponseBodyModule },
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStopoverSearchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TrainStopoverSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TrainStopoverSearchResponseBody,
     };
   }
 
@@ -22440,10 +24012,30 @@ export class ApplyAddRequestCarRule extends $tea.Model {
 }
 
 export class ApplyAddRequestExternalTravelerList extends $tea.Model {
+  attribute?: string;
+  costCenterId?: number;
+  invoiceId?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartDepartId?: string;
   userName?: string;
   userNameEn?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'attribute',
+      costCenterId: 'cost_center_id',
+      invoiceId: 'invoice_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       userName: 'user_name',
       userNameEn: 'user_name_en',
     };
@@ -22451,6 +24043,16 @@ export class ApplyAddRequestExternalTravelerList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
+      costCenterId: 'number',
+      invoiceId: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartDepartId: 'string',
       userName: 'string',
       userNameEn: 'string',
     };
@@ -22617,6 +24219,7 @@ export class ApplyAddRequestItineraryList extends $tea.Model {
   arrCity?: string;
   arrCityCode?: string;
   arrDate?: string;
+  attribute?: string;
   costCenterId?: number;
   depCity?: string;
   depCityCode?: string;
@@ -22637,6 +24240,7 @@ export class ApplyAddRequestItineraryList extends $tea.Model {
       arrCity: 'arr_city',
       arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
+      attribute: 'attribute',
       costCenterId: 'cost_center_id',
       depCity: 'dep_city',
       depCityCode: 'dep_city_code',
@@ -22660,6 +24264,7 @@ export class ApplyAddRequestItineraryList extends $tea.Model {
       arrCity: 'string',
       arrCityCode: 'string',
       arrDate: 'string',
+      attribute: 'string',
       costCenterId: 'number',
       depCity: 'string',
       depCityCode: 'string',
@@ -22704,6 +24309,7 @@ export class ApplyAddRequestItinerarySetListItineraryTravelStandard extends $tea
 
 export class ApplyAddRequestItinerarySetList extends $tea.Model {
   arrDate?: string;
+  attribute?: string;
   cityCodeSet?: string;
   citySet?: string;
   costCenterId?: number;
@@ -22719,6 +24325,7 @@ export class ApplyAddRequestItinerarySetList extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       arrDate: 'arr_date',
+      attribute: 'attribute',
       cityCodeSet: 'city_code_set',
       citySet: 'city_set',
       costCenterId: 'cost_center_id',
@@ -22737,6 +24344,7 @@ export class ApplyAddRequestItinerarySetList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       arrDate: 'string',
+      attribute: 'string',
       cityCodeSet: 'string',
       citySet: 'string',
       costCenterId: 'number',
@@ -22758,10 +24366,30 @@ export class ApplyAddRequestItinerarySetList extends $tea.Model {
 }
 
 export class ApplyAddRequestTravelerList extends $tea.Model {
+  attribute?: string;
+  costCenterId?: number;
+  invoiceId?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartDepartId?: string;
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'attribute',
+      costCenterId: 'cost_center_id',
+      invoiceId: 'invoice_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       userId: 'user_id',
       userName: 'user_name',
     };
@@ -22769,6 +24397,16 @@ export class ApplyAddRequestTravelerList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
+      costCenterId: 'number',
+      invoiceId: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartDepartId: 'string',
       userId: 'string',
       userName: 'string',
     };
@@ -23113,15 +24751,39 @@ export class ApplyListQueryResponseBodyModuleListCarRule extends $tea.Model {
 }
 
 export class ApplyListQueryResponseBodyModuleListExternalTravelerList extends $tea.Model {
+  attribute?: string;
+  costCenterName?: string;
+  departId?: string;
+  invoiceName?: string;
+  paymentDepartmentName?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdpartDepartId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'attribute',
+      costCenterName: 'cost_center_name',
+      departId: 'depart_id',
+      invoiceName: 'invoice_name',
+      paymentDepartmentName: 'payment_department_name',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdpartDepartId: 'thirdpart_depart_id',
       userName: 'user_name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
+      costCenterName: 'string',
+      departId: 'string',
+      invoiceName: 'string',
+      paymentDepartmentName: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdpartDepartId: 'string',
       userName: 'string',
     };
   }
@@ -23255,14 +24917,30 @@ export class ApplyListQueryResponseBodyModuleListTravelerListCarCitySet extends 
 }
 
 export class ApplyListQueryResponseBodyModuleListTravelerList extends $tea.Model {
+  attribute?: string;
   carCitySet?: ApplyListQueryResponseBodyModuleListTravelerListCarCitySet[];
+  costCenterName?: string;
+  departId?: string;
+  invoiceName?: string;
   jobNo?: string;
+  paymentDepartmentName?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdpartDepartId?: string;
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'attribute',
       carCitySet: 'car_city_set',
+      costCenterName: 'cost_center_name',
+      departId: 'depart_id',
+      invoiceName: 'invoice_name',
       jobNo: 'job_no',
+      paymentDepartmentName: 'payment_department_name',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdpartDepartId: 'thirdpart_depart_id',
       userId: 'user_id',
       userName: 'user_name',
     };
@@ -23270,8 +24948,16 @@ export class ApplyListQueryResponseBodyModuleListTravelerList extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
       carCitySet: { 'type': 'array', 'itemType': ApplyListQueryResponseBodyModuleListTravelerListCarCitySet },
+      costCenterName: 'string',
+      departId: 'string',
+      invoiceName: 'string',
       jobNo: 'string',
+      paymentDepartmentName: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdpartDepartId: 'string',
       userId: 'string',
       userName: 'string',
     };
@@ -23299,6 +24985,8 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
   itineraryRule?: number;
   itinerarySetList?: ApplyListQueryResponseBodyModuleListItinerarySetList[];
   jobNo?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   status?: number;
   statusDesc?: string;
   thirdpartBusinessId?: string;
@@ -23329,6 +25017,8 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
       itineraryRule: 'itinerary_rule',
       itinerarySetList: 'itinerary_set_list',
       jobNo: 'job_no',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       status: 'status',
       statusDesc: 'status_desc',
       thirdpartBusinessId: 'thirdpart_business_id',
@@ -23362,6 +25052,8 @@ export class ApplyListQueryResponseBodyModuleList extends $tea.Model {
       itineraryRule: 'number',
       itinerarySetList: { 'type': 'array', 'itemType': ApplyListQueryResponseBodyModuleListItinerarySetList },
       jobNo: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       status: 'number',
       statusDesc: 'string',
       thirdpartBusinessId: 'string',
@@ -23405,10 +25097,30 @@ export class ApplyModifyRequestCarRule extends $tea.Model {
 }
 
 export class ApplyModifyRequestExternalTravelerList extends $tea.Model {
+  attribute?: string;
+  costCenterId?: number;
+  invoiceId?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartDepartId?: string;
   userName?: string;
   userNameEn?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'attribute',
+      costCenterId: 'cost_center_id',
+      invoiceId: 'invoice_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       userName: 'user_name',
       userNameEn: 'user_name_en',
     };
@@ -23416,6 +25128,16 @@ export class ApplyModifyRequestExternalTravelerList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
+      costCenterId: 'number',
+      invoiceId: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartDepartId: 'string',
       userName: 'string',
       userNameEn: 'string',
     };
@@ -23579,6 +25301,7 @@ export class ApplyModifyRequestItineraryList extends $tea.Model {
   arrCity?: string;
   arrCityCode?: string;
   arrDate?: string;
+  attribute?: string;
   costCenterId?: number;
   depCity?: string;
   depCityCode?: string;
@@ -23599,6 +25322,7 @@ export class ApplyModifyRequestItineraryList extends $tea.Model {
       arrCity: 'arr_city',
       arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
+      attribute: 'attribute',
       costCenterId: 'cost_center_id',
       depCity: 'dep_city',
       depCityCode: 'dep_city_code',
@@ -23622,6 +25346,7 @@ export class ApplyModifyRequestItineraryList extends $tea.Model {
       arrCity: 'string',
       arrCityCode: 'string',
       arrDate: 'string',
+      attribute: 'string',
       costCenterId: 'number',
       depCity: 'string',
       depCityCode: 'string',
@@ -23666,6 +25391,7 @@ export class ApplyModifyRequestItinerarySetListItineraryTravelStandard extends $
 
 export class ApplyModifyRequestItinerarySetList extends $tea.Model {
   arrDate?: string;
+  attribute?: string;
   cityCodeSet?: string;
   citySet?: string;
   costCenterId?: number;
@@ -23681,6 +25407,7 @@ export class ApplyModifyRequestItinerarySetList extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       arrDate: 'arr_date',
+      attribute: 'attribute',
       cityCodeSet: 'city_code_set',
       citySet: 'city_set',
       costCenterId: 'cost_center_id',
@@ -23699,6 +25426,7 @@ export class ApplyModifyRequestItinerarySetList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       arrDate: 'string',
+      attribute: 'string',
       cityCodeSet: 'string',
       citySet: 'string',
       costCenterId: 'number',
@@ -23720,10 +25448,30 @@ export class ApplyModifyRequestItinerarySetList extends $tea.Model {
 }
 
 export class ApplyModifyRequestTravelerList extends $tea.Model {
+  attribute?: string;
+  costCenterId?: number;
+  invoiceId?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartDepartId?: string;
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'attribute',
+      costCenterId: 'cost_center_id',
+      invoiceId: 'invoice_id',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       userId: 'user_id',
       userName: 'user_name',
     };
@@ -23731,6 +25479,16 @@ export class ApplyModifyRequestTravelerList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
+      costCenterId: 'number',
+      invoiceId: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartDepartId: 'string',
       userId: 'string',
       userName: 'string',
     };
@@ -24012,7 +25770,10 @@ export class ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys exte
 }
 
 export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model {
+  attribute?: string;
   businessDiscount?: number;
+  costCenterName?: string;
+  departId?: string;
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
@@ -24022,14 +25783,25 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
   hotelIntlCitys?: ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys[];
   hotelIntlRuleCode?: number;
   hotelRuleCode?: number;
+  invoiceName?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   premiumEconomyDiscount?: number;
+  projectCode?: string;
+  projectTitle?: string;
   reserveType?: number;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartDepartId?: string;
   trainRuleCode?: number;
   trainSeats?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'attribute',
       businessDiscount: 'business_discount',
+      costCenterName: 'cost_center_name',
+      departId: 'depart_id',
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
@@ -24039,8 +25811,16 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       hotelIntlCitys: 'hotel_intl_citys',
       hotelIntlRuleCode: 'hotel_intl_rule_code',
       hotelRuleCode: 'hotel_rule_code',
+      invoiceName: 'invoice_name',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       premiumEconomyDiscount: 'premium_economy_discount',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
       reserveType: 'reserve_type',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       trainRuleCode: 'train_rule_code',
       trainSeats: 'train_seats',
       userName: 'user_name',
@@ -24049,7 +25829,10 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
       businessDiscount: 'number',
+      costCenterName: 'string',
+      departId: 'string',
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
@@ -24059,8 +25842,16 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $tea.Model
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys },
       hotelIntlRuleCode: 'number',
       hotelRuleCode: 'number',
+      invoiceName: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       premiumEconomyDiscount: 'number',
+      projectCode: 'string',
+      projectTitle: 'string',
       reserveType: 'number',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartDepartId: 'string',
       trainRuleCode: 'number',
       trainSeats: 'string',
       userName: 'string',
@@ -24117,6 +25908,7 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $tea.Model {
   arrCity?: string;
   arrCityCode?: string;
   arrDate?: string;
+  attribute?: string;
   costCenterName?: string;
   depCity?: string;
   depCityCode?: string;
@@ -24134,6 +25926,7 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $tea.Model {
       arrCity: 'arr_city',
       arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
+      attribute: 'attribute',
       costCenterName: 'cost_center_name',
       depCity: 'dep_city',
       depCityCode: 'dep_city_code',
@@ -24154,6 +25947,7 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $tea.Model {
       arrCity: 'string',
       arrCityCode: 'string',
       arrDate: 'string',
+      attribute: 'string',
       costCenterName: 'string',
       depCity: 'string',
       depCityCode: 'string',
@@ -24195,6 +25989,7 @@ export class ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard
 
 export class ApplyQueryResponseBodyModuleItinerarySetList extends $tea.Model {
   arrDate?: string;
+  attribute?: string;
   cityCodeSet?: string;
   citySet?: string;
   costCenterName?: string;
@@ -24209,6 +26004,7 @@ export class ApplyQueryResponseBodyModuleItinerarySetList extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       arrDate: 'arr_date',
+      attribute: 'attribute',
       cityCodeSet: 'city_code_set',
       citySet: 'city_set',
       costCenterName: 'cost_center_name',
@@ -24226,6 +26022,7 @@ export class ApplyQueryResponseBodyModuleItinerarySetList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       arrDate: 'string',
+      attribute: 'string',
       cityCodeSet: 'string',
       citySet: 'string',
       costCenterName: 'string',
@@ -24318,8 +26115,11 @@ export class ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys extends $tea
 }
 
 export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
+  attribute?: string;
   businessDiscount?: number;
   carCitySet?: ApplyQueryResponseBodyModuleTravelerListCarCitySet[];
+  costCenterName?: string;
+  departId?: string;
   economyDiscount?: number;
   firstDiscount?: number;
   flightCabins?: string;
@@ -24329,16 +26129,27 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
   hotelIntlCitys?: ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys[];
   hotelIntlRuleCode?: number;
   hotelRuleCode?: number;
+  invoiceName?: string;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   premiumEconomyDiscount?: number;
+  projectCode?: string;
+  projectTitle?: string;
   reserveType?: number;
+  thirdPartInvoiceId?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartDepartId?: string;
   trainRuleCode?: number;
   trainSeats?: string;
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'attribute',
       businessDiscount: 'business_discount',
       carCitySet: 'car_city_set',
+      costCenterName: 'cost_center_name',
+      departId: 'depart_id',
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
@@ -24348,8 +26159,16 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
       hotelIntlCitys: 'hotel_intl_citys',
       hotelIntlRuleCode: 'hotel_intl_rule_code',
       hotelRuleCode: 'hotel_rule_code',
+      invoiceName: 'invoice_name',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       premiumEconomyDiscount: 'premium_economy_discount',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
       reserveType: 'reserve_type',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartDepartId: 'thirdpart_depart_id',
       trainRuleCode: 'train_rule_code',
       trainSeats: 'train_seats',
       userId: 'user_id',
@@ -24359,8 +26178,11 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
       businessDiscount: 'number',
       carCitySet: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleTravelerListCarCitySet },
+      costCenterName: 'string',
+      departId: 'string',
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
@@ -24370,8 +26192,16 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $tea.Model {
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys },
       hotelIntlRuleCode: 'number',
       hotelRuleCode: 'number',
+      invoiceName: 'string',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       premiumEconomyDiscount: 'number',
+      projectCode: 'string',
+      projectTitle: 'string',
       reserveType: 'number',
+      thirdPartInvoiceId: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartDepartId: 'string',
       trainRuleCode: 'number',
       trainSeats: 'string',
       userId: 'string',
@@ -24406,6 +26236,8 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
   itineraryRule?: number;
   itinerarySetList?: ApplyQueryResponseBodyModuleItinerarySetList[];
   limitTraveler?: number;
+  paymentDepartmentId?: string;
+  paymentDepartmentName?: string;
   status?: number;
   statusDesc?: string;
   thirdpartBusinessId?: string;
@@ -24444,6 +26276,8 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
       itineraryRule: 'itinerary_rule',
       itinerarySetList: 'itinerary_set_list',
       limitTraveler: 'limit_traveler',
+      paymentDepartmentId: 'payment_department_id',
+      paymentDepartmentName: 'payment_department_name',
       status: 'status',
       statusDesc: 'status_desc',
       thirdpartBusinessId: 'thirdpart_business_id',
@@ -24485,6 +26319,8 @@ export class ApplyQueryResponseBodyModule extends $tea.Model {
       itineraryRule: 'number',
       itinerarySetList: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleItinerarySetList },
       limitTraveler: 'number',
+      paymentDepartmentId: 'string',
+      paymentDepartmentName: 'string',
       status: 'number',
       statusDesc: 'string',
       thirdpartBusinessId: 'string',
@@ -30522,12 +32358,18 @@ export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightList ext
 
 export class FlightModifyListingSearchV2ResponseBodyModule extends $tea.Model {
   directFlightList?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightList[];
+  nextReqWaitTime?: number;
+  retry?: boolean;
+  searchRetryToken?: string;
   sessionId?: string;
   transferFlightList?: FlightModifyListingSearchV2ResponseBodyModuleTransferFlightList[];
   transferTitle?: string;
   static names(): { [key: string]: string } {
     return {
       directFlightList: 'direct_flight_list',
+      nextReqWaitTime: 'next_req_wait_time',
+      retry: 'retry',
+      searchRetryToken: 'search_retry_token',
       sessionId: 'session_id',
       transferFlightList: 'transfer_flight_list',
       transferTitle: 'transfer_title',
@@ -30537,6 +32379,9 @@ export class FlightModifyListingSearchV2ResponseBodyModule extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       directFlightList: { 'type': 'array', 'itemType': FlightModifyListingSearchV2ResponseBodyModuleDirectFlightList },
+      nextReqWaitTime: 'number',
+      retry: 'boolean',
+      searchRetryToken: 'string',
       sessionId: 'string',
       transferFlightList: { 'type': 'array', 'itemType': FlightModifyListingSearchV2ResponseBodyModuleTransferFlightList },
       transferTitle: 'string',
@@ -40495,6 +42340,52 @@ export class HotelOrderDetailInfoResponseBodyModuleHotelDetailInfo extends $tea.
   }
 }
 
+export class HotelOrderDetailInfoResponseBodyModuleHotelSaleOrderRoomInfos extends $tea.Model {
+  checkinDate?: string;
+  checkoutDate?: string;
+  penalSum?: number;
+  realCheckoutDate?: string;
+  refundStatus?: number;
+  roomNo?: number;
+  roomPrice?: number;
+  roomRefundPrice?: number;
+  travelerId?: string;
+  travelerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkinDate: 'checkin_date',
+      checkoutDate: 'checkout_date',
+      penalSum: 'penal_sum',
+      realCheckoutDate: 'real_checkout_date',
+      refundStatus: 'refund_status',
+      roomNo: 'room_no',
+      roomPrice: 'room_price',
+      roomRefundPrice: 'room_refund_price',
+      travelerId: 'traveler_id',
+      travelerName: 'traveler_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkinDate: 'string',
+      checkoutDate: 'string',
+      penalSum: 'number',
+      realCheckoutDate: 'string',
+      refundStatus: 'number',
+      roomNo: 'number',
+      roomPrice: 'number',
+      roomRefundPrice: 'number',
+      travelerId: 'string',
+      travelerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelOrderDetailInfoResponseBodyModuleInvoiceInfo extends $tea.Model {
   billingMoney?: number;
   buyerAdd?: string;
@@ -40738,6 +42629,7 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
   earlyDeparture?: boolean;
   guestCount?: number;
   hotelDetailInfo?: HotelOrderDetailInfoResponseBodyModuleHotelDetailInfo;
+  hotelSaleOrderRoomInfos?: HotelOrderDetailInfoResponseBodyModuleHotelSaleOrderRoomInfos[];
   invoiceInfo?: HotelOrderDetailInfoResponseBodyModuleInvoiceInfo;
   itemId?: string;
   lastArrivalTime?: string;
@@ -40777,6 +42669,7 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
       earlyDeparture: 'early_departure',
       guestCount: 'guest_count',
       hotelDetailInfo: 'hotel_detail_info',
+      hotelSaleOrderRoomInfos: 'hotel_sale_order_room_infos',
       invoiceInfo: 'invoice_info',
       itemId: 'item_id',
       lastArrivalTime: 'last_arrival_time',
@@ -40819,6 +42712,7 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
       earlyDeparture: 'boolean',
       guestCount: 'number',
       hotelDetailInfo: HotelOrderDetailInfoResponseBodyModuleHotelDetailInfo,
+      hotelSaleOrderRoomInfos: { 'type': 'array', 'itemType': HotelOrderDetailInfoResponseBodyModuleHotelSaleOrderRoomInfos },
       invoiceInfo: HotelOrderDetailInfoResponseBodyModuleInvoiceInfo,
       itemId: 'string',
       lastArrivalTime: 'string',
@@ -48274,6 +50168,40 @@ export class QueryReimbursementOrderResponseBodyModuleExpensesExpenseComposition
   }
 }
 
+export class QueryReimbursementOrderResponseBodyModuleExpensesInvoiceInfos extends $tea.Model {
+  amount?: string;
+  invoiceCode?: string;
+  invoiceData?: string;
+  invoiceDate?: string;
+  invoiceNumber?: string;
+  invoiceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      invoiceCode: 'invoice_code',
+      invoiceData: 'invoice_data',
+      invoiceDate: 'invoice_date',
+      invoiceNumber: 'invoice_number',
+      invoiceType: 'invoice_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      invoiceCode: 'string',
+      invoiceData: 'string',
+      invoiceDate: 'string',
+      invoiceNumber: 'string',
+      invoiceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryReimbursementOrderResponseBodyModuleExpenses extends $tea.Model {
   amount?: string;
   currency?: string;
@@ -48282,6 +50210,7 @@ export class QueryReimbursementOrderResponseBodyModuleExpenses extends $tea.Mode
   expenseTime?: string;
   expenseType?: string;
   expenseTypeCode?: string;
+  invoiceInfos?: QueryReimbursementOrderResponseBodyModuleExpensesInvoiceInfos[];
   reimbExpenseId?: number;
   remark?: string;
   settlementType?: string;
@@ -48294,6 +50223,7 @@ export class QueryReimbursementOrderResponseBodyModuleExpenses extends $tea.Mode
       expenseTime: 'expense_time',
       expenseType: 'expense_type',
       expenseTypeCode: 'expense_type_code',
+      invoiceInfos: 'invoice_infos',
       reimbExpenseId: 'reimb_expense_id',
       remark: 'remark',
       settlementType: 'settlement_type',
@@ -48309,6 +50239,7 @@ export class QueryReimbursementOrderResponseBodyModuleExpenses extends $tea.Mode
       expenseTime: 'string',
       expenseType: 'string',
       expenseTypeCode: 'string',
+      invoiceInfos: { 'type': 'array', 'itemType': QueryReimbursementOrderResponseBodyModuleExpensesInvoiceInfos },
       reimbExpenseId: 'number',
       remark: 'string',
       settlementType: 'string',
@@ -49958,6 +51889,208 @@ export class TicketChangingPayResponseBodyModule extends $tea.Model {
   }
 }
 
+export class TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoSPassengerInfo extends $tea.Model {
+  passengerCertNo?: string;
+  passengerCertType?: string;
+  passengerId?: string;
+  passengerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerCertNo: 'passenger_cert_no',
+      passengerCertType: 'passenger_cert_type',
+      passengerId: 'passenger_id',
+      passengerName: 'passenger_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerCertNo: 'string',
+      passengerCertType: 'string',
+      passengerId: 'string',
+      passengerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoS extends $tea.Model {
+  passengerInfo?: TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoSPassengerInfo;
+  seatType?: string;
+  ticketPrice?: string;
+  ticketType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerInfo: 'passenger_info',
+      seatType: 'seat_type',
+      ticketPrice: 'ticket_price',
+      ticketType: 'ticket_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerInfo: TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoSPassengerInfo,
+      seatType: 'string',
+      ticketPrice: 'string',
+      ticketType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyChangeRequestChangeTrainInfoS extends $tea.Model {
+  arrStationCode?: string;
+  changeTicketInfoS?: TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoS[];
+  chooseBedS?: string;
+  chooseSeatS?: string;
+  depStationCode?: string;
+  depTime?: string;
+  originalDepTime?: string;
+  originalTrainNo?: string;
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationCode: 'arr_station_code',
+      changeTicketInfoS: 'change_ticket_info_s',
+      chooseBedS: 'choose_bed_s',
+      chooseSeatS: 'choose_seat_s',
+      depStationCode: 'dep_station_code',
+      depTime: 'dep_time',
+      originalDepTime: 'original_dep_time',
+      originalTrainNo: 'original_train_no',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationCode: 'string',
+      changeTicketInfoS: { 'type': 'array', 'itemType': TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoS },
+      chooseBedS: 'string',
+      chooseSeatS: 'string',
+      depStationCode: 'string',
+      depTime: 'string',
+      originalDepTime: 'string',
+      originalTrainNo: 'string',
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyChangeResponseBodyModule extends $tea.Model {
+  changeOrderId?: string;
+  orderId?: string;
+  outOrderId?: string;
+  payStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeOrderId: 'change_order_id',
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      payStatus: 'pay_status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeOrderId: 'string',
+      orderId: 'string',
+      outOrderId: 'string',
+      payStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyRefundRequestRefundTrainInfosRefundPassengerInfos extends $tea.Model {
+  passengerCertNo?: string;
+  passengerCertType?: string;
+  passengerId?: string;
+  passengerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerCertNo: 'passenger_cert_no',
+      passengerCertType: 'passenger_cert_type',
+      passengerId: 'passenger_id',
+      passengerName: 'passenger_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerCertNo: 'string',
+      passengerCertType: 'string',
+      passengerId: 'string',
+      passengerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyRefundRequestRefundTrainInfos extends $tea.Model {
+  depTime?: string;
+  refundPassengerInfos?: TrainApplyRefundRequestRefundTrainInfosRefundPassengerInfos[];
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      depTime: 'dep_time',
+      refundPassengerInfos: 'refund_passenger_infos',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      depTime: 'string',
+      refundPassengerInfos: { 'type': 'array', 'itemType': TrainApplyRefundRequestRefundTrainInfosRefundPassengerInfos },
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainApplyRefundResponseBodyModule extends $tea.Model {
+  orderId?: string;
+  outOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      outOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrainBillSettlementQueryResponseBodyModuleDataList extends $tea.Model {
   alipayTradeNo?: string;
   applyArrCityCode?: string;
@@ -50337,6 +52470,1668 @@ export class TrainExceedApplyQueryResponseBodyModule extends $tea.Model {
   }
 }
 
+export class TrainFeeCalculateChangeRequestChangeTrainDetailsPassengerInfo extends $tea.Model {
+  passengerCertNo?: string;
+  passengerCertType?: string;
+  passengerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerCertNo: 'passenger_cert_no',
+      passengerCertType: 'passenger_cert_type',
+      passengerName: 'passenger_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerCertNo: 'string',
+      passengerCertType: 'string',
+      passengerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeRequestChangeTrainDetails extends $tea.Model {
+  arrStationCode?: string;
+  depStationCode?: string;
+  depTime?: string;
+  originalDepTime?: string;
+  originalTrainNo?: string;
+  passengerInfo?: TrainFeeCalculateChangeRequestChangeTrainDetailsPassengerInfo;
+  seatType?: string;
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationCode: 'arr_station_code',
+      depStationCode: 'dep_station_code',
+      depTime: 'dep_time',
+      originalDepTime: 'original_dep_time',
+      originalTrainNo: 'original_train_no',
+      passengerInfo: 'passenger_info',
+      seatType: 'seat_type',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationCode: 'string',
+      depStationCode: 'string',
+      depTime: 'string',
+      originalDepTime: 'string',
+      originalTrainNo: 'string',
+      passengerInfo: TrainFeeCalculateChangeRequestChangeTrainDetailsPassengerInfo,
+      seatType: 'string',
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetailsPassengerInfo extends $tea.Model {
+  passengerCertNo?: string;
+  passengerCertType?: string;
+  passengerId?: string;
+  passengerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerCertNo: 'passenger_cert_no',
+      passengerCertType: 'passenger_cert_type',
+      passengerId: 'passenger_id',
+      passengerName: 'passenger_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerCertNo: 'string',
+      passengerCertType: 'string',
+      passengerId: 'string',
+      passengerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetails extends $tea.Model {
+  changeFee?: number;
+  changeRate?: number;
+  changeRefundFee?: number;
+  changeRefundRate?: number;
+  passengerInfo?: TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetailsPassengerInfo;
+  seatType?: string;
+  ticketPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      changeFee: 'change_fee',
+      changeRate: 'change_rate',
+      changeRefundFee: 'change_refund_fee',
+      changeRefundRate: 'change_refund_rate',
+      passengerInfo: 'passenger_info',
+      seatType: 'seat_type',
+      ticketPrice: 'ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeFee: 'number',
+      changeRate: 'number',
+      changeRefundFee: 'number',
+      changeRefundRate: 'number',
+      passengerInfo: TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetailsPassengerInfo,
+      seatType: 'string',
+      ticketPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetails extends $tea.Model {
+  arrStationCode?: string;
+  changeTicketDetails?: TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetails[];
+  depStationCode?: string;
+  depTime?: string;
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationCode: 'arr_station_code',
+      changeTicketDetails: 'change_ticket_details',
+      depStationCode: 'dep_station_code',
+      depTime: 'dep_time',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationCode: 'string',
+      changeTicketDetails: { 'type': 'array', 'itemType': TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetails },
+      depStationCode: 'string',
+      depTime: 'string',
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateChangeResponseBodyModule extends $tea.Model {
+  changeTrainDetails?: TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetails[];
+  distributeOrderId?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeTrainDetails: 'change_train_details',
+      distributeOrderId: 'distribute_order_id',
+      orderId: 'order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeTrainDetails: { 'type': 'array', 'itemType': TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetails },
+      distributeOrderId: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundRequestRefundTrainInfosRefundPassengerInfos extends $tea.Model {
+  passengerCertNo?: string;
+  passengerCertType?: string;
+  passengerId?: string;
+  passengerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerCertNo: 'passenger_cert_no',
+      passengerCertType: 'passenger_cert_type',
+      passengerId: 'passenger_id',
+      passengerName: 'passenger_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerCertNo: 'string',
+      passengerCertType: 'string',
+      passengerId: 'string',
+      passengerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundRequestRefundTrainInfos extends $tea.Model {
+  arrStationCode?: string;
+  depStationCode?: string;
+  depTime?: string;
+  refundPassengerInfos?: TrainFeeCalculateRefundRequestRefundTrainInfosRefundPassengerInfos[];
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationCode: 'arr_station_code',
+      depStationCode: 'dep_station_code',
+      depTime: 'dep_time',
+      refundPassengerInfos: 'refund_passenger_infos',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationCode: 'string',
+      depStationCode: 'string',
+      depTime: 'string',
+      refundPassengerInfos: { 'type': 'array', 'itemType': TrainFeeCalculateRefundRequestRefundTrainInfosRefundPassengerInfos },
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetailsPassengerInfo extends $tea.Model {
+  passengerCertNo?: string;
+  passengerCertType?: string;
+  passengerId?: string;
+  passengerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerCertNo: 'passenger_cert_no',
+      passengerCertType: 'passenger_cert_type',
+      passengerId: 'passenger_id',
+      passengerName: 'passenger_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerCertNo: 'string',
+      passengerCertType: 'string',
+      passengerId: 'string',
+      passengerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetails extends $tea.Model {
+  canRefund?: boolean;
+  passengerInfo?: TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetailsPassengerInfo;
+  refundCostFee?: number;
+  refundPrice?: number;
+  refundRate?: number;
+  ticketPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      canRefund: 'can_refund',
+      passengerInfo: 'passenger_info',
+      refundCostFee: 'refund_cost_fee',
+      refundPrice: 'refund_price',
+      refundRate: 'refund_rate',
+      ticketPrice: 'ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canRefund: 'boolean',
+      passengerInfo: TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetailsPassengerInfo,
+      refundCostFee: 'number',
+      refundPrice: 'number',
+      refundRate: 'number',
+      ticketPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetails extends $tea.Model {
+  arrStationCode?: string;
+  depStationCode?: string;
+  depTime?: string;
+  refundTicketDetails?: TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetails[];
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationCode: 'arr_station_code',
+      depStationCode: 'dep_station_code',
+      depTime: 'dep_time',
+      refundTicketDetails: 'refund_ticket_details',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationCode: 'string',
+      depStationCode: 'string',
+      depTime: 'string',
+      refundTicketDetails: { 'type': 'array', 'itemType': TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetails },
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainFeeCalculateRefundResponseBodyModule extends $tea.Model {
+  distributeOrderId?: string;
+  orderId?: string;
+  refundTrainDetails?: TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      distributeOrderId: 'distribute_order_id',
+      orderId: 'order_id',
+      refundTrainDetails: 'refund_train_details',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributeOrderId: 'string',
+      orderId: 'string',
+      refundTrainDetails: { 'type': 'array', 'itemType': TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchResponseBodyModuleTrainStationSearchVOSeatInfos extends $tea.Model {
+  price?: number;
+  seatName?: string;
+  seatType?: string;
+  stock?: string;
+  static names(): { [key: string]: string } {
+    return {
+      price: 'price',
+      seatName: 'seat_name',
+      seatType: 'seat_type',
+      stock: 'stock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: 'number',
+      seatName: 'string',
+      seatType: 'string',
+      stock: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchResponseBodyModuleTrainStationSearchVO extends $tea.Model {
+  arrDayTag?: string;
+  arrStationCode?: string;
+  arrStationName?: string;
+  arrTime?: string;
+  costTime?: string;
+  depStationCode?: string;
+  depStationName?: string;
+  depTime?: string;
+  isEndStation?: number;
+  isStartStation?: number;
+  price?: string;
+  saleFlag?: string;
+  seatInfos?: TrainNoInfoSearchResponseBodyModuleTrainStationSearchVOSeatInfos[];
+  trainNo?: string;
+  trainType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrDayTag: 'arr_day_tag',
+      arrStationCode: 'arr_station_code',
+      arrStationName: 'arr_station_name',
+      arrTime: 'arr_time',
+      costTime: 'cost_time',
+      depStationCode: 'dep_station_code',
+      depStationName: 'dep_station_name',
+      depTime: 'dep_time',
+      isEndStation: 'is_end_station',
+      isStartStation: 'is_start_station',
+      price: 'price',
+      saleFlag: 'sale_flag',
+      seatInfos: 'seat_infos',
+      trainNo: 'train_no',
+      trainType: 'train_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDayTag: 'string',
+      arrStationCode: 'string',
+      arrStationName: 'string',
+      arrTime: 'string',
+      costTime: 'string',
+      depStationCode: 'string',
+      depStationName: 'string',
+      depTime: 'string',
+      isEndStation: 'number',
+      isStartStation: 'number',
+      price: 'string',
+      saleFlag: 'string',
+      seatInfos: { 'type': 'array', 'itemType': TrainNoInfoSearchResponseBodyModuleTrainStationSearchVOSeatInfos },
+      trainNo: 'string',
+      trainType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVOTransferDetailListSeatInfos extends $tea.Model {
+  price?: number;
+  seatName?: string;
+  seatType?: string;
+  stock?: string;
+  static names(): { [key: string]: string } {
+    return {
+      price: 'price',
+      seatName: 'seat_name',
+      seatType: 'seat_type',
+      stock: 'stock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: 'number',
+      seatName: 'string',
+      seatType: 'string',
+      stock: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVOTransferDetailList extends $tea.Model {
+  arrDayTag?: string;
+  arrStationCode?: string;
+  arrStationName?: string;
+  arrTime?: string;
+  costTime?: string;
+  depStationCode?: string;
+  depStationName?: string;
+  depTime?: string;
+  isEndStation?: number;
+  isStartStation?: number;
+  price?: string;
+  saleFlag?: string;
+  seatInfos?: TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVOTransferDetailListSeatInfos[];
+  trainNo?: string;
+  trainType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrDayTag: 'arr_day_tag',
+      arrStationCode: 'arr_station_code',
+      arrStationName: 'arr_station_name',
+      arrTime: 'arr_time',
+      costTime: 'cost_time',
+      depStationCode: 'dep_station_code',
+      depStationName: 'dep_station_name',
+      depTime: 'dep_time',
+      isEndStation: 'is_end_station',
+      isStartStation: 'is_start_station',
+      price: 'price',
+      saleFlag: 'sale_flag',
+      seatInfos: 'seat_infos',
+      trainNo: 'train_no',
+      trainType: 'train_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDayTag: 'string',
+      arrStationCode: 'string',
+      arrStationName: 'string',
+      arrTime: 'string',
+      costTime: 'string',
+      depStationCode: 'string',
+      depStationName: 'string',
+      depTime: 'string',
+      isEndStation: 'number',
+      isStartStation: 'number',
+      price: 'string',
+      saleFlag: 'string',
+      seatInfos: { 'type': 'array', 'itemType': TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVOTransferDetailListSeatInfos },
+      trainNo: 'string',
+      trainType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVO extends $tea.Model {
+  transferDetailList?: TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVOTransferDetailList[];
+  transferType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      transferDetailList: 'transfer_detail_list',
+      transferType: 'transfer_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      transferDetailList: { 'type': 'array', 'itemType': TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVOTransferDetailList },
+      transferType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoInfoSearchResponseBodyModule extends $tea.Model {
+  trainStationSearchVO?: TrainNoInfoSearchResponseBodyModuleTrainStationSearchVO;
+  trainTransferStationSearchVO?: TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVO;
+  static names(): { [key: string]: string } {
+    return {
+      trainStationSearchVO: 'train_station_search_v_o',
+      trainTransferStationSearchVO: 'train_transfer_station_search_v_o',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trainStationSearchVO: TrainNoInfoSearchResponseBodyModuleTrainStationSearchVO,
+      trainTransferStationSearchVO: TrainNoInfoSearchResponseBodyModuleTrainTransferStationSearchVO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchRequestOption extends $tea.Model {
+  needTransfer?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      needTransfer: 'need_transfer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      needTransfer: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchResponseBodyModuleTrainStationSearchVOSSeatInfos extends $tea.Model {
+  price?: number;
+  seatName?: string;
+  seatType?: string;
+  stock?: string;
+  static names(): { [key: string]: string } {
+    return {
+      price: 'price',
+      seatName: 'seat_name',
+      seatType: 'seat_type',
+      stock: 'stock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: 'number',
+      seatName: 'string',
+      seatType: 'string',
+      stock: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchResponseBodyModuleTrainStationSearchVOS extends $tea.Model {
+  arrDayTag?: string;
+  arrStationCode?: string;
+  arrStationName?: string;
+  arrTime?: string;
+  costTime?: string;
+  depStationCode?: string;
+  depStationName?: string;
+  depTime?: string;
+  isEndStation?: number;
+  isStartStation?: number;
+  price?: string;
+  saleFlag?: string;
+  saleFlagMsg?: string;
+  seagmentIndex?: string;
+  seatInfos?: TrainNoListSearchResponseBodyModuleTrainStationSearchVOSSeatInfos[];
+  trainNo?: string;
+  trainType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrDayTag: 'arr_day_tag',
+      arrStationCode: 'arr_station_code',
+      arrStationName: 'arr_station_name',
+      arrTime: 'arr_time',
+      costTime: 'cost_time',
+      depStationCode: 'dep_station_code',
+      depStationName: 'dep_station_name',
+      depTime: 'dep_time',
+      isEndStation: 'is_end_station',
+      isStartStation: 'is_start_station',
+      price: 'price',
+      saleFlag: 'sale_flag',
+      saleFlagMsg: 'sale_flag_msg',
+      seagmentIndex: 'seagment_index',
+      seatInfos: 'seat_infos',
+      trainNo: 'train_no',
+      trainType: 'train_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDayTag: 'string',
+      arrStationCode: 'string',
+      arrStationName: 'string',
+      arrTime: 'string',
+      costTime: 'string',
+      depStationCode: 'string',
+      depStationName: 'string',
+      depTime: 'string',
+      isEndStation: 'number',
+      isStartStation: 'number',
+      price: 'string',
+      saleFlag: 'string',
+      saleFlagMsg: 'string',
+      seagmentIndex: 'string',
+      seatInfos: { 'type': 'array', 'itemType': TrainNoListSearchResponseBodyModuleTrainStationSearchVOSSeatInfos },
+      trainNo: 'string',
+      trainType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailListSeatInfos extends $tea.Model {
+  price?: number;
+  seatName?: string;
+  seatType?: string;
+  stock?: string;
+  static names(): { [key: string]: string } {
+    return {
+      price: 'price',
+      seatName: 'seat_name',
+      seatType: 'seat_type',
+      stock: 'stock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: 'number',
+      seatName: 'string',
+      seatType: 'string',
+      stock: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailList extends $tea.Model {
+  arrDayTag?: string;
+  arrStationCode?: string;
+  arrStationName?: string;
+  arrTime?: string;
+  costTime?: string;
+  depStationCode?: string;
+  depStationName?: string;
+  depTime?: string;
+  isEndStation?: number;
+  isStartStation?: number;
+  price?: string;
+  saleFlag?: string;
+  saleFlagMsg?: string;
+  seatInfos?: TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailListSeatInfos[];
+  segmentIndex?: string;
+  trainNo?: string;
+  trainType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrDayTag: 'arr_day_tag',
+      arrStationCode: 'arr_station_code',
+      arrStationName: 'arr_station_name',
+      arrTime: 'arr_time',
+      costTime: 'cost_time',
+      depStationCode: 'dep_station_code',
+      depStationName: 'dep_station_name',
+      depTime: 'dep_time',
+      isEndStation: 'is_end_station',
+      isStartStation: 'is_start_station',
+      price: 'price',
+      saleFlag: 'sale_flag',
+      saleFlagMsg: 'sale_flag_msg',
+      seatInfos: 'seat_infos',
+      segmentIndex: 'segment_index',
+      trainNo: 'train_no',
+      trainType: 'train_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrDayTag: 'string',
+      arrStationCode: 'string',
+      arrStationName: 'string',
+      arrTime: 'string',
+      costTime: 'string',
+      depStationCode: 'string',
+      depStationName: 'string',
+      depTime: 'string',
+      isEndStation: 'number',
+      isStartStation: 'number',
+      price: 'string',
+      saleFlag: 'string',
+      saleFlagMsg: 'string',
+      seatInfos: { 'type': 'array', 'itemType': TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailListSeatInfos },
+      segmentIndex: 'string',
+      trainNo: 'string',
+      trainType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOs extends $tea.Model {
+  arrStation?: string;
+  depStation?: string;
+  lineKey?: string;
+  middleStation?: string;
+  transferDetailList?: TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailList[];
+  transferType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStation: 'arr_station',
+      depStation: 'dep_station',
+      lineKey: 'line_key',
+      middleStation: 'middle_station',
+      transferDetailList: 'transfer_detail_list',
+      transferType: 'transfer_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStation: 'string',
+      depStation: 'string',
+      lineKey: 'string',
+      middleStation: 'string',
+      transferDetailList: { 'type': 'array', 'itemType': TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailList },
+      transferType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainNoListSearchResponseBodyModule extends $tea.Model {
+  trainStationSearchVOS?: TrainNoListSearchResponseBodyModuleTrainStationSearchVOS[];
+  trainTransferStationSearchVOs?: TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOs[];
+  static names(): { [key: string]: string } {
+    return {
+      trainStationSearchVOS: 'train_station_search_v_o_s',
+      trainTransferStationSearchVOs: 'train_transfer_station_search_v_os',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trainStationSearchVOS: { 'type': 'array', 'itemType': TrainNoListSearchResponseBodyModuleTrainStationSearchVOS },
+      trainTransferStationSearchVOs: { 'type': 'array', 'itemType': TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCancelResponseBodyModule extends $tea.Model {
+  changeOrderId?: string;
+  orderId?: string;
+  outChangeOrderId?: string;
+  outOrderId?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      changeOrderId: 'change_order_id',
+      orderId: 'order_id',
+      outChangeOrderId: 'out_change_order_id',
+      outOrderId: 'out_order_id',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeOrderId: 'string',
+      orderId: 'string',
+      outChangeOrderId: 'string',
+      outOrderId: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderChangeConfirmResponseBodyModule extends $tea.Model {
+  changeOrderId?: string;
+  orderId?: string;
+  outOrderId?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      changeOrderId: 'change_order_id',
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeOrderId: 'string',
+      orderId: 'string',
+      outOrderId: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateRequestBookTrainInfosBookTicketInfos extends $tea.Model {
+  passengerId?: string;
+  seatType?: string;
+  ticketPrice?: number;
+  ticketType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerId: 'passenger_id',
+      seatType: 'seat_type',
+      ticketPrice: 'ticket_price',
+      ticketType: 'ticket_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerId: 'string',
+      seatType: 'string',
+      ticketPrice: 'number',
+      ticketType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateRequestBookTrainInfos extends $tea.Model {
+  arrStationCode?: string;
+  bookTicketInfos?: TrainOrderCreateRequestBookTrainInfosBookTicketInfos[];
+  chooseBeds?: string;
+  chooseSeats?: string;
+  depStationCode?: string;
+  depTime?: string;
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationCode: 'arr_station_code',
+      bookTicketInfos: 'book_ticket_infos',
+      chooseBeds: 'choose_beds',
+      chooseSeats: 'choose_seats',
+      depStationCode: 'dep_station_code',
+      depTime: 'dep_time',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationCode: 'string',
+      bookTicketInfos: { 'type': 'array', 'itemType': TrainOrderCreateRequestBookTrainInfosBookTicketInfos },
+      chooseBeds: 'string',
+      chooseSeats: 'string',
+      depStationCode: 'string',
+      depTime: 'string',
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateRequestBusinessInfo extends $tea.Model {
+  customerApplyId?: string;
+  customerItineraryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customerApplyId: 'customer_apply_id',
+      customerItineraryId: 'customer_itinerary_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerApplyId: 'string',
+      customerItineraryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateRequestContactInfo extends $tea.Model {
+  passengerId?: string;
+  passengerMobile?: string;
+  passengerName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passengerId: 'passenger_id',
+      passengerMobile: 'passenger_mobile',
+      passengerName: 'passenger_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerId: 'string',
+      passengerMobile: 'string',
+      passengerName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo extends $tea.Model {
+  cascadeDeptName?: string;
+  costCenterId?: string;
+  costCenterName?: string;
+  costCenterNo?: string;
+  departId?: string;
+  departName?: string;
+  invoiceId?: string;
+  invoiceTitle?: string;
+  projectCode?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cascadeDeptName: 'cascade_dept_name',
+      costCenterId: 'cost_center_id',
+      costCenterName: 'cost_center_name',
+      costCenterNo: 'cost_center_no',
+      departId: 'depart_id',
+      departName: 'depart_name',
+      invoiceId: 'invoice_id',
+      invoiceTitle: 'invoice_title',
+      projectCode: 'project_code',
+      projectName: 'project_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cascadeDeptName: 'string',
+      costCenterId: 'string',
+      costCenterName: 'string',
+      costCenterNo: 'string',
+      departId: 'string',
+      departName: 'string',
+      invoiceId: 'string',
+      invoiceTitle: 'string',
+      projectCode: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateRequestPassengerOpenInfoS extends $tea.Model {
+  costCenterInfo?: TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo;
+  countryCode?: string;
+  passengerCertNo?: string;
+  passengerCertType?: string;
+  passengerId?: string;
+  passengerMobile?: string;
+  passengerName?: string;
+  validDateEnd?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costCenterInfo: 'cost_center_info',
+      countryCode: 'country_code',
+      passengerCertNo: 'passenger_cert_no',
+      passengerCertType: 'passenger_cert_type',
+      passengerId: 'passenger_id',
+      passengerMobile: 'passenger_mobile',
+      passengerName: 'passenger_name',
+      validDateEnd: 'valid_date_end',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costCenterInfo: TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo,
+      countryCode: 'string',
+      passengerCertNo: 'string',
+      passengerCertType: 'string',
+      passengerId: 'string',
+      passengerMobile: 'string',
+      passengerName: 'string',
+      validDateEnd: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderCreateResponseBodyModule extends $tea.Model {
+  orderId?: string;
+  outOrderId?: string;
+  payStatus?: string;
+  serviceFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      payStatus: 'pay_status',
+      serviceFee: 'service_fee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      outOrderId: 'string',
+      payStatus: 'string',
+      serviceFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfosBookTicketInfos extends $tea.Model {
+  coachNo?: string;
+  failCode?: string;
+  failReason?: string;
+  passengerId?: string;
+  realTicketPrice?: number;
+  seatNo?: string;
+  seatType?: string;
+  ticketEntrance?: string;
+  ticketPrice?: number;
+  ticketStatus?: number;
+  ticketType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coachNo: 'coach_no',
+      failCode: 'fail_code',
+      failReason: 'fail_reason',
+      passengerId: 'passenger_id',
+      realTicketPrice: 'real_ticket_price',
+      seatNo: 'seat_no',
+      seatType: 'seat_type',
+      ticketEntrance: 'ticket_entrance',
+      ticketPrice: 'ticket_price',
+      ticketStatus: 'ticket_status',
+      ticketType: 'ticket_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coachNo: 'string',
+      failCode: 'string',
+      failReason: 'string',
+      passengerId: 'string',
+      realTicketPrice: 'number',
+      seatNo: 'string',
+      seatType: 'string',
+      ticketEntrance: 'string',
+      ticketPrice: 'number',
+      ticketStatus: 'number',
+      ticketType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfos extends $tea.Model {
+  arrStationCode?: string;
+  arrStationName?: string;
+  arriveTime?: string;
+  bookTicketInfos?: TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfosBookTicketInfos[];
+  depStationCode?: string;
+  depStationName?: string;
+  depTime?: string;
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationCode: 'arr_station_code',
+      arrStationName: 'arr_station_name',
+      arriveTime: 'arrive_time',
+      bookTicketInfos: 'book_ticket_infos',
+      depStationCode: 'dep_station_code',
+      depStationName: 'dep_station_name',
+      depTime: 'dep_time',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationCode: 'string',
+      arrStationName: 'string',
+      arriveTime: 'string',
+      bookTicketInfos: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfosBookTicketInfos },
+      depStationCode: 'string',
+      depStationName: 'string',
+      depTime: 'string',
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleBookInfos extends $tea.Model {
+  bookTrainInfos?: TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfos[];
+  failCode?: string;
+  failMsg?: string;
+  lastPayTime?: string;
+  status?: number;
+  ticketNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bookTrainInfos: 'book_train_infos',
+      failCode: 'fail_code',
+      failMsg: 'fail_msg',
+      lastPayTime: 'last_pay_time',
+      status: 'status',
+      ticketNo: 'ticket_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookTrainInfos: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfos },
+      failCode: 'string',
+      failMsg: 'string',
+      lastPayTime: 'string',
+      status: 'number',
+      ticketNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfosChangeTicketInfos extends $tea.Model {
+  changeCost?: number;
+  changeDiff?: number;
+  changeGapHandingFee?: number;
+  changeMinTicketAmountHandingFee?: number;
+  coachNo?: string;
+  failCode?: string;
+  failReason?: string;
+  passengerId?: string;
+  realTicketPrice?: number;
+  seatNo?: string;
+  seatType?: string;
+  ticketEntrance?: string;
+  ticketPrice?: number;
+  ticketStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeCost: 'change_cost',
+      changeDiff: 'change_diff',
+      changeGapHandingFee: 'change_gap_handing_fee',
+      changeMinTicketAmountHandingFee: 'change_min_ticket_amount_handing_fee',
+      coachNo: 'coach_no',
+      failCode: 'fail_code',
+      failReason: 'fail_reason',
+      passengerId: 'passenger_id',
+      realTicketPrice: 'real_ticket_price',
+      seatNo: 'seat_no',
+      seatType: 'seat_type',
+      ticketEntrance: 'ticket_entrance',
+      ticketPrice: 'ticket_price',
+      ticketStatus: 'ticket_status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeCost: 'number',
+      changeDiff: 'number',
+      changeGapHandingFee: 'number',
+      changeMinTicketAmountHandingFee: 'number',
+      coachNo: 'string',
+      failCode: 'string',
+      failReason: 'string',
+      passengerId: 'string',
+      realTicketPrice: 'number',
+      seatNo: 'string',
+      seatType: 'string',
+      ticketEntrance: 'string',
+      ticketPrice: 'number',
+      ticketStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfos extends $tea.Model {
+  arrStationCode?: string;
+  arrStationName?: string;
+  arriveTime?: string;
+  changeTicketInfos?: TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfosChangeTicketInfos[];
+  depStationCode?: string;
+  depStationName?: string;
+  depTime?: string;
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationCode: 'arr_station_code',
+      arrStationName: 'arr_station_name',
+      arriveTime: 'arrive_time',
+      changeTicketInfos: 'change_ticket_infos',
+      depStationCode: 'dep_station_code',
+      depStationName: 'dep_station_name',
+      depTime: 'dep_time',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationCode: 'string',
+      arrStationName: 'string',
+      arriveTime: 'string',
+      changeTicketInfos: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfosChangeTicketInfos },
+      depStationCode: 'string',
+      depStationName: 'string',
+      depTime: 'string',
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleChangeInfos extends $tea.Model {
+  changeApplyId?: string;
+  changeTrainInfos?: TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfos[];
+  limitPayTime?: string;
+  outChangeApplyId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeApplyId: 'change_apply_id',
+      changeTrainInfos: 'change_train_infos',
+      limitPayTime: 'limit_pay_time',
+      outChangeApplyId: 'out_change_apply_id',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeApplyId: 'string',
+      changeTrainInfos: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfos },
+      limitPayTime: 'string',
+      outChangeApplyId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetailsOfflineRefundInfos extends $tea.Model {
+  passengerId?: string;
+  refundPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      passengerId: 'passenger_id',
+      refundPrice: 'refund_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerId: 'string',
+      refundPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetails extends $tea.Model {
+  offlineRefundId?: string;
+  offlineRefundInfos?: TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetailsOfflineRefundInfos[];
+  offlineRefundType?: string;
+  refundTotalPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offlineRefundId: 'offline_refund_id',
+      offlineRefundInfos: 'offline_refund_infos',
+      offlineRefundType: 'offline_refund_type',
+      refundTotalPrice: 'refund_total_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offlineRefundId: 'string',
+      offlineRefundInfos: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetailsOfflineRefundInfos },
+      offlineRefundType: 'string',
+      refundTotalPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModulePassengerInfoSCostCenterInfo extends $tea.Model {
+  cascadeDeptName?: string;
+  costCenterId?: string;
+  costCenterName?: string;
+  costCenterNo?: string;
+  departId?: string;
+  departName?: string;
+  invoiceId?: string;
+  invoiceTitle?: string;
+  passengerId?: string;
+  projectCode?: string;
+  projectTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cascadeDeptName: 'cascade_dept_name',
+      costCenterId: 'cost_center_id',
+      costCenterName: 'cost_center_name',
+      costCenterNo: 'cost_center_no',
+      departId: 'depart_id',
+      departName: 'depart_name',
+      invoiceId: 'invoice_id',
+      invoiceTitle: 'invoice_title',
+      passengerId: 'passenger_id',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cascadeDeptName: 'string',
+      costCenterId: 'string',
+      costCenterName: 'string',
+      costCenterNo: 'string',
+      departId: 'string',
+      departName: 'string',
+      invoiceId: 'string',
+      invoiceTitle: 'string',
+      passengerId: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModulePassengerInfoS extends $tea.Model {
+  costCenterInfo?: TrainOrderDetailQueryResponseBodyModulePassengerInfoSCostCenterInfo;
+  countryCode?: string;
+  passengerCertNo?: string;
+  passengerCertType?: string;
+  passengerId?: string;
+  passengerMobile?: string;
+  passengerName?: string;
+  validDateEnd?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costCenterInfo: 'cost_center_info',
+      countryCode: 'country_code',
+      passengerCertNo: 'passenger_cert_no',
+      passengerCertType: 'passenger_cert_type',
+      passengerId: 'passenger_id',
+      passengerMobile: 'passenger_mobile',
+      passengerName: 'passenger_name',
+      validDateEnd: 'valid_date_end',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costCenterInfo: TrainOrderDetailQueryResponseBodyModulePassengerInfoSCostCenterInfo,
+      countryCode: 'string',
+      passengerCertNo: 'string',
+      passengerCertType: 'string',
+      passengerId: 'string',
+      passengerMobile: 'string',
+      passengerName: 'string',
+      validDateEnd: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfoRefundTicketInfos extends $tea.Model {
+  passengerId?: string;
+  refundCost?: number;
+  refundPrice?: number;
+  ticketPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      passengerId: 'passenger_id',
+      refundCost: 'refund_cost',
+      refundPrice: 'refund_price',
+      ticketPrice: 'ticket_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passengerId: 'string',
+      refundCost: 'number',
+      refundPrice: 'number',
+      ticketPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfo extends $tea.Model {
+  arrStationName?: string;
+  arrTime?: string;
+  depStationCode?: string;
+  depStationName?: string;
+  depTime?: string;
+  refundTicketInfos?: TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfoRefundTicketInfos[];
+  trainNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrStationName: 'arr_station_name',
+      arrTime: 'arr_time',
+      depStationCode: 'dep_station_code',
+      depStationName: 'dep_station_name',
+      depTime: 'dep_time',
+      refundTicketInfos: 'refund_ticket_infos',
+      trainNo: 'train_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrStationName: 'string',
+      arrTime: 'string',
+      depStationCode: 'string',
+      depStationName: 'string',
+      depTime: 'string',
+      refundTicketInfos: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfoRefundTicketInfos },
+      trainNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModuleRefundInfos extends $tea.Model {
+  failCode?: string;
+  failMsg?: string;
+  outRefundId?: string;
+  refundId?: string;
+  refundTrainInfo?: TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfo[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failCode: 'fail_code',
+      failMsg: 'fail_msg',
+      outRefundId: 'out_refund_id',
+      refundId: 'refund_id',
+      refundTrainInfo: 'refund_train_info',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failCode: 'string',
+      failMsg: 'string',
+      outRefundId: 'string',
+      refundId: 'string',
+      refundTrainInfo: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfo },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderDetailQueryResponseBodyModule extends $tea.Model {
+  bookInfos?: TrainOrderDetailQueryResponseBodyModuleBookInfos;
+  changeInfos?: TrainOrderDetailQueryResponseBodyModuleChangeInfos[];
+  offlineRefundDetails?: TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetails[];
+  orderId?: string;
+  outOrderId?: string;
+  passengerInfoS?: TrainOrderDetailQueryResponseBodyModulePassengerInfoS[];
+  refundInfos?: TrainOrderDetailQueryResponseBodyModuleRefundInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      bookInfos: 'book_infos',
+      changeInfos: 'change_infos',
+      offlineRefundDetails: 'offlineRefundDetails',
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      passengerInfoS: 'passenger_info_s',
+      refundInfos: 'refund_infos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookInfos: TrainOrderDetailQueryResponseBodyModuleBookInfos,
+      changeInfos: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleChangeInfos },
+      offlineRefundDetails: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetails },
+      orderId: 'string',
+      outOrderId: 'string',
+      passengerInfoS: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModulePassengerInfoS },
+      refundInfos: { 'type': 'array', 'itemType': TrainOrderDetailQueryResponseBodyModuleRefundInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TrainOrderListQueryResponseBodyModuleCostCenter extends $tea.Model {
   corpId?: string;
   id?: number;
@@ -50617,6 +54412,31 @@ export class TrainOrderListQueryResponseBodyPageInfo extends $tea.Model {
       page: 'number',
       pageSize: 'number',
       totalNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainOrderPayResponseBodyModule extends $tea.Model {
+  orderId?: string;
+  outOrderId?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      outOrderId: 'string',
+      status: 'boolean',
     };
   }
 
@@ -51656,6 +55476,40 @@ export class TrainStationSearchResponseBodyModule extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       cities: { 'type': 'array', 'itemType': TrainStationSearchResponseBodyModuleCities },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStopoverSearchResponseBodyModule extends $tea.Model {
+  arrTime?: string;
+  depTime?: string;
+  stationName?: string;
+  stationNo?: string;
+  stationType?: string;
+  stopOverTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrTime: 'arr_time',
+      depTime: 'dep_time',
+      stationName: 'station_name',
+      stationNo: 'station_no',
+      stationType: 'station_type',
+      stopOverTime: 'stop_over_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrTime: 'string',
+      depTime: 'string',
+      stationName: 'string',
+      stationNo: 'string',
+      stationType: 'string',
+      stopOverTime: 'string',
     };
   }
 
@@ -52709,6 +56563,14 @@ export default class Client extends OpenApi {
       body["limit_traveler"] = request.limitTraveler;
     }
 
+    if (!Util.isUnset(request.paymentDepartmentId)) {
+      body["payment_department_id"] = request.paymentDepartmentId;
+    }
+
+    if (!Util.isUnset(request.paymentDepartmentName)) {
+      body["payment_department_name"] = request.paymentDepartmentName;
+    }
+
     if (!Util.isUnset(request.status)) {
       body["status"] = request.status;
     }
@@ -53161,6 +57023,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.limitTraveler)) {
       body["limit_traveler"] = request.limitTraveler;
+    }
+
+    if (!Util.isUnset(request.paymentDepartmentId)) {
+      body["payment_department_id"] = request.paymentDepartmentId;
+    }
+
+    if (!Util.isUnset(request.paymentDepartmentName)) {
+      body["payment_department_name"] = request.paymentDepartmentName;
     }
 
     if (!Util.isUnset(request.status)) {
@@ -55608,6 +59478,10 @@ export default class Client extends OpenApi {
       query["dep_date"] = request.depDateShrink;
     }
 
+    if (!Util.isUnset(request.interfaceCallerIsSupportRetry)) {
+      query["interface_caller_is_support_retry"] = request.interfaceCallerIsSupportRetry;
+    }
+
     if (!Util.isUnset(request.isvName)) {
       query["isv_name"] = request.isvName;
     }
@@ -55626,6 +59500,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.searchMode)) {
       query["search_mode"] = request.searchMode;
+    }
+
+    if (!Util.isUnset(request.searchRetryToken)) {
+      query["search_retry_token"] = request.searchRetryToken;
     }
 
     if (!Util.isUnset(request.selectedSegmentsShrink)) {
@@ -59967,6 +63845,10 @@ export default class Client extends OpenApi {
   async invoiceSearchWithOptions(request: InvoiceSearchRequest, headers: InvoiceSearchHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.thirdPartId)) {
+      query["third_part_id"] = request.thirdPartId;
+    }
+
     if (!Util.isUnset(request.title)) {
       query["title"] = request.title;
     }
@@ -61094,6 +64976,136 @@ export default class Client extends OpenApi {
     return await this.ticketChangingPayWithOptions(request, headers, runtime);
   }
 
+  async trainApplyChangeWithOptions(tmpReq: TrainApplyChangeRequest, headers: TrainApplyChangeHeaders, runtime: $Util.RuntimeOptions): Promise<TrainApplyChangeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TrainApplyChangeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.changeTrainInfoS)) {
+      request.changeTrainInfoSShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.changeTrainInfoS, "change_train_info_s", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.changeTrainInfoSShrink)) {
+      query["change_train_info_s"] = request.changeTrainInfoSShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceptNoSeat)) {
+      body["accept_no_seat"] = request.acceptNoSeat;
+    }
+
+    if (!Util.isUnset(request.forceMatch)) {
+      body["force_match"] = request.forceMatch;
+    }
+
+    if (!Util.isUnset(request.isPayNow)) {
+      body["is_pay_now"] = request.isPayNow;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.outChangeApplyId)) {
+      body["out_change_apply_id"] = request.outChangeApplyId;
+    }
+
+    if (!Util.isUnset(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainApplyChange",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/change/apply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainApplyChangeResponse>(await this.callApi(params, req, runtime), new TrainApplyChangeResponse({}));
+  }
+
+  async trainApplyChange(request: TrainApplyChangeRequest): Promise<TrainApplyChangeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainApplyChangeHeaders({ });
+    return await this.trainApplyChangeWithOptions(request, headers, runtime);
+  }
+
+  async trainApplyRefundWithOptions(tmpReq: TrainApplyRefundRequest, headers: TrainApplyRefundHeaders, runtime: $Util.RuntimeOptions): Promise<TrainApplyRefundResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TrainApplyRefundShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.refundTrainInfos)) {
+      request.refundTrainInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.refundTrainInfos, "refund_train_infos", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    if (!Util.isUnset(request.outRefundId)) {
+      body["out_refund_id"] = request.outRefundId;
+    }
+
+    if (!Util.isUnset(request.refundTrainInfosShrink)) {
+      body["refund_train_infos"] = request.refundTrainInfosShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainApplyRefund",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/refund/apply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainApplyRefundResponse>(await this.callApi(params, req, runtime), new TrainApplyRefundResponse({}));
+  }
+
+  async trainApplyRefund(request: TrainApplyRefundRequest): Promise<TrainApplyRefundResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainApplyRefundHeaders({ });
+    return await this.trainApplyRefundWithOptions(request, headers, runtime);
+  }
+
   async trainBillSettlementQueryWithOptions(request: TrainBillSettlementQueryRequest, headers: TrainBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61186,6 +65198,490 @@ export default class Client extends OpenApi {
     return await this.trainExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
+  async trainFeeCalculateChangeWithOptions(tmpReq: TrainFeeCalculateChangeRequest, headers: TrainFeeCalculateChangeHeaders, runtime: $Util.RuntimeOptions): Promise<TrainFeeCalculateChangeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TrainFeeCalculateChangeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.changeTrainDetails)) {
+      request.changeTrainDetailsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.changeTrainDetails, "change_train_details", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.changeTrainDetailsShrink)) {
+      body["change_train_details"] = request.changeTrainDetailsShrink;
+    }
+
+    if (!Util.isUnset(request.distributeOrderId)) {
+      body["distribute_order_id"] = request.distributeOrderId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainFeeCalculateChange",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/change/fee`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainFeeCalculateChangeResponse>(await this.callApi(params, req, runtime), new TrainFeeCalculateChangeResponse({}));
+  }
+
+  async trainFeeCalculateChange(request: TrainFeeCalculateChangeRequest): Promise<TrainFeeCalculateChangeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainFeeCalculateChangeHeaders({ });
+    return await this.trainFeeCalculateChangeWithOptions(request, headers, runtime);
+  }
+
+  async trainFeeCalculateRefundWithOptions(tmpReq: TrainFeeCalculateRefundRequest, headers: TrainFeeCalculateRefundHeaders, runtime: $Util.RuntimeOptions): Promise<TrainFeeCalculateRefundResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TrainFeeCalculateRefundShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.refundTrainInfos)) {
+      request.refundTrainInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.refundTrainInfos, "refund_train_infos", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.distributeOrderId)) {
+      body["distribute_order_id"] = request.distributeOrderId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.refundTrainInfosShrink)) {
+      body["refund_train_infos"] = request.refundTrainInfosShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainFeeCalculateRefund",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/refund/fee`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainFeeCalculateRefundResponse>(await this.callApi(params, req, runtime), new TrainFeeCalculateRefundResponse({}));
+  }
+
+  async trainFeeCalculateRefund(request: TrainFeeCalculateRefundRequest): Promise<TrainFeeCalculateRefundResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainFeeCalculateRefundHeaders({ });
+    return await this.trainFeeCalculateRefundWithOptions(request, headers, runtime);
+  }
+
+  async trainNoInfoSearchWithOptions(request: TrainNoInfoSearchRequest, headers: TrainNoInfoSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainNoInfoSearchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.arrLocation)) {
+      body["arr_location"] = request.arrLocation;
+    }
+
+    if (!Util.isUnset(request.depDate)) {
+      body["dep_date"] = request.depDate;
+    }
+
+    if (!Util.isUnset(request.depLocation)) {
+      body["dep_location"] = request.depLocation;
+    }
+
+    if (!Util.isUnset(request.lineKey)) {
+      body["line_key"] = request.lineKey;
+    }
+
+    if (!Util.isUnset(request.middleDate)) {
+      body["middle_date"] = request.middleDate;
+    }
+
+    if (!Util.isUnset(request.middleStation)) {
+      body["middle_station"] = request.middleStation;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.trainNo)) {
+      body["train_no"] = request.trainNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainNoInfoSearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/search/info`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainNoInfoSearchResponse>(await this.callApi(params, req, runtime), new TrainNoInfoSearchResponse({}));
+  }
+
+  async trainNoInfoSearch(request: TrainNoInfoSearchRequest): Promise<TrainNoInfoSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainNoInfoSearchHeaders({ });
+    return await this.trainNoInfoSearchWithOptions(request, headers, runtime);
+  }
+
+  async trainNoListSearchWithOptions(tmpReq: TrainNoListSearchRequest, headers: TrainNoListSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainNoListSearchResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TrainNoListSearchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.option)) {
+      request.optionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.option, "option", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.arrLocation)) {
+      body["arr_location"] = request.arrLocation;
+    }
+
+    if (!Util.isUnset(request.depDate)) {
+      body["dep_date"] = request.depDate;
+    }
+
+    if (!Util.isUnset(request.depLocation)) {
+      body["dep_location"] = request.depLocation;
+    }
+
+    if (!Util.isUnset(request.optionShrink)) {
+      body["option"] = request.optionShrink;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainNoListSearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/search/list`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainNoListSearchResponse>(await this.callApi(params, req, runtime), new TrainNoListSearchResponse({}));
+  }
+
+  async trainNoListSearch(request: TrainNoListSearchRequest): Promise<TrainNoListSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainNoListSearchHeaders({ });
+    return await this.trainNoListSearchWithOptions(request, headers, runtime);
+  }
+
+  async trainOrderCancelWithOptions(request: TrainOrderCancelRequest, headers: TrainOrderCancelHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderCancelResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.changeOrderId)) {
+      body["change_order_id"] = request.changeOrderId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.outChangeOrderId)) {
+      body["out_change_order_id"] = request.outChangeOrderId;
+    }
+
+    if (!Util.isUnset(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainOrderCancel",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/order/cancel`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainOrderCancelResponse>(await this.callApi(params, req, runtime), new TrainOrderCancelResponse({}));
+  }
+
+  async trainOrderCancel(request: TrainOrderCancelRequest): Promise<TrainOrderCancelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainOrderCancelHeaders({ });
+    return await this.trainOrderCancelWithOptions(request, headers, runtime);
+  }
+
+  async trainOrderChangeConfirmWithOptions(request: TrainOrderChangeConfirmRequest, headers: TrainOrderChangeConfirmHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderChangeConfirmResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.changeApplyId)) {
+      body["change_apply_id"] = request.changeApplyId;
+    }
+
+    if (!Util.isUnset(request.changeSettleAmount)) {
+      body["change_settle_amount"] = request.changeSettleAmount;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.outChangeApplyId)) {
+      body["out_change_apply_id"] = request.outChangeApplyId;
+    }
+
+    if (!Util.isUnset(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainOrderChangeConfirm",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/change/confirm`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainOrderChangeConfirmResponse>(await this.callApi(params, req, runtime), new TrainOrderChangeConfirmResponse({}));
+  }
+
+  async trainOrderChangeConfirm(request: TrainOrderChangeConfirmRequest): Promise<TrainOrderChangeConfirmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainOrderChangeConfirmHeaders({ });
+    return await this.trainOrderChangeConfirmWithOptions(request, headers, runtime);
+  }
+
+  async trainOrderCreateWithOptions(tmpReq: TrainOrderCreateRequest, headers: TrainOrderCreateHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderCreateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TrainOrderCreateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.bookTrainInfos)) {
+      request.bookTrainInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bookTrainInfos, "book_train_infos", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.businessInfo)) {
+      request.businessInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessInfo, "business_info", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.contactInfo)) {
+      request.contactInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactInfo, "contact_info", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.passengerOpenInfoS)) {
+      request.passengerOpenInfoSShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.passengerOpenInfoS, "passenger_open_info_s", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceptNoSeat)) {
+      body["accept_no_seat"] = request.acceptNoSeat;
+    }
+
+    if (!Util.isUnset(request.bookTrainInfosShrink)) {
+      body["book_train_infos"] = request.bookTrainInfosShrink;
+    }
+
+    if (!Util.isUnset(request.btripUserId)) {
+      body["btrip_user_id"] = request.btripUserId;
+    }
+
+    if (!Util.isUnset(request.btripUserName)) {
+      body["btrip_user_name"] = request.btripUserName;
+    }
+
+    if (!Util.isUnset(request.businessInfoShrink)) {
+      body["business_info"] = request.businessInfoShrink;
+    }
+
+    if (!Util.isUnset(request.contactInfoShrink)) {
+      body["contact_info"] = request.contactInfoShrink;
+    }
+
+    if (!Util.isUnset(request.forceMatch)) {
+      body["force_match"] = request.forceMatch;
+    }
+
+    if (!Util.isUnset(request.isPayNow)) {
+      body["is_pay_now"] = request.isPayNow;
+    }
+
+    if (!Util.isUnset(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    if (!Util.isUnset(request.passengerOpenInfoSShrink)) {
+      body["passenger_open_info_s"] = request.passengerOpenInfoSShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainOrderCreate",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/order/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainOrderCreateResponse>(await this.callApi(params, req, runtime), new TrainOrderCreateResponse({}));
+  }
+
+  async trainOrderCreate(request: TrainOrderCreateRequest): Promise<TrainOrderCreateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainOrderCreateHeaders({ });
+    return await this.trainOrderCreateWithOptions(request, headers, runtime);
+  }
+
+  async trainOrderDetailQueryWithOptions(request: TrainOrderDetailQueryRequest, headers: TrainOrderDetailQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderDetailQueryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainOrderDetailQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/order/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainOrderDetailQueryResponse>(await this.callApi(params, req, runtime), new TrainOrderDetailQueryResponse({}));
+  }
+
+  async trainOrderDetailQuery(request: TrainOrderDetailQueryRequest): Promise<TrainOrderDetailQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainOrderDetailQueryHeaders({ });
+    return await this.trainOrderDetailQueryWithOptions(request, headers, runtime);
+  }
+
   async trainOrderListQueryWithOptions(request: TrainOrderListQueryRequest, headers: TrainOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61264,6 +65760,54 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderListQueryHeaders({ });
     return await this.trainOrderListQueryWithOptions(request, headers, runtime);
+  }
+
+  async trainOrderPayWithOptions(request: TrainOrderPayRequest, headers: TrainOrderPayHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderPayResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    if (!Util.isUnset(request.payAmount)) {
+      body["pay_amount"] = request.payAmount;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainOrderPay",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/order/pay`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainOrderPayResponse>(await this.callApi(params, req, runtime), new TrainOrderPayResponse({}));
+  }
+
+  async trainOrderPay(request: TrainOrderPayRequest): Promise<TrainOrderPayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainOrderPayHeaders({ });
+    return await this.trainOrderPayWithOptions(request, headers, runtime);
   }
 
   async trainOrderQueryWithOptions(request: TrainOrderQueryRequest, headers: TrainOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderQueryResponse> {
@@ -61392,6 +65936,58 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainStationSearchHeaders({ });
     return await this.trainStationSearchWithOptions(request, headers, runtime);
+  }
+
+  async trainStopoverSearchWithOptions(request: TrainStopoverSearchRequest, headers: TrainStopoverSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainStopoverSearchResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.arrStation)) {
+      body["arr_station"] = request.arrStation;
+    }
+
+    if (!Util.isUnset(request.depStation)) {
+      body["dep_station"] = request.depStation;
+    }
+
+    if (!Util.isUnset(request.trainDate)) {
+      body["train_date"] = request.trainDate;
+    }
+
+    if (!Util.isUnset(request.trainNo)) {
+      body["train_no"] = request.trainNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TrainStopoverSearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/train/v1/search/stopover`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrainStopoverSearchResponse>(await this.callApi(params, req, runtime), new TrainStopoverSearchResponse({}));
+  }
+
+  async trainStopoverSearch(request: TrainStopoverSearchRequest): Promise<TrainStopoverSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new TrainStopoverSearchHeaders({ });
+    return await this.trainStopoverSearchWithOptions(request, headers, runtime);
   }
 
   async trainTicketScanQueryWithOptions(request: TrainTicketScanQueryRequest, headers: TrainTicketScanQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainTicketScanQueryResponse> {
