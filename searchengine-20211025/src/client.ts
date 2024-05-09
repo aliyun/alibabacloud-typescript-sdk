@@ -475,6 +475,99 @@ export class CreateInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateTableRequest extends $tea.Model {
+  dataProcessConfig?: CreateTableRequestDataProcessConfig[];
+  dataProcessorCount?: number;
+  dataSource?: CreateTableRequestDataSource;
+  fieldSchema?: { [key: string]: string };
+  name?: string;
+  partitionCount?: number;
+  primaryKey?: string;
+  rawSchema?: string;
+  vectorIndex?: CreateTableRequestVectorIndex[];
+  dryRun?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataProcessConfig: 'dataProcessConfig',
+      dataProcessorCount: 'dataProcessorCount',
+      dataSource: 'dataSource',
+      fieldSchema: 'fieldSchema',
+      name: 'name',
+      partitionCount: 'partitionCount',
+      primaryKey: 'primaryKey',
+      rawSchema: 'rawSchema',
+      vectorIndex: 'vectorIndex',
+      dryRun: 'dryRun',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataProcessConfig: { 'type': 'array', 'itemType': CreateTableRequestDataProcessConfig },
+      dataProcessorCount: 'number',
+      dataSource: CreateTableRequestDataSource,
+      fieldSchema: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+      partitionCount: 'number',
+      primaryKey: 'string',
+      rawSchema: 'string',
+      vectorIndex: { 'type': 'array', 'itemType': CreateTableRequestVectorIndex },
+      dryRun: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAdvanceConfigResponseBody extends $tea.Model {
   requestId?: string;
   result?: { [key: string]: any };
@@ -724,6 +817,119 @@ export class DeleteInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTableResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'acceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DescribeRegionsResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsResponseBody,
     };
   }
 
@@ -1417,6 +1623,100 @@ export class GetNodeConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetNodeConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetTableResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetTableResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableGenerationResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetTableGenerationResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetTableGenerationResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTableGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTableGenerationResponseBody,
     };
   }
 
@@ -2302,6 +2602,119 @@ export class ListQueryResultResponse extends $tea.Model {
   }
 }
 
+export class ListTableGenerationsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListTableGenerationsResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListTableGenerationsResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTableGenerationsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTableGenerationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTableGenerationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesRequest extends $tea.Model {
+  newMode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      newMode: 'newMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newMode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListTablesResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListTablesResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTablesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTablesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAdvanceConfigFileRequest extends $tea.Model {
   content?: string;
   variables?: { [key: string]: VariablesValue };
@@ -3109,6 +3522,93 @@ export class ModifyPasswordResponse extends $tea.Model {
   }
 }
 
+export class ModifyTableRequest extends $tea.Model {
+  dataProcessConfig?: ModifyTableRequestDataProcessConfig[];
+  dataSource?: ModifyTableRequestDataSource;
+  fieldSchema?: { [key: string]: string };
+  partitionCount?: number;
+  primaryKey?: string;
+  rawSchema?: string;
+  vectorIndex?: ModifyTableRequestVectorIndex[];
+  dryRun?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataProcessConfig: 'dataProcessConfig',
+      dataSource: 'dataSource',
+      fieldSchema: 'fieldSchema',
+      partitionCount: 'partitionCount',
+      primaryKey: 'primaryKey',
+      rawSchema: 'rawSchema',
+      vectorIndex: 'vectorIndex',
+      dryRun: 'dryRun',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataProcessConfig: { 'type': 'array', 'itemType': ModifyTableRequestDataProcessConfig },
+      dataSource: ModifyTableRequestDataSource,
+      fieldSchema: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      partitionCount: 'number',
+      primaryKey: 'string',
+      rawSchema: 'string',
+      vectorIndex: { 'type': 'array', 'itemType': ModifyTableRequestVectorIndex },
+      dryRun: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishAdvanceConfigRequest extends $tea.Model {
   body?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -3308,6 +3808,78 @@ export class RecoverIndexResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RecoverIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReindexRequest extends $tea.Model {
+  dataTimeSec?: number;
+  ossDataPath?: string;
+  partition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataTimeSec: 'dataTimeSec',
+      ossDataPath: 'ossDataPath',
+      partition: 'partition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataTimeSec: 'number',
+      ossDataPath: 'string',
+      partition: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReindexResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReindexResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReindexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReindexResponseBody,
     };
   }
 
@@ -3776,6 +4348,248 @@ export class CreateInstanceResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableRequestDataProcessConfigParamsSrcFieldConfig extends $tea.Model {
+  ossBucket?: string;
+  ossEndpoint?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossBucket: 'ossBucket',
+      ossEndpoint: 'ossEndpoint',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucket: 'string',
+      ossEndpoint: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableRequestDataProcessConfigParams extends $tea.Model {
+  srcFieldConfig?: CreateTableRequestDataProcessConfigParamsSrcFieldConfig;
+  vectorModal?: string;
+  vectorModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      srcFieldConfig: 'srcFieldConfig',
+      vectorModal: 'vectorModal',
+      vectorModel: 'vectorModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      srcFieldConfig: CreateTableRequestDataProcessConfigParamsSrcFieldConfig,
+      vectorModal: 'string',
+      vectorModel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableRequestDataProcessConfig extends $tea.Model {
+  dstField?: string;
+  operator?: string;
+  params?: CreateTableRequestDataProcessConfigParams;
+  srcField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstField: 'dstField',
+      operator: 'operator',
+      params: 'params',
+      srcField: 'srcField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstField: 'string',
+      operator: 'string',
+      params: CreateTableRequestDataProcessConfigParams,
+      srcField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableRequestDataSourceConfig extends $tea.Model {
+  accessKey?: string;
+  accessSecret?: string;
+  bucket?: string;
+  endpoint?: string;
+  ossPath?: string;
+  partition?: string;
+  project?: string;
+  table?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'accessKey',
+      accessSecret: 'accessSecret',
+      bucket: 'bucket',
+      endpoint: 'endpoint',
+      ossPath: 'ossPath',
+      partition: 'partition',
+      project: 'project',
+      table: 'table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      accessSecret: 'string',
+      bucket: 'string',
+      endpoint: 'string',
+      ossPath: 'string',
+      partition: 'string',
+      project: 'string',
+      table: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableRequestDataSource extends $tea.Model {
+  autoBuildIndex?: boolean;
+  config?: CreateTableRequestDataSourceConfig;
+  dataTimeSec?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoBuildIndex: 'autoBuildIndex',
+      config: 'config',
+      dataTimeSec: 'dataTimeSec',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoBuildIndex: 'boolean',
+      config: CreateTableRequestDataSourceConfig,
+      dataTimeSec: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableRequestVectorIndexAdvanceParams extends $tea.Model {
+  buildIndexParams?: string;
+  linearBuildThreshold?: string;
+  minScanDocCnt?: string;
+  searchIndexParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildIndexParams: 'buildIndexParams',
+      linearBuildThreshold: 'linearBuildThreshold',
+      minScanDocCnt: 'minScanDocCnt',
+      searchIndexParams: 'searchIndexParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildIndexParams: 'string',
+      linearBuildThreshold: 'string',
+      minScanDocCnt: 'string',
+      searchIndexParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTableRequestVectorIndex extends $tea.Model {
+  advanceParams?: CreateTableRequestVectorIndexAdvanceParams;
+  dimension?: string;
+  distanceType?: string;
+  indexName?: string;
+  namespace?: string;
+  sparseIndexField?: string;
+  sparseValueField?: string;
+  vectorField?: string;
+  vectorIndexType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceParams: 'advanceParams',
+      dimension: 'dimension',
+      distanceType: 'distanceType',
+      indexName: 'indexName',
+      namespace: 'namespace',
+      sparseIndexField: 'sparseIndexField',
+      sparseValueField: 'sparseValueField',
+      vectorField: 'vectorField',
+      vectorIndexType: 'vectorIndexType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceParams: CreateTableRequestVectorIndexAdvanceParams,
+      dimension: 'string',
+      distanceType: 'string',
+      indexName: 'string',
+      namespace: 'string',
+      sparseIndexField: 'string',
+      sparseValueField: 'string',
+      vectorField: 'string',
+      vectorIndexType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyResult extends $tea.Model {
+  endpoint?: string;
+  localName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'endpoint',
+      localName: 'localName',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      localName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5118,6 +5932,294 @@ export class GetNodeConfigResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig extends $tea.Model {
+  ossBucket?: string;
+  ossEndpoint?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossBucket: 'ossBucket',
+      ossEndpoint: 'ossEndpoint',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucket: 'string',
+      ossEndpoint: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBodyResultDataProcessConfigParams extends $tea.Model {
+  srcFieldConfig?: GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig;
+  vectorModal?: string;
+  vectorModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      srcFieldConfig: 'srcFieldConfig',
+      vectorModal: 'vectorModal',
+      vectorModel: 'vectorModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      srcFieldConfig: GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig,
+      vectorModal: 'string',
+      vectorModel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBodyResultDataProcessConfig extends $tea.Model {
+  dstField?: string;
+  operator?: string;
+  params?: GetTableResponseBodyResultDataProcessConfigParams;
+  srcField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstField: 'dstField',
+      operator: 'operator',
+      params: 'params',
+      srcField: 'srcField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstField: 'string',
+      operator: 'string',
+      params: GetTableResponseBodyResultDataProcessConfigParams,
+      srcField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBodyResultDataSourceConfig extends $tea.Model {
+  accessKey?: string;
+  accessSecret?: string;
+  bucket?: string;
+  endpoint?: string;
+  namespace?: string;
+  ossPath?: string;
+  partition?: string;
+  path?: string;
+  project?: string;
+  table?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'accessKey',
+      accessSecret: 'accessSecret',
+      bucket: 'bucket',
+      endpoint: 'endpoint',
+      namespace: 'namespace',
+      ossPath: 'ossPath',
+      partition: 'partition',
+      path: 'path',
+      project: 'project',
+      table: 'table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      accessSecret: 'string',
+      bucket: 'string',
+      endpoint: 'string',
+      namespace: 'string',
+      ossPath: 'string',
+      partition: 'string',
+      path: 'string',
+      project: 'string',
+      table: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBodyResultDataSource extends $tea.Model {
+  autoBuildIndex?: boolean;
+  config?: GetTableResponseBodyResultDataSourceConfig;
+  dataTimeSec?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoBuildIndex: 'autoBuildIndex',
+      config: 'config',
+      dataTimeSec: 'dataTimeSec',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoBuildIndex: 'boolean',
+      config: GetTableResponseBodyResultDataSourceConfig,
+      dataTimeSec: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBodyResultVectorIndexAdvanceParams extends $tea.Model {
+  buildIndexParams?: string;
+  linearBuildThreshold?: string;
+  minScanDocCnt?: string;
+  searchIndexParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildIndexParams: 'buildIndexParams',
+      linearBuildThreshold: 'linearBuildThreshold',
+      minScanDocCnt: 'minScanDocCnt',
+      searchIndexParams: 'searchIndexParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildIndexParams: 'string',
+      linearBuildThreshold: 'string',
+      minScanDocCnt: 'string',
+      searchIndexParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBodyResultVectorIndex extends $tea.Model {
+  advanceParams?: GetTableResponseBodyResultVectorIndexAdvanceParams;
+  dimension?: string;
+  distanceType?: string;
+  indexName?: string;
+  namespace?: string;
+  sparseIndexField?: string;
+  sparseValueField?: string;
+  vectorField?: string;
+  vectorIndexType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceParams: 'advanceParams',
+      dimension: 'dimension',
+      distanceType: 'distanceType',
+      indexName: 'indexName',
+      namespace: 'namespace',
+      sparseIndexField: 'sparseIndexField',
+      sparseValueField: 'sparseValueField',
+      vectorField: 'vectorField',
+      vectorIndexType: 'vectorIndexType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceParams: GetTableResponseBodyResultVectorIndexAdvanceParams,
+      dimension: 'string',
+      distanceType: 'string',
+      indexName: 'string',
+      namespace: 'string',
+      sparseIndexField: 'string',
+      sparseValueField: 'string',
+      vectorField: 'string',
+      vectorIndexType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBodyResult extends $tea.Model {
+  dataProcessConfig?: GetTableResponseBodyResultDataProcessConfig[];
+  dataProcessorCount?: number;
+  dataSource?: GetTableResponseBodyResultDataSource;
+  fieldSchema?: { [key: string]: string };
+  name?: string;
+  partitionCount?: number;
+  primaryKey?: string;
+  rawSchema?: string;
+  vectorIndex?: GetTableResponseBodyResultVectorIndex[];
+  static names(): { [key: string]: string } {
+    return {
+      dataProcessConfig: 'dataProcessConfig',
+      dataProcessorCount: 'dataProcessorCount',
+      dataSource: 'dataSource',
+      fieldSchema: 'fieldSchema',
+      name: 'name',
+      partitionCount: 'partitionCount',
+      primaryKey: 'primaryKey',
+      rawSchema: 'rawSchema',
+      vectorIndex: 'vectorIndex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataProcessConfig: { 'type': 'array', 'itemType': GetTableResponseBodyResultDataProcessConfig },
+      dataProcessorCount: 'number',
+      dataSource: GetTableResponseBodyResultDataSource,
+      fieldSchema: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+      partitionCount: 'number',
+      primaryKey: 'string',
+      rawSchema: 'string',
+      vectorIndex: { 'type': 'array', 'itemType': GetTableResponseBodyResultVectorIndex },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableGenerationResponseBodyResult extends $tea.Model {
+  generationId?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generationId: 'generationId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generationId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAdvanceConfigDirResponseBodyResult extends $tea.Model {
   fullPathName?: string;
   isDir?: boolean;
@@ -6071,6 +7173,47 @@ export class ListOnlineConfigsResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListTableGenerationsResponseBodyResult extends $tea.Model {
+  generationId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      generationId: 'generationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generationId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBodyResult extends $tea.Model {
+  indexStatus?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexStatus: 'indexStatus',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexStatus: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyIndexPartitionRequestIndexInfos extends $tea.Model {
   indexName?: string;
   parallelNum?: number;
@@ -6113,6 +7256,220 @@ export class ModifyIndexVersionRequestBody extends $tea.Model {
       buildDeployId: 'string',
       indexName: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableRequestDataProcessConfigParamsSrcFieldConfig extends $tea.Model {
+  ossBucket?: string;
+  ossEndpoint?: string;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossBucket: 'ossBucket',
+      ossEndpoint: 'ossEndpoint',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucket: 'string',
+      ossEndpoint: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableRequestDataProcessConfigParams extends $tea.Model {
+  srcFieldConfig?: ModifyTableRequestDataProcessConfigParamsSrcFieldConfig;
+  vectorModal?: string;
+  vectorModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      srcFieldConfig: 'srcFieldConfig',
+      vectorModal: 'vectorModal',
+      vectorModel: 'vectorModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      srcFieldConfig: ModifyTableRequestDataProcessConfigParamsSrcFieldConfig,
+      vectorModal: 'string',
+      vectorModel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableRequestDataProcessConfig extends $tea.Model {
+  dstField?: string;
+  operator?: string;
+  params?: ModifyTableRequestDataProcessConfigParams;
+  srcField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstField: 'dstField',
+      operator: 'operator',
+      params: 'params',
+      srcField: 'srcField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstField: 'string',
+      operator: 'string',
+      params: ModifyTableRequestDataProcessConfigParams,
+      srcField: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableRequestDataSourceConfig extends $tea.Model {
+  accessKey?: string;
+  accessSecret?: string;
+  bucket?: string;
+  endpoint?: string;
+  ossPath?: string;
+  partition?: string;
+  project?: string;
+  table?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'accessKey',
+      accessSecret: 'accessSecret',
+      bucket: 'bucket',
+      endpoint: 'endpoint',
+      ossPath: 'ossPath',
+      partition: 'partition',
+      project: 'project',
+      table: 'table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      accessSecret: 'string',
+      bucket: 'string',
+      endpoint: 'string',
+      ossPath: 'string',
+      partition: 'string',
+      project: 'string',
+      table: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableRequestDataSource extends $tea.Model {
+  autoBuildIndex?: boolean;
+  config?: ModifyTableRequestDataSourceConfig;
+  dataTimeSec?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoBuildIndex: 'autoBuildIndex',
+      config: 'config',
+      dataTimeSec: 'dataTimeSec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoBuildIndex: 'boolean',
+      config: ModifyTableRequestDataSourceConfig,
+      dataTimeSec: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableRequestVectorIndexAdvanceParams extends $tea.Model {
+  buildIndexParams?: string;
+  linearBuildThreshold?: string;
+  minScanDocCnt?: string;
+  searchIndexParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildIndexParams: 'buildIndexParams',
+      linearBuildThreshold: 'linearBuildThreshold',
+      minScanDocCnt: 'minScanDocCnt',
+      searchIndexParams: 'searchIndexParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildIndexParams: 'string',
+      linearBuildThreshold: 'string',
+      minScanDocCnt: 'string',
+      searchIndexParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTableRequestVectorIndex extends $tea.Model {
+  advanceParams?: ModifyTableRequestVectorIndexAdvanceParams;
+  dimension?: string;
+  distanceType?: string;
+  indexName?: string;
+  namespace?: string;
+  sparseIndexField?: string;
+  sparseValueField?: string;
+  vectorField?: string;
+  vectorIndexType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceParams: 'advanceParams',
+      dimension: 'dimension',
+      distanceType: 'distanceType',
+      indexName: 'indexName',
+      namespace: 'namespace',
+      sparseIndexField: 'sparseIndexField',
+      sparseValueField: 'sparseValueField',
+      vectorField: 'vectorField',
+      vectorIndexType: 'vectorIndexType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceParams: ModifyTableRequestVectorIndexAdvanceParams,
+      dimension: 'string',
+      distanceType: 'string',
+      indexName: 'string',
+      namespace: 'string',
+      sparseIndexField: 'string',
+      sparseValueField: 'string',
+      vectorField: 'string',
+      vectorIndexType: 'string',
     };
   }
 
@@ -6562,6 +7919,75 @@ export default class Client extends OpenApi {
     return await this.createInstanceWithOptions(request, headers, runtime);
   }
 
+  async createTableWithOptions(instanceId: string, request: CreateTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataProcessConfig)) {
+      body["dataProcessConfig"] = request.dataProcessConfig;
+    }
+
+    if (!Util.isUnset(request.dataProcessorCount)) {
+      body["dataProcessorCount"] = request.dataProcessorCount;
+    }
+
+    if (!Util.isUnset(request.dataSource)) {
+      body["dataSource"] = request.dataSource;
+    }
+
+    if (!Util.isUnset(request.fieldSchema)) {
+      body["fieldSchema"] = request.fieldSchema;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.partitionCount)) {
+      body["partitionCount"] = request.partitionCount;
+    }
+
+    if (!Util.isUnset(request.primaryKey)) {
+      body["primaryKey"] = request.primaryKey;
+    }
+
+    if (!Util.isUnset(request.rawSchema)) {
+      body["rawSchema"] = request.rawSchema;
+    }
+
+    if (!Util.isUnset(request.vectorIndex)) {
+      body["vectorIndex"] = request.vectorIndex;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTable",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tables`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTableResponse>(await this.callApi(params, req, runtime), new CreateTableResponse({}));
+  }
+
+  async createTable(instanceId: string, request: CreateTableRequest): Promise<CreateTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTableWithOptions(instanceId, request, headers, runtime);
+  }
+
   /**
     * ## Method
     *     DELETE
@@ -6783,6 +8209,61 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceWithOptions(instanceId, headers, runtime);
+  }
+
+  async deleteTableWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTableResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteTable",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tables/${OpenApiUtil.getEncodeParam(tableName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTableResponse>(await this.callApi(params, req, runtime), new DeleteTableResponse({}));
+  }
+
+  async deleteTable(instanceId: string, tableName: string): Promise<DeleteTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTableWithOptions(instanceId, tableName, headers, runtime);
+  }
+
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["acceptLanguage"] = request.acceptLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+  }
+
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7329,6 +8810,54 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getNodeConfigWithOptions(instanceId, request, headers, runtime);
+  }
+
+  async getTableWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTable",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tables/${OpenApiUtil.getEncodeParam(tableName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTableResponse>(await this.callApi(params, req, runtime), new GetTableResponse({}));
+  }
+
+  async getTable(instanceId: string, tableName: string): Promise<GetTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTableWithOptions(instanceId, tableName, headers, runtime);
+  }
+
+  async getTableGenerationWithOptions(instanceId: string, tableName: string, generationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableGenerationResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTableGeneration",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tables/${OpenApiUtil.getEncodeParam(tableName)}/index_versions/${OpenApiUtil.getEncodeParam(generationId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTableGenerationResponse>(await this.callApi(params, req, runtime), new GetTableGenerationResponse({}));
+  }
+
+  async getTableGeneration(instanceId: string, tableName: string, generationId: string): Promise<GetTableGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTableGenerationWithOptions(instanceId, tableName, generationId, headers, runtime);
   }
 
   /**
@@ -8065,6 +9594,61 @@ export default class Client extends OpenApi {
     return await this.listQueryResultWithOptions(instanceId, request, headers, runtime);
   }
 
+  async listTableGenerationsWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTableGenerationsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTableGenerations",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tables/${OpenApiUtil.getEncodeParam(tableName)}/index_versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTableGenerationsResponse>(await this.callApi(params, req, runtime), new ListTableGenerationsResponse({}));
+  }
+
+  async listTableGenerations(instanceId: string, tableName: string): Promise<ListTableGenerationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTableGenerationsWithOptions(instanceId, tableName, headers, runtime);
+  }
+
+  async listTablesWithOptions(instanceId: string, request: ListTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTablesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.newMode)) {
+      query["newMode"] = request.newMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTables",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tables`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTablesResponse>(await this.callApi(params, req, runtime), new ListTablesResponse({}));
+  }
+
+  async listTables(instanceId: string, request: ListTablesRequest): Promise<ListTablesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTablesWithOptions(instanceId, request, headers, runtime);
+  }
+
   /**
     * ## Method
     *     put
@@ -8749,6 +10333,67 @@ export default class Client extends OpenApi {
     return await this.modifyPasswordWithOptions(instanceId, request, headers, runtime);
   }
 
+  async modifyTableWithOptions(instanceId: string, tableName: string, request: ModifyTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyTableResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataProcessConfig)) {
+      body["dataProcessConfig"] = request.dataProcessConfig;
+    }
+
+    if (!Util.isUnset(request.dataSource)) {
+      body["dataSource"] = request.dataSource;
+    }
+
+    if (!Util.isUnset(request.fieldSchema)) {
+      body["fieldSchema"] = request.fieldSchema;
+    }
+
+    if (!Util.isUnset(request.partitionCount)) {
+      body["partitionCount"] = request.partitionCount;
+    }
+
+    if (!Util.isUnset(request.primaryKey)) {
+      body["primaryKey"] = request.primaryKey;
+    }
+
+    if (!Util.isUnset(request.rawSchema)) {
+      body["rawSchema"] = request.rawSchema;
+    }
+
+    if (!Util.isUnset(request.vectorIndex)) {
+      body["vectorIndex"] = request.vectorIndex;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTable",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tables/${OpenApiUtil.getEncodeParam(tableName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTableResponse>(await this.callApi(params, req, runtime), new ModifyTableResponse({}));
+  }
+
+  async modifyTable(instanceId: string, tableName: string, request: ModifyTableRequest): Promise<ModifyTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modifyTableWithOptions(instanceId, tableName, request, headers, runtime);
+  }
+
   /**
     * ## Method
     * ~~~
@@ -8920,6 +10565,45 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.recoverIndexWithOptions(instanceId, request, headers, runtime);
+  }
+
+  async reindexWithOptions(instanceId: string, tableName: string, request: ReindexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReindexResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataTimeSec)) {
+      body["dataTimeSec"] = request.dataTimeSec;
+    }
+
+    if (!Util.isUnset(request.ossDataPath)) {
+      body["ossDataPath"] = request.ossDataPath;
+    }
+
+    if (!Util.isUnset(request.partition)) {
+      body["partition"] = request.partition;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Reindex",
+      version: "2021-10-25",
+      protocol: "HTTPS",
+      pathname: `/openapi/ha3/instances/${OpenApiUtil.getEncodeParam(instanceId)}/tables/${OpenApiUtil.getEncodeParam(tableName)}/reindex`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReindexResponse>(await this.callApi(params, req, runtime), new ReindexResponse({}));
+  }
+
+  async reindex(instanceId: string, tableName: string, request: ReindexRequest): Promise<ReindexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.reindexWithOptions(instanceId, tableName, request, headers, runtime);
   }
 
   /**
