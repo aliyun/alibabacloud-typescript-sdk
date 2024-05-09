@@ -1472,7 +1472,10 @@ export class CreateDBClusterRequest extends $tea.Model {
   enableDefaultResourcePool?: boolean;
   payType?: string;
   period?: string;
+  productForm?: string;
   regionId?: string;
+  reservedNodeCount?: number;
+  reservedNodeSize?: string;
   resourceGroupId?: string;
   restoreToTime?: string;
   restoreType?: string;
@@ -1493,7 +1496,10 @@ export class CreateDBClusterRequest extends $tea.Model {
       enableDefaultResourcePool: 'EnableDefaultResourcePool',
       payType: 'PayType',
       period: 'Period',
+      productForm: 'ProductForm',
       regionId: 'RegionId',
+      reservedNodeCount: 'ReservedNodeCount',
+      reservedNodeSize: 'ReservedNodeSize',
       resourceGroupId: 'ResourceGroupId',
       restoreToTime: 'RestoreToTime',
       restoreType: 'RestoreType',
@@ -1517,7 +1523,10 @@ export class CreateDBClusterRequest extends $tea.Model {
       enableDefaultResourcePool: 'boolean',
       payType: 'string',
       period: 'string',
+      productForm: 'string',
       regionId: 'string',
+      reservedNodeCount: 'number',
+      reservedNodeSize: 'string',
       resourceGroupId: 'string',
       restoreToTime: 'string',
       restoreType: 'string',
@@ -4483,8 +4492,10 @@ export class DescribeDBClustersRequest extends $tea.Model {
   DBClusterDescription?: string;
   DBClusterIds?: string;
   DBClusterStatus?: string;
+  DBClusterVersion?: string;
   pageNumber?: number;
   pageSize?: number;
+  productVersion?: string;
   regionId?: string;
   resourceGroupId?: string;
   tag?: DescribeDBClustersRequestTag[];
@@ -4493,8 +4504,10 @@ export class DescribeDBClustersRequest extends $tea.Model {
       DBClusterDescription: 'DBClusterDescription',
       DBClusterIds: 'DBClusterIds',
       DBClusterStatus: 'DBClusterStatus',
+      DBClusterVersion: 'DBClusterVersion',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      productVersion: 'ProductVersion',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
@@ -4506,8 +4519,10 @@ export class DescribeDBClustersRequest extends $tea.Model {
       DBClusterDescription: 'string',
       DBClusterIds: 'string',
       DBClusterStatus: 'string',
+      DBClusterVersion: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      productVersion: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': DescribeDBClustersRequestTag },
@@ -9452,6 +9467,8 @@ export class ModifyDBClusterRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
+  reservedNodeCount?: number;
+  reservedNodeSize?: string;
   resourceOwnerAccount?: string;
   storageResource?: string;
   static names(): { [key: string]: string } {
@@ -9462,6 +9479,8 @@ export class ModifyDBClusterRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      reservedNodeCount: 'ReservedNodeCount',
+      reservedNodeSize: 'ReservedNodeSize',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       storageResource: 'StorageResource',
     };
@@ -9475,6 +9494,8 @@ export class ModifyDBClusterRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      reservedNodeCount: 'number',
+      reservedNodeSize: 'string',
       resourceOwnerAccount: 'string',
       storageResource: 'string',
     };
@@ -11892,8 +11913,11 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
   mode?: string;
   payType?: string;
   port?: number;
+  productForm?: string;
   regionId?: string;
   reservedACU?: string;
+  reservedNodeCount?: number;
+  reservedNodeSize?: string;
   resourceGroupId?: string;
   storageResource?: string;
   storageResourceTotal?: string;
@@ -11926,8 +11950,11 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       mode: 'Mode',
       payType: 'PayType',
       port: 'Port',
+      productForm: 'ProductForm',
       regionId: 'RegionId',
       reservedACU: 'ReservedACU',
+      reservedNodeCount: 'ReservedNodeCount',
+      reservedNodeSize: 'ReservedNodeSize',
       resourceGroupId: 'ResourceGroupId',
       storageResource: 'StorageResource',
       storageResourceTotal: 'StorageResourceTotal',
@@ -11963,8 +11990,11 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       mode: 'string',
       payType: 'string',
       port: 'number',
+      productForm: 'string',
       regionId: 'string',
       reservedACU: 'string',
+      reservedNodeCount: 'number',
+      reservedNodeSize: 'string',
       resourceGroupId: 'string',
       storageResource: 'string',
       storageResourceTotal: 'string',
@@ -12319,7 +12349,89 @@ export class DescribeDBClustersResponseBodyItemsDBClusterTags extends $tea.Model
   }
 }
 
+export class DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  stepDesc?: string;
+  stepName?: string;
+  stepProgress?: string;
+  stepStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      stepDesc: 'StepDesc',
+      stepName: 'StepName',
+      stepProgress: 'StepProgress',
+      stepStatus: 'StepStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+      stepDesc: 'string',
+      stepName: 'string',
+      stepProgress: 'string',
+      stepStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList extends $tea.Model {
+  stepList?: DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList[];
+  static names(): { [key: string]: string } {
+    return {
+      stepList: 'StepList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stepList: { 'type': 'array', 'itemType': DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepListStepList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClustersResponseBodyItemsDBClusterTaskInfo extends $tea.Model {
+  name?: string;
+  progress?: string;
+  status?: string;
+  stepList?: DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      progress: 'Progress',
+      status: 'Status',
+      stepList: 'StepList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      progress: 'string',
+      status: 'string',
+      stepList: DescribeDBClustersResponseBodyItemsDBClusterTaskInfoStepList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
+  category?: string;
   commodityCode?: string;
   computeResource?: string;
   connectionString?: string;
@@ -12329,25 +12441,41 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   DBClusterNetworkType?: string;
   DBClusterStatus?: string;
   DBClusterType?: string;
+  DBNodeClass?: string;
+  DBNodeCount?: number;
+  DBNodeStorage?: number;
   DBVersion?: string;
+  diskType?: string;
+  dtsJobId?: string;
+  elasticIOResource?: number;
   engine?: string;
+  executorCount?: string;
   expireTime?: string;
   expired?: string;
+  innerIp?: string;
+  innerPort?: string;
   lockMode?: string;
   lockReason?: string;
   mode?: string;
   payType?: string;
   port?: string;
+  productForm?: string;
+  rdsInstanceId?: string;
   regionId?: string;
   reservedACU?: string;
+  reservedNodeCount?: number;
+  reservedNodeSize?: string;
   resourceGroupId?: string;
   storageResource?: string;
   tags?: DescribeDBClustersResponseBodyItemsDBClusterTags;
+  taskInfo?: DescribeDBClustersResponseBodyItemsDBClusterTaskInfo;
+  VPCCloudInstanceId?: string;
   VPCId?: string;
   vSwitchId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       commodityCode: 'CommodityCode',
       computeResource: 'ComputeResource',
       connectionString: 'ConnectionString',
@@ -12357,20 +12485,35 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       DBClusterNetworkType: 'DBClusterNetworkType',
       DBClusterStatus: 'DBClusterStatus',
       DBClusterType: 'DBClusterType',
+      DBNodeClass: 'DBNodeClass',
+      DBNodeCount: 'DBNodeCount',
+      DBNodeStorage: 'DBNodeStorage',
       DBVersion: 'DBVersion',
+      diskType: 'DiskType',
+      dtsJobId: 'DtsJobId',
+      elasticIOResource: 'ElasticIOResource',
       engine: 'Engine',
+      executorCount: 'ExecutorCount',
       expireTime: 'ExpireTime',
       expired: 'Expired',
+      innerIp: 'InnerIp',
+      innerPort: 'InnerPort',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       mode: 'Mode',
       payType: 'PayType',
       port: 'Port',
+      productForm: 'ProductForm',
+      rdsInstanceId: 'RdsInstanceId',
       regionId: 'RegionId',
       reservedACU: 'ReservedACU',
+      reservedNodeCount: 'ReservedNodeCount',
+      reservedNodeSize: 'ReservedNodeSize',
       resourceGroupId: 'ResourceGroupId',
       storageResource: 'StorageResource',
       tags: 'Tags',
+      taskInfo: 'TaskInfo',
+      VPCCloudInstanceId: 'VPCCloudInstanceId',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -12379,6 +12522,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       commodityCode: 'string',
       computeResource: 'string',
       connectionString: 'string',
@@ -12388,20 +12532,35 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       DBClusterNetworkType: 'string',
       DBClusterStatus: 'string',
       DBClusterType: 'string',
+      DBNodeClass: 'string',
+      DBNodeCount: 'number',
+      DBNodeStorage: 'number',
       DBVersion: 'string',
+      diskType: 'string',
+      dtsJobId: 'string',
+      elasticIOResource: 'number',
       engine: 'string',
+      executorCount: 'string',
       expireTime: 'string',
       expired: 'string',
+      innerIp: 'string',
+      innerPort: 'string',
       lockMode: 'string',
       lockReason: 'string',
       mode: 'string',
       payType: 'string',
       port: 'string',
+      productForm: 'string',
+      rdsInstanceId: 'string',
       regionId: 'string',
       reservedACU: 'string',
+      reservedNodeCount: 'number',
+      reservedNodeSize: 'string',
       resourceGroupId: 'string',
       storageResource: 'string',
       tags: DescribeDBClustersResponseBodyItemsDBClusterTags,
+      taskInfo: DescribeDBClustersResponseBodyItemsDBClusterTaskInfo,
+      VPCCloudInstanceId: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
@@ -14194,6 +14353,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request AllocateClusterPublicConnectionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AllocateClusterPublicConnectionResponse
+   */
   async allocateClusterPublicConnectionWithOptions(request: AllocateClusterPublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateClusterPublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14222,11 +14388,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateClusterPublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateClusterPublicConnectionResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request AllocateClusterPublicConnectionRequest
+    * @return AllocateClusterPublicConnectionResponse
+   */
   async allocateClusterPublicConnection(request: AllocateClusterPublicConnectionRequest): Promise<AllocateClusterPublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateClusterPublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request AttachUserENIRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return AttachUserENIResponse
+   */
   async attachUserENIWithOptions(request: AttachUserENIRequest, runtime: $Util.RuntimeOptions): Promise<AttachUserENIResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14251,11 +14430,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachUserENIResponse>(await this.callApi(params, req, runtime), new AttachUserENIResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request AttachUserENIRequest
+    * @return AttachUserENIResponse
+   */
   async attachUserENI(request: AttachUserENIRequest): Promise<AttachUserENIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachUserENIWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request BindAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BindAccountResponse
+   */
   async bindAccountWithOptions(request: BindAccountRequest, runtime: $Util.RuntimeOptions): Promise<BindAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14288,11 +14480,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BindAccountResponse>(await this.callApi(params, req, runtime), new BindAccountResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request BindAccountRequest
+    * @return BindAccountResponse
+   */
   async bindAccount(request: BindAccountRequest): Promise<BindAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindAccountWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request BindDBResourceGroupWithUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return BindDBResourceGroupWithUserResponse
+   */
   async bindDBResourceGroupWithUserWithOptions(request: BindDBResourceGroupWithUserRequest, runtime: $Util.RuntimeOptions): Promise<BindDBResourceGroupWithUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14325,11 +14530,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BindDBResourceGroupWithUserResponse>(await this.callApi(params, req, runtime), new BindDBResourceGroupWithUserResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request BindDBResourceGroupWithUserRequest
+    * @return BindDBResourceGroupWithUserResponse
+   */
   async bindDBResourceGroupWithUser(request: BindDBResourceGroupWithUserRequest): Promise<BindDBResourceGroupWithUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindDBResourceGroupWithUserWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CheckBindRamUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckBindRamUserResponse
+   */
   async checkBindRamUserWithOptions(request: CheckBindRamUserRequest, runtime: $Util.RuntimeOptions): Promise<CheckBindRamUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14358,11 +14576,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckBindRamUserResponse>(await this.callApi(params, req, runtime), new CheckBindRamUserResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CheckBindRamUserRequest
+    * @return CheckBindRamUserResponse
+   */
   async checkBindRamUser(request: CheckBindRamUserRequest): Promise<CheckBindRamUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkBindRamUserWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CheckSampleDataSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CheckSampleDataSetResponse
+   */
   async checkSampleDataSetWithOptions(request: CheckSampleDataSetRequest, runtime: $Util.RuntimeOptions): Promise<CheckSampleDataSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14387,11 +14618,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckSampleDataSetResponse>(await this.callApi(params, req, runtime), new CheckSampleDataSetResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CheckSampleDataSetRequest
+    * @return CheckSampleDataSetResponse
+   */
   async checkSampleDataSet(request: CheckSampleDataSetRequest): Promise<CheckSampleDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkSampleDataSetWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CreateAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14432,11 +14676,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CreateAccountRequest
+    * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CreateDBClusterRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBClusterResponse
+   */
   async createDBClusterWithOptions(request: CreateDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14472,8 +14729,20 @@ export default class Client extends OpenApi {
       query["Period"] = request.period;
     }
 
+    if (!Util.isUnset(request.productForm)) {
+      query["ProductForm"] = request.productForm;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.reservedNodeCount)) {
+      query["ReservedNodeCount"] = request.reservedNodeCount;
+    }
+
+    if (!Util.isUnset(request.reservedNodeSize)) {
+      query["ReservedNodeSize"] = request.reservedNodeSize;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
@@ -14533,11 +14802,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBClusterResponse>(await this.callApi(params, req, runtime), new CreateDBClusterResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CreateDBClusterRequest
+    * @return CreateDBClusterResponse
+   */
   async createDBCluster(request: CreateDBClusterRequest): Promise<CreateDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBClusterWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of the current service, see [Endpoints](~~612373~~).
+    *
+    * @param tmpReq CreateDBResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateDBResourceGroupResponse
+   */
   async createDBResourceGroupWithOptions(tmpReq: CreateDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResourceGroupResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDBResourceGroupShrinkRequest({ });
@@ -14612,11 +14894,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateDBResourceGroupResponse({}));
   }
 
+  /**
+    * For information about the endpoints of the current service, see [Endpoints](~~612373~~).
+    *
+    * @param request CreateDBResourceGroupRequest
+    * @return CreateDBResourceGroupResponse
+   */
   async createDBResourceGroup(request: CreateDBResourceGroupRequest): Promise<CreateDBResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CreateElasticPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateElasticPlanResponse
+   */
   async createElasticPlanWithOptions(request: CreateElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateElasticPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14677,11 +14972,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateElasticPlanResponse>(await this.callApi(params, req, runtime), new CreateElasticPlanResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request CreateElasticPlanRequest
+    * @return CreateElasticPlanResponse
+   */
   async createElasticPlan(request: CreateElasticPlanRequest): Promise<CreateElasticPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createElasticPlanWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request CreateOssSubDirectoryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateOssSubDirectoryResponse
+   */
   async createOssSubDirectoryWithOptions(request: CreateOssSubDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateOssSubDirectoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14710,11 +15020,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOssSubDirectoryResponse>(await this.callApi(params, req, runtime), new CreateOssSubDirectoryResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request CreateOssSubDirectoryRequest
+    * @return CreateOssSubDirectoryResponse
+   */
   async createOssSubDirectory(request: CreateOssSubDirectoryRequest): Promise<CreateOssSubDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOssSubDirectoryWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request CreateSparkTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return CreateSparkTemplateResponse
+   */
   async createSparkTemplateWithOptions(request: CreateSparkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateSparkTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14755,6 +15082,14 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSparkTemplateResponse>(await this.callApi(params, req, runtime), new CreateSparkTemplateResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request CreateSparkTemplateRequest
+    * @return CreateSparkTemplateResponse
+   */
   async createSparkTemplate(request: CreateSparkTemplateRequest): Promise<CreateSparkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSparkTemplateWithOptions(request, runtime);
@@ -14794,8 +15129,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ###
-    * You can call this operation to delete only subscription clusters.
+    * ### [](#)
+    * *   You can call this operation to delete only subscription clusters.
+    * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
     *
     * @param request DeleteDBClusterRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -14826,8 +15162,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ###
-    * You can call this operation to delete only subscription clusters.
+    * ### [](#)
+    * *   You can call this operation to delete only subscription clusters.
+    * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
     *
     * @param request DeleteDBClusterRequest
     * @return DeleteDBClusterResponse
@@ -14837,6 +15174,13 @@ export default class Client extends OpenApi {
     return await this.deleteDBClusterWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DeleteDBResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteDBResourceGroupResponse
+   */
   async deleteDBResourceGroupWithOptions(request: DeleteDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14865,11 +15209,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteDBResourceGroupResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DeleteDBResourceGroupRequest
+    * @return DeleteDBResourceGroupResponse
+   */
   async deleteDBResourceGroup(request: DeleteDBResourceGroupRequest): Promise<DeleteDBResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DeleteElasticPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteElasticPlanResponse
+   */
   async deleteElasticPlanWithOptions(request: DeleteElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<DeleteElasticPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14898,11 +15255,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteElasticPlanResponse>(await this.callApi(params, req, runtime), new DeleteElasticPlanResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DeleteElasticPlanRequest
+    * @return DeleteElasticPlanResponse
+   */
   async deleteElasticPlan(request: DeleteElasticPlanRequest): Promise<DeleteElasticPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteElasticPlanWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DeleteProcessInstanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteProcessInstanceResponse
+   */
   async deleteProcessInstanceWithOptions(request: DeleteProcessInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProcessInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14939,11 +15310,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProcessInstanceResponse>(await this.callApi(params, req, runtime), new DeleteProcessInstanceResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DeleteProcessInstanceRequest
+    * @return DeleteProcessInstanceResponse
+   */
   async deleteProcessInstance(request: DeleteProcessInstanceRequest): Promise<DeleteProcessInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProcessInstanceWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+    *
+    * @param request DeleteSparkTemplateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DeleteSparkTemplateResponse
+   */
   async deleteSparkTemplateWithOptions(request: DeleteSparkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSparkTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14972,6 +15359,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSparkTemplateResponse>(await this.callApi(params, req, runtime), new DeleteSparkTemplateResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+    *
+    * @param request DeleteSparkTemplateRequest
+    * @return DeleteSparkTemplateResponse
+   */
   async deleteSparkTemplate(request: DeleteSparkTemplateRequest): Promise<DeleteSparkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSparkTemplateWithOptions(request, runtime);
@@ -15010,6 +15405,13 @@ export default class Client extends OpenApi {
     return await this.deleteSparkTemplateFileWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeAccountAllPrivilegesRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAccountAllPrivilegesResponse
+   */
   async describeAccountAllPrivilegesWithOptions(request: DescribeAccountAllPrivilegesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountAllPrivilegesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15046,11 +15448,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountAllPrivilegesResponse>(await this.callApi(params, req, runtime), new DescribeAccountAllPrivilegesResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeAccountAllPrivilegesRequest
+    * @return DescribeAccountAllPrivilegesResponse
+   */
   async describeAccountAllPrivileges(request: DescribeAccountAllPrivilegesRequest): Promise<DescribeAccountAllPrivilegesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountAllPrivilegesWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeAccountPrivilegeObjectsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAccountPrivilegeObjectsResponse
+   */
   async describeAccountPrivilegeObjectsWithOptions(request: DescribeAccountPrivilegeObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountPrivilegeObjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15107,6 +15522,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountPrivilegeObjectsResponse>(await this.callApi(params, req, runtime), new DescribeAccountPrivilegeObjectsResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeAccountPrivilegeObjectsRequest
+    * @return DescribeAccountPrivilegeObjectsResponse
+   */
   async describeAccountPrivilegeObjects(request: DescribeAccountPrivilegeObjectsRequest): Promise<DescribeAccountPrivilegeObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountPrivilegeObjectsWithOptions(request, runtime);
@@ -15173,6 +15594,13 @@ export default class Client extends OpenApi {
     return await this.describeAccountPrivilegesWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeAccountsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeAccountsResponse
+   */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15205,6 +15633,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeAccountsRequest
+    * @return DescribeAccountsResponse
+   */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
@@ -15443,6 +15877,14 @@ export default class Client extends OpenApi {
     return await this.describeApsActionLogsWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeApsResourceGroupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeApsResourceGroupsResponse
+   */
   async describeApsResourceGroupsWithOptions(request: DescribeApsResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApsResourceGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15475,13 +15917,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApsResourceGroupsResponse>(await this.callApi(params, req, runtime), new DescribeApsResourceGroupsResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeApsResourceGroupsRequest
+    * @return DescribeApsResourceGroupsResponse
+   */
   async describeApsResourceGroups(request: DescribeApsResourceGroupsRequest): Promise<DescribeApsResourceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApsResourceGroupsWithOptions(request, runtime);
   }
 
   /**
-    * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+    * *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
     *
     * @param request DescribeAuditLogRecordsRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -15584,7 +16036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+    * *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
     *
     * @param request DescribeAuditLogRecordsRequest
     * @return DescribeAuditLogRecordsResponse
@@ -15594,6 +16049,13 @@ export default class Client extends OpenApi {
     return await this.describeAuditLogRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15634,11 +16096,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeBackupPolicyRequest
+    * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeBackupsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeBackupsResponse
+   */
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15699,11 +16174,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupsResponse>(await this.callApi(params, req, runtime), new DescribeBackupsResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeBackupsRequest
+    * @return DescribeBackupsResponse
+   */
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupsWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeClusterAccessWhiteListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterAccessWhiteListResponse
+   */
   async describeClusterAccessWhiteListWithOptions(request: DescribeClusterAccessWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAccessWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15732,11 +16220,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAccessWhiteListResponse>(await this.callApi(params, req, runtime), new DescribeClusterAccessWhiteListResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeClusterAccessWhiteListRequest
+    * @return DescribeClusterAccessWhiteListResponse
+   */
   async describeClusterAccessWhiteList(request: DescribeClusterAccessWhiteListRequest): Promise<DescribeClusterAccessWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterAccessWhiteListWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeClusterNetInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeClusterNetInfoResponse
+   */
   async describeClusterNetInfoWithOptions(request: DescribeClusterNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNetInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15761,6 +16262,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNetInfoResponse>(await this.callApi(params, req, runtime), new DescribeClusterNetInfoResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeClusterNetInfoRequest
+    * @return DescribeClusterNetInfoResponse
+   */
   async describeClusterNetInfo(request: DescribeClusterNetInfoRequest): Promise<DescribeClusterNetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterNetInfoWithOptions(request, runtime);
@@ -15902,6 +16409,13 @@ export default class Client extends OpenApi {
     return await this.describeComputeResourceUsageWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBClusterAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterAttributeResponse
+   */
   async describeDBClusterAttributeWithOptions(request: DescribeDBClusterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15926,11 +16440,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterAttributeResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBClusterAttributeRequest
+    * @return DescribeDBClusterAttributeResponse
+   */
   async describeDBClusterAttribute(request: DescribeDBClusterAttributeRequest): Promise<DescribeDBClusterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request DescribeDBClusterHealthStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterHealthStatusResponse
+   */
   async describeDBClusterHealthStatusWithOptions(request: DescribeDBClusterHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15959,11 +16486,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterHealthStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterHealthStatusResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request DescribeDBClusterHealthStatusRequest
+    * @return DescribeDBClusterHealthStatusResponse
+   */
   async describeDBClusterHealthStatus(request: DescribeDBClusterHealthStatusRequest): Promise<DescribeDBClusterHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterHealthStatusWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformanceWithOptions(request: DescribeDBClusterPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16008,11 +16550,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterPerformanceResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeDBClusterPerformanceRequest
+    * @return DescribeDBClusterPerformanceResponse
+   */
   async describeDBClusterPerformance(request: DescribeDBClusterPerformanceRequest): Promise<DescribeDBClusterPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBClusterSpaceSummaryRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterSpaceSummaryResponse
+   */
   async describeDBClusterSpaceSummaryWithOptions(request: DescribeDBClusterSpaceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterSpaceSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16057,11 +16614,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterSpaceSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterSpaceSummaryResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBClusterSpaceSummaryRequest
+    * @return DescribeDBClusterSpaceSummaryResponse
+   */
   async describeDBClusterSpaceSummary(request: DescribeDBClusterSpaceSummaryRequest): Promise<DescribeDBClusterSpaceSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterSpaceSummaryWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBClusterStatusRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClusterStatusResponse
+   */
   async describeDBClusterStatusWithOptions(request: DescribeDBClusterStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16086,11 +16656,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterStatusResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBClusterStatusRequest
+    * @return DescribeDBClusterStatusResponse
+   */
   async describeDBClusterStatus(request: DescribeDBClusterStatusRequest): Promise<DescribeDBClusterStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterStatusWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBClustersRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBClustersResponse
+   */
   async describeDBClustersWithOptions(request: DescribeDBClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClustersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16106,12 +16689,20 @@ export default class Client extends OpenApi {
       query["DBClusterStatus"] = request.DBClusterStatus;
     }
 
+    if (!Util.isUnset(request.DBClusterVersion)) {
+      query["DBClusterVersion"] = request.DBClusterVersion;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productVersion)) {
+      query["ProductVersion"] = request.productVersion;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -16143,11 +16734,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClustersResponse>(await this.callApi(params, req, runtime), new DescribeDBClustersResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBClustersRequest
+    * @return DescribeDBClustersResponse
+   */
   async describeDBClusters(request: DescribeDBClustersRequest): Promise<DescribeDBClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClustersWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDBResourceGroupResponse
+   */
   async describeDBResourceGroupWithOptions(request: DescribeDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16188,11 +16792,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBResourceGroupResponse>(await this.callApi(params, req, runtime), new DescribeDBResourceGroupResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeDBResourceGroupRequest
+    * @return DescribeDBResourceGroupResponse
+   */
   async describeDBResourceGroup(request: DescribeDBResourceGroupRequest): Promise<DescribeDBResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeDiagnosisDimensionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiagnosisDimensionsResponse
+   */
   async describeDiagnosisDimensionsWithOptions(request: DescribeDiagnosisDimensionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisDimensionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16237,11 +16856,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisDimensionsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisDimensionsResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeDiagnosisDimensionsRequest
+    * @return DescribeDiagnosisDimensionsResponse
+   */
   async describeDiagnosisDimensions(request: DescribeDiagnosisDimensionsRequest): Promise<DescribeDiagnosisDimensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisDimensionsWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request DescribeDiagnosisRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiagnosisRecordsResponse
+   */
   async describeDiagnosisRecordsWithOptions(request: DescribeDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16338,11 +16972,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisRecordsResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request DescribeDiagnosisRecordsRequest
+    * @return DescribeDiagnosisRecordsResponse
+   */
   async describeDiagnosisRecords(request: DescribeDiagnosisRecordsRequest): Promise<DescribeDiagnosisRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeDiagnosisSQLInfoRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeDiagnosisSQLInfoResponse
+   */
   async describeDiagnosisSQLInfoWithOptions(request: DescribeDiagnosisSQLInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisSQLInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -16363,6 +17012,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDiagnosisSQLInfoResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSQLInfoResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeDiagnosisSQLInfoRequest
+    * @return DescribeDiagnosisSQLInfoResponse
+   */
   async describeDiagnosisSQLInfo(request: DescribeDiagnosisSQLInfoRequest): Promise<DescribeDiagnosisSQLInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisSQLInfoWithOptions(request, runtime);
@@ -16405,6 +17062,13 @@ export default class Client extends OpenApi {
     return await this.describeDownloadRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see DescribeElasticPlanAttribute.
+    *
+    * @param request DescribeElasticPlanAttributeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeElasticPlanAttributeResponse
+   */
   async describeElasticPlanAttributeWithOptions(request: DescribeElasticPlanAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticPlanAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16433,11 +17097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticPlanAttributeResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanAttributeResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see DescribeElasticPlanAttribute.
+    *
+    * @param request DescribeElasticPlanAttributeRequest
+    * @return DescribeElasticPlanAttributeResponse
+   */
   async describeElasticPlanAttribute(request: DescribeElasticPlanAttributeRequest): Promise<DescribeElasticPlanAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticPlanAttributeWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeElasticPlanJobsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeElasticPlanJobsResponse
+   */
   async describeElasticPlanJobsWithOptions(request: DescribeElasticPlanJobsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticPlanJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16486,6 +17163,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElasticPlanJobsResponse>(await this.callApi(params, req, runtime), new DescribeElasticPlanJobsResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeElasticPlanJobsRequest
+    * @return DescribeElasticPlanJobsResponse
+   */
   async describeElasticPlanJobs(request: DescribeElasticPlanJobsRequest): Promise<DescribeElasticPlanJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElasticPlanJobsWithOptions(request, runtime);
@@ -16643,6 +17326,13 @@ export default class Client extends OpenApi {
     return await this.describeJobResourceUsageWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribePatternPerformanceRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribePatternPerformanceResponse
+   */
   async describePatternPerformanceWithOptions(request: DescribePatternPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePatternPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16683,11 +17373,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePatternPerformanceResponse>(await this.callApi(params, req, runtime), new DescribePatternPerformanceResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribePatternPerformanceRequest
+    * @return DescribePatternPerformanceResponse
+   */
   async describePatternPerformance(request: DescribePatternPerformanceRequest): Promise<DescribePatternPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePatternPerformanceWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeRegionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16728,6 +17431,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeRegionsRequest
+    * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
@@ -16864,6 +17573,14 @@ export default class Client extends OpenApi {
     return await this.describeSparkCodeLogWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeSparkCodeOutputRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSparkCodeOutputResponse
+   */
   async describeSparkCodeOutputWithOptions(request: DescribeSparkCodeOutputRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSparkCodeOutputResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16896,6 +17613,13 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSparkCodeOutputResponse>(await this.callApi(params, req, runtime), new DescribeSparkCodeOutputResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeSparkCodeOutputRequest
+    * @return DescribeSparkCodeOutputResponse
+   */
   async describeSparkCodeOutput(request: DescribeSparkCodeOutputRequest): Promise<DescribeSparkCodeOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSparkCodeOutputWithOptions(request, runtime);
@@ -16938,6 +17662,13 @@ export default class Client extends OpenApi {
     return await this.describeSparkCodeWebUiWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeSqlPatternRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeSqlPatternResponse
+   */
   async describeSqlPatternWithOptions(request: DescribeSqlPatternRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSqlPatternResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16990,6 +17721,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSqlPatternResponse>(await this.callApi(params, req, runtime), new DescribeSqlPatternResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeSqlPatternRequest
+    * @return DescribeSqlPatternResponse
+   */
   async describeSqlPattern(request: DescribeSqlPatternRequest): Promise<DescribeSqlPatternResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSqlPatternWithOptions(request, runtime);
@@ -17032,6 +17769,15 @@ export default class Client extends OpenApi {
     return await this.describeStorageResourceUsageWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeTableAccessCountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeTableAccessCountResponse
+   */
   async describeTableAccessCountWithOptions(request: DescribeTableAccessCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTableAccessCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17080,6 +17826,14 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTableAccessCountResponse>(await this.callApi(params, req, runtime), new DescribeTableAccessCountResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DescribeTableAccessCountRequest
+    * @return DescribeTableAccessCountResponse
+   */
   async describeTableAccessCount(request: DescribeTableAccessCountRequest): Promise<DescribeTableAccessCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTableAccessCountWithOptions(request, runtime);
@@ -17122,6 +17876,13 @@ export default class Client extends OpenApi {
     return await this.describeTablesWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeUserQuotaRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DescribeUserQuotaResponse
+   */
   async describeUserQuotaWithOptions(request: DescribeUserQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserQuotaResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -17142,11 +17903,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserQuotaResponse>(await this.callApi(params, req, runtime), new DescribeUserQuotaResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DescribeUserQuotaRequest
+    * @return DescribeUserQuotaResponse
+   */
   async describeUserQuota(request: DescribeUserQuotaRequest): Promise<DescribeUserQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserQuotaWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DetachUserENIRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DetachUserENIResponse
+   */
   async detachUserENIWithOptions(request: DetachUserENIRequest, runtime: $Util.RuntimeOptions): Promise<DetachUserENIResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17171,11 +17945,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachUserENIResponse>(await this.callApi(params, req, runtime), new DetachUserENIResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DetachUserENIRequest
+    * @return DetachUserENIResponse
+   */
   async detachUserENI(request: DetachUserENIRequest): Promise<DetachUserENIResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachUserENIWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DisableElasticPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DisableElasticPlanResponse
+   */
   async disableElasticPlanWithOptions(request: DisableElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<DisableElasticPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17204,11 +17991,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableElasticPlanResponse>(await this.callApi(params, req, runtime), new DisableElasticPlanResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request DisableElasticPlanRequest
+    * @return DisableElasticPlanResponse
+   */
   async disableElasticPlan(request: DisableElasticPlanRequest): Promise<DisableElasticPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableElasticPlanWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DownloadDiagnosisRecordsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return DownloadDiagnosisRecordsResponse
+   */
   async downloadDiagnosisRecordsWithOptions(request: DownloadDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDiagnosisRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17289,11 +18091,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DownloadDiagnosisRecordsResponse>(await this.callApi(params, req, runtime), new DownloadDiagnosisRecordsResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request DownloadDiagnosisRecordsRequest
+    * @return DownloadDiagnosisRecordsResponse
+   */
   async downloadDiagnosisRecords(request: DownloadDiagnosisRecordsRequest): Promise<DownloadDiagnosisRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.downloadDiagnosisRecordsWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request EnableElasticPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return EnableElasticPlanResponse
+   */
   async enableElasticPlanWithOptions(request: EnableElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<EnableElasticPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17322,6 +18139,12 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableElasticPlanResponse>(await this.callApi(params, req, runtime), new EnableElasticPlanResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request EnableElasticPlanRequest
+    * @return EnableElasticPlanResponse
+   */
   async enableElasticPlan(request: EnableElasticPlanRequest): Promise<EnableElasticPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableElasticPlanWithOptions(request, runtime);
@@ -17360,6 +18183,14 @@ export default class Client extends OpenApi {
     return await this.existRunningSQLEngineWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetDatabaseObjectsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetDatabaseObjectsResponse
+   */
   async getDatabaseObjectsWithOptions(request: GetDatabaseObjectsRequest, runtime: $Util.RuntimeOptions): Promise<GetDatabaseObjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17408,11 +18239,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatabaseObjectsResponse>(await this.callApi(params, req, runtime), new GetDatabaseObjectsResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetDatabaseObjectsRequest
+    * @return GetDatabaseObjectsResponse
+   */
   async getDatabaseObjects(request: GetDatabaseObjectsRequest): Promise<GetDatabaseObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDatabaseObjectsWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppAttemptLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkAppAttemptLogResponse
+   */
   async getSparkAppAttemptLogWithOptions(request: GetSparkAppAttemptLogRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppAttemptLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17451,6 +18298,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkAppAttemptLogResponse>(await this.callApi(params, req, runtime), new GetSparkAppAttemptLogResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppAttemptLogRequest
+    * @return GetSparkAppAttemptLogResponse
+   */
   async getSparkAppAttemptLog(request: GetSparkAppAttemptLogRequest): Promise<GetSparkAppAttemptLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkAppAttemptLogWithOptions(request, runtime);
@@ -17491,6 +18346,15 @@ export default class Client extends OpenApi {
     return await this.getSparkAppInfoWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppLogRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkAppLogResponse
+   */
   async getSparkAppLogWithOptions(request: GetSparkAppLogRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17533,11 +18397,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkAppLogResponse>(await this.callApi(params, req, runtime), new GetSparkAppLogResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppLogRequest
+    * @return GetSparkAppLogResponse
+   */
   async getSparkAppLog(request: GetSparkAppLogRequest): Promise<GetSparkAppLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkAppLogWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppMetricsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkAppMetricsResponse
+   */
   async getSparkAppMetricsWithOptions(request: GetSparkAppMetricsRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppMetricsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17568,11 +18449,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkAppMetricsResponse>(await this.callApi(params, req, runtime), new GetSparkAppMetricsResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppMetricsRequest
+    * @return GetSparkAppMetricsResponse
+   */
   async getSparkAppMetrics(request: GetSparkAppMetricsRequest): Promise<GetSparkAppMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkAppMetricsWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppStateRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkAppStateResponse
+   */
   async getSparkAppStateWithOptions(request: GetSparkAppStateRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17603,11 +18501,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkAppStateResponse>(await this.callApi(params, req, runtime), new GetSparkAppStateResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppStateRequest
+    * @return GetSparkAppStateResponse
+   */
   async getSparkAppState(request: GetSparkAppStateRequest): Promise<GetSparkAppStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkAppStateWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppWebUiAddressRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkAppWebUiAddressResponse
+   */
   async getSparkAppWebUiAddressWithOptions(request: GetSparkAppWebUiAddressRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkAppWebUiAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17638,11 +18553,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkAppWebUiAddressResponse>(await this.callApi(params, req, runtime), new GetSparkAppWebUiAddressResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkAppWebUiAddressRequest
+    * @return GetSparkAppWebUiAddressResponse
+   */
   async getSparkAppWebUiAddress(request: GetSparkAppWebUiAddressRequest): Promise<GetSparkAppWebUiAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkAppWebUiAddressWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+    *
+    * @param request GetSparkConfigLogPathRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkConfigLogPathResponse
+   */
   async getSparkConfigLogPathWithOptions(request: GetSparkConfigLogPathRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkConfigLogPathResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17667,11 +18599,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkConfigLogPathResponse>(await this.callApi(params, req, runtime), new GetSparkConfigLogPathResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+    *
+    * @param request GetSparkConfigLogPathRequest
+    * @return GetSparkConfigLogPathResponse
+   */
   async getSparkConfigLogPath(request: GetSparkConfigLogPathRequest): Promise<GetSparkConfigLogPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkConfigLogPathWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkDefinitionsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkDefinitionsResponse
+   */
   async getSparkDefinitionsWithOptions(request: GetSparkDefinitionsRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkDefinitionsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17696,11 +18645,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkDefinitionsResponse>(await this.callApi(params, req, runtime), new GetSparkDefinitionsResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkDefinitionsRequest
+    * @return GetSparkDefinitionsResponse
+   */
   async getSparkDefinitions(request: GetSparkDefinitionsRequest): Promise<GetSparkDefinitionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkDefinitionsWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkLogAnalyzeTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkLogAnalyzeTaskResponse
+   */
   async getSparkLogAnalyzeTaskWithOptions(request: GetSparkLogAnalyzeTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkLogAnalyzeTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17725,6 +18691,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkLogAnalyzeTaskResponse>(await this.callApi(params, req, runtime), new GetSparkLogAnalyzeTaskResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkLogAnalyzeTaskRequest
+    * @return GetSparkLogAnalyzeTaskResponse
+   */
   async getSparkLogAnalyzeTask(request: GetSparkLogAnalyzeTaskRequest): Promise<GetSparkLogAnalyzeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkLogAnalyzeTaskWithOptions(request, runtime);
@@ -17763,6 +18737,15 @@ export default class Client extends OpenApi {
     return await this.getSparkSQLEngineStateWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkTemplateFileContentRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkTemplateFileContentResponse
+   */
   async getSparkTemplateFileContentWithOptions(request: GetSparkTemplateFileContentRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkTemplateFileContentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17791,14 +18774,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkTemplateFileContentResponse>(await this.callApi(params, req, runtime), new GetSparkTemplateFileContentResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkTemplateFileContentRequest
+    * @return GetSparkTemplateFileContentResponse
+   */
   async getSparkTemplateFileContent(request: GetSparkTemplateFileContentRequest): Promise<GetSparkTemplateFileContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkTemplateFileContentWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Usage notes
-    * You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
+    * *   You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
     *
     * @param request GetSparkTemplateFolderTreeRequest
     * @param runtime runtime options for this request RuntimeOptions
@@ -17829,8 +18822,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Usage notes
-    * You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
+    * *   You can call this operation to query the directory structure but not application data in the directory. To query the directory structure that contains application data, call the [GetSparkTemplateFullTree](~~612467~~) operation.
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
     *
     * @param request GetSparkTemplateFolderTreeRequest
     * @return GetSparkTemplateFolderTreeResponse
@@ -17840,6 +18835,15 @@ export default class Client extends OpenApi {
     return await this.getSparkTemplateFolderTreeWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkTemplateFullTreeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetSparkTemplateFullTreeResponse
+   */
   async getSparkTemplateFullTreeWithOptions(request: GetSparkTemplateFullTreeRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkTemplateFullTreeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17864,6 +18868,14 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSparkTemplateFullTreeResponse>(await this.callApi(params, req, runtime), new GetSparkTemplateFullTreeResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetSparkTemplateFullTreeRequest
+    * @return GetSparkTemplateFullTreeResponse
+   */
   async getSparkTemplateFullTree(request: GetSparkTemplateFullTreeRequest): Promise<GetSparkTemplateFullTreeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkTemplateFullTreeWithOptions(request, runtime);
@@ -18084,6 +19096,14 @@ export default class Client extends OpenApi {
     return await this.getTableObjectsWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetViewDDLRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetViewDDLResponse
+   */
   async getViewDDLWithOptions(request: GetViewDDLRequest, runtime: $Util.RuntimeOptions): Promise<GetViewDDLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18120,11 +19140,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetViewDDLResponse>(await this.callApi(params, req, runtime), new GetViewDDLResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetViewDDLRequest
+    * @return GetViewDDLResponse
+   */
   async getViewDDL(request: GetViewDDLRequest): Promise<GetViewDDLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getViewDDLWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetViewObjectsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return GetViewObjectsResponse
+   */
   async getViewObjectsWithOptions(request: GetViewObjectsRequest, runtime: $Util.RuntimeOptions): Promise<GetViewObjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18181,11 +19216,27 @@ export default class Client extends OpenApi {
     return $tea.cast<GetViewObjectsResponse>(await this.callApi(params, req, runtime), new GetViewObjectsResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request GetViewObjectsRequest
+    * @return GetViewObjectsResponse
+   */
   async getViewObjects(request: GetViewObjectsRequest): Promise<GetViewObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getViewObjectsWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request KillSparkAppRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return KillSparkAppResponse
+   */
   async killSparkAppWithOptions(request: KillSparkAppRequest, runtime: $Util.RuntimeOptions): Promise<KillSparkAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18216,11 +19267,28 @@ export default class Client extends OpenApi {
     return $tea.cast<KillSparkAppResponse>(await this.callApi(params, req, runtime), new KillSparkAppResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request KillSparkAppRequest
+    * @return KillSparkAppResponse
+   */
   async killSparkApp(request: KillSparkAppRequest): Promise<KillSparkAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.killSparkAppWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request KillSparkLogAnalyzeTaskRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return KillSparkLogAnalyzeTaskResponse
+   */
   async killSparkLogAnalyzeTaskWithOptions(request: KillSparkLogAnalyzeTaskRequest, runtime: $Util.RuntimeOptions): Promise<KillSparkLogAnalyzeTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18245,11 +19313,28 @@ export default class Client extends OpenApi {
     return $tea.cast<KillSparkLogAnalyzeTaskResponse>(await this.callApi(params, req, runtime), new KillSparkLogAnalyzeTaskResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request KillSparkLogAnalyzeTaskRequest
+    * @return KillSparkLogAnalyzeTaskResponse
+   */
   async killSparkLogAnalyzeTask(request: KillSparkLogAnalyzeTaskRequest): Promise<KillSparkLogAnalyzeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.killSparkLogAnalyzeTaskWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request KillSparkSQLEngineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return KillSparkSQLEngineResponse
+   */
   async killSparkSQLEngineWithOptions(request: KillSparkSQLEngineRequest, runtime: $Util.RuntimeOptions): Promise<KillSparkSQLEngineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18278,11 +19363,28 @@ export default class Client extends OpenApi {
     return $tea.cast<KillSparkSQLEngineResponse>(await this.callApi(params, req, runtime), new KillSparkSQLEngineResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request KillSparkSQLEngineRequest
+    * @return KillSparkSQLEngineResponse
+   */
   async killSparkSQLEngine(request: KillSparkSQLEngineRequest): Promise<KillSparkSQLEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.killSparkSQLEngineWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request ListSparkAppAttemptsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSparkAppAttemptsResponse
+   */
   async listSparkAppAttemptsWithOptions(request: ListSparkAppAttemptsRequest, runtime: $Util.RuntimeOptions): Promise<ListSparkAppAttemptsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18319,6 +19421,14 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSparkAppAttemptsResponse>(await this.callApi(params, req, runtime), new ListSparkAppAttemptsResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request ListSparkAppAttemptsRequest
+    * @return ListSparkAppAttemptsResponse
+   */
   async listSparkAppAttempts(request: ListSparkAppAttemptsRequest): Promise<ListSparkAppAttemptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSparkAppAttemptsWithOptions(request, runtime);
@@ -18365,6 +19475,15 @@ export default class Client extends OpenApi {
     return await this.listSparkAppsWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request ListSparkLogAnalyzeTasksRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSparkLogAnalyzeTasksResponse
+   */
   async listSparkLogAnalyzeTasksWithOptions(request: ListSparkLogAnalyzeTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListSparkLogAnalyzeTasksResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18397,11 +19516,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSparkLogAnalyzeTasksResponse>(await this.callApi(params, req, runtime), new ListSparkLogAnalyzeTasksResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request ListSparkLogAnalyzeTasksRequest
+    * @return ListSparkLogAnalyzeTasksResponse
+   */
   async listSparkLogAnalyzeTasks(request: ListSparkLogAnalyzeTasksRequest): Promise<ListSparkLogAnalyzeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSparkLogAnalyzeTasksWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request ListSparkTemplateFileIdsRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ListSparkTemplateFileIdsResponse
+   */
   async listSparkTemplateFileIdsWithOptions(request: ListSparkTemplateFileIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListSparkTemplateFileIdsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18426,11 +19562,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSparkTemplateFileIdsResponse>(await this.callApi(params, req, runtime), new ListSparkTemplateFileIdsResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request ListSparkTemplateFileIdsRequest
+    * @return ListSparkTemplateFileIdsResponse
+   */
   async listSparkTemplateFileIds(request: ListSparkTemplateFileIdsRequest): Promise<ListSparkTemplateFileIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSparkTemplateFileIdsWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request LoadSampleDataSetRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return LoadSampleDataSetResponse
+   */
   async loadSampleDataSetWithOptions(request: LoadSampleDataSetRequest, runtime: $Util.RuntimeOptions): Promise<LoadSampleDataSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18455,11 +19606,24 @@ export default class Client extends OpenApi {
     return $tea.cast<LoadSampleDataSetResponse>(await this.callApi(params, req, runtime), new LoadSampleDataSetResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request LoadSampleDataSetRequest
+    * @return LoadSampleDataSetResponse
+   */
   async loadSampleDataSet(request: LoadSampleDataSetRequest): Promise<LoadSampleDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.loadSampleDataSetWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request ModifyAccountDescriptionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18492,6 +19656,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request ModifyAccountDescriptionRequest
+    * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
@@ -18597,6 +19767,13 @@ export default class Client extends OpenApi {
     return await this.modifyAuditLogConfigWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyBackupPolicyRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18657,11 +19834,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyBackupPolicyRequest
+    * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyClusterAccessWhiteListRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyClusterAccessWhiteListResponse
+   */
   async modifyClusterAccessWhiteListWithOptions(request: ModifyClusterAccessWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClusterAccessWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18702,11 +19892,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterAccessWhiteListResponse>(await this.callApi(params, req, runtime), new ModifyClusterAccessWhiteListResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyClusterAccessWhiteListRequest
+    * @return ModifyClusterAccessWhiteListResponse
+   */
   async modifyClusterAccessWhiteList(request: ModifyClusterAccessWhiteListRequest): Promise<ModifyClusterAccessWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClusterAccessWhiteListWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyClusterConnectionStringRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyClusterConnectionStringResponse
+   */
   async modifyClusterConnectionStringWithOptions(request: ModifyClusterConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClusterConnectionStringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18743,6 +19946,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyClusterConnectionStringResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyClusterConnectionStringRequest
+    * @return ModifyClusterConnectionStringResponse
+   */
   async modifyClusterConnectionString(request: ModifyClusterConnectionStringRequest): Promise<ModifyClusterConnectionStringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClusterConnectionStringWithOptions(request, runtime);
@@ -18787,6 +19996,14 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.reservedNodeCount)) {
+      query["ReservedNodeCount"] = request.reservedNodeCount;
+    }
+
+    if (!Util.isUnset(request.reservedNodeSize)) {
+      query["ReservedNodeSize"] = request.reservedNodeSize;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -18828,6 +20045,13 @@ export default class Client extends OpenApi {
     return await this.modifyDBClusterWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyDBClusterDescriptionRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterDescriptionResponse
+   */
   async modifyDBClusterDescriptionWithOptions(request: ModifyDBClusterDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18856,11 +20080,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterDescriptionResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyDBClusterDescriptionRequest
+    * @return ModifyDBClusterDescriptionResponse
+   */
   async modifyDBClusterDescription(request: ModifyDBClusterDescriptionRequest): Promise<ModifyDBClusterDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterDescriptionWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyDBClusterMaintainTimeRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBClusterMaintainTimeResponse
+   */
   async modifyDBClusterMaintainTimeWithOptions(request: ModifyDBClusterMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterMaintainTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18889,11 +20126,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterMaintainTimeResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyDBClusterMaintainTimeRequest
+    * @return ModifyDBClusterMaintainTimeResponse
+   */
   async modifyDBClusterMaintainTime(request: ModifyDBClusterMaintainTimeRequest): Promise<ModifyDBClusterMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterMaintainTimeWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param tmpReq ModifyDBResourceGroupRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyDBResourceGroupResponse
+   */
   async modifyDBResourceGroupWithOptions(tmpReq: ModifyDBResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBResourceGroupResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyDBResourceGroupShrinkRequest({ });
@@ -18968,11 +20218,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDBResourceGroupResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyDBResourceGroupRequest
+    * @return ModifyDBResourceGroupResponse
+   */
   async modifyDBResourceGroup(request: ModifyDBResourceGroupRequest): Promise<ModifyDBResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyElasticPlanRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return ModifyElasticPlanResponse
+   */
   async modifyElasticPlanWithOptions(request: ModifyElasticPlanRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19017,6 +20280,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyElasticPlanResponse>(await this.callApi(params, req, runtime), new ModifyElasticPlanResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request ModifyElasticPlanRequest
+    * @return ModifyElasticPlanResponse
+   */
   async modifyElasticPlan(request: ModifyElasticPlanRequest): Promise<ModifyElasticPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyElasticPlanWithOptions(request, runtime);
@@ -19164,6 +20433,15 @@ export default class Client extends OpenApi {
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request SetSparkAppLogRootPathRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SetSparkAppLogRootPathResponse
+   */
   async setSparkAppLogRootPathWithOptions(request: SetSparkAppLogRootPathRequest, runtime: $Util.RuntimeOptions): Promise<SetSparkAppLogRootPathResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19196,11 +20474,28 @@ export default class Client extends OpenApi {
     return $tea.cast<SetSparkAppLogRootPathResponse>(await this.callApi(params, req, runtime), new SetSparkAppLogRootPathResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request SetSparkAppLogRootPathRequest
+    * @return SetSparkAppLogRootPathResponse
+   */
   async setSparkAppLogRootPath(request: SetSparkAppLogRootPathRequest): Promise<SetSparkAppLogRootPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setSparkAppLogRootPathWithOptions(request, runtime);
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request StartSparkSQLEngineRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return StartSparkSQLEngineResponse
+   */
   async startSparkSQLEngineWithOptions(request: StartSparkSQLEngineRequest, runtime: $Util.RuntimeOptions): Promise<StartSparkSQLEngineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19249,11 +20544,28 @@ export default class Client extends OpenApi {
     return $tea.cast<StartSparkSQLEngineResponse>(await this.callApi(params, req, runtime), new StartSparkSQLEngineResponse({}));
   }
 
+  /**
+    * *   General endpoint: `adb.aliyuncs.com`.
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    *
+    * @param request StartSparkSQLEngineRequest
+    * @return StartSparkSQLEngineResponse
+   */
   async startSparkSQLEngine(request: StartSparkSQLEngineRequest): Promise<StartSparkSQLEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startSparkSQLEngineWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+    *
+    * @param request SubmitSparkAppRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return SubmitSparkAppResponse
+   */
   async submitSparkAppWithOptions(request: SubmitSparkAppRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSparkAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19306,6 +20618,14 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitSparkAppResponse>(await this.callApi(params, req, runtime), new SubmitSparkAppResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+    *
+    * @param request SubmitSparkAppRequest
+    * @return SubmitSparkAppResponse
+   */
   async submitSparkApp(request: SubmitSparkAppRequest): Promise<SubmitSparkAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitSparkAppWithOptions(request, runtime);
@@ -19340,6 +20660,13 @@ export default class Client extends OpenApi {
     return await this.submitSparkLogAnalyzeTaskWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request UnbindAccountRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnbindAccountResponse
+   */
   async unbindAccountWithOptions(request: UnbindAccountRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19368,11 +20695,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindAccountResponse>(await this.callApi(params, req, runtime), new UnbindAccountResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+    *
+    * @param request UnbindAccountRequest
+    * @return UnbindAccountResponse
+   */
   async unbindAccount(request: UnbindAccountRequest): Promise<UnbindAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindAccountWithOptions(request, runtime);
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request UnbindDBResourceGroupWithUserRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UnbindDBResourceGroupWithUserResponse
+   */
   async unbindDBResourceGroupWithUserWithOptions(request: UnbindDBResourceGroupWithUserRequest, runtime: $Util.RuntimeOptions): Promise<UnbindDBResourceGroupWithUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19405,11 +20745,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindDBResourceGroupWithUserResponse>(await this.callApi(params, req, runtime), new UnbindDBResourceGroupWithUserResponse({}));
   }
 
+  /**
+    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](~~612373~~).
+    *
+    * @param request UnbindDBResourceGroupWithUserRequest
+    * @return UnbindDBResourceGroupWithUserResponse
+   */
   async unbindDBResourceGroupWithUser(request: UnbindDBResourceGroupWithUserRequest): Promise<UnbindDBResourceGroupWithUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindDBResourceGroupWithUserWithOptions(request, runtime);
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+    *
+    * @param request UpdateSparkTemplateFileRequest
+    * @param runtime runtime options for this request RuntimeOptions
+    * @return UpdateSparkTemplateFileResponse
+   */
   async updateSparkTemplateFileWithOptions(request: UpdateSparkTemplateFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSparkTemplateFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19446,6 +20801,14 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new UpdateSparkTemplateFileResponse({}));
   }
 
+  /**
+    * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+    * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+    * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+    *
+    * @param request UpdateSparkTemplateFileRequest
+    * @return UpdateSparkTemplateFileResponse
+   */
   async updateSparkTemplateFile(request: UpdateSparkTemplateFileRequest): Promise<UpdateSparkTemplateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSparkTemplateFileWithOptions(request, runtime);
