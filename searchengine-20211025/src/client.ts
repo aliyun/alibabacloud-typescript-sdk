@@ -6164,6 +6164,7 @@ export class GetTableResponseBodyResult extends $tea.Model {
   partitionCount?: number;
   primaryKey?: string;
   rawSchema?: string;
+  status?: string;
   vectorIndex?: GetTableResponseBodyResultVectorIndex[];
   static names(): { [key: string]: string } {
     return {
@@ -6175,6 +6176,7 @@ export class GetTableResponseBodyResult extends $tea.Model {
       partitionCount: 'partitionCount',
       primaryKey: 'primaryKey',
       rawSchema: 'rawSchema',
+      status: 'status',
       vectorIndex: 'vectorIndex',
     };
   }
@@ -6189,6 +6191,7 @@ export class GetTableResponseBodyResult extends $tea.Model {
       partitionCount: 'number',
       primaryKey: 'string',
       rawSchema: 'string',
+      status: 'string',
       vectorIndex: { 'type': 'array', 'itemType': GetTableResponseBodyResultVectorIndex },
     };
   }
@@ -7195,10 +7198,12 @@ export class ListTableGenerationsResponseBodyResult extends $tea.Model {
 export class ListTablesResponseBodyResult extends $tea.Model {
   indexStatus?: string;
   name?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       indexStatus: 'indexStatus',
       name: 'name',
+      status: 'status',
     };
   }
 
@@ -7206,6 +7211,7 @@ export class ListTablesResponseBodyResult extends $tea.Model {
     return {
       indexStatus: 'string',
       name: 'string',
+      status: 'string',
     };
   }
 
