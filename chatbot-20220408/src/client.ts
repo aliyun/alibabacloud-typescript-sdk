@@ -5238,6 +5238,87 @@ export class ListSolutionResponse extends $tea.Model {
   }
 }
 
+export class ListTongyiChatHistorysRequest extends $tea.Model {
+  agentKey?: string;
+  endTime?: string;
+  limit?: number;
+  robotInstanceId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      endTime: 'EndTime',
+      limit: 'Limit',
+      robotInstanceId: 'RobotInstanceId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      endTime: 'string',
+      limit: 'number',
+      robotInstanceId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTongyiChatHistorysResponseBody extends $tea.Model {
+  costTime?: string;
+  datas?: { [key: string]: any }[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costTime: 'CostTime',
+      datas: 'Datas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTime: 'string',
+      datas: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTongyiChatHistorysResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTongyiChatHistorysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTongyiChatHistorysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserSayRequest extends $tea.Model {
   agentKey?: string;
   content?: string;
@@ -8741,6 +8822,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 申请流式网关AccessToken
+   *
+   * @param request ApplyForStreamAccessTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyForStreamAccessTokenResponse
+   */
   async applyForStreamAccessTokenWithOptions(request: ApplyForStreamAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<ApplyForStreamAccessTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8765,11 +8853,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyForStreamAccessTokenResponse>(await this.callApi(params, req, runtime), new ApplyForStreamAccessTokenResponse({}));
   }
 
+  /**
+   * @summary 申请流式网关AccessToken
+   *
+   * @param request ApplyForStreamAccessTokenRequest
+   * @return ApplyForStreamAccessTokenResponse
+   */
   async applyForStreamAccessToken(request: ApplyForStreamAccessTokenRequest): Promise<ApplyForStreamAccessTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyForStreamAccessTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 会话-联想API
+   *
+   * @param tmpReq AssociateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateResponse
+   */
   async associateWithOptions(tmpReq: AssociateRequest, runtime: $Util.RuntimeOptions): Promise<AssociateResponse> {
     Util.validateModel(tmpReq);
     let request = new AssociateShrinkRequest({ });
@@ -8820,11 +8921,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateResponse>(await this.callApi(params, req, runtime), new AssociateResponse({}));
   }
 
+  /**
+   * @summary 会话-联想API
+   *
+   * @param request AssociateRequest
+   * @return AssociateResponse
+   */
   async associate(request: AssociateRequest): Promise<AssociateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取欢迎语
+   *
+   * @param request BeginSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BeginSessionResponse
+   */
   async beginSessionWithOptions(request: BeginSessionRequest, runtime: $Util.RuntimeOptions): Promise<BeginSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8853,11 +8967,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BeginSessionResponse>(await this.callApi(params, req, runtime), new BeginSessionResponse({}));
   }
 
+  /**
+   * @summary 获取欢迎语
+   *
+   * @param request BeginSessionRequest
+   * @return BeginSessionResponse
+   */
   async beginSession(request: BeginSessionRequest): Promise<BeginSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.beginSessionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消机器人发布
+   *
+   * @param request CancelInstancePublishTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelInstancePublishTaskResponse
+   */
   async cancelInstancePublishTaskWithOptions(request: CancelInstancePublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelInstancePublishTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8890,11 +9017,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelInstancePublishTaskResponse>(await this.callApi(params, req, runtime), new CancelInstancePublishTaskResponse({}));
   }
 
+  /**
+   * @summary 取消机器人发布
+   *
+   * @param request CancelInstancePublishTaskRequest
+   * @return CancelInstancePublishTaskResponse
+   */
   async cancelInstancePublishTask(request: CancelInstancePublishTaskRequest): Promise<CancelInstancePublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelInstancePublishTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消发布任务
+   *
+   * @param request CancelPublishTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelPublishTaskResponse
+   */
   async cancelPublishTaskWithOptions(request: CancelPublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelPublishTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8923,11 +9063,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelPublishTaskResponse>(await this.callApi(params, req, runtime), new CancelPublishTaskResponse({}));
   }
 
+  /**
+   * @summary 取消发布任务
+   *
+   * @param request CancelPublishTaskRequest
+   * @return CancelPublishTaskResponse
+   */
   async cancelPublishTask(request: CancelPublishTaskRequest): Promise<CancelPublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelPublishTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 会话API
+   *
+   * @param tmpReq ChatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChatResponse
+   */
   async chatWithOptions(tmpReq: ChatRequest, runtime: $Util.RuntimeOptions): Promise<ChatResponse> {
     Util.validateModel(tmpReq);
     let request = new ChatShrinkRequest({ });
@@ -8998,11 +9151,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChatResponse>(await this.callApi(params, req, runtime), new ChatResponse({}));
   }
 
+  /**
+   * @summary 会话API
+   *
+   * @param request ChatRequest
+   * @return ChatResponse
+   */
   async chat(request: ChatRequest): Promise<ChatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.chatWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 继续机器人发布
+   *
+   * @param request ContinueInstancePublishTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ContinueInstancePublishTaskResponse
+   */
   async continueInstancePublishTaskWithOptions(request: ContinueInstancePublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<ContinueInstancePublishTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9035,11 +9201,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ContinueInstancePublishTaskResponse>(await this.callApi(params, req, runtime), new ContinueInstancePublishTaskResponse({}));
   }
 
+  /**
+   * @summary 继续机器人发布
+   *
+   * @param request ContinueInstancePublishTaskRequest
+   * @return ContinueInstancePublishTaskResponse
+   */
   async continueInstancePublishTask(request: ContinueInstancePublishTaskRequest): Promise<ContinueInstancePublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.continueInstancePublishTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新增类目
+   *
+   * @param request CreateCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCategoryResponse
+   */
   async createCategoryWithOptions(request: CreateCategoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9082,11 +9261,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCategoryResponse>(await this.callApi(params, req, runtime), new CreateCategoryResponse({}));
   }
 
+  /**
+   * @summary 新增类目
+   *
+   * @param request CreateCategoryRequest
+   * @return CreateCategoryResponse
+   */
   async createCategory(request: CreateCategoryRequest): Promise<CreateCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新建FAQ关联问
+   *
+   * @param request CreateConnQuestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConnQuestionResponse
+   */
   async createConnQuestionWithOptions(request: CreateConnQuestionRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnQuestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9121,11 +9313,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConnQuestionResponse>(await this.callApi(params, req, runtime), new CreateConnQuestionResponse({}));
   }
 
+  /**
+   * @summary 新建FAQ关联问
+   *
+   * @param request CreateConnQuestionRequest
+   * @return CreateConnQuestionResponse
+   */
   async createConnQuestion(request: CreateConnQuestionRequest): Promise<CreateConnQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createConnQuestionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体-创建
+   *
+   * @param request CreateDSEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDSEntityResponse
+   */
   async createDSEntityWithOptions(request: CreateDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateDSEntityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9162,11 +9367,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDSEntityResponse>(await this.callApi(params, req, runtime), new CreateDSEntityResponse({}));
   }
 
+  /**
+   * @summary 实体-创建
+   *
+   * @param request CreateDSEntityRequest
+   * @return CreateDSEntityResponse
+   */
   async createDSEntity(request: CreateDSEntityRequest): Promise<CreateDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDSEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体成员-创建
+   *
+   * @param tmpReq CreateDSEntityValueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDSEntityValueResponse
+   */
   async createDSEntityValueWithOptions(tmpReq: CreateDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<CreateDSEntityValueResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDSEntityValueShrinkRequest({ });
@@ -9215,11 +9433,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDSEntityValueResponse>(await this.callApi(params, req, runtime), new CreateDSEntityValueResponse({}));
   }
 
+  /**
+   * @summary 实体成员-创建
+   *
+   * @param request CreateDSEntityValueRequest
+   * @return CreateDSEntityValueResponse
+   */
   async createDSEntityValue(request: CreateDSEntityValueRequest): Promise<CreateDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDSEntityValueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建文档
+   *
+   * @param request CreateDocRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDocResponse
+   */
   async createDocWithOptions(request: CreateDocRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9272,11 +9503,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDocResponse>(await this.callApi(params, req, runtime), new CreateDocResponse({}));
   }
 
+  /**
+   * @summary 创建文档
+   *
+   * @param request CreateDocRequest
+   * @return CreateDocResponse
+   */
   async createDoc(request: CreateDocRequest): Promise<CreateDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDocWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新建FAQ
+   *
+   * @param request CreateFaqRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFaqResponse
+   */
   async createFaqWithOptions(request: CreateFaqRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaqResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9327,11 +9571,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFaqResponse>(await this.callApi(params, req, runtime), new CreateFaqResponse({}));
   }
 
+  /**
+   * @summary 新建FAQ
+   *
+   * @param request CreateFaqRequest
+   * @return CreateFaqResponse
+   */
   async createFaq(request: CreateFaqRequest): Promise<CreateFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFaqWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 机器人-创建
+   *
+   * @param request CreateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9372,11 +9629,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @summary 机器人-创建
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建机器人发布任务
+   *
+   * @param request CreateInstancePublishTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstancePublishTaskResponse
+   */
   async createInstancePublishTaskWithOptions(request: CreateInstancePublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstancePublishTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9405,11 +9675,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstancePublishTaskResponse>(await this.callApi(params, req, runtime), new CreateInstancePublishTaskResponse({}));
   }
 
+  /**
+   * @summary 创建机器人发布任务
+   *
+   * @param request CreateInstancePublishTaskRequest
+   * @return CreateInstancePublishTaskResponse
+   */
   async createInstancePublishTask(request: CreateInstancePublishTaskRequest): Promise<CreateInstancePublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstancePublishTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-创建
+   *
+   * @param tmpReq CreateIntentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIntentResponse
+   */
   async createIntentWithOptions(tmpReq: CreateIntentRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntentResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateIntentShrinkRequest({ });
@@ -9448,11 +9731,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIntentResponse>(await this.callApi(params, req, runtime), new CreateIntentResponse({}));
   }
 
+  /**
+   * @summary 意图-创建
+   *
+   * @param request CreateIntentRequest
+   * @return CreateIntentResponse
+   */
   async createIntent(request: CreateIntentRequest): Promise<CreateIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIntentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-LGF-创建
+   *
+   * @param tmpReq CreateLgfRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLgfResponse
+   */
   async createLgfWithOptions(tmpReq: CreateLgfRequest, runtime: $Util.RuntimeOptions): Promise<CreateLgfResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateLgfShrinkRequest({ });
@@ -9491,11 +9787,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLgfResponse>(await this.callApi(params, req, runtime), new CreateLgfResponse({}));
   }
 
+  /**
+   * @summary 意图-LGF-创建
+   *
+   * @param request CreateLgfRequest
+   * @return CreateLgfResponse
+   */
   async createLgf(request: CreateLgfRequest): Promise<CreateLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLgfWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视角-创建
+   *
+   * @param request CreatePerspectiveRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePerspectiveResponse
+   */
   async createPerspectiveWithOptions(request: CreatePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<CreatePerspectiveResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9528,11 +9837,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePerspectiveResponse>(await this.callApi(params, req, runtime), new CreatePerspectiveResponse({}));
   }
 
+  /**
+   * @summary 视角-创建
+   *
+   * @param request CreatePerspectiveRequest
+   * @return CreatePerspectiveResponse
+   */
   async createPerspective(request: CreatePerspectiveRequest): Promise<CreatePerspectiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPerspectiveWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建发布任务
+   *
+   * @param tmpReq CreatePublishTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePublishTaskResponse
+   */
   async createPublishTaskWithOptions(tmpReq: CreatePublishTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublishTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreatePublishTaskShrinkRequest({ });
@@ -9571,11 +9893,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePublishTaskResponse>(await this.callApi(params, req, runtime), new CreatePublishTaskResponse({}));
   }
 
+  /**
+   * @summary 创建发布任务
+   *
+   * @param request CreatePublishTaskRequest
+   * @return CreatePublishTaskResponse
+   */
   async createPublishTask(request: CreatePublishTaskRequest): Promise<CreatePublishTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPublishTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新建FAQ相似问
+   *
+   * @param request CreateSimQuestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSimQuestionResponse
+   */
   async createSimQuestionWithOptions(request: CreateSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimQuestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9610,11 +9945,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSimQuestionResponse>(await this.callApi(params, req, runtime), new CreateSimQuestionResponse({}));
   }
 
+  /**
+   * @summary 新建FAQ相似问
+   *
+   * @param request CreateSimQuestionRequest
+   * @return CreateSimQuestionResponse
+   */
   async createSimQuestion(request: CreateSimQuestionRequest): Promise<CreateSimQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSimQuestionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新建FAQ答案
+   *
+   * @param request CreateSolutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSolutionResponse
+   */
   async createSolutionWithOptions(request: CreateSolutionRequest, runtime: $Util.RuntimeOptions): Promise<CreateSolutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9655,11 +10003,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSolutionResponse>(await this.callApi(params, req, runtime), new CreateSolutionResponse({}));
   }
 
+  /**
+   * @summary 新建FAQ答案
+   *
+   * @param request CreateSolutionRequest
+   * @return CreateSolutionResponse
+   */
   async createSolution(request: CreateSolutionRequest): Promise<CreateSolutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSolutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-话术-创建
+   *
+   * @param tmpReq CreateUserSayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserSayResponse
+   */
   async createUserSayWithOptions(tmpReq: CreateUserSayRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserSayResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateUserSayShrinkRequest({ });
@@ -9698,11 +10059,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserSayResponse>(await this.callApi(params, req, runtime), new CreateUserSayResponse({}));
   }
 
+  /**
+   * @summary 意图-话术-创建
+   *
+   * @param request CreateUserSayRequest
+   * @return CreateUserSayResponse
+   */
   async createUserSay(request: CreateUserSayRequest): Promise<CreateUserSayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserSayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除类目
+   *
+   * @param request DeleteCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCategoryResponse
+   */
   async deleteCategoryWithOptions(request: DeleteCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9733,11 +10107,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCategoryResponse>(await this.callApi(params, req, runtime), new DeleteCategoryResponse({}));
   }
 
+  /**
+   * @summary 删除类目
+   *
+   * @param request DeleteCategoryRequest
+   * @return DeleteCategoryResponse
+   */
   async deleteCategory(request: DeleteCategoryRequest): Promise<DeleteCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除FAQ关联问
+   *
+   * @param request DeleteConnQuestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConnQuestionResponse
+   */
   async deleteConnQuestionWithOptions(request: DeleteConnQuestionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnQuestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9768,11 +10155,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConnQuestionResponse>(await this.callApi(params, req, runtime), new DeleteConnQuestionResponse({}));
   }
 
+  /**
+   * @summary 删除FAQ关联问
+   *
+   * @param request DeleteConnQuestionRequest
+   * @return DeleteConnQuestionResponse
+   */
   async deleteConnQuestion(request: DeleteConnQuestionRequest): Promise<DeleteConnQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteConnQuestionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体-删除
+   *
+   * @param request DeleteDSEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDSEntityResponse
+   */
   async deleteDSEntityWithOptions(request: DeleteDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDSEntityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9805,11 +10205,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDSEntityResponse>(await this.callApi(params, req, runtime), new DeleteDSEntityResponse({}));
   }
 
+  /**
+   * @summary 实体-删除
+   *
+   * @param request DeleteDSEntityRequest
+   * @return DeleteDSEntityResponse
+   */
   async deleteDSEntity(request: DeleteDSEntityRequest): Promise<DeleteDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDSEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体成员-删除
+   *
+   * @param request DeleteDSEntityValueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDSEntityValueResponse
+   */
   async deleteDSEntityValueWithOptions(request: DeleteDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDSEntityValueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9846,11 +10259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDSEntityValueResponse>(await this.callApi(params, req, runtime), new DeleteDSEntityValueResponse({}));
   }
 
+  /**
+   * @summary 实体成员-删除
+   *
+   * @param request DeleteDSEntityValueRequest
+   * @return DeleteDSEntityValueResponse
+   */
   async deleteDSEntityValue(request: DeleteDSEntityValueRequest): Promise<DeleteDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDSEntityValueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档删除
+   *
+   * @param request DeleteDocRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDocResponse
+   */
   async deleteDocWithOptions(request: DeleteDocRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9879,11 +10305,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDocResponse>(await this.callApi(params, req, runtime), new DeleteDocResponse({}));
   }
 
+  /**
+   * @summary 文档删除
+   *
+   * @param request DeleteDocRequest
+   * @return DeleteDocResponse
+   */
   async deleteDoc(request: DeleteDocRequest): Promise<DeleteDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDocWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+   *
+   * @param request DeleteFaqRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFaqResponse
+   */
   async deleteFaqWithOptions(request: DeleteFaqRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaqResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9914,11 +10353,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFaqResponse>(await this.callApi(params, req, runtime), new DeleteFaqResponse({}));
   }
 
+  /**
+   * @summary 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除
+   *
+   * @param request DeleteFaqRequest
+   * @return DeleteFaqResponse
+   */
   async deleteFaq(request: DeleteFaqRequest): Promise<DeleteFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFaqWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 机器人-删除
+   *
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9947,11 +10399,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+   * @summary 机器人-删除
+   *
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
+   */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-删除
+   *
+   * @param request DeleteIntentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIntentResponse
+   */
   async deleteIntentWithOptions(request: DeleteIntentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIntentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9984,11 +10449,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIntentResponse>(await this.callApi(params, req, runtime), new DeleteIntentResponse({}));
   }
 
+  /**
+   * @summary 意图-删除
+   *
+   * @param request DeleteIntentRequest
+   * @return DeleteIntentResponse
+   */
   async deleteIntent(request: DeleteIntentRequest): Promise<DeleteIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIntentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-LGF-删除
+   *
+   * @param request DeleteLgfRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLgfResponse
+   */
   async deleteLgfWithOptions(request: DeleteLgfRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLgfResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10025,11 +10503,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLgfResponse>(await this.callApi(params, req, runtime), new DeleteLgfResponse({}));
   }
 
+  /**
+   * @summary 意图-LGF-删除
+   *
+   * @param request DeleteLgfRequest
+   * @return DeleteLgfResponse
+   */
   async deleteLgf(request: DeleteLgfRequest): Promise<DeleteLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLgfWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视角-删除
+   *
+   * @param request DeletePerspectiveRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePerspectiveResponse
+   */
   async deletePerspectiveWithOptions(request: DeletePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<DeletePerspectiveResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10058,11 +10549,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePerspectiveResponse>(await this.callApi(params, req, runtime), new DeletePerspectiveResponse({}));
   }
 
+  /**
+   * @summary 视角-删除
+   *
+   * @param request DeletePerspectiveRequest
+   * @return DeletePerspectiveResponse
+   */
   async deletePerspective(request: DeletePerspectiveRequest): Promise<DeletePerspectiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePerspectiveWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除FAQ相似问
+   *
+   * @param request DeleteSimQuestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSimQuestionResponse
+   */
   async deleteSimQuestionWithOptions(request: DeleteSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSimQuestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10093,11 +10597,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSimQuestionResponse>(await this.callApi(params, req, runtime), new DeleteSimQuestionResponse({}));
   }
 
+  /**
+   * @summary 删除FAQ相似问
+   *
+   * @param request DeleteSimQuestionRequest
+   * @return DeleteSimQuestionResponse
+   */
   async deleteSimQuestion(request: DeleteSimQuestionRequest): Promise<DeleteSimQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSimQuestionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除FAQ答案
+   *
+   * @param request DeleteSolutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSolutionResponse
+   */
   async deleteSolutionWithOptions(request: DeleteSolutionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSolutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10128,11 +10645,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSolutionResponse>(await this.callApi(params, req, runtime), new DeleteSolutionResponse({}));
   }
 
+  /**
+   * @summary 删除FAQ答案
+   *
+   * @param request DeleteSolutionRequest
+   * @return DeleteSolutionResponse
+   */
   async deleteSolution(request: DeleteSolutionRequest): Promise<DeleteSolutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSolutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-用户话术-删除
+   *
+   * @param request DeleteUserSayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserSayResponse
+   */
   async deleteUserSayWithOptions(request: DeleteUserSayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserSayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10169,11 +10699,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserSayResponse>(await this.callApi(params, req, runtime), new DeleteUserSayResponse({}));
   }
 
+  /**
+   * @summary 意图-用户话术-删除
+   *
+   * @param request DeleteUserSayRequest
+   * @return DeleteUserSayResponse
+   */
   async deleteUserSay(request: DeleteUserSayRequest): Promise<DeleteUserSayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserSayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看单个类目信息
+   *
+   * @param request DescribeCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCategoryResponse
+   */
   async describeCategoryWithOptions(request: DescribeCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10204,11 +10747,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCategoryResponse>(await this.callApi(params, req, runtime), new DescribeCategoryResponse({}));
   }
 
+  /**
+   * @summary 查看单个类目信息
+   *
+   * @param request DescribeCategoryRequest
+   * @return DescribeCategoryResponse
+   */
   async describeCategory(request: DescribeCategoryRequest): Promise<DescribeCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体-详情
+   *
+   * @param request DescribeDSEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDSEntityResponse
+   */
   async describeDSEntityWithOptions(request: DescribeDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDSEntityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10241,11 +10797,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDSEntityResponse>(await this.callApi(params, req, runtime), new DescribeDSEntityResponse({}));
   }
 
+  /**
+   * @summary 实体-详情
+   *
+   * @param request DescribeDSEntityRequest
+   * @return DescribeDSEntityResponse
+   */
   async describeDSEntity(request: DescribeDSEntityRequest): Promise<DescribeDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDSEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档详情
+   *
+   * @param request DescribeDocRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDocResponse
+   */
   async describeDocWithOptions(request: DescribeDocRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDocResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10278,11 +10847,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDocResponse>(await this.callApi(params, req, runtime), new DescribeDocResponse({}));
   }
 
+  /**
+   * @summary 文档详情
+   *
+   * @param request DescribeDocRequest
+   * @return DescribeDocResponse
+   */
   async describeDoc(request: DescribeDocRequest): Promise<DescribeDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDocWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 知识详情
+   *
+   * @param request DescribeFaqRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFaqResponse
+   */
   async describeFaqWithOptions(request: DescribeFaqRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaqResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10313,11 +10895,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFaqResponse>(await this.callApi(params, req, runtime), new DescribeFaqResponse({}));
   }
 
+  /**
+   * @summary 知识详情
+   *
+   * @param request DescribeFaqRequest
+   * @return DescribeFaqResponse
+   */
   async describeFaq(request: DescribeFaqRequest): Promise<DescribeFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFaqWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 机器人-详情
+   *
+   * @param request DescribeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceResponse
+   */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10346,11 +10941,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
+  /**
+   * @summary 机器人-详情
+   *
+   * @param request DescribeInstanceRequest
+   * @return DescribeInstanceResponse
+   */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-详情
+   *
+   * @param request DescribeIntentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIntentResponse
+   */
   async describeIntentWithOptions(request: DescribeIntentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIntentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10385,11 +10993,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIntentResponse>(await this.callApi(params, req, runtime), new DescribeIntentResponse({}));
   }
 
+  /**
+   * @summary 意图-详情
+   *
+   * @param request DescribeIntentRequest
+   * @return DescribeIntentResponse
+   */
   async describeIntent(request: DescribeIntentRequest): Promise<DescribeIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIntentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视角-详情
+   *
+   * @param request DescribePerspectiveRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePerspectiveResponse
+   */
   async describePerspectiveWithOptions(request: DescribePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<DescribePerspectiveResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10418,11 +11039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePerspectiveResponse>(await this.callApi(params, req, runtime), new DescribePerspectiveResponse({}));
   }
 
+  /**
+   * @summary 视角-详情
+   *
+   * @param request DescribePerspectiveRequest
+   * @return DescribePerspectiveResponse
+   */
   async describePerspective(request: DescribePerspectiveRequest): Promise<DescribePerspectiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePerspectiveWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 问答点赞、点踩API
+   *
+   * @param request FeedbackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FeedbackResponse
+   */
   async feedbackWithOptions(request: FeedbackRequest, runtime: $Util.RuntimeOptions): Promise<FeedbackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10467,11 +11101,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FeedbackResponse>(await this.callApi(params, req, runtime), new FeedbackResponse({}));
   }
 
+  /**
+   * @summary 问答点赞、点踩API
+   *
+   * @param request FeedbackRequest
+   * @return FeedbackResponse
+   */
   async feedback(request: FeedbackRequest): Promise<FeedbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.feedbackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 生成用户免登Token
+   *
+   * @param request GenerateUserAccessTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateUserAccessTokenResponse
+   */
   async generateUserAccessTokenWithOptions(request: GenerateUserAccessTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateUserAccessTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10520,11 +11167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateUserAccessTokenResponse>(await this.callApi(params, req, runtime), new GenerateUserAccessTokenResponse({}));
   }
 
+  /**
+   * @summary 生成用户免登Token
+   *
+   * @param request GenerateUserAccessTokenRequest
+   * @return GenerateUserAccessTokenResponse
+   */
   async generateUserAccessToken(request: GenerateUserAccessTokenRequest): Promise<GenerateUserAccessTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateUserAccessTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取业务空间信息
+   *
+   * @param request GetAgentInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAgentInfoResponse
+   */
   async getAgentInfoWithOptions(request: GetAgentInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10549,11 +11209,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentInfoResponse>(await this.callApi(params, req, runtime), new GetAgentInfoResponse({}));
   }
 
+  /**
+   * @summary 获取业务空间信息
+   *
+   * @param request GetAgentInfoRequest
+   * @return GetAgentInfoResponse
+   */
   async getAgentInfo(request: GetAgentInfoRequest): Promise<GetAgentInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取异步函数执行结果接口
+   *
+   * @param request GetAsyncResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsyncResultResponse
+   */
   async getAsyncResultWithOptions(request: GetAsyncResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10582,11 +11255,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncResultResponse>(await this.callApi(params, req, runtime), new GetAsyncResultResponse({}));
   }
 
+  /**
+   * @summary 获取异步函数执行结果接口
+   *
+   * @param request GetAsyncResultRequest
+   * @return GetAsyncResultResponse
+   */
   async getAsyncResult(request: GetAsyncResultRequest): Promise<GetAsyncResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsyncResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询机器人发布进度
+   *
+   * @param request GetInstancePublishTaskStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstancePublishTaskStateResponse
+   */
   async getInstancePublishTaskStateWithOptions(request: GetInstancePublishTaskStateRequest, runtime: $Util.RuntimeOptions): Promise<GetInstancePublishTaskStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10619,11 +11305,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstancePublishTaskStateResponse>(await this.callApi(params, req, runtime), new GetInstancePublishTaskStateResponse({}));
   }
 
+  /**
+   * @summary 查询机器人发布进度
+   *
+   * @param request GetInstancePublishTaskStateRequest
+   * @return GetInstancePublishTaskStateResponse
+   */
   async getInstancePublishTaskState(request: GetInstancePublishTaskStateRequest): Promise<GetInstancePublishTaskStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstancePublishTaskStateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询发布进度
+   *
+   * @param request GetPublishTaskStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPublishTaskStateResponse
+   */
   async getPublishTaskStateWithOptions(request: GetPublishTaskStateRequest, runtime: $Util.RuntimeOptions): Promise<GetPublishTaskStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10652,11 +11351,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPublishTaskStateResponse>(await this.callApi(params, req, runtime), new GetPublishTaskStateResponse({}));
   }
 
+  /**
+   * @summary 查询发布进度
+   *
+   * @param request GetPublishTaskStateRequest
+   * @return GetPublishTaskStateResponse
+   */
   async getPublishTaskState(request: GetPublishTaskStateRequest): Promise<GetPublishTaskStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPublishTaskStateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 初始化im连接信息
+   *
+   * @param request InitIMConnectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InitIMConnectResponse
+   */
   async initIMConnectWithOptions(request: InitIMConnectRequest, runtime: $Util.RuntimeOptions): Promise<InitIMConnectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10689,11 +11401,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InitIMConnectResponse>(await this.callApi(params, req, runtime), new InitIMConnectResponse({}));
   }
 
+  /**
+   * @summary 初始化im连接信息
+   *
+   * @param request InitIMConnectRequest
+   * @return InitIMConnectResponse
+   */
   async initIMConnect(request: InitIMConnectRequest): Promise<InitIMConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.initIMConnectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 机器人-绑定类目
+   *
+   * @param request LinkInstanceCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LinkInstanceCategoryResponse
+   */
   async linkInstanceCategoryWithOptions(request: LinkInstanceCategoryRequest, runtime: $Util.RuntimeOptions): Promise<LinkInstanceCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10728,11 +11453,24 @@ export default class Client extends OpenApi {
     return $tea.cast<LinkInstanceCategoryResponse>(await this.callApi(params, req, runtime), new LinkInstanceCategoryResponse({}));
   }
 
+  /**
+   * @summary 机器人-绑定类目
+   *
+   * @param request LinkInstanceCategoryRequest
+   * @return LinkInstanceCategoryResponse
+   */
   async linkInstanceCategory(request: LinkInstanceCategoryRequest): Promise<LinkInstanceCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.linkInstanceCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取业务空间列表
+   *
+   * @param request ListAgentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAgentResponse
+   */
   async listAgentWithOptions(request: ListAgentRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10773,11 +11511,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentResponse>(await this.callApi(params, req, runtime), new ListAgentResponse({}));
   }
 
+  /**
+   * @summary 获取业务空间列表
+   *
+   * @param request ListAgentRequest
+   * @return ListAgentResponse
+   */
   async listAgent(request: ListAgentRequest): Promise<ListAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 类目列表
+   *
+   * @param request ListCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCategoryResponse
+   */
   async listCategoryWithOptions(request: ListCategoryRequest, runtime: $Util.RuntimeOptions): Promise<ListCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10812,11 +11563,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCategoryResponse>(await this.callApi(params, req, runtime), new ListCategoryResponse({}));
   }
 
+  /**
+   * @summary 类目列表
+   *
+   * @param request ListCategoryRequest
+   * @return ListCategoryResponse
+   */
   async listCategory(request: ListCategoryRequest): Promise<ListCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询FAQ关联问列表
+   *
+   * @param request ListConnQuestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConnQuestionResponse
+   */
   async listConnQuestionWithOptions(request: ListConnQuestionRequest, runtime: $Util.RuntimeOptions): Promise<ListConnQuestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10847,11 +11611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConnQuestionResponse>(await this.callApi(params, req, runtime), new ListConnQuestionResponse({}));
   }
 
+  /**
+   * @summary 查询FAQ关联问列表
+   *
+   * @param request ListConnQuestionRequest
+   * @return ListConnQuestionResponse
+   */
   async listConnQuestion(request: ListConnQuestionRequest): Promise<ListConnQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConnQuestionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体-列表
+   *
+   * @param request ListDSEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDSEntityResponse
+   */
   async listDSEntityWithOptions(request: ListDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListDSEntityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10896,11 +11673,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDSEntityResponse>(await this.callApi(params, req, runtime), new ListDSEntityResponse({}));
   }
 
+  /**
+   * @summary 实体-列表
+   *
+   * @param request ListDSEntityRequest
+   * @return ListDSEntityResponse
+   */
   async listDSEntity(request: ListDSEntityRequest): Promise<ListDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDSEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体成员-列表
+   *
+   * @param request ListDSEntityValueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDSEntityValueResponse
+   */
   async listDSEntityValueWithOptions(request: ListDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<ListDSEntityValueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10951,11 +11741,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDSEntityValueResponse>(await this.callApi(params, req, runtime), new ListDSEntityValueResponse({}));
   }
 
+  /**
+   * @summary 实体成员-列表
+   *
+   * @param request ListDSEntityValueRequest
+   * @return ListDSEntityValueResponse
+   */
   async listDSEntityValue(request: ListDSEntityValueRequest): Promise<ListDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDSEntityValueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 机器人-修改
+   *
+   * @param request ListInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceResponse
+   */
   async listInstanceWithOptions(request: ListInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10996,11 +11799,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
   }
 
+  /**
+   * @summary 机器人-修改
+   *
+   * @param request ListInstanceRequest
+   * @return ListInstanceResponse
+   */
   async listInstance(request: ListInstanceRequest): Promise<ListInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-列表
+   *
+   * @param request ListIntentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIntentResponse
+   */
   async listIntentWithOptions(request: ListIntentRequest, runtime: $Util.RuntimeOptions): Promise<ListIntentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11041,11 +11857,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIntentResponse>(await this.callApi(params, req, runtime), new ListIntentResponse({}));
   }
 
+  /**
+   * @summary 意图-列表
+   *
+   * @param request ListIntentRequest
+   * @return ListIntentResponse
+   */
   async listIntent(request: ListIntentRequest): Promise<ListIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIntentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-LGF-列表
+   *
+   * @param request ListLgfRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLgfResponse
+   */
   async listLgfWithOptions(request: ListLgfRequest, runtime: $Util.RuntimeOptions): Promise<ListLgfResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11090,11 +11919,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLgfResponse>(await this.callApi(params, req, runtime), new ListLgfResponse({}));
   }
 
+  /**
+   * @summary 意图-LGF-列表
+   *
+   * @param request ListLgfRequest
+   * @return ListLgfResponse
+   */
   async listLgf(request: ListLgfRequest): Promise<ListLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLgfWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取业务空间下可集成的SaaS信息列表
+   *
+   * @param request ListSaasInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSaasInfoResponse
+   */
   async listSaasInfoWithOptions(request: ListSaasInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListSaasInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11127,11 +11969,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSaasInfoResponse>(await this.callApi(params, req, runtime), new ListSaasInfoResponse({}));
   }
 
+  /**
+   * @summary 获取业务空间下可集成的SaaS信息列表
+   *
+   * @param request ListSaasInfoRequest
+   * @return ListSaasInfoResponse
+   */
   async listSaasInfo(request: ListSaasInfoRequest): Promise<ListSaasInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSaasInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取业务空间下可集成的权限组信息
+   *
+   * @param request ListSaasPermissionGroupInfosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSaasPermissionGroupInfosResponse
+   */
   async listSaasPermissionGroupInfosWithOptions(request: ListSaasPermissionGroupInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListSaasPermissionGroupInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11156,11 +12011,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSaasPermissionGroupInfosResponse>(await this.callApi(params, req, runtime), new ListSaasPermissionGroupInfosResponse({}));
   }
 
+  /**
+   * @summary 获取业务空间下可集成的权限组信息
+   *
+   * @param request ListSaasPermissionGroupInfosRequest
+   * @return ListSaasPermissionGroupInfosResponse
+   */
   async listSaasPermissionGroupInfos(request: ListSaasPermissionGroupInfosRequest): Promise<ListSaasPermissionGroupInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSaasPermissionGroupInfosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary FAQ相似问列表
+   *
+   * @param request ListSimQuestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSimQuestionResponse
+   */
   async listSimQuestionWithOptions(request: ListSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<ListSimQuestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11191,11 +12059,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSimQuestionResponse>(await this.callApi(params, req, runtime), new ListSimQuestionResponse({}));
   }
 
+  /**
+   * @summary FAQ相似问列表
+   *
+   * @param request ListSimQuestionRequest
+   * @return ListSimQuestionResponse
+   */
   async listSimQuestion(request: ListSimQuestionRequest): Promise<ListSimQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSimQuestionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary FAQ答案列表
+   *
+   * @param request ListSolutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSolutionResponse
+   */
   async listSolutionWithOptions(request: ListSolutionRequest, runtime: $Util.RuntimeOptions): Promise<ListSolutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11226,11 +12107,82 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSolutionResponse>(await this.callApi(params, req, runtime), new ListSolutionResponse({}));
   }
 
+  /**
+   * @summary FAQ答案列表
+   *
+   * @param request ListSolutionRequest
+   * @return ListSolutionResponse
+   */
   async listSolution(request: ListSolutionRequest): Promise<ListSolutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSolutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Tongyi对话明细查询接口
+   *
+   * @param request ListTongyiChatHistorysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTongyiChatHistorysResponse
+   */
+  async listTongyiChatHistorysWithOptions(request: ListTongyiChatHistorysRequest, runtime: $Util.RuntimeOptions): Promise<ListTongyiChatHistorysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTongyiChatHistorys",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTongyiChatHistorysResponse>(await this.callApi(params, req, runtime), new ListTongyiChatHistorysResponse({}));
+  }
+
+  /**
+   * @summary Tongyi对话明细查询接口
+   *
+   * @param request ListTongyiChatHistorysRequest
+   * @return ListTongyiChatHistorysResponse
+   */
+  async listTongyiChatHistorys(request: ListTongyiChatHistorysRequest): Promise<ListTongyiChatHistorysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTongyiChatHistorysWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 话术-列表
+   *
+   * @param request ListUserSayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserSayResponse
+   */
   async listUserSayWithOptions(request: ListUserSayRequest, runtime: $Util.RuntimeOptions): Promise<ListUserSayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11275,11 +12227,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserSayResponse>(await this.callApi(params, req, runtime), new ListUserSayResponse({}));
   }
 
+  /**
+   * @summary 话术-列表
+   *
+   * @param request ListUserSayRequest
+   * @return ListUserSayResponse
+   */
   async listUserSay(request: ListUserSayRequest): Promise<ListUserSayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserSayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 统一NLU接口
+   *
+   * @param request NluRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return NluResponse
+   */
   async nluWithOptions(request: NluRequest, runtime: $Util.RuntimeOptions): Promise<NluResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11312,11 +12277,24 @@ export default class Client extends OpenApi {
     return $tea.cast<NluResponse>(await this.callApi(params, req, runtime), new NluResponse({}));
   }
 
+  /**
+   * @summary 统一NLU接口
+   *
+   * @param request NluRequest
+   * @return NluResponse
+   */
   async nlu(request: NluRequest): Promise<NluResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.nluWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视角-列表
+   *
+   * @param request QueryPerspectivesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPerspectivesResponse
+   */
   async queryPerspectivesWithOptions(request: QueryPerspectivesRequest, runtime: $Util.RuntimeOptions): Promise<QueryPerspectivesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11341,11 +12319,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPerspectivesResponse>(await this.callApi(params, req, runtime), new QueryPerspectivesResponse({}));
   }
 
+  /**
+   * @summary 视角-列表
+   *
+   * @param request QueryPerspectivesRequest
+   * @return QueryPerspectivesResponse
+   */
   async queryPerspectives(request: QueryPerspectivesRequest): Promise<QueryPerspectivesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPerspectivesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档重试
+   *
+   * @param request RetryDocRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryDocResponse
+   */
   async retryDocWithOptions(request: RetryDocRequest, runtime: $Util.RuntimeOptions): Promise<RetryDocResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11374,11 +12365,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryDocResponse>(await this.callApi(params, req, runtime), new RetryDocResponse({}));
   }
 
+  /**
+   * @summary 文档重试
+   *
+   * @param request RetryDocRequest
+   * @return RetryDocResponse
+   */
   async retryDoc(request: RetryDocRequest): Promise<RetryDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryDocWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档搜索
+   *
+   * @param tmpReq SearchDocRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchDocResponse
+   */
   async searchDocWithOptions(tmpReq: SearchDocRequest, runtime: $Util.RuntimeOptions): Promise<SearchDocResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchDocShrinkRequest({ });
@@ -11477,11 +12481,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchDocResponse>(await this.callApi(params, req, runtime), new SearchDocResponse({}));
   }
 
+  /**
+   * @summary 文档搜索
+   *
+   * @param request SearchDocRequest
+   * @return SearchDocResponse
+   */
   async searchDoc(request: SearchDocRequest): Promise<SearchDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchDocWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 知识搜索
+   *
+   * @param tmpReq SearchFaqRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchFaqResponse
+   */
   async searchFaqWithOptions(tmpReq: SearchFaqRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaqResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchFaqShrinkRequest({ });
@@ -11578,11 +12595,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchFaqResponse>(await this.callApi(params, req, runtime), new SearchFaqResponse({}));
   }
 
+  /**
+   * @summary 知识搜索
+   *
+   * @param request SearchFaqRequest
+   * @return SearchFaqResponse
+   */
   async searchFaq(request: SearchFaqRequest): Promise<SearchFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchFaqWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 编辑类目
+   *
+   * @param request UpdateCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCategoryResponse
+   */
   async updateCategoryWithOptions(request: UpdateCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11621,11 +12651,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCategoryResponse>(await this.callApi(params, req, runtime), new UpdateCategoryResponse({}));
   }
 
+  /**
+   * @summary 编辑类目
+   *
+   * @param request UpdateCategoryRequest
+   * @return UpdateCategoryResponse
+   */
   async updateCategory(request: UpdateCategoryRequest): Promise<UpdateCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新FAQ关联问
+   *
+   * @param request UpdateConnQuestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateConnQuestionResponse
+   */
   async updateConnQuestionWithOptions(request: UpdateConnQuestionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnQuestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11660,11 +12703,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateConnQuestionResponse>(await this.callApi(params, req, runtime), new UpdateConnQuestionResponse({}));
   }
 
+  /**
+   * @summary 更新FAQ关联问
+   *
+   * @param request UpdateConnQuestionRequest
+   * @return UpdateConnQuestionResponse
+   */
   async updateConnQuestion(request: UpdateConnQuestionRequest): Promise<UpdateConnQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConnQuestionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体-更新
+   *
+   * @param request UpdateDSEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDSEntityResponse
+   */
   async updateDSEntityWithOptions(request: UpdateDSEntityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDSEntityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11705,11 +12761,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDSEntityResponse>(await this.callApi(params, req, runtime), new UpdateDSEntityResponse({}));
   }
 
+  /**
+   * @summary 实体-更新
+   *
+   * @param request UpdateDSEntityRequest
+   * @return UpdateDSEntityResponse
+   */
   async updateDSEntity(request: UpdateDSEntityRequest): Promise<UpdateDSEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDSEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实体成员-更新
+   *
+   * @param tmpReq UpdateDSEntityValueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDSEntityValueResponse
+   */
   async updateDSEntityValueWithOptions(tmpReq: UpdateDSEntityValueRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDSEntityValueResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateDSEntityValueShrinkRequest({ });
@@ -11762,11 +12831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDSEntityValueResponse>(await this.callApi(params, req, runtime), new UpdateDSEntityValueResponse({}));
   }
 
+  /**
+   * @summary 实体成员-更新
+   *
+   * @param request UpdateDSEntityValueRequest
+   * @return UpdateDSEntityValueResponse
+   */
   async updateDSEntityValue(request: UpdateDSEntityValueRequest): Promise<UpdateDSEntityValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDSEntityValueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档变更
+   *
+   * @param request UpdateDocRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDocResponse
+   */
   async updateDocWithOptions(request: UpdateDocRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDocResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11827,11 +12909,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDocResponse>(await this.callApi(params, req, runtime), new UpdateDocResponse({}));
   }
 
+  /**
+   * @summary 文档变更
+   *
+   * @param request UpdateDocRequest
+   * @return UpdateDocResponse
+   */
   async updateDoc(request: UpdateDocRequest): Promise<UpdateDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDocWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新FAQ
+   *
+   * @param request UpdateFaqRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFaqResponse
+   */
   async updateFaqWithOptions(request: UpdateFaqRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaqResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11878,11 +12973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFaqResponse>(await this.callApi(params, req, runtime), new UpdateFaqResponse({}));
   }
 
+  /**
+   * @summary 更新FAQ
+   *
+   * @param request UpdateFaqRequest
+   * @return UpdateFaqResponse
+   */
   async updateFaq(request: UpdateFaqRequest): Promise<UpdateFaqResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFaqWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 机器人-修改
+   *
+   * @param request UpdateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceResponse
+   */
   async updateInstanceWithOptions(request: UpdateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11919,11 +13027,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
   }
 
+  /**
+   * @summary 机器人-修改
+   *
+   * @param request UpdateInstanceRequest
+   * @return UpdateInstanceResponse
+   */
   async updateInstance(request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-更新
+   *
+   * @param tmpReq UpdateIntentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIntentResponse
+   */
   async updateIntentWithOptions(tmpReq: UpdateIntentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIntentResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateIntentShrinkRequest({ });
@@ -11966,11 +13087,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIntentResponse>(await this.callApi(params, req, runtime), new UpdateIntentResponse({}));
   }
 
+  /**
+   * @summary 意图-更新
+   *
+   * @param request UpdateIntentRequest
+   * @return UpdateIntentResponse
+   */
   async updateIntent(request: UpdateIntentRequest): Promise<UpdateIntentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIntentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-LGF-更新
+   *
+   * @param tmpReq UpdateLgfRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLgfResponse
+   */
   async updateLgfWithOptions(tmpReq: UpdateLgfRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLgfResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateLgfShrinkRequest({ });
@@ -12013,11 +13147,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLgfResponse>(await this.callApi(params, req, runtime), new UpdateLgfResponse({}));
   }
 
+  /**
+   * @summary 意图-LGF-更新
+   *
+   * @param request UpdateLgfRequest
+   * @return UpdateLgfResponse
+   */
   async updateLgf(request: UpdateLgfRequest): Promise<UpdateLgfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLgfWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视角-修改
+   *
+   * @param request UpdatePerspectiveRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePerspectiveResponse
+   */
   async updatePerspectiveWithOptions(request: UpdatePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePerspectiveResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12050,11 +13197,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePerspectiveResponse>(await this.callApi(params, req, runtime), new UpdatePerspectiveResponse({}));
   }
 
+  /**
+   * @summary 视角-修改
+   *
+   * @param request UpdatePerspectiveRequest
+   * @return UpdatePerspectiveResponse
+   */
   async updatePerspective(request: UpdatePerspectiveRequest): Promise<UpdatePerspectiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePerspectiveWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新FAQ相似问
+   *
+   * @param request UpdateSimQuestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSimQuestionResponse
+   */
   async updateSimQuestionWithOptions(request: UpdateSimQuestionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSimQuestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12089,11 +13249,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSimQuestionResponse>(await this.callApi(params, req, runtime), new UpdateSimQuestionResponse({}));
   }
 
+  /**
+   * @summary 更新FAQ相似问
+   *
+   * @param request UpdateSimQuestionRequest
+   * @return UpdateSimQuestionResponse
+   */
   async updateSimQuestion(request: UpdateSimQuestionRequest): Promise<UpdateSimQuestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSimQuestionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新FAQ答案
+   *
+   * @param request UpdateSolutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSolutionResponse
+   */
   async updateSolutionWithOptions(request: UpdateSolutionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSolutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12136,11 +13309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSolutionResponse>(await this.callApi(params, req, runtime), new UpdateSolutionResponse({}));
   }
 
+  /**
+   * @summary 更新FAQ答案
+   *
+   * @param request UpdateSolutionRequest
+   * @return UpdateSolutionResponse
+   */
   async updateSolution(request: UpdateSolutionRequest): Promise<UpdateSolutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSolutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 意图-话术-更新
+   *
+   * @param tmpReq UpdateUserSayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserSayResponse
+   */
   async updateUserSayWithOptions(tmpReq: UpdateUserSayRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserSayResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateUserSayShrinkRequest({ });
@@ -12183,6 +13369,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserSayResponse>(await this.callApi(params, req, runtime), new UpdateUserSayResponse({}));
   }
 
+  /**
+   * @summary 意图-话术-更新
+   *
+   * @param request UpdateUserSayRequest
+   * @return UpdateUserSayResponse
+   */
   async updateUserSay(request: UpdateUserSayRequest): Promise<UpdateUserSayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserSayWithOptions(request, runtime);
