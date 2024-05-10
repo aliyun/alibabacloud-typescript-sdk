@@ -15543,12 +15543,14 @@ export class DescribeInstanceResponseBodyResultClientNodeConfiguration extends $
   disk?: number;
   diskType?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
       disk: 'disk',
       diskType: 'diskType',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -15558,6 +15560,7 @@ export class DescribeInstanceResponseBodyResultClientNodeConfiguration extends $
       disk: 'number',
       diskType: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -15600,6 +15603,7 @@ export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration exte
   diskEncryption?: boolean;
   diskType?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
@@ -15607,6 +15611,7 @@ export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration exte
       diskEncryption: 'diskEncryption',
       diskType: 'diskType',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -15617,6 +15622,7 @@ export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration exte
       diskEncryption: 'boolean',
       diskType: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -15657,11 +15663,13 @@ export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $tea.
   amount?: number;
   disk?: number;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
       disk: 'disk',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -15670,6 +15678,7 @@ export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $tea.
       amount: 'number',
       disk: 'number',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -15683,12 +15692,14 @@ export class DescribeInstanceResponseBodyResultMasterConfiguration extends $tea.
   disk?: number;
   diskType?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
       disk: 'disk',
       diskType: 'diskType',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -15698,6 +15709,7 @@ export class DescribeInstanceResponseBodyResultMasterConfiguration extends $tea.
       disk: 'number',
       diskType: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -15768,6 +15780,7 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $tea.Model {
   diskType?: string;
   performanceLevel?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       disk: 'disk',
@@ -15775,6 +15788,7 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $tea.Model {
       diskType: 'diskType',
       performanceLevel: 'performanceLevel',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -15785,6 +15799,7 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $tea.Model {
       diskType: 'string',
       performanceLevel: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -15849,6 +15864,7 @@ export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $te
   diskEncryption?: boolean;
   diskType?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
@@ -15856,6 +15872,7 @@ export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $te
       diskEncryption: 'diskEncryption',
       diskType: 'diskType',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -15866,6 +15883,7 @@ export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $te
       diskEncryption: 'boolean',
       diskType: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -15910,6 +15928,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
   enableKibanaPrivateNetwork?: boolean;
   enableKibanaPublicNetwork?: boolean;
   enablePublic?: boolean;
+  endtime?: number;
   esConfig?: { [key: string]: any };
   esIPBlacklist?: string[];
   esIPWhitelist?: string[];
@@ -15964,6 +15983,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
       enableKibanaPrivateNetwork: 'enableKibanaPrivateNetwork',
       enableKibanaPublicNetwork: 'enableKibanaPublicNetwork',
       enablePublic: 'enablePublic',
+      endtime: 'endtime',
       esConfig: 'esConfig',
       esIPBlacklist: 'esIPBlacklist',
       esIPWhitelist: 'esIPWhitelist',
@@ -16021,6 +16041,7 @@ export class DescribeInstanceResponseBodyResult extends $tea.Model {
       enableKibanaPrivateNetwork: 'boolean',
       enableKibanaPublicNetwork: 'boolean',
       enablePublic: 'boolean',
+      endtime: 'number',
       esConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       esIPBlacklist: { 'type': 'array', 'itemType': 'string' },
       esIPWhitelist: { 'type': 'array', 'itemType': 'string' },
@@ -19223,12 +19244,14 @@ export class ListInstanceResponseBodyResultClientNodeConfiguration extends $tea.
   disk?: number;
   diskType?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
       disk: 'disk',
       diskType: 'diskType',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -19238,6 +19261,7 @@ export class ListInstanceResponseBodyResultClientNodeConfiguration extends $tea.
       disk: 'number',
       diskType: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -19252,6 +19276,7 @@ export class ListInstanceResponseBodyResultElasticDataNodeConfiguration extends 
   diskEncryption?: boolean;
   diskType?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
@@ -19259,6 +19284,7 @@ export class ListInstanceResponseBodyResultElasticDataNodeConfiguration extends 
       diskEncryption: 'diskEncryption',
       diskType: 'diskType',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -19269,6 +19295,7 @@ export class ListInstanceResponseBodyResultElasticDataNodeConfiguration extends 
       diskEncryption: 'boolean',
       diskType: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -19282,12 +19309,14 @@ export class ListInstanceResponseBodyResultKibanaConfiguration extends $tea.Mode
   disk?: number;
   diskType?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
       disk: 'disk',
       diskType: 'diskType',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -19297,6 +19326,7 @@ export class ListInstanceResponseBodyResultKibanaConfiguration extends $tea.Mode
       disk: 'number',
       diskType: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -19310,12 +19340,14 @@ export class ListInstanceResponseBodyResultMasterConfiguration extends $tea.Mode
   disk?: number;
   diskType?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
       disk: 'disk',
       diskType: 'diskType',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -19325,6 +19357,7 @@ export class ListInstanceResponseBodyResultMasterConfiguration extends $tea.Mode
       disk: 'number',
       diskType: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -19395,6 +19428,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $tea.Model {
   diskType?: string;
   performanceLevel?: string;
   spec?: string;
+  specInfo?: string;
   static names(): { [key: string]: string } {
     return {
       disk: 'disk',
@@ -19402,6 +19436,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $tea.Model {
       diskType: 'diskType',
       performanceLevel: 'performanceLevel',
       spec: 'spec',
+      specInfo: 'specInfo',
     };
   }
 
@@ -19412,6 +19447,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $tea.Model {
       diskType: 'string',
       performanceLevel: 'string',
       spec: 'string',
+      specInfo: 'string',
     };
   }
 
@@ -19449,6 +19485,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
   dedicateMaster?: boolean;
   description?: string;
   elasticDataNodeConfiguration?: ListInstanceResponseBodyResultElasticDataNodeConfiguration;
+  endTime?: number;
   esVersion?: string;
   extendConfigs?: { [key: string]: any }[];
   instanceId?: string;
@@ -19478,6 +19515,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
       dedicateMaster: 'dedicateMaster',
       description: 'description',
       elasticDataNodeConfiguration: 'elasticDataNodeConfiguration',
+      endTime: 'endTime',
       esVersion: 'esVersion',
       extendConfigs: 'extendConfigs',
       instanceId: 'instanceId',
@@ -19510,6 +19548,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
       dedicateMaster: 'boolean',
       description: 'string',
       elasticDataNodeConfiguration: ListInstanceResponseBodyResultElasticDataNodeConfiguration,
+      endTime: 'number',
       esVersion: 'string',
       extendConfigs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       instanceId: 'string',
