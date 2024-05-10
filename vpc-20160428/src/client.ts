@@ -7523,6 +7523,7 @@ export class CreateSslVpnServerRequest extends $tea.Model {
   clientToken?: string;
   compress?: boolean;
   enableMultiFactorAuth?: boolean;
+  IDaaSApplicationId?: string;
   IDaaSInstanceId?: string;
   IDaaSRegionId?: string;
   localSubnet?: string;
@@ -7542,6 +7543,7 @@ export class CreateSslVpnServerRequest extends $tea.Model {
       clientToken: 'ClientToken',
       compress: 'Compress',
       enableMultiFactorAuth: 'EnableMultiFactorAuth',
+      IDaaSApplicationId: 'IDaaSApplicationId',
       IDaaSInstanceId: 'IDaaSInstanceId',
       IDaaSRegionId: 'IDaaSRegionId',
       localSubnet: 'LocalSubnet',
@@ -7564,6 +7566,7 @@ export class CreateSslVpnServerRequest extends $tea.Model {
       clientToken: 'string',
       compress: 'boolean',
       enableMultiFactorAuth: 'boolean',
+      IDaaSApplicationId: 'string',
       IDaaSInstanceId: 'string',
       IDaaSRegionId: 'string',
       localSubnet: 'string',
@@ -30654,6 +30657,7 @@ export class ModifySslVpnServerRequest extends $tea.Model {
   clientToken?: string;
   compress?: boolean;
   enableMultiFactorAuth?: boolean;
+  IDaaSApplicationId?: string;
   IDaaSInstanceId?: string;
   IDaaSRegionId?: string;
   localSubnet?: string;
@@ -30673,6 +30677,7 @@ export class ModifySslVpnServerRequest extends $tea.Model {
       clientToken: 'ClientToken',
       compress: 'Compress',
       enableMultiFactorAuth: 'EnableMultiFactorAuth',
+      IDaaSApplicationId: 'IDaaSApplicationId',
       IDaaSInstanceId: 'IDaaSInstanceId',
       IDaaSRegionId: 'IDaaSRegionId',
       localSubnet: 'LocalSubnet',
@@ -30695,6 +30700,7 @@ export class ModifySslVpnServerRequest extends $tea.Model {
       clientToken: 'string',
       compress: 'boolean',
       enableMultiFactorAuth: 'boolean',
+      IDaaSApplicationId: 'string',
       IDaaSInstanceId: 'string',
       IDaaSRegionId: 'string',
       localSubnet: 'string',
@@ -30722,7 +30728,9 @@ export class ModifySslVpnServerResponseBody extends $tea.Model {
   connections?: number;
   createTime?: number;
   enableMultiFactorAuth?: boolean;
+  IDaaSApplicationId?: string;
   IDaaSInstanceId?: string;
+  IDaaSInstanceVersion?: string;
   internetIp?: string;
   localSubnet?: string;
   maxConnections?: number;
@@ -30742,7 +30750,9 @@ export class ModifySslVpnServerResponseBody extends $tea.Model {
       connections: 'Connections',
       createTime: 'CreateTime',
       enableMultiFactorAuth: 'EnableMultiFactorAuth',
+      IDaaSApplicationId: 'IDaaSApplicationId',
       IDaaSInstanceId: 'IDaaSInstanceId',
+      IDaaSInstanceVersion: 'IDaaSInstanceVersion',
       internetIp: 'InternetIp',
       localSubnet: 'LocalSubnet',
       maxConnections: 'MaxConnections',
@@ -30765,7 +30775,9 @@ export class ModifySslVpnServerResponseBody extends $tea.Model {
       connections: 'number',
       createTime: 'number',
       enableMultiFactorAuth: 'boolean',
+      IDaaSApplicationId: 'string',
       IDaaSInstanceId: 'string',
+      IDaaSInstanceVersion: 'string',
       internetIp: 'string',
       localSubnet: 'string',
       maxConnections: 'number',
@@ -43898,7 +43910,9 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
   connections?: number;
   createTime?: number;
   enableMultiFactorAuth?: boolean;
+  IDaaSApplicationId?: string;
   IDaaSInstanceId?: string;
+  IDaaSInstanceVersion?: string;
   IDaaSRegionId?: string;
   internetIp?: string;
   localSubnet?: string;
@@ -43918,7 +43932,9 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
       connections: 'Connections',
       createTime: 'CreateTime',
       enableMultiFactorAuth: 'EnableMultiFactorAuth',
+      IDaaSApplicationId: 'IDaaSApplicationId',
       IDaaSInstanceId: 'IDaaSInstanceId',
+      IDaaSInstanceVersion: 'IDaaSInstanceVersion',
       IDaaSRegionId: 'IDaaSRegionId',
       internetIp: 'InternetIp',
       localSubnet: 'LocalSubnet',
@@ -43941,7 +43957,9 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
       connections: 'number',
       createTime: 'number',
       enableMultiFactorAuth: 'boolean',
+      IDaaSApplicationId: 'string',
       IDaaSInstanceId: 'string',
+      IDaaSInstanceVersion: 'string',
       IDaaSRegionId: 'string',
       internetIp: 'string',
       localSubnet: 'string',
@@ -50663,15 +50681,7 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-qingdao': "vpc.aliyuncs.com",
-      'cn-beijing': "vpc.aliyuncs.com",
       'cn-hangzhou': "vpc.aliyuncs.com",
-      'cn-shanghai': "vpc.aliyuncs.com",
-      'cn-shenzhen': "vpc.aliyuncs.com",
-      'cn-hongkong': "vpc.aliyuncs.com",
-      'ap-southeast-1': "vpc.aliyuncs.com",
-      'us-east-1': "vpc.aliyuncs.com",
-      'us-west-1': "vpc.aliyuncs.com",
       'cn-shanghai-finance-1': "vpc.aliyuncs.com",
       'cn-shenzhen-finance-1': "vpc.aliyuncs.com",
       'cn-north-2-gov-1': "vpc.aliyuncs.com",
@@ -50685,17 +50695,17 @@ export default class Client extends OpenApi {
       'cn-hangzhou-bj-b01': "vpc.aliyuncs.com",
       'cn-hangzhou-finance': "vpc.aliyuncs.com",
       'cn-hangzhou-internal-prod-1': "vpc.aliyuncs.com",
-      'cn-hangzhou-internal-test-1': "vpc.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "vpc.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "vpc.aliyuncs.com",
-      'cn-hangzhou-test-306': "vpc.aliyuncs.com",
+      'cn-hangzhou-internal-test-1': "vpc-pre.cn-hangzhou.aliyuncs.com",
+      'cn-hangzhou-internal-test-2': "vpc-inner-pre.cn-hangzhou.aliyuncs.com",
+      'cn-hangzhou-internal-test-3': "vpc-pre.cn-hangzhou.aliyuncs.com",
+      'cn-hangzhou-test-306': "vpc-pre.cn-hangzhou.aliyuncs.com",
       'cn-hongkong-finance-pop': "vpc.aliyuncs.com",
       'cn-huhehaote-nebula-1': "vpc-nebula.cn-qingdao-nebula.aliyuncs.com",
       'cn-qingdao-nebula': "vpc-nebula.cn-qingdao-nebula.aliyuncs.com",
-      'cn-shanghai-et15-b01': "vpc.aliyuncs.com",
+      'cn-shanghai-et15-b01': "vpc-pre.cn-hangzhou.aliyuncs.com",
       'cn-shanghai-et2-b01': "vpc.aliyuncs.com",
       'cn-shanghai-inner': "vpc.aliyuncs.com",
-      'cn-shanghai-internal-test-1': "vpc.aliyuncs.com",
+      'cn-shanghai-internal-test-1': "vpc-pre.cn-hangzhou.aliyuncs.com",
       'cn-shenzhen-inner': "vpc.aliyuncs.com",
       'cn-shenzhen-st4-d01': "vpc.aliyuncs.com",
       'cn-shenzhen-su18-b01': "vpc.aliyuncs.com",
@@ -50726,12 +50736,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
-    * >  You cannot activate a router interface that has overdue payments.
-    *
-    * @param request ActivateRouterInterfaceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ActivateRouterInterfaceResponse
+   * @summary Activates a router interface that is in the Inactive state.
+   *
+   * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
+   * >  You cannot activate a router interface that has overdue payments.
+   *
+   * @param request ActivateRouterInterfaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ActivateRouterInterfaceResponse
    */
   async activateRouterInterfaceWithOptions(request: ActivateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<ActivateRouterInterfaceResponse> {
     Util.validateModel(request);
@@ -50774,11 +50786,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
-    * >  You cannot activate a router interface that has overdue payments.
-    *
-    * @param request ActivateRouterInterfaceRequest
-    * @return ActivateRouterInterfaceResponse
+   * @summary Activates a router interface that is in the Inactive state.
+   *
+   * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state.
+   * >  You cannot activate a router interface that has overdue payments.
+   *
+   * @param request ActivateRouterInterfaceRequest
+   * @return ActivateRouterInterfaceResponse
    */
   async activateRouterInterface(request: ActivateRouterInterfaceRequest): Promise<ActivateRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50786,14 +50800,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-    *     *   If the flow log is in the **Activating** state, the flow log is being started.
-    *     *   If the flow log is in the **Active** state, the flow log is started.
-    * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
-    *
-    * @param request ActiveFlowLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ActiveFlowLogResponse
+   * @summary Enables a flow log. After the flow log is enabled, traffic information about a resource is captured.
+   *
+   * @description *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+   *     *   If the flow log is in the **Activating** state, the flow log is being started.
+   *     *   If the flow log is in the **Active** state, the flow log is started.
+   * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
+   *
+   * @param request ActiveFlowLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ActiveFlowLogResponse
    */
   async activeFlowLogWithOptions(request: ActiveFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<ActiveFlowLogResponse> {
     Util.validateModel(request);
@@ -50840,19 +50856,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-    *     *   If the flow log is in the **Activating** state, the flow log is being started.
-    *     *   If the flow log is in the **Active** state, the flow log is started.
-    * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
-    *
-    * @param request ActiveFlowLogRequest
-    * @return ActiveFlowLogResponse
+   * @summary Enables a flow log. After the flow log is enabled, traffic information about a resource is captured.
+   *
+   * @description *   The **ActiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+   *     *   If the flow log is in the **Activating** state, the flow log is being started.
+   *     *   If the flow log is in the **Active** state, the flow log is started.
+   * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
+   *
+   * @param request ActiveFlowLogRequest
+   * @return ActiveFlowLogResponse
    */
   async activeFlowLog(request: ActiveFlowLogRequest): Promise<ActiveFlowLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activeFlowLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Advertises a Border Gateway Protocol (BGP) network.
+   *
+   * @param request AddBgpNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddBgpNetworkResponse
+   */
   async addBgpNetworkWithOptions(request: AddBgpNetworkRequest, runtime: $Util.RuntimeOptions): Promise<AddBgpNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50909,24 +50934,32 @@ export default class Client extends OpenApi {
     return $tea.cast<AddBgpNetworkResponse>(await this.callApi(params, req, runtime), new AddBgpNetworkResponse({}));
   }
 
+  /**
+   * @summary Advertises a Border Gateway Protocol (BGP) network.
+   *
+   * @param request AddBgpNetworkRequest
+   * @return AddBgpNetworkResponse
+   */
   async addBgpNetwork(request: AddBgpNetworkRequest): Promise<AddBgpNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBgpNetworkWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
-    *     *   The EIP uses the pay-as-you-go billing method.
-    *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-    *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-    * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the operation.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
-    *
-    * @param request AddCommonBandwidthPackageIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddCommonBandwidthPackageIpResponse
+   * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
+   *     *   The EIP uses the pay-as-you-go billing method.
+   *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
+   *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+   * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
+   *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+   *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+   *
+   * @param request AddCommonBandwidthPackageIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddCommonBandwidthPackageIpResponse
    */
   async addCommonBandwidthPackageIpWithOptions(request: AddCommonBandwidthPackageIpRequest, runtime: $Util.RuntimeOptions): Promise<AddCommonBandwidthPackageIpResponse> {
     Util.validateModel(request);
@@ -50985,17 +51018,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
-    *     *   The EIP uses the pay-as-you-go billing method.
-    *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-    *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-    * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the operation.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
-    *
-    * @param request AddCommonBandwidthPackageIpRequest
-    * @return AddCommonBandwidthPackageIpResponse
+   * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
+   *     *   The EIP uses the pay-as-you-go billing method.
+   *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
+   *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+   * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
+   *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+   *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+   *
+   * @param request AddCommonBandwidthPackageIpRequest
+   * @return AddCommonBandwidthPackageIpResponse
    */
   async addCommonBandwidthPackageIp(request: AddCommonBandwidthPackageIpRequest): Promise<AddCommonBandwidthPackageIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51003,17 +51038,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
-    *     *   The EIPs use the pay-as-you-go billing method.
-    *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-    *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-    * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
-    *
-    * @param request AddCommonBandwidthPackageIpsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddCommonBandwidthPackageIpsResponse
+   * @summary Associates multiple elastic IP addresses (EIPs) with an Internet Shared Bandwidth instance.
+   *
+   * @description *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
+   *     *   The EIPs use the pay-as-you-go billing method.
+   *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
+   *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+   * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
+   *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+   *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+   *
+   * @param request AddCommonBandwidthPackageIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddCommonBandwidthPackageIpsResponse
    */
   async addCommonBandwidthPackageIpsWithOptions(request: AddCommonBandwidthPackageIpsRequest, runtime: $Util.RuntimeOptions): Promise<AddCommonBandwidthPackageIpsResponse> {
     Util.validateModel(request);
@@ -51072,22 +51109,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
-    *     *   The EIPs use the pay-as-you-go billing method.
-    *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-    *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-    * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-    *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
-    *
-    * @param request AddCommonBandwidthPackageIpsRequest
-    * @return AddCommonBandwidthPackageIpsResponse
+   * @summary Associates multiple elastic IP addresses (EIPs) with an Internet Shared Bandwidth instance.
+   *
+   * @description *   When you call this operation to associate EIPs with an Internet Shared Bandwidth instance, make sure that the EIPs meet the following requirements:
+   *     *   The EIPs use the pay-as-you-go billing method.
+   *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
+   *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+   * *   **AddCommonBandwidthPackageIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) operation to query the status of the task.
+   *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+   *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+   *
+   * @param request AddCommonBandwidthPackageIpsRequest
+   * @return AddCommonBandwidthPackageIpsResponse
    */
   async addCommonBandwidthPackageIps(request: AddCommonBandwidthPackageIpsRequest): Promise<AddCommonBandwidthPackageIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addCommonBandwidthPackageIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates an elastic IP address (EIP) with a shared-bandwidth Global Accelerator (GA) instance.
+   *
+   * @param request AddGlobalAccelerationInstanceIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGlobalAccelerationInstanceIpResponse
+   */
   async addGlobalAccelerationInstanceIpWithOptions(request: AddGlobalAccelerationInstanceIpRequest, runtime: $Util.RuntimeOptions): Promise<AddGlobalAccelerationInstanceIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51136,17 +51182,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGlobalAccelerationInstanceIpResponse>(await this.callApi(params, req, runtime), new AddGlobalAccelerationInstanceIpResponse({}));
   }
 
+  /**
+   * @summary Associates an elastic IP address (EIP) with a shared-bandwidth Global Accelerator (GA) instance.
+   *
+   * @param request AddGlobalAccelerationInstanceIpRequest
+   * @return AddGlobalAccelerationInstanceIpResponse
+   */
   async addGlobalAccelerationInstanceIp(request: AddGlobalAccelerationInstanceIpRequest): Promise<AddGlobalAccelerationInstanceIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGlobalAccelerationInstanceIpWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request AddIPv6TranslatorAclListEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddIPv6TranslatorAclListEntryResponse
+   * @deprecated OpenAPI AddIPv6TranslatorAclListEntry is deprecated
+   *
+   * @summary Adds an IP entry to an access control list (ACL).
+   *
+   * @param request AddIPv6TranslatorAclListEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddIPv6TranslatorAclListEntryResponse
    */
   // Deprecated
   async addIPv6TranslatorAclListEntryWithOptions(request: AddIPv6TranslatorAclListEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddIPv6TranslatorAclListEntryResponse> {
@@ -51202,10 +51256,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request AddIPv6TranslatorAclListEntryRequest
-    * @return AddIPv6TranslatorAclListEntryResponse
+   * @deprecated OpenAPI AddIPv6TranslatorAclListEntry is deprecated
+   *
+   * @summary Adds an IP entry to an access control list (ACL).
+   *
+   * @param request AddIPv6TranslatorAclListEntryRequest
+   * @return AddIPv6TranslatorAclListEntryResponse
    */
   // Deprecated
   async addIPv6TranslatorAclListEntry(request: AddIPv6TranslatorAclListEntryRequest): Promise<AddIPv6TranslatorAclListEntryResponse> {
@@ -51214,17 +51270,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following limits:
-    * *   The CIDR block and the IP address pool must belong to the same region.
-    * *   The CIDR block and the IP address pool must use the same line type.
-    * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
-    *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
-    *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
-    * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
-    *
-    * @param request AddPublicIpAddressPoolCidrBlockRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddPublicIpAddressPoolCidrBlockResponse
+   * @summary Adds a CIDR block to an IP address pool.
+   *
+   * @description Before you call this operation, take note of the following limits:
+   * *   The CIDR block and the IP address pool must belong to the same region.
+   * *   The CIDR block and the IP address pool must use the same line type.
+   * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
+   *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
+   *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
+   * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
+   *
+   * @param request AddPublicIpAddressPoolCidrBlockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddPublicIpAddressPoolCidrBlockResponse
    */
   async addPublicIpAddressPoolCidrBlockWithOptions(request: AddPublicIpAddressPoolCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<AddPublicIpAddressPoolCidrBlockResponse> {
     Util.validateModel(request);
@@ -51287,16 +51345,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following limits:
-    * *   The CIDR block and the IP address pool must belong to the same region.
-    * *   The CIDR block and the IP address pool must use the same line type.
-    * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
-    *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
-    *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
-    * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
-    *
-    * @param request AddPublicIpAddressPoolCidrBlockRequest
-    * @return AddPublicIpAddressPoolCidrBlockResponse
+   * @summary Adds a CIDR block to an IP address pool.
+   *
+   * @description Before you call this operation, take note of the following limits:
+   * *   The CIDR block and the IP address pool must belong to the same region.
+   * *   The CIDR block and the IP address pool must use the same line type.
+   * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
+   *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
+   *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
+   * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
+   *
+   * @param request AddPublicIpAddressPoolCidrBlockRequest
+   * @return AddPublicIpAddressPoolCidrBlockResponse
    */
   async addPublicIpAddressPoolCidrBlock(request: AddPublicIpAddressPoolCidrBlockRequest): Promise<AddPublicIpAddressPoolCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51304,14 +51364,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **AddSourcesToTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-    *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being added to the traffic mirror session.
-    *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is added to the traffic mirror session.
-    * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
-    *
-    * @param request AddSourcesToTrafficMirrorSessionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddSourcesToTrafficMirrorSessionResponse
+   * @summary Adds a traffic mirror source to a traffic mirror session.
+   *
+   * @description *   **AddSourcesToTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being added to the traffic mirror session.
+   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is added to the traffic mirror session.
+   * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
+   *
+   * @param request AddSourcesToTrafficMirrorSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSourcesToTrafficMirrorSessionResponse
    */
   async addSourcesToTrafficMirrorSessionWithOptions(request: AddSourcesToTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<AddSourcesToTrafficMirrorSessionResponse> {
     Util.validateModel(request);
@@ -51370,13 +51432,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **AddSourcesToTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-    *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being added to the traffic mirror session.
-    *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is added to the traffic mirror session.
-    * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
-    *
-    * @param request AddSourcesToTrafficMirrorSessionRequest
-    * @return AddSourcesToTrafficMirrorSessionResponse
+   * @summary Adds a traffic mirror source to a traffic mirror session.
+   *
+   * @description *   **AddSourcesToTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being added to the traffic mirror session.
+   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is added to the traffic mirror session.
+   * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
+   *
+   * @param request AddSourcesToTrafficMirrorSessionRequest
+   * @return AddSourcesToTrafficMirrorSessionResponse
    */
   async addSourcesToTrafficMirrorSession(request: AddSourcesToTrafficMirrorSessionRequest): Promise<AddSourcesToTrafficMirrorSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51384,12 +51448,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you are familiar with the billing methods and pricing of EIPs. For more information, see [Billing overview](~~122035~~).
-    * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
-    *
-    * @param request AllocateEipAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateEipAddressResponse
+   * @summary Applies for an elastic IP address (EIP).
+   *
+   * @description Before you call this operation, make sure that you are familiar with the billing methods and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
+   * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
+   *
+   * @param request AllocateEipAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateEipAddressResponse
    */
   async allocateEipAddressWithOptions(request: AllocateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipAddressResponse> {
     Util.validateModel(request);
@@ -51504,17 +51570,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you are familiar with the billing methods and pricing of EIPs. For more information, see [Billing overview](~~122035~~).
-    * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
-    *
-    * @param request AllocateEipAddressRequest
-    * @return AllocateEipAddressResponse
+   * @summary Applies for an elastic IP address (EIP).
+   *
+   * @description Before you call this operation, make sure that you are familiar with the billing methods and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
+   * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
+   *
+   * @param request AllocateEipAddressRequest
+   * @return AllocateEipAddressResponse
    */
   async allocateEipAddress(request: AllocateEipAddressRequest): Promise<AllocateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateEipAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Requests a specified elastic IP address (EIP).
+   *
+   * @param request AllocateEipAddressProRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateEipAddressProResponse
+   */
   async allocateEipAddressProWithOptions(request: AllocateEipAddressProRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipAddressProResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51611,19 +51686,27 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateEipAddressProResponse>(await this.callApi(params, req, runtime), new AllocateEipAddressProResponse({}));
   }
 
+  /**
+   * @summary Requests a specified elastic IP address (EIP).
+   *
+   * @param request AllocateEipAddressProRequest
+   * @return AllocateEipAddressProResponse
+   */
   async allocateEipAddressPro(request: AllocateEipAddressProRequest): Promise<AllocateEipAddressProResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateEipAddressProWithOptions(request, runtime);
   }
 
   /**
-    * **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
-    * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
-    * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
-    *
-    * @param request AllocateEipSegmentAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateEipSegmentAddressResponse
+   * @summary Applies for contiguous elastic IP addresses (EIPs).
+   *
+   * @description **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
+   * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
+   * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
+   *
+   * @param request AllocateEipSegmentAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateEipSegmentAddressResponse
    */
   async allocateEipSegmentAddressWithOptions(request: AllocateEipSegmentAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipSegmentAddressResponse> {
     Util.validateModel(request);
@@ -51698,18 +51781,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
-    * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
-    * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
-    *
-    * @param request AllocateEipSegmentAddressRequest
-    * @return AllocateEipSegmentAddressResponse
+   * @summary Applies for contiguous elastic IP addresses (EIPs).
+   *
+   * @description **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
+   * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
+   * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
+   *
+   * @param request AllocateEipSegmentAddressRequest
+   * @return AllocateEipSegmentAddressResponse
    */
   async allocateEipSegmentAddress(request: AllocateEipSegmentAddressRequest): Promise<AllocateEipSegmentAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateEipSegmentAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Assigns an IPv6 address.
+   *
+   * @param request AllocateIpv6AddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateIpv6AddressResponse
+   */
   async allocateIpv6AddressWithOptions(request: AllocateIpv6AddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateIpv6AddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51786,17 +51878,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateIpv6AddressResponse>(await this.callApi(params, req, runtime), new AllocateIpv6AddressResponse({}));
   }
 
+  /**
+   * @summary Assigns an IPv6 address.
+   *
+   * @param request AllocateIpv6AddressRequest
+   * @return AllocateIpv6AddressResponse
+   */
   async allocateIpv6Address(request: AllocateIpv6AddressRequest): Promise<AllocateIpv6AddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateIpv6AddressWithOptions(request, runtime);
   }
 
   /**
-    * You cannot repeatedly call the **AllocateIpv6InternetBandwidth** operation within a specific time period.
-    *
-    * @param request AllocateIpv6InternetBandwidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateIpv6InternetBandwidthResponse
+   * @summary Default IPv6 gateways support only private communication. You can call the AllocateIpv6InternetBandwidth operation to purchase Internet bandwidth resources for an IPv6 address. This way, ECS instances in a VPC can access the Internet through the IPv6 address. IPv6 clients can also access the ECS instances over the Internet.
+   *
+   * @description You cannot repeatedly call the **AllocateIpv6InternetBandwidth** operation within a specific time period.
+   *
+   * @param request AllocateIpv6InternetBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateIpv6InternetBandwidthResponse
    */
   async allocateIpv6InternetBandwidthWithOptions(request: AllocateIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<AllocateIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
@@ -51863,10 +51963,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **AllocateIpv6InternetBandwidth** operation within a specific time period.
-    *
-    * @param request AllocateIpv6InternetBandwidthRequest
-    * @return AllocateIpv6InternetBandwidthResponse
+   * @summary Default IPv6 gateways support only private communication. You can call the AllocateIpv6InternetBandwidth operation to purchase Internet bandwidth resources for an IPv6 address. This way, ECS instances in a VPC can access the Internet through the IPv6 address. IPv6 clients can also access the ECS instances over the Internet.
+   *
+   * @description You cannot repeatedly call the **AllocateIpv6InternetBandwidth** operation within a specific time period.
+   *
+   * @param request AllocateIpv6InternetBandwidthRequest
+   * @return AllocateIpv6InternetBandwidthResponse
    */
   async allocateIpv6InternetBandwidth(request: AllocateIpv6InternetBandwidthRequest): Promise<AllocateIpv6InternetBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -51874,14 +51976,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)
-    * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
-    * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
-    * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](~~146745~~) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](~~35737~~) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
-    *
-    * @param request AllocateVpcIpv6CidrRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateVpcIpv6CidrResponse
+   * @summary Reserves an IPv6 CIDR block.
+   *
+   * @description # [](#)
+   * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
+   * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
+   * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
+   *
+   * @param request AllocateVpcIpv6CidrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateVpcIpv6CidrResponse
    */
   async allocateVpcIpv6CidrWithOptions(request: AllocateVpcIpv6CidrRequest, runtime: $Util.RuntimeOptions): Promise<AllocateVpcIpv6CidrResponse> {
     Util.validateModel(request);
@@ -51944,19 +52048,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)
-    * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
-    * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
-    * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](~~146745~~) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](~~35737~~) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
-    *
-    * @param request AllocateVpcIpv6CidrRequest
-    * @return AllocateVpcIpv6CidrResponse
+   * @summary Reserves an IPv6 CIDR block.
+   *
+   * @description # [](#)
+   * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
+   * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
+   * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
+   *
+   * @param request AllocateVpcIpv6CidrRequest
+   * @return AllocateVpcIpv6CidrResponse
    */
   async allocateVpcIpv6Cidr(request: AllocateVpcIpv6CidrRequest): Promise<AllocateVpcIpv6CidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateVpcIpv6CidrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Applies for a Letter of Authorization (LOA) for an Express Connect circuit.
+   *
+   * @param request ApplyPhysicalConnectionLOARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyPhysicalConnectionLOAResponse
+   */
   async applyPhysicalConnectionLOAWithOptions(request: ApplyPhysicalConnectionLOARequest, runtime: $Util.RuntimeOptions): Promise<ApplyPhysicalConnectionLOAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52037,21 +52150,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyPhysicalConnectionLOAResponse>(await this.callApi(params, req, runtime), new ApplyPhysicalConnectionLOAResponse({}));
   }
 
+  /**
+   * @summary Applies for a Letter of Authorization (LOA) for an Express Connect circuit.
+   *
+   * @param request ApplyPhysicalConnectionLOARequest
+   * @return ApplyPhysicalConnectionLOAResponse
+   */
   async applyPhysicalConnectionLOA(request: ApplyPhysicalConnectionLOARequest): Promise<ApplyPhysicalConnectionLOAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyPhysicalConnectionLOAWithOptions(request, runtime);
   }
 
   /**
-    * *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
-    * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-    *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
-    *     *   If the EIP is in the **InUse** state, the EIP is associated.
-    * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
-    *
-    * @param request AssociateEipAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateEipAddressResponse
+   * @summary Associates an elastic IP address (EIP) with an instance in the same region.
+   *
+   * @description *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
+   * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+   *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
+   *     *   If the EIP is in the **InUse** state, the EIP is associated.
+   * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
+   *
+   * @param request AssociateEipAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateEipAddressResponse
    */
   async associateEipAddressWithOptions(request: AssociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressResponse> {
     Util.validateModel(request);
@@ -52126,14 +52247,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
-    * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-    *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
-    *     *   If the EIP is in the **InUse** state, the EIP is associated.
-    * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
-    *
-    * @param request AssociateEipAddressRequest
-    * @return AssociateEipAddressResponse
+   * @summary Associates an elastic IP address (EIP) with an instance in the same region.
+   *
+   * @description *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
+   * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+   *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
+   *     *   If the EIP is in the **InUse** state, the EIP is associated.
+   * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
+   *
+   * @param request AssociateEipAddressRequest
+   * @return AssociateEipAddressResponse
    */
   async associateEipAddress(request: AssociateEipAddressRequest): Promise<AssociateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52141,15 +52264,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](~~120195~~).
-    * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-    *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
-    *     *   If the EIP is in the **InUse** state, the EIP is associated.
-    * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
-    *
-    * @param request AssociateEipAddressBatchRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateEipAddressBatchResponse
+   * @summary Associates multiple elastic IP addresses (EIPs) with an instance in the same region.
+   *
+   * @description *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](https://help.aliyun.com/document_detail/120195.html).
+   * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+   *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
+   *     *   If the EIP is in the **InUse** state, the EIP is associated.
+   * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
+   *
+   * @param request AssociateEipAddressBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateEipAddressBatchResponse
    */
   async associateEipAddressBatchWithOptions(request: AssociateEipAddressBatchRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressBatchResponse> {
     Util.validateModel(request);
@@ -52212,14 +52337,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](~~120195~~).
-    * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-    *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
-    *     *   If the EIP is in the **InUse** state, the EIP is associated.
-    * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
-    *
-    * @param request AssociateEipAddressBatchRequest
-    * @return AssociateEipAddressBatchResponse
+   * @summary Associates multiple elastic IP addresses (EIPs) with an instance in the same region.
+   *
+   * @description *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](https://help.aliyun.com/document_detail/120195.html).
+   * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+   *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
+   *     *   If the EIP is in the **InUse** state, the EIP is associated.
+   * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
+   *
+   * @param request AssociateEipAddressBatchRequest
+   * @return AssociateEipAddressBatchResponse
    */
   async associateEipAddressBatch(request: AssociateEipAddressBatchRequest): Promise<AssociateEipAddressBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52227,20 +52354,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
-    * *   The HAVIP and ECS instance must belong to the same vSwitch.
-    * *   You can associate an HAVIP with at most two ECS instances.
-    * *   The ECS instance must be in the **Running** or **Stopped** state.
-    * *   The HAVIP must be in the **Available** or **InUse** state.
-    * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-    *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
-    *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
-    * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
-    *
-    * @param request AssociateHaVipRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateHaVipResponse
+   * @summary Associates a high-availability virtual IP address (HAVIP) with an Elastic Compute Service (ECS) instance or an elastic network interface (ENI).
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
+   * *   The HAVIP and ECS instance must belong to the same vSwitch.
+   * *   You can associate an HAVIP with at most two ECS instances.
+   * *   The ECS instance must be in the **Running** or **Stopped** state.
+   * *   The HAVIP must be in the **Available** or **InUse** state.
+   * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+   *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
+   *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
+   * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
+   *
+   * @param request AssociateHaVipRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateHaVipResponse
    */
   async associateHaVipWithOptions(request: AssociateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<AssociateHaVipResponse> {
     Util.validateModel(request);
@@ -52299,19 +52428,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
-    * *   The HAVIP and ECS instance must belong to the same vSwitch.
-    * *   You can associate an HAVIP with at most two ECS instances.
-    * *   The ECS instance must be in the **Running** or **Stopped** state.
-    * *   The HAVIP must be in the **Available** or **InUse** state.
-    * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-    *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
-    *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
-    * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
-    *
-    * @param request AssociateHaVipRequest
-    * @return AssociateHaVipResponse
+   * @summary Associates a high-availability virtual IP address (HAVIP) with an Elastic Compute Service (ECS) instance or an elastic network interface (ENI).
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ECS instance. However, you must associate the HAVIP with the ENI of the ECS instance.
+   * *   The HAVIP and ECS instance must belong to the same vSwitch.
+   * *   You can associate an HAVIP with at most two ECS instances.
+   * *   The ECS instance must be in the **Running** or **Stopped** state.
+   * *   The HAVIP must be in the **Available** or **InUse** state.
+   * *   The **AssociateHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+   *     *   If the HAVIP is in the **Associating** state, the HAVIP is being associated.
+   *     *   If the HAVIP is in the **InUse** state, the HAVIP is associated.
+   * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
+   *
+   * @param request AssociateHaVipRequest
+   * @return AssociateHaVipResponse
    */
   async associateHaVip(request: AssociateHaVipRequest): Promise<AssociateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52319,15 +52450,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-    *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
-    *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
-    * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
-    *
-    * @param request AssociateNetworkAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateNetworkAclResponse
+   * @summary Associates a network access control list (ACL) with a vSwitch.
+   *
+   * @description ## [](#)Description
+   * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+   *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
+   *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
+   * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
+   *
+   * @param request AssociateNetworkAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateNetworkAclResponse
    */
   async associateNetworkAclWithOptions(request: AssociateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<AssociateNetworkAclResponse> {
     Util.validateModel(request);
@@ -52390,20 +52523,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-    *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
-    *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
-    * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
-    *
-    * @param request AssociateNetworkAclRequest
-    * @return AssociateNetworkAclResponse
+   * @summary Associates a network access control list (ACL) with a vSwitch.
+   *
+   * @description ## [](#)Description
+   * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+   *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
+   *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
+   * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
+   *
+   * @param request AssociateNetworkAclRequest
+   * @return AssociateNetworkAclResponse
    */
   async associateNetworkAcl(request: AssociateNetworkAclRequest): Promise<AssociateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateNetworkAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates a virtual border router (VBR) with a specified Express Connect circuit.
+   *
+   * @param request AssociatePhysicalConnectionToVirtualBorderRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
+   */
   async associatePhysicalConnectionToVirtualBorderRouterWithOptions(request: AssociatePhysicalConnectionToVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<AssociatePhysicalConnectionToVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52492,19 +52634,27 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociatePhysicalConnectionToVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new AssociatePhysicalConnectionToVirtualBorderRouterResponse({}));
   }
 
+  /**
+   * @summary Associates a virtual border router (VBR) with a specified Express Connect circuit.
+   *
+   * @param request AssociatePhysicalConnectionToVirtualBorderRouterRequest
+   * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
+   */
   async associatePhysicalConnectionToVirtualBorderRouter(request: AssociatePhysicalConnectionToVirtualBorderRouterRequest): Promise<AssociatePhysicalConnectionToVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associatePhysicalConnectionToVirtualBorderRouterWithOptions(request, runtime);
   }
 
   /**
-    * **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-    * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
-    * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
-    *
-    * @param request AssociateRouteTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateRouteTableResponse
+   * @summary Associates a custom route table with a vSwitch in the same VPC.
+   *
+   * @description **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+   * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
+   * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
+   *
+   * @param request AssociateRouteTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateRouteTableResponse
    */
   async associateRouteTableWithOptions(request: AssociateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<AssociateRouteTableResponse> {
     Util.validateModel(request);
@@ -52563,18 +52713,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-    * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
-    * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
-    *
-    * @param request AssociateRouteTableRequest
-    * @return AssociateRouteTableResponse
+   * @summary Associates a custom route table with a vSwitch in the same VPC.
+   *
+   * @description **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+   * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
+   * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
+   *
+   * @param request AssociateRouteTableRequest
+   * @return AssociateRouteTableResponse
    */
   async associateRouteTable(request: AssociateRouteTableRequest): Promise<AssociateRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateRouteTableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates a gateway route table with an IPv4 gateway in the same virtual private cloud (VPC).
+   *
+   * @param request AssociateRouteTableWithGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateRouteTableWithGatewayResponse
+   */
   async associateRouteTableWithGatewayWithOptions(request: AssociateRouteTableWithGatewayRequest, runtime: $Util.RuntimeOptions): Promise<AssociateRouteTableWithGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52639,27 +52798,35 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateRouteTableWithGatewayResponse>(await this.callApi(params, req, runtime), new AssociateRouteTableWithGatewayResponse({}));
   }
 
+  /**
+   * @summary Associates a gateway route table with an IPv4 gateway in the same virtual private cloud (VPC).
+   *
+   * @param request AssociateRouteTableWithGatewayRequest
+   * @return AssociateRouteTableWithGatewayResponse
+   */
   async associateRouteTableWithGateway(request: AssociateRouteTableWithGatewayRequest): Promise<AssociateRouteTableWithGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateRouteTableWithGatewayWithOptions(request, runtime);
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   The gateway endpoint to be associated with the route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
-    * *   The route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
-    * *   The gateway endpoint and route table must belong to the same virtual private cloud (VPC).
-    * *   The route table cannot be shared.
-    * *   You cannot associate a gateway endpoint with a virtual border router (VBR) route table.
-    * *   You can associate a gateway endpoint with at most 20 route tables at a time.
-    * *   **AssociateRouteTablesWithVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](~~311017~~) operation to query whether a route table is associated with a gateway endpoint.
-    *     *   If the **Associating** status is returned, the route table is being associated with the gateway endpoint.
-    *     *   If the **Created** status is returned, the route table is associated with the gateway endpoint.
-    * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
-    *
-    * @param request AssociateRouteTablesWithVpcGatewayEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateRouteTablesWithVpcGatewayEndpointResponse
+   * @summary Associates a route table with a gateway endpoint.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   The gateway endpoint to be associated with the route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+   * *   The route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+   * *   The gateway endpoint and route table must belong to the same virtual private cloud (VPC).
+   * *   The route table cannot be shared.
+   * *   You cannot associate a gateway endpoint with a virtual border router (VBR) route table.
+   * *   You can associate a gateway endpoint with at most 20 route tables at a time.
+   * *   **AssociateRouteTablesWithVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query whether a route table is associated with a gateway endpoint.
+   *     *   If the **Associating** status is returned, the route table is being associated with the gateway endpoint.
+   *     *   If the **Created** status is returned, the route table is associated with the gateway endpoint.
+   * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
+   *
+   * @param request AssociateRouteTablesWithVpcGatewayEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateRouteTablesWithVpcGatewayEndpointResponse
    */
   async associateRouteTablesWithVpcGatewayEndpointWithOptions(request: AssociateRouteTablesWithVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AssociateRouteTablesWithVpcGatewayEndpointResponse> {
     Util.validateModel(request);
@@ -52718,20 +52885,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   The gateway endpoint to be associated with the route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
-    * *   The route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
-    * *   The gateway endpoint and route table must belong to the same virtual private cloud (VPC).
-    * *   The route table cannot be shared.
-    * *   You cannot associate a gateway endpoint with a virtual border router (VBR) route table.
-    * *   You can associate a gateway endpoint with at most 20 route tables at a time.
-    * *   **AssociateRouteTablesWithVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](~~311017~~) operation to query whether a route table is associated with a gateway endpoint.
-    *     *   If the **Associating** status is returned, the route table is being associated with the gateway endpoint.
-    *     *   If the **Created** status is returned, the route table is associated with the gateway endpoint.
-    * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
-    *
-    * @param request AssociateRouteTablesWithVpcGatewayEndpointRequest
-    * @return AssociateRouteTablesWithVpcGatewayEndpointResponse
+   * @summary Associates a route table with a gateway endpoint.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   The gateway endpoint to be associated with the route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+   * *   The route table cannot be in one of the following states: **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+   * *   The gateway endpoint and route table must belong to the same virtual private cloud (VPC).
+   * *   The route table cannot be shared.
+   * *   You cannot associate a gateway endpoint with a virtual border router (VBR) route table.
+   * *   You can associate a gateway endpoint with at most 20 route tables at a time.
+   * *   **AssociateRouteTablesWithVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query whether a route table is associated with a gateway endpoint.
+   *     *   If the **Associating** status is returned, the route table is being associated with the gateway endpoint.
+   *     *   If the **Created** status is returned, the route table is associated with the gateway endpoint.
+   * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
+   *
+   * @param request AssociateRouteTablesWithVpcGatewayEndpointRequest
+   * @return AssociateRouteTablesWithVpcGatewayEndpointResponse
    */
   async associateRouteTablesWithVpcGatewayEndpoint(request: AssociateRouteTablesWithVpcGatewayEndpointRequest): Promise<AssociateRouteTablesWithVpcGatewayEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52739,15 +52908,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * *   Take note of the following limits:
-    *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
-    *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
-    * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
-    *
-    * @param request AssociateVpcCidrBlockRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateVpcCidrBlockResponse
+   * @summary Adds a secondary CIDR block to a virtual private cloud (VPC).
+   *
+   * @description ## [](#)
+   * *   Take note of the following limits:
+   *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
+   *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
+   * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
+   *
+   * @param request AssociateVpcCidrBlockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateVpcCidrBlockResponse
    */
   async associateVpcCidrBlockWithOptions(request: AssociateVpcCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVpcCidrBlockResponse> {
     Util.validateModel(request);
@@ -52822,14 +52993,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * *   Take note of the following limits:
-    *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
-    *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
-    * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
-    *
-    * @param request AssociateVpcCidrBlockRequest
-    * @return AssociateVpcCidrBlockResponse
+   * @summary Adds a secondary CIDR block to a virtual private cloud (VPC).
+   *
+   * @description ## [](#)
+   * *   Take note of the following limits:
+   *     *   Each VPC can contain up to five secondary IPv4 CIDR blocks.
+   *     *   Each VPC can contain up to five secondary IPv6 CIDR blocks.
+   * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
+   *
+   * @param request AssociateVpcCidrBlockRequest
+   * @return AssociateVpcCidrBlockResponse
    */
   async associateVpcCidrBlock(request: AssociateVpcCidrBlockRequest): Promise<AssociateVpcCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52837,20 +53010,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you associate a VPN gateway with an SSL certificate, take note of the following items:
-    * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
-    * *   The SSL certificates must use the SM algorithm.
-    * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
-    * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
-    *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
-    * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
-    * ### [](#)Prerequisites
-    * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](~~28535~~).
-    *
-    * @param request AssociateVpnGatewayWithCertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateVpnGatewayWithCertificateResponse
+   * @summary Associates a VPN gateway with a certificate.
+   *
+   * @description Before you associate a VPN gateway with an SSL certificate, take note of the following items:
+   * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
+   * *   The SSL certificates must use the SM algorithm.
+   * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
+   * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
+   *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
+   * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
+   * ### [](#)Prerequisites
+   * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
+   *
+   * @param request AssociateVpnGatewayWithCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateVpnGatewayWithCertificateResponse
    */
   async associateVpnGatewayWithCertificateWithOptions(request: AssociateVpnGatewayWithCertificateRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVpnGatewayWithCertificateResponse> {
     Util.validateModel(request);
@@ -52897,19 +53072,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you associate a VPN gateway with an SSL certificate, take note of the following items:
-    * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
-    * *   The SSL certificates must use the SM algorithm.
-    * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
-    * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
-    *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
-    * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
-    * ### [](#)Prerequisites
-    * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](~~28535~~).
-    *
-    * @param request AssociateVpnGatewayWithCertificateRequest
-    * @return AssociateVpnGatewayWithCertificateResponse
+   * @summary Associates a VPN gateway with a certificate.
+   *
+   * @description Before you associate a VPN gateway with an SSL certificate, take note of the following items:
+   * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
+   * *   The SSL certificates must use the SM algorithm.
+   * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
+   * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
+   *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
+   * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
+   * ### [](#)Prerequisites
+   * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
+   *
+   * @param request AssociateVpnGatewayWithCertificateRequest
+   * @return AssociateVpnGatewayWithCertificateResponse
    */
   async associateVpnGatewayWithCertificate(request: AssociateVpnGatewayWithCertificateRequest): Promise<AssociateVpnGatewayWithCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -52917,14 +53094,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
-    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
-    *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
-    * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
-    *
-    * @param request AttachDhcpOptionsSetToVpcRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachDhcpOptionsSetToVpcResponse
+   * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
+   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
+   *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
+   * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
+   *
+   * @param request AttachDhcpOptionsSetToVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachDhcpOptionsSetToVpcResponse
    */
   async attachDhcpOptionsSetToVpcWithOptions(request: AttachDhcpOptionsSetToVpcRequest, runtime: $Util.RuntimeOptions): Promise<AttachDhcpOptionsSetToVpcResponse> {
     Util.validateModel(request);
@@ -52983,19 +53160,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
-    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
-    *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
-    * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
-    *
-    * @param request AttachDhcpOptionsSetToVpcRequest
-    * @return AttachDhcpOptionsSetToVpcResponse
+   * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
+   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
+   *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
+   * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
+   *
+   * @param request AttachDhcpOptionsSetToVpcRequest
+   * @return AttachDhcpOptionsSetToVpcResponse
    */
   async attachDhcpOptionsSetToVpc(request: AttachDhcpOptionsSetToVpcRequest): Promise<AttachDhcpOptionsSetToVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachDhcpOptionsSetToVpcWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates a virtual border router (VBR) with a hosted connection.
+   *
+   * @param request AttachVbrToVpconnRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachVbrToVpconnResponse
+   */
   async attachVbrToVpconnWithOptions(request: AttachVbrToVpconnRequest, runtime: $Util.RuntimeOptions): Promise<AttachVbrToVpconnResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53036,19 +53220,27 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachVbrToVpconnResponse>(await this.callApi(params, req, runtime), new AttachVbrToVpconnResponse({}));
   }
 
+  /**
+   * @summary Associates a virtual border router (VBR) with a hosted connection.
+   *
+   * @param request AttachVbrToVpconnRequest
+   * @return AttachVbrToVpconnResponse
+   */
   async attachVbrToVpconn(request: AttachVbrToVpconnRequest): Promise<AttachVbrToVpconnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachVbrToVpconnWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
-    * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
-    *
-    * @param request CancelCommonBandwidthPackageIpBandwidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelCommonBandwidthPackageIpBandwidthResponse
+   * @summary Cancels the maximum bandwidth configured for an elastic IP address (EIP) that is associated with an Internet Shared Bandwidth instance.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
+   * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
+   *
+   * @param request CancelCommonBandwidthPackageIpBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelCommonBandwidthPackageIpBandwidthResponse
    */
   async cancelCommonBandwidthPackageIpBandwidthWithOptions(request: CancelCommonBandwidthPackageIpBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<CancelCommonBandwidthPackageIpBandwidthResponse> {
     Util.validateModel(request);
@@ -53099,12 +53291,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
-    * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
-    *
-    * @param request CancelCommonBandwidthPackageIpBandwidthRequest
-    * @return CancelCommonBandwidthPackageIpBandwidthResponse
+   * @summary Cancels the maximum bandwidth configured for an elastic IP address (EIP) that is associated with an Internet Shared Bandwidth instance.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
+   * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
+   *
+   * @param request CancelCommonBandwidthPackageIpBandwidthRequest
+   * @return CancelCommonBandwidthPackageIpBandwidthResponse
    */
   async cancelCommonBandwidthPackageIpBandwidth(request: CancelCommonBandwidthPackageIpBandwidthRequest): Promise<CancelCommonBandwidthPackageIpBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53112,11 +53306,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
-    *
-    * @param request CancelPhysicalConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelPhysicalConnectionResponse
+   * @summary Cancels an Express Connect circuit before it is enabled. After you perform this operation, the Express Connect circuit enters the Canceled state.
+   *
+   * @description You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
+   *
+   * @param request CancelPhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelPhysicalConnectionResponse
    */
   async cancelPhysicalConnectionWithOptions(request: CancelPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CancelPhysicalConnectionResponse> {
     Util.validateModel(request);
@@ -53167,10 +53363,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
-    *
-    * @param request CancelPhysicalConnectionRequest
-    * @return CancelPhysicalConnectionResponse
+   * @summary Cancels an Express Connect circuit before it is enabled. After you perform this operation, the Express Connect circuit enters the Canceled state.
+   *
+   * @description You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
+   *
+   * @param request CancelPhysicalConnectionRequest
+   * @return CancelPhysicalConnectionResponse
    */
   async cancelPhysicalConnection(request: CancelPhysicalConnectionRequest): Promise<CancelPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53178,12 +53376,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
-    *
-    * @param request ChangeResourceGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ChangeResourceGroupResponse
+   * @summary Moves an Express Connect circuit to a new resource group.
+   *
+   * @description ## [](#)
+   * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
    */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
@@ -53222,17 +53422,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
-    *
-    * @param request ChangeResourceGroupRequest
-    * @return ChangeResourceGroupResponse
+   * @summary Moves an Express Connect circuit to a new resource group.
+   *
+   * @description ## [](#)
+   * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether a private IP address in a specified vSwitch is available.
+   *
+   * @param request CheckCanAllocateVpcPrivateIpAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCanAllocateVpcPrivateIpAddressResponse
+   */
   async checkCanAllocateVpcPrivateIpAddressWithOptions(request: CheckCanAllocateVpcPrivateIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<CheckCanAllocateVpcPrivateIpAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53285,11 +53494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCanAllocateVpcPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new CheckCanAllocateVpcPrivateIpAddressResponse({}));
   }
 
+  /**
+   * @summary Checks whether a private IP address in a specified vSwitch is available.
+   *
+   * @param request CheckCanAllocateVpcPrivateIpAddressRequest
+   * @return CheckCanAllocateVpcPrivateIpAddressResponse
+   */
   async checkCanAllocateVpcPrivateIpAddress(request: CheckCanAllocateVpcPrivateIpAddressRequest): Promise<CheckCanAllocateVpcPrivateIpAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCanAllocateVpcPrivateIpAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether the region of an IPsec-VPN connection supports BGP.
+   *
+   * @param request CheckVpnBgpEnabledRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckVpnBgpEnabledResponse
+   */
   async checkVpnBgpEnabledWithOptions(request: CheckVpnBgpEnabledRequest, runtime: $Util.RuntimeOptions): Promise<CheckVpnBgpEnabledResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53330,11 +53552,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckVpnBgpEnabledResponse>(await this.callApi(params, req, runtime), new CheckVpnBgpEnabledResponse({}));
   }
 
+  /**
+   * @summary Checks whether the region of an IPsec-VPN connection supports BGP.
+   *
+   * @param request CheckVpnBgpEnabledRequest
+   * @return CheckVpnBgpEnabledResponse
+   */
   async checkVpnBgpEnabled(request: CheckVpnBgpEnabledRequest): Promise<CheckVpnBgpEnabledResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkVpnBgpEnabledWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 增加LOA运维信息
+   *
+   * @param request CompletePhysicalConnectionLOARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CompletePhysicalConnectionLOAResponse
+   */
   async completePhysicalConnectionLOAWithOptions(request: CompletePhysicalConnectionLOARequest, runtime: $Util.RuntimeOptions): Promise<CompletePhysicalConnectionLOAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53407,11 +53642,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CompletePhysicalConnectionLOAResponse>(await this.callApi(params, req, runtime), new CompletePhysicalConnectionLOAResponse({}));
   }
 
+  /**
+   * @summary 增加LOA运维信息
+   *
+   * @param request CompletePhysicalConnectionLOARequest
+   * @return CompletePhysicalConnectionLOAResponse
+   */
   async completePhysicalConnectionLOA(request: CompletePhysicalConnectionLOARequest): Promise<CompletePhysicalConnectionLOAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.completePhysicalConnectionLOAWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the status of an Express Connect circuit to Confirmed.
+   *
+   * @param request ConfirmPhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfirmPhysicalConnectionResponse
+   */
   async confirmPhysicalConnectionWithOptions(request: ConfirmPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmPhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53460,21 +53708,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfirmPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new ConfirmPhysicalConnectionResponse({}));
   }
 
+  /**
+   * @summary Changes the status of an Express Connect circuit to Confirmed.
+   *
+   * @param request ConfirmPhysicalConnectionRequest
+   * @return ConfirmPhysicalConnectionResponse
+   */
   async confirmPhysicalConnection(request: ConfirmPhysicalConnectionRequest): Promise<ConfirmPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.confirmPhysicalConnectionWithOptions(request, runtime);
   }
 
   /**
-    * After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
-    * When you call this operation, take note of the following items:
-    * *   Only an initiator router interface in the **Idle** state can initiate a connection.
-    * *   You can create only one pair of connected router interfaces between two routers.
-    * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
-    *
-    * @param request ConnectRouterInterfaceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ConnectRouterInterfaceResponse
+   * @summary Initiates a connection from the router interface of an initiator to the router interface of an accepter.
+   *
+   * @description After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
+   * When you call this operation, take note of the following items:
+   * *   Only an initiator router interface in the **Idle** state can initiate a connection.
+   * *   You can create only one pair of connected router interfaces between two routers.
+   * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
+   *
+   * @param request ConnectRouterInterfaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConnectRouterInterfaceResponse
    */
   async connectRouterInterfaceWithOptions(request: ConnectRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<ConnectRouterInterfaceResponse> {
     Util.validateModel(request);
@@ -53517,14 +53773,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
-    * When you call this operation, take note of the following items:
-    * *   Only an initiator router interface in the **Idle** state can initiate a connection.
-    * *   You can create only one pair of connected router interfaces between two routers.
-    * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
-    *
-    * @param request ConnectRouterInterfaceRequest
-    * @return ConnectRouterInterfaceResponse
+   * @summary Initiates a connection from the router interface of an initiator to the router interface of an accepter.
+   *
+   * @description After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
+   * When you call this operation, take note of the following items:
+   * *   Only an initiator router interface in the **Idle** state can initiate a connection.
+   * *   You can create only one pair of connected router interfaces between two routers.
+   * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
+   *
+   * @param request ConnectRouterInterfaceRequest
+   * @return ConnectRouterInterfaceResponse
    */
   async connectRouterInterface(request: ConnectRouterInterfaceRequest): Promise<ConnectRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53532,14 +53790,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-    * *   You are not charged for the conversion.
-    * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-    * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-    *
-    * @param request ConvertBandwidthPackageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ConvertBandwidthPackageResponse
+   * @summary Converts a NAT service plan to an Internet Shared Bandwidth instance.
+   *
+   * @description Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
+   * *   You are not charged for the conversion.
+   * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
+   * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
+   *
+   * @param request ConvertBandwidthPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConvertBandwidthPackageResponse
    */
   async convertBandwidthPackageWithOptions(request: ConvertBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ConvertBandwidthPackageResponse> {
     Util.validateModel(request);
@@ -53590,13 +53850,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-    * *   You are not charged for the conversion.
-    * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-    * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-    *
-    * @param request ConvertBandwidthPackageRequest
-    * @return ConvertBandwidthPackageResponse
+   * @summary Converts a NAT service plan to an Internet Shared Bandwidth instance.
+   *
+   * @description Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
+   * *   You are not charged for the conversion.
+   * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
+   * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
+   *
+   * @param request ConvertBandwidthPackageRequest
+   * @return ConvertBandwidthPackageResponse
    */
   async convertBandwidthPackage(request: ConvertBandwidthPackageRequest): Promise<ConvertBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53604,15 +53866,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-    *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
-    *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
-    * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
-    *
-    * @param request CopyNetworkAclEntriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CopyNetworkAclEntriesResponse
+   * @summary Copies rules of a network access control list (ACL).
+   *
+   * @description ## [](#)Description
+   * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+   *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
+   *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
+   * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
+   *
+   * @param request CopyNetworkAclEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyNetworkAclEntriesResponse
    */
   async copyNetworkAclEntriesWithOptions(request: CopyNetworkAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<CopyNetworkAclEntriesResponse> {
     Util.validateModel(request);
@@ -53675,14 +53939,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-    *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
-    *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
-    * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
-    *
-    * @param request CopyNetworkAclEntriesRequest
-    * @return CopyNetworkAclEntriesResponse
+   * @summary Copies rules of a network access control list (ACL).
+   *
+   * @description ## [](#)Description
+   * *   **CopyNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+   *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being copied.
+   *     *   If the network ACL is in the **Available** state, the rules of the network ACL are copied.
+   * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
+   *
+   * @param request CopyNetworkAclEntriesRequest
+   * @return CopyNetworkAclEntriesResponse
    */
   async copyNetworkAclEntries(request: CopyNetworkAclEntriesRequest): Promise<CopyNetworkAclEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -53690,18 +53956,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
-    * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
-    * When you call this operation, take note of the following limits:
-    * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
-    * *   VBRs support only BGP-4.
-    * *   You can create at most eight BGP peers for each VBR.
-    * *   Each BGP peer supports at most 110 dynamic routes.
-    * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
-    *
-    * @param request CreateBgpGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBgpGroupResponse
+   * @summary Creates a BGP group for a virtual border router (VBR).
+   *
+   * @description You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
+   * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
+   * When you call this operation, take note of the following limits:
+   * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
+   * *   VBRs support only BGP-4.
+   * *   You can create at most eight BGP peers for each VBR.
+   * *   Each BGP peer supports at most 110 dynamic routes.
+   * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
+   *
+   * @param request CreateBgpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBgpGroupResponse
    */
   async createBgpGroupWithOptions(request: CreateBgpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBgpGroupResponse> {
     Util.validateModel(request);
@@ -53784,23 +54052,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
-    * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
-    * When you call this operation, take note of the following limits:
-    * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
-    * *   VBRs support only BGP-4.
-    * *   You can create at most eight BGP peers for each VBR.
-    * *   Each BGP peer supports at most 110 dynamic routes.
-    * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
-    *
-    * @param request CreateBgpGroupRequest
-    * @return CreateBgpGroupResponse
+   * @summary Creates a BGP group for a virtual border router (VBR).
+   *
+   * @description You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
+   * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
+   * When you call this operation, take note of the following limits:
+   * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
+   * *   VBRs support only BGP-4.
+   * *   You can create at most eight BGP peers for each VBR.
+   * *   Each BGP peer supports at most 110 dynamic routes.
+   * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
+   *
+   * @param request CreateBgpGroupRequest
+   * @return CreateBgpGroupResponse
    */
   async createBgpGroup(request: CreateBgpGroupRequest): Promise<CreateBgpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBgpGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a Border Gateway Protocol (BGP) peer to a BGP group.
+   *
+   * @param request CreateBgpPeerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBgpPeerResponse
+   */
   async createBgpPeerWithOptions(request: CreateBgpPeerRequest, runtime: $Util.RuntimeOptions): Promise<CreateBgpPeerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53865,11 +54142,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBgpPeerResponse>(await this.callApi(params, req, runtime), new CreateBgpPeerResponse({}));
   }
 
+  /**
+   * @summary Adds a Border Gateway Protocol (BGP) peer to a BGP group.
+   *
+   * @param request CreateBgpPeerRequest
+   * @return CreateBgpPeerResponse
+   */
   async createBgpPeer(request: CreateBgpPeerRequest): Promise<CreateBgpPeerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBgpPeerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an Internet Shared Bandwidth instance.
+   *
+   * @param request CreateCommonBandwidthPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCommonBandwidthPackageResponse
+   */
   async createCommonBandwidthPackageWithOptions(request: CreateCommonBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateCommonBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -53950,11 +54240,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCommonBandwidthPackageResponse>(await this.callApi(params, req, runtime), new CreateCommonBandwidthPackageResponse({}));
   }
 
+  /**
+   * @summary Creates an Internet Shared Bandwidth instance.
+   *
+   * @param request CreateCommonBandwidthPackageRequest
+   * @return CreateCommonBandwidthPackageResponse
+   */
   async createCommonBandwidthPackage(request: CreateCommonBandwidthPackageRequest): Promise<CreateCommonBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCommonBandwidthPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a customer gateway.
+   *
+   * @param request CreateCustomerGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomerGatewayResponse
+   */
   async createCustomerGatewayWithOptions(request: CreateCustomerGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomerGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54027,26 +54330,34 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomerGatewayResponse>(await this.callApi(params, req, runtime), new CreateCustomerGatewayResponse({}));
   }
 
+  /**
+   * @summary Creates a customer gateway.
+   *
+   * @param request CreateCustomerGatewayRequest
+   * @return CreateCustomerGatewayResponse
+   */
   async createCustomerGateway(request: CreateCustomerGatewayRequest): Promise<CreateCustomerGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomerGatewayWithOptions(request, runtime);
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-    * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
-    * *   Default vSwitches do not support multicasting or broadcasting.
-    * *   After you create a default vSwitch, you cannot modify its CIDR block.
-    * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
-    *     *   If a default vSwitch is in the **Pending** state, it is being configured.
-    *     *   If a default vSwitch is in the **Available** state, it is available.
-    * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
-    * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](~~609152~~) operation to create a default VPC.
-    *
-    * @param request CreateDefaultVSwitchRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDefaultVSwitchResponse
+   * @summary Creates a default vSwitch.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+   * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
+   * *   Default vSwitches do not support multicasting or broadcasting.
+   * *   After you create a default vSwitch, you cannot modify its CIDR block.
+   * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of a default vSwitch:
+   *     *   If a default vSwitch is in the **Pending** state, it is being configured.
+   *     *   If a default vSwitch is in the **Available** state, it is available.
+   * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
+   * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
+   *
+   * @param request CreateDefaultVSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDefaultVSwitchResponse
    */
   async createDefaultVSwitchWithOptions(request: CreateDefaultVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<CreateDefaultVSwitchResponse> {
     Util.validateModel(request);
@@ -54101,19 +54412,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-    * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
-    * *   Default vSwitches do not support multicasting or broadcasting.
-    * *   After you create a default vSwitch, you cannot modify its CIDR block.
-    * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of a default vSwitch:
-    *     *   If a default vSwitch is in the **Pending** state, it is being configured.
-    *     *   If a default vSwitch is in the **Available** state, it is available.
-    * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
-    * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](~~609152~~) operation to create a default VPC.
-    *
-    * @param request CreateDefaultVSwitchRequest
-    * @return CreateDefaultVSwitchResponse
+   * @summary Creates a default vSwitch.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   The first IP address and last three IP addresses of a vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+   * *   The number of instances in the default vSwitch cannot exceed the remaining number of instances supported by the VPC (15,000 minus the number of existing instances).
+   * *   Default vSwitches do not support multicasting or broadcasting.
+   * *   After you create a default vSwitch, you cannot modify its CIDR block.
+   * *   **CreateDefaultVSwitch** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of a default vSwitch:
+   *     *   If a default vSwitch is in the **Pending** state, it is being configured.
+   *     *   If a default vSwitch is in the **Available** state, it is available.
+   * *   If a default vSwitch already exists in a region, you cannot call this operation to create a default vSwitch in this region.
+   * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
+   *
+   * @param request CreateDefaultVSwitchRequest
+   * @return CreateDefaultVSwitchResponse
    */
   async createDefaultVSwitch(request: CreateDefaultVSwitchRequest): Promise<CreateDefaultVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54121,21 +54434,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * When you call this operation, take note of the following items:
-    * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
-    * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
-    * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
-    * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
-    * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
-    *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
-    *     *   If the default VPC is in the **Available** state, the VPC is available.
-    * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
-    * *   You can create only one default VPC in each region.
-    *
-    * @param request CreateDefaultVpcRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDefaultVpcResponse
+   * @summary Creates a default virtual private cloud (VPC).
+   *
+   * @description ## Usage notes
+   * When you call this operation, take note of the following items:
+   * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
+   * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+   * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
+   * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+   * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task:
+   *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
+   *     *   If the default VPC is in the **Available** state, the VPC is available.
+   * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
+   * *   You can create only one default VPC in each region.
+   *
+   * @param request CreateDefaultVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDefaultVpcResponse
    */
   async createDefaultVpcWithOptions(request: CreateDefaultVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateDefaultVpcResponse> {
     Util.validateModel(request);
@@ -54194,20 +54509,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * When you call this operation, take note of the following items:
-    * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
-    * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
-    * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
-    * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
-    * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
-    *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
-    *     *   If the default VPC is in the **Available** state, the VPC is available.
-    * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
-    * *   You can create only one default VPC in each region.
-    *
-    * @param request CreateDefaultVpcRequest
-    * @return CreateDefaultVpcResponse
+   * @summary Creates a default virtual private cloud (VPC).
+   *
+   * @description ## Usage notes
+   * When you call this operation, take note of the following items:
+   * *   After you create a default VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to it.
+   * *   In each default VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+   * *   After you create a default VPC, a vRouter and a route table are automatically created for the VPC.
+   * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+   * *   **CreateDefaultVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task:
+   *     *   If the default VPC is in the **Pending** state, the VPC is being configured.
+   *     *   If the default VPC is in the **Available** state, the VPC is available.
+   * *   You cannot repeatedly call the **CreateDefaultVpc** operation within a specific time period.
+   * *   You can create only one default VPC in each region.
+   *
+   * @param request CreateDefaultVpcRequest
+   * @return CreateDefaultVpcResponse
    */
   async createDefaultVpc(request: CreateDefaultVpcRequest): Promise<CreateDefaultVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54215,13 +54532,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](~~448820~~) to query the status of the task.
-    *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
-    *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
-    *
-    * @param request CreateDhcpOptionsSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDhcpOptionsSetResponse
+   * @summary Creates a DHCP options set.
+   *
+   * @description *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the status of the task.
+   *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+   *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+   *
+   * @param request CreateDhcpOptionsSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDhcpOptionsSetResponse
    */
   async createDhcpOptionsSetWithOptions(request: CreateDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDhcpOptionsSetResponse> {
     Util.validateModel(request);
@@ -54304,18 +54623,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](~~448820~~) to query the status of the task.
-    *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
-    *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
-    *
-    * @param request CreateDhcpOptionsSetRequest
-    * @return CreateDhcpOptionsSetResponse
+   * @summary Creates a DHCP options set.
+   *
+   * @description *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the status of the task.
+   *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+   *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+   *
+   * @param request CreateDhcpOptionsSetRequest
+   * @return CreateDhcpOptionsSetResponse
    */
   async createDhcpOptionsSet(request: CreateDhcpOptionsSetRequest): Promise<CreateDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDhcpOptionsSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an Express Cloud Connect (ECC) instance.
+   *
+   * @param request CreateExpressCloudConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExpressCloudConnectionResponse
+   */
   async createExpressCloudConnectionWithOptions(request: CreateExpressCloudConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressCloudConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54400,11 +54728,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExpressCloudConnectionResponse>(await this.callApi(params, req, runtime), new CreateExpressCloudConnectionResponse({}));
   }
 
+  /**
+   * @summary Creates an Express Cloud Connect (ECC) instance.
+   *
+   * @param request CreateExpressCloudConnectionRequest
+   * @return CreateExpressCloudConnectionResponse
+   */
   async createExpressCloudConnection(request: CreateExpressCloudConnectionRequest): Promise<CreateExpressCloudConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createExpressCloudConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建高速通道Qos
+   *
+   * @param request CreateExpressConnectTrafficQosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExpressConnectTrafficQosResponse
+   */
   async createExpressConnectTrafficQosWithOptions(request: CreateExpressConnectTrafficQosRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressConnectTrafficQosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54457,11 +54798,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExpressConnectTrafficQosResponse>(await this.callApi(params, req, runtime), new CreateExpressConnectTrafficQosResponse({}));
   }
 
+  /**
+   * @summary 创建高速通道Qos
+   *
+   * @param request CreateExpressConnectTrafficQosRequest
+   * @return CreateExpressConnectTrafficQosResponse
+   */
   async createExpressConnectTrafficQos(request: CreateExpressConnectTrafficQosRequest): Promise<CreateExpressConnectTrafficQosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createExpressConnectTrafficQosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建高速通道Qos队列
+   *
+   * @param request CreateExpressConnectTrafficQosQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExpressConnectTrafficQosQueueResponse
+   */
   async createExpressConnectTrafficQosQueueWithOptions(request: CreateExpressConnectTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressConnectTrafficQosQueueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54526,11 +54880,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExpressConnectTrafficQosQueueResponse>(await this.callApi(params, req, runtime), new CreateExpressConnectTrafficQosQueueResponse({}));
   }
 
+  /**
+   * @summary 创建高速通道Qos队列
+   *
+   * @param request CreateExpressConnectTrafficQosQueueRequest
+   * @return CreateExpressConnectTrafficQosQueueResponse
+   */
   async createExpressConnectTrafficQosQueue(request: CreateExpressConnectTrafficQosQueueRequest): Promise<CreateExpressConnectTrafficQosQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createExpressConnectTrafficQosQueueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建高速通道Qos规则
+   *
+   * @param request CreateExpressConnectTrafficQosRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExpressConnectTrafficQosRuleResponse
+   */
   async createExpressConnectTrafficQosRuleWithOptions(request: CreateExpressConnectTrafficQosRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressConnectTrafficQosRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54631,11 +54998,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExpressConnectTrafficQosRuleResponse>(await this.callApi(params, req, runtime), new CreateExpressConnectTrafficQosRuleResponse({}));
   }
 
+  /**
+   * @summary 创建高速通道Qos规则
+   *
+   * @param request CreateExpressConnectTrafficQosRuleRequest
+   * @return CreateExpressConnectTrafficQosRuleResponse
+   */
   async createExpressConnectTrafficQosRule(request: CreateExpressConnectTrafficQosRuleRequest): Promise<CreateExpressConnectTrafficQosRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createExpressConnectTrafficQosRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建故障演练任务
+   *
+   * @param request CreateFailoverTestJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFailoverTestJobResponse
+   */
   async createFailoverTestJobWithOptions(request: CreateFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateFailoverTestJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -54704,19 +55084,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFailoverTestJobResponse>(await this.callApi(params, req, runtime), new CreateFailoverTestJobResponse({}));
   }
 
+  /**
+   * @summary 创建故障演练任务
+   *
+   * @param request CreateFailoverTestJobRequest
+   * @return CreateFailoverTestJobResponse
+   */
   async createFailoverTestJob(request: CreateFailoverTestJobRequest): Promise<CreateFailoverTestJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFailoverTestJobWithOptions(request, runtime);
   }
 
   /**
-    * **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of the flow log.
-    * *   If the flow log is in the **Activating** state, the flow log is being created.
-    * *   If the flow log is in the **Active** state, the flow log is created and started.
-    *
-    * @param request CreateFlowLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFlowLogResponse
+   * @summary Creates a flow log.
+   *
+   * @description **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of the flow log.
+   * *   If the flow log is in the **Activating** state, the flow log is being created.
+   * *   If the flow log is in the **Active** state, the flow log is created and started.
+   *
+   * @param request CreateFlowLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFlowLogResponse
    */
   async createFlowLogWithOptions(request: CreateFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowLogResponse> {
     Util.validateModel(request);
@@ -54803,12 +55191,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of the flow log.
-    * *   If the flow log is in the **Activating** state, the flow log is being created.
-    * *   If the flow log is in the **Active** state, the flow log is created and started.
-    *
-    * @param request CreateFlowLogRequest
-    * @return CreateFlowLogResponse
+   * @summary Creates a flow log.
+   *
+   * @description **CreateFlowLog** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of the flow log.
+   * *   If the flow log is in the **Activating** state, the flow log is being created.
+   * *   If the flow log is in the **Active** state, the flow log is created and started.
+   *
+   * @param request CreateFlowLogRequest
+   * @return CreateFlowLogResponse
    */
   async createFlowLog(request: CreateFlowLogRequest): Promise<CreateFlowLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54816,22 +55206,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
-    * When you call this operation, take note of the following limits:
-    * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-    *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
-    *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
-    * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
-    * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
-    * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
-    * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
-    * *   You can add at most 100 DNAT entries to a DNAT table.
-    * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
-    *
-    * @param request CreateForwardEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateForwardEntryResponse
+   * @summary Adds a DNAT entry to a DNAT table.
+   *
+   * @description ## [](#)
+   * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
+   * When you call this operation, take note of the following limits:
+   * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+   *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
+   *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
+   * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
+   * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
+   * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
+   * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
+   * *   You can add at most 100 DNAT entries to a DNAT table.
+   * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
+   *
+   * @param request CreateForwardEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateForwardEntryResponse
    */
   async createForwardEntryWithOptions(request: CreateForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardEntryResponse> {
     Util.validateModel(request);
@@ -54910,21 +55302,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
-    * When you call this operation, take note of the following limits:
-    * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-    *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
-    *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
-    * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
-    * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
-    * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
-    * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
-    * *   You can add at most 100 DNAT entries to a DNAT table.
-    * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
-    *
-    * @param request CreateForwardEntryRequest
-    * @return CreateForwardEntryResponse
+   * @summary Adds a DNAT entry to a DNAT table.
+   *
+   * @description ## [](#)
+   * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
+   * When you call this operation, take note of the following limits:
+   * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+   *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
+   *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
+   * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
+   * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
+   * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
+   * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
+   * *   You can add at most 100 DNAT entries to a DNAT table.
+   * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
+   *
+   * @param request CreateForwardEntryRequest
+   * @return CreateForwardEntryResponse
    */
   async createForwardEntry(request: CreateForwardEntryRequest): Promise<CreateForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -54932,14 +55326,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-    *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
-    *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
-    * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request CreateFullNatEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFullNatEntryResponse
+   * @summary Adds a FULLNAT entry to the FULLNAT table.
+   *
+   * @description *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+   *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
+   *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
+   * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request CreateFullNatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFullNatEntryResponse
    */
   async createFullNatEntryWithOptions(request: CreateFullNatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateFullNatEntryResponse> {
     Util.validateModel(request);
@@ -55026,13 +55422,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-    *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
-    *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
-    * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request CreateFullNatEntryRequest
-    * @return CreateFullNatEntryResponse
+   * @summary Adds a FULLNAT entry to the FULLNAT table.
+   *
+   * @description *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+   *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
+   *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
+   * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request CreateFullNatEntryRequest
+   * @return CreateFullNatEntryResponse
    */
   async createFullNatEntry(request: CreateFullNatEntryRequest): Promise<CreateFullNatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55040,13 +55438,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * ## Usage notes
-    * You can call this operation to create only pay-as-you-go GA instances.
-    *
-    * @param request CreateGlobalAccelerationInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateGlobalAccelerationInstanceResponse
+   * @deprecated OpenAPI CreateGlobalAccelerationInstance is deprecated
+   *
+   * @summary Creates a Global Accelerator (GA) instance.
+   *
+   * @description ## Usage notes
+   * You can call this operation to create only pay-as-you-go GA instances.
+   *
+   * @param request CreateGlobalAccelerationInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGlobalAccelerationInstanceResponse
    */
   // Deprecated
   async createGlobalAccelerationInstanceWithOptions(request: CreateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalAccelerationInstanceResponse> {
@@ -55114,12 +55515,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * ## Usage notes
-    * You can call this operation to create only pay-as-you-go GA instances.
-    *
-    * @param request CreateGlobalAccelerationInstanceRequest
-    * @return CreateGlobalAccelerationInstanceResponse
+   * @deprecated OpenAPI CreateGlobalAccelerationInstance is deprecated
+   *
+   * @summary Creates a Global Accelerator (GA) instance.
+   *
+   * @description ## Usage notes
+   * You can call this operation to create only pay-as-you-go GA instances.
+   *
+   * @param request CreateGlobalAccelerationInstanceRequest
+   * @return CreateGlobalAccelerationInstanceResponse
    */
   // Deprecated
   async createGlobalAccelerationInstance(request: CreateGlobalAccelerationInstanceRequest): Promise<CreateGlobalAccelerationInstanceResponse> {
@@ -55128,13 +55532,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of the task:
-    * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
-    * *   If the HAVIP is in the **Available** state, the HAVIP is created.
-    *
-    * @param request CreateHaVipRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateHaVipResponse
+   * @summary Creates a high-availability virtual IP address (HAVIP).
+   *
+   * @description **CreateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of the task:
+   * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
+   * *   If the HAVIP is in the **Available** state, the HAVIP is created.
+   *
+   * @param request CreateHaVipRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHaVipResponse
    */
   async createHaVipWithOptions(request: CreateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<CreateHaVipResponse> {
     Util.validateModel(request);
@@ -55205,18 +55611,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of the task:
-    * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
-    * *   If the HAVIP is in the **Available** state, the HAVIP is created.
-    *
-    * @param request CreateHaVipRequest
-    * @return CreateHaVipResponse
+   * @summary Creates a high-availability virtual IP address (HAVIP).
+   *
+   * @description **CreateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of the task:
+   * *   If the HAVIP is in the **Creating** state, the HAVIP is being created.
+   * *   If the HAVIP is in the **Available** state, the HAVIP is created.
+   *
+   * @param request CreateHaVipRequest
+   * @return CreateHaVipResponse
    */
   async createHaVip(request: CreateHaVipRequest): Promise<CreateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHaVipWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建高可靠物理专线
+   *
+   * @param request CreateHighReliablePhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHighReliablePhysicalConnectionResponse
+   */
   async createHighReliablePhysicalConnectionWithOptions(request: CreateHighReliablePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateHighReliablePhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -55297,17 +55712,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHighReliablePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CreateHighReliablePhysicalConnectionResponse({}));
   }
 
+  /**
+   * @summary 创建高可靠物理专线
+   *
+   * @param request CreateHighReliablePhysicalConnectionRequest
+   * @return CreateHighReliablePhysicalConnectionResponse
+   */
   async createHighReliablePhysicalConnection(request: CreateHighReliablePhysicalConnectionRequest): Promise<CreateHighReliablePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHighReliablePhysicalConnectionWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateIPv6TranslatorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIPv6TranslatorResponse
+   * @deprecated OpenAPI CreateIPv6Translator is deprecated
+   *
+   * @summary Creates an IPv6 Translation Service instance.
+   *
+   * @param request CreateIPv6TranslatorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIPv6TranslatorResponse
    */
   // Deprecated
   async createIPv6TranslatorWithOptions(request: CreateIPv6TranslatorRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorResponse> {
@@ -55383,10 +55806,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateIPv6TranslatorRequest
-    * @return CreateIPv6TranslatorResponse
+   * @deprecated OpenAPI CreateIPv6Translator is deprecated
+   *
+   * @summary Creates an IPv6 Translation Service instance.
+   *
+   * @param request CreateIPv6TranslatorRequest
+   * @return CreateIPv6TranslatorResponse
    */
   // Deprecated
   async createIPv6Translator(request: CreateIPv6TranslatorRequest): Promise<CreateIPv6TranslatorResponse> {
@@ -55395,11 +55820,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateIPv6TranslatorAclListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIPv6TranslatorAclListResponse
+   * @deprecated OpenAPI CreateIPv6TranslatorAclList is deprecated
+   *
+   * @summary Creates an access control list (ACL).
+   *
+   * @param request CreateIPv6TranslatorAclListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIPv6TranslatorAclListResponse
    */
   // Deprecated
   async createIPv6TranslatorAclListWithOptions(request: CreateIPv6TranslatorAclListRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorAclListResponse> {
@@ -55451,10 +55878,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateIPv6TranslatorAclListRequest
-    * @return CreateIPv6TranslatorAclListResponse
+   * @deprecated OpenAPI CreateIPv6TranslatorAclList is deprecated
+   *
+   * @summary Creates an access control list (ACL).
+   *
+   * @param request CreateIPv6TranslatorAclListRequest
+   * @return CreateIPv6TranslatorAclListResponse
    */
   // Deprecated
   async createIPv6TranslatorAclList(request: CreateIPv6TranslatorAclListRequest): Promise<CreateIPv6TranslatorAclListResponse> {
@@ -55463,11 +55892,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateIPv6TranslatorEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIPv6TranslatorEntryResponse
+   * @deprecated OpenAPI CreateIPv6TranslatorEntry is deprecated
+   *
+   * @summary Adds an IPv6 mapping entry to an IPv6 Translation Service instance.
+   *
+   * @param request CreateIPv6TranslatorEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIPv6TranslatorEntryResponse
    */
   // Deprecated
   async createIPv6TranslatorEntryWithOptions(request: CreateIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorEntryResponse> {
@@ -55555,10 +55986,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateIPv6TranslatorEntryRequest
-    * @return CreateIPv6TranslatorEntryResponse
+   * @deprecated OpenAPI CreateIPv6TranslatorEntry is deprecated
+   *
+   * @summary Adds an IPv6 mapping entry to an IPv6 Translation Service instance.
+   *
+   * @param request CreateIPv6TranslatorEntryRequest
+   * @return CreateIPv6TranslatorEntryResponse
    */
   // Deprecated
   async createIPv6TranslatorEntry(request: CreateIPv6TranslatorEntryRequest): Promise<CreateIPv6TranslatorEntryResponse> {
@@ -55567,16 +56000,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
-    * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](~~2526948~~).
-    * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
-    *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
-    * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
-    *
-    * @param request CreateIpsecServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIpsecServerResponse
+   * @summary Creates an IPsec server.
+   *
+   * @description *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/120363.html).
+   * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
+   * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
+   *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
+   * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
+   *
+   * @param request CreateIpsecServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIpsecServerResponse
    */
   async createIpsecServerWithOptions(request: CreateIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpsecServerResponse> {
     Util.validateModel(request);
@@ -55647,15 +56082,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](~~120363~~).
-    * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](~~2526948~~).
-    * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
-    *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
-    * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
-    *
-    * @param request CreateIpsecServerRequest
-    * @return CreateIpsecServerResponse
+   * @summary Creates an IPsec server.
+   *
+   * @description *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/120363.html).
+   * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
+   * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
+   *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
+   * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
+   *
+   * @param request CreateIpsecServerRequest
+   * @return CreateIpsecServerResponse
    */
   async createIpsecServer(request: CreateIpsecServerRequest): Promise<CreateIpsecServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55663,14 +56100,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway:
-    *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
-    *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
-    * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
-    *
-    * @param request CreateIpv4GatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIpv4GatewayResponse
+   * @summary 创建IPv4网关。
+   *
+   * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
+   *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
+   *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
+   * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
+   *
+   * @param request CreateIpv4GatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIpv4GatewayResponse
    */
   async createIpv4GatewayWithOptions(request: CreateIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv4GatewayResponse> {
     Util.validateModel(request);
@@ -55745,13 +56184,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway:
-    *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
-    *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
-    * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
-    *
-    * @param request CreateIpv4GatewayRequest
-    * @return CreateIpv4GatewayResponse
+   * @summary 创建IPv4网关。
+   *
+   * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
+   *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
+   *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
+   * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
+   *
+   * @param request CreateIpv4GatewayRequest
+   * @return CreateIpv4GatewayResponse
    */
   async createIpv4Gateway(request: CreateIpv4GatewayRequest): Promise<CreateIpv4GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55759,14 +56200,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and creates the rule in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
-    *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
-    *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
-    * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
-    *
-    * @param request CreateIpv6EgressOnlyRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIpv6EgressOnlyRuleResponse
+   * @summary You can call CreateIpv6EgressOnlyRule to create egress-only rules to enable ECS instances in VPCs that have IPv6 enabled to access IPv6 clients. However, IPv6 clients cannot access the ECS instances over the Internet.
+   *
+   * @description *   **CreateIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and creates the rule in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
+   *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
+   *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
+   * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
+   *
+   * @param request CreateIpv6EgressOnlyRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIpv6EgressOnlyRuleResponse
    */
   async createIpv6EgressOnlyRuleWithOptions(request: CreateIpv6EgressOnlyRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv6EgressOnlyRuleResponse> {
     Util.validateModel(request);
@@ -55837,13 +56280,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and creates the rule in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
-    *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
-    *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
-    * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
-    *
-    * @param request CreateIpv6EgressOnlyRuleRequest
-    * @return CreateIpv6EgressOnlyRuleResponse
+   * @summary You can call CreateIpv6EgressOnlyRule to create egress-only rules to enable ECS instances in VPCs that have IPv6 enabled to access IPv6 clients. However, IPv6 clients cannot access the ECS instances over the Internet.
+   *
+   * @description *   **CreateIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and creates the rule in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
+   *     *   If the egress-only rule is in the **Creating** state, the egress-only rule is being created.
+   *     *   If the egress-only rule is in the **Created** state, the egress-only rule is created.
+   * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
+   *
+   * @param request CreateIpv6EgressOnlyRuleRequest
+   * @return CreateIpv6EgressOnlyRuleResponse
    */
   async createIpv6EgressOnlyRule(request: CreateIpv6EgressOnlyRuleRequest): Promise<CreateIpv6EgressOnlyRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55851,14 +56296,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the status of the task.
-    *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
-    *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
-    * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
-    *
-    * @param request CreateIpv6GatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIpv6GatewayResponse
+   * @summary IPv6 gateways are used to control the IPv6 traffic of virtual private clouds (VPCs). You can call the CreateIpv6Gateway operation to create IPv6 gateways.
+   *
+   * @description *   **CreateIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the status of the task.
+   *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
+   *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
+   * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
+   *
+   * @param request CreateIpv6GatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIpv6GatewayResponse
    */
   async createIpv6GatewayWithOptions(request: CreateIpv6GatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv6GatewayResponse> {
     Util.validateModel(request);
@@ -55929,13 +56376,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the status of the task.
-    *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
-    *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
-    * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
-    *
-    * @param request CreateIpv6GatewayRequest
-    * @return CreateIpv6GatewayResponse
+   * @summary IPv6 gateways are used to control the IPv6 traffic of virtual private clouds (VPCs). You can call the CreateIpv6Gateway operation to create IPv6 gateways.
+   *
+   * @description *   **CreateIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the status of the task.
+   *     *   If the IPv6 gateway is in the **Creating** state, the IPv6 gateway is being created.
+   *     *   If the IPv6 gateway is in the **Created** state, the IPv6 gateway is created.
+   * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
+   *
+   * @param request CreateIpv6GatewayRequest
+   * @return CreateIpv6GatewayResponse
    */
   async createIpv6Gateway(request: CreateIpv6GatewayRequest): Promise<CreateIpv6GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -55943,19 +56392,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * Before you call this operation, take note of the following items:
-    * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](~~174251~~).
-    * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
-    * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) operation to query the status of the task.
-    *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
-    *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
-    * It takes 1 to 3 minutes to create a NAT gateway.
-    * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
-    *
-    * @param request CreateNatGatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNatGatewayResponse
+   * @summary Creates an enhanced Internet NAT gateway or a Virtual Private Cloud (VPC) NAT gateway.
+   *
+   * @description ## [](#)
+   * Before you call this operation, take note of the following items:
+   * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+   * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
+   * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the task.
+   *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
+   *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
+   * It takes 1 to 3 minutes to create a NAT gateway.
+   * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
+   *
+   * @param request CreateNatGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNatGatewayResponse
    */
   async createNatGatewayWithOptions(request: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
     Util.validateModel(request);
@@ -56066,18 +56517,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * Before you call this operation, take note of the following items:
-    * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](~~174251~~).
-    * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
-    * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) operation to query the status of the task.
-    *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
-    *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
-    * It takes 1 to 3 minutes to create a NAT gateway.
-    * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
-    *
-    * @param request CreateNatGatewayRequest
-    * @return CreateNatGatewayResponse
+   * @summary Creates an enhanced Internet NAT gateway or a Virtual Private Cloud (VPC) NAT gateway.
+   *
+   * @description ## [](#)
+   * Before you call this operation, take note of the following items:
+   * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+   * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
+   * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the task.
+   *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
+   *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
+   * It takes 1 to 3 minutes to create a NAT gateway.
+   * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
+   *
+   * @param request CreateNatGatewayRequest
+   * @return CreateNatGatewayResponse
    */
   async createNatGateway(request: CreateNatGatewayRequest): Promise<CreateNatGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56085,15 +56538,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * **CreateNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](~~287000~~) operation to query the status of the task.
-    * *   If a NAT IP address is in the **Creating** state, the NAT IP address is being created. In this case, you can only query the NAT IP address and cannot perform other operations.
-    * *   If a NAT IP address is in the **Available** state, the NAT IP address is created.
-    * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
-    *
-    * @param request CreateNatIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNatIpResponse
+   * @summary Creates a NAT IP address.
+   *
+   * @description ## [](#)
+   * **CreateNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](https://help.aliyun.com/document_detail/287000.html) operation to query the status of the task.
+   * *   If a NAT IP address is in the **Creating** state, the NAT IP address is being created. In this case, you can only query the NAT IP address and cannot perform other operations.
+   * *   If a NAT IP address is in the **Available** state, the NAT IP address is created.
+   * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
+   *
+   * @param request CreateNatIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNatIpResponse
    */
   async createNatIpWithOptions(request: CreateNatIpRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatIpResponse> {
     Util.validateModel(request);
@@ -56168,14 +56623,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * **CreateNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](~~287000~~) operation to query the status of the task.
-    * *   If a NAT IP address is in the **Creating** state, the NAT IP address is being created. In this case, you can only query the NAT IP address and cannot perform other operations.
-    * *   If a NAT IP address is in the **Available** state, the NAT IP address is created.
-    * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
-    *
-    * @param request CreateNatIpRequest
-    * @return CreateNatIpResponse
+   * @summary Creates a NAT IP address.
+   *
+   * @description ## [](#)
+   * **CreateNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](https://help.aliyun.com/document_detail/287000.html) operation to query the status of the task.
+   * *   If a NAT IP address is in the **Creating** state, the NAT IP address is being created. In this case, you can only query the NAT IP address and cannot perform other operations.
+   * *   If a NAT IP address is in the **Available** state, the NAT IP address is created.
+   * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
+   *
+   * @param request CreateNatIpRequest
+   * @return CreateNatIpResponse
    */
   async createNatIp(request: CreateNatIpRequest): Promise<CreateNatIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56183,12 +56640,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
-    *
-    * @param request CreateNatIpCidrRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNatIpCidrResponse
+   * @summary Creates a NAT CIDR block.
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
+   *
+   * @param request CreateNatIpCidrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNatIpCidrResponse
    */
   async createNatIpCidrWithOptions(request: CreateNatIpCidrRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatIpCidrResponse> {
     Util.validateModel(request);
@@ -56259,17 +56718,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
-    *
-    * @param request CreateNatIpCidrRequest
-    * @return CreateNatIpCidrResponse
+   * @summary Creates a NAT CIDR block.
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
+   *
+   * @param request CreateNatIpCidrRequest
+   * @return CreateNatIpCidrResponse
    */
   async createNatIpCidr(request: CreateNatIpCidrRequest): Promise<CreateNatIpCidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNatIpCidrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a network ACL.
+   *
+   * @param request CreateNetworkAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkAclResponse
+   */
   async createNetworkAclWithOptions(request: CreateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56334,20 +56802,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNetworkAclResponse>(await this.callApi(params, req, runtime), new CreateNetworkAclResponse({}));
   }
 
+  /**
+   * @summary Creates a network ACL.
+   *
+   * @param request CreateNetworkAclRequest
+   * @return CreateNetworkAclResponse
+   */
   async createNetworkAcl(request: CreateNetworkAclRequest): Promise<CreateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkAclWithOptions(request, runtime);
   }
 
   /**
-    * You can apply for a dedicated Express Connect circuit for yourself or create a hosted connection for a tenant. After your application is approved, the Express Connect circuit changes to the **Initial** state. You can contact the connectivity provider to start construction.
-    * When you call this operation, take note of the following limits:
-    * *   If your Alibaba Cloud account has more than five Express Connect circuits that are not in the **Enabled** state, you cannot apply for another Express Connect circuit.
-    * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
-    *
-    * @param request CreatePhysicalConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePhysicalConnectionResponse
+   * @summary Applies for an Express Connect circuit.
+   *
+   * @description You can apply for a dedicated Express Connect circuit for yourself or create a hosted connection for a tenant. After your application is approved, the Express Connect circuit changes to the **Initial** state. You can contact the connectivity provider to start construction.
+   * When you call this operation, take note of the following limits:
+   * *   If your Alibaba Cloud account has more than five Express Connect circuits that are not in the **Enabled** state, you cannot apply for another Express Connect circuit.
+   * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
+   *
+   * @param request CreatePhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePhysicalConnectionResponse
    */
   async createPhysicalConnectionWithOptions(request: CreatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionResponse> {
     Util.validateModel(request);
@@ -56450,13 +56926,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can apply for a dedicated Express Connect circuit for yourself or create a hosted connection for a tenant. After your application is approved, the Express Connect circuit changes to the **Initial** state. You can contact the connectivity provider to start construction.
-    * When you call this operation, take note of the following limits:
-    * *   If your Alibaba Cloud account has more than five Express Connect circuits that are not in the **Enabled** state, you cannot apply for another Express Connect circuit.
-    * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
-    *
-    * @param request CreatePhysicalConnectionRequest
-    * @return CreatePhysicalConnectionResponse
+   * @summary Applies for an Express Connect circuit.
+   *
+   * @description You can apply for a dedicated Express Connect circuit for yourself or create a hosted connection for a tenant. After your application is approved, the Express Connect circuit changes to the **Initial** state. You can contact the connectivity provider to start construction.
+   * When you call this operation, take note of the following limits:
+   * *   If your Alibaba Cloud account has more than five Express Connect circuits that are not in the **Enabled** state, you cannot apply for another Express Connect circuit.
+   * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
+   *
+   * @param request CreatePhysicalConnectionRequest
+   * @return CreatePhysicalConnectionResponse
    */
   async createPhysicalConnection(request: CreatePhysicalConnectionRequest): Promise<CreatePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56464,11 +56942,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
-    *
-    * @param request CreatePhysicalConnectionOccupancyOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePhysicalConnectionOccupancyOrderResponse
+   * @summary Creates an order for resource usage fees.
+   *
+   * @description >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
+   *
+   * @param request CreatePhysicalConnectionOccupancyOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePhysicalConnectionOccupancyOrderResponse
    */
   async createPhysicalConnectionOccupancyOrderWithOptions(request: CreatePhysicalConnectionOccupancyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionOccupancyOrderResponse> {
     Util.validateModel(request);
@@ -56535,16 +57015,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
-    *
-    * @param request CreatePhysicalConnectionOccupancyOrderRequest
-    * @return CreatePhysicalConnectionOccupancyOrderResponse
+   * @summary Creates an order for resource usage fees.
+   *
+   * @description >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
+   *
+   * @param request CreatePhysicalConnectionOccupancyOrderRequest
+   * @return CreatePhysicalConnectionOccupancyOrderResponse
    */
   async createPhysicalConnectionOccupancyOrder(request: CreatePhysicalConnectionOccupancyOrderRequest): Promise<CreatePhysicalConnectionOccupancyOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPhysicalConnectionOccupancyOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreatePhysicalConnectionSetupOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePhysicalConnectionSetupOrderResponse
+   */
   async createPhysicalConnectionSetupOrderWithOptions(request: CreatePhysicalConnectionSetupOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionSetupOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -56613,17 +57100,23 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePhysicalConnectionSetupOrderResponse>(await this.callApi(params, req, runtime), new CreatePhysicalConnectionSetupOrderResponse({}));
   }
 
+  /**
+   * @param request CreatePhysicalConnectionSetupOrderRequest
+   * @return CreatePhysicalConnectionSetupOrderResponse
+   */
   async createPhysicalConnectionSetupOrder(request: CreatePhysicalConnectionSetupOrderRequest): Promise<CreatePhysicalConnectionSetupOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPhysicalConnectionSetupOrderWithOptions(request, runtime);
   }
 
   /**
-    * By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](~~108213~~) topic.
-    *
-    * @param request CreatePublicIpAddressPoolRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePublicIpAddressPoolResponse
+   * @summary Creates an IP address pool.
+   *
+   * @description By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html) topic.
+   *
+   * @param request CreatePublicIpAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePublicIpAddressPoolResponse
    */
   async createPublicIpAddressPoolWithOptions(request: CreatePublicIpAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicIpAddressPoolResponse> {
     Util.validateModel(request);
@@ -56706,10 +57199,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](~~108213~~) topic.
-    *
-    * @param request CreatePublicIpAddressPoolRequest
-    * @return CreatePublicIpAddressPoolResponse
+   * @summary Creates an IP address pool.
+   *
+   * @description By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html) topic.
+   *
+   * @param request CreatePublicIpAddressPoolRequest
+   * @return CreatePublicIpAddressPoolResponse
    */
   async createPublicIpAddressPool(request: CreatePublicIpAddressPoolRequest): Promise<CreatePublicIpAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56717,23 +57212,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)References
-    * *   **CreateRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-    *     *   If the route entry is in the **Creating** state, the route entry is being created.
-    *     *   If the route entry is in the **Created** state, the route entry is created.
-    * *   You cannot repeatedly call the **CreateRouteEntries** operation to create the same route entry within the specified period of time.
-    * **When you call this operation to add custom route entries to the route table of a vRouter, take note of the following items:**
-    * *   A route table can contain up to 200 custom route entries.
-    * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as or overlap with the CIDR block of a vSwitch in the VPC.
-    * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or its subnets.
-    * *   The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
-    * *   If you do not include the mask length when you specify the destination CIDR block (**DstCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-    * *   Multiple custom route entries can point to the same next hop (**NextHop**).
-    * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
-    *
-    * @param request CreateRouteEntriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRouteEntriesResponse
+   * @summary Adds custom route entries to the route table of a vRouter in a virtual private cloud (VPC).
+   *
+   * @description ## [](#)References
+   * *   **CreateRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+   *     *   If the route entry is in the **Creating** state, the route entry is being created.
+   *     *   If the route entry is in the **Created** state, the route entry is created.
+   * *   You cannot repeatedly call the **CreateRouteEntries** operation to create the same route entry within the specified period of time.
+   * **When you call this operation to add custom route entries to the route table of a vRouter, take note of the following items:**
+   * *   A route table can contain up to 200 custom route entries.
+   * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as or overlap with the CIDR block of a vSwitch in the VPC.
+   * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or its subnets.
+   * *   The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
+   * *   If you do not include the mask length when you specify the destination CIDR block (**DstCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+   * *   Multiple custom route entries can point to the same next hop (**NextHop**).
+   * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
+   *
+   * @param request CreateRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRouteEntriesResponse
    */
   async createRouteEntriesWithOptions(request: CreateRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteEntriesResponse> {
     Util.validateModel(request);
@@ -56784,22 +57281,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)References
-    * *   **CreateRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-    *     *   If the route entry is in the **Creating** state, the route entry is being created.
-    *     *   If the route entry is in the **Created** state, the route entry is created.
-    * *   You cannot repeatedly call the **CreateRouteEntries** operation to create the same route entry within the specified period of time.
-    * **When you call this operation to add custom route entries to the route table of a vRouter, take note of the following items:**
-    * *   A route table can contain up to 200 custom route entries.
-    * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as or overlap with the CIDR block of a vSwitch in the VPC.
-    * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or its subnets.
-    * *   The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
-    * *   If you do not include the mask length when you specify the destination CIDR block (**DstCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-    * *   Multiple custom route entries can point to the same next hop (**NextHop**).
-    * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
-    *
-    * @param request CreateRouteEntriesRequest
-    * @return CreateRouteEntriesResponse
+   * @summary Adds custom route entries to the route table of a vRouter in a virtual private cloud (VPC).
+   *
+   * @description ## [](#)References
+   * *   **CreateRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+   *     *   If the route entry is in the **Creating** state, the route entry is being created.
+   *     *   If the route entry is in the **Created** state, the route entry is created.
+   * *   You cannot repeatedly call the **CreateRouteEntries** operation to create the same route entry within the specified period of time.
+   * **When you call this operation to add custom route entries to the route table of a vRouter, take note of the following items:**
+   * *   A route table can contain up to 200 custom route entries.
+   * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as or overlap with the CIDR block of a vSwitch in the VPC.
+   * *   The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or its subnets.
+   * *   The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
+   * *   If you do not include the mask length when you specify the destination CIDR block (**DstCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+   * *   Multiple custom route entries can point to the same next hop (**NextHop**).
+   * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
+   *
+   * @param request CreateRouteEntriesRequest
+   * @return CreateRouteEntriesResponse
    */
   async createRouteEntries(request: CreateRouteEntriesRequest): Promise<CreateRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56807,36 +57306,38 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task:
-    *     *   If a route is in the **Creating** state, the route is being added.
-    *     *   If a route is in the **Created** state, the route is added.
-    * *   You cannot repeatedly call **CreateRouteEntry** within a specific period of time.
-    * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following limits:**
-    * >  When you add a route entry from a prefix list, the quota usage is calculated by adding the number of existing route entries and the maximum number of route entries of the prefix list.
-    * *   A route table can contain up to 200 custom route entries.
-    * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as or be a subset of the CIDR block of a vSwitch in the virtual private cloud (VPC). The destination CIDR block can contain the CIDR block of a vSwitch.
-    * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
-    * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
-    * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-    * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
-    * *   The next hop (**NextHopId**) of a custom route entry must in the same VPC as the route table.
-    * *   Equal-cost multi-path (ECMP) routing can be configured by specifying the **NextHopList** parameter.
-    *     *   When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you must not specify **NextHopList**.
-    *     *   When you add route entries for ECMP routing, you must specify **DestinationCidrBlock** and **NextHopList**, and you must not specify **NextHopType** or **NextHopId**.
-    * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following limits:**
-    * *   A route table can contain up to 200 custom route entries.
-    * *   **NextHopList** is not supported.
-    * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
-    * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
-    * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-    * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
-    * *   The next hop (**NextHopId**) of a custom route entry must be a router interface associated with the VBR.
-    * *   You can add route entries only when the VBR is in the **Active** state, and the Express Connect circuit associated with the VBR is in the **Enabled** state and is not locked due to overdue payments.
-    * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
-    *
-    * @param request CreateRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRouteEntryResponse
+   * @summary Creates a custom route entry in the route table of a VRouter or virtual border router (VBR).
+   *
+   * @description *   **CreateRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task:
+   *     *   If a route is in the **Creating** state, the route is being added.
+   *     *   If a route is in the **Created** state, the route is added.
+   * *   You cannot repeatedly call **CreateRouteEntry** within a specific period of time.
+   * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following limits:**
+   * >  When you add a route entry from a prefix list, the quota usage is calculated by adding the number of existing route entries and the maximum number of route entries of the prefix list.
+   * *   A route table can contain up to 200 custom route entries.
+   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as or be a subset of the CIDR block of a vSwitch in the virtual private cloud (VPC). The destination CIDR block can contain the CIDR block of a vSwitch.
+   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
+   * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
+   * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+   * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
+   * *   The next hop (**NextHopId**) of a custom route entry must in the same VPC as the route table.
+   * *   Equal-cost multi-path (ECMP) routing can be configured by specifying the **NextHopList** parameter.
+   *     *   When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you must not specify **NextHopList**.
+   *     *   When you add route entries for ECMP routing, you must specify **DestinationCidrBlock** and **NextHopList**, and you must not specify **NextHopType** or **NextHopId**.
+   * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following limits:**
+   * *   A route table can contain up to 200 custom route entries.
+   * *   **NextHopList** is not supported.
+   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
+   * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
+   * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+   * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
+   * *   The next hop (**NextHopId**) of a custom route entry must be a router interface associated with the VBR.
+   * *   You can add route entries only when the VBR is in the **Active** state, and the Express Connect circuit associated with the VBR is in the **Enabled** state and is not locked due to overdue payments.
+   * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
+   *
+   * @param request CreateRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRouteEntryResponse
    */
   async createRouteEntryWithOptions(request: CreateRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteEntryResponse> {
     Util.validateModel(request);
@@ -56911,35 +57412,37 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task:
-    *     *   If a route is in the **Creating** state, the route is being added.
-    *     *   If a route is in the **Created** state, the route is added.
-    * *   You cannot repeatedly call **CreateRouteEntry** within a specific period of time.
-    * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following limits:**
-    * >  When you add a route entry from a prefix list, the quota usage is calculated by adding the number of existing route entries and the maximum number of route entries of the prefix list.
-    * *   A route table can contain up to 200 custom route entries.
-    * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as or be a subset of the CIDR block of a vSwitch in the virtual private cloud (VPC). The destination CIDR block can contain the CIDR block of a vSwitch.
-    * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
-    * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
-    * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-    * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
-    * *   The next hop (**NextHopId**) of a custom route entry must in the same VPC as the route table.
-    * *   Equal-cost multi-path (ECMP) routing can be configured by specifying the **NextHopList** parameter.
-    *     *   When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you must not specify **NextHopList**.
-    *     *   When you add route entries for ECMP routing, you must specify **DestinationCidrBlock** and **NextHopList**, and you must not specify **NextHopType** or **NextHopId**.
-    * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following limits:**
-    * *   A route table can contain up to 200 custom route entries.
-    * *   **NextHopList** is not supported.
-    * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
-    * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
-    * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
-    * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
-    * *   The next hop (**NextHopId**) of a custom route entry must be a router interface associated with the VBR.
-    * *   You can add route entries only when the VBR is in the **Active** state, and the Express Connect circuit associated with the VBR is in the **Enabled** state and is not locked due to overdue payments.
-    * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
-    *
-    * @param request CreateRouteEntryRequest
-    * @return CreateRouteEntryResponse
+   * @summary Creates a custom route entry in the route table of a VRouter or virtual border router (VBR).
+   *
+   * @description *   **CreateRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task:
+   *     *   If a route is in the **Creating** state, the route is being added.
+   *     *   If a route is in the **Created** state, the route is added.
+   * *   You cannot repeatedly call **CreateRouteEntry** within a specific period of time.
+   * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following limits:**
+   * >  When you add a route entry from a prefix list, the quota usage is calculated by adding the number of existing route entries and the maximum number of route entries of the prefix list.
+   * *   A route table can contain up to 200 custom route entries.
+   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as or be a subset of the CIDR block of a vSwitch in the virtual private cloud (VPC). The destination CIDR block can contain the CIDR block of a vSwitch.
+   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
+   * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
+   * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+   * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
+   * *   The next hop (**NextHopId**) of a custom route entry must in the same VPC as the route table.
+   * *   Equal-cost multi-path (ECMP) routing can be configured by specifying the **NextHopList** parameter.
+   *     *   When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you must not specify **NextHopList**.
+   *     *   When you add route entries for ECMP routing, you must specify **DestinationCidrBlock** and **NextHopList**, and you must not specify **NextHopType** or **NextHopId**.
+   * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following limits:**
+   * *   A route table can contain up to 200 custom route entries.
+   * *   **NextHopList** is not supported.
+   * *   The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be 100.64.0.0/10 or a subset of it.
+   * *   The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
+   * *   If you do not include the mask length when you specify the destination CIDR block (**DestinationCidrBlock**), the destination CIDR block is considered a host IP address whose mask length is 32 bits.
+   * *   Multiple custom route entries can point to the same next hop (**NextHopId**).
+   * *   The next hop (**NextHopId**) of a custom route entry must be a router interface associated with the VBR.
+   * *   You can add route entries only when the VBR is in the **Active** state, and the Express Connect circuit associated with the VBR is in the **Enabled** state and is not locked due to overdue payments.
+   * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
+   *
+   * @param request CreateRouteEntryRequest
+   * @return CreateRouteEntryResponse
    */
   async createRouteEntry(request: CreateRouteEntryRequest): Promise<CreateRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -56947,14 +57450,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
-    *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
-    *     *   If the custom route table is in the **Created** state, the custom route table is created.
-    * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
-    *
-    * @param request CreateRouteTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRouteTableResponse
+   * @summary Creates a custom route table.
+   *
+   * @description *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
+   *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
+   *     *   If the custom route table is in the **Created** state, the custom route table is created.
+   * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
+   *
+   * @param request CreateRouteTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRouteTableResponse
    */
   async createRouteTableWithOptions(request: CreateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteTableResponse> {
     Util.validateModel(request);
@@ -57025,13 +57530,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
-    *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
-    *     *   If the custom route table is in the **Created** state, the custom route table is created.
-    * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
-    *
-    * @param request CreateRouteTableRequest
-    * @return CreateRouteTableResponse
+   * @summary Creates a custom route table.
+   *
+   * @description *   **CreateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the operation in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
+   *     *   If the custom route table is in the **Creating** state, the custom route table is being created.
+   *     *   If the custom route table is in the **Created** state, the custom route table is created.
+   * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
+   *
+   * @param request CreateRouteTableRequest
+   * @return CreateRouteTableResponse
    */
   async createRouteTable(request: CreateRouteTableRequest): Promise<CreateRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57039,17 +57546,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   You can create only one pair of interfaces to be connected between two routers.
-    * *   You can create a maximum of five router interfaces for a router.
-    * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
-    * *   Each destination CIDR block of route entries in the same route table must be unique.
-    * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
-    * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
-    *
-    * @param request CreateRouterInterfaceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRouterInterfaceResponse
+   * @summary Creates a router interface.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   You can create only one pair of interfaces to be connected between two routers.
+   * *   You can create a maximum of five router interfaces for a router.
+   * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
+   * *   Each destination CIDR block of route entries in the same route table must be unique.
+   * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
+   * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
+   *
+   * @param request CreateRouterInterfaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRouterInterfaceResponse
    */
   async createRouterInterfaceWithOptions(request: CreateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouterInterfaceResponse> {
     Util.validateModel(request);
@@ -57192,16 +57701,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   You can create only one pair of interfaces to be connected between two routers.
-    * *   You can create a maximum of five router interfaces for a router.
-    * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
-    * *   Each destination CIDR block of route entries in the same route table must be unique.
-    * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
-    * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
-    *
-    * @param request CreateRouterInterfaceRequest
-    * @return CreateRouterInterfaceResponse
+   * @summary Creates a router interface.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   You can create only one pair of interfaces to be connected between two routers.
+   * *   You can create a maximum of five router interfaces for a router.
+   * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
+   * *   Each destination CIDR block of route entries in the same route table must be unique.
+   * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
+   * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
+   *
+   * @param request CreateRouterInterfaceRequest
+   * @return CreateRouterInterfaceResponse
    */
   async createRouterInterface(request: CreateRouterInterfaceRequest): Promise<CreateRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57209,19 +57720,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
-    * Before you call this operation, take note of the following limits:
-    * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-    *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
-    *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
-    * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
-    * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
-    * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
-    * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
-    *
-    * @param request CreateSnatEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSnatEntryResponse
+   * @summary Adds an SNAT entry to an SNAT table.
+   *
+   * @description You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
+   * Before you call this operation, take note of the following limits:
+   * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
+   *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
+   *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
+   * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
+   * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
+   * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
+   * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
+   *
+   * @param request CreateSnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSnatEntryResponse
    */
   async createSnatEntryWithOptions(request: CreateSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnatEntryResponse> {
     Util.validateModel(request);
@@ -57292,24 +57805,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
-    * Before you call this operation, take note of the following limits:
-    * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-    *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
-    *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
-    * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
-    * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
-    * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
-    * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
-    *
-    * @param request CreateSnatEntryRequest
-    * @return CreateSnatEntryResponse
+   * @summary Adds an SNAT entry to an SNAT table.
+   *
+   * @description You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
+   * Before you call this operation, take note of the following limits:
+   * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
+   *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
+   *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
+   * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
+   * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
+   * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
+   * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
+   *
+   * @param request CreateSnatEntryRequest
+   * @return CreateSnatEntryResponse
    */
   async createSnatEntry(request: CreateSnatEntryRequest): Promise<CreateSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnatEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建SSL-VPN客户端证书
+   *
+   * @param request CreateSslVpnClientCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSslVpnClientCertResponse
+   */
   async createSslVpnClientCertWithOptions(request: CreateSslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<CreateSslVpnClientCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -57362,22 +57884,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSslVpnClientCertResponse>(await this.callApi(params, req, runtime), new CreateSslVpnClientCertResponse({}));
   }
 
+  /**
+   * @summary 创建SSL-VPN客户端证书
+   *
+   * @param request CreateSslVpnClientCertRequest
+   * @return CreateSslVpnClientCertResponse
+   */
   async createSslVpnClientCert(request: CreateSslVpnClientCertRequest): Promise<CreateSslVpnClientCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSslVpnClientCertWithOptions(request, runtime);
   }
 
   /**
-    * *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
-    *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-    * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
-    * ### [](#)Prerequisites
-    * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](~~2526913~~).
-    *
-    * @param request CreateSslVpnServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSslVpnServerResponse
+   * @summary Creates an SSL server.
+   *
+   * @description *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
+   *     *   If the VPN gateway is in the **active** state, the SSL server is created.
+   * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
+   * ### [](#)Prerequisites
+   * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2526913.html).
+   *
+   * @param request CreateSslVpnServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSslVpnServerResponse
    */
   async createSslVpnServerWithOptions(request: CreateSslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateSslVpnServerResponse> {
     Util.validateModel(request);
@@ -57400,6 +57930,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableMultiFactorAuth)) {
       query["EnableMultiFactorAuth"] = request.enableMultiFactorAuth;
+    }
+
+    if (!Util.isUnset(request.IDaaSApplicationId)) {
+      query["IDaaSApplicationId"] = request.IDaaSApplicationId;
     }
 
     if (!Util.isUnset(request.IDaaSInstanceId)) {
@@ -57468,15 +58002,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
-    *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-    * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
-    * ### [](#)Prerequisites
-    * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](~~2526913~~).
-    *
-    * @param request CreateSslVpnServerRequest
-    * @return CreateSslVpnServerResponse
+   * @summary Creates an SSL server.
+   *
+   * @description *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
+   *     *   If the VPN gateway is in the **active** state, the SSL server is created.
+   * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
+   * ### [](#)Prerequisites
+   * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2526913.html).
+   *
+   * @param request CreateSslVpnServerRequest
+   * @return CreateSslVpnServerResponse
    */
   async createSslVpnServer(request: CreateSslVpnServerRequest): Promise<CreateSslVpnServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57484,13 +58020,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of the task.
-    * *   If the filter is in the **Creating** state, the filter is being created.
-    * *   If the filter is in the **Created** state, the filter is created.
-    *
-    * @param request CreateTrafficMirrorFilterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTrafficMirrorFilterResponse
+   * @summary Creates a filter for traffic mirroring.
+   *
+   * @description **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of the task.
+   * *   If the filter is in the **Creating** state, the filter is being created.
+   * *   If the filter is in the **Created** state, the filter is created.
+   *
+   * @param request CreateTrafficMirrorFilterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTrafficMirrorFilterResponse
    */
   async createTrafficMirrorFilterWithOptions(request: CreateTrafficMirrorFilterRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorFilterResponse> {
     Util.validateModel(request);
@@ -57565,12 +58103,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of the task.
-    * *   If the filter is in the **Creating** state, the filter is being created.
-    * *   If the filter is in the **Created** state, the filter is created.
-    *
-    * @param request CreateTrafficMirrorFilterRequest
-    * @return CreateTrafficMirrorFilterResponse
+   * @summary Creates a filter for traffic mirroring.
+   *
+   * @description **CreateTrafficMirrorFilter** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of the task.
+   * *   If the filter is in the **Creating** state, the filter is being created.
+   * *   If the filter is in the **Created** state, the filter is created.
+   *
+   * @param request CreateTrafficMirrorFilterRequest
+   * @return CreateTrafficMirrorFilterResponse
    */
   async createTrafficMirrorFilter(request: CreateTrafficMirrorFilterRequest): Promise<CreateTrafficMirrorFilterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57578,14 +58118,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
-    *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
-    *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
-    * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
-    *
-    * @param request CreateTrafficMirrorFilterRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTrafficMirrorFilterRulesResponse
+   * @summary Creates an inbound or outbound rule for traffic mirroring.
+   *
+   * @description *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the task.
+   *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
+   *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
+   * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
+   *
+   * @param request CreateTrafficMirrorFilterRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTrafficMirrorFilterRulesResponse
    */
   async createTrafficMirrorFilterRulesWithOptions(request: CreateTrafficMirrorFilterRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorFilterRulesResponse> {
     Util.validateModel(request);
@@ -57648,13 +58190,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
-    *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
-    *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
-    * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
-    *
-    * @param request CreateTrafficMirrorFilterRulesRequest
-    * @return CreateTrafficMirrorFilterRulesResponse
+   * @summary Creates an inbound or outbound rule for traffic mirroring.
+   *
+   * @description *   **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the task.
+   *     *   If the inbound or outbound rule is in the **Creating** state, the rule is being created.
+   *     *   If the inbound or outbound rule is in the **Created** state, the rule is created.
+   * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
+   *
+   * @param request CreateTrafficMirrorFilterRulesRequest
+   * @return CreateTrafficMirrorFilterRulesResponse
    */
   async createTrafficMirrorFilterRules(request: CreateTrafficMirrorFilterRulesRequest): Promise<CreateTrafficMirrorFilterRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57662,13 +58206,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](~~261367~~) to query the status of the task.
-    * *   If the traffic mirror session is in the **Creating** state, it is being created.
-    * *   If the traffic mirror session is in the **Created** state, it is created.
-    *
-    * @param request CreateTrafficMirrorSessionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTrafficMirrorSessionResponse
+   * @summary Creates a traffic mirror session.
+   *
+   * @description **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the task.
+   * *   If the traffic mirror session is in the **Creating** state, it is being created.
+   * *   If the traffic mirror session is in the **Created** state, it is created.
+   *
+   * @param request CreateTrafficMirrorSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTrafficMirrorSessionResponse
    */
   async createTrafficMirrorSessionWithOptions(request: CreateTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorSessionResponse> {
     Util.validateModel(request);
@@ -57767,12 +58313,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](~~261367~~) to query the status of the task.
-    * *   If the traffic mirror session is in the **Creating** state, it is being created.
-    * *   If the traffic mirror session is in the **Created** state, it is created.
-    *
-    * @param request CreateTrafficMirrorSessionRequest
-    * @return CreateTrafficMirrorSessionResponse
+   * @summary Creates a traffic mirror session.
+   *
+   * @description **CreateTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the task.
+   * *   If the traffic mirror session is in the **Creating** state, it is being created.
+   * *   If the traffic mirror session is in the **Created** state, it is created.
+   *
+   * @param request CreateTrafficMirrorSessionRequest
+   * @return CreateTrafficMirrorSessionResponse
    */
   async createTrafficMirrorSession(request: CreateTrafficMirrorSessionRequest): Promise<CreateTrafficMirrorSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57780,21 +58328,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
-    * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-    * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
-    * *   Each instance can belong to only one vSwitch.
-    * *   vSwitches do not support multicast or broadcast.
-    * *   After you create a vSwitch, you cannot modify its CIDR block.
-    * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](~~94567~~) to query the status of the task.
-    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
-    *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
-    * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
-    *
-    * @param request CreateVSwitchRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVSwitchResponse
+   * @summary 创建交换机。
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
+   * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+   * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
+   * *   Each instance can belong to only one vSwitch.
+   * *   vSwitches do not support multicast or broadcast.
+   * *   After you create a vSwitch, you cannot modify its CIDR block.
+   * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the status of the task.
+   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
+   *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
+   * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
+   *
+   * @param request CreateVSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVSwitchResponse
    */
   async createVSwitchWithOptions(request: CreateVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<CreateVSwitchResponse> {
     Util.validateModel(request);
@@ -57873,20 +58423,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
-    * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-    * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
-    * *   Each instance can belong to only one vSwitch.
-    * *   vSwitches do not support multicast or broadcast.
-    * *   After you create a vSwitch, you cannot modify its CIDR block.
-    * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](~~94567~~) to query the status of the task.
-    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
-    *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
-    * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
-    *
-    * @param request CreateVSwitchRequest
-    * @return CreateVSwitchResponse
+   * @summary 创建交换机。
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
+   * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
+   * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
+   * *   Each instance can belong to only one vSwitch.
+   * *   vSwitches do not support multicast or broadcast.
+   * *   After you create a vSwitch, you cannot modify its CIDR block.
+   * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the status of the task.
+   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
+   *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
+   * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
+   *
+   * @param request CreateVSwitchRequest
+   * @return CreateVSwitchResponse
    */
   async createVSwitch(request: CreateVSwitchRequest): Promise<CreateVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -57894,19 +58446,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * Take note of the following items:
-    * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
-    * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
-    * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](~~610155~~) to query the status of the task:
-    *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
-    *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
-    * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
-    * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
-    *
-    * @param request CreateVSwitchCidrReservationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVSwitchCidrReservationResponse
+   * @summary Creates a reserved CIDR block for a vSwitch.
+   *
+   * @description ## [](#)Description
+   * Take note of the following items:
+   * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
+   * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
+   * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
+   *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
+   *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
+   * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
+   * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   *
+   * @param request CreateVSwitchCidrReservationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVSwitchCidrReservationResponse
    */
   async createVSwitchCidrReservationWithOptions(request: CreateVSwitchCidrReservationRequest, runtime: $Util.RuntimeOptions): Promise<CreateVSwitchCidrReservationResponse> {
     Util.validateModel(request);
@@ -57989,24 +58543,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * Take note of the following items:
-    * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
-    * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
-    * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](~~610155~~) to query the status of the task:
-    *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
-    *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
-    * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
-    * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
-    *
-    * @param request CreateVSwitchCidrReservationRequest
-    * @return CreateVSwitchCidrReservationResponse
+   * @summary Creates a reserved CIDR block for a vSwitch.
+   *
+   * @description ## [](#)Description
+   * Take note of the following items:
+   * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
+   * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
+   * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
+   *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
+   *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
+   * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
+   * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   *
+   * @param request CreateVSwitchCidrReservationRequest
+   * @return CreateVSwitchCidrReservationResponse
    */
   async createVSwitchCidrReservation(request: CreateVSwitchCidrReservationRequest): Promise<CreateVSwitchCidrReservationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVSwitchCidrReservationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a virtual border router (VBR) failover group.
+   *
+   * @param request CreateVbrHaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVbrHaResponse
+   */
   async createVbrHaWithOptions(request: CreateVbrHaRequest, runtime: $Util.RuntimeOptions): Promise<CreateVbrHaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -58071,23 +58634,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVbrHaResponse>(await this.callApi(params, req, runtime), new CreateVbrHaResponse({}));
   }
 
+  /**
+   * @summary Creates a virtual border router (VBR) failover group.
+   *
+   * @param request CreateVbrHaRequest
+   * @return CreateVbrHaResponse
+   */
   async createVbrHa(request: CreateVbrHaRequest): Promise<CreateVbrHaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVbrHaWithOptions(request, runtime);
   }
 
   /**
-    * *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](~~468249~~).
-    * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-    * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
-    * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](~~53046~~) to query the status of the task.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
-    * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
-    *
-    * @param request CreateVcoRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVcoRouteEntryResponse
+   * @summary Adds a destination-based route for an IPsec-VPN connection.
+   *
+   * @description *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
+   * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
+   * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
+   * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
+   *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
+   *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
+   * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+   *
+   * @param request CreateVcoRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVcoRouteEntryResponse
    */
   async createVcoRouteEntryWithOptions(request: CreateVcoRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVcoRouteEntryResponse> {
     Util.validateModel(request);
@@ -58154,16 +58725,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](~~468249~~).
-    * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-    * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
-    * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](~~53046~~) to query the status of the task.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
-    * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
-    *
-    * @param request CreateVcoRouteEntryRequest
-    * @return CreateVcoRouteEntryResponse
+   * @summary Adds a destination-based route for an IPsec-VPN connection.
+   *
+   * @description *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
+   * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
+   * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
+   * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
+   *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
+   *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
+   * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+   *
+   * @param request CreateVcoRouteEntryRequest
+   * @return CreateVcoRouteEntryResponse
    */
   async createVcoRouteEntry(request: CreateVcoRouteEntryRequest): Promise<CreateVcoRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58171,11 +58744,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you create a VBR, the VBR is in the **active** state.
-    *
-    * @param request CreateVirtualBorderRouterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVirtualBorderRouterResponse
+   * @summary Creates a virtual border router (VBR).
+   *
+   * @description After you create a VBR, the VBR is in the **active** state.
+   *
+   * @param request CreateVirtualBorderRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVirtualBorderRouterResponse
    */
   async createVirtualBorderRouterWithOptions(request: CreateVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualBorderRouterResponse> {
     Util.validateModel(request);
@@ -58286,10 +58861,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you create a VBR, the VBR is in the **active** state.
-    *
-    * @param request CreateVirtualBorderRouterRequest
-    * @return CreateVirtualBorderRouterResponse
+   * @summary Creates a virtual border router (VBR).
+   *
+   * @description After you create a VBR, the VBR is in the **active** state.
+   *
+   * @param request CreateVirtualBorderRouterRequest
+   * @return CreateVirtualBorderRouterResponse
    */
   async createVirtualBorderRouter(request: CreateVirtualBorderRouterRequest): Promise<CreateVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58297,12 +58874,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)Description
-    * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](~~146571~~) and [Operations performed by Express Connect partners](~~155987~~).
-    *
-    * @param request CreateVirtualPhysicalConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVirtualPhysicalConnectionResponse
+   * @summary Creates a hosted connection over Express Connect circuit.
+   *
+   * @description # [](#)Description
+   * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](https://help.aliyun.com/document_detail/146571.html) and [Operations performed by Express Connect partners](https://help.aliyun.com/document_detail/155987.html).
+   *
+   * @param request CreateVirtualPhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVirtualPhysicalConnectionResponse
    */
   async createVirtualPhysicalConnectionWithOptions(request: CreateVirtualPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualPhysicalConnectionResponse> {
     Util.validateModel(request);
@@ -58373,11 +58952,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)Description
-    * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](~~146571~~) and [Operations performed by Express Connect partners](~~155987~~).
-    *
-    * @param request CreateVirtualPhysicalConnectionRequest
-    * @return CreateVirtualPhysicalConnectionResponse
+   * @summary Creates a hosted connection over Express Connect circuit.
+   *
+   * @description # [](#)Description
+   * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](https://help.aliyun.com/document_detail/146571.html) and [Operations performed by Express Connect partners](https://help.aliyun.com/document_detail/155987.html).
+   *
+   * @param request CreateVirtualPhysicalConnectionRequest
+   * @return CreateVirtualPhysicalConnectionResponse
    */
   async createVirtualPhysicalConnection(request: CreateVirtualPhysicalConnectionRequest): Promise<CreateVirtualPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58385,20 +58966,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can specify only one CIDR block for each VPC.
-    * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
-    * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
-    * *   After you create a VPC, a vRouter and a route table are automatically created.
-    * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if both 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
-    * *   **CreateVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
-    *     *   If the VPC is in the **Creating** state, the VPC is being created.
-    *     *   If the VPC is in the **Created** state, the VPC is created.
-    * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
-    *
-    * @param request CreateVpcRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpcResponse
+   * @summary Creates a virtual private cloud (VPC).
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can specify only one CIDR block for each VPC.
+   * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
+   * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+   * *   After you create a VPC, a vRouter and a route table are automatically created.
+   * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if both 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+   * *   **CreateVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task:
+   *     *   If the VPC is in the **Creating** state, the VPC is being created.
+   *     *   If the VPC is in the **Created** state, the VPC is created.
+   * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
+   *
+   * @param request CreateVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpcResponse
    */
   async createVpcWithOptions(request: CreateVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcResponse> {
     Util.validateModel(request);
@@ -58493,19 +59076,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can specify only one CIDR block for each VPC.
-    * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
-    * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
-    * *   After you create a VPC, a vRouter and a route table are automatically created.
-    * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if both 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
-    * *   **CreateVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task:
-    *     *   If the VPC is in the **Creating** state, the VPC is being created.
-    *     *   If the VPC is in the **Created** state, the VPC is created.
-    * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
-    *
-    * @param request CreateVpcRequest
-    * @return CreateVpcResponse
+   * @summary Creates a virtual private cloud (VPC).
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can specify only one CIDR block for each VPC.
+   * *   After you create a VPC, you cannot change its CIDR block. However, you can add secondary IPv4 CIDR blocks to the VPC.
+   * *   In each VPC, cloud services can use a maximum of 60,000 private IP addresses. You cannot increase the quota.
+   * *   After you create a VPC, a vRouter and a route table are automatically created.
+   * *   At most three user CIDR blocks can be added to a VPC. If a user CIDR block includes another user CIDR block, the one with the shorter subnet mask takes effect. For example, if both 10.0.0.0/8 and 10.1.0.0/16 are specified, only 10.0.0.0/8 takes effect.
+   * *   **CreateVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task:
+   *     *   If the VPC is in the **Creating** state, the VPC is being created.
+   *     *   If the VPC is in the **Created** state, the VPC is created.
+   * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
+   *
+   * @param request CreateVpcRequest
+   * @return CreateVpcResponse
    */
   async createVpc(request: CreateVpcRequest): Promise<CreateVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58513,14 +59098,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](~~448682~~) operation to query the status of the task.
-    *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
-    *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
-    * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
-    *
-    * @param request CreateVpcGatewayEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpcGatewayEndpointResponse
+   * @summary Creates a gateway endpoint.
+   *
+   * @description *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](https://help.aliyun.com/document_detail/448682.html) operation to query the status of the task.
+   *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+   *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+   * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+   *
+   * @param request CreateVpcGatewayEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpcGatewayEndpointResponse
    */
   async createVpcGatewayEndpointWithOptions(request: CreateVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcGatewayEndpointResponse> {
     Util.validateModel(request);
@@ -58599,13 +59186,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](~~448682~~) operation to query the status of the task.
-    *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
-    *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
-    * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
-    *
-    * @param request CreateVpcGatewayEndpointRequest
-    * @return CreateVpcGatewayEndpointResponse
+   * @summary Creates a gateway endpoint.
+   *
+   * @description *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](https://help.aliyun.com/document_detail/448682.html) operation to query the status of the task.
+   *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+   *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+   * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+   *
+   * @param request CreateVpcGatewayEndpointRequest
+   * @return CreateVpcGatewayEndpointResponse
    */
   async createVpcGatewayEndpoint(request: CreateVpcGatewayEndpointRequest): Promise<CreateVpcGatewayEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58613,11 +59202,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
-    *
-    * @param request CreateVpcPrefixListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpcPrefixListResponse
+   * @summary Creates a prefix list.
+   *
+   * @description You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
+   *
+   * @param request CreateVpcPrefixListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpcPrefixListResponse
    */
   async createVpcPrefixListWithOptions(request: CreateVpcPrefixListRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcPrefixListResponse> {
     Util.validateModel(request);
@@ -58696,10 +59287,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
-    *
-    * @param request CreateVpcPrefixListRequest
-    * @return CreateVpcPrefixListResponse
+   * @summary Creates a prefix list.
+   *
+   * @description You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
+   *
+   * @param request CreateVpcPrefixListRequest
+   * @return CreateVpcPrefixListResponse
    */
   async createVpcPrefixList(request: CreateVpcPrefixListRequest): Promise<CreateVpcPrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58707,16 +59300,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
-    * Preparations:
-    * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](~~274385~~).
-    * What to do next:
-    * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](~~324198~~) operation to accept the shared port.
-    * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](~~324191~~) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
-    *
-    * @param request CreateVpconnFromVbrRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpconnFromVbrResponse
+   * @summary Adds a shared port to a hosted connection.
+   *
+   * @description If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
+   * Preparations:
+   * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html).
+   * What to do next:
+   * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](https://help.aliyun.com/document_detail/324198.html) operation to accept the shared port.
+   * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
+   *
+   * @param request CreateVpconnFromVbrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpconnFromVbrResponse
    */
   async createVpconnFromVbrWithOptions(request: CreateVpconnFromVbrRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpconnFromVbrResponse> {
     Util.validateModel(request);
@@ -58759,15 +59354,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
-    * Preparations:
-    * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](~~274385~~).
-    * What to do next:
-    * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](~~324198~~) operation to accept the shared port.
-    * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](~~324191~~) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
-    *
-    * @param request CreateVpconnFromVbrRequest
-    * @return CreateVpconnFromVbrResponse
+   * @summary Adds a shared port to a hosted connection.
+   *
+   * @description If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
+   * Preparations:
+   * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html).
+   * What to do next:
+   * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](https://help.aliyun.com/document_detail/324198.html) operation to accept the shared port.
+   * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
+   *
+   * @param request CreateVpconnFromVbrRequest
+   * @return CreateVpconnFromVbrResponse
    */
   async createVpconnFromVbr(request: CreateVpconnFromVbrRequest): Promise<CreateVpconnFromVbrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58775,14 +59372,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](~~443993~~) operation.
-    * ### [](#)Prerequisites
-    * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](~~120368~~).
-    * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
-    *
-    * @param request CreateVpnAttachmentRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpnAttachmentResponse
+   * @summary Creates an IPsec-VPN connection. After you create the IPsec-VPN connection, you can associate the IPsec-VPN connection with a transit router.
+   *
+   * @description By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation.
+   * ### [](#)Prerequisites
+   * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
+   * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
+   *
+   * @param request CreateVpnAttachmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpnAttachmentResponse
    */
   async createVpnAttachmentWithOptions(request: CreateVpnAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnAttachmentResponse> {
     Util.validateModel(request);
@@ -58889,13 +59488,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](~~443993~~) operation.
-    * ### [](#)Prerequisites
-    * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](~~120368~~).
-    * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
-    *
-    * @param request CreateVpnAttachmentRequest
-    * @return CreateVpnAttachmentResponse
+   * @summary Creates an IPsec-VPN connection. After you create the IPsec-VPN connection, you can associate the IPsec-VPN connection with a transit router.
+   *
+   * @description By default, an IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not associated with a resource. You can associate an IPsec-VPN connection with a transit router by calling the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation.
+   * ### [](#)Prerequisites
+   * Before you create an IPsec-VPN connection, make sure that you created a customer gateway in the region where you want to create the IPsec-VPN connection. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
+   * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
+   *
+   * @param request CreateVpnAttachmentRequest
+   * @return CreateVpnAttachmentResponse
    */
   async createVpnAttachment(request: CreateVpnAttachmentRequest): Promise<CreateVpnAttachmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -58903,19 +59504,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If the VPN gateway supports the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
-    *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
-    *     For more information about the regions and zones that support the dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](~~2358946~~).
-    * *   If the VPN gateway supports only the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
-    *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
-    * *   **CreateVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
-    *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is created.
-    * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
-    *
-    * @param request CreateVpnConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpnConnectionResponse
+   * @summary Creates an IPsec-VPN connection.
+   *
+   * @description *   If the VPN gateway supports the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
+   *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+   *     For more information about the regions and zones that support the dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+   * *   If the VPN gateway supports only the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
+   *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
+   * *   **CreateVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
+   *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is created.
+   * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
+   *
+   * @param request CreateVpnConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpnConnectionResponse
    */
   async createVpnConnectionWithOptions(request: CreateVpnConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnConnectionResponse> {
     Util.validateModel(request);
@@ -59037,18 +59640,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If the VPN gateway supports the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
-    *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
-    *     For more information about the regions and zones that support the dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](~~2358946~~).
-    * *   If the VPN gateway supports only the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
-    *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
-    * *   **CreateVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
-    *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is created.
-    * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
-    *
-    * @param request CreateVpnConnectionRequest
-    * @return CreateVpnConnectionResponse
+   * @summary Creates an IPsec-VPN connection.
+   *
+   * @description *   If the VPN gateway supports the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
+   *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+   *     For more information about the regions and zones that support the dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+   * *   If the VPN gateway supports only the dual-tunnel mode, you can specify the following parameters in addition to the required parameters when you call `CreateVpnConnection`:
+   *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
+   * *   **CreateVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being created.
+   *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is created.
+   * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
+   *
+   * @param request CreateVpnConnectionRequest
+   * @return CreateVpnConnectionResponse
    */
   async createVpnConnection(request: CreateVpnConnectionRequest): Promise<CreateVpnConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59056,15 +59661,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you create a VPN gateway, we recommend that you know more about the limits of VPN gateways. For more information, see the [Limits](~~65290~~) section in the "Create and manage a VPN gateway" topic.
-    * *   VPN gateways in some regions support only IPsec-VPN connections in dual-tunnel mode. If you call `CreateVpnGateway` in these regions, you must specify **VSwitchId** and **DisasterRecoveryVSwitchId** in addition to the required parameters. For more information about the regions and zones that support the IPsec-VPN connections in dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](~~2358946~~).
-    * *   **CreateVpnGateway** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the endpoint service is being created in the backend. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-    *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
-    *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
-    *
-    * @param request CreateVpnGatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpnGatewayResponse
+   * @summary Creates a VPN gateway.
+   *
+   * @description *   Before you create a VPN gateway, we recommend that you know more about the limits of VPN gateways. For more information, see the [Limits](https://help.aliyun.com/document_detail/65290.html) section in the "Create and manage a VPN gateway" topic.
+   * *   VPN gateways in some regions support only IPsec-VPN connections in dual-tunnel mode. If you call `CreateVpnGateway` in these regions, you must specify **VSwitchId** and **DisasterRecoveryVSwitchId** in addition to the required parameters. For more information about the regions and zones that support the IPsec-VPN connections in dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+   * *   **CreateVpnGateway** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the endpoint service is being created in the backend. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+   *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
+   *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
+   *
+   * @param request CreateVpnGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpnGatewayResponse
    */
   async createVpnGatewayWithOptions(request: CreateVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnGatewayResponse> {
     Util.validateModel(request);
@@ -59167,14 +59774,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you create a VPN gateway, we recommend that you know more about the limits of VPN gateways. For more information, see the [Limits](~~65290~~) section in the "Create and manage a VPN gateway" topic.
-    * *   VPN gateways in some regions support only IPsec-VPN connections in dual-tunnel mode. If you call `CreateVpnGateway` in these regions, you must specify **VSwitchId** and **DisasterRecoveryVSwitchId** in addition to the required parameters. For more information about the regions and zones that support the IPsec-VPN connections in dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](~~2358946~~).
-    * *   **CreateVpnGateway** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the endpoint service is being created in the backend. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-    *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
-    *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
-    *
-    * @param request CreateVpnGatewayRequest
-    * @return CreateVpnGatewayResponse
+   * @summary Creates a VPN gateway.
+   *
+   * @description *   Before you create a VPN gateway, we recommend that you know more about the limits of VPN gateways. For more information, see the [Limits](https://help.aliyun.com/document_detail/65290.html) section in the "Create and manage a VPN gateway" topic.
+   * *   VPN gateways in some regions support only IPsec-VPN connections in dual-tunnel mode. If you call `CreateVpnGateway` in these regions, you must specify **VSwitchId** and **DisasterRecoveryVSwitchId** in addition to the required parameters. For more information about the regions and zones that support the IPsec-VPN connections in dual-tunnel mode, see [IPsec-VPN connections support the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+   * *   **CreateVpnGateway** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the endpoint service is being created in the backend. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+   *     *   If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
+   *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
+   *
+   * @param request CreateVpnGatewayRequest
+   * @return CreateVpnGatewayResponse
    */
   async createVpnGateway(request: CreateVpnGatewayRequest): Promise<CreateVpnGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59182,16 +59791,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](~~110777~~).
-    * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](~~120391~~).
-    * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the VPN gateway.
-    *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
-    *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-    * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
-    *
-    * @param request CreateVpnPbrRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpnPbrRouteEntryResponse
+   * @summary Creates a policy-based route for a VPN gateway.
+   *
+   * @description *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
+   * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
+   * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
+   *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
+   *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+   * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+   *
+   * @param request CreateVpnPbrRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpnPbrRouteEntryResponse
    */
   async createVpnPbrRouteEntryWithOptions(request: CreateVpnPbrRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnPbrRouteEntryResponse> {
     Util.validateModel(request);
@@ -59274,15 +59885,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](~~110777~~).
-    * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](~~120391~~).
-    * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the VPN gateway.
-    *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
-    *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-    * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
-    *
-    * @param request CreateVpnPbrRouteEntryRequest
-    * @return CreateVpnPbrRouteEntryResponse
+   * @summary Creates a policy-based route for a VPN gateway.
+   *
+   * @description *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
+   * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
+   * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
+   *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
+   *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+   * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+   *
+   * @param request CreateVpnPbrRouteEntryRequest
+   * @return CreateVpnPbrRouteEntryResponse
    */
   async createVpnPbrRouteEntry(request: CreateVpnPbrRouteEntryRequest): Promise<CreateVpnPbrRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -59290,14 +59903,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
-    *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
-    * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
-    *
-    * @param request CreateVpnRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateVpnRouteEntryResponse
+   * @summary Creates a destination-based route entry for a VPN gateway.
+   *
+   * @description *   **CreateVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
+   *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
+   * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
+   *
+   * @param request CreateVpnRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVpnRouteEntryResponse
    */
   async createVpnRouteEntryWithOptions(request: CreateVpnRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnRouteEntryResponse> {
     Util.validateModel(request);
@@ -59372,19 +59987,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
-    *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
-    * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
-    *
-    * @param request CreateVpnRouteEntryRequest
-    * @return CreateVpnRouteEntryResponse
+   * @summary Creates a destination-based route entry for a VPN gateway.
+   *
+   * @description *   **CreateVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the destination-based route entry is being created.
+   *     *   If a VPN gateway is in the **active** state, the destination-based route entry has been created.
+   * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
+   *
+   * @param request CreateVpnRouteEntryRequest
+   * @return CreateVpnRouteEntryResponse
    */
   async createVpnRouteEntry(request: CreateVpnRouteEntryRequest): Promise<CreateVpnRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVpnRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 冻结路由器接口
+   *
+   * @param request DeactivateRouterInterfaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeactivateRouterInterfaceResponse
+   */
   async deactivateRouterInterfaceWithOptions(request: DeactivateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeactivateRouterInterfaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59425,20 +60049,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeactivateRouterInterfaceResponse>(await this.callApi(params, req, runtime), new DeactivateRouterInterfaceResponse({}));
   }
 
+  /**
+   * @summary 冻结路由器接口
+   *
+   * @param request DeactivateRouterInterfaceRequest
+   * @return DeactivateRouterInterfaceResponse
+   */
   async deactivateRouterInterface(request: DeactivateRouterInterfaceRequest): Promise<DeactivateRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deactivateRouterInterfaceWithOptions(request, runtime);
   }
 
   /**
-    * *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-    *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
-    *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
-    * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
-    *
-    * @param request DeactiveFlowLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeactiveFlowLogResponse
+   * @summary Disables a flow log. After a flow log is disabled, the system no longer captures the traffic information about a resource.
+   *
+   * @description *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+   *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
+   *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
+   * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
+   *
+   * @param request DeactiveFlowLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeactiveFlowLogResponse
    */
   async deactiveFlowLogWithOptions(request: DeactiveFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<DeactiveFlowLogResponse> {
     Util.validateModel(request);
@@ -59485,19 +60117,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-    *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
-    *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
-    * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
-    *
-    * @param request DeactiveFlowLogRequest
-    * @return DeactiveFlowLogResponse
+   * @summary Disables a flow log. After a flow log is disabled, the system no longer captures the traffic information about a resource.
+   *
+   * @description *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+   *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
+   *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
+   * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
+   *
+   * @param request DeactiveFlowLogRequest
+   * @return DeactiveFlowLogResponse
    */
   async deactiveFlowLog(request: DeactiveFlowLogRequest): Promise<DeactiveFlowLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deactiveFlowLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Border Gateway Protocol (BGP) group.
+   *
+   * @param request DeleteBgpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBgpGroupResponse
+   */
   async deleteBgpGroupWithOptions(request: DeleteBgpGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBgpGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59546,11 +60187,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBgpGroupResponse>(await this.callApi(params, req, runtime), new DeleteBgpGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a Border Gateway Protocol (BGP) group.
+   *
+   * @param request DeleteBgpGroupRequest
+   * @return DeleteBgpGroupResponse
+   */
   async deleteBgpGroup(request: DeleteBgpGroupRequest): Promise<DeleteBgpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBgpGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an advertised Border Gateway Protocol (BGP) network.
+   *
+   * @param request DeleteBgpNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBgpNetworkResponse
+   */
   async deleteBgpNetworkWithOptions(request: DeleteBgpNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBgpNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59603,11 +60257,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBgpNetworkResponse>(await this.callApi(params, req, runtime), new DeleteBgpNetworkResponse({}));
   }
 
+  /**
+   * @summary Deletes an advertised Border Gateway Protocol (BGP) network.
+   *
+   * @param request DeleteBgpNetworkRequest
+   * @return DeleteBgpNetworkResponse
+   */
   async deleteBgpNetwork(request: DeleteBgpNetworkRequest): Promise<DeleteBgpNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBgpNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Border Gateway Protocol (BGP) peer.
+   *
+   * @param request DeleteBgpPeerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBgpPeerResponse
+   */
   async deleteBgpPeerWithOptions(request: DeleteBgpPeerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBgpPeerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59656,17 +60323,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBgpPeerResponse>(await this.callApi(params, req, runtime), new DeleteBgpPeerResponse({}));
   }
 
+  /**
+   * @summary Deletes a Border Gateway Protocol (BGP) peer.
+   *
+   * @param request DeleteBgpPeerRequest
+   * @return DeleteBgpPeerResponse
+   */
   async deleteBgpPeer(request: DeleteBgpPeerRequest): Promise<DeleteBgpPeerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBgpPeerWithOptions(request, runtime);
   }
 
   /**
-    * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
-    *
-    * @param request DeleteCommonBandwidthPackageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteCommonBandwidthPackageResponse
+   * @summary Deletes an Internet Shared Bandwidth instance.
+   *
+   * @description You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
+   *
+   * @param request DeleteCommonBandwidthPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCommonBandwidthPackageResponse
    */
   async deleteCommonBandwidthPackageWithOptions(request: DeleteCommonBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCommonBandwidthPackageResponse> {
     Util.validateModel(request);
@@ -59717,16 +60392,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
-    *
-    * @param request DeleteCommonBandwidthPackageRequest
-    * @return DeleteCommonBandwidthPackageResponse
+   * @summary Deletes an Internet Shared Bandwidth instance.
+   *
+   * @description You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
+   *
+   * @param request DeleteCommonBandwidthPackageRequest
+   * @return DeleteCommonBandwidthPackageResponse
    */
   async deleteCommonBandwidthPackage(request: DeleteCommonBandwidthPackageRequest): Promise<DeleteCommonBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCommonBandwidthPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a customer gateway.
+   *
+   * @param request DeleteCustomerGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomerGatewayResponse
+   */
   async deleteCustomerGatewayWithOptions(request: DeleteCustomerGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomerGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59775,21 +60459,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomerGatewayResponse>(await this.callApi(params, req, runtime), new DeleteCustomerGatewayResponse({}));
   }
 
+  /**
+   * @summary Deletes a customer gateway.
+   *
+   * @param request DeleteCustomerGatewayRequest
+   * @return DeleteCustomerGatewayResponse
+   */
   async deleteCustomerGateway(request: DeleteCustomerGatewayRequest): Promise<DeleteCustomerGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomerGatewayWithOptions(request, runtime);
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](~~189208~~) operation to query the status of the task.
-    *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
-    *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
-    * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
-    *
-    * @param request DeleteDhcpOptionsSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDhcpOptionsSetResponse
+   * @summary Deletes a DHCP options set.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/189208.html) operation to query the status of the task.
+   *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
+   *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
+   * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
+   *
+   * @param request DeleteDhcpOptionsSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDhcpOptionsSetResponse
    */
   async deleteDhcpOptionsSetWithOptions(request: DeleteDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDhcpOptionsSetResponse> {
     Util.validateModel(request);
@@ -59844,20 +60536,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](~~189208~~) operation to query the status of the task.
-    *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
-    *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
-    * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
-    *
-    * @param request DeleteDhcpOptionsSetRequest
-    * @return DeleteDhcpOptionsSetResponse
+   * @summary Deletes a DHCP options set.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/189208.html) operation to query the status of the task.
+   *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
+   *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
+   * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
+   *
+   * @param request DeleteDhcpOptionsSetRequest
+   * @return DeleteDhcpOptionsSetResponse
    */
   async deleteDhcpOptionsSet(request: DeleteDhcpOptionsSetRequest): Promise<DeleteDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDhcpOptionsSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除高速通道Qos
+   *
+   * @param request DeleteExpressConnectTrafficQosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExpressConnectTrafficQosResponse
+   */
   async deleteExpressConnectTrafficQosWithOptions(request: DeleteExpressConnectTrafficQosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectTrafficQosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59906,11 +60607,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExpressConnectTrafficQosResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectTrafficQosResponse({}));
   }
 
+  /**
+   * @summary 删除高速通道Qos
+   *
+   * @param request DeleteExpressConnectTrafficQosRequest
+   * @return DeleteExpressConnectTrafficQosResponse
+   */
   async deleteExpressConnectTrafficQos(request: DeleteExpressConnectTrafficQosRequest): Promise<DeleteExpressConnectTrafficQosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteExpressConnectTrafficQosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除高速通道Qos队列
+   *
+   * @param request DeleteExpressConnectTrafficQosQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExpressConnectTrafficQosQueueResponse
+   */
   async deleteExpressConnectTrafficQosQueueWithOptions(request: DeleteExpressConnectTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectTrafficQosQueueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -59963,11 +60677,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExpressConnectTrafficQosQueueResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectTrafficQosQueueResponse({}));
   }
 
+  /**
+   * @summary 删除高速通道Qos队列
+   *
+   * @param request DeleteExpressConnectTrafficQosQueueRequest
+   * @return DeleteExpressConnectTrafficQosQueueResponse
+   */
   async deleteExpressConnectTrafficQosQueue(request: DeleteExpressConnectTrafficQosQueueRequest): Promise<DeleteExpressConnectTrafficQosQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteExpressConnectTrafficQosQueueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除高速通道Qos规则
+   *
+   * @param request DeleteExpressConnectTrafficQosRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExpressConnectTrafficQosRuleResponse
+   */
   async deleteExpressConnectTrafficQosRuleWithOptions(request: DeleteExpressConnectTrafficQosRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectTrafficQosRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60024,11 +60751,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExpressConnectTrafficQosRuleResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectTrafficQosRuleResponse({}));
   }
 
+  /**
+   * @summary 删除高速通道Qos规则
+   *
+   * @param request DeleteExpressConnectTrafficQosRuleRequest
+   * @return DeleteExpressConnectTrafficQosRuleResponse
+   */
   async deleteExpressConnectTrafficQosRule(request: DeleteExpressConnectTrafficQosRuleRequest): Promise<DeleteExpressConnectTrafficQosRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteExpressConnectTrafficQosRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除故障演练任务
+   *
+   * @param request DeleteFailoverTestJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFailoverTestJobResponse
+   */
   async deleteFailoverTestJobWithOptions(request: DeleteFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFailoverTestJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60077,20 +60817,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFailoverTestJobResponse>(await this.callApi(params, req, runtime), new DeleteFailoverTestJobResponse({}));
   }
 
+  /**
+   * @summary 删除故障演练任务
+   *
+   * @param request DeleteFailoverTestJobRequest
+   * @return DeleteFailoverTestJobResponse
+   */
   async deleteFailoverTestJob(request: DeleteFailoverTestJobRequest): Promise<DeleteFailoverTestJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFailoverTestJobWithOptions(request, runtime);
   }
 
   /**
-    * *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-    *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
-    *     *   If you cannot query the flow log, the flow log is deleted.
-    * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
-    *
-    * @param request DeleteFlowLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteFlowLogResponse
+   * @summary Deletes a flow log.
+   *
+   * @description *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+   *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
+   *     *   If you cannot query the flow log, the flow log is deleted.
+   * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
+   *
+   * @param request DeleteFlowLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFlowLogResponse
    */
   async deleteFlowLogWithOptions(request: DeleteFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowLogResponse> {
     Util.validateModel(request);
@@ -60137,13 +60885,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-    *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
-    *     *   If you cannot query the flow log, the flow log is deleted.
-    * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
-    *
-    * @param request DeleteFlowLogRequest
-    * @return DeleteFlowLogResponse
+   * @summary Deletes a flow log.
+   *
+   * @description *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+   *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
+   *     *   If you cannot query the flow log, the flow log is deleted.
+   * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
+   *
+   * @param request DeleteFlowLogRequest
+   * @return DeleteFlowLogResponse
    */
   async deleteFlowLog(request: DeleteFlowLogRequest): Promise<DeleteFlowLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60151,16 +60901,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-    *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
-    *     *   If the DNAT entry cannot be found, it is deleted.
-    * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
-    * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
-    *
-    * @param request DeleteForwardEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteForwardEntryResponse
+   * @summary Deletes a DNAT entry.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+   *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
+   *     *   If the DNAT entry cannot be found, it is deleted.
+   * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
+   * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
+   *
+   * @param request DeleteForwardEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteForwardEntryResponse
    */
   async deleteForwardEntryWithOptions(request: DeleteForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardEntryResponse> {
     Util.validateModel(request);
@@ -60215,15 +60967,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-    *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
-    *     *   If the DNAT entry cannot be found, it is deleted.
-    * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
-    * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
-    *
-    * @param request DeleteForwardEntryRequest
-    * @return DeleteForwardEntryResponse
+   * @summary Deletes a DNAT entry.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+   *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
+   *     *   If the DNAT entry cannot be found, it is deleted.
+   * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
+   * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
+   *
+   * @param request DeleteForwardEntryRequest
+   * @return DeleteForwardEntryResponse
    */
   async deleteForwardEntry(request: DeleteForwardEntryRequest): Promise<DeleteForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60231,15 +60985,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-    * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
-    * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
-    * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
-    *
-    * @param request DeleteFullNatEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteFullNatEntryResponse
+   * @summary Deletes a FULLNAT entry.
+   *
+   * @description ## [](#)Description
+   * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+   * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
+   * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
+   * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
+   *
+   * @param request DeleteFullNatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFullNatEntryResponse
    */
   async deleteFullNatEntryWithOptions(request: DeleteFullNatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFullNatEntryResponse> {
     Util.validateModel(request);
@@ -60298,14 +61054,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-    * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
-    * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
-    * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
-    *
-    * @param request DeleteFullNatEntryRequest
-    * @return DeleteFullNatEntryResponse
+   * @summary Deletes a FULLNAT entry.
+   *
+   * @description ## [](#)Description
+   * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+   * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
+   * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
+   * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
+   *
+   * @param request DeleteFullNatEntryRequest
+   * @return DeleteFullNatEntryResponse
    */
   async deleteFullNatEntry(request: DeleteFullNatEntryRequest): Promise<DeleteFullNatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60313,14 +61071,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can delete only pay-as-you-go instances.
-    * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
-    * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
-    *
-    * @param request DeleteGlobalAccelerationInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteGlobalAccelerationInstanceResponse
+   * @summary Deletes a Global Accelerator (GA) instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can delete only pay-as-you-go instances.
+   * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
+   * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
+   *
+   * @param request DeleteGlobalAccelerationInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGlobalAccelerationInstanceResponse
    */
   async deleteGlobalAccelerationInstanceWithOptions(request: DeleteGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
@@ -60367,13 +61127,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can delete only pay-as-you-go instances.
-    * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
-    * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
-    *
-    * @param request DeleteGlobalAccelerationInstanceRequest
-    * @return DeleteGlobalAccelerationInstanceResponse
+   * @summary Deletes a Global Accelerator (GA) instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can delete only pay-as-you-go instances.
+   * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
+   * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
+   *
+   * @param request DeleteGlobalAccelerationInstanceRequest
+   * @return DeleteGlobalAccelerationInstanceResponse
    */
   async deleteGlobalAccelerationInstance(request: DeleteGlobalAccelerationInstanceRequest): Promise<DeleteGlobalAccelerationInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60381,18 +61143,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following rules:
-    * *   You can delete only HAVIPs that are in the Available state.
-    * *   Make sure that no route points to the HAVIP that you want to delete.
-    * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
-    * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-    *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
-    *     *   If you cannot query the HAVIP, the HAVIP is deleted.
-    * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
-    *
-    * @param request DeleteHaVipRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteHaVipResponse
+   * @summary Deletes a high-availability virtual IP address (HAVIP).
+   *
+   * @description When you call this operation, take note of the following rules:
+   * *   You can delete only HAVIPs that are in the Available state.
+   * *   Make sure that no route points to the HAVIP that you want to delete.
+   * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
+   * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+   *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
+   *     *   If you cannot query the HAVIP, the HAVIP is deleted.
+   * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
+   *
+   * @param request DeleteHaVipRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHaVipResponse
    */
   async deleteHaVipWithOptions(request: DeleteHaVipRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHaVipResponse> {
     Util.validateModel(request);
@@ -60443,23 +61207,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following rules:
-    * *   You can delete only HAVIPs that are in the Available state.
-    * *   Make sure that no route points to the HAVIP that you want to delete.
-    * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
-    * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-    *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
-    *     *   If you cannot query the HAVIP, the HAVIP is deleted.
-    * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
-    *
-    * @param request DeleteHaVipRequest
-    * @return DeleteHaVipResponse
+   * @summary Deletes a high-availability virtual IP address (HAVIP).
+   *
+   * @description When you call this operation, take note of the following rules:
+   * *   You can delete only HAVIPs that are in the Available state.
+   * *   Make sure that no route points to the HAVIP that you want to delete.
+   * *   Make sure that no elastic IP address (EIP) is associated with the HAVIP that you want to delete.
+   * *   The **DeleteHaVip** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+   *     *   If the HAVIP is in the **Deleting** state, the HAVIP is being deleted.
+   *     *   If you cannot query the HAVIP, the HAVIP is deleted.
+   * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
+   *
+   * @param request DeleteHaVipRequest
+   * @return DeleteHaVipResponse
    */
   async deleteHaVip(request: DeleteHaVipRequest): Promise<DeleteHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHaVipWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an IPv6 Translation Service instance.
+   *
+   * @param request DeleteIPv6TranslatorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIPv6TranslatorResponse
+   */
   async deleteIPv6TranslatorWithOptions(request: DeleteIPv6TranslatorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIPv6TranslatorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -60508,17 +61281,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIPv6TranslatorResponse>(await this.callApi(params, req, runtime), new DeleteIPv6TranslatorResponse({}));
   }
 
+  /**
+   * @summary Deletes an IPv6 Translation Service instance.
+   *
+   * @param request DeleteIPv6TranslatorRequest
+   * @return DeleteIPv6TranslatorResponse
+   */
   async deleteIPv6Translator(request: DeleteIPv6TranslatorRequest): Promise<DeleteIPv6TranslatorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIPv6TranslatorWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DeleteIPv6TranslatorAclListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIPv6TranslatorAclListResponse
+   * @deprecated OpenAPI DeleteIPv6TranslatorAclList is deprecated
+   *
+   * @summary Deletes an access control list (ACL). You can delete an ACL only when the ACL is not associated with IPv6 translation mappings.
+   *
+   * @param request DeleteIPv6TranslatorAclListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIPv6TranslatorAclListResponse
    */
   // Deprecated
   async deleteIPv6TranslatorAclListWithOptions(request: DeleteIPv6TranslatorAclListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIPv6TranslatorAclListResponse> {
@@ -60570,10 +61351,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DeleteIPv6TranslatorAclListRequest
-    * @return DeleteIPv6TranslatorAclListResponse
+   * @deprecated OpenAPI DeleteIPv6TranslatorAclList is deprecated
+   *
+   * @summary Deletes an access control list (ACL). You can delete an ACL only when the ACL is not associated with IPv6 translation mappings.
+   *
+   * @param request DeleteIPv6TranslatorAclListRequest
+   * @return DeleteIPv6TranslatorAclListResponse
    */
   // Deprecated
   async deleteIPv6TranslatorAclList(request: DeleteIPv6TranslatorAclListRequest): Promise<DeleteIPv6TranslatorAclListResponse> {
@@ -60582,11 +61365,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DeleteIPv6TranslatorEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIPv6TranslatorEntryResponse
+   * @deprecated OpenAPI DeleteIPv6TranslatorEntry is deprecated
+   *
+   * @summary Deletes an IPv6 mapping entry.
+   *
+   * @param request DeleteIPv6TranslatorEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIPv6TranslatorEntryResponse
    */
   // Deprecated
   async deleteIPv6TranslatorEntryWithOptions(request: DeleteIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIPv6TranslatorEntryResponse> {
@@ -60642,10 +61427,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DeleteIPv6TranslatorEntryRequest
-    * @return DeleteIPv6TranslatorEntryResponse
+   * @deprecated OpenAPI DeleteIPv6TranslatorEntry is deprecated
+   *
+   * @summary Deletes an IPv6 mapping entry.
+   *
+   * @param request DeleteIPv6TranslatorEntryRequest
+   * @return DeleteIPv6TranslatorEntryResponse
    */
   // Deprecated
   async deleteIPv6TranslatorEntry(request: DeleteIPv6TranslatorEntryRequest): Promise<DeleteIPv6TranslatorEntryResponse> {
@@ -60654,14 +61441,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
-    *     *   If a VPN gateway is in the **active** state, the IPsec server is deleted.
-    * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
-    *
-    * @param request DeleteIpsecServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpsecServerResponse
+   * @summary Deletes an IPsec server.
+   *
+   * @description *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
+   *     *   If a VPN gateway is in the **active** state, the IPsec server is deleted.
+   * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
+   *
+   * @param request DeleteIpsecServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpsecServerResponse
    */
   async deleteIpsecServerWithOptions(request: DeleteIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpsecServerResponse> {
     Util.validateModel(request);
@@ -60700,13 +61489,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
-    *     *   If a VPN gateway is in the **active** state, the IPsec server is deleted.
-    * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
-    *
-    * @param request DeleteIpsecServerRequest
-    * @return DeleteIpsecServerResponse
+   * @summary Deletes an IPsec server.
+   *
+   * @description *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the IPsec server is being deleted.
+   *     *   If a VPN gateway is in the **active** state, the IPsec server is deleted.
+   * *   You cannot repeatedly call **DeleteIpsecServer** to delete an IPsec server from a VPN gateway within the specified period of time.
+   *
+   * @param request DeleteIpsecServerRequest
+   * @return DeleteIpsecServerResponse
    */
   async deleteIpsecServer(request: DeleteIpsecServerRequest): Promise<DeleteIpsecServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60714,16 +61505,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Description
-    * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
-    * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of the task.
-    *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
-    *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
-    * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
-    *
-    * @param request DeleteIpv4GatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpv4GatewayResponse
+   * @summary Deletes an IPv4 gateway.
+   *
+   * @description ### [](#)Description
+   * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
+   * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of the task.
+   *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
+   *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
+   * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
+   *
+   * @param request DeleteIpv4GatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpv4GatewayResponse
    */
   async deleteIpv4GatewayWithOptions(request: DeleteIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv4GatewayResponse> {
     Util.validateModel(request);
@@ -60782,15 +61575,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Description
-    * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
-    * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of the task.
-    *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
-    *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
-    * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
-    *
-    * @param request DeleteIpv4GatewayRequest
-    * @return DeleteIpv4GatewayResponse
+   * @summary Deletes an IPv4 gateway.
+   *
+   * @description ### [](#)Description
+   * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
+   * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of the task.
+   *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
+   *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
+   * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
+   *
+   * @param request DeleteIpv4GatewayRequest
+   * @return DeleteIpv4GatewayResponse
    */
   async deleteIpv4Gateway(request: DeleteIpv4GatewayRequest): Promise<DeleteIpv4GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60798,14 +61593,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
-    *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
-    *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
-    * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
-    *
-    * @param request DeleteIpv6EgressOnlyRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpv6EgressOnlyRuleResponse
+   * @summary Deletes an egress-only rule.
+   *
+   * @description *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
+   *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
+   *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
+   * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
+   *
+   * @param request DeleteIpv6EgressOnlyRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpv6EgressOnlyRuleResponse
    */
   async deleteIpv6EgressOnlyRuleWithOptions(request: DeleteIpv6EgressOnlyRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6EgressOnlyRuleResponse> {
     Util.validateModel(request);
@@ -60860,13 +61657,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](~~102208~~) operation to query the status of the task.
-    *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
-    *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
-    * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
-    *
-    * @param request DeleteIpv6EgressOnlyRuleRequest
-    * @return DeleteIpv6EgressOnlyRuleResponse
+   * @summary Deletes an egress-only rule.
+   *
+   * @description *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
+   *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
+   *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
+   * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
+   *
+   * @param request DeleteIpv6EgressOnlyRuleRequest
+   * @return DeleteIpv6EgressOnlyRuleResponse
    */
   async deleteIpv6EgressOnlyRule(request: DeleteIpv6EgressOnlyRuleRequest): Promise<DeleteIpv6EgressOnlyRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60874,15 +61673,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](~~102201~~).
-    * *   **DeleteIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the status of the task:
-    *     *   If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
-    *     *   If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
-    * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
-    *
-    * @param request DeleteIpv6GatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpv6GatewayResponse
+   * @summary Deletes an IPv6 gateway.
+   *
+   * @description Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
+   * *   **DeleteIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the status of the task:
+   *     *   If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+   *     *   If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
+   * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
+   *
+   * @param request DeleteIpv6GatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpv6GatewayResponse
    */
   async deleteIpv6GatewayWithOptions(request: DeleteIpv6GatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6GatewayResponse> {
     Util.validateModel(request);
@@ -60933,14 +61734,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](~~102201~~).
-    * *   **DeleteIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](~~102226~~) operation to query the status of the task:
-    *     *   If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
-    *     *   If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
-    * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
-    *
-    * @param request DeleteIpv6GatewayRequest
-    * @return DeleteIpv6GatewayResponse
+   * @summary Deletes an IPv6 gateway.
+   *
+   * @description Before you delete an IPv6 gateway, you must delete the egress-only rules of the IPv6 gateway. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
+   * *   **DeleteIpv6Gateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) operation to query the status of the task:
+   *     *   If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+   *     *   If you cannot query the IPv6 gateway, the IPv6 gateway is deleted.
+   * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
+   *
+   * @param request DeleteIpv6GatewayRequest
+   * @return DeleteIpv6GatewayResponse
    */
   async deleteIpv6Gateway(request: DeleteIpv6GatewayRequest): Promise<DeleteIpv6GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -60948,11 +61751,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
-    *
-    * @param request DeleteIpv6InternetBandwidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpv6InternetBandwidthResponse
+   * @summary Deletes Internet bandwidth.
+   *
+   * @description You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
+   *
+   * @param request DeleteIpv6InternetBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpv6InternetBandwidthResponse
    */
   async deleteIpv6InternetBandwidthWithOptions(request: DeleteIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
@@ -61007,10 +61812,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
-    *
-    * @param request DeleteIpv6InternetBandwidthRequest
-    * @return DeleteIpv6InternetBandwidthResponse
+   * @summary Deletes Internet bandwidth.
+   *
+   * @description You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
+   *
+   * @param request DeleteIpv6InternetBandwidthRequest
+   * @return DeleteIpv6InternetBandwidthResponse
    */
   async deleteIpv6InternetBandwidth(request: DeleteIpv6InternetBandwidthRequest): Promise<DeleteIpv6InternetBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61018,16 +61825,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) to query the status of the task.
-    *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
-    *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
-    *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
-    * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
-    *
-    * @param request DeleteNatGatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNatGatewayResponse
+   * @summary Deletes a specified Internet NAT gateway.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the task.
+   *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
+   *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
+   *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
+   * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
+   *
+   * @param request DeleteNatGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNatGatewayResponse
    */
   async deleteNatGatewayWithOptions(request: DeleteNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatGatewayResponse> {
     Util.validateModel(request);
@@ -61078,15 +61887,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](~~36054~~) to query the status of the task.
-    *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
-    *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
-    *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
-    * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
-    *
-    * @param request DeleteNatGatewayRequest
-    * @return DeleteNatGatewayResponse
+   * @summary Deletes a specified Internet NAT gateway.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the task.
+   *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
+   *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
+   *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
+   * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
+   *
+   * @param request DeleteNatGatewayRequest
+   * @return DeleteNatGatewayResponse
    */
   async deleteNatGateway(request: DeleteNatGatewayRequest): Promise<DeleteNatGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61094,15 +61905,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](~~281979~~) operation to query the status of the task.
-    *     *   If the NAT IP address is in the **Deleting** state, the NAT IP address is being deleted. In this case, you can only query the NAT IP address but cannot perform other operations.
-    *     *   If the NAT IP address cannot be found, it is deleted.
-    * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
-    *
-    * @param request DeleteNatIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNatIpResponse
+   * @summary Deletes a NAT IP address.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](https://help.aliyun.com/document_detail/281979.html) operation to query the status of the task.
+   *     *   If the NAT IP address is in the **Deleting** state, the NAT IP address is being deleted. In this case, you can only query the NAT IP address but cannot perform other operations.
+   *     *   If the NAT IP address cannot be found, it is deleted.
+   * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
+   *
+   * @param request DeleteNatIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNatIpResponse
    */
   async deleteNatIpWithOptions(request: DeleteNatIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatIpResponse> {
     Util.validateModel(request);
@@ -61161,14 +61974,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](~~281979~~) operation to query the status of the task.
-    *     *   If the NAT IP address is in the **Deleting** state, the NAT IP address is being deleted. In this case, you can only query the NAT IP address but cannot perform other operations.
-    *     *   If the NAT IP address cannot be found, it is deleted.
-    * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
-    *
-    * @param request DeleteNatIpRequest
-    * @return DeleteNatIpResponse
+   * @summary Deletes a NAT IP address.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteNatIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListNatIps](https://help.aliyun.com/document_detail/281979.html) operation to query the status of the task.
+   *     *   If the NAT IP address is in the **Deleting** state, the NAT IP address is being deleted. In this case, you can only query the NAT IP address but cannot perform other operations.
+   *     *   If the NAT IP address cannot be found, it is deleted.
+   * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
+   *
+   * @param request DeleteNatIpRequest
+   * @return DeleteNatIpResponse
    */
   async deleteNatIp(request: DeleteNatIpRequest): Promise<DeleteNatIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61176,12 +61991,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
-    *
-    * @param request DeleteNatIpCidrRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNatIpCidrResponse
+   * @summary Deletes a NAT CIDR block.
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
+   *
+   * @param request DeleteNatIpCidrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNatIpCidrResponse
    */
   async deleteNatIpCidrWithOptions(request: DeleteNatIpCidrRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatIpCidrResponse> {
     Util.validateModel(request);
@@ -61244,11 +62061,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
-    *
-    * @param request DeleteNatIpCidrRequest
-    * @return DeleteNatIpCidrResponse
+   * @summary Deletes a NAT CIDR block.
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
+   *
+   * @param request DeleteNatIpCidrRequest
+   * @return DeleteNatIpCidrResponse
    */
   async deleteNatIpCidr(request: DeleteNatIpCidrRequest): Promise<DeleteNatIpCidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61256,12 +62075,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
-    *
-    * @param request DeleteNetworkAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteNetworkAclResponse
+   * @summary Deletes a network access control list (ACL).
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
+   *
+   * @param request DeleteNetworkAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkAclResponse
    */
   async deleteNetworkAclWithOptions(request: DeleteNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkAclResponse> {
     Util.validateModel(request);
@@ -61320,11 +62141,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
-    *
-    * @param request DeleteNetworkAclRequest
-    * @return DeleteNetworkAclResponse
+   * @summary Deletes a network access control list (ACL).
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
+   *
+   * @param request DeleteNetworkAclRequest
+   * @return DeleteNetworkAclResponse
    */
   async deleteNetworkAcl(request: DeleteNetworkAclRequest): Promise<DeleteNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61332,11 +62155,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
-    *
-    * @param request DeletePhysicalConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeletePhysicalConnectionResponse
+   * @summary Deletes a connection over an Express Connect circuit.
+   *
+   * @description You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+   *
+   * @param request DeletePhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePhysicalConnectionResponse
    */
   async deletePhysicalConnectionWithOptions(request: DeletePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeletePhysicalConnectionResponse> {
     Util.validateModel(request);
@@ -61387,10 +62212,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
-    *
-    * @param request DeletePhysicalConnectionRequest
-    * @return DeletePhysicalConnectionResponse
+   * @summary Deletes a connection over an Express Connect circuit.
+   *
+   * @description You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+   *
+   * @param request DeletePhysicalConnectionRequest
+   * @return DeletePhysicalConnectionResponse
    */
   async deletePhysicalConnection(request: DeletePhysicalConnectionRequest): Promise<DeletePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61398,16 +62225,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
-    * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](~~429433~~) operation to query the status of the task.
-    *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
-    *     *   If you cannot query the IP address pool, the IP address pool is deleted.
-    * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
-    *
-    * @param request DeletePublicIpAddressPoolRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeletePublicIpAddressPoolResponse
+   * @summary Deletes an IP address pool.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
+   * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) operation to query the status of the task.
+   *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
+   *     *   If you cannot query the IP address pool, the IP address pool is deleted.
+   * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
+   *
+   * @param request DeletePublicIpAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePublicIpAddressPoolResponse
    */
   async deletePublicIpAddressPoolWithOptions(request: DeletePublicIpAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicIpAddressPoolResponse> {
     Util.validateModel(request);
@@ -61462,15 +62291,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
-    * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](~~429433~~) operation to query the status of the task.
-    *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
-    *     *   If you cannot query the IP address pool, the IP address pool is deleted.
-    * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
-    *
-    * @param request DeletePublicIpAddressPoolRequest
-    * @return DeletePublicIpAddressPoolResponse
+   * @summary Deletes an IP address pool.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
+   * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) operation to query the status of the task.
+   *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
+   *     *   If you cannot query the IP address pool, the IP address pool is deleted.
+   * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
+   *
+   * @param request DeletePublicIpAddressPoolRequest
+   * @return DeletePublicIpAddressPoolResponse
    */
   async deletePublicIpAddressPool(request: DeletePublicIpAddressPoolRequest): Promise<DeletePublicIpAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61478,16 +62309,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   Before you delete a CIDR block, make sure that it is not being used.
-    * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
-    *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
-    *     *   If you cannot query the CIDR block, the CIDR block is deleted.
-    * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
-    *
-    * @param request DeletePublicIpAddressPoolCidrBlockRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeletePublicIpAddressPoolCidrBlockResponse
+   * @summary Deletes a CIDR block from an IP address pool.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   Before you delete a CIDR block, make sure that it is not being used.
+   * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
+   *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
+   *     *   If you cannot query the CIDR block, the CIDR block is deleted.
+   * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
+   *
+   * @param request DeletePublicIpAddressPoolCidrBlockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePublicIpAddressPoolCidrBlockResponse
    */
   async deletePublicIpAddressPoolCidrBlockWithOptions(request: DeletePublicIpAddressPoolCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicIpAddressPoolCidrBlockResponse> {
     Util.validateModel(request);
@@ -61546,15 +62379,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   Before you delete a CIDR block, make sure that it is not being used.
-    * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](~~429436~~) operation to query the status of the task.
-    *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
-    *     *   If you cannot query the CIDR block, the CIDR block is deleted.
-    * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
-    *
-    * @param request DeletePublicIpAddressPoolCidrBlockRequest
-    * @return DeletePublicIpAddressPoolCidrBlockResponse
+   * @summary Deletes a CIDR block from an IP address pool.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   Before you delete a CIDR block, make sure that it is not being used.
+   * *   **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
+   *     *   If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only query the CIDR block and cannot perform other operations.
+   *     *   If you cannot query the CIDR block, the CIDR block is deleted.
+   * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
+   *
+   * @param request DeletePublicIpAddressPoolCidrBlockRequest
+   * @return DeletePublicIpAddressPoolCidrBlockResponse
    */
   async deletePublicIpAddressPoolCidrBlock(request: DeletePublicIpAddressPoolCidrBlockRequest): Promise<DeletePublicIpAddressPoolCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61562,17 +62397,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can delete only routes that are in the **Available** state.
-    * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
-    * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-    *     *   If the route is in the **Deleting** state, the route is being deleted.
-    *     *   If you cannot query the route, the route is deleted.
-    * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
-    *
-    * @param request DeleteRouteEntriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteRouteEntriesResponse
+   * @summary Deletes multiple custom route entries at a time.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can delete only routes that are in the **Available** state.
+   * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
+   * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+   *     *   If the route is in the **Deleting** state, the route is being deleted.
+   *     *   If you cannot query the route, the route is deleted.
+   * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
+   *
+   * @param request DeleteRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRouteEntriesResponse
    */
   async deleteRouteEntriesWithOptions(request: DeleteRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteEntriesResponse> {
     Util.validateModel(request);
@@ -61623,16 +62460,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can delete only routes that are in the **Available** state.
-    * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
-    * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-    *     *   If the route is in the **Deleting** state, the route is being deleted.
-    *     *   If you cannot query the route, the route is deleted.
-    * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
-    *
-    * @param request DeleteRouteEntriesRequest
-    * @return DeleteRouteEntriesResponse
+   * @summary Deletes multiple custom route entries at a time.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can delete only routes that are in the **Available** state.
+   * *   You cannot delete a route of a virtual private cloud (VPC) in which a vSwitch or another route is being created or deleted.
+   * *   **DeleteRouteEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+   *     *   If the route is in the **Deleting** state, the route is being deleted.
+   *     *   If you cannot query the route, the route is deleted.
+   * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
+   *
+   * @param request DeleteRouteEntriesRequest
+   * @return DeleteRouteEntriesResponse
    */
   async deleteRouteEntries(request: DeleteRouteEntriesRequest): Promise<DeleteRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61640,18 +62479,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can delete only routes that are in the **Available** state.
-    * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
-    * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](~~138148~~) operation to query the **NextHopId** of the route first.
-    * *   **DeleteRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-    *     *   If the route is in the **Deleting** state, the route is being deleted.
-    *     *   If you cannot query the route entry, the route entry is deleted.
-    * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
-    *
-    * @param request DeleteRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteRouteEntryResponse
+   * @summary Deletes a route entry from a route table of a VRouter or virtual border router (VBR).
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can delete only routes that are in the **Available** state.
+   * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
+   * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the **NextHopId** of the route first.
+   * *   **DeleteRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+   *     *   If the route is in the **Deleting** state, the route is being deleted.
+   *     *   If you cannot query the route entry, the route entry is deleted.
+   * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
+   *
+   * @param request DeleteRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRouteEntryResponse
    */
   async deleteRouteEntryWithOptions(request: DeleteRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteEntryResponse> {
     Util.validateModel(request);
@@ -61714,17 +62555,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   You can delete only routes that are in the **Available** state.
-    * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
-    * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](~~138148~~) operation to query the **NextHopId** of the route first.
-    * *   **DeleteRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](~~138148~~) operation to query the status of the task.
-    *     *   If the route is in the **Deleting** state, the route is being deleted.
-    *     *   If you cannot query the route entry, the route entry is deleted.
-    * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
-    *
-    * @param request DeleteRouteEntryRequest
-    * @return DeleteRouteEntryResponse
+   * @summary Deletes a route entry from a route table of a VRouter or virtual border router (VBR).
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   You can delete only routes that are in the **Available** state.
+   * *   You cannot delete a route entry of a virtual private cloud (VPC) in which a vSwitch or another route entry is being created or deleted.
+   * *   Before you call this operation to delete a route of a VBR route table, call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the **NextHopId** of the route first.
+   * *   **DeleteRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of the task.
+   *     *   If the route is in the **Deleting** state, the route is being deleted.
+   *     *   If you cannot query the route entry, the route entry is deleted.
+   * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
+   *
+   * @param request DeleteRouteEntryRequest
+   * @return DeleteRouteEntryResponse
    */
   async deleteRouteEntry(request: DeleteRouteEntryRequest): Promise<DeleteRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61732,15 +62575,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
-    *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
-    *     *   If you cannot query the custom route table, the custom route table is deleted.
-    * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
-    *
-    * @param request DeleteRouteTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteRouteTableResponse
+   * @summary Deletes a custom route table.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
+   *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
+   *     *   If you cannot query the custom route table, the custom route table is deleted.
+   * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
+   *
+   * @param request DeleteRouteTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRouteTableResponse
    */
   async deleteRouteTableWithOptions(request: DeleteRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteTableResponse> {
     Util.validateModel(request);
@@ -61791,14 +62636,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](~~87602~~) operation to query the status of the task.
-    *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
-    *     *   If you cannot query the custom route table, the custom route table is deleted.
-    * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
-    *
-    * @param request DeleteRouteTableRequest
-    * @return DeleteRouteTableResponse
+   * @summary Deletes a custom route table.
+   *
+   * @description ## [](#)Description
+   * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
+   *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
+   *     *   If you cannot query the custom route table, the custom route table is deleted.
+   * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
+   *
+   * @param request DeleteRouteTableRequest
+   * @return DeleteRouteTableResponse
    */
   async deleteRouteTable(request: DeleteRouteTableRequest): Promise<DeleteRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61806,13 +62653,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
-    * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
-    *
-    * @param request DeleteRouterInterfaceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteRouterInterfaceResponse
+   * @summary Deletes a router interface.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
+   * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
+   *
+   * @param request DeleteRouterInterfaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRouterInterfaceResponse
    */
   async deleteRouterInterfaceWithOptions(request: DeleteRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouterInterfaceResponse> {
     Util.validateModel(request);
@@ -61863,12 +62712,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
-    * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
-    *
-    * @param request DeleteRouterInterfaceRequest
-    * @return DeleteRouterInterfaceResponse
+   * @summary Deletes a router interface.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
+   * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
+   *
+   * @param request DeleteRouterInterfaceRequest
+   * @return DeleteRouterInterfaceResponse
    */
   async deleteRouterInterface(request: DeleteRouterInterfaceRequest): Promise<DeleteRouterInterfaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61876,14 +62727,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of SNAT entries.
-    * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
-    * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
-    * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
-    *
-    * @param request DeleteSnatEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSnatEntryResponse
+   * @summary Deletes an SNAT entry.
+   *
+   * @description DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of SNAT entries.
+   * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
+   * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
+   * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
+   *
+   * @param request DeleteSnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSnatEntryResponse
    */
   async deleteSnatEntryWithOptions(request: DeleteSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnatEntryResponse> {
     Util.validateModel(request);
@@ -61938,13 +62791,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of SNAT entries.
-    * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
-    * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
-    * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
-    *
-    * @param request DeleteSnatEntryRequest
-    * @return DeleteSnatEntryResponse
+   * @summary Deletes an SNAT entry.
+   *
+   * @description DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of SNAT entries.
+   * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
+   * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
+   * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
+   *
+   * @param request DeleteSnatEntryRequest
+   * @return DeleteSnatEntryResponse
    */
   async deleteSnatEntry(request: DeleteSnatEntryRequest): Promise<DeleteSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -61952,14 +62807,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
-    *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
-    * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
-    *
-    * @param request DeleteSslVpnClientCertRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSslVpnClientCertResponse
+   * @summary Deletes an SSL client certificate.
+   *
+   * @description *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
+   *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
+   * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
+   *
+   * @param request DeleteSslVpnClientCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSslVpnClientCertResponse
    */
   async deleteSslVpnClientCertWithOptions(request: DeleteSslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSslVpnClientCertResponse> {
     Util.validateModel(request);
@@ -62010,13 +62867,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
-    *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
-    * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
-    *
-    * @param request DeleteSslVpnClientCertRequest
-    * @return DeleteSslVpnClientCertResponse
+   * @summary Deletes an SSL client certificate.
+   *
+   * @description *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
+   *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
+   * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
+   *
+   * @param request DeleteSslVpnClientCertRequest
+   * @return DeleteSslVpnClientCertResponse
    */
   async deleteSslVpnClientCert(request: DeleteSslVpnClientCertRequest): Promise<DeleteSslVpnClientCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62024,14 +62883,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
-    *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
-    * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
-    *
-    * @param request DeleteSslVpnServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSslVpnServerResponse
+   * @summary Deletes an SSL server.
+   *
+   * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
+   *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
+   * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
+   *
+   * @param request DeleteSslVpnServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSslVpnServerResponse
    */
   async deleteSslVpnServerWithOptions(request: DeleteSslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSslVpnServerResponse> {
     Util.validateModel(request);
@@ -62082,13 +62943,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
-    *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
-    * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
-    *
-    * @param request DeleteSslVpnServerRequest
-    * @return DeleteSslVpnServerResponse
+   * @summary Deletes an SSL server.
+   *
+   * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
+   *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
+   * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
+   *
+   * @param request DeleteSslVpnServerRequest
+   * @return DeleteSslVpnServerResponse
    */
   async deleteSslVpnServer(request: DeleteSslVpnServerRequest): Promise<DeleteSslVpnServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62096,14 +62959,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DeleteTrafficMirrorFilter** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of a filter:
-    *     *   If the filter is in the **Deleting** state, the filter is being deleted.
-    *     *   If you cannot query the filter, the filter is deleted.
-    * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
-    *
-    * @param request DeleteTrafficMirrorFilterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTrafficMirrorFilterResponse
+   * @summary Deletes a filter of traffic mirroring.
+   *
+   * @description *   The **DeleteTrafficMirrorFilter** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of a filter:
+   *     *   If the filter is in the **Deleting** state, the filter is being deleted.
+   *     *   If you cannot query the filter, the filter is deleted.
+   * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
+   *
+   * @param request DeleteTrafficMirrorFilterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTrafficMirrorFilterResponse
    */
   async deleteTrafficMirrorFilterWithOptions(request: DeleteTrafficMirrorFilterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorFilterResponse> {
     Util.validateModel(request);
@@ -62158,13 +63023,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DeleteTrafficMirrorFilter** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of a filter:
-    *     *   If the filter is in the **Deleting** state, the filter is being deleted.
-    *     *   If you cannot query the filter, the filter is deleted.
-    * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
-    *
-    * @param request DeleteTrafficMirrorFilterRequest
-    * @return DeleteTrafficMirrorFilterResponse
+   * @summary Deletes a filter of traffic mirroring.
+   *
+   * @description *   The **DeleteTrafficMirrorFilter** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of a filter:
+   *     *   If the filter is in the **Deleting** state, the filter is being deleted.
+   *     *   If you cannot query the filter, the filter is deleted.
+   * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
+   *
+   * @param request DeleteTrafficMirrorFilterRequest
+   * @return DeleteTrafficMirrorFilterResponse
    */
   async deleteTrafficMirrorFilter(request: DeleteTrafficMirrorFilterRequest): Promise<DeleteTrafficMirrorFilterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62172,14 +63039,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
-    *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
-    *     *   If you cannot query the rule, the rule is deleted.
-    * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
-    *
-    * @param request DeleteTrafficMirrorFilterRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTrafficMirrorFilterRulesResponse
+   * @summary Deletes an inbound or outbound rule of a filter for traffic mirroring.
+   *
+   * @description *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the task.
+   *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
+   *     *   If you cannot query the rule, the rule is deleted.
+   * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
+   *
+   * @param request DeleteTrafficMirrorFilterRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTrafficMirrorFilterRulesResponse
    */
   async deleteTrafficMirrorFilterRulesWithOptions(request: DeleteTrafficMirrorFilterRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorFilterRulesResponse> {
     Util.validateModel(request);
@@ -62238,13 +63107,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](~~261353~~) to query the status of the task.
-    *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
-    *     *   If you cannot query the rule, the rule is deleted.
-    * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
-    *
-    * @param request DeleteTrafficMirrorFilterRulesRequest
-    * @return DeleteTrafficMirrorFilterRulesResponse
+   * @summary Deletes an inbound or outbound rule of a filter for traffic mirroring.
+   *
+   * @description *   **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the task.
+   *     *   If the inbound or outbound rule is in the **Deleting** state, the rule is being deleted.
+   *     *   If you cannot query the rule, the rule is deleted.
+   * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
+   *
+   * @param request DeleteTrafficMirrorFilterRulesRequest
+   * @return DeleteTrafficMirrorFilterRulesResponse
    */
   async deleteTrafficMirrorFilterRules(request: DeleteTrafficMirrorFilterRulesRequest): Promise<DeleteTrafficMirrorFilterRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62252,14 +63123,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteTrafficMirrorSession** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of a traffic mirror session.
-    *     *   If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
-    *     *   If you cannot query the traffic mirror session, the traffic mirror session is deleted.
-    * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
-    *
-    * @param request DeleteTrafficMirrorSessionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTrafficMirrorSessionResponse
+   * @summary Deletes a traffic mirror session.
+   *
+   * @description *   **DeleteTrafficMirrorSession** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of a traffic mirror session.
+   *     *   If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
+   *     *   If you cannot query the traffic mirror session, the traffic mirror session is deleted.
+   * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
+   *
+   * @param request DeleteTrafficMirrorSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTrafficMirrorSessionResponse
    */
   async deleteTrafficMirrorSessionWithOptions(request: DeleteTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorSessionResponse> {
     Util.validateModel(request);
@@ -62314,13 +63187,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteTrafficMirrorSession** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of a traffic mirror session.
-    *     *   If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
-    *     *   If you cannot query the traffic mirror session, the traffic mirror session is deleted.
-    * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
-    *
-    * @param request DeleteTrafficMirrorSessionRequest
-    * @return DeleteTrafficMirrorSessionResponse
+   * @summary Deletes a traffic mirror session.
+   *
+   * @description *   **DeleteTrafficMirrorSession** is an asynchronous operation. After you send the request, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of a traffic mirror session.
+   *     *   If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
+   *     *   If you cannot query the traffic mirror session, the traffic mirror session is deleted.
+   * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
+   *
+   * @param request DeleteTrafficMirrorSessionRequest
+   * @return DeleteTrafficMirrorSessionResponse
    */
   async deleteTrafficMirrorSession(request: DeleteTrafficMirrorSessionRequest): Promise<DeleteTrafficMirrorSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62328,18 +63203,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
-    * *   You can delete only vSwitches that are in the **Available** state.
-    * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
-    * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
-    *     *   If you cannot query the vSwitch, the vSwitch is deleted.
-    * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
-    *
-    * @param request DeleteVSwitchRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVSwitchResponse
+   * @summary Deletes a vSwitch.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
+   * *   You can delete only vSwitches that are in the **Available** state.
+   * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
+   * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
+   *     *   If you cannot query the vSwitch, the vSwitch is deleted.
+   * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
+   *
+   * @param request DeleteVSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVSwitchResponse
    */
   async deleteVSwitchWithOptions(request: DeleteVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchResponse> {
     Util.validateModel(request);
@@ -62386,17 +63263,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
-    * *   You can delete only vSwitches that are in the **Available** state.
-    * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
-    * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-    *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
-    *     *   If you cannot query the vSwitch, the vSwitch is deleted.
-    * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
-    *
-    * @param request DeleteVSwitchRequest
-    * @return DeleteVSwitchResponse
+   * @summary Deletes a vSwitch.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   Before you delete a vSwitch, you must first release or remove all virtual private cloud (VPC) resources, including vSwitches, instances, router interfaces, and high-availability virtual IP addresses (HAVIPs).
+   * *   You can delete only vSwitches that are in the **Available** state.
+   * *   You cannot delete a vSwitch from a VPC where a vSwitch or a route is being created or deleted.
+   * *   **DeleteVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+   *     *   If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
+   *     *   If you cannot query the vSwitch, the vSwitch is deleted.
+   * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
+   *
+   * @param request DeleteVSwitchRequest
+   * @return DeleteVSwitchResponse
    */
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62404,15 +63283,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   Before you call this operation, make sure that the IP address allocated to an elastic network interface (ENI) from the reserved CIDR block is deleted. If the IP address of the ENI is not deleted, call [UnassignPrivateIpAddresses](~~85919~~) or [UnassignIpv6Addresses](~~98611~~) to delete the IPv4 or IPv6 address.
-    * *   **DeleteVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](~~610155~~) to query the status of the task:
-    *     *   If the reserved CIDR block is in the **Releasing** state, it is being released.
-    *     *   If the reserved CIDR block is in the **Released** state, it is released.
-    *
-    * @param request DeleteVSwitchCidrReservationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVSwitchCidrReservationResponse
+   * @summary Deletes a reserved CIDR block of a vSwitch.
+   *
+   * @description ## [](#)Description
+   * *   Before you call this operation, make sure that the IP address allocated to an elastic network interface (ENI) from the reserved CIDR block is deleted. If the IP address of the ENI is not deleted, call [UnassignPrivateIpAddresses](https://help.aliyun.com/document_detail/85919.html) or [UnassignIpv6Addresses](https://help.aliyun.com/document_detail/98611.html) to delete the IPv4 or IPv6 address.
+   * *   **DeleteVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
+   *     *   If the reserved CIDR block is in the **Releasing** state, it is being released.
+   *     *   If the reserved CIDR block is in the **Released** state, it is released.
+   *
+   * @param request DeleteVSwitchCidrReservationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVSwitchCidrReservationResponse
    */
   async deleteVSwitchCidrReservationWithOptions(request: DeleteVSwitchCidrReservationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchCidrReservationResponse> {
     Util.validateModel(request);
@@ -62459,20 +63340,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   Before you call this operation, make sure that the IP address allocated to an elastic network interface (ENI) from the reserved CIDR block is deleted. If the IP address of the ENI is not deleted, call [UnassignPrivateIpAddresses](~~85919~~) or [UnassignIpv6Addresses](~~98611~~) to delete the IPv4 or IPv6 address.
-    * *   **DeleteVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](~~610155~~) to query the status of the task:
-    *     *   If the reserved CIDR block is in the **Releasing** state, it is being released.
-    *     *   If the reserved CIDR block is in the **Released** state, it is released.
-    *
-    * @param request DeleteVSwitchCidrReservationRequest
-    * @return DeleteVSwitchCidrReservationResponse
+   * @summary Deletes a reserved CIDR block of a vSwitch.
+   *
+   * @description ## [](#)Description
+   * *   Before you call this operation, make sure that the IP address allocated to an elastic network interface (ENI) from the reserved CIDR block is deleted. If the IP address of the ENI is not deleted, call [UnassignPrivateIpAddresses](https://help.aliyun.com/document_detail/85919.html) or [UnassignIpv6Addresses](https://help.aliyun.com/document_detail/98611.html) to delete the IPv4 or IPv6 address.
+   * *   **DeleteVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
+   *     *   If the reserved CIDR block is in the **Releasing** state, it is being released.
+   *     *   If the reserved CIDR block is in the **Released** state, it is released.
+   *
+   * @param request DeleteVSwitchCidrReservationRequest
+   * @return DeleteVSwitchCidrReservationResponse
    */
   async deleteVSwitchCidrReservation(request: DeleteVSwitchCidrReservationRequest): Promise<DeleteVSwitchCidrReservationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVSwitchCidrReservationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a virtual border router (VBR) failover group.
+   *
+   * @param request DeleteVbrHaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVbrHaResponse
+   */
   async deleteVbrHaWithOptions(request: DeleteVbrHaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVbrHaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62521,20 +63411,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVbrHaResponse>(await this.callApi(params, req, runtime), new DeleteVbrHaResponse({}));
   }
 
+  /**
+   * @summary Deletes a virtual border router (VBR) failover group.
+   *
+   * @param request DeleteVbrHaRequest
+   * @return DeleteVbrHaResponse
+   */
   async deleteVbrHa(request: DeleteVbrHaRequest): Promise<DeleteVbrHaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVbrHaWithOptions(request, runtime);
   }
 
   /**
-    * *   **DeleteVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
-    * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
-    *
-    * @param request DeleteVcoRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVcoRouteEntryResponse
+   * @summary Deletes a destination-based route from an IPsec-VPN connection.
+   *
+   * @description *   **DeleteVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task.
+   *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
+   *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
+   * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
+   *
+   * @param request DeleteVcoRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVcoRouteEntryResponse
    */
   async deleteVcoRouteEntryWithOptions(request: DeleteVcoRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVcoRouteEntryResponse> {
     Util.validateModel(request);
@@ -62597,13 +63495,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
-    * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
-    *
-    * @param request DeleteVcoRouteEntryRequest
-    * @return DeleteVcoRouteEntryResponse
+   * @summary Deletes a destination-based route from an IPsec-VPN connection.
+   *
+   * @description *   **DeleteVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task.
+   *     *   If the IPsec-VPN connection is in the **updating** state, the route is being deleted.
+   *     *   If the IPsec-VPN connection is in the **attached** state, the route is deleted.
+   * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
+   *
+   * @param request DeleteVcoRouteEntryRequest
+   * @return DeleteVcoRouteEntryResponse
    */
   async deleteVcoRouteEntry(request: DeleteVcoRouteEntryRequest): Promise<DeleteVcoRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62611,14 +63511,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following limits:
-    * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
-    * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
-    * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
-    *
-    * @param request DeleteVirtualBorderRouterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVirtualBorderRouterResponse
+   * @summary Deletes a virtual border router (VBR).
+   *
+   * @description Before you call this operation, take note of the following limits:
+   * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
+   * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
+   * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
+   *
+   * @param request DeleteVirtualBorderRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVirtualBorderRouterResponse
    */
   async deleteVirtualBorderRouterWithOptions(request: DeleteVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualBorderRouterResponse> {
     Util.validateModel(request);
@@ -62669,13 +63571,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following limits:
-    * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
-    * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
-    * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
-    *
-    * @param request DeleteVirtualBorderRouterRequest
-    * @return DeleteVirtualBorderRouterResponse
+   * @summary Deletes a virtual border router (VBR).
+   *
+   * @description Before you call this operation, take note of the following limits:
+   * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
+   * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
+   * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
+   *
+   * @param request DeleteVirtualBorderRouterRequest
+   * @return DeleteVirtualBorderRouterResponse
    */
   async deleteVirtualBorderRouter(request: DeleteVirtualBorderRouterRequest): Promise<DeleteVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62683,17 +63587,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
-    * *   You can delete only a VPC that is in the **Available** state.
-    * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a VPC:
-    *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
-    *     *   If you cannot query the VPC, the VPC is deleted.
-    * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
-    *
-    * @param request DeleteVpcRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpcResponse
+   * @summary Deletes a virtual private cloud (VPC).
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
+   * *   You can delete only a VPC that is in the **Available** state.
+   * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a VPC:
+   *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
+   *     *   If you cannot query the VPC, the VPC is deleted.
+   * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
+   *
+   * @param request DeleteVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpcResponse
    */
   async deleteVpcWithOptions(request: DeleteVpcRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcResponse> {
     Util.validateModel(request);
@@ -62748,22 +63654,31 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
-    * *   You can delete only a VPC that is in the **Available** state.
-    * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a VPC:
-    *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
-    *     *   If you cannot query the VPC, the VPC is deleted.
-    * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
-    *
-    * @param request DeleteVpcRequest
-    * @return DeleteVpcResponse
+   * @summary Deletes a virtual private cloud (VPC).
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   Before you delete a VPC, make sure that all resources deployed in the VPC are released or removed, such as vSwitches, instances, and high-availability virtual IP addresses (HAVIPs).
+   * *   You can delete only a VPC that is in the **Available** state.
+   * *   The **DeleteVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a VPC:
+   *     *   If the VPC is in the **Deleting** state, the VPC is being deleted.
+   *     *   If you cannot query the VPC, the VPC is deleted.
+   * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
+   *
+   * @param request DeleteVpcRequest
+   * @return DeleteVpcResponse
    */
   async deleteVpc(request: DeleteVpcRequest): Promise<DeleteVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a gateway endpoint.
+   *
+   * @param request DeleteVpcGatewayEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpcGatewayEndpointResponse
+   */
   async deleteVpcGatewayEndpointWithOptions(request: DeleteVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcGatewayEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -62816,17 +63731,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcGatewayEndpointResponse({}));
   }
 
+  /**
+   * @summary Deletes a gateway endpoint.
+   *
+   * @param request DeleteVpcGatewayEndpointRequest
+   * @return DeleteVpcGatewayEndpointResponse
+   */
   async deleteVpcGatewayEndpoint(request: DeleteVpcGatewayEndpointRequest): Promise<DeleteVpcGatewayEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcGatewayEndpointWithOptions(request, runtime);
   }
 
   /**
-    * You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
-    *
-    * @param request DeleteVpcPrefixListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpcPrefixListResponse
+   * @summary Deletes a prefix list.
+   *
+   * @description You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
+   *
+   * @param request DeleteVpcPrefixListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpcPrefixListResponse
    */
   async deleteVpcPrefixListWithOptions(request: DeleteVpcPrefixListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcPrefixListResponse> {
     Util.validateModel(request);
@@ -62881,10 +63804,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
-    *
-    * @param request DeleteVpcPrefixListRequest
-    * @return DeleteVpcPrefixListResponse
+   * @summary Deletes a prefix list.
+   *
+   * @description You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
+   *
+   * @param request DeleteVpcPrefixListRequest
+   * @return DeleteVpcPrefixListResponse
    */
   async deleteVpcPrefixList(request: DeleteVpcPrefixListRequest): Promise<DeleteVpcPrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62892,12 +63817,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](~~468251~~).
-    * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
-    *
-    * @param request DeleteVpnAttachmentRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpnAttachmentResponse
+   * @summary Deletes an IPsec-VPN connection.
+   *
+   * @description *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468251.html).
+   * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
+   *
+   * @param request DeleteVpnAttachmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpnAttachmentResponse
    */
   async deleteVpnAttachmentWithOptions(request: DeleteVpnAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnAttachmentResponse> {
     Util.validateModel(request);
@@ -62944,11 +63871,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](~~468251~~).
-    * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
-    *
-    * @param request DeleteVpnAttachmentRequest
-    * @return DeleteVpnAttachmentResponse
+   * @summary Deletes an IPsec-VPN connection.
+   *
+   * @description *   If an IPsec-VPN connection is associated with a transit router, you must disassociate the transit router from the IPsec-VPN connection before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468251.html).
+   * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
+   *
+   * @param request DeleteVpnAttachmentRequest
+   * @return DeleteVpnAttachmentResponse
    */
   async deleteVpnAttachment(request: DeleteVpnAttachmentRequest): Promise<DeleteVpnAttachmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -62956,15 +63885,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
-    *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
-    * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
-    * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
-    *
-    * @param request DeleteVpnConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpnConnectionResponse
+   * @summary Deletes an IPsec-VPN connection.
+   *
+   * @description *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
+   *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
+   * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
+   * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
+   *
+   * @param request DeleteVpnConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpnConnectionResponse
    */
   async deleteVpnConnectionWithOptions(request: DeleteVpnConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnConnectionResponse> {
     Util.validateModel(request);
@@ -63015,14 +63946,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
-    *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
-    * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
-    * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
-    *
-    * @param request DeleteVpnConnectionRequest
-    * @return DeleteVpnConnectionResponse
+   * @summary Deletes an IPsec-VPN connection.
+   *
+   * @description *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
+   *     *   If the VPN gateway is in the **active** state, the IPsec-VPN connection is deleted.
+   * *   You cannot repeatedly call **DeleteVpnConnection** to delete an IPsec-VPN connection from the same VPN gateway within the specified period of time.
+   * >  After an IPsec-VPN connection between a virtual private cloud (VPC) and a data center is deleted, the communication between the VPC and data center is interrupted.
+   *
+   * @param request DeleteVpnConnectionRequest
+   * @return DeleteVpnConnectionResponse
    */
   async deleteVpnConnection(request: DeleteVpnConnectionRequest): Promise<DeleteVpnConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -63030,11 +63963,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
-    *
-    * @param request DeleteVpnGatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpnGatewayResponse
+   * @summary Deletes a VPN gateway.
+   *
+   * @description >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
+   *
+   * @param request DeleteVpnGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpnGatewayResponse
    */
   async deleteVpnGatewayWithOptions(request: DeleteVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnGatewayResponse> {
     Util.validateModel(request);
@@ -63085,10 +64020,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
-    *
-    * @param request DeleteVpnGatewayRequest
-    * @return DeleteVpnGatewayResponse
+   * @summary Deletes a VPN gateway.
+   *
+   * @description >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
+   *
+   * @param request DeleteVpnGatewayRequest
+   * @return DeleteVpnGatewayResponse
    */
   async deleteVpnGateway(request: DeleteVpnGatewayRequest): Promise<DeleteVpnGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -63096,14 +64033,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
-    *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
-    * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
-    *
-    * @param request DeleteVpnPbrRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpnPbrRouteEntryResponse
+   * @summary Deletes a policy-based route from a VPN gateway.
+   *
+   * @description *   **DeleteVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
+   *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
+   * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
+   *
+   * @param request DeleteVpnPbrRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpnPbrRouteEntryResponse
    */
   async deleteVpnPbrRouteEntryWithOptions(request: DeleteVpnPbrRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnPbrRouteEntryResponse> {
     Util.validateModel(request);
@@ -63178,13 +64117,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
-    *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
-    * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
-    *
-    * @param request DeleteVpnPbrRouteEntryRequest
-    * @return DeleteVpnPbrRouteEntryResponse
+   * @summary Deletes a policy-based route from a VPN gateway.
+   *
+   * @description *   **DeleteVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the policy-based route is being deleted.
+   *     *   If a VPN gateway is in the **active** state, the policy-based route has been deleted.
+   * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
+   *
+   * @param request DeleteVpnPbrRouteEntryRequest
+   * @return DeleteVpnPbrRouteEntryResponse
    */
   async deleteVpnPbrRouteEntry(request: DeleteVpnPbrRouteEntryRequest): Promise<DeleteVpnPbrRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -63192,14 +64133,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
-    *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
-    * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
-    *
-    * @param request DeleteVpnRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVpnRouteEntryResponse
+   * @summary Deletes a destination-based route from a VPN gateway.
+   *
+   * @description *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
+   *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
+   * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
+   *
+   * @param request DeleteVpnRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpnRouteEntryResponse
    */
   async deleteVpnRouteEntryWithOptions(request: DeleteVpnRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnRouteEntryResponse> {
     Util.validateModel(request);
@@ -63266,13 +64209,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
-    *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
-    * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
-    *
-    * @param request DeleteVpnRouteEntryRequest
-    * @return DeleteVpnRouteEntryResponse
+   * @summary Deletes a destination-based route from a VPN gateway.
+   *
+   * @description *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
+   *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
+   * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
+   *
+   * @param request DeleteVpnRouteEntryRequest
+   * @return DeleteVpnRouteEntryResponse
    */
   async deleteVpnRouteEntry(request: DeleteVpnRouteEntryRequest): Promise<DeleteVpnRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -63280,11 +64225,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
-    *
-    * @param request DeletionProtectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeletionProtectionResponse
+   * @summary 设置实例删除保护功能。
+   *
+   * @description After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
+   *
+   * @param request DeletionProtectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletionProtectionResponse
    */
   async deletionProtectionWithOptions(request: DeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<DeletionProtectionResponse> {
     Util.validateModel(request);
@@ -63343,16 +64290,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
-    *
-    * @param request DeletionProtectionRequest
-    * @return DeletionProtectionResponse
+   * @summary 设置实例删除保护功能。
+   *
+   * @description After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
+   *
+   * @param request DeletionProtectionRequest
+   * @return DeletionProtectionResponse
    */
   async deletionProtection(request: DeletionProtectionRequest): Promise<DeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletionProtectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries traffic data of a pay-by-enhanced-95th-percentile Internet Shared Bandwidth instance.
+   *
+   * @param request Describe95TrafficRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return Describe95TrafficResponse
+   */
   async describe95TrafficWithOptions(request: Describe95TrafficRequest, runtime: $Util.RuntimeOptions): Promise<Describe95TrafficResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63405,11 +64361,24 @@ export default class Client extends OpenApi {
     return $tea.cast<Describe95TrafficResponse>(await this.callApi(params, req, runtime), new Describe95TrafficResponse({}));
   }
 
+  /**
+   * @summary Queries traffic data of a pay-by-enhanced-95th-percentile Internet Shared Bandwidth instance.
+   *
+   * @param request Describe95TrafficRequest
+   * @return Describe95TrafficResponse
+   */
   async describe95Traffic(request: Describe95TrafficRequest): Promise<Describe95TrafficResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describe95TrafficWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the access points of Express Connect circuits in a region.
+   *
+   * @param request DescribeAccessPointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessPointsResponse
+   */
   async describeAccessPointsWithOptions(request: DescribeAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessPointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63458,11 +64427,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessPointsResponse>(await this.callApi(params, req, runtime), new DescribeAccessPointsResponse({}));
   }
 
+  /**
+   * @summary Queries the access points of Express Connect circuits in a region.
+   *
+   * @param request DescribeAccessPointsRequest
+   * @return DescribeAccessPointsResponse
+   */
   async describeAccessPoints(request: DescribeAccessPointsRequest): Promise<DescribeAccessPointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessPointsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+   *
+   * @param request DescribeBgpGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBgpGroupsResponse
+   */
   async describeBgpGroupsWithOptions(request: DescribeBgpGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBgpGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63523,11 +64505,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBgpGroupsResponse>(await this.callApi(params, req, runtime), new DescribeBgpGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+   *
+   * @param request DescribeBgpGroupsRequest
+   * @return DescribeBgpGroupsResponse
+   */
   async describeBgpGroups(request: DescribeBgpGroupsRequest): Promise<DescribeBgpGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBgpGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries advertised Border Gateway Protocol (BGP) networks.
+   *
+   * @param request DescribeBgpNetworksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBgpNetworksResponse
+   */
   async describeBgpNetworksWithOptions(request: DescribeBgpNetworksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBgpNetworksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63580,11 +64575,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBgpNetworksResponse>(await this.callApi(params, req, runtime), new DescribeBgpNetworksResponse({}));
   }
 
+  /**
+   * @summary Queries advertised Border Gateway Protocol (BGP) networks.
+   *
+   * @param request DescribeBgpNetworksRequest
+   * @return DescribeBgpNetworksResponse
+   */
   async describeBgpNetworks(request: DescribeBgpNetworksRequest): Promise<DescribeBgpNetworksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBgpNetworksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Border Gateway Protocol (BGP) peers in a region.
+   *
+   * @param request DescribeBgpPeersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBgpPeersResponse
+   */
   async describeBgpPeersWithOptions(request: DescribeBgpPeersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBgpPeersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63649,11 +64657,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBgpPeersResponse>(await this.callApi(params, req, runtime), new DescribeBgpPeersResponse({}));
   }
 
+  /**
+   * @summary Queries Border Gateway Protocol (BGP) peers in a region.
+   *
+   * @param request DescribeBgpPeersRequest
+   * @return DescribeBgpPeersResponse
+   */
   async describeBgpPeers(request: DescribeBgpPeersRequest): Promise<DescribeBgpPeersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBgpPeersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of Internet Shared Bandwidth instances in a region.
+   *
+   * @param request DescribeCommonBandwidthPackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCommonBandwidthPackagesResponse
+   */
   async describeCommonBandwidthPackagesWithOptions(request: DescribeCommonBandwidthPackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommonBandwidthPackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63730,11 +64751,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommonBandwidthPackagesResponse>(await this.callApi(params, req, runtime), new DescribeCommonBandwidthPackagesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of Internet Shared Bandwidth instances in a region.
+   *
+   * @param request DescribeCommonBandwidthPackagesRequest
+   * @return DescribeCommonBandwidthPackagesResponse
+   */
   async describeCommonBandwidthPackages(request: DescribeCommonBandwidthPackagesRequest): Promise<DescribeCommonBandwidthPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommonBandwidthPackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries details of a customer gateway.
+   *
+   * @param request DescribeCustomerGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomerGatewayResponse
+   */
   async describeCustomerGatewayWithOptions(request: DescribeCustomerGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomerGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63779,11 +64813,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomerGatewayResponse>(await this.callApi(params, req, runtime), new DescribeCustomerGatewayResponse({}));
   }
 
+  /**
+   * @summary Queries details of a customer gateway.
+   *
+   * @param request DescribeCustomerGatewayRequest
+   * @return DescribeCustomerGatewayResponse
+   */
   async describeCustomerGateway(request: DescribeCustomerGatewayRequest): Promise<DescribeCustomerGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomerGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries customer gateways.
+   *
+   * @param request DescribeCustomerGatewaysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomerGatewaysResponse
+   */
   async describeCustomerGatewaysWithOptions(request: DescribeCustomerGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomerGatewaysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63844,11 +64891,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomerGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeCustomerGatewaysResponse({}));
   }
 
+  /**
+   * @summary Queries customer gateways.
+   *
+   * @param request DescribeCustomerGatewaysRequest
+   * @return DescribeCustomerGatewaysResponse
+   */
   async describeCustomerGateways(request: DescribeCustomerGatewaysRequest): Promise<DescribeCustomerGatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomerGatewaysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether permissions on a virtual private cloud (VPC) are granted to a virtual border router (VBR).
+   *
+   * @param request DescribeEcGrantRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEcGrantRelationResponse
+   */
   async describeEcGrantRelationWithOptions(request: DescribeEcGrantRelationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEcGrantRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -63889,17 +64949,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEcGrantRelationResponse>(await this.callApi(params, req, runtime), new DescribeEcGrantRelationResponse({}));
   }
 
+  /**
+   * @summary Queries whether permissions on a virtual private cloud (VPC) are granted to a virtual border router (VBR).
+   *
+   * @param request DescribeEcGrantRelationRequest
+   * @return DescribeEcGrantRelationResponse
+   */
   async describeEcGrantRelation(request: DescribeEcGrantRelationRequest): Promise<DescribeEcGrantRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEcGrantRelationWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
-    *
-    * @param request DescribeEipAddressesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEipAddressesResponse
+   * @summary Queries elastic IP addresses (EIPs) created in a region.
+   *
+   * @description You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
+   *
+   * @param request DescribeEipAddressesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEipAddressesResponse
    */
   async describeEipAddressesWithOptions(request: DescribeEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipAddressesResponse> {
     Util.validateModel(request);
@@ -64022,10 +65090,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
-    *
-    * @param request DescribeEipAddressesRequest
-    * @return DescribeEipAddressesResponse
+   * @summary Queries elastic IP addresses (EIPs) created in a region.
+   *
+   * @description You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
+   *
+   * @param request DescribeEipAddressesRequest
+   * @return DescribeEipAddressesResponse
    */
   async describeEipAddresses(request: DescribeEipAddressesRequest): Promise<DescribeEipAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -64033,11 +65103,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
-    *
-    * @param request DescribeEipGatewayInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEipGatewayInfoResponse
+   * @summary Queries the gateway and subnet mask of an elastic IP address (EIP).
+   *
+   * @description You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
+   *
+   * @param request DescribeEipGatewayInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEipGatewayInfoResponse
    */
   async describeEipGatewayInfoWithOptions(request: DescribeEipGatewayInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipGatewayInfoResponse> {
     Util.validateModel(request);
@@ -64088,10 +65160,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
-    *
-    * @param request DescribeEipGatewayInfoRequest
-    * @return DescribeEipGatewayInfoResponse
+   * @summary Queries the gateway and subnet mask of an elastic IP address (EIP).
+   *
+   * @description You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
+   *
+   * @param request DescribeEipGatewayInfoRequest
+   * @return DescribeEipGatewayInfoResponse
    */
   async describeEipGatewayInfo(request: DescribeEipGatewayInfoRequest): Promise<DescribeEipGatewayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -64099,11 +65173,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](~~51936~~) and [EIP monitoring data](~~162874~~).
-    *
-    * @param request DescribeEipMonitorDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEipMonitorDataResponse
+   * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+   *
+   * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
+   *
+   * @param request DescribeEipMonitorDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEipMonitorDataResponse
    */
   async describeEipMonitorDataWithOptions(request: DescribeEipMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipMonitorDataResponse> {
     Util.validateModel(request);
@@ -64162,16 +65238,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](~~51936~~) and [EIP monitoring data](~~162874~~).
-    *
-    * @param request DescribeEipMonitorDataRequest
-    * @return DescribeEipMonitorDataResponse
+   * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+   *
+   * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
+   *
+   * @param request DescribeEipMonitorDataRequest
+   * @return DescribeEipMonitorDataResponse
    */
   async describeEipMonitorData(request: DescribeEipMonitorDataRequest): Promise<DescribeEipMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipMonitorDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries contiguous elastic IP address (EIP) groups.
+   *
+   * @param request DescribeEipSegmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEipSegmentResponse
+   */
   async describeEipSegmentWithOptions(request: DescribeEipSegmentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipSegmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64228,11 +65313,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEipSegmentResponse>(await this.callApi(params, req, runtime), new DescribeEipSegmentResponse({}));
   }
 
+  /**
+   * @summary Queries contiguous elastic IP address (EIP) groups.
+   *
+   * @param request DescribeEipSegmentRequest
+   * @return DescribeEipSegmentResponse
+   */
   async describeEipSegment(request: DescribeEipSegmentRequest): Promise<DescribeEipSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipSegmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询高速通道Qos
+   *
+   * @param request DescribeExpressConnectTrafficQosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectTrafficQosResponse
+   */
   async describeExpressConnectTrafficQosWithOptions(request: DescribeExpressConnectTrafficQosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectTrafficQosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64293,11 +65391,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectTrafficQosResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectTrafficQosResponse({}));
   }
 
+  /**
+   * @summary 查询高速通道Qos
+   *
+   * @param request DescribeExpressConnectTrafficQosRequest
+   * @return DescribeExpressConnectTrafficQosResponse
+   */
   async describeExpressConnectTrafficQos(request: DescribeExpressConnectTrafficQosRequest): Promise<DescribeExpressConnectTrafficQosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectTrafficQosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询高速通道Qos队列
+   *
+   * @param request DescribeExpressConnectTrafficQosQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectTrafficQosQueueResponse
+   */
   async describeExpressConnectTrafficQosQueueWithOptions(request: DescribeExpressConnectTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectTrafficQosQueueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64354,11 +65465,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectTrafficQosQueueResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectTrafficQosQueueResponse({}));
   }
 
+  /**
+   * @summary 查询高速通道Qos队列
+   *
+   * @param request DescribeExpressConnectTrafficQosQueueRequest
+   * @return DescribeExpressConnectTrafficQosQueueResponse
+   */
   async describeExpressConnectTrafficQosQueue(request: DescribeExpressConnectTrafficQosQueueRequest): Promise<DescribeExpressConnectTrafficQosQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectTrafficQosQueueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询高速通道Qos规则
+   *
+   * @param request DescribeExpressConnectTrafficQosRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectTrafficQosRuleResponse
+   */
   async describeExpressConnectTrafficQosRuleWithOptions(request: DescribeExpressConnectTrafficQosRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectTrafficQosRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64419,11 +65543,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectTrafficQosRuleResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectTrafficQosRuleResponse({}));
   }
 
+  /**
+   * @summary 查询高速通道Qos规则
+   *
+   * @param request DescribeExpressConnectTrafficQosRuleRequest
+   * @return DescribeExpressConnectTrafficQosRuleResponse
+   */
   async describeExpressConnectTrafficQosRule(request: DescribeExpressConnectTrafficQosRuleRequest): Promise<DescribeExpressConnectTrafficQosRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectTrafficQosRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询故障演练任务详情
+   *
+   * @param request DescribeFailoverTestJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFailoverTestJobResponse
+   */
   async describeFailoverTestJobWithOptions(request: DescribeFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFailoverTestJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64472,11 +65609,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFailoverTestJobResponse>(await this.callApi(params, req, runtime), new DescribeFailoverTestJobResponse({}));
   }
 
+  /**
+   * @summary 查询故障演练任务详情
+   *
+   * @param request DescribeFailoverTestJobRequest
+   * @return DescribeFailoverTestJobResponse
+   */
   async describeFailoverTestJob(request: DescribeFailoverTestJobRequest): Promise<DescribeFailoverTestJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFailoverTestJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询故障演练任务
+   *
+   * @param request DescribeFailoverTestJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFailoverTestJobsResponse
+   */
   async describeFailoverTestJobsWithOptions(request: DescribeFailoverTestJobsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFailoverTestJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64533,11 +65683,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFailoverTestJobsResponse>(await this.callApi(params, req, runtime), new DescribeFailoverTestJobsResponse({}));
   }
 
+  /**
+   * @summary 批量查询故障演练任务
+   *
+   * @param request DescribeFailoverTestJobsRequest
+   * @return DescribeFailoverTestJobsResponse
+   */
   async describeFailoverTestJobs(request: DescribeFailoverTestJobsRequest): Promise<DescribeFailoverTestJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFailoverTestJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about flow logs.
+   *
+   * @param request DescribeFlowLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFlowLogsResponse
+   */
   async describeFlowLogsWithOptions(request: DescribeFlowLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64634,11 +65797,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFlowLogsResponse>(await this.callApi(params, req, runtime), new DescribeFlowLogsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about flow logs.
+   *
+   * @param request DescribeFlowLogsRequest
+   * @return DescribeFlowLogsResponse
+   */
   async describeFlowLogs(request: DescribeFlowLogsRequest): Promise<DescribeFlowLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFlowLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries DNAT entries.
+   *
+   * @param request DescribeForwardTableEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeForwardTableEntriesResponse
+   */
   async describeForwardTableEntriesWithOptions(request: DescribeForwardTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeForwardTableEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64723,11 +65899,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeForwardTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeForwardTableEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries DNAT entries.
+   *
+   * @param request DescribeForwardTableEntriesRequest
+   * @return DescribeForwardTableEntriesResponse
+   */
   async describeForwardTableEntries(request: DescribeForwardTableEntriesRequest): Promise<DescribeForwardTableEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeForwardTableEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Global Accelerator (GA) instances.
+   *
+   * @param request DescribeGlobalAccelerationInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalAccelerationInstancesResponse
+   */
   async describeGlobalAccelerationInstancesWithOptions(request: DescribeGlobalAccelerationInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalAccelerationInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64808,11 +65997,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalAccelerationInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGlobalAccelerationInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries Global Accelerator (GA) instances.
+   *
+   * @param request DescribeGlobalAccelerationInstancesRequest
+   * @return DescribeGlobalAccelerationInstancesResponse
+   */
   async describeGlobalAccelerationInstances(request: DescribeGlobalAccelerationInstancesRequest): Promise<DescribeGlobalAccelerationInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalAccelerationInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息
+   *
+   * @param request DescribeGrantRulesToCenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGrantRulesToCenResponse
+   */
   async describeGrantRulesToCenWithOptions(request: DescribeGrantRulesToCenRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGrantRulesToCenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64877,11 +66079,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGrantRulesToCenResponse>(await this.callApi(params, req, runtime), new DescribeGrantRulesToCenResponse({}));
   }
 
+  /**
+   * @summary 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息
+   *
+   * @param request DescribeGrantRulesToCenRequest
+   * @return DescribeGrantRulesToCenResponse
+   */
   async describeGrantRulesToCen(request: DescribeGrantRulesToCenRequest): Promise<DescribeGrantRulesToCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGrantRulesToCenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries HAVIPs in a region.
+   *
+   * @param request DescribeHaVipsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHaVipsResponse
+   */
   async describeHaVipsWithOptions(request: DescribeHaVipsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHaVipsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64942,11 +66157,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHaVipsResponse>(await this.callApi(params, req, runtime), new DescribeHaVipsResponse({}));
   }
 
+  /**
+   * @summary Queries HAVIPs in a region.
+   *
+   * @param request DescribeHaVipsRequest
+   * @return DescribeHaVipsResponse
+   */
   async describeHaVips(request: DescribeHaVipsRequest): Promise<DescribeHaVipsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHaVipsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries configurations about the fine-grained monitoring feature of an elastic IP address (EIP).
+   *
+   * @param request DescribeHighDefinitionMonitorLogAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHighDefinitionMonitorLogAttributeResponse
+   */
   async describeHighDefinitionMonitorLogAttributeWithOptions(request: DescribeHighDefinitionMonitorLogAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHighDefinitionMonitorLogAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -64995,11 +66223,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHighDefinitionMonitorLogAttributeResponse>(await this.callApi(params, req, runtime), new DescribeHighDefinitionMonitorLogAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries configurations about the fine-grained monitoring feature of an elastic IP address (EIP).
+   *
+   * @param request DescribeHighDefinitionMonitorLogAttributeRequest
+   * @return DescribeHighDefinitionMonitorLogAttributeResponse
+   */
   async describeHighDefinitionMonitorLogAttribute(request: DescribeHighDefinitionMonitorLogAttributeRequest): Promise<DescribeHighDefinitionMonitorLogAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHighDefinitionMonitorLogAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an access control list (ACL), including the specified IP addresses and associated IPv6 mapping entries.
+   *
+   * @param request DescribeIPv6TranslatorAclListAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIPv6TranslatorAclListAttributesResponse
+   */
   async describeIPv6TranslatorAclListAttributesWithOptions(request: DescribeIPv6TranslatorAclListAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorAclListAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65052,17 +66293,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIPv6TranslatorAclListAttributesResponse>(await this.callApi(params, req, runtime), new DescribeIPv6TranslatorAclListAttributesResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an access control list (ACL), including the specified IP addresses and associated IPv6 mapping entries.
+   *
+   * @param request DescribeIPv6TranslatorAclListAttributesRequest
+   * @return DescribeIPv6TranslatorAclListAttributesResponse
+   */
   async describeIPv6TranslatorAclListAttributes(request: DescribeIPv6TranslatorAclListAttributesRequest): Promise<DescribeIPv6TranslatorAclListAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIPv6TranslatorAclListAttributesWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeIPv6TranslatorAclListsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeIPv6TranslatorAclListsResponse
+   * @deprecated OpenAPI DescribeIPv6TranslatorAclLists is deprecated
+   *
+   * @summary Queries access control lists (ACLs).
+   *
+   * @param request DescribeIPv6TranslatorAclListsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIPv6TranslatorAclListsResponse
    */
   // Deprecated
   async describeIPv6TranslatorAclListsWithOptions(request: DescribeIPv6TranslatorAclListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorAclListsResponse> {
@@ -65122,10 +66371,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeIPv6TranslatorAclListsRequest
-    * @return DescribeIPv6TranslatorAclListsResponse
+   * @deprecated OpenAPI DescribeIPv6TranslatorAclLists is deprecated
+   *
+   * @summary Queries access control lists (ACLs).
+   *
+   * @param request DescribeIPv6TranslatorAclListsRequest
+   * @return DescribeIPv6TranslatorAclListsResponse
    */
   // Deprecated
   async describeIPv6TranslatorAclLists(request: DescribeIPv6TranslatorAclListsRequest): Promise<DescribeIPv6TranslatorAclListsResponse> {
@@ -65134,11 +66385,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeIPv6TranslatorEntriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeIPv6TranslatorEntriesResponse
+   * @deprecated OpenAPI DescribeIPv6TranslatorEntries is deprecated
+   *
+   * @summary Queries IPv6 mapping entries.
+   *
+   * @param request DescribeIPv6TranslatorEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIPv6TranslatorEntriesResponse
    */
   // Deprecated
   async describeIPv6TranslatorEntriesWithOptions(request: DescribeIPv6TranslatorEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorEntriesResponse> {
@@ -65238,10 +66491,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeIPv6TranslatorEntriesRequest
-    * @return DescribeIPv6TranslatorEntriesResponse
+   * @deprecated OpenAPI DescribeIPv6TranslatorEntries is deprecated
+   *
+   * @summary Queries IPv6 mapping entries.
+   *
+   * @param request DescribeIPv6TranslatorEntriesRequest
+   * @return DescribeIPv6TranslatorEntriesResponse
    */
   // Deprecated
   async describeIPv6TranslatorEntries(request: DescribeIPv6TranslatorEntriesRequest): Promise<DescribeIPv6TranslatorEntriesResponse> {
@@ -65250,11 +66505,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeIPv6TranslatorsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeIPv6TranslatorsResponse
+   * @deprecated OpenAPI DescribeIPv6Translators is deprecated
+   *
+   * @summary Queries IPv6 Translation Service instances.
+   *
+   * @param request DescribeIPv6TranslatorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIPv6TranslatorsResponse
    */
   // Deprecated
   async describeIPv6TranslatorsWithOptions(request: DescribeIPv6TranslatorsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorsResponse> {
@@ -65338,10 +66595,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeIPv6TranslatorsRequest
-    * @return DescribeIPv6TranslatorsResponse
+   * @deprecated OpenAPI DescribeIPv6Translators is deprecated
+   *
+   * @summary Queries IPv6 Translation Service instances.
+   *
+   * @param request DescribeIPv6TranslatorsRequest
+   * @return DescribeIPv6TranslatorsResponse
    */
   // Deprecated
   async describeIPv6Translators(request: DescribeIPv6TranslatorsRequest): Promise<DescribeIPv6TranslatorsResponse> {
@@ -65349,6 +66608,13 @@ export default class Client extends OpenApi {
     return await this.describeIPv6TranslatorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries IPv6 addresses in a region.
+   *
+   * @param request DescribeIpv6AddressesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpv6AddressesResponse
+   */
   async describeIpv6AddressesWithOptions(request: DescribeIpv6AddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6AddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65453,11 +66719,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpv6AddressesResponse>(await this.callApi(params, req, runtime), new DescribeIpv6AddressesResponse({}));
   }
 
+  /**
+   * @summary Queries IPv6 addresses in a region.
+   *
+   * @param request DescribeIpv6AddressesRequest
+   * @return DescribeIpv6AddressesResponse
+   */
   async describeIpv6Addresses(request: DescribeIpv6AddressesRequest): Promise<DescribeIpv6AddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpv6AddressesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeIpv6EgressOnlyRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpv6EgressOnlyRulesResponse
+   */
   async describeIpv6EgressOnlyRulesWithOptions(request: DescribeIpv6EgressOnlyRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6EgressOnlyRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65530,11 +66807,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpv6EgressOnlyRulesResponse>(await this.callApi(params, req, runtime), new DescribeIpv6EgressOnlyRulesResponse({}));
   }
 
+  /**
+   * @param request DescribeIpv6EgressOnlyRulesRequest
+   * @return DescribeIpv6EgressOnlyRulesResponse
+   */
   async describeIpv6EgressOnlyRules(request: DescribeIpv6EgressOnlyRulesRequest): Promise<DescribeIpv6EgressOnlyRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpv6EgressOnlyRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an IPv6 gateway, including the region, virtual private cloud (VPC), status, and billing method.
+   *
+   * @param request DescribeIpv6GatewayAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpv6GatewayAttributeResponse
+   */
   async describeIpv6GatewayAttributeWithOptions(request: DescribeIpv6GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6GatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65583,11 +66871,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpv6GatewayAttributeResponse>(await this.callApi(params, req, runtime), new DescribeIpv6GatewayAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an IPv6 gateway, including the region, virtual private cloud (VPC), status, and billing method.
+   *
+   * @param request DescribeIpv6GatewayAttributeRequest
+   * @return DescribeIpv6GatewayAttributeResponse
+   */
   async describeIpv6GatewayAttribute(request: DescribeIpv6GatewayAttributeRequest): Promise<DescribeIpv6GatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpv6GatewayAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries IPv6 gateways in a region.
+   *
+   * @param request DescribeIpv6GatewaysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpv6GatewaysResponse
+   */
   async describeIpv6GatewaysWithOptions(request: DescribeIpv6GatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6GatewaysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65660,17 +66961,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpv6GatewaysResponse>(await this.callApi(params, req, runtime), new DescribeIpv6GatewaysResponse({}));
   }
 
+  /**
+   * @summary Queries IPv6 gateways in a region.
+   *
+   * @param request DescribeIpv6GatewaysRequest
+   * @return DescribeIpv6GatewaysResponse
+   */
   async describeIpv6Gateways(request: DescribeIpv6GatewaysRequest): Promise<DescribeIpv6GatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpv6GatewaysWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
-    *
-    * @param request DescribeNatGatewaysRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeNatGatewaysResponse
+   * @summary Queries NAT gateways that meet specific conditions in a specified region.
+   *
+   * @description You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
+   *
+   * @param request DescribeNatGatewaysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNatGatewaysResponse
    */
   async describeNatGatewaysWithOptions(request: DescribeNatGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatGatewaysResponse> {
     Util.validateModel(request);
@@ -65769,16 +67078,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
-    *
-    * @param request DescribeNatGatewaysRequest
-    * @return DescribeNatGatewaysResponse
+   * @summary Queries NAT gateways that meet specific conditions in a specified region.
+   *
+   * @description You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
+   *
+   * @param request DescribeNatGatewaysRequest
+   * @return DescribeNatGatewaysResponse
    */
   async describeNatGateways(request: DescribeNatGatewaysRequest): Promise<DescribeNatGatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNatGatewaysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries network access control lists (ACLs).
+   *
+   * @param request DescribeNetworkAclAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkAclAttributesResponse
+   */
   async describeNetworkAclAttributesWithOptions(request: DescribeNetworkAclAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAclAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65831,11 +67149,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkAclAttributesResponse>(await this.callApi(params, req, runtime), new DescribeNetworkAclAttributesResponse({}));
   }
 
+  /**
+   * @summary Queries network access control lists (ACLs).
+   *
+   * @param request DescribeNetworkAclAttributesRequest
+   * @return DescribeNetworkAclAttributesResponse
+   */
   async describeNetworkAclAttributes(request: DescribeNetworkAclAttributesRequest): Promise<DescribeNetworkAclAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkAclAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries network ACLs.
+   *
+   * @param request DescribeNetworkAclsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkAclsResponse
+   */
   async describeNetworkAclsWithOptions(request: DescribeNetworkAclsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAclsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65916,11 +67247,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkAclsResponse>(await this.callApi(params, req, runtime), new DescribeNetworkAclsResponse({}));
   }
 
+  /**
+   * @summary Queries network ACLs.
+   *
+   * @param request DescribeNetworkAclsRequest
+   * @return DescribeNetworkAclsResponse
+   */
   async describeNetworkAcls(request: DescribeNetworkAclsRequest): Promise<DescribeNetworkAclsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkAclsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询物理专线LOA信息
+   *
+   * @param request DescribePhysicalConnectionLOARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePhysicalConnectionLOAResponse
+   */
   async describePhysicalConnectionLOAWithOptions(request: DescribePhysicalConnectionLOARequest, runtime: $Util.RuntimeOptions): Promise<DescribePhysicalConnectionLOAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -65969,17 +67313,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePhysicalConnectionLOAResponse>(await this.callApi(params, req, runtime), new DescribePhysicalConnectionLOAResponse({}));
   }
 
+  /**
+   * @summary 查询物理专线LOA信息
+   *
+   * @param request DescribePhysicalConnectionLOARequest
+   * @return DescribePhysicalConnectionLOAResponse
+   */
   async describePhysicalConnectionLOA(request: DescribePhysicalConnectionLOARequest): Promise<DescribePhysicalConnectionLOAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhysicalConnectionLOAWithOptions(request, runtime);
   }
 
   /**
-    * By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
-    *
-    * @param request DescribePhysicalConnectionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePhysicalConnectionsResponse
+   * @summary Queries Express Connect circuits in a region.
+   *
+   * @description By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
+   *
+   * @param request DescribePhysicalConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePhysicalConnectionsResponse
    */
   async describePhysicalConnectionsWithOptions(request: DescribePhysicalConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhysicalConnectionsResponse> {
     Util.validateModel(request);
@@ -66050,10 +67402,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
-    *
-    * @param request DescribePhysicalConnectionsRequest
-    * @return DescribePhysicalConnectionsResponse
+   * @summary Queries Express Connect circuits in a region.
+   *
+   * @description By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
+   *
+   * @param request DescribePhysicalConnectionsRequest
+   * @return DescribePhysicalConnectionsResponse
    */
   async describePhysicalConnections(request: DescribePhysicalConnectionsRequest): Promise<DescribePhysicalConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -66061,11 +67415,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
-    *
-    * @param request DescribePublicIpAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePublicIpAddressResponse
+   * @summary Queries the public IP address range of a virtual private cloud (VPC) in a region.
+   *
+   * @description You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
+   *
+   * @param request DescribePublicIpAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePublicIpAddressResponse
    */
   async describePublicIpAddressWithOptions(request: DescribePublicIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribePublicIpAddressResponse> {
     Util.validateModel(request);
@@ -66120,16 +67476,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
-    *
-    * @param request DescribePublicIpAddressRequest
-    * @return DescribePublicIpAddressResponse
+   * @summary Queries the public IP address range of a virtual private cloud (VPC) in a region.
+   *
+   * @description You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
+   *
+   * @param request DescribePublicIpAddressRequest
+   * @return DescribePublicIpAddressResponse
    */
   async describePublicIpAddress(request: DescribePublicIpAddressRequest): Promise<DescribePublicIpAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePublicIpAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the most recent region list.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66174,17 +67539,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the most recent region list.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
-    * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
-    *
-    * @param request DescribeRouteEntryListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRouteEntryListResponse
+   * @summary Queries information about route entries in a route table.
+   *
+   * @description Before you call the [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
+   *
+   * @param request DescribeRouteEntryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRouteEntryListResponse
    */
   async describeRouteEntryListWithOptions(request: DescribeRouteEntryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteEntryListResponse> {
     Util.validateModel(request);
@@ -66279,16 +67652,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call the [DeleteRouteEntry](~~36013~~) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
-    *
-    * @param request DescribeRouteEntryListRequest
-    * @return DescribeRouteEntryListResponse
+   * @summary Queries information about route entries in a route table.
+   *
+   * @description Before you call the [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
+   *
+   * @param request DescribeRouteEntryListRequest
+   * @return DescribeRouteEntryListResponse
    */
   async describeRouteEntryList(request: DescribeRouteEntryListRequest): Promise<DescribeRouteEntryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouteEntryListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries route tables.
+   *
+   * @param request DescribeRouteTableListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRouteTableListResponse
+   */
   async describeRouteTableListWithOptions(request: DescribeRouteTableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteTableListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66369,11 +67751,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRouteTableListResponse>(await this.callApi(params, req, runtime), new DescribeRouteTableListResponse({}));
   }
 
+  /**
+   * @summary Queries route tables.
+   *
+   * @param request DescribeRouteTableListRequest
+   * @return DescribeRouteTableListResponse
+   */
   async describeRouteTableList(request: DescribeRouteTableListRequest): Promise<DescribeRouteTableListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouteTableListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries route tables.
+   *
+   * @param request DescribeRouteTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRouteTablesResponse
+   */
   async describeRouteTablesWithOptions(request: DescribeRouteTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteTablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66450,11 +67845,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRouteTablesResponse>(await this.callApi(params, req, runtime), new DescribeRouteTablesResponse({}));
   }
 
+  /**
+   * @summary Queries route tables.
+   *
+   * @param request DescribeRouteTablesRequest
+   * @return DescribeRouteTablesResponse
+   */
   async describeRouteTables(request: DescribeRouteTablesRequest): Promise<DescribeRouteTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouteTablesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configuration of a router interface.
+   *
+   * @param request DescribeRouterInterfaceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRouterInterfaceAttributeResponse
+   */
   async describeRouterInterfaceAttributeWithOptions(request: DescribeRouterInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouterInterfaceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66495,11 +67903,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRouterInterfaceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeRouterInterfaceAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the configuration of a router interface.
+   *
+   * @param request DescribeRouterInterfaceAttributeRequest
+   * @return DescribeRouterInterfaceAttributeResponse
+   */
   async describeRouterInterfaceAttribute(request: DescribeRouterInterfaceAttributeRequest): Promise<DescribeRouterInterfaceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouterInterfaceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries router interfaces in a specified region.
+   *
+   * @param request DescribeRouterInterfacesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRouterInterfacesResponse
+   */
   async describeRouterInterfacesWithOptions(request: DescribeRouterInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouterInterfacesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66560,17 +67981,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRouterInterfacesResponse>(await this.callApi(params, req, runtime), new DescribeRouterInterfacesResponse({}));
   }
 
+  /**
+   * @summary Queries router interfaces in a specified region.
+   *
+   * @param request DescribeRouterInterfacesRequest
+   * @return DescribeRouterInterfacesResponse
+   */
   async describeRouterInterfaces(request: DescribeRouterInterfacesRequest): Promise<DescribeRouterInterfacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRouterInterfacesWithOptions(request, runtime);
   }
 
   /**
-    * > You can call this operation to query only dedicated-bandwidth GA instances.
-    *
-    * @param request DescribeServerRelatedGlobalAccelerationInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
+   * @summary Queries Global Accelerator (GA) instances that are associated with a backend server.
+   *
+   * @description > You can call this operation to query only dedicated-bandwidth GA instances.
+   *
+   * @param request DescribeServerRelatedGlobalAccelerationInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
    */
   async describeServerRelatedGlobalAccelerationInstancesWithOptions(request: DescribeServerRelatedGlobalAccelerationInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerRelatedGlobalAccelerationInstancesResponse> {
     Util.validateModel(request);
@@ -66621,16 +68050,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can call this operation to query only dedicated-bandwidth GA instances.
-    *
-    * @param request DescribeServerRelatedGlobalAccelerationInstancesRequest
-    * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
+   * @summary Queries Global Accelerator (GA) instances that are associated with a backend server.
+   *
+   * @description > You can call this operation to query only dedicated-bandwidth GA instances.
+   *
+   * @param request DescribeServerRelatedGlobalAccelerationInstancesRequest
+   * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
    */
   async describeServerRelatedGlobalAccelerationInstances(request: DescribeServerRelatedGlobalAccelerationInstancesRequest): Promise<DescribeServerRelatedGlobalAccelerationInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeServerRelatedGlobalAccelerationInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries SNAT entries.
+   *
+   * @param request DescribeSnatTableEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnatTableEntriesResponse
+   */
   async describeSnatTableEntriesWithOptions(request: DescribeSnatTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatTableEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66707,11 +68145,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnatTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeSnatTableEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries SNAT entries.
+   *
+   * @param request DescribeSnatTableEntriesRequest
+   * @return DescribeSnatTableEntriesResponse
+   */
   async describeSnatTableEntries(request: DescribeSnatTableEntriesRequest): Promise<DescribeSnatTableEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnatTableEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an SSL client certificate.
+   *
+   * @param request DescribeSslVpnClientCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSslVpnClientCertResponse
+   */
   async describeSslVpnClientCertWithOptions(request: DescribeSslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnClientCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66756,11 +68207,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSslVpnClientCertResponse>(await this.callApi(params, req, runtime), new DescribeSslVpnClientCertResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an SSL client certificate.
+   *
+   * @param request DescribeSslVpnClientCertRequest
+   * @return DescribeSslVpnClientCertResponse
+   */
   async describeSslVpnClientCert(request: DescribeSslVpnClientCertRequest): Promise<DescribeSslVpnClientCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSslVpnClientCertWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries SSL client certificates.
+   *
+   * @param request DescribeSslVpnClientCertsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSslVpnClientCertsResponse
+   */
   async describeSslVpnClientCertsWithOptions(request: DescribeSslVpnClientCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnClientCertsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66825,18 +68289,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSslVpnClientCertsResponse>(await this.callApi(params, req, runtime), new DescribeSslVpnClientCertsResponse({}));
   }
 
+  /**
+   * @summary Queries SSL client certificates.
+   *
+   * @param request DescribeSslVpnClientCertsRequest
+   * @return DescribeSslVpnClientCertsResponse
+   */
   async describeSslVpnClientCerts(request: DescribeSslVpnClientCertsRequest): Promise<DescribeSslVpnClientCertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSslVpnClientCertsWithOptions(request, runtime);
   }
 
   /**
-    * If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see [Upgrade a VPN gateway](~~303968~~).
-    * If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
-    *
-    * @param request DescribeSslVpnClientsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSslVpnClientsResponse
+   * @summary Queries the clients that have connected to a VPN gateway through SSL-VPN connections.
+   *
+   * @description If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see [Upgrade a VPN gateway](https://help.aliyun.com/document_detail/303968.html).
+   * If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
+   *
+   * @param request DescribeSslVpnClientsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSslVpnClientsResponse
    */
   async describeSslVpnClientsWithOptions(request: DescribeSslVpnClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnClientsResponse> {
     Util.validateModel(request);
@@ -66891,17 +68363,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see [Upgrade a VPN gateway](~~303968~~).
-    * If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
-    *
-    * @param request DescribeSslVpnClientsRequest
-    * @return DescribeSslVpnClientsResponse
+   * @summary Queries the clients that have connected to a VPN gateway through SSL-VPN connections.
+   *
+   * @description If your VPN gateway was created before December 10, 2022, you must upgrade your VPN gateway to the latest version before you can view connection information about SSL clients. For more information, see [Upgrade a VPN gateway](https://help.aliyun.com/document_detail/303968.html).
+   * If your VPN gateway was created after December 10, 2022, you can view connection information about SSL clients by default.
+   *
+   * @param request DescribeSslVpnClientsRequest
+   * @return DescribeSslVpnClientsResponse
    */
   async describeSslVpnClients(request: DescribeSslVpnClientsRequest): Promise<DescribeSslVpnClientsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSslVpnClientsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries one or more SSL-VPN servers.
+   *
+   * @param request DescribeSslVpnServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSslVpnServersResponse
+   */
   async describeSslVpnServersWithOptions(request: DescribeSslVpnServersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -66966,11 +68447,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSslVpnServersResponse>(await this.callApi(params, req, runtime), new DescribeSslVpnServersResponse({}));
   }
 
+  /**
+   * @summary Queries one or more SSL-VPN servers.
+   *
+   * @param request DescribeSslVpnServersRequest
+   * @return DescribeSslVpnServersResponse
+   */
   async describeSslVpnServers(request: DescribeSslVpnServersRequest): Promise<DescribeSslVpnServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSslVpnServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询标签键列表。
+   *
+   * @param request DescribeTagKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagKeysResponse
+   */
   async describeTagKeysWithOptions(request: DescribeTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67031,11 +68525,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagKeysResponse>(await this.callApi(params, req, runtime), new DescribeTagKeysResponse({}));
   }
 
+  /**
+   * @summary 查询标签键列表。
+   *
+   * @param request DescribeTagKeysRequest
+   * @return DescribeTagKeysResponse
+   */
   async describeTagKeys(request: DescribeTagKeysRequest): Promise<DescribeTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags of an Express Connect circuit.
+   *
+   * @param request DescribeTagKeysForExpressConnectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagKeysForExpressConnectResponse
+   */
   async describeTagKeysForExpressConnectWithOptions(request: DescribeTagKeysForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagKeysForExpressConnectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67096,20 +68603,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagKeysForExpressConnectResponse>(await this.callApi(params, req, runtime), new DescribeTagKeysForExpressConnectResponse({}));
   }
 
+  /**
+   * @summary Queries the tags of an Express Connect circuit.
+   *
+   * @param request DescribeTagKeysForExpressConnectRequest
+   * @return DescribeTagKeysForExpressConnectResponse
+   */
   async describeTagKeysForExpressConnect(request: DescribeTagKeysForExpressConnectRequest): Promise<DescribeTagKeysForExpressConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagKeysForExpressConnectWithOptions(request, runtime);
   }
 
   /**
-    * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
-    *
-    * @param request DescribeTagsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTagsResponse
+   * @summary 查询满足筛选条件的标签列表。
+   *
+   * @description *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
+   *
+   * @param request DescribeTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagsResponse
    */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
@@ -67172,19 +68687,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
-    *
-    * @param request DescribeTagsRequest
-    * @return DescribeTagsResponse
+   * @summary 查询满足筛选条件的标签列表。
+   *
+   * @description *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
+   *
+   * @param request DescribeTagsRequest
+   * @return DescribeTagsResponse
    */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询路由器列表
+   *
+   * @param request DescribeVRoutersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVRoutersResponse
+   */
   async describeVRoutersWithOptions(request: DescribeVRoutersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVRoutersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67237,11 +68761,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVRoutersResponse>(await this.callApi(params, req, runtime), new DescribeVRoutersResponse({}));
   }
 
+  /**
+   * @summary 查询路由器列表
+   *
+   * @param request DescribeVRoutersRequest
+   * @return DescribeVRoutersResponse
+   */
   async describeVRouters(request: DescribeVRoutersRequest): Promise<DescribeVRoutersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVRoutersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about a vSwitch.
+   *
+   * @param request DescribeVSwitchAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVSwitchAttributesResponse
+   */
   async describeVSwitchAttributesWithOptions(request: DescribeVSwitchAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67290,11 +68827,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVSwitchAttributesResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchAttributesResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about a vSwitch.
+   *
+   * @param request DescribeVSwitchAttributesRequest
+   * @return DescribeVSwitchAttributesResponse
+   */
   async describeVSwitchAttributes(request: DescribeVSwitchAttributesRequest): Promise<DescribeVSwitchAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVSwitchAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about available vSwitches that are used for an internal network.
+   *
+   * @param request DescribeVSwitchesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVSwitchesResponse
+   */
   async describeVSwitchesWithOptions(request: DescribeVSwitchesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67383,11 +68933,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVSwitchesResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about available vSwitches that are used for an internal network.
+   *
+   * @param request DescribeVSwitchesRequest
+   * @return DescribeVSwitchesResponse
+   */
   async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries virtual border router (VBR) failover groups.
+   *
+   * @param request DescribeVbrHaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVbrHaResponse
+   */
   async describeVbrHaWithOptions(request: DescribeVbrHaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVbrHaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67444,11 +69007,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVbrHaResponse>(await this.callApi(params, req, runtime), new DescribeVbrHaResponse({}));
   }
 
+  /**
+   * @summary Queries virtual border router (VBR) failover groups.
+   *
+   * @param request DescribeVbrHaRequest
+   * @return DescribeVbrHaResponse
+   */
   async describeVbrHa(request: DescribeVbrHaRequest): Promise<DescribeVbrHaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVbrHaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the routes of an IPsec-VPN connection.
+   *
+   * @param request DescribeVcoRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVcoRouteEntriesResponse
+   */
   async describeVcoRouteEntriesWithOptions(request: DescribeVcoRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVcoRouteEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67505,11 +69081,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVcoRouteEntriesResponse>(await this.callApi(params, req, runtime), new DescribeVcoRouteEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries the routes of an IPsec-VPN connection.
+   *
+   * @param request DescribeVcoRouteEntriesRequest
+   * @return DescribeVcoRouteEntriesResponse
+   */
   async describeVcoRouteEntries(request: DescribeVcoRouteEntriesRequest): Promise<DescribeVcoRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVcoRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries virtual border routers (VBRs).
+   *
+   * @param request DescribeVirtualBorderRoutersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVirtualBorderRoutersResponse
+   */
   async describeVirtualBorderRoutersWithOptions(request: DescribeVirtualBorderRoutersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualBorderRoutersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67570,11 +69159,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVirtualBorderRoutersResponse>(await this.callApi(params, req, runtime), new DescribeVirtualBorderRoutersResponse({}));
   }
 
+  /**
+   * @summary Queries virtual border routers (VBRs).
+   *
+   * @param request DescribeVirtualBorderRoutersRequest
+   * @return DescribeVirtualBorderRoutersResponse
+   */
   async describeVirtualBorderRouters(request: DescribeVirtualBorderRoutersRequest): Promise<DescribeVirtualBorderRoutersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVirtualBorderRoutersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the virtual border routers (VBRs) that are associated with an Express Connect circuit. The VBRs can be created by the owner of the Express Connect circuit and by other Alibaba Cloud accounts.
+   *
+   * @param request DescribeVirtualBorderRoutersForPhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
+   */
   async describeVirtualBorderRoutersForPhysicalConnectionWithOptions(request: DescribeVirtualBorderRoutersForPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualBorderRoutersForPhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67627,11 +69229,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVirtualBorderRoutersForPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new DescribeVirtualBorderRoutersForPhysicalConnectionResponse({}));
   }
 
+  /**
+   * @summary Queries the virtual border routers (VBRs) that are associated with an Express Connect circuit. The VBRs can be created by the owner of the Express Connect circuit and by other Alibaba Cloud accounts.
+   *
+   * @param request DescribeVirtualBorderRoutersForPhysicalConnectionRequest
+   * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
+   */
   async describeVirtualBorderRoutersForPhysicalConnection(request: DescribeVirtualBorderRoutersForPhysicalConnectionRequest): Promise<DescribeVirtualBorderRoutersForPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVirtualBorderRoutersForPhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configuration of a virtual private cloud (VPC).
+   *
+   * @param request DescribeVpcAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpcAttributeResponse
+   */
   async describeVpcAttributeWithOptions(request: DescribeVpcAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67684,11 +69299,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcAttributeResponse>(await this.callApi(params, req, runtime), new DescribeVpcAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the configuration of a virtual private cloud (VPC).
+   *
+   * @param request DescribeVpcAttributeRequest
+   * @return DescribeVpcAttributeResponse
+   */
   async describeVpcAttribute(request: DescribeVpcAttributeRequest): Promise<DescribeVpcAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries virtual private clouds (VPCs).
+   *
+   * @param request DescribeVpcsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpcsResponse
+   */
   async describeVpcsWithOptions(request: DescribeVpcsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67769,11 +69397,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcsResponse>(await this.callApi(params, req, runtime), new DescribeVpcsResponse({}));
   }
 
+  /**
+   * @summary Queries virtual private clouds (VPCs).
+   *
+   * @param request DescribeVpcsRequest
+   * @return DescribeVpcsResponse
+   */
   async describeVpcs(request: DescribeVpcsRequest): Promise<DescribeVpcsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the IPsec-VPN connections associated with a transit router.
+   *
+   * @param request DescribeVpnAttachmentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnAttachmentsResponse
+   */
   async describeVpnAttachmentsWithOptions(request: DescribeVpnAttachmentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnAttachmentsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67830,11 +69471,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnAttachmentsResponse>(await this.callApi(params, req, runtime), new DescribeVpnAttachmentsResponse({}));
   }
 
+  /**
+   * @summary Queries the IPsec-VPN connections associated with a transit router.
+   *
+   * @param request DescribeVpnAttachmentsRequest
+   * @return DescribeVpnAttachmentsResponse
+   */
   async describeVpnAttachments(request: DescribeVpnAttachmentsRequest): Promise<DescribeVpnAttachmentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnAttachmentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about an IPsec-VPN connection.
+   *
+   * @param request DescribeVpnConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnConnectionResponse
+   */
   async describeVpnConnectionWithOptions(request: DescribeVpnConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67879,11 +69533,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnConnectionResponse>(await this.callApi(params, req, runtime), new DescribeVpnConnectionResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about an IPsec-VPN connection.
+   *
+   * @param request DescribeVpnConnectionRequest
+   * @return DescribeVpnConnectionResponse
+   */
   async describeVpnConnection(request: DescribeVpnConnectionRequest): Promise<DescribeVpnConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries logs of IPsec-VPN connections.
+   *
+   * @param request DescribeVpnConnectionLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnConnectionLogsResponse
+   */
   async describeVpnConnectionLogsWithOptions(request: DescribeVpnConnectionLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnConnectionLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -67952,11 +69619,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnConnectionLogsResponse>(await this.callApi(params, req, runtime), new DescribeVpnConnectionLogsResponse({}));
   }
 
+  /**
+   * @summary Queries logs of IPsec-VPN connections.
+   *
+   * @param request DescribeVpnConnectionLogsRequest
+   * @return DescribeVpnConnectionLogsResponse
+   */
   async describeVpnConnectionLogs(request: DescribeVpnConnectionLogsRequest): Promise<DescribeVpnConnectionLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnConnectionLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries IPsec-VPN connections.
+   *
+   * @param request DescribeVpnConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnConnectionsResponse
+   */
   async describeVpnConnectionsWithOptions(request: DescribeVpnConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68025,11 +69705,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnConnectionsResponse>(await this.callApi(params, req, runtime), new DescribeVpnConnectionsResponse({}));
   }
 
+  /**
+   * @summary Queries IPsec-VPN connections.
+   *
+   * @param request DescribeVpnConnectionsRequest
+   * @return DescribeVpnConnectionsResponse
+   */
   async describeVpnConnections(request: DescribeVpnConnectionsRequest): Promise<DescribeVpnConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnConnectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the cross-account authorization information about an IPsec-VPN connection.
+   *
+   * @param request DescribeVpnCrossAccountAuthorizationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnCrossAccountAuthorizationsResponse
+   */
   async describeVpnCrossAccountAuthorizationsWithOptions(request: DescribeVpnCrossAccountAuthorizationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnCrossAccountAuthorizationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68082,11 +69775,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnCrossAccountAuthorizationsResponse>(await this.callApi(params, req, runtime), new DescribeVpnCrossAccountAuthorizationsResponse({}));
   }
 
+  /**
+   * @summary Queries the cross-account authorization information about an IPsec-VPN connection.
+   *
+   * @param request DescribeVpnCrossAccountAuthorizationsRequest
+   * @return DescribeVpnCrossAccountAuthorizationsResponse
+   */
   async describeVpnCrossAccountAuthorizations(request: DescribeVpnCrossAccountAuthorizationsRequest): Promise<DescribeVpnCrossAccountAuthorizationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnCrossAccountAuthorizationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about a VPN gateway.
+   *
+   * @param request DescribeVpnGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnGatewayResponse
+   */
   async describeVpnGatewayWithOptions(request: DescribeVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68135,11 +69841,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnGatewayResponse>(await this.callApi(params, req, runtime), new DescribeVpnGatewayResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about a VPN gateway.
+   *
+   * @param request DescribeVpnGatewayRequest
+   * @return DescribeVpnGatewayResponse
+   */
   async describeVpnGateway(request: DescribeVpnGatewayRequest): Promise<DescribeVpnGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 基于地域查询可以创建双隧道VPN与IPSec连接（CEN）的可用区
+   *
+   * @param request DescribeVpnGatewayAvailableZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnGatewayAvailableZonesResponse
+   */
   async describeVpnGatewayAvailableZonesWithOptions(request: DescribeVpnGatewayAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnGatewayAvailableZonesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -68160,11 +69879,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnGatewayAvailableZonesResponse>(await this.callApi(params, req, runtime), new DescribeVpnGatewayAvailableZonesResponse({}));
   }
 
+  /**
+   * @summary 基于地域查询可以创建双隧道VPN与IPSec连接（CEN）的可用区
+   *
+   * @param request DescribeVpnGatewayAvailableZonesRequest
+   * @return DescribeVpnGatewayAvailableZonesResponse
+   */
   async describeVpnGatewayAvailableZones(request: DescribeVpnGatewayAvailableZonesRequest): Promise<DescribeVpnGatewayAvailableZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnGatewayAvailableZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries VPN gateways in a region.
+   *
+   * @param request DescribeVpnGatewaysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnGatewaysResponse
+   */
   async describeVpnGatewaysWithOptions(request: DescribeVpnGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnGatewaysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68241,11 +69973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeVpnGatewaysResponse({}));
   }
 
+  /**
+   * @summary Queries VPN gateways in a region.
+   *
+   * @param request DescribeVpnGatewaysRequest
+   * @return DescribeVpnGatewaysResponse
+   */
   async describeVpnGateways(request: DescribeVpnGatewaysRequest): Promise<DescribeVpnGatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnGatewaysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries policy-based routes configured for a VPN gateway.
+   *
+   * @param request DescribeVpnPbrRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnPbrRouteEntriesResponse
+   */
   async describeVpnPbrRouteEntriesWithOptions(request: DescribeVpnPbrRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnPbrRouteEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68298,11 +70043,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnPbrRouteEntriesResponse>(await this.callApi(params, req, runtime), new DescribeVpnPbrRouteEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries policy-based routes configured for a VPN gateway.
+   *
+   * @param request DescribeVpnPbrRouteEntriesRequest
+   * @return DescribeVpnPbrRouteEntriesResponse
+   */
   async describeVpnPbrRouteEntries(request: DescribeVpnPbrRouteEntriesRequest): Promise<DescribeVpnPbrRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnPbrRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries destination-based and BGP route entries of a VPN gateway.
+   *
+   * @param request DescribeVpnRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnRouteEntriesResponse
+   */
   async describeVpnRouteEntriesWithOptions(request: DescribeVpnRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnRouteEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68359,11 +70117,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnRouteEntriesResponse>(await this.callApi(params, req, runtime), new DescribeVpnRouteEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries destination-based and BGP route entries of a VPN gateway.
+   *
+   * @param request DescribeVpnRouteEntriesRequest
+   * @return DescribeVpnRouteEntriesResponse
+   */
   async describeVpnRouteEntries(request: DescribeVpnRouteEntriesRequest): Promise<DescribeVpnRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeVpnSslServerLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpnSslServerLogsResponse
+   */
   async describeVpnSslServerLogsWithOptions(request: DescribeVpnSslServerLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnSslServerLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68432,11 +70201,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpnSslServerLogsResponse>(await this.callApi(params, req, runtime), new DescribeVpnSslServerLogsResponse({}));
   }
 
+  /**
+   * @param request DescribeVpnSslServerLogsRequest
+   * @return DescribeVpnSslServerLogsResponse
+   */
   async describeVpnSslServerLogs(request: DescribeVpnSslServerLogsRequest): Promise<DescribeVpnSslServerLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpnSslServerLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries zones in a region.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68485,21 +70265,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries zones in a region.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
   /**
-    * ## [](#)Description
-    * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task.
-    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
-    *     *   If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
-    * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
-    *
-    * @param request DetachDhcpOptionsSetFromVpcRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DetachDhcpOptionsSetFromVpcResponse
+   * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+   *
+   * @description ## [](#)Description
+   * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task.
+   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
+   *     *   If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
+   * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
+   *
+   * @param request DetachDhcpOptionsSetFromVpcRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachDhcpOptionsSetFromVpcResponse
    */
   async detachDhcpOptionsSetFromVpcWithOptions(request: DetachDhcpOptionsSetFromVpcRequest, runtime: $Util.RuntimeOptions): Promise<DetachDhcpOptionsSetFromVpcResponse> {
     Util.validateModel(request);
@@ -68558,20 +70346,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of the task.
-    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
-    *     *   If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
-    * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
-    *
-    * @param request DetachDhcpOptionsSetFromVpcRequest
-    * @return DetachDhcpOptionsSetFromVpcResponse
+   * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+   *
+   * @description ## [](#)Description
+   * *   **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of the task.
+   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
+   *     *   If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
+   * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
+   *
+   * @param request DetachDhcpOptionsSetFromVpcRequest
+   * @return DetachDhcpOptionsSetFromVpcResponse
    */
   async detachDhcpOptionsSetFromVpc(request: DetachDhcpOptionsSetFromVpcRequest): Promise<DetachDhcpOptionsSetFromVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDhcpOptionsSetFromVpcWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 诊断vpn connection
+   *
+   * @param request DiagnoseVpnConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DiagnoseVpnConnectionsResponse
+   */
   async diagnoseVpnConnectionsWithOptions(request: DiagnoseVpnConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DiagnoseVpnConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68620,17 +70417,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DiagnoseVpnConnectionsResponse>(await this.callApi(params, req, runtime), new DiagnoseVpnConnectionsResponse({}));
   }
 
+  /**
+   * @summary 诊断vpn connection
+   *
+   * @param request DiagnoseVpnConnectionsRequest
+   * @return DiagnoseVpnConnectionsResponse
+   */
   async diagnoseVpnConnections(request: DiagnoseVpnConnectionsRequest): Promise<DiagnoseVpnConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.diagnoseVpnConnectionsWithOptions(request, runtime);
   }
 
   /**
-    * Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](~~430697~~).
-    *
-    * @param request DiagnoseVpnGatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DiagnoseVpnGatewayResponse
+   * @summary Diagnoses a VPN gateway.
+   *
+   * @description Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](https://help.aliyun.com/document_detail/430697.html).
+   *
+   * @param request DiagnoseVpnGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DiagnoseVpnGatewayResponse
    */
   async diagnoseVpnGatewayWithOptions(request: DiagnoseVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DiagnoseVpnGatewayResponse> {
     Util.validateModel(request);
@@ -68677,16 +70482,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](~~430697~~).
-    *
-    * @param request DiagnoseVpnGatewayRequest
-    * @return DiagnoseVpnGatewayResponse
+   * @summary Diagnoses a VPN gateway.
+   *
+   * @description Only VPN gateways in specific regions support the quick diagnostics feature. For more information about the supported regions, see [Supported regions](https://help.aliyun.com/document_detail/430697.html).
+   *
+   * @param request DiagnoseVpnGatewayRequest
+   * @return DiagnoseVpnGatewayResponse
    */
   async diagnoseVpnGateway(request: DiagnoseVpnGatewayRequest): Promise<DiagnoseVpnGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.diagnoseVpnGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
+   *
+   * @param request DisableNatGatewayEcsMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableNatGatewayEcsMetricResponse
+   */
   async disableNatGatewayEcsMetricWithOptions(request: DisableNatGatewayEcsMetricRequest, runtime: $Util.RuntimeOptions): Promise<DisableNatGatewayEcsMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68723,11 +70537,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableNatGatewayEcsMetricResponse>(await this.callApi(params, req, runtime), new DisableNatGatewayEcsMetricResponse({}));
   }
 
+  /**
+   * @summary Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
+   *
+   * @param request DisableNatGatewayEcsMetricRequest
+   * @return DisableNatGatewayEcsMetricResponse
+   */
   async disableNatGatewayEcsMetric(request: DisableNatGatewayEcsMetricRequest): Promise<DisableNatGatewayEcsMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableNatGatewayEcsMetricWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables ClassicLink for a virtual private cloud (VPC).
+   *
+   * @param request DisableVpcClassicLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableVpcClassicLinkResponse
+   */
   async disableVpcClassicLinkWithOptions(request: DisableVpcClassicLinkRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcClassicLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68776,11 +70603,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableVpcClassicLinkResponse>(await this.callApi(params, req, runtime), new DisableVpcClassicLinkResponse({}));
   }
 
+  /**
+   * @summary Disables ClassicLink for a virtual private cloud (VPC).
+   *
+   * @param request DisableVpcClassicLinkRequest
+   * @return DisableVpcClassicLinkResponse
+   */
   async disableVpcClassicLink(request: DisableVpcClassicLinkRequest): Promise<DisableVpcClassicLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableVpcClassicLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disassociates a gateway route table from an IPv4 gateway.
+   *
+   * @param request DissociateRouteTableFromGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DissociateRouteTableFromGatewayResponse
+   */
   async dissociateRouteTableFromGatewayWithOptions(request: DissociateRouteTableFromGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DissociateRouteTableFromGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68845,11 +70685,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DissociateRouteTableFromGatewayResponse>(await this.callApi(params, req, runtime), new DissociateRouteTableFromGatewayResponse({}));
   }
 
+  /**
+   * @summary Disassociates a gateway route table from an IPv4 gateway.
+   *
+   * @param request DissociateRouteTableFromGatewayRequest
+   * @return DissociateRouteTableFromGatewayResponse
+   */
   async dissociateRouteTableFromGateway(request: DissociateRouteTableFromGatewayRequest): Promise<DissociateRouteTableFromGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateRouteTableFromGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disassociates a gateway endpoint from a route table.
+   *
+   * @param request DissociateRouteTablesFromVpcGatewayEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DissociateRouteTablesFromVpcGatewayEndpointResponse
+   */
   async dissociateRouteTablesFromVpcGatewayEndpointWithOptions(request: DissociateRouteTablesFromVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DissociateRouteTablesFromVpcGatewayEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -68906,20 +70759,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DissociateRouteTablesFromVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new DissociateRouteTablesFromVpcGatewayEndpointResponse({}));
   }
 
+  /**
+   * @summary Disassociates a gateway endpoint from a route table.
+   *
+   * @param request DissociateRouteTablesFromVpcGatewayEndpointRequest
+   * @return DissociateRouteTablesFromVpcGatewayEndpointResponse
+   */
   async dissociateRouteTablesFromVpcGatewayEndpoint(request: DissociateRouteTablesFromVpcGatewayEndpointRequest): Promise<DissociateRouteTablesFromVpcGatewayEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateRouteTablesFromVpcGatewayEndpointWithOptions(request, runtime);
   }
 
   /**
-    * *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
-    *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
-    * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
-    *
-    * @param request DissociateVpnGatewayWithCertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DissociateVpnGatewayWithCertificateResponse
+   * @summary Disassociates a certificate from a VPN gateway.
+   *
+   * @description *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
+   *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
+   * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
+   *
+   * @param request DissociateVpnGatewayWithCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DissociateVpnGatewayWithCertificateResponse
    */
   async dissociateVpnGatewayWithCertificateWithOptions(request: DissociateVpnGatewayWithCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DissociateVpnGatewayWithCertificateResponse> {
     Util.validateModel(request);
@@ -68966,19 +70827,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status the task.
-    *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
-    *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
-    * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
-    *
-    * @param request DissociateVpnGatewayWithCertificateRequest
-    * @return DissociateVpnGatewayWithCertificateResponse
+   * @summary Disassociates a certificate from a VPN gateway.
+   *
+   * @description *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status the task.
+   *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
+   *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
+   * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
+   *
+   * @param request DissociateVpnGatewayWithCertificateRequest
+   * @return DissociateVpnGatewayWithCertificateResponse
    */
   async dissociateVpnGatewayWithCertificate(request: DissociateVpnGatewayWithCertificateRequest): Promise<DissociateVpnGatewayWithCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateVpnGatewayWithCertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configuration of an IPsec-VPN connection.
+   *
+   * @param request DownloadVpnConnectionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DownloadVpnConnectionConfigResponse
+   */
   async downloadVpnConnectionConfigWithOptions(request: DownloadVpnConnectionConfigRequest, runtime: $Util.RuntimeOptions): Promise<DownloadVpnConnectionConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69023,11 +70893,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DownloadVpnConnectionConfigResponse>(await this.callApi(params, req, runtime), new DownloadVpnConnectionConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configuration of an IPsec-VPN connection.
+   *
+   * @param request DownloadVpnConnectionConfigRequest
+   * @return DownloadVpnConnectionConfigResponse
+   */
   async downloadVpnConnectionConfig(request: DownloadVpnConnectionConfigRequest): Promise<DownloadVpnConnectionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.downloadVpnConnectionConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
+   *
+   * @param request EnableNatGatewayEcsMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableNatGatewayEcsMetricResponse
+   */
   async enableNatGatewayEcsMetricWithOptions(request: EnableNatGatewayEcsMetricRequest, runtime: $Util.RuntimeOptions): Promise<EnableNatGatewayEcsMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69064,21 +70947,29 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableNatGatewayEcsMetricResponse>(await this.callApi(params, req, runtime), new EnableNatGatewayEcsMetricResponse({}));
   }
 
+  /**
+   * @summary Enables Elastic Compute Service (ECS) traffic monitoring.
+   *
+   * @param request EnableNatGatewayEcsMetricRequest
+   * @return EnableNatGatewayEcsMetricResponse
+   */
   async enableNatGatewayEcsMetric(request: EnableNatGatewayEcsMetricRequest): Promise<EnableNatGatewayEcsMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableNatGatewayEcsMetricWithOptions(request, runtime);
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   You can enable only an Express Connect circuit that is in the **Confirmed** state.
-    * *   After you enable an Express Connect circuit, it enters the **Enabled** state.
-    * *   **EnablePhysicalConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribePhysicalConnections](~~36042~~) operation to query the status of the task.
-    * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
-    *
-    * @param request EnablePhysicalConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnablePhysicalConnectionResponse
+   * @summary Enables an Express Connect circuit that is in the Confirmed state. After you perform this operation, the Express Connect circuit enters the Enabled state.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   You can enable only an Express Connect circuit that is in the **Confirmed** state.
+   * *   After you enable an Express Connect circuit, it enters the **Enabled** state.
+   * *   **EnablePhysicalConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribePhysicalConnections](https://help.aliyun.com/document_detail/36042.html) operation to query the status of the task.
+   * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
+   *
+   * @param request EnablePhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnablePhysicalConnectionResponse
    */
   async enablePhysicalConnectionWithOptions(request: EnablePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnablePhysicalConnectionResponse> {
     Util.validateModel(request);
@@ -69133,20 +71024,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   You can enable only an Express Connect circuit that is in the **Confirmed** state.
-    * *   After you enable an Express Connect circuit, it enters the **Enabled** state.
-    * *   **EnablePhysicalConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribePhysicalConnections](~~36042~~) operation to query the status of the task.
-    * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
-    *
-    * @param request EnablePhysicalConnectionRequest
-    * @return EnablePhysicalConnectionResponse
+   * @summary Enables an Express Connect circuit that is in the Confirmed state. After you perform this operation, the Express Connect circuit enters the Enabled state.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   You can enable only an Express Connect circuit that is in the **Confirmed** state.
+   * *   After you enable an Express Connect circuit, it enters the **Enabled** state.
+   * *   **EnablePhysicalConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribePhysicalConnections](https://help.aliyun.com/document_detail/36042.html) operation to query the status of the task.
+   * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
+   *
+   * @param request EnablePhysicalConnectionRequest
+   * @return EnablePhysicalConnectionResponse
    */
   async enablePhysicalConnection(request: EnablePhysicalConnectionRequest): Promise<EnablePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enablePhysicalConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables ClassicLink for a VPC.
+   *
+   * @param request EnableVpcClassicLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableVpcClassicLinkResponse
+   */
   async enableVpcClassicLinkWithOptions(request: EnableVpcClassicLinkRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcClassicLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69195,21 +71095,29 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableVpcClassicLinkResponse>(await this.callApi(params, req, runtime), new EnableVpcClassicLinkResponse({}));
   }
 
+  /**
+   * @summary Enables ClassicLink for a VPC.
+   *
+   * @param request EnableVpcClassicLinkRequest
+   * @return EnableVpcClassicLinkResponse
+   */
   async enableVpcClassicLink(request: EnableVpcClassicLinkRequest): Promise<EnableVpcClassicLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableVpcClassicLinkWithOptions(request, runtime);
   }
 
   /**
-    * ## [](#)Description
-    * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway.
-    *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
-    *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
-    * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
-    *
-    * @param request EnableVpcIpv4GatewayRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnableVpcIpv4GatewayResponse
+   * @summary Activates an IPv4 gateway.
+   *
+   * @description ## [](#)Description
+   * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway.
+   *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
+   *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
+   * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
+   *
+   * @param request EnableVpcIpv4GatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableVpcIpv4GatewayResponse
    */
   async enableVpcIpv4GatewayWithOptions(request: EnableVpcIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcIpv4GatewayResponse> {
     Util.validateModel(request);
@@ -69272,20 +71180,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](~~407670~~) operation to query the status of an IPv4 gateway.
-    *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
-    *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
-    * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
-    *
-    * @param request EnableVpcIpv4GatewayRequest
-    * @return EnableVpcIpv4GatewayResponse
+   * @summary Activates an IPv4 gateway.
+   *
+   * @description ## [](#)Description
+   * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway.
+   *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
+   *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
+   * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
+   *
+   * @param request EnableVpcIpv4GatewayRequest
+   * @return EnableVpcIpv4GatewayResponse
    */
   async enableVpcIpv4Gateway(request: EnableVpcIpv4GatewayRequest): Promise<EnableVpcIpv4GatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableVpcIpv4GatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a DHCP options set.
+   *
+   * @param request GetDhcpOptionsSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDhcpOptionsSetResponse
+   */
   async getDhcpOptionsSetWithOptions(request: GetDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<GetDhcpOptionsSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69330,11 +71247,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDhcpOptionsSetResponse>(await this.callApi(params, req, runtime), new GetDhcpOptionsSetResponse({}));
   }
 
+  /**
+   * @summary Queries a DHCP options set.
+   *
+   * @param request GetDhcpOptionsSetRequest
+   * @return GetDhcpOptionsSetResponse
+   */
   async getDhcpOptionsSet(request: GetDhcpOptionsSetRequest): Promise<GetDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDhcpOptionsSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a flow log.
+   *
+   * @param request GetFlowLogServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFlowLogServiceStatusResponse
+   */
   async getFlowLogServiceStatusWithOptions(request: GetFlowLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowLogServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69383,11 +71313,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFlowLogServiceStatusResponse>(await this.callApi(params, req, runtime), new GetFlowLogServiceStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a flow log.
+   *
+   * @param request GetFlowLogServiceStatusRequest
+   * @return GetFlowLogServiceStatusResponse
+   */
   async getFlowLogServiceStatus(request: GetFlowLogServiceStatusRequest): Promise<GetFlowLogServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFlowLogServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries an IPv4 gateway.
+   *
+   * @param request GetIpv4GatewayAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIpv4GatewayAttributeResponse
+   */
   async getIpv4GatewayAttributeWithOptions(request: GetIpv4GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetIpv4GatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69436,17 +71379,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIpv4GatewayAttributeResponse>(await this.callApi(params, req, runtime), new GetIpv4GatewayAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries an IPv4 gateway.
+   *
+   * @param request GetIpv4GatewayAttributeRequest
+   * @return GetIpv4GatewayAttributeResponse
+   */
   async getIpv4GatewayAttribute(request: GetIpv4GatewayAttributeRequest): Promise<GetIpv4GatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIpv4GatewayAttributeWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
-    *
-    * @param request GetNatGatewayAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetNatGatewayAttributeResponse
+   * @summary 查询NAT详情信息
+   *
+   * @description You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
+   *
+   * @param request GetNatGatewayAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNatGatewayAttributeResponse
    */
   async getNatGatewayAttributeWithOptions(request: GetNatGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetNatGatewayAttributeResponse> {
     Util.validateModel(request);
@@ -69497,10 +71448,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
-    *
-    * @param request GetNatGatewayAttributeRequest
-    * @return GetNatGatewayAttributeResponse
+   * @summary 查询NAT详情信息
+   *
+   * @description You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
+   *
+   * @param request GetNatGatewayAttributeRequest
+   * @return GetNatGatewayAttributeResponse
    */
   async getNatGatewayAttribute(request: GetNatGatewayAttributeRequest): Promise<GetNatGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -69508,11 +71461,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](~~274385~~) and [Billing](~~54582~~).
-    *
-    * @param request GetPhysicalConnectionServiceStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetPhysicalConnectionServiceStatusResponse
+   * @summary 查询是否开通了出云流量服务
+   *
+   * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
+   *
+   * @param request GetPhysicalConnectionServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPhysicalConnectionServiceStatusResponse
    */
   async getPhysicalConnectionServiceStatusWithOptions(request: GetPhysicalConnectionServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPhysicalConnectionServiceStatusResponse> {
     Util.validateModel(request);
@@ -69555,16 +71510,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](~~274385~~) and [Billing](~~54582~~).
-    *
-    * @param request GetPhysicalConnectionServiceStatusRequest
-    * @return GetPhysicalConnectionServiceStatusResponse
+   * @summary 查询是否开通了出云流量服务
+   *
+   * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
+   *
+   * @param request GetPhysicalConnectionServiceStatusRequest
+   * @return GetPhysicalConnectionServiceStatusResponse
    */
   async getPhysicalConnectionServiceStatus(request: GetPhysicalConnectionServiceStatusRequest): Promise<GetPhysicalConnectionServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPhysicalConnectionServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of the traffic mirroring feature.
+   *
+   * @param request GetTrafficMirrorServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTrafficMirrorServiceStatusResponse
+   */
   async getTrafficMirrorServiceStatusWithOptions(request: GetTrafficMirrorServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTrafficMirrorServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69613,11 +71577,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTrafficMirrorServiceStatusResponse>(await this.callApi(params, req, runtime), new GetTrafficMirrorServiceStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of the traffic mirroring feature.
+   *
+   * @param request GetTrafficMirrorServiceStatusRequest
+   * @return GetTrafficMirrorServiceStatusResponse
+   */
   async getTrafficMirrorServiceStatus(request: GetTrafficMirrorServiceStatusRequest): Promise<GetTrafficMirrorServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTrafficMirrorServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the usage of a prefix list.
+   *
+   * @param request GetVSwitchCidrReservationUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVSwitchCidrReservationUsageResponse
+   */
   async getVSwitchCidrReservationUsageWithOptions(request: GetVSwitchCidrReservationUsageRequest, runtime: $Util.RuntimeOptions): Promise<GetVSwitchCidrReservationUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69670,11 +71647,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVSwitchCidrReservationUsageResponse>(await this.callApi(params, req, runtime), new GetVSwitchCidrReservationUsageResponse({}));
   }
 
+  /**
+   * @summary Queries the usage of a prefix list.
+   *
+   * @param request GetVSwitchCidrReservationUsageRequest
+   * @return GetVSwitchCidrReservationUsageResponse
+   */
   async getVSwitchCidrReservationUsage(request: GetVSwitchCidrReservationUsageRequest): Promise<GetVSwitchCidrReservationUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVSwitchCidrReservationUsageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attributes of a gateway endpoint.
+   *
+   * @param request GetVpcGatewayEndpointAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVpcGatewayEndpointAttributeResponse
+   */
   async getVpcGatewayEndpointAttributeWithOptions(request: GetVpcGatewayEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcGatewayEndpointAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69719,11 +71709,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVpcGatewayEndpointAttributeResponse>(await this.callApi(params, req, runtime), new GetVpcGatewayEndpointAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the attributes of a gateway endpoint.
+   *
+   * @param request GetVpcGatewayEndpointAttributeRequest
+   * @return GetVpcGatewayEndpointAttributeResponse
+   */
   async getVpcGatewayEndpointAttribute(request: GetVpcGatewayEndpointAttributeRequest): Promise<GetVpcGatewayEndpointAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVpcGatewayEndpointAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the resources that are associated with a prefix list.
+   *
+   * @param request GetVpcPrefixListAssociationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVpcPrefixListAssociationsResponse
+   */
   async getVpcPrefixListAssociationsWithOptions(request: GetVpcPrefixListAssociationsRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcPrefixListAssociationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69776,11 +71779,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVpcPrefixListAssociationsResponse>(await this.callApi(params, req, runtime), new GetVpcPrefixListAssociationsResponse({}));
   }
 
+  /**
+   * @summary Queries the resources that are associated with a prefix list.
+   *
+   * @param request GetVpcPrefixListAssociationsRequest
+   * @return GetVpcPrefixListAssociationsResponse
+   */
   async getVpcPrefixListAssociations(request: GetVpcPrefixListAssociationsRequest): Promise<GetVpcPrefixListAssociationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVpcPrefixListAssociationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a prefix list.
+   *
+   * @param request GetVpcPrefixListEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVpcPrefixListEntriesResponse
+   */
   async getVpcPrefixListEntriesWithOptions(request: GetVpcPrefixListEntriesRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcPrefixListEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69833,11 +71849,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVpcPrefixListEntriesResponse>(await this.callApi(params, req, runtime), new GetVpcPrefixListEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a prefix list.
+   *
+   * @param request GetVpcPrefixListEntriesRequest
+   * @return GetVpcPrefixListEntriesResponse
+   */
   async getVpcPrefixListEntries(request: GetVpcPrefixListEntriesRequest): Promise<GetVpcPrefixListEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVpcPrefixListEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询路由类型的明细。
+   *
+   * @param request GetVpcRouteEntrySummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVpcRouteEntrySummaryResponse
+   */
   async getVpcRouteEntrySummaryWithOptions(request: GetVpcRouteEntrySummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcRouteEntrySummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -69890,17 +71919,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVpcRouteEntrySummaryResponse>(await this.callApi(params, req, runtime), new GetVpcRouteEntrySummaryResponse({}));
   }
 
+  /**
+   * @summary 查询路由类型的明细。
+   *
+   * @param request GetVpcRouteEntrySummaryRequest
+   * @return GetVpcRouteEntrySummaryResponse
+   */
   async getVpcRouteEntrySummary(request: GetVpcRouteEntrySummaryRequest): Promise<GetVpcRouteEntrySummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVpcRouteEntrySummaryWithOptions(request, runtime);
   }
 
   /**
-    * When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
-    *
-    * @param request GetVpnGatewayDiagnoseResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetVpnGatewayDiagnoseResultResponse
+   * @summary Queries the diagnostic result of a VPN gateway.
+   *
+   * @description When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
+   *
+   * @param request GetVpnGatewayDiagnoseResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVpnGatewayDiagnoseResultResponse
    */
   async getVpnGatewayDiagnoseResultWithOptions(request: GetVpnGatewayDiagnoseResultRequest, runtime: $Util.RuntimeOptions): Promise<GetVpnGatewayDiagnoseResultResponse> {
     Util.validateModel(request);
@@ -69939,10 +71976,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
-    *
-    * @param request GetVpnGatewayDiagnoseResultRequest
-    * @return GetVpnGatewayDiagnoseResultResponse
+   * @summary Queries the diagnostic result of a VPN gateway.
+   *
+   * @description When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
+   *
+   * @param request GetVpnGatewayDiagnoseResultRequest
+   * @return GetVpnGatewayDiagnoseResultResponse
    */
   async getVpnGatewayDiagnoseResult(request: GetVpnGatewayDiagnoseResultRequest): Promise<GetVpnGatewayDiagnoseResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -69950,13 +71989,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
-    * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
-    * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-    *
-    * @param request GrantInstanceToCenRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantInstanceToCenResponse
+   * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
+   *
+   * @description *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
+   * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
+   * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+   *
+   * @param request GrantInstanceToCenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantInstanceToCenResponse
    */
   async grantInstanceToCenWithOptions(request: GrantInstanceToCenRequest, runtime: $Util.RuntimeOptions): Promise<GrantInstanceToCenResponse> {
     Util.validateModel(request);
@@ -70019,12 +72060,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
-    * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
-    * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-    *
-    * @param request GrantInstanceToCenRequest
-    * @return GrantInstanceToCenResponse
+   * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
+   *
+   * @description *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
+   * >  **GrantInstanceToCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use the `vpc.aliyuncs.com` domain name to call this operation. The API version is `2016-04-28`.
+   * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+   *
+   * @param request GrantInstanceToCenRequest
+   * @return GrantInstanceToCenResponse
    */
   async grantInstanceToCen(request: GrantInstanceToCenRequest): Promise<GrantInstanceToCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -70032,12 +72075,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
-    *
-    * @param tmpReq GrantInstanceToVbrRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantInstanceToVbrResponse
+   * @summary Grants a virtual border router (VBR) the permissions to connect to a virtual private cloud (VPC) that belongs to another Alibaba Cloud account.
+   *
+   * @description ## Usage notes
+   * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
+   *
+   * @param tmpReq GrantInstanceToVbrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantInstanceToVbrResponse
    */
   async grantInstanceToVbrWithOptions(tmpReq: GrantInstanceToVbrRequest, runtime: $Util.RuntimeOptions): Promise<GrantInstanceToVbrResponse> {
     Util.validateModel(tmpReq);
@@ -70090,17 +72135,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
-    *
-    * @param request GrantInstanceToVbrRequest
-    * @return GrantInstanceToVbrResponse
+   * @summary Grants a virtual border router (VBR) the permissions to connect to a virtual private cloud (VPC) that belongs to another Alibaba Cloud account.
+   *
+   * @description ## Usage notes
+   * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
+   *
+   * @param request GrantInstanceToVbrRequest
+   * @return GrantInstanceToVbrResponse
    */
   async grantInstanceToVbr(request: GrantInstanceToVbrRequest): Promise<GrantInstanceToVbrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantInstanceToVbrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the access points of an Express Connect circuit.
+   *
+   * @param request ListBusinessAccessPointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBusinessAccessPointsResponse
+   */
   async listBusinessAccessPointsWithOptions(request: ListBusinessAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<ListBusinessAccessPointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70129,11 +72183,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBusinessAccessPointsResponse>(await this.callApi(params, req, runtime), new ListBusinessAccessPointsResponse({}));
   }
 
+  /**
+   * @summary Queries the access points of an Express Connect circuit.
+   *
+   * @param request ListBusinessAccessPointsRequest
+   * @return ListBusinessAccessPointsResponse
+   */
   async listBusinessAccessPoints(request: ListBusinessAccessPointsRequest): Promise<ListBusinessAccessPointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBusinessAccessPointsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Dynamic Host Configuration Protocol (DHCP) options sets.
+   *
+   * @param request ListDhcpOptionsSetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDhcpOptionsSetsResponse
+   */
   async listDhcpOptionsSetsWithOptions(request: ListDhcpOptionsSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDhcpOptionsSetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70202,17 +72269,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDhcpOptionsSetsResponse>(await this.callApi(params, req, runtime), new ListDhcpOptionsSetsResponse({}));
   }
 
+  /**
+   * @summary Queries Dynamic Host Configuration Protocol (DHCP) options sets.
+   *
+   * @param request ListDhcpOptionsSetsRequest
+   * @return ListDhcpOptionsSetsResponse
+   */
   async listDhcpOptionsSets(request: ListDhcpOptionsSetsRequest): Promise<ListDhcpOptionsSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDhcpOptionsSetsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
-    *
-    * @param request ListEnhanhcedNatGatewayAvailableZonesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListEnhanhcedNatGatewayAvailableZonesResponse
+   * @summary Queries the zones that support NAT gateways.
+   *
+   * @description You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
+   *
+   * @param request ListEnhanhcedNatGatewayAvailableZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnhanhcedNatGatewayAvailableZonesResponse
    */
   async listEnhanhcedNatGatewayAvailableZonesWithOptions(request: ListEnhanhcedNatGatewayAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListEnhanhcedNatGatewayAvailableZonesResponse> {
     Util.validateModel(request);
@@ -70267,16 +72342,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
-    *
-    * @param request ListEnhanhcedNatGatewayAvailableZonesRequest
-    * @return ListEnhanhcedNatGatewayAvailableZonesResponse
+   * @summary Queries the zones that support NAT gateways.
+   *
+   * @description You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
+   *
+   * @param request ListEnhanhcedNatGatewayAvailableZonesRequest
+   * @return ListEnhanhcedNatGatewayAvailableZonesResponse
    */
   async listEnhanhcedNatGatewayAvailableZones(request: ListEnhanhcedNatGatewayAvailableZonesRequest): Promise<ListEnhanhcedNatGatewayAvailableZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnhanhcedNatGatewayAvailableZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries FULLNAT entries.
+   *
+   * @param request ListFullNatEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFullNatEntriesResponse
+   */
   async listFullNatEntriesWithOptions(request: ListFullNatEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListFullNatEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70361,11 +72445,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFullNatEntriesResponse>(await this.callApi(params, req, runtime), new ListFullNatEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries FULLNAT entries.
+   *
+   * @param request ListFullNatEntriesRequest
+   * @return ListFullNatEntriesResponse
+   */
   async listFullNatEntries(request: ListFullNatEntriesRequest): Promise<ListFullNatEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFullNatEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries route entries of a gateway route table.
+   *
+   * @param request ListGatewayRouteTableEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayRouteTableEntriesResponse
+   */
   async listGatewayRouteTableEntriesWithOptions(request: ListGatewayRouteTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayRouteTableEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70426,11 +72523,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayRouteTableEntriesResponse>(await this.callApi(params, req, runtime), new ListGatewayRouteTableEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries route entries of a gateway route table.
+   *
+   * @param request ListGatewayRouteTableEntriesRequest
+   * @return ListGatewayRouteTableEntriesResponse
+   */
   async listGatewayRouteTableEntries(request: ListGatewayRouteTableEntriesRequest): Promise<ListGatewayRouteTableEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGatewayRouteTableEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the most recent region list.
+   *
+   * @param request ListGeographicSubRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGeographicSubRegionsResponse
+   */
   async listGeographicSubRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListGeographicSubRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -70447,11 +72557,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGeographicSubRegionsResponse>(await this.callApi(params, req, runtime), new ListGeographicSubRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the most recent region list.
+   *
+   * @return ListGeographicSubRegionsResponse
+   */
   async listGeographicSubRegions(): Promise<ListGeographicSubRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGeographicSubRegionsWithOptions(runtime);
   }
 
+  /**
+   * @param request ListIpsecServerLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIpsecServerLogsResponse
+   */
   async listIpsecServerLogsWithOptions(request: ListIpsecServerLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpsecServerLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70500,11 +72620,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIpsecServerLogsResponse>(await this.callApi(params, req, runtime), new ListIpsecServerLogsResponse({}));
   }
 
+  /**
+   * @param request ListIpsecServerLogsRequest
+   * @return ListIpsecServerLogsResponse
+   */
   async listIpsecServerLogs(request: ListIpsecServerLogsRequest): Promise<ListIpsecServerLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIpsecServerLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries IPsec servers.
+   *
+   * @param request ListIpsecServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIpsecServersResponse
+   */
   async listIpsecServersWithOptions(request: ListIpsecServersRequest, runtime: $Util.RuntimeOptions): Promise<ListIpsecServersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70553,11 +72684,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIpsecServersResponse>(await this.callApi(params, req, runtime), new ListIpsecServersResponse({}));
   }
 
+  /**
+   * @summary Queries IPsec servers.
+   *
+   * @param request ListIpsecServersRequest
+   * @return ListIpsecServersResponse
+   */
   async listIpsecServers(request: ListIpsecServersRequest): Promise<ListIpsecServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIpsecServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries IPv4 gateways.
+   *
+   * @param request ListIpv4GatewaysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIpv4GatewaysResponse
+   */
   async listIpv4GatewaysWithOptions(request: ListIpv4GatewaysRequest, runtime: $Util.RuntimeOptions): Promise<ListIpv4GatewaysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70630,11 +72774,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIpv4GatewaysResponse>(await this.callApi(params, req, runtime), new ListIpv4GatewaysResponse({}));
   }
 
+  /**
+   * @summary Queries IPv4 gateways.
+   *
+   * @param request ListIpv4GatewaysRequest
+   * @return ListIpv4GatewaysResponse
+   */
   async listIpv4Gateways(request: ListIpv4GatewaysRequest): Promise<ListIpv4GatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIpv4GatewaysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the CIDR blocks of a specified NAT gateway.
+   *
+   * @param request ListNatIpCidrsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNatIpCidrsResponse
+   */
   async listNatIpCidrsWithOptions(request: ListNatIpCidrsRequest, runtime: $Util.RuntimeOptions): Promise<ListNatIpCidrsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70715,11 +72872,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNatIpCidrsResponse>(await this.callApi(params, req, runtime), new ListNatIpCidrsResponse({}));
   }
 
+  /**
+   * @summary Queries the CIDR blocks of a specified NAT gateway.
+   *
+   * @param request ListNatIpCidrsRequest
+   * @return ListNatIpCidrsResponse
+   */
   async listNatIpCidrs(request: ListNatIpCidrsRequest): Promise<ListNatIpCidrsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNatIpCidrsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the IP addresses on a NAT gateway.
+   *
+   * @param request ListNatIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNatIpsResponse
+   */
   async listNatIpsWithOptions(request: ListNatIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListNatIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70800,11 +72970,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNatIpsResponse>(await this.callApi(params, req, runtime), new ListNatIpsResponse({}));
   }
 
+  /**
+   * @summary Queries the IP addresses on a NAT gateway.
+   *
+   * @param request ListNatIpsRequest
+   * @return ListNatIpsResponse
+   */
   async listNatIps(request: ListNatIpsRequest): Promise<ListNatIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNatIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries prefix lists.
+   *
+   * @param request ListPrefixListsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrefixListsResponse
+   */
   async listPrefixListsWithOptions(request: ListPrefixListsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrefixListsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70869,11 +73052,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrefixListsResponse>(await this.callApi(params, req, runtime), new ListPrefixListsResponse({}));
   }
 
+  /**
+   * @summary Queries prefix lists.
+   *
+   * @param request ListPrefixListsRequest
+   * @return ListPrefixListsResponse
+   */
   async listPrefixLists(request: ListPrefixListsRequest): Promise<ListPrefixListsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrefixListsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListPublicIpAddressPoolCidrBlocksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPublicIpAddressPoolCidrBlocksResponse
+   */
   async listPublicIpAddressPoolCidrBlocksWithOptions(request: ListPublicIpAddressPoolCidrBlocksRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicIpAddressPoolCidrBlocksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -70934,11 +73128,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPublicIpAddressPoolCidrBlocksResponse>(await this.callApi(params, req, runtime), new ListPublicIpAddressPoolCidrBlocksResponse({}));
   }
 
+  /**
+   * @param request ListPublicIpAddressPoolCidrBlocksRequest
+   * @return ListPublicIpAddressPoolCidrBlocksResponse
+   */
   async listPublicIpAddressPoolCidrBlocks(request: ListPublicIpAddressPoolCidrBlocksRequest): Promise<ListPublicIpAddressPoolCidrBlocksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPublicIpAddressPoolCidrBlocksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the available IP address pools.
+   *
+   * @param request ListPublicIpAddressPoolsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPublicIpAddressPoolsResponse
+   */
   async listPublicIpAddressPoolsWithOptions(request: ListPublicIpAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicIpAddressPoolsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71019,21 +73224,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPublicIpAddressPoolsResponse>(await this.callApi(params, req, runtime), new ListPublicIpAddressPoolsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the available IP address pools.
+   *
+   * @param request ListPublicIpAddressPoolsRequest
+   * @return ListPublicIpAddressPoolsResponse
+   */
   async listPublicIpAddressPools(request: ListPublicIpAddressPoolsRequest): Promise<ListPublicIpAddressPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPublicIpAddressPoolsWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags that are added to resources.
+   *
+   * @description ## Usage notes
+   * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -71096,14 +73309,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags that are added to resources.
+   *
+   * @description ## Usage notes
+   * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -71111,15 +73326,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-    *
-    * @param request ListTagResourcesForExpressConnectRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesForExpressConnectResponse
+   * @summary Queries the tags that are added to an Express Connect circuit.
+   *
+   * @description ## [](#)
+   * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesForExpressConnectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesForExpressConnectResponse
    */
   async listTagResourcesForExpressConnectWithOptions(request: ListTagResourcesForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesForExpressConnectResponse> {
     Util.validateModel(request);
@@ -71182,20 +73399,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
-    * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-    * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-    *
-    * @param request ListTagResourcesForExpressConnectRequest
-    * @return ListTagResourcesForExpressConnectResponse
+   * @summary Queries the tags that are added to an Express Connect circuit.
+   *
+   * @description ## [](#)
+   * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
+   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
+   * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesForExpressConnectRequest
+   * @return ListTagResourcesForExpressConnectResponse
    */
   async listTagResourcesForExpressConnect(request: ListTagResourcesForExpressConnectRequest): Promise<ListTagResourcesForExpressConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesForExpressConnectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries filters for traffic mirroring.
+   *
+   * @param request ListTrafficMirrorFiltersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTrafficMirrorFiltersResponse
+   */
   async listTrafficMirrorFiltersWithOptions(request: ListTrafficMirrorFiltersRequest, runtime: $Util.RuntimeOptions): Promise<ListTrafficMirrorFiltersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71260,11 +73486,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTrafficMirrorFiltersResponse>(await this.callApi(params, req, runtime), new ListTrafficMirrorFiltersResponse({}));
   }
 
+  /**
+   * @summary Queries filters for traffic mirroring.
+   *
+   * @param request ListTrafficMirrorFiltersRequest
+   * @return ListTrafficMirrorFiltersResponse
+   */
   async listTrafficMirrorFilters(request: ListTrafficMirrorFiltersRequest): Promise<ListTrafficMirrorFiltersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTrafficMirrorFiltersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a traffic mirror session.
+   *
+   * @param request ListTrafficMirrorSessionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTrafficMirrorSessionsResponse
+   */
   async listTrafficMirrorSessionsWithOptions(request: ListTrafficMirrorSessionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTrafficMirrorSessionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71353,11 +73592,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTrafficMirrorSessionsResponse>(await this.callApi(params, req, runtime), new ListTrafficMirrorSessionsResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a traffic mirror session.
+   *
+   * @param request ListTrafficMirrorSessionsRequest
+   * @return ListTrafficMirrorSessionsResponse
+   */
   async listTrafficMirrorSessions(request: ListTrafficMirrorSessionsRequest): Promise<ListTrafficMirrorSessionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTrafficMirrorSessionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the CIDR reservation information about vSwitches.
+   *
+   * @param request ListVSwitchCidrReservationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVSwitchCidrReservationsResponse
+   */
   async listVSwitchCidrReservationsWithOptions(request: ListVSwitchCidrReservationsRequest, runtime: $Util.RuntimeOptions): Promise<ListVSwitchCidrReservationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71426,11 +73678,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVSwitchCidrReservationsResponse>(await this.callApi(params, req, runtime), new ListVSwitchCidrReservationsResponse({}));
   }
 
+  /**
+   * @summary Queries the CIDR reservation information about vSwitches.
+   *
+   * @param request ListVSwitchCidrReservationsRequest
+   * @return ListVSwitchCidrReservationsResponse
+   */
   async listVSwitchCidrReservations(request: ListVSwitchCidrReservationsRequest): Promise<ListVSwitchCidrReservationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVSwitchCidrReservationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries hosted connections.
+   *
+   * @param request ListVirtualPhysicalConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVirtualPhysicalConnectionsResponse
+   */
   async listVirtualPhysicalConnectionsWithOptions(request: ListVirtualPhysicalConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVirtualPhysicalConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71499,11 +73764,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVirtualPhysicalConnectionsResponse>(await this.callApi(params, req, runtime), new ListVirtualPhysicalConnectionsResponse({}));
   }
 
+  /**
+   * @summary Queries hosted connections.
+   *
+   * @param request ListVirtualPhysicalConnectionsRequest
+   * @return ListVirtualPhysicalConnectionsResponse
+   */
   async listVirtualPhysicalConnections(request: ListVirtualPhysicalConnectionsRequest): Promise<ListVirtualPhysicalConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVirtualPhysicalConnectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available endpoint services.
+   *
+   * @param request ListVpcEndpointServicesByEndUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcEndpointServicesByEndUserResponse
+   */
   async listVpcEndpointServicesByEndUserWithOptions(request: ListVpcEndpointServicesByEndUserRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServicesByEndUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71556,11 +73834,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcEndpointServicesByEndUserResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServicesByEndUserResponse({}));
   }
 
+  /**
+   * @summary Queries available endpoint services.
+   *
+   * @param request ListVpcEndpointServicesByEndUserRequest
+   * @return ListVpcEndpointServicesByEndUserResponse
+   */
   async listVpcEndpointServicesByEndUser(request: ListVpcEndpointServicesByEndUserRequest): Promise<ListVpcEndpointServicesByEndUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcEndpointServicesByEndUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries gateway endpoints.
+   *
+   * @param request ListVpcGatewayEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpcGatewayEndpointsResponse
+   */
   async listVpcGatewayEndpointsWithOptions(request: ListVpcGatewayEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcGatewayEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71629,21 +73920,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVpcGatewayEndpointsResponse>(await this.callApi(params, req, runtime), new ListVpcGatewayEndpointsResponse({}));
   }
 
+  /**
+   * @summary Queries gateway endpoints.
+   *
+   * @param request ListVpcGatewayEndpointsRequest
+   * @return ListVpcGatewayEndpointsResponse
+   */
   async listVpcGatewayEndpoints(request: ListVpcGatewayEndpointsRequest): Promise<ListVpcGatewayEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpcGatewayEndpointsWithOptions(request, runtime);
   }
 
   /**
-    * When you call **ListVpnCertificateAssociations**, take note of the following information:
-    * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
-    * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
-    * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
-    * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
-    *
-    * @param request ListVpnCertificateAssociationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListVpnCertificateAssociationsResponse
+   * @summary Queries the association between VPN gateways and certificates in a region.
+   *
+   * @description When you call **ListVpnCertificateAssociations**, take note of the following information:
+   * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
+   * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
+   * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
+   * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
+   *
+   * @param request ListVpnCertificateAssociationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVpnCertificateAssociationsResponse
    */
   async listVpnCertificateAssociationsWithOptions(request: ListVpnCertificateAssociationsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpnCertificateAssociationsResponse> {
     Util.validateModel(request);
@@ -71690,20 +73989,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call **ListVpnCertificateAssociations**, take note of the following information:
-    * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
-    * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
-    * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
-    * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
-    *
-    * @param request ListVpnCertificateAssociationsRequest
-    * @return ListVpnCertificateAssociationsResponse
+   * @summary Queries the association between VPN gateways and certificates in a region.
+   *
+   * @description When you call **ListVpnCertificateAssociations**, take note of the following information:
+   * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
+   * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
+   * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
+   * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
+   *
+   * @param request ListVpnCertificateAssociationsRequest
+   * @return ListVpnCertificateAssociationsResponse
    */
   async listVpnCertificateAssociations(request: ListVpnCertificateAssociationsRequest): Promise<ListVpnCertificateAssociationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVpnCertificateAssociationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of a Border Gateway Protocol (BGP) group.
+   *
+   * @param request ModifyBgpGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBgpGroupAttributeResponse
+   */
   async modifyBgpGroupAttributeWithOptions(request: ModifyBgpGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBgpGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71784,11 +74092,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBgpGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyBgpGroupAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of a Border Gateway Protocol (BGP) group.
+   *
+   * @param request ModifyBgpGroupAttributeRequest
+   * @return ModifyBgpGroupAttributeResponse
+   */
   async modifyBgpGroupAttribute(request: ModifyBgpGroupAttributeRequest): Promise<ModifyBgpGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBgpGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of a BGP peer.
+   *
+   * @param request ModifyBgpPeerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBgpPeerAttributeResponse
+   */
   async modifyBgpPeerAttributeWithOptions(request: ModifyBgpPeerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBgpPeerAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71853,11 +74174,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBgpPeerAttributeResponse>(await this.callApi(params, req, runtime), new ModifyBgpPeerAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of a BGP peer.
+   *
+   * @param request ModifyBgpPeerAttributeRequest
+   * @return ModifyBgpPeerAttributeResponse
+   */
   async modifyBgpPeerAttribute(request: ModifyBgpPeerAttributeRequest): Promise<ModifyBgpPeerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBgpPeerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of an EIP bandwidth plan.
+   *
+   * @param request ModifyCommonBandwidthPackageAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCommonBandwidthPackageAttributeResponse
+   */
   async modifyCommonBandwidthPackageAttributeWithOptions(request: ModifyCommonBandwidthPackageAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -71910,22 +74244,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCommonBandwidthPackageAttributeResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackageAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of an EIP bandwidth plan.
+   *
+   * @param request ModifyCommonBandwidthPackageAttributeRequest
+   * @return ModifyCommonBandwidthPackageAttributeResponse
+   */
   async modifyCommonBandwidthPackageAttribute(request: ModifyCommonBandwidthPackageAttributeRequest): Promise<ModifyCommonBandwidthPackageAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCommonBandwidthPackageAttributeWithOptions(request, runtime);
   }
 
   /**
-    * You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
-    * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
-    * When you call this operation, take note of the following items:
-    * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
-    * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
-    * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
-    *
-    * @param request ModifyCommonBandwidthPackageIpBandwidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyCommonBandwidthPackageIpBandwidthResponse
+   * @summary Sets the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance.
+   *
+   * @description You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
+   * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
+   * When you call this operation, take note of the following items:
+   * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
+   * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
+   * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
+   *
+   * @param request ModifyCommonBandwidthPackageIpBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCommonBandwidthPackageIpBandwidthResponse
    */
   async modifyCommonBandwidthPackageIpBandwidthWithOptions(request: ModifyCommonBandwidthPackageIpBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageIpBandwidthResponse> {
     Util.validateModel(request);
@@ -71980,15 +74322,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
-    * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
-    * When you call this operation, take note of the following items:
-    * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
-    * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
-    * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
-    *
-    * @param request ModifyCommonBandwidthPackageIpBandwidthRequest
-    * @return ModifyCommonBandwidthPackageIpBandwidthResponse
+   * @summary Sets the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance.
+   *
+   * @description You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
+   * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
+   * When you call this operation, take note of the following items:
+   * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
+   * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
+   * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
+   *
+   * @param request ModifyCommonBandwidthPackageIpBandwidthRequest
+   * @return ModifyCommonBandwidthPackageIpBandwidthResponse
    */
   async modifyCommonBandwidthPackageIpBandwidth(request: ModifyCommonBandwidthPackageIpBandwidthRequest): Promise<ModifyCommonBandwidthPackageIpBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -71996,15 +74340,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the task.
-    *     *   If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth of the Internet Shared Bandwidth instance is being modified. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-    *     *   If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth of the Internet Shared Bandwidth instance is modified.
-    * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
-    *
-    * @param request ModifyCommonBandwidthPackageSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyCommonBandwidthPackageSpecResponse
+   * @summary Modifies the maximum bandwidth of an Internet Shared Bandwidth instance.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the task.
+   *     *   If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth of the Internet Shared Bandwidth instance is being modified. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+   *     *   If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth of the Internet Shared Bandwidth instance is modified.
+   * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
+   *
+   * @param request ModifyCommonBandwidthPackageSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCommonBandwidthPackageSpecResponse
    */
   async modifyCommonBandwidthPackageSpecWithOptions(request: ModifyCommonBandwidthPackageSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageSpecResponse> {
     Util.validateModel(request);
@@ -72055,14 +74401,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](~~120309~~) operation to query the status of the task.
-    *     *   If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth of the Internet Shared Bandwidth instance is being modified. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-    *     *   If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth of the Internet Shared Bandwidth instance is modified.
-    * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
-    *
-    * @param request ModifyCommonBandwidthPackageSpecRequest
-    * @return ModifyCommonBandwidthPackageSpecResponse
+   * @summary Modifies the maximum bandwidth of an Internet Shared Bandwidth instance.
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the task.
+   *     *   If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth of the Internet Shared Bandwidth instance is being modified. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
+   *     *   If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth of the Internet Shared Bandwidth instance is modified.
+   * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
+   *
+   * @param request ModifyCommonBandwidthPackageSpecRequest
+   * @return ModifyCommonBandwidthPackageSpecResponse
    */
   async modifyCommonBandwidthPackageSpec(request: ModifyCommonBandwidthPackageSpecRequest): Promise<ModifyCommonBandwidthPackageSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -72070,15 +74418,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
-    *     *   If a VPN gateway is in the **active** state, the configurations are modified.
-    * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
-    * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
-    *
-    * @param request ModifyCustomerGatewayAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyCustomerGatewayAttributeResponse
+   * @summary Modifies the configuration of a customer gateway.
+   *
+   * @description *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
+   *     *   If a VPN gateway is in the **active** state, the configurations are modified.
+   * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
+   * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
+   *
+   * @param request ModifyCustomerGatewayAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCustomerGatewayAttributeResponse
    */
   async modifyCustomerGatewayAttributeWithOptions(request: ModifyCustomerGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomerGatewayAttributeResponse> {
     Util.validateModel(request);
@@ -72141,20 +74491,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
-    *     *   If a VPN gateway is in the **active** state, the configurations are modified.
-    * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
-    * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
-    *
-    * @param request ModifyCustomerGatewayAttributeRequest
-    * @return ModifyCustomerGatewayAttributeResponse
+   * @summary Modifies the configuration of a customer gateway.
+   *
+   * @description *   When you call **ModifyCustomerGatewayAttribute**, if a value is assigned to **AuthKey**, the operation is asynchronous. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the configurations are being modified.
+   *     *   If a VPN gateway is in the **active** state, the configurations are modified.
+   * *   When you call **ModifyCustomerGatewayAttribute**, if no value is assigned to **AuthKey**, the operation is synchronous.
+   * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
+   *
+   * @param request ModifyCustomerGatewayAttributeRequest
+   * @return ModifyCustomerGatewayAttributeResponse
    */
   async modifyCustomerGatewayAttribute(request: ModifyCustomerGatewayAttributeRequest): Promise<ModifyCustomerGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCustomerGatewayAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name, description, and maximum bandwidth of an elastic IP address (EIP).
+   *
+   * @param request ModifyEipAddressAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyEipAddressAttributeResponse
+   */
   async modifyEipAddressAttributeWithOptions(request: ModifyEipAddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEipAddressAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72211,11 +74570,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyEipAddressAttributeResponse>(await this.callApi(params, req, runtime), new ModifyEipAddressAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name, description, and maximum bandwidth of an elastic IP address (EIP).
+   *
+   * @param request ModifyEipAddressAttributeRequest
+   * @return ModifyEipAddressAttributeResponse
+   */
   async modifyEipAddressAttribute(request: ModifyEipAddressAttributeRequest): Promise<ModifyEipAddressAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEipAddressAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of an Express Cloud Connect (ECC) instance.
+   *
+   * @param request ModifyExpressCloudConnectionAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyExpressCloudConnectionAttributeResponse
+   */
   async modifyExpressCloudConnectionAttributeWithOptions(request: ModifyExpressCloudConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressCloudConnectionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72280,11 +74652,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyExpressCloudConnectionAttributeResponse>(await this.callApi(params, req, runtime), new ModifyExpressCloudConnectionAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of an Express Cloud Connect (ECC) instance.
+   *
+   * @param request ModifyExpressCloudConnectionAttributeRequest
+   * @return ModifyExpressCloudConnectionAttributeResponse
+   */
   async modifyExpressCloudConnectionAttribute(request: ModifyExpressCloudConnectionAttributeRequest): Promise<ModifyExpressCloudConnectionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyExpressCloudConnectionAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the bandwidth of an Express Cloud Connect (ECC) instance.
+   *
+   * @param request ModifyExpressCloudConnectionBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyExpressCloudConnectionBandwidthResponse
+   */
   async modifyExpressCloudConnectionBandwidthWithOptions(request: ModifyExpressCloudConnectionBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressCloudConnectionBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72333,11 +74718,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyExpressCloudConnectionBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyExpressCloudConnectionBandwidthResponse({}));
   }
 
+  /**
+   * @summary Modifies the bandwidth of an Express Cloud Connect (ECC) instance.
+   *
+   * @param request ModifyExpressCloudConnectionBandwidthRequest
+   * @return ModifyExpressCloudConnectionBandwidthResponse
+   */
   async modifyExpressCloudConnectionBandwidth(request: ModifyExpressCloudConnectionBandwidthRequest): Promise<ModifyExpressCloudConnectionBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyExpressCloudConnectionBandwidthWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改高速通道Qos
+   *
+   * @param request ModifyExpressConnectTrafficQosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyExpressConnectTrafficQosResponse
+   */
   async modifyExpressConnectTrafficQosWithOptions(request: ModifyExpressConnectTrafficQosRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectTrafficQosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72402,11 +74800,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyExpressConnectTrafficQosResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectTrafficQosResponse({}));
   }
 
+  /**
+   * @summary 修改高速通道Qos
+   *
+   * @param request ModifyExpressConnectTrafficQosRequest
+   * @return ModifyExpressConnectTrafficQosResponse
+   */
   async modifyExpressConnectTrafficQos(request: ModifyExpressConnectTrafficQosRequest): Promise<ModifyExpressConnectTrafficQosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyExpressConnectTrafficQosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改高速通道Qos队列
+   *
+   * @param request ModifyExpressConnectTrafficQosQueueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyExpressConnectTrafficQosQueueResponse
+   */
   async modifyExpressConnectTrafficQosQueueWithOptions(request: ModifyExpressConnectTrafficQosQueueRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectTrafficQosQueueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72471,11 +74882,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyExpressConnectTrafficQosQueueResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectTrafficQosQueueResponse({}));
   }
 
+  /**
+   * @summary 修改高速通道Qos队列
+   *
+   * @param request ModifyExpressConnectTrafficQosQueueRequest
+   * @return ModifyExpressConnectTrafficQosQueueResponse
+   */
   async modifyExpressConnectTrafficQosQueue(request: ModifyExpressConnectTrafficQosQueueRequest): Promise<ModifyExpressConnectTrafficQosQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyExpressConnectTrafficQosQueueWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改高速通道Qos规则
+   *
+   * @param request ModifyExpressConnectTrafficQosRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyExpressConnectTrafficQosRuleResponse
+   */
   async modifyExpressConnectTrafficQosRuleWithOptions(request: ModifyExpressConnectTrafficQosRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectTrafficQosRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72580,20 +75004,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyExpressConnectTrafficQosRuleResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectTrafficQosRuleResponse({}));
   }
 
+  /**
+   * @summary 修改高速通道Qos规则
+   *
+   * @param request ModifyExpressConnectTrafficQosRuleRequest
+   * @return ModifyExpressConnectTrafficQosRuleResponse
+   */
   async modifyExpressConnectTrafficQosRule(request: ModifyExpressConnectTrafficQosRuleRequest): Promise<ModifyExpressConnectTrafficQosRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyExpressConnectTrafficQosRuleWithOptions(request, runtime);
   }
 
   /**
-    * *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-    *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
-    *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
-    * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
-    *
-    * @param request ModifyFlowLogAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyFlowLogAttributeResponse
+   * @summary Modifies the name and description of a flow log.
+   *
+   * @description *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+   *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
+   *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
+   * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
+   *
+   * @param request ModifyFlowLogAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyFlowLogAttributeResponse
    */
   async modifyFlowLogAttributeWithOptions(request: ModifyFlowLogAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowLogAttributeResponse> {
     Util.validateModel(request);
@@ -72652,13 +75084,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](~~87923~~) operation to query the status of a flow log:
-    *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
-    *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
-    * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
-    *
-    * @param request ModifyFlowLogAttributeRequest
-    * @return ModifyFlowLogAttributeResponse
+   * @summary Modifies the name and description of a flow log.
+   *
+   * @description *   **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
+   *     *   If the flow log is in the **Modifying** state, the flow log is being modified.
+   *     *   If the flow log is in the **Active** or **Inactive** state, the flow log is modified.
+   * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
+   *
+   * @param request ModifyFlowLogAttributeRequest
+   * @return ModifyFlowLogAttributeResponse
    */
   async modifyFlowLogAttribute(request: ModifyFlowLogAttributeRequest): Promise<ModifyFlowLogAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -72666,14 +75100,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-    *     *   **Pending**: indicates that the system is modifying the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
-    *     *   **Available**: indicates that the DNAT entry is modified.
-    * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
-    *
-    * @param request ModifyForwardEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyForwardEntryResponse
+   * @summary Modifies a DNAT entry.
+   *
+   * @description *   **ModifyForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+   *     *   **Pending**: indicates that the system is modifying the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
+   *     *   **Available**: indicates that the DNAT entry is modified.
+   * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
+   *
+   * @param request ModifyForwardEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyForwardEntryResponse
    */
   async modifyForwardEntryWithOptions(request: ModifyForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyForwardEntryResponse> {
     Util.validateModel(request);
@@ -72756,13 +75192,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](~~36053~~) operation to query the status of the task.
-    *     *   **Pending**: indicates that the system is modifying the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
-    *     *   **Available**: indicates that the DNAT entry is modified.
-    * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
-    *
-    * @param request ModifyForwardEntryRequest
-    * @return ModifyForwardEntryResponse
+   * @summary Modifies a DNAT entry.
+   *
+   * @description *   **ModifyForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
+   *     *   **Pending**: indicates that the system is modifying the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
+   *     *   **Available**: indicates that the DNAT entry is modified.
+   * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
+   *
+   * @param request ModifyForwardEntryRequest
+   * @return ModifyForwardEntryResponse
    */
   async modifyForwardEntry(request: ModifyForwardEntryRequest): Promise<ModifyForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -72770,15 +75208,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-    *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
-    *     *   **Available**: indicates that the FULLNAT entry is modified.
-    * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
-    *
-    * @param request ModifyFullNatEntryAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyFullNatEntryAttributeResponse
+   * @summary Modifies a FULLNAT entry.
+   *
+   * @description ## [](#)
+   * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+   *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
+   *     *   **Available**: indicates that the FULLNAT entry is modified.
+   * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
+   *
+   * @param request ModifyFullNatEntryAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyFullNatEntryAttributeResponse
    */
   async modifyFullNatEntryAttributeWithOptions(request: ModifyFullNatEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFullNatEntryAttributeResponse> {
     Util.validateModel(request);
@@ -72869,20 +75309,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](~~348779~~) operation to query the status of a FULLNAT entry.
-    *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
-    *     *   **Available**: indicates that the FULLNAT entry is modified.
-    * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
-    *
-    * @param request ModifyFullNatEntryAttributeRequest
-    * @return ModifyFullNatEntryAttributeResponse
+   * @summary Modifies a FULLNAT entry.
+   *
+   * @description ## [](#)
+   * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
+   *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
+   *     *   **Available**: indicates that the FULLNAT entry is modified.
+   * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
+   *
+   * @param request ModifyFullNatEntryAttributeRequest
+   * @return ModifyFullNatEntryAttributeResponse
    */
   async modifyFullNatEntryAttribute(request: ModifyFullNatEntryAttributeRequest): Promise<ModifyFullNatEntryAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFullNatEntryAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of a Global Accelerator (GA) instance.
+   *
+   * @param request ModifyGlobalAccelerationInstanceAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalAccelerationInstanceAttributesResponse
+   */
   async modifyGlobalAccelerationInstanceAttributesWithOptions(request: ModifyGlobalAccelerationInstanceAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalAccelerationInstanceAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -72935,18 +75384,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalAccelerationInstanceAttributesResponse>(await this.callApi(params, req, runtime), new ModifyGlobalAccelerationInstanceAttributesResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of a Global Accelerator (GA) instance.
+   *
+   * @param request ModifyGlobalAccelerationInstanceAttributesRequest
+   * @return ModifyGlobalAccelerationInstanceAttributesResponse
+   */
   async modifyGlobalAccelerationInstanceAttributes(request: ModifyGlobalAccelerationInstanceAttributesRequest): Promise<ModifyGlobalAccelerationInstanceAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalAccelerationInstanceAttributesWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
-    *
-    * @param request ModifyGlobalAccelerationInstanceSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyGlobalAccelerationInstanceSpecResponse
+   * @summary Modifies the maximum bandwidth of a Global Accelerator (GA) instance.
+   *
+   * @description ## Usage notes
+   * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
+   *
+   * @param request ModifyGlobalAccelerationInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalAccelerationInstanceSpecResponse
    */
   async modifyGlobalAccelerationInstanceSpecWithOptions(request: ModifyGlobalAccelerationInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalAccelerationInstanceSpecResponse> {
     Util.validateModel(request);
@@ -72997,11 +75454,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
-    *
-    * @param request ModifyGlobalAccelerationInstanceSpecRequest
-    * @return ModifyGlobalAccelerationInstanceSpecResponse
+   * @summary Modifies the maximum bandwidth of a Global Accelerator (GA) instance.
+   *
+   * @description ## Usage notes
+   * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
+   *
+   * @param request ModifyGlobalAccelerationInstanceSpecRequest
+   * @return ModifyGlobalAccelerationInstanceSpecResponse
    */
   async modifyGlobalAccelerationInstanceSpec(request: ModifyGlobalAccelerationInstanceSpecRequest): Promise<ModifyGlobalAccelerationInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -73009,11 +75468,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
-    *
-    * @param request ModifyHaVipAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyHaVipAttributeResponse
+   * @description You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
+   *
+   * @param request ModifyHaVipAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHaVipAttributeResponse
    */
   async modifyHaVipAttributeWithOptions(request: ModifyHaVipAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHaVipAttributeResponse> {
     Util.validateModel(request);
@@ -73072,10 +75531,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
-    *
-    * @param request ModifyHaVipAttributeRequest
-    * @return ModifyHaVipAttributeResponse
+   * @description You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified period of time.
+   *
+   * @param request ModifyHaVipAttributeRequest
+   * @return ModifyHaVipAttributeResponse
    */
   async modifyHaVipAttribute(request: ModifyHaVipAttributeRequest): Promise<ModifyHaVipAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -73083,11 +75542,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ModifyIPv6TranslatorAclAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyIPv6TranslatorAclAttributeResponse
+   * @deprecated OpenAPI ModifyIPv6TranslatorAclAttribute is deprecated
+   *
+   * @summary Modifies the name of an access control list (ACL).
+   *
+   * @param request ModifyIPv6TranslatorAclAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIPv6TranslatorAclAttributeResponse
    */
   // Deprecated
   async modifyIPv6TranslatorAclAttributeWithOptions(request: ModifyIPv6TranslatorAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorAclAttributeResponse> {
@@ -73143,10 +75604,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ModifyIPv6TranslatorAclAttributeRequest
-    * @return ModifyIPv6TranslatorAclAttributeResponse
+   * @deprecated OpenAPI ModifyIPv6TranslatorAclAttribute is deprecated
+   *
+   * @summary Modifies the name of an access control list (ACL).
+   *
+   * @param request ModifyIPv6TranslatorAclAttributeRequest
+   * @return ModifyIPv6TranslatorAclAttributeResponse
    */
   // Deprecated
   async modifyIPv6TranslatorAclAttribute(request: ModifyIPv6TranslatorAclAttributeRequest): Promise<ModifyIPv6TranslatorAclAttributeResponse> {
@@ -73154,6 +75617,13 @@ export default class Client extends OpenApi {
     return await this.modifyIPv6TranslatorAclAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an IP entry in an access control list (ACL).
+   *
+   * @param request ModifyIPv6TranslatorAclListEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIPv6TranslatorAclListEntryResponse
+   */
   async modifyIPv6TranslatorAclListEntryWithOptions(request: ModifyIPv6TranslatorAclListEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorAclListEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73206,11 +75676,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIPv6TranslatorAclListEntryResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorAclListEntryResponse({}));
   }
 
+  /**
+   * @summary Modifies an IP entry in an access control list (ACL).
+   *
+   * @param request ModifyIPv6TranslatorAclListEntryRequest
+   * @return ModifyIPv6TranslatorAclListEntryResponse
+   */
   async modifyIPv6TranslatorAclListEntry(request: ModifyIPv6TranslatorAclListEntryRequest): Promise<ModifyIPv6TranslatorAclListEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIPv6TranslatorAclListEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of an IPv6 Translation Service instance.
+   *
+   * @param request ModifyIPv6TranslatorAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIPv6TranslatorAttributeResponse
+   */
   async modifyIPv6TranslatorAttributeWithOptions(request: ModifyIPv6TranslatorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73267,11 +75750,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIPv6TranslatorAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of an IPv6 Translation Service instance.
+   *
+   * @param request ModifyIPv6TranslatorAttributeRequest
+   * @return ModifyIPv6TranslatorAttributeResponse
+   */
   async modifyIPv6TranslatorAttribute(request: ModifyIPv6TranslatorAttributeRequest): Promise<ModifyIPv6TranslatorAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIPv6TranslatorAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the maximum bandwidth of an IPv6 Translation Service instance.
+   *
+   * @param request ModifyIPv6TranslatorBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIPv6TranslatorBandwidthResponse
+   */
   async modifyIPv6TranslatorBandwidthWithOptions(request: ModifyIPv6TranslatorBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73328,17 +75824,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIPv6TranslatorBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorBandwidthResponse({}));
   }
 
+  /**
+   * @summary Modifies the maximum bandwidth of an IPv6 Translation Service instance.
+   *
+   * @param request ModifyIPv6TranslatorBandwidthRequest
+   * @return ModifyIPv6TranslatorBandwidthResponse
+   */
   async modifyIPv6TranslatorBandwidth(request: ModifyIPv6TranslatorBandwidthRequest): Promise<ModifyIPv6TranslatorBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIPv6TranslatorBandwidthWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ModifyIPv6TranslatorEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyIPv6TranslatorEntryResponse
+   * @deprecated OpenAPI ModifyIPv6TranslatorEntry is deprecated
+   *
+   * @summary Modifies an IPv6 mapping entry.
+   *
+   * @param request ModifyIPv6TranslatorEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIPv6TranslatorEntryResponse
    */
   // Deprecated
   async modifyIPv6TranslatorEntryWithOptions(request: ModifyIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorEntryResponse> {
@@ -73426,10 +75930,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ModifyIPv6TranslatorEntryRequest
-    * @return ModifyIPv6TranslatorEntryResponse
+   * @deprecated OpenAPI ModifyIPv6TranslatorEntry is deprecated
+   *
+   * @summary Modifies an IPv6 mapping entry.
+   *
+   * @param request ModifyIPv6TranslatorEntryRequest
+   * @return ModifyIPv6TranslatorEntryResponse
    */
   // Deprecated
   async modifyIPv6TranslatorEntry(request: ModifyIPv6TranslatorEntryRequest): Promise<ModifyIPv6TranslatorEntryResponse> {
@@ -73437,6 +75943,13 @@ export default class Client extends OpenApi {
     return await this.modifyIPv6TranslatorEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of an IPv6 address.
+   *
+   * @param request ModifyIpv6AddressAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIpv6AddressAttributeResponse
+   */
   async modifyIpv6AddressAttributeWithOptions(request: ModifyIpv6AddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6AddressAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73493,11 +76006,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIpv6AddressAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIpv6AddressAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of an IPv6 address.
+   *
+   * @param request ModifyIpv6AddressAttributeRequest
+   * @return ModifyIpv6AddressAttributeResponse
+   */
   async modifyIpv6AddressAttribute(request: ModifyIpv6AddressAttributeRequest): Promise<ModifyIpv6AddressAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIpv6AddressAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of an IPv6 gateway.
+   *
+   * @param request ModifyIpv6GatewayAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIpv6GatewayAttributeResponse
+   */
   async modifyIpv6GatewayAttributeWithOptions(request: ModifyIpv6GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6GatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73554,17 +76080,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIpv6GatewayAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIpv6GatewayAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of an IPv6 gateway.
+   *
+   * @param request ModifyIpv6GatewayAttributeRequest
+   * @return ModifyIpv6GatewayAttributeResponse
+   */
   async modifyIpv6GatewayAttribute(request: ModifyIpv6GatewayAttributeRequest): Promise<ModifyIpv6GatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIpv6GatewayAttributeWithOptions(request, runtime);
   }
 
   /**
-    * You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
-    *
-    * @param request ModifyIpv6InternetBandwidthRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyIpv6InternetBandwidthResponse
+   * @summary Modifies the Internet bandwidth value of an IPv6 address.
+   *
+   * @description You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
+   *
+   * @param request ModifyIpv6InternetBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIpv6InternetBandwidthResponse
    */
   async modifyIpv6InternetBandwidthWithOptions(request: ModifyIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
@@ -73627,10 +76161,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
-    *
-    * @param request ModifyIpv6InternetBandwidthRequest
-    * @return ModifyIpv6InternetBandwidthResponse
+   * @summary Modifies the Internet bandwidth value of an IPv6 address.
+   *
+   * @description You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
+   *
+   * @param request ModifyIpv6InternetBandwidthRequest
+   * @return ModifyIpv6InternetBandwidthResponse
    */
   async modifyIpv6InternetBandwidth(request: ModifyIpv6InternetBandwidthRequest): Promise<ModifyIpv6InternetBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -73638,12 +76174,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
-    *
-    * @param tmpReq ModifyNatGatewayAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyNatGatewayAttributeResponse
+   * @summary Modifies the name and description of a NAT gateway.
+   *
+   * @description ## [](#)Description
+   * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
+   *
+   * @param tmpReq ModifyNatGatewayAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNatGatewayAttributeResponse
    */
   async modifyNatGatewayAttributeWithOptions(tmpReq: ModifyNatGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatGatewayAttributeResponse> {
     Util.validateModel(tmpReq);
@@ -73720,11 +76258,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
-    *
-    * @param request ModifyNatGatewayAttributeRequest
-    * @return ModifyNatGatewayAttributeResponse
+   * @summary Modifies the name and description of a NAT gateway.
+   *
+   * @description ## [](#)Description
+   * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
+   *
+   * @param request ModifyNatGatewayAttributeRequest
+   * @return ModifyNatGatewayAttributeResponse
    */
   async modifyNatGatewayAttribute(request: ModifyNatGatewayAttributeRequest): Promise<ModifyNatGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -73732,21 +76272,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
-    * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
-    * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
-    *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
-    * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
-    * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.  
-    * | Size | Maximum number of connections | Number of new connections per second |
-    * | ---- | ----------------------------- | ------------------------------------ |
-    * | Small | 10,000 | 1,000 |
-    * | Medium | 50,000 | 5,000 |
-    * | Large | 200,000 | 10,000 |
-    *
-    * @param request ModifyNatGatewaySpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyNatGatewaySpecResponse
+   * @summary Upgrades a subscription Internet NAT gateway.
+   *
+   * @description - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
+   * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
+   * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
+   *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
+   * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
+   * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.  
+   * | Size | Maximum number of connections | Number of new connections per second |
+   * | ---- | ----------------------------- | ------------------------------------ |
+   * | Small | 10,000 | 1,000 |
+   * | Medium | 50,000 | 5,000 |
+   * | Large | 200,000 | 10,000 |
+   *
+   * @param request ModifyNatGatewaySpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNatGatewaySpecResponse
    */
   async modifyNatGatewaySpecWithOptions(request: ModifyNatGatewaySpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatGatewaySpecResponse> {
     Util.validateModel(request);
@@ -73805,20 +76347,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
-    * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
-    * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
-    *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
-    * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
-    * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.  
-    * | Size | Maximum number of connections | Number of new connections per second |
-    * | ---- | ----------------------------- | ------------------------------------ |
-    * | Small | 10,000 | 1,000 |
-    * | Medium | 50,000 | 5,000 |
-    * | Large | 200,000 | 10,000 |
-    *
-    * @param request ModifyNatGatewaySpecRequest
-    * @return ModifyNatGatewaySpecResponse
+   * @summary Upgrades a subscription Internet NAT gateway.
+   *
+   * @description - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
+   * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
+   * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
+   *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
+   * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
+   * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.  
+   * | Size | Maximum number of connections | Number of new connections per second |
+   * | ---- | ----------------------------- | ------------------------------------ |
+   * | Small | 10,000 | 1,000 |
+   * | Medium | 50,000 | 5,000 |
+   * | Large | 200,000 | 10,000 |
+   *
+   * @param request ModifyNatGatewaySpecRequest
+   * @return ModifyNatGatewaySpecResponse
    */
   async modifyNatGatewaySpec(request: ModifyNatGatewaySpecRequest): Promise<ModifyNatGatewaySpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -73826,12 +76370,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
-    *
-    * @param request ModifyNatIpAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyNatIpAttributeResponse
+   * @summary Modifies the name and description of a NAT IP address.
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
+   *
+   * @param request ModifyNatIpAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNatIpAttributeResponse
    */
   async modifyNatIpAttributeWithOptions(request: ModifyNatIpAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatIpAttributeResponse> {
     Util.validateModel(request);
@@ -73898,17 +76444,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
-    *
-    * @param request ModifyNatIpAttributeRequest
-    * @return ModifyNatIpAttributeResponse
+   * @summary Modifies the name and description of a NAT IP address.
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
+   *
+   * @param request ModifyNatIpAttributeRequest
+   * @return ModifyNatIpAttributeResponse
    */
   async modifyNatIpAttribute(request: ModifyNatIpAttributeRequest): Promise<ModifyNatIpAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNatIpAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of a NAT CIDR block.
+   *
+   * @param request ModifyNatIpCidrAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNatIpCidrAttributeResponse
+   */
   async modifyNatIpCidrAttributeWithOptions(request: ModifyNatIpCidrAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatIpCidrAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -73977,11 +76532,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNatIpCidrAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNatIpCidrAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of a NAT CIDR block.
+   *
+   * @param request ModifyNatIpCidrAttributeRequest
+   * @return ModifyNatIpCidrAttributeResponse
+   */
   async modifyNatIpCidrAttribute(request: ModifyNatIpCidrAttributeRequest): Promise<ModifyNatIpCidrAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNatIpCidrAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the attributes of a network access control list (ACL).
+   *
+   * @param request ModifyNetworkAclAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNetworkAclAttributesResponse
+   */
   async modifyNetworkAclAttributesWithOptions(request: ModifyNetworkAclAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkAclAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -74046,20 +76614,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNetworkAclAttributesResponse>(await this.callApi(params, req, runtime), new ModifyNetworkAclAttributesResponse({}));
   }
 
+  /**
+   * @summary Modifies the attributes of a network access control list (ACL).
+   *
+   * @param request ModifyNetworkAclAttributesRequest
+   * @return ModifyNetworkAclAttributesResponse
+   */
   async modifyNetworkAclAttributes(request: ModifyNetworkAclAttributesRequest): Promise<ModifyNetworkAclAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNetworkAclAttributesWithOptions(request, runtime);
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
-    * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
-    * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
-    *
-    * @param request ModifyPhysicalConnectionAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyPhysicalConnectionAttributeResponse
+   * @summary Modifies the configurations of an Express Connect circuit.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
+   * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
+   * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
+   *
+   * @param request ModifyPhysicalConnectionAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPhysicalConnectionAttributeResponse
    */
   async modifyPhysicalConnectionAttributeWithOptions(request: ModifyPhysicalConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhysicalConnectionAttributeResponse> {
     Util.validateModel(request);
@@ -74146,13 +76722,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following limits:
-    * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
-    * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
-    * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
-    *
-    * @param request ModifyPhysicalConnectionAttributeRequest
-    * @return ModifyPhysicalConnectionAttributeResponse
+   * @summary Modifies the configurations of an Express Connect circuit.
+   *
+   * @description When you call this operation, take note of the following limits:
+   * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
+   * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
+   * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
+   *
+   * @param request ModifyPhysicalConnectionAttributeRequest
+   * @return ModifyPhysicalConnectionAttributeResponse
    */
   async modifyPhysicalConnectionAttribute(request: ModifyPhysicalConnectionAttributeRequest): Promise<ModifyPhysicalConnectionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -74160,11 +76738,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
-    *
-    * @param request ModifyRouteEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyRouteEntryResponse
+   * @summary 修改路由条目属性
+   *
+   * @description You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
+   *
+   * @param request ModifyRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRouteEntryResponse
    */
   async modifyRouteEntryWithOptions(request: ModifyRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouteEntryResponse> {
     Util.validateModel(request);
@@ -74227,10 +76807,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
-    *
-    * @param request ModifyRouteEntryRequest
-    * @return ModifyRouteEntryResponse
+   * @summary 修改路由条目属性
+   *
+   * @description You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
+   *
+   * @param request ModifyRouteEntryRequest
+   * @return ModifyRouteEntryResponse
    */
   async modifyRouteEntry(request: ModifyRouteEntryRequest): Promise<ModifyRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -74238,11 +76820,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
-    *
-    * @param request ModifyRouteTableAttributesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyRouteTableAttributesResponse
+   * @summary Modifies the name and description of a route table.
+   *
+   * @description You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
+   *
+   * @param request ModifyRouteTableAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRouteTableAttributesResponse
    */
   async modifyRouteTableAttributesWithOptions(request: ModifyRouteTableAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouteTableAttributesResponse> {
     Util.validateModel(request);
@@ -74297,16 +76881,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
-    *
-    * @param request ModifyRouteTableAttributesRequest
-    * @return ModifyRouteTableAttributesResponse
+   * @summary Modifies the name and description of a route table.
+   *
+   * @description You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
+   *
+   * @param request ModifyRouteTableAttributesRequest
+   * @return ModifyRouteTableAttributesResponse
    */
   async modifyRouteTableAttributes(request: ModifyRouteTableAttributesRequest): Promise<ModifyRouteTableAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRouteTableAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of a router interface.
+   *
+   * @param request ModifyRouterInterfaceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRouterInterfaceAttributeResponse
+   */
   async modifyRouterInterfaceAttributeWithOptions(request: ModifyRouterInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouterInterfaceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -74391,18 +76984,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRouterInterfaceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyRouterInterfaceAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of a router interface.
+   *
+   * @param request ModifyRouterInterfaceAttributeRequest
+   * @return ModifyRouterInterfaceAttributeResponse
+   */
   async modifyRouterInterfaceAttribute(request: ModifyRouterInterfaceAttributeRequest): Promise<ModifyRouterInterfaceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRouterInterfaceAttributeWithOptions(request, runtime);
   }
 
   /**
-    * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
-    * >  You cannot modify the specification of a router interface that has overdue payments.
-    *
-    * @param request ModifyRouterInterfaceSpecRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyRouterInterfaceSpecResponse
+   * @summary Modifies the specification of a router interface.
+   *
+   * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
+   * >  You cannot modify the specification of a router interface that has overdue payments.
+   *
+   * @param request ModifyRouterInterfaceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRouterInterfaceSpecResponse
    */
   async modifyRouterInterfaceSpecWithOptions(request: ModifyRouterInterfaceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouterInterfaceSpecResponse> {
     Util.validateModel(request);
@@ -74457,11 +77058,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
-    * >  You cannot modify the specification of a router interface that has overdue payments.
-    *
-    * @param request ModifyRouterInterfaceSpecRequest
-    * @return ModifyRouterInterfaceSpecResponse
+   * @summary Modifies the specification of a router interface.
+   *
+   * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, the router interface enters the **Active** state.
+   * >  You cannot modify the specification of a router interface that has overdue payments.
+   *
+   * @param request ModifyRouterInterfaceSpecRequest
+   * @return ModifyRouterInterfaceSpecResponse
    */
   async modifyRouterInterfaceSpec(request: ModifyRouterInterfaceSpecRequest): Promise<ModifyRouterInterfaceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -74469,16 +77072,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * **ModifySnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-    * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
-    * *   **Available**: indicates that the SNAT entry is modified.
-    * >  If an SNAT entry is in the **Pending** state, it indicates that you cannot modify the SNAT entry.
-    * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
-    *
-    * @param request ModifySnatEntryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySnatEntryResponse
+   * @summary Modifies an SNAT entry.
+   *
+   * @description ## [](#)
+   * **ModifySnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
+   * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+   * *   **Available**: indicates that the SNAT entry is modified.
+   * >  If an SNAT entry is in the **Pending** state, it indicates that you cannot modify the SNAT entry.
+   * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
+   *
+   * @param request ModifySnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySnatEntryResponse
    */
   async modifySnatEntryWithOptions(request: ModifySnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifySnatEntryResponse> {
     Util.validateModel(request);
@@ -74545,21 +77150,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * **ModifySnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](~~42677~~) operation to query the status of the task.
-    * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
-    * *   **Available**: indicates that the SNAT entry is modified.
-    * >  If an SNAT entry is in the **Pending** state, it indicates that you cannot modify the SNAT entry.
-    * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
-    *
-    * @param request ModifySnatEntryRequest
-    * @return ModifySnatEntryResponse
+   * @summary Modifies an SNAT entry.
+   *
+   * @description ## [](#)
+   * **ModifySnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
+   * *   **Pending**: indicates that the system is modifying the SNAT entry. You can only query the status of the SNAT entry, but cannot perform other operations.
+   * *   **Available**: indicates that the SNAT entry is modified.
+   * >  If an SNAT entry is in the **Pending** state, it indicates that you cannot modify the SNAT entry.
+   * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
+   *
+   * @param request ModifySnatEntryRequest
+   * @return ModifySnatEntryResponse
    */
   async modifySnatEntry(request: ModifySnatEntryRequest): Promise<ModifySnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySnatEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifySslVpnClientCertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySslVpnClientCertResponse
+   */
   async modifySslVpnClientCertWithOptions(request: ModifySslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<ModifySslVpnClientCertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -74612,21 +77224,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySslVpnClientCertResponse>(await this.callApi(params, req, runtime), new ModifySslVpnClientCertResponse({}));
   }
 
+  /**
+   * @param request ModifySslVpnClientCertRequest
+   * @return ModifySslVpnClientCertResponse
+   */
   async modifySslVpnClientCert(request: ModifySslVpnClientCertRequest): Promise<ModifySslVpnClientCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySslVpnClientCertWithOptions(request, runtime);
   }
 
   /**
-    * *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations besides the **name**, the operation is asynchronous.
-    * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
-    *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server are modified.
-    * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
-    *
-    * @param request ModifySslVpnServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySslVpnServerResponse
+   * @summary Modifies the configurations of an SSL server.
+   *
+   * @description *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations besides the **name**, the operation is asynchronous.
+   * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
+   *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server are modified.
+   * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
+   *
+   * @param request ModifySslVpnServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySslVpnServerResponse
    */
   async modifySslVpnServerWithOptions(request: ModifySslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<ModifySslVpnServerResponse> {
     Util.validateModel(request);
@@ -74649,6 +77267,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableMultiFactorAuth)) {
       query["EnableMultiFactorAuth"] = request.enableMultiFactorAuth;
+    }
+
+    if (!Util.isUnset(request.IDaaSApplicationId)) {
+      query["IDaaSApplicationId"] = request.IDaaSApplicationId;
     }
 
     if (!Util.isUnset(request.IDaaSInstanceId)) {
@@ -74717,20 +77339,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations besides the **name**, the operation is asynchronous.
-    * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
-    *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server are modified.
-    * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
-    *
-    * @param request ModifySslVpnServerRequest
-    * @return ModifySslVpnServerResponse
+   * @summary Modifies the configurations of an SSL server.
+   *
+   * @description *   If you modify only the **name** of the SSL server, the operation is synchronous. If you also modify other configurations besides the **name**, the operation is asynchronous.
+   * *   When **ModifySslVpnServer** is an asynchronous operation, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the configurations of the SSL server are being modified.
+   *     *   If a VPN gateway is in the **active** state, the configurations of the SSL server are modified.
+   * *   You cannot repeatedly call **ModifySslVpnServer** to modify the configurations of an SSL server within the specified period of time.
+   *
+   * @param request ModifySslVpnServerRequest
+   * @return ModifySslVpnServerResponse
    */
   async modifySslVpnServer(request: ModifySslVpnServerRequest): Promise<ModifySslVpnServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySslVpnServerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a VPN tunnel.
+   *
+   * @param request ModifyTunnelAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTunnelAttributeResponse
+   */
   async modifyTunnelAttributeWithOptions(request: ModifyTunnelAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTunnelAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -74787,17 +77418,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTunnelAttributeResponse>(await this.callApi(params, req, runtime), new ModifyTunnelAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies a VPN tunnel.
+   *
+   * @param request ModifyTunnelAttributeRequest
+   * @return ModifyTunnelAttributeResponse
+   */
   async modifyTunnelAttribute(request: ModifyTunnelAttributeRequest): Promise<ModifyTunnelAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTunnelAttributeWithOptions(request, runtime);
   }
 
   /**
-    * You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
-    *
-    * @param request ModifyVRouterAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVRouterAttributeResponse
+   * @summary Modifies the name and description of a vRouter.
+   *
+   * @description You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
+   *
+   * @param request ModifyVRouterAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVRouterAttributeResponse
    */
   async modifyVRouterAttributeWithOptions(request: ModifyVRouterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVRouterAttributeResponse> {
     Util.validateModel(request);
@@ -74852,10 +77491,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
-    *
-    * @param request ModifyVRouterAttributeRequest
-    * @return ModifyVRouterAttributeResponse
+   * @summary Modifies the name and description of a vRouter.
+   *
+   * @description You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
+   *
+   * @param request ModifyVRouterAttributeRequest
+   * @return ModifyVRouterAttributeResponse
    */
   async modifyVRouterAttribute(request: ModifyVRouterAttributeRequest): Promise<ModifyVRouterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -74863,14 +77504,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-    *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
-    *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
-    * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
-    *
-    * @param request ModifyVSwitchAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVSwitchAttributeResponse
+   * @summary 修改VSwitch属性
+   *
+   * @description *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+   *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
+   *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
+   * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
+   *
+   * @param request ModifyVSwitchAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVSwitchAttributeResponse
    */
   async modifyVSwitchAttributeWithOptions(request: ModifyVSwitchAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVSwitchAttributeResponse> {
     Util.validateModel(request);
@@ -74937,13 +77580,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task:
-    *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
-    *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
-    * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
-    *
-    * @param request ModifyVSwitchAttributeRequest
-    * @return ModifyVSwitchAttributeResponse
+   * @summary 修改VSwitch属性
+   *
+   * @description *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
+   *     *   If the vSwitch is in the **Pending** state, the name and description of the vSwitch are being modified.
+   *     *   If the vSwitch is in the **Available** state, the name and description of the vSwitch are modified.
+   * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
+   *
+   * @param request ModifyVSwitchAttributeRequest
+   * @return ModifyVSwitchAttributeResponse
    */
   async modifyVSwitchAttribute(request: ModifyVSwitchAttributeRequest): Promise<ModifyVSwitchAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -74951,12 +77596,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Usage notes
-    * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
-    *
-    * @param request ModifyVSwitchCidrReservationAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVSwitchCidrReservationAttributeResponse
+   * @summary 修改交换机预留网段的名称和描述信息。
+   *
+   * @description ## [](#)Usage notes
+   * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
+   *
+   * @param request ModifyVSwitchCidrReservationAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVSwitchCidrReservationAttributeResponse
    */
   async modifyVSwitchCidrReservationAttributeWithOptions(request: ModifyVSwitchCidrReservationAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVSwitchCidrReservationAttributeResponse> {
     Util.validateModel(request);
@@ -75011,11 +77658,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Usage notes
-    * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
-    *
-    * @param request ModifyVSwitchCidrReservationAttributeRequest
-    * @return ModifyVSwitchCidrReservationAttributeResponse
+   * @summary 修改交换机预留网段的名称和描述信息。
+   *
+   * @description ## [](#)Usage notes
+   * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
+   *
+   * @param request ModifyVSwitchCidrReservationAttributeRequest
+   * @return ModifyVSwitchCidrReservationAttributeResponse
    */
   async modifyVSwitchCidrReservationAttribute(request: ModifyVSwitchCidrReservationAttributeRequest): Promise<ModifyVSwitchCidrReservationAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75023,14 +77672,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
-    * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
-    *
-    * @param request ModifyVcoRouteEntryWeightRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVcoRouteEntryWeightResponse
+   * @summary Modifies the weight of a destination-based route for an IPsec-VPN connection.
+   *
+   * @description *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
+   *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
+   *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
+   * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
+   *
+   * @param request ModifyVcoRouteEntryWeightRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVcoRouteEntryWeightResponse
    */
   async modifyVcoRouteEntryWeightWithOptions(request: ModifyVcoRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVcoRouteEntryWeightResponse> {
     Util.validateModel(request);
@@ -75097,13 +77748,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
-    * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
-    *
-    * @param request ModifyVcoRouteEntryWeightRequest
-    * @return ModifyVcoRouteEntryWeightResponse
+   * @summary Modifies the weight of a destination-based route for an IPsec-VPN connection.
+   *
+   * @description *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
+   *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
+   *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
+   * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
+   *
+   * @param request ModifyVcoRouteEntryWeightRequest
+   * @return ModifyVcoRouteEntryWeightResponse
    */
   async modifyVcoRouteEntryWeight(request: ModifyVcoRouteEntryWeightRequest): Promise<ModifyVcoRouteEntryWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75111,17 +77764,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)
-    * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
-    * *   One VLAN ID of an Express Connect circuit cannot be used only by one VBR at the same time.
-    * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
-    * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
-    * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
-    * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
-    *
-    * @param request ModifyVirtualBorderRouterAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVirtualBorderRouterAttributeResponse
+   * @summary Modifies the configuration of a virtual border router (VBR).
+   *
+   * @description # [](#)
+   * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
+   * *   One VLAN ID of an Express Connect circuit cannot be used only by one VBR at the same time.
+   * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
+   * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
+   * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
+   * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
+   *
+   * @param request ModifyVirtualBorderRouterAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVirtualBorderRouterAttributeResponse
    */
   async modifyVirtualBorderRouterAttributeWithOptions(request: ModifyVirtualBorderRouterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVirtualBorderRouterAttributeResponse> {
     Util.validateModel(request);
@@ -75240,16 +77895,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)
-    * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
-    * *   One VLAN ID of an Express Connect circuit cannot be used only by one VBR at the same time.
-    * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
-    * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
-    * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
-    * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
-    *
-    * @param request ModifyVirtualBorderRouterAttributeRequest
-    * @return ModifyVirtualBorderRouterAttributeResponse
+   * @summary Modifies the configuration of a virtual border router (VBR).
+   *
+   * @description # [](#)
+   * *   Only the owner of an Express Connect circuit can modify the **VlanId** parameter.
+   * *   One VLAN ID of an Express Connect circuit cannot be used only by one VBR at the same time.
+   * *   The VLAN ID of a VBR in the **Terminated** state is reserved for seven days and cannot be used by other VBRs. The VLAN ID can be used by other VBRs after 7 days.
+   * *   You cannot set **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask** for VBRs that do not belong to your Alibaba Cloud account.
+   * *   Set **PeeringSubnetMask** to a subnet mask with 24 to 30 bits in length (255.255.255.0～255.255.255.252).
+   * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
+   *
+   * @param request ModifyVirtualBorderRouterAttributeRequest
+   * @return ModifyVirtualBorderRouterAttributeResponse
    */
   async modifyVirtualBorderRouterAttribute(request: ModifyVirtualBorderRouterAttributeRequest): Promise<ModifyVirtualBorderRouterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75257,12 +77914,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
-    *
-    * @param request ModifyVpcAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpcAttributeResponse
+   * @summary Modifies the name and description of a virtual private cloud (VPC).
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
+   *
+   * @param request ModifyVpcAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpcAttributeResponse
    */
   async modifyVpcAttributeWithOptions(request: ModifyVpcAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcAttributeResponse> {
     Util.validateModel(request);
@@ -75333,11 +77992,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
-    *
-    * @param request ModifyVpcAttributeRequest
-    * @return ModifyVpcAttributeResponse
+   * @summary Modifies the name and description of a virtual private cloud (VPC).
+   *
+   * @description ## [](#)Description
+   * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
+   *
+   * @param request ModifyVpcAttributeRequest
+   * @return ModifyVpcAttributeResponse
    */
   async modifyVpcAttribute(request: ModifyVpcAttributeRequest): Promise<ModifyVpcAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75345,15 +78006,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](~~311535~~) to query the status of the task.
-    *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
-    *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
-    *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
-    * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
-    *
-    * @param request ModifyVpcPrefixListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpcPrefixListResponse
+   * @summary Modifies the configuration of a prefix list.
+   *
+   * @description *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](https://help.aliyun.com/document_detail/311535.html) to query the status of the task.
+   *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
+   *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
+   *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
+   * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
+   *
+   * @param request ModifyVpcPrefixListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpcPrefixListResponse
    */
   async modifyVpcPrefixListWithOptions(request: ModifyVpcPrefixListRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcPrefixListResponse> {
     Util.validateModel(request);
@@ -75428,14 +78091,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](~~311535~~) to query the status of the task.
-    *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
-    *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
-    *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](~~445478~~) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
-    * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
-    *
-    * @param request ModifyVpcPrefixListRequest
-    * @return ModifyVpcPrefixListResponse
+   * @summary Modifies the configuration of a prefix list.
+   *
+   * @description *   **ModifyVpcPrefixList** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPrefixLists](https://help.aliyun.com/document_detail/311535.html) to query the status of the task.
+   *     *   If the prefix list is in the **Modifying** state, the configuration of the prefix list is being modified.
+   *     *   If the prefix list is in the **Created** state, the configuration of the prefix list is modified.
+   *     *   After the configuration of the prefix list is modified, you can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) operation to query the information about the network instances that are associated with the prefix list and determine whether the associated network instances use the new CIDR blocks. If the association **status** of the prefix list is **Created**, the new CIDR blocks are used by the network instances that are associated with the prefix list.
+   * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
+   *
+   * @param request ModifyVpcPrefixListRequest
+   * @return ModifyVpcPrefixListResponse
    */
   async modifyVpcPrefixList(request: ModifyVpcPrefixListRequest): Promise<ModifyVpcPrefixListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75443,17 +78108,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task to modify the configuration of an IPsec-VPN connection in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the configuration of the IPsec-VPN connection is modified.
-    * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
-    * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
-    *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
-    *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
-    *
-    * @param request ModifyVpnAttachmentAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpnAttachmentAttributeResponse
+   * @summary Modifies the configuration of an IPsec-VPN connection.
+   *
+   * @description *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task to modify the configuration of an IPsec-VPN connection in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task.
+   *     *   If the IPsec-VPN connection is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+   *     *   If the IPsec-VPN connection is in the **attached** state, the configuration of the IPsec-VPN connection is modified.
+   * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
+   * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
+   *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
+   *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
+   *
+   * @param request ModifyVpnAttachmentAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpnAttachmentAttributeResponse
    */
   async modifyVpnAttachmentAttributeWithOptions(request: ModifyVpnAttachmentAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnAttachmentAttributeResponse> {
     Util.validateModel(request);
@@ -75556,16 +78223,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task to modify the configuration of an IPsec-VPN connection in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of the task.
-    *     *   If the IPsec-VPN connection is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
-    *     *   If the IPsec-VPN connection is in the **attached** state, the configuration of the IPsec-VPN connection is modified.
-    * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
-    * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
-    *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
-    *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
-    *
-    * @param request ModifyVpnAttachmentAttributeRequest
-    * @return ModifyVpnAttachmentAttributeResponse
+   * @summary Modifies the configuration of an IPsec-VPN connection.
+   *
+   * @description *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task to modify the configuration of an IPsec-VPN connection in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task.
+   *     *   If the IPsec-VPN connection is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+   *     *   If the IPsec-VPN connection is in the **attached** state, the configuration of the IPsec-VPN connection is modified.
+   * *   You cannot call the **ModifyVpnAttachmentAttribute** operation again on the same IPsec-VPN connection before the previous operation is complete.
+   * *   When you call the **ModifyVpnAttachmentAttribute** operation, take note of the following items:
+   *     *   If the IPsec-VPN connection is associated with a transit router, you cannot change the type of the gateway connected to the IPsec-VPN connection.
+   *     *   If the IPsec-VPN connection is not associated with a resource, you cannot change the type of the gateway connected to the IPsec-VPN connection or the customer gateway connected to the IPsec-VPN connection.
+   *
+   * @param request ModifyVpnAttachmentAttributeRequest
+   * @return ModifyVpnAttachmentAttributeResponse
    */
   async modifyVpnAttachmentAttribute(request: ModifyVpnAttachmentAttributeRequest): Promise<ModifyVpnAttachmentAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75573,18 +78242,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
-    *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
-    * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
-    *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
-    * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
-    *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
-    *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
-    * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnConnectionAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpnConnectionAttributeResponse
+   * @summary Modifies the configuration of an IPsec-VPN connection.
+   *
+   * @description *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
+   *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
+   * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
+   *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
+   * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of a VPN gateway.
+   *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+   *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
+   * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnConnectionAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpnConnectionAttributeResponse
    */
   async modifyVpnConnectionAttributeWithOptions(request: ModifyVpnConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnConnectionAttributeResponse> {
     Util.validateModel(request);
@@ -75698,17 +78369,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
-    *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
-    * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
-    *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
-    * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](~~73720~~) operation to query the status of a VPN gateway.
-    *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
-    *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
-    * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnConnectionAttributeRequest
-    * @return ModifyVpnConnectionAttributeResponse
+   * @summary Modifies the configuration of an IPsec-VPN connection.
+   *
+   * @description *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
+   *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
+   * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
+   *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
+   * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of a VPN gateway.
+   *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+   *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
+   * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnConnectionAttributeRequest
+   * @return ModifyVpnConnectionAttributeResponse
    */
   async modifyVpnConnectionAttribute(request: ModifyVpnConnectionAttributeRequest): Promise<ModifyVpnConnectionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75716,14 +78389,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
-    *     *   If the VPN gateway is in the **active** state, the VPN gateway is modified.
-    * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnGatewayAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpnGatewayAttributeResponse
+   * @summary Modifies the name and description of a VPN gateway.
+   *
+   * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
+   *     *   If the VPN gateway is in the **active** state, the VPN gateway is modified.
+   * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnGatewayAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpnGatewayAttributeResponse
    */
   async modifyVpnGatewayAttributeWithOptions(request: ModifyVpnGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnGatewayAttributeResponse> {
     Util.validateModel(request);
@@ -75786,13 +78461,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
-    *     *   If the VPN gateway is in the **active** state, the VPN gateway is modified.
-    * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnGatewayAttributeRequest
-    * @return ModifyVpnGatewayAttributeResponse
+   * @summary Modifies the name and description of a VPN gateway.
+   *
+   * @description *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the VPN gateway is being modified.
+   *     *   If the VPN gateway is in the **active** state, the VPN gateway is modified.
+   * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnGatewayAttributeRequest
+   * @return ModifyVpnGatewayAttributeResponse
    */
   async modifyVpnGatewayAttribute(request: ModifyVpnGatewayAttributeRequest): Promise<ModifyVpnGatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75800,18 +78477,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
-    *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](~~127249~~).
-    *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](~~466870~~).
-    *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](~~127249~~) to modify its weight.
-    * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-    *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
-    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnPbrRouteEntryAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpnPbrRouteEntryAttributeResponse
+   * @summary Modifies the weight and priority of a policy-based route.
+   *
+   * @description *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
+   *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html).
+   *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](https://help.aliyun.com/document_detail/466870.html).
+   *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) to modify its weight.
+   * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+   *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnPbrRouteEntryAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpnPbrRouteEntryAttributeResponse
    */
   async modifyVpnPbrRouteEntryAttributeWithOptions(request: ModifyVpnPbrRouteEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryAttributeResponse> {
     Util.validateModel(request);
@@ -75890,17 +78569,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
-    *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](~~127249~~).
-    *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](~~466870~~).
-    *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](~~127249~~) to modify its weight.
-    * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-    *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
-    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnPbrRouteEntryAttributeRequest
-    * @return ModifyVpnPbrRouteEntryAttributeResponse
+   * @summary Modifies the weight and priority of a policy-based route.
+   *
+   * @description *   You can call the **ModifyVpnPbrRouteEntryAttribute** operation to modify the weight and priority of a policy-based route.
+   *     *   If you want to modify only the weight of a policy-based route, call [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html).
+   *     *   If you want to modify only the priority of a policy-based route, call [ModifyVpnPbrRouteEntryPriority](https://help.aliyun.com/document_detail/466870.html).
+   *     *   If a policy-based route does not support priorities, you can only call [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) to modify its weight.
+   * *   The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+   *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnPbrRouteEntryAttributeRequest
+   * @return ModifyVpnPbrRouteEntryAttributeResponse
    */
   async modifyVpnPbrRouteEntryAttribute(request: ModifyVpnPbrRouteEntryAttributeRequest): Promise<ModifyVpnPbrRouteEntryAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -75908,14 +78589,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-    *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnPbrRouteEntryPriorityRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpnPbrRouteEntryPriorityResponse
+   * @summary Modifies the priority of a policy-based route.
+   *
+   * @description *   **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+   *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnPbrRouteEntryPriorityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpnPbrRouteEntryPriorityResponse
    */
   async modifyVpnPbrRouteEntryPriorityWithOptions(request: ModifyVpnPbrRouteEntryPriorityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryPriorityResponse> {
     Util.validateModel(request);
@@ -75990,13 +78673,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-    *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnPbrRouteEntryPriorityRequest
-    * @return ModifyVpnPbrRouteEntryPriorityResponse
+   * @summary Modifies the priority of a policy-based route.
+   *
+   * @description *   **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+   *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
+   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnPbrRouteEntryPriorityRequest
+   * @return ModifyVpnPbrRouteEntryPriorityResponse
    */
   async modifyVpnPbrRouteEntryPriority(request: ModifyVpnPbrRouteEntryPriorityRequest): Promise<ModifyVpnPbrRouteEntryPriorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -76004,14 +78689,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-    *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
-    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnPbrRouteEntryWeightRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpnPbrRouteEntryWeightResponse
+   * @summary Modifies the weight of a policy-based route of a VPN gateway.
+   *
+   * @description *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+   *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnPbrRouteEntryWeightRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpnPbrRouteEntryWeightResponse
    */
   async modifyVpnPbrRouteEntryWeightWithOptions(request: ModifyVpnPbrRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryWeightResponse> {
     Util.validateModel(request);
@@ -76090,13 +78777,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
-    *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
-    * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnPbrRouteEntryWeightRequest
-    * @return ModifyVpnPbrRouteEntryWeightResponse
+   * @summary Modifies the weight of a policy-based route of a VPN gateway.
+   *
+   * @description *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
+   *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
+   * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnPbrRouteEntryWeightRequest
+   * @return ModifyVpnPbrRouteEntryWeightResponse
    */
   async modifyVpnPbrRouteEntryWeight(request: ModifyVpnPbrRouteEntryWeightRequest): Promise<ModifyVpnPbrRouteEntryWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -76104,14 +78793,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
-    *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
-    * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnRouteEntryWeightRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVpnRouteEntryWeightResponse
+   * @summary Modifies the weight of a destination-based route of a VPN gateway.
+   *
+   * @description *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
+   *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
+   * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnRouteEntryWeightRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpnRouteEntryWeightResponse
    */
   async modifyVpnRouteEntryWeightWithOptions(request: ModifyVpnRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnRouteEntryWeightResponse> {
     Util.validateModel(request);
@@ -76182,19 +78873,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](~~73720~~) to query the status of the task.
-    *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
-    *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
-    * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
-    *
-    * @param request ModifyVpnRouteEntryWeightRequest
-    * @return ModifyVpnRouteEntryWeightResponse
+   * @summary Modifies the weight of a destination-based route of a VPN gateway.
+   *
+   * @description *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
+   *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
+   * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
+   *
+   * @param request ModifyVpnRouteEntryWeightRequest
+   * @return ModifyVpnRouteEntryWeightResponse
    */
   async modifyVpnRouteEntryWeight(request: ModifyVpnRouteEntryWeightRequest): Promise<ModifyVpnRouteEntryWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpnRouteEntryWeightWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Moves a resource to another resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -76247,11 +78947,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Moves a resource to another resource group.
+   *
+   * @param request MoveResourceGroupRequest
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Moves a VPN gateway resource to a new resource group.
+   *
+   * @param request MoveVpnResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveVpnResourceGroupResponse
+   */
   async moveVpnResourceGroupWithOptions(request: MoveVpnResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveVpnResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -76304,18 +79017,26 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveVpnResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveVpnResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Moves a VPN gateway resource to a new resource group.
+   *
+   * @param request MoveVpnResourceGroupRequest
+   * @return MoveVpnResourceGroupResponse
+   */
   async moveVpnResourceGroup(request: MoveVpnResourceGroupRequest): Promise<MoveVpnResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveVpnResourceGroupWithOptions(request, runtime);
   }
 
   /**
-    * *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
-    * *   You can call the [GetFlowLogServiceStatus](~~449624~~) operation to query the status of the flow log feature.
-    *
-    * @param request OpenFlowLogServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return OpenFlowLogServiceResponse
+   * @summary Enables the flow log feature.
+   *
+   * @description *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
+   * *   You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the status of the flow log feature.
+   *
+   * @param request OpenFlowLogServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenFlowLogServiceResponse
    */
   async openFlowLogServiceWithOptions(request: OpenFlowLogServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenFlowLogServiceResponse> {
     Util.validateModel(request);
@@ -76366,17 +79087,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
-    * *   You can call the [GetFlowLogServiceStatus](~~449624~~) operation to query the status of the flow log feature.
-    *
-    * @param request OpenFlowLogServiceRequest
-    * @return OpenFlowLogServiceResponse
+   * @summary Enables the flow log feature.
+   *
+   * @description *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
+   * *   You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the status of the flow log feature.
+   *
+   * @param request OpenFlowLogServiceRequest
+   * @return OpenFlowLogServiceResponse
    */
   async openFlowLogService(request: OpenFlowLogServiceRequest): Promise<OpenFlowLogServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openFlowLogServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开通出云流量服务
+   *
+   * @param request OpenPhysicalConnectionServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenPhysicalConnectionServiceResponse
+   */
   async openPhysicalConnectionServiceWithOptions(request: OpenPhysicalConnectionServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenPhysicalConnectionServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -76417,18 +79147,26 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenPhysicalConnectionServiceResponse>(await this.callApi(params, req, runtime), new OpenPhysicalConnectionServiceResponse({}));
   }
 
+  /**
+   * @summary 开通出云流量服务
+   *
+   * @param request OpenPhysicalConnectionServiceRequest
+   * @return OpenPhysicalConnectionServiceResponse
+   */
   async openPhysicalConnectionService(request: OpenPhysicalConnectionServiceRequest): Promise<OpenPhysicalConnectionServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openPhysicalConnectionServiceWithOptions(request, runtime);
   }
 
   /**
-    * ## [](#)Usage notes
-    * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
-    *
-    * @param request OpenTrafficMirrorServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return OpenTrafficMirrorServiceResponse
+   * @summary Enables traffic mirroring.
+   *
+   * @description ## [](#)Usage notes
+   * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
+   *
+   * @param request OpenTrafficMirrorServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenTrafficMirrorServiceResponse
    */
   async openTrafficMirrorServiceWithOptions(request: OpenTrafficMirrorServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenTrafficMirrorServiceResponse> {
     Util.validateModel(request);
@@ -76479,17 +79217,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Usage notes
-    * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
-    *
-    * @param request OpenTrafficMirrorServiceRequest
-    * @return OpenTrafficMirrorServiceResponse
+   * @summary Enables traffic mirroring.
+   *
+   * @description ## [](#)Usage notes
+   * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
+   *
+   * @param request OpenTrafficMirrorServiceRequest
+   * @return OpenTrafficMirrorServiceResponse
    */
   async openTrafficMirrorService(request: OpenTrafficMirrorServiceRequest): Promise<OpenTrafficMirrorServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openTrafficMirrorServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Advertises a VPN route to a VPC.
+   *
+   * @param request PublishVpnRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishVpnRouteEntryResponse
+   */
   async publishVpnRouteEntryWithOptions(request: PublishVpnRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<PublishVpnRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -76554,18 +79301,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishVpnRouteEntryResponse>(await this.callApi(params, req, runtime), new PublishVpnRouteEntryResponse({}));
   }
 
+  /**
+   * @summary Advertises a VPN route to a VPC.
+   *
+   * @param request PublishVpnRouteEntryRequest
+   * @return PublishVpnRouteEntryResponse
+   */
   async publishVpnRouteEntry(request: PublishVpnRouteEntryRequest): Promise<PublishVpnRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishVpnRouteEntryWithOptions(request, runtime);
   }
 
   /**
-    * # [](#)Description
-    * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
-    *
-    * @param request RecoverPhysicalConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RecoverPhysicalConnectionResponse
+   * @summary Resumes an Express Connect circuit.
+   *
+   * @description # [](#)Description
+   * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
+   *
+   * @param request RecoverPhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecoverPhysicalConnectionResponse
    */
   async recoverPhysicalConnectionWithOptions(request: RecoverPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<RecoverPhysicalConnectionResponse> {
     Util.validateModel(request);
@@ -76604,11 +79359,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)Description
-    * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
-    *
-    * @param request RecoverPhysicalConnectionRequest
-    * @return RecoverPhysicalConnectionResponse
+   * @summary Resumes an Express Connect circuit.
+   *
+   * @description # [](#)Description
+   * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
+   *
+   * @param request RecoverPhysicalConnectionRequest
+   * @return RecoverPhysicalConnectionResponse
    */
   async recoverPhysicalConnection(request: RecoverPhysicalConnectionRequest): Promise<RecoverPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -76616,14 +79373,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
-    * When you call this operation, take note of the following items:
-    * *   Only the owner of the Express Connect circuit can call this operation.
-    * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
-    *
-    * @param request RecoverVirtualBorderRouterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RecoverVirtualBorderRouterResponse
+   * @summary Enables a disabled virtual border router (VBR).
+   *
+   * @description After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
+   * When you call this operation, take note of the following items:
+   * *   Only the owner of the Express Connect circuit can call this operation.
+   * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
+   *
+   * @param request RecoverVirtualBorderRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecoverVirtualBorderRouterResponse
    */
   async recoverVirtualBorderRouterWithOptions(request: RecoverVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<RecoverVirtualBorderRouterResponse> {
     Util.validateModel(request);
@@ -76674,13 +79433,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
-    * When you call this operation, take note of the following items:
-    * *   Only the owner of the Express Connect circuit can call this operation.
-    * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
-    *
-    * @param request RecoverVirtualBorderRouterRequest
-    * @return RecoverVirtualBorderRouterResponse
+   * @summary Enables a disabled virtual border router (VBR).
+   *
+   * @description After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
+   * When you call this operation, take note of the following items:
+   * *   Only the owner of the Express Connect circuit can call this operation.
+   * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
+   *
+   * @param request RecoverVirtualBorderRouterRequest
+   * @return RecoverVirtualBorderRouterResponse
    */
   async recoverVirtualBorderRouter(request: RecoverVirtualBorderRouterRequest): Promise<RecoverVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -76688,18 +79449,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   Before you release an EIP, make sure that the EIP meets the following requirements:
-    *     *   You can release only an EIP that is in the **Available** state.
-    *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
-    * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task:
-    *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
-    *     *   If you cannot query the EIP, the EIP is released.
-    * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
-    *
-    * @param request ReleaseEipAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseEipAddressResponse
+   * @summary Releases an elastic IP address (EIP).
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   Before you release an EIP, make sure that the EIP meets the following requirements:
+   *     *   You can release only an EIP that is in the **Available** state.
+   *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
+   * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task:
+   *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
+   *     *   If you cannot query the EIP, the EIP is released.
+   * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
+   *
+   * @param request ReleaseEipAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseEipAddressResponse
    */
   async releaseEipAddressWithOptions(request: ReleaseEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseEipAddressResponse> {
     Util.validateModel(request);
@@ -76746,17 +79509,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following items:
-    * *   Before you release an EIP, make sure that the EIP meets the following requirements:
-    *     *   You can release only an EIP that is in the **Available** state.
-    *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
-    * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task:
-    *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
-    *     *   If you cannot query the EIP, the EIP is released.
-    * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
-    *
-    * @param request ReleaseEipAddressRequest
-    * @return ReleaseEipAddressResponse
+   * @summary Releases an elastic IP address (EIP).
+   *
+   * @description Before you call this operation, take note of the following items:
+   * *   Before you release an EIP, make sure that the EIP meets the following requirements:
+   *     *   You can release only an EIP that is in the **Available** state.
+   *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
+   * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task:
+   *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
+   *     *   If you cannot query the EIP, the EIP is released.
+   * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
+   *
+   * @param request ReleaseEipAddressRequest
+   * @return ReleaseEipAddressResponse
    */
   async releaseEipAddress(request: ReleaseEipAddressRequest): Promise<ReleaseEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -76764,15 +79529,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
-    * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
-    *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
-    *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
-    * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
-    *
-    * @param request ReleaseEipSegmentAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseEipSegmentAddressResponse
+   * @summary Releases contiguous elastic IP addresses (EIPs).
+   *
+   * @description *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
+   * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
+   *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
+   *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
+   * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
+   *
+   * @param request ReleaseEipSegmentAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseEipSegmentAddressResponse
    */
   async releaseEipSegmentAddressWithOptions(request: ReleaseEipSegmentAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseEipSegmentAddressResponse> {
     Util.validateModel(request);
@@ -76823,20 +79590,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
-    * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](~~156063~~) operation to query the status of the task.
-    *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
-    *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
-    * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
-    *
-    * @param request ReleaseEipSegmentAddressRequest
-    * @return ReleaseEipSegmentAddressResponse
+   * @summary Releases contiguous elastic IP addresses (EIPs).
+   *
+   * @description *   After you call the **ReleaseEipSegmentAddress** operation, all EIPs in the specified group are released.
+   * *   **ReleaseEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
+   *     *   If the group is in the **Releasing** state, EIPs in the group are being released. In this state, you can only query the group and cannot perform other operations.
+   *     *   If you cannot query the group of contiguous EIPs, the contiguous EIPs are released.
+   * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
+   *
+   * @param request ReleaseEipSegmentAddressRequest
+   * @return ReleaseEipSegmentAddressResponse
    */
   async releaseEipSegmentAddress(request: ReleaseEipSegmentAddressRequest): Promise<ReleaseEipSegmentAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseEipSegmentAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases an idle IPv6 address.
+   *
+   * @param request ReleaseIpv6AddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseIpv6AddressResponse
+   */
   async releaseIpv6AddressWithOptions(request: ReleaseIpv6AddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseIpv6AddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -76893,11 +79669,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseIpv6AddressResponse>(await this.callApi(params, req, runtime), new ReleaseIpv6AddressResponse({}));
   }
 
+  /**
+   * @summary Releases an idle IPv6 address.
+   *
+   * @param request ReleaseIpv6AddressRequest
+   * @return ReleaseIpv6AddressResponse
+   */
   async releaseIpv6Address(request: ReleaseIpv6AddressRequest): Promise<ReleaseIpv6AddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseIpv6AddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+   *
+   * @param request RemoveCommonBandwidthPackageIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveCommonBandwidthPackageIpResponse
+   */
   async removeCommonBandwidthPackageIpWithOptions(request: RemoveCommonBandwidthPackageIpRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCommonBandwidthPackageIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -76950,11 +79739,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveCommonBandwidthPackageIpResponse>(await this.callApi(params, req, runtime), new RemoveCommonBandwidthPackageIpResponse({}));
   }
 
+  /**
+   * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+   *
+   * @param request RemoveCommonBandwidthPackageIpRequest
+   * @return RemoveCommonBandwidthPackageIpResponse
+   */
   async removeCommonBandwidthPackageIp(request: RemoveCommonBandwidthPackageIpRequest): Promise<RemoveCommonBandwidthPackageIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeCommonBandwidthPackageIpWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RemoveGlobalAccelerationInstanceIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveGlobalAccelerationInstanceIpResponse
+   */
   async removeGlobalAccelerationInstanceIpWithOptions(request: RemoveGlobalAccelerationInstanceIpRequest, runtime: $Util.RuntimeOptions): Promise<RemoveGlobalAccelerationInstanceIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -77003,11 +79803,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveGlobalAccelerationInstanceIpResponse>(await this.callApi(params, req, runtime), new RemoveGlobalAccelerationInstanceIpResponse({}));
   }
 
+  /**
+   * @param request RemoveGlobalAccelerationInstanceIpRequest
+   * @return RemoveGlobalAccelerationInstanceIpResponse
+   */
   async removeGlobalAccelerationInstanceIp(request: RemoveGlobalAccelerationInstanceIpRequest): Promise<RemoveGlobalAccelerationInstanceIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeGlobalAccelerationInstanceIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an IP entry from an ACL.
+   *
+   * @param request RemoveIPv6TranslatorAclListEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveIPv6TranslatorAclListEntryResponse
+   */
   async removeIPv6TranslatorAclListEntryWithOptions(request: RemoveIPv6TranslatorAclListEntryRequest, runtime: $Util.RuntimeOptions): Promise<RemoveIPv6TranslatorAclListEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -77060,20 +79871,28 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveIPv6TranslatorAclListEntryResponse>(await this.callApi(params, req, runtime), new RemoveIPv6TranslatorAclListEntryResponse({}));
   }
 
+  /**
+   * @summary Deletes an IP entry from an ACL.
+   *
+   * @param request RemoveIPv6TranslatorAclListEntryRequest
+   * @return RemoveIPv6TranslatorAclListEntryResponse
+   */
   async removeIPv6TranslatorAclListEntry(request: RemoveIPv6TranslatorAclListEntryRequest): Promise<RemoveIPv6TranslatorAclListEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeIPv6TranslatorAclListEntryWithOptions(request, runtime);
   }
 
   /**
-    * *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-    *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
-    *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
-    * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
-    *
-    * @param request RemoveSourcesFromTrafficMirrorSessionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveSourcesFromTrafficMirrorSessionResponse
+   * @summary Deletes a traffic mirror source from a traffic mirror session.
+   *
+   * @description *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
+   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
+   * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
+   *
+   * @param request RemoveSourcesFromTrafficMirrorSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveSourcesFromTrafficMirrorSessionResponse
    */
   async removeSourcesFromTrafficMirrorSessionWithOptions(request: RemoveSourcesFromTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSourcesFromTrafficMirrorSessionResponse> {
     Util.validateModel(request);
@@ -77132,13 +79951,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-    *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
-    *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
-    * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
-    *
-    * @param request RemoveSourcesFromTrafficMirrorSessionRequest
-    * @return RemoveSourcesFromTrafficMirrorSessionResponse
+   * @summary Deletes a traffic mirror source from a traffic mirror session.
+   *
+   * @description *   **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+   *     *   If the traffic mirror session is in the **Modifying** state, the traffic mirror source is being deleted.
+   *     *   If the traffic mirror session is in the **Created** state, the traffic mirror source is deleted.
+   * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
+   *
+   * @param request RemoveSourcesFromTrafficMirrorSessionRequest
+   * @return RemoveSourcesFromTrafficMirrorSessionResponse
    */
   async removeSourcesFromTrafficMirrorSession(request: RemoveSourcesFromTrafficMirrorSessionRequest): Promise<RemoveSourcesFromTrafficMirrorSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -77146,14 +79967,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
-    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
-    *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
-    * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
-    *
-    * @param request ReplaceVpcDhcpOptionsSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReplaceVpcDhcpOptionsSetResponse
+   * @summary 更改DHCP选项集与VPC的关联。
+   *
+   * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
+   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
+   *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
+   * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
+   *
+   * @param request ReplaceVpcDhcpOptionsSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReplaceVpcDhcpOptionsSetResponse
    */
   async replaceVpcDhcpOptionsSetWithOptions(request: ReplaceVpcDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceVpcDhcpOptionsSetResponse> {
     Util.validateModel(request);
@@ -77212,13 +80035,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](~~94565~~) operation to query the status of a DHCP options set:
-    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
-    *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
-    * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
-    *
-    * @param request ReplaceVpcDhcpOptionsSetRequest
-    * @return ReplaceVpcDhcpOptionsSetResponse
+   * @summary 更改DHCP选项集与VPC的关联。
+   *
+   * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
+   *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
+   *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
+   * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
+   *
+   * @param request ReplaceVpcDhcpOptionsSetRequest
+   * @return ReplaceVpcDhcpOptionsSetResponse
    */
   async replaceVpcDhcpOptionsSet(request: ReplaceVpcDhcpOptionsSetRequest): Promise<ReplaceVpcDhcpOptionsSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -77226,16 +80051,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
-    * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](~~445478~~) to check whether the prefix list is re-applied.
-    *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
-    *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
-    *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
-    * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
-    *
-    * @param request RetryVpcPrefixListAssociationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RetryVpcPrefixListAssociationResponse
+   * @summary Re-applies a prefix list.
+   *
+   * @description *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
+   * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to check whether the prefix list is re-applied.
+   *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
+   *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
+   *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
+   * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
+   *
+   * @param request RetryVpcPrefixListAssociationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryVpcPrefixListAssociationResponse
    */
   async retryVpcPrefixListAssociationWithOptions(request: RetryVpcPrefixListAssociationRequest, runtime: $Util.RuntimeOptions): Promise<RetryVpcPrefixListAssociationResponse> {
     Util.validateModel(request);
@@ -77298,15 +80125,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
-    * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](~~445478~~) to check whether the prefix list is re-applied.
-    *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
-    *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
-    *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
-    * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
-    *
-    * @param request RetryVpcPrefixListAssociationRequest
-    * @return RetryVpcPrefixListAssociationResponse
+   * @summary Re-applies a prefix list.
+   *
+   * @description *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
+   * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to check whether the prefix list is re-applied.
+   *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
+   *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
+   *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
+   * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
+   *
+   * @param request RetryVpcPrefixListAssociationRequest
+   * @return RetryVpcPrefixListAssociationResponse
    */
   async retryVpcPrefixListAssociation(request: RetryVpcPrefixListAssociationRequest): Promise<RetryVpcPrefixListAssociationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -77314,13 +80143,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Usage notes
-    * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
-    * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-    *
-    * @param request RevokeInstanceFromCenRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RevokeInstanceFromCenResponse
+   * @summary Revokes the permissions granted to a Cloud Enterprise Network (CEN) instance on a network instance.
+   *
+   * @description ## [](#)Usage notes
+   * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
+   * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+   *
+   * @param request RevokeInstanceFromCenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeInstanceFromCenResponse
    */
   async revokeInstanceFromCenWithOptions(request: RevokeInstanceFromCenRequest, runtime: $Util.RuntimeOptions): Promise<RevokeInstanceFromCenResponse> {
     Util.validateModel(request);
@@ -77383,18 +80214,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Usage notes
-    * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
-    * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-    *
-    * @param request RevokeInstanceFromCenRequest
-    * @return RevokeInstanceFromCenResponse
+   * @summary Revokes the permissions granted to a Cloud Enterprise Network (CEN) instance on a network instance.
+   *
+   * @description ## [](#)Usage notes
+   * *   **RevokeInstanceFromCen** is a Virtual Private Cloud (VPC) operation. Therefore, you must use `vpc.aliyuncs.com` as the domain name when you call this operation. The API version is `2016-04-28`.
+   * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+   *
+   * @param request RevokeInstanceFromCenRequest
+   * @return RevokeInstanceFromCenResponse
    */
   async revokeInstanceFromCen(request: RevokeInstanceFromCenRequest): Promise<RevokeInstanceFromCenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeInstanceFromCenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes the permissions granted to a virtual border router (VBR) on a virtual private cloud (VPC).
+   *
+   * @param tmpReq RevokeInstanceFromVbrRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeInstanceFromVbrResponse
+   */
   async revokeInstanceFromVbrWithOptions(tmpReq: RevokeInstanceFromVbrRequest, runtime: $Util.RuntimeOptions): Promise<RevokeInstanceFromVbrResponse> {
     Util.validateModel(tmpReq);
     let request = new RevokeInstanceFromVbrShrinkRequest({ });
@@ -77445,11 +80285,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeInstanceFromVbrResponse>(await this.callApi(params, req, runtime), new RevokeInstanceFromVbrResponse({}));
   }
 
+  /**
+   * @summary Revokes the permissions granted to a virtual border router (VBR) on a virtual private cloud (VPC).
+   *
+   * @param request RevokeInstanceFromVbrRequest
+   * @return RevokeInstanceFromVbrResponse
+   */
   async revokeInstanceFromVbr(request: RevokeInstanceFromVbrRequest): Promise<RevokeInstanceFromVbrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeInstanceFromVbrWithOptions(request, runtime);
   }
 
+  /**
+   * @summary If your application for a Letter of Authorization (LOA) by calling the ApplyPhysicalConnectionLOA operation is denied, you can call this operation to apply again.
+   *
+   * @param request SecondApplyPhysicalConnectionLOARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SecondApplyPhysicalConnectionLOAResponse
+   */
   async secondApplyPhysicalConnectionLOAWithOptions(request: SecondApplyPhysicalConnectionLOARequest, runtime: $Util.RuntimeOptions): Promise<SecondApplyPhysicalConnectionLOAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -77526,17 +80379,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SecondApplyPhysicalConnectionLOAResponse>(await this.callApi(params, req, runtime), new SecondApplyPhysicalConnectionLOAResponse({}));
   }
 
+  /**
+   * @summary If your application for a Letter of Authorization (LOA) by calling the ApplyPhysicalConnectionLOA operation is denied, you can call this operation to apply again.
+   *
+   * @param request SecondApplyPhysicalConnectionLOARequest
+   * @return SecondApplyPhysicalConnectionLOAResponse
+   */
   async secondApplyPhysicalConnectionLOA(request: SecondApplyPhysicalConnectionLOARequest): Promise<SecondApplyPhysicalConnectionLOAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.secondApplyPhysicalConnectionLOAWithOptions(request, runtime);
   }
 
   /**
-    * You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
-    *
-    * @param request SetHighDefinitionMonitorLogStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetHighDefinitionMonitorLogStatusResponse
+   * @summary Configures fine-grained monitoring for an elastic IP address (EIP).
+   *
+   * @description You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
+   *
+   * @param request SetHighDefinitionMonitorLogStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetHighDefinitionMonitorLogStatusResponse
    */
   async setHighDefinitionMonitorLogStatusWithOptions(request: SetHighDefinitionMonitorLogStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetHighDefinitionMonitorLogStatusResponse> {
     Util.validateModel(request);
@@ -77599,16 +80460,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
-    *
-    * @param request SetHighDefinitionMonitorLogStatusRequest
-    * @return SetHighDefinitionMonitorLogStatusResponse
+   * @summary Configures fine-grained monitoring for an elastic IP address (EIP).
+   *
+   * @description You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
+   *
+   * @param request SetHighDefinitionMonitorLogStatusRequest
+   * @return SetHighDefinitionMonitorLogStatusResponse
    */
   async setHighDefinitionMonitorLogStatus(request: SetHighDefinitionMonitorLogStatusRequest): Promise<SetHighDefinitionMonitorLogStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setHighDefinitionMonitorLogStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开始故障演练任务
+   *
+   * @param request StartFailoverTestJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartFailoverTestJobResponse
+   */
   async startFailoverTestJobWithOptions(request: StartFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<StartFailoverTestJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -77657,11 +80527,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartFailoverTestJobResponse>(await this.callApi(params, req, runtime), new StartFailoverTestJobResponse({}));
   }
 
+  /**
+   * @summary 开始故障演练任务
+   *
+   * @param request StartFailoverTestJobRequest
+   * @return StartFailoverTestJobResponse
+   */
   async startFailoverTestJob(request: StartFailoverTestJobRequest): Promise<StartFailoverTestJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startFailoverTestJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 结束故障演练任务
+   *
+   * @param request StopFailoverTestJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopFailoverTestJobResponse
+   */
   async stopFailoverTestJobWithOptions(request: StopFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<StopFailoverTestJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -77710,24 +80593,32 @@ export default class Client extends OpenApi {
     return $tea.cast<StopFailoverTestJobResponse>(await this.callApi(params, req, runtime), new StopFailoverTestJobResponse({}));
   }
 
+  /**
+   * @summary 结束故障演练任务
+   *
+   * @param request StopFailoverTestJobRequest
+   * @return StopFailoverTestJobResponse
+   */
   async stopFailoverTestJob(request: StopFailoverTestJobRequest): Promise<StopFailoverTestJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopFailoverTestJobWithOptions(request, runtime);
   }
 
   /**
-    * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
-    * *   The keys of tags that are added to the same instance must be unique.
-    * *   You cannot create tags without adding them to instances. All tags must be added to instances.
-    * *   Tag information is not shared across regions.
-    *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
-    * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
-    *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
-    * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Creates and adds tags to resources.
+   *
+   * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
+   * *   The keys of tags that are added to the same instance must be unique.
+   * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+   * *   Tag information is not shared across regions.
+   *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+   * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
+   *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
+   * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -77782,17 +80673,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
-    * *   The keys of tags that are added to the same instance must be unique.
-    * *   You cannot create tags without adding them to instances. All tags must be added to instances.
-    * *   Tag information is not shared across regions.
-    *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
-    * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
-    *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
-    * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Creates and adds tags to resources.
+   *
+   * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
+   * *   The keys of tags that are added to the same instance must be unique.
+   * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+   * *   Tag information is not shared across regions.
+   *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+   * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
+   *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
+   * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -77800,17 +80693,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
-    * *   Each tag key that is added to an instance must be unique.
-    * *   You cannot create tags without adding them to instances. All tags must be added to instances.
-    * *   Tag information is not shared across regions.
-    *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
-    * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-    *
-    * @param request TagResourcesForExpressConnectRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesForExpressConnectResponse
+   * @summary Creates tags and adds the tags to an Express Connect circuit.
+   *
+   * @description ## [](#)
+   * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
+   * *   Each tag key that is added to an instance must be unique.
+   * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+   * *   Tag information is not shared across regions.
+   *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+   * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+   *
+   * @param request TagResourcesForExpressConnectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesForExpressConnectResponse
    */
   async tagResourcesForExpressConnectWithOptions(request: TagResourcesForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesForExpressConnectResponse> {
     Util.validateModel(request);
@@ -77865,16 +80760,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
-    * *   Each tag key that is added to an instance must be unique.
-    * *   You cannot create tags without adding them to instances. All tags must be added to instances.
-    * *   Tag information is not shared across regions.
-    *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
-    * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-    *
-    * @param request TagResourcesForExpressConnectRequest
-    * @return TagResourcesForExpressConnectResponse
+   * @summary Creates tags and adds the tags to an Express Connect circuit.
+   *
+   * @description ## [](#)
+   * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following items:
+   * *   Each tag key that is added to an instance must be unique.
+   * *   You cannot create tags without adding them to instances. All tags must be added to instances.
+   * *   Tag information is not shared across regions.
+   *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
+   * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+   *
+   * @param request TagResourcesForExpressConnectRequest
+   * @return TagResourcesForExpressConnectResponse
    */
   async tagResourcesForExpressConnect(request: TagResourcesForExpressConnectRequest): Promise<TagResourcesForExpressConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -77882,13 +80779,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
-    * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
-    * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
-    *
-    * @param request TerminatePhysicalConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TerminatePhysicalConnectionResponse
+   * @summary Disables an Express Connect circuit after it is enabled.
+   *
+   * @description After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
+   * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
+   * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
+   *
+   * @param request TerminatePhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TerminatePhysicalConnectionResponse
    */
   async terminatePhysicalConnectionWithOptions(request: TerminatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TerminatePhysicalConnectionResponse> {
     Util.validateModel(request);
@@ -77939,12 +80838,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
-    * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
-    * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
-    *
-    * @param request TerminatePhysicalConnectionRequest
-    * @return TerminatePhysicalConnectionResponse
+   * @summary Disables an Express Connect circuit after it is enabled.
+   *
+   * @description After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
+   * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
+   * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
+   *
+   * @param request TerminatePhysicalConnectionRequest
+   * @return TerminatePhysicalConnectionResponse
    */
   async terminatePhysicalConnection(request: TerminatePhysicalConnectionRequest): Promise<TerminatePhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -77952,12 +80853,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
-    * >  Only the owner of an Express Connect circuit can call this operation.
-    *
-    * @param request TerminateVirtualBorderRouterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TerminateVirtualBorderRouterResponse
+   * @summary Terminates a virtual border router (VBR).
+   *
+   * @description After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
+   * >  Only the owner of an Express Connect circuit can call this operation.
+   *
+   * @param request TerminateVirtualBorderRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TerminateVirtualBorderRouterResponse
    */
   async terminateVirtualBorderRouterWithOptions(request: TerminateVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<TerminateVirtualBorderRouterResponse> {
     Util.validateModel(request);
@@ -78008,17 +80911,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
-    * >  Only the owner of an Express Connect circuit can call this operation.
-    *
-    * @param request TerminateVirtualBorderRouterRequest
-    * @return TerminateVirtualBorderRouterResponse
+   * @summary Terminates a virtual border router (VBR).
+   *
+   * @description After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
+   * >  Only the owner of an Express Connect circuit can call this operation.
+   *
+   * @param request TerminateVirtualBorderRouterRequest
+   * @return TerminateVirtualBorderRouterResponse
    */
   async terminateVirtualBorderRouter(request: TerminateVirtualBorderRouterRequest): Promise<TerminateVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminateVirtualBorderRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UnTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnTagResourcesResponse
+   */
   async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -78075,20 +80987,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UnTagResourcesRequest
+   * @return UnTagResourcesResponse
+   */
   async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unTagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-    *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
-    *     *   If the EIP is in the **Available** state, the EIP is disassociated.
-    * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
-    *
-    * @param request UnassociateEipAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnassociateEipAddressResponse
+   * @summary Disassociates an elastic IP address (EIP) from a cloud resource.
+   *
+   * @description *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+   *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
+   *     *   If the EIP is in the **Available** state, the EIP is disassociated.
+   * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
+   *
+   * @param request UnassociateEipAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassociateEipAddressResponse
    */
   async unassociateEipAddressWithOptions(request: UnassociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateEipAddressResponse> {
     Util.validateModel(request);
@@ -78155,19 +81075,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](~~120193~~) operation to query the status of the task.
-    *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
-    *     *   If the EIP is in the **Available** state, the EIP is disassociated.
-    * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
-    *
-    * @param request UnassociateEipAddressRequest
-    * @return UnassociateEipAddressResponse
+   * @summary Disassociates an elastic IP address (EIP) from a cloud resource.
+   *
+   * @description *   **UnassociateEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
+   *     *   If the EIP is in the **Unassociating** state, the EIP is being disassociated. In this state, you can only query the EIP and cannot perform other operations.
+   *     *   If the EIP is in the **Available** state, the EIP is disassociated.
+   * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
+   *
+   * @param request UnassociateEipAddressRequest
+   * @return UnassociateEipAddressResponse
    */
   async unassociateEipAddress(request: UnassociateEipAddressRequest): Promise<UnassociateEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateEipAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disassociates a Global Accelerator (GA) instance from a backend server.
+   *
+   * @param request UnassociateGlobalAccelerationInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassociateGlobalAccelerationInstanceResponse
+   */
   async unassociateGlobalAccelerationInstanceWithOptions(request: UnassociateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -78216,24 +81145,32 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateGlobalAccelerationInstanceResponse>(await this.callApi(params, req, runtime), new UnassociateGlobalAccelerationInstanceResponse({}));
   }
 
+  /**
+   * @summary Disassociates a Global Accelerator (GA) instance from a backend server.
+   *
+   * @param request UnassociateGlobalAccelerationInstanceRequest
+   * @return UnassociateGlobalAccelerationInstanceResponse
+   */
   async unassociateGlobalAccelerationInstance(request: UnassociateGlobalAccelerationInstanceRequest): Promise<UnassociateGlobalAccelerationInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateGlobalAccelerationInstanceWithOptions(request, runtime);
   }
 
   /**
-    * ## [](#)
-    * When you call this operation, take note of the following limits:
-    * *   The ECS instance must be in the **Running** or **Stopped** state.
-    * *   The HAVIP must be in the **Available** or **InUse** state.
-    * *   **UnassociateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-    *     *   If the HAVIP is in the **Unassociating** state, the HAVIP is being disassociated.
-    *     *   If the HAVIP is in the **Inuse** or **Available** state, the HAVIP is disassociated.
-    * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
-    *
-    * @param request UnassociateHaVipRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnassociateHaVipResponse
+   * @summary Disassociates a high-availability virtual IP address (HAVIP) from an Elastic Compute Service (ECS) in a virtual private cloud (VPC) or from an elastic network interface (ENI).
+   *
+   * @description ## [](#)
+   * When you call this operation, take note of the following limits:
+   * *   The ECS instance must be in the **Running** or **Stopped** state.
+   * *   The HAVIP must be in the **Available** or **InUse** state.
+   * *   **UnassociateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+   *     *   If the HAVIP is in the **Unassociating** state, the HAVIP is being disassociated.
+   *     *   If the HAVIP is in the **Inuse** or **Available** state, the HAVIP is disassociated.
+   * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
+   *
+   * @param request UnassociateHaVipRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassociateHaVipResponse
    */
   async unassociateHaVipWithOptions(request: UnassociateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateHaVipResponse> {
     Util.validateModel(request);
@@ -78296,17 +81233,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)
-    * When you call this operation, take note of the following limits:
-    * *   The ECS instance must be in the **Running** or **Stopped** state.
-    * *   The HAVIP must be in the **Available** or **InUse** state.
-    * *   **UnassociateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [DescribeHaVips](~~114611~~) operation to query the status of an HAVIP:
-    *     *   If the HAVIP is in the **Unassociating** state, the HAVIP is being disassociated.
-    *     *   If the HAVIP is in the **Inuse** or **Available** state, the HAVIP is disassociated.
-    * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
-    *
-    * @param request UnassociateHaVipRequest
-    * @return UnassociateHaVipResponse
+   * @summary Disassociates a high-availability virtual IP address (HAVIP) from an Elastic Compute Service (ECS) in a virtual private cloud (VPC) or from an elastic network interface (ENI).
+   *
+   * @description ## [](#)
+   * When you call this operation, take note of the following limits:
+   * *   The ECS instance must be in the **Running** or **Stopped** state.
+   * *   The HAVIP must be in the **Available** or **InUse** state.
+   * *   **UnassociateHaVip** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) operation to query the status of an HAVIP:
+   *     *   If the HAVIP is in the **Unassociating** state, the HAVIP is being disassociated.
+   *     *   If the HAVIP is in the **Inuse** or **Available** state, the HAVIP is disassociated.
+   * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
+   *
+   * @param request UnassociateHaVipRequest
+   * @return UnassociateHaVipResponse
    */
   async unassociateHaVip(request: UnassociateHaVipRequest): Promise<UnassociateHaVipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -78314,15 +81253,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-    *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
-    *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
-    * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
-    *
-    * @param request UnassociateNetworkAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnassociateNetworkAclResponse
+   * @summary Disassociates a network access control list (ACL) from a vSwitch.
+   *
+   * @description ## [](#)Description
+   * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+   *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
+   *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
+   * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
+   *
+   * @param request UnassociateNetworkAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassociateNetworkAclResponse
    */
   async unassociateNetworkAclWithOptions(request: UnassociateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateNetworkAclResponse> {
     Util.validateModel(request);
@@ -78385,20 +81326,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Description
-    * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of the task.
-    *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
-    *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
-    * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
-    *
-    * @param request UnassociateNetworkAclRequest
-    * @return UnassociateNetworkAclResponse
+   * @summary Disassociates a network access control list (ACL) from a vSwitch.
+   *
+   * @description ## [](#)Description
+   * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
+   *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
+   *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
+   * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
+   *
+   * @param request UnassociateNetworkAclRequest
+   * @return UnassociateNetworkAclResponse
    */
   async unassociateNetworkAcl(request: UnassociateNetworkAclRequest): Promise<UnassociateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateNetworkAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disassociates a virtual border router (VBR) from an Express Connect circuit.
+   *
+   * @param request UnassociatePhysicalConnectionFromVirtualBorderRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
+   */
   async unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions(request: UnassociatePhysicalConnectionFromVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<UnassociatePhysicalConnectionFromVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -78451,21 +81401,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociatePhysicalConnectionFromVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new UnassociatePhysicalConnectionFromVirtualBorderRouterResponse({}));
   }
 
+  /**
+   * @summary Disassociates a virtual border router (VBR) from an Express Connect circuit.
+   *
+   * @param request UnassociatePhysicalConnectionFromVirtualBorderRouterRequest
+   * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
+   */
   async unassociatePhysicalConnectionFromVirtualBorderRouter(request: UnassociatePhysicalConnectionFromVirtualBorderRouterRequest): Promise<UnassociatePhysicalConnectionFromVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions(request, runtime);
   }
 
   /**
-    * ## [](#)References
-    * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task.
-    *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
-    *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
-    * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
-    *
-    * @param request UnassociateRouteTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnassociateRouteTableResponse
+   * @summary Disassociates a route table from a vSwitch.
+   *
+   * @description ## [](#)References
+   * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task.
+   *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
+   *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
+   * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
+   *
+   * @param request UnassociateRouteTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassociateRouteTableResponse
    */
   async unassociateRouteTableWithOptions(request: UnassociateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateRouteTableResponse> {
     Util.validateModel(request);
@@ -78524,14 +81482,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)References
-    * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](~~94567~~) operation to query the status of the task.
-    *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
-    *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
-    * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
-    *
-    * @param request UnassociateRouteTableRequest
-    * @return UnassociateRouteTableResponse
+   * @summary Disassociates a route table from a vSwitch.
+   *
+   * @description ## [](#)References
+   * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task.
+   *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
+   *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
+   * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
+   *
+   * @param request UnassociateRouteTableRequest
+   * @return UnassociateRouteTableResponse
    */
   async unassociateRouteTable(request: UnassociateRouteTableRequest): Promise<UnassociateRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -78539,12 +81499,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](~~35746~~).
-    * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
-    *
-    * @param request UnassociateVpcCidrBlockRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnassociateVpcCidrBlockResponse
+   * @summary Removes a secondary CIDR block from a virtual private cloud (VPC).
+   *
+   * @description *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
+   * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
+   *
+   * @param request UnassociateVpcCidrBlockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassociateVpcCidrBlockResponse
    */
   async unassociateVpcCidrBlockWithOptions(request: UnassociateVpcCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateVpcCidrBlockResponse> {
     Util.validateModel(request);
@@ -78603,17 +81565,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](~~35746~~).
-    * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
-    *
-    * @param request UnassociateVpcCidrBlockRequest
-    * @return UnassociateVpcCidrBlockResponse
+   * @summary Removes a secondary CIDR block from a virtual private cloud (VPC).
+   *
+   * @description *   Before you delete a secondary CIDR block from a VPC, delete the vSwitch which is created with the CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
+   * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
+   *
+   * @param request UnassociateVpcCidrBlockRequest
+   * @return UnassociateVpcCidrBlockResponse
    */
   async unassociateVpcCidrBlock(request: UnassociateVpcCidrBlockRequest): Promise<UnassociateVpcCidrBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateVpcCidrBlockWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from an Express Connect circuit at a time.
+   *
+   * @param request UntagResourcesForExpressConnectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesForExpressConnectResponse
+   */
   async untagResourcesForExpressConnectWithOptions(request: UntagResourcesForExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesForExpressConnectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -78670,11 +81641,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesForExpressConnectResponse>(await this.callApi(params, req, runtime), new UntagResourcesForExpressConnectResponse({}));
   }
 
+  /**
+   * @summary Removes tags from an Express Connect circuit at a time.
+   *
+   * @param request UntagResourcesForExpressConnectRequest
+   * @return UntagResourcesForExpressConnectResponse
+   */
   async untagResourcesForExpressConnect(request: UntagResourcesForExpressConnectRequest): Promise<UntagResourcesForExpressConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesForExpressConnectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改Dhcp选项集信息
+   *
+   * @param request UpdateDhcpOptionsSetAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDhcpOptionsSetAttributeResponse
+   */
   async updateDhcpOptionsSetAttributeWithOptions(request: UpdateDhcpOptionsSetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDhcpOptionsSetAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -78751,11 +81735,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDhcpOptionsSetAttributeResponse>(await this.callApi(params, req, runtime), new UpdateDhcpOptionsSetAttributeResponse({}));
   }
 
+  /**
+   * @summary 修改Dhcp选项集信息
+   *
+   * @param request UpdateDhcpOptionsSetAttributeRequest
+   * @return UpdateDhcpOptionsSetAttributeResponse
+   */
   async updateDhcpOptionsSetAttribute(request: UpdateDhcpOptionsSetAttributeRequest): Promise<UpdateDhcpOptionsSetAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDhcpOptionsSetAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新故障演练任务
+   *
+   * @param request UpdateFailoverTestJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFailoverTestJobResponse
+   */
   async updateFailoverTestJobWithOptions(request: UpdateFailoverTestJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFailoverTestJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -78820,11 +81817,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFailoverTestJobResponse>(await this.callApi(params, req, runtime), new UpdateFailoverTestJobResponse({}));
   }
 
+  /**
+   * @summary 更新故障演练任务
+   *
+   * @param request UpdateFailoverTestJobRequest
+   * @return UpdateFailoverTestJobResponse
+   */
   async updateFailoverTestJob(request: UpdateFailoverTestJobRequest): Promise<UpdateFailoverTestJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFailoverTestJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the next hop type and next hop of the route entry in a gateway route table.
+   *
+   * @param request UpdateGatewayRouteTableEntryAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayRouteTableEntryAttributeResponse
+   */
   async updateGatewayRouteTableEntryAttributeWithOptions(request: UpdateGatewayRouteTableEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteTableEntryAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -78905,21 +81915,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayRouteTableEntryAttributeResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteTableEntryAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the next hop type and next hop of the route entry in a gateway route table.
+   *
+   * @param request UpdateGatewayRouteTableEntryAttributeRequest
+   * @return UpdateGatewayRouteTableEntryAttributeResponse
+   */
   async updateGatewayRouteTableEntryAttribute(request: UpdateGatewayRouteTableEntryAttributeRequest): Promise<UpdateGatewayRouteTableEntryAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGatewayRouteTableEntryAttributeWithOptions(request, runtime);
   }
 
   /**
-    * *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
-    * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send a request to call this operation and the IPsec server is being modified in the backend. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-    *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
-    *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
-    * *   You cannot repeatedly call the **UpdateIpsecServer** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request UpdateIpsecServerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateIpsecServerResponse
+   * @summary Modifies the configuration of an IPsec server.
+   *
+   * @description *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
+   * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send a request to call this operation and the IPsec server is being modified in the backend. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+   *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
+   *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
+   * *   You cannot repeatedly call the **UpdateIpsecServer** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request UpdateIpsecServerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIpsecServerResponse
    */
   async updateIpsecServerWithOptions(request: UpdateIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpsecServerResponse> {
     Util.validateModel(request);
@@ -78990,14 +82008,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
-    * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send a request to call this operation and the IPsec server is being modified in the backend. You can call [DescribeVpnGateway](~~73720~~) to query the status of a VPN gateway.
-    *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
-    *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
-    * *   You cannot repeatedly call the **UpdateIpsecServer** operation for the same VPN gateway within the specified period of time.
-    *
-    * @param request UpdateIpsecServerRequest
-    * @return UpdateIpsecServerResponse
+   * @summary Modifies the configuration of an IPsec server.
+   *
+   * @description *   If you modify only the **IpsecServerName** parameter, this operation is synchronous. If you modify parameters other than **IpsecServerName**, this operation is asynchronous.
+   * *   When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID after you send a request to call this operation and the IPsec server is being modified in the backend. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of a VPN gateway.
+   *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec server is being modified.
+   *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec server is modified.
+   * *   You cannot repeatedly call the **UpdateIpsecServer** operation for the same VPN gateway within the specified period of time.
+   *
+   * @param request UpdateIpsecServerRequest
+   * @return UpdateIpsecServerResponse
    */
   async updateIpsecServer(request: UpdateIpsecServerRequest): Promise<UpdateIpsecServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -79005,11 +82025,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
-    *
-    * @param request UpdateIpv4GatewayAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateIpv4GatewayAttributeResponse
+   * @summary Modifies the description or name of an IPv4 gateway.
+   *
+   * @description You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
+   *
+   * @param request UpdateIpv4GatewayAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIpv4GatewayAttributeResponse
    */
   async updateIpv4GatewayAttributeWithOptions(request: UpdateIpv4GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpv4GatewayAttributeResponse> {
     Util.validateModel(request);
@@ -79076,10 +82098,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
-    *
-    * @param request UpdateIpv4GatewayAttributeRequest
-    * @return UpdateIpv4GatewayAttributeResponse
+   * @summary Modifies the description or name of an IPv4 gateway.
+   *
+   * @description You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
+   *
+   * @param request UpdateIpv4GatewayAttributeRequest
+   * @return UpdateIpv4GatewayAttributeResponse
    */
   async updateIpv4GatewayAttribute(request: UpdateIpv4GatewayAttributeRequest): Promise<UpdateIpv4GatewayAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -79087,19 +82111,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following limits:
-    * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](~~184744~~).
-    *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
-    *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
-    *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
-    * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
-    * *   The billing method and billable items remain the same after the upgrade.
-    * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
-    * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
-    *
-    * @param request UpdateNatGatewayNatTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateNatGatewayNatTypeResponse
+   * @summary Upgrades a standard NAT gateway to an enhanced NAT gateway.
+   *
+   * @description Before you call this operation, take note of the following limits:
+   * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](https://help.aliyun.com/document_detail/184744.html).
+   *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
+   *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
+   *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
+   * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
+   * *   The billing method and billable items remain the same after the upgrade.
+   * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
+   * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
+   *
+   * @param request UpdateNatGatewayNatTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNatGatewayNatTypeResponse
    */
   async updateNatGatewayNatTypeWithOptions(request: UpdateNatGatewayNatTypeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNatGatewayNatTypeResponse> {
     Util.validateModel(request);
@@ -79166,18 +82192,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following limits:
-    * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](~~184744~~).
-    *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
-    *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
-    *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
-    * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
-    * *   The billing method and billable items remain the same after the upgrade.
-    * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
-    * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
-    *
-    * @param request UpdateNatGatewayNatTypeRequest
-    * @return UpdateNatGatewayNatTypeResponse
+   * @summary Upgrades a standard NAT gateway to an enhanced NAT gateway.
+   *
+   * @description Before you call this operation, take note of the following limits:
+   * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](https://help.aliyun.com/document_detail/184744.html).
+   *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
+   *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
+   *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
+   * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
+   * *   The billing method and billable items remain the same after the upgrade.
+   * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
+   * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
+   *
+   * @param request UpdateNatGatewayNatTypeRequest
+   * @return UpdateNatGatewayNatTypeResponse
    */
   async updateNatGatewayNatType(request: UpdateNatGatewayNatTypeRequest): Promise<UpdateNatGatewayNatTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -79185,14 +82213,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
-    *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
-    *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
-    * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
-    *
-    * @param request UpdateNetworkAclEntriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateNetworkAclEntriesResponse
+   * @summary Updates the rules of a network access control list (ACL).
+   *
+   * @description *   **UpdateNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of a network ACL:
+   *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
+   *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
+   * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
+   *
+   * @param request UpdateNetworkAclEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNetworkAclEntriesResponse
    */
   async updateNetworkAclEntriesWithOptions(request: UpdateNetworkAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNetworkAclEntriesResponse> {
     Util.validateModel(request);
@@ -79267,13 +82297,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](~~116542~~) operation to query the status of a network ACL:
-    *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
-    *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
-    * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
-    *
-    * @param request UpdateNetworkAclEntriesRequest
-    * @return UpdateNetworkAclEntriesResponse
+   * @summary Updates the rules of a network access control list (ACL).
+   *
+   * @description *   **UpdateNetworkAclEntries** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of a network ACL:
+   *     *   If the network ACL is in the **Modifying** state, the rules of the network ACL are being updated.
+   *     *   If the network ACL is in the **Available** state, the rules of the network ACL are updated.
+   * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
+   *
+   * @param request UpdateNetworkAclEntriesRequest
+   * @return UpdateNetworkAclEntriesResponse
    */
   async updateNetworkAclEntries(request: UpdateNetworkAclEntriesRequest): Promise<UpdateNetworkAclEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -79281,11 +82313,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
-    *
-    * @param request UpdatePublicIpAddressPoolAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdatePublicIpAddressPoolAttributeResponse
+   * @summary Modifies the attributes of an IP address pool.
+   *
+   * @description You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
+   *
+   * @param request UpdatePublicIpAddressPoolAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePublicIpAddressPoolAttributeResponse
    */
   async updatePublicIpAddressPoolAttributeWithOptions(request: UpdatePublicIpAddressPoolAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicIpAddressPoolAttributeResponse> {
     Util.validateModel(request);
@@ -79348,10 +82382,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
-    *
-    * @param request UpdatePublicIpAddressPoolAttributeRequest
-    * @return UpdatePublicIpAddressPoolAttributeResponse
+   * @summary Modifies the attributes of an IP address pool.
+   *
+   * @description You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
+   *
+   * @param request UpdatePublicIpAddressPoolAttributeRequest
+   * @return UpdatePublicIpAddressPoolAttributeResponse
    */
   async updatePublicIpAddressPoolAttribute(request: UpdatePublicIpAddressPoolAttributeRequest): Promise<UpdatePublicIpAddressPoolAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -79359,11 +82395,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
-    *
-    * @param request UpdateTrafficMirrorFilterAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTrafficMirrorFilterAttributeResponse
+   * @summary Modifies the configuration of a filter for traffic mirroring.
+   *
+   * @description You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
+   *
+   * @param request UpdateTrafficMirrorFilterAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTrafficMirrorFilterAttributeResponse
    */
   async updateTrafficMirrorFilterAttributeWithOptions(request: UpdateTrafficMirrorFilterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorFilterAttributeResponse> {
     Util.validateModel(request);
@@ -79426,10 +82464,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
-    *
-    * @param request UpdateTrafficMirrorFilterAttributeRequest
-    * @return UpdateTrafficMirrorFilterAttributeResponse
+   * @summary Modifies the configuration of a filter for traffic mirroring.
+   *
+   * @description You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
+   *
+   * @param request UpdateTrafficMirrorFilterAttributeRequest
+   * @return UpdateTrafficMirrorFilterAttributeResponse
    */
   async updateTrafficMirrorFilterAttribute(request: UpdateTrafficMirrorFilterAttributeRequest): Promise<UpdateTrafficMirrorFilterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -79437,14 +82477,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of an inbound or outbound rule:
-    *     *   If the rule is in the **Modifying** state, the rule is being modified.
-    *     *   If the rule is in the **Created** state, the rule is modified.
-    * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
-    *
-    * @param request UpdateTrafficMirrorFilterRuleAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTrafficMirrorFilterRuleAttributeResponse
+   * @summary Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+   *
+   * @description *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
+   *     *   If the rule is in the **Modifying** state, the rule is being modified.
+   *     *   If the rule is in the **Created** state, the rule is modified.
+   * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
+   *
+   * @param request UpdateTrafficMirrorFilterRuleAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTrafficMirrorFilterRuleAttributeResponse
    */
   async updateTrafficMirrorFilterRuleAttributeWithOptions(request: UpdateTrafficMirrorFilterRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorFilterRuleAttributeResponse> {
     Util.validateModel(request);
@@ -79527,13 +82569,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](~~261353~~) operation to query the status of an inbound or outbound rule:
-    *     *   If the rule is in the **Modifying** state, the rule is being modified.
-    *     *   If the rule is in the **Created** state, the rule is modified.
-    * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
-    *
-    * @param request UpdateTrafficMirrorFilterRuleAttributeRequest
-    * @return UpdateTrafficMirrorFilterRuleAttributeResponse
+   * @summary Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+   *
+   * @description *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
+   *     *   If the rule is in the **Modifying** state, the rule is being modified.
+   *     *   If the rule is in the **Created** state, the rule is modified.
+   * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
+   *
+   * @param request UpdateTrafficMirrorFilterRuleAttributeRequest
+   * @return UpdateTrafficMirrorFilterRuleAttributeResponse
    */
   async updateTrafficMirrorFilterRuleAttribute(request: UpdateTrafficMirrorFilterRuleAttributeRequest): Promise<UpdateTrafficMirrorFilterRuleAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -79541,15 +82585,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * *   **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-    *     *   If the traffic mirror session is in the **Modifying** state, the configuration of the traffic mirror session is being modified.
-    *     *   If the traffic mirror session is in the **Created** state, the configuration of the traffic mirror session is modified.
-    * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
-    *
-    * @param request UpdateTrafficMirrorSessionAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTrafficMirrorSessionAttributeResponse
+   * @summary Modifies the configuration of a traffic mirror session.
+   *
+   * @description ## Usage notes
+   * *   **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+   *     *   If the traffic mirror session is in the **Modifying** state, the configuration of the traffic mirror session is being modified.
+   *     *   If the traffic mirror session is in the **Created** state, the configuration of the traffic mirror session is modified.
+   * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
+   *
+   * @param request UpdateTrafficMirrorSessionAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTrafficMirrorSessionAttributeResponse
    */
   async updateTrafficMirrorSessionAttributeWithOptions(request: UpdateTrafficMirrorSessionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorSessionAttributeResponse> {
     Util.validateModel(request);
@@ -79640,20 +82686,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * *   **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](~~261367~~) operation to query the status of the task.
-    *     *   If the traffic mirror session is in the **Modifying** state, the configuration of the traffic mirror session is being modified.
-    *     *   If the traffic mirror session is in the **Created** state, the configuration of the traffic mirror session is modified.
-    * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
-    *
-    * @param request UpdateTrafficMirrorSessionAttributeRequest
-    * @return UpdateTrafficMirrorSessionAttributeResponse
+   * @summary Modifies the configuration of a traffic mirror session.
+   *
+   * @description ## Usage notes
+   * *   **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) operation to query the status of the task.
+   *     *   If the traffic mirror session is in the **Modifying** state, the configuration of the traffic mirror session is being modified.
+   *     *   If the traffic mirror session is in the **Created** state, the configuration of the traffic mirror session is modified.
+   * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
+   *
+   * @param request UpdateTrafficMirrorSessionAttributeRequest
+   * @return UpdateTrafficMirrorSessionAttributeResponse
    */
   async updateTrafficMirrorSessionAttribute(request: UpdateTrafficMirrorSessionAttributeRequest): Promise<UpdateTrafficMirrorSessionAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTrafficMirrorSessionAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the maximum bandwidth value of outbound data transfer for a virtual border router (VBR).
+   *
+   * @param request UpdateVirtualBorderBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVirtualBorderBandwidthResponse
+   */
   async updateVirtualBorderBandwidthWithOptions(request: UpdateVirtualBorderBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualBorderBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79706,11 +82761,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVirtualBorderBandwidthResponse>(await this.callApi(params, req, runtime), new UpdateVirtualBorderBandwidthResponse({}));
   }
 
+  /**
+   * @summary Updates the maximum bandwidth value of outbound data transfer for a virtual border router (VBR).
+   *
+   * @param request UpdateVirtualBorderBandwidthRequest
+   * @return UpdateVirtualBorderBandwidthResponse
+   */
   async updateVirtualBorderBandwidth(request: UpdateVirtualBorderBandwidthRequest): Promise<UpdateVirtualBorderBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVirtualBorderBandwidthWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the virtual local area network (VLAN) ID of a hosted connection over Express Connect circuit.
+   *
+   * @param request UpdateVirtualPhysicalConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVirtualPhysicalConnectionResponse
+   */
   async updateVirtualPhysicalConnectionWithOptions(request: UpdateVirtualPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualPhysicalConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79755,20 +82823,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateVirtualPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new UpdateVirtualPhysicalConnectionResponse({}));
   }
 
+  /**
+   * @summary Changes the virtual local area network (VLAN) ID of a hosted connection over Express Connect circuit.
+   *
+   * @param request UpdateVirtualPhysicalConnectionRequest
+   * @return UpdateVirtualPhysicalConnectionResponse
+   */
   async updateVirtualPhysicalConnection(request: UpdateVirtualPhysicalConnectionRequest): Promise<UpdateVirtualPhysicalConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVirtualPhysicalConnectionWithOptions(request, runtime);
   }
 
   /**
-    * *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](~~311017~~) operation to query the status of the task.
-    *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
-    *     *   If the gateway endpoint is in the **Created** state, it is modified.
-    * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
-    *
-    * @param request UpdateVpcGatewayEndpointAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateVpcGatewayEndpointAttributeResponse
+   * @summary Modifies the configuration of a gateway endpoint.
+   *
+   * @description *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query the status of the task.
+   *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
+   *     *   If the gateway endpoint is in the **Created** state, it is modified.
+   * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
+   *
+   * @param request UpdateVpcGatewayEndpointAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVpcGatewayEndpointAttributeResponse
    */
   async updateVpcGatewayEndpointAttributeWithOptions(request: UpdateVpcGatewayEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcGatewayEndpointAttributeResponse> {
     Util.validateModel(request);
@@ -79835,13 +82911,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](~~311017~~) operation to query the status of the task.
-    *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
-    *     *   If the gateway endpoint is in the **Created** state, it is modified.
-    * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
-    *
-    * @param request UpdateVpcGatewayEndpointAttributeRequest
-    * @return UpdateVpcGatewayEndpointAttributeResponse
+   * @summary Modifies the configuration of a gateway endpoint.
+   *
+   * @description *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query the status of the task.
+   *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
+   *     *   If the gateway endpoint is in the **Created** state, it is modified.
+   * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
+   *
+   * @param request UpdateVpcGatewayEndpointAttributeRequest
+   * @return UpdateVpcGatewayEndpointAttributeResponse
    */
   async updateVpcGatewayEndpointAttribute(request: UpdateVpcGatewayEndpointAttributeRequest): Promise<UpdateVpcGatewayEndpointAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -79849,11 +82927,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](~~120219~~).
-    *
-    * @param request VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse
+   * @summary 查看eni quota
+   *
+   * @description Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
+   *
+   * @param request VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse
    */
   async vpcDescribeVpcNatGatewayNetworkInterfaceQuotaWithOptions(request: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest, runtime: $Util.RuntimeOptions): Promise<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse> {
     Util.validateModel(request);
@@ -79908,10 +82988,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](~~120219~~).
-    *
-    * @param request VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
-    * @return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse
+   * @summary 查看eni quota
+   *
+   * @description Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
+   *
+   * @param request VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
+   * @return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse
    */
   async vpcDescribeVpcNatGatewayNetworkInterfaceQuota(request: VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest): Promise<VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
