@@ -55986,6 +55986,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
   taxAmount?: string;
   taxRate?: string;
   totalAmountInWords?: string;
+  xmlOssUrl?: string;
   static names(): { [key: string]: string } {
     return {
       amountWithTax: 'amount_with_tax',
@@ -56021,6 +56022,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       taxAmount: 'tax_amount',
       taxRate: 'tax_rate',
       totalAmountInWords: 'total_amount_in_words',
+      xmlOssUrl: 'xml_oss_url',
     };
   }
 
@@ -56059,6 +56061,7 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $tea.Model {
       taxAmount: 'string',
       taxRate: 'string',
       totalAmountInWords: 'string',
+      xmlOssUrl: 'string',
     };
   }
 
@@ -56200,6 +56203,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 换取accessToken接口
+   *
+   * @param request AccessTokenRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AccessTokenResponse
+   */
   async accessTokenWithOptions(request: AccessTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AccessTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -56225,12 +56236,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AccessTokenResponse>(await this.callApi(params, req, runtime), new AccessTokenResponse({}));
   }
 
+  /**
+   * @summary 换取accessToken接口
+   *
+   * @param request AccessTokenRequest
+   * @return AccessTokenResponse
+   */
   async accessToken(request: AccessTokenRequest): Promise<AccessTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.accessTokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 新增发票抬头适用人员
+   *
+   * @param tmpReq AddInvoiceEntityRequest
+   * @param headers AddInvoiceEntityHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddInvoiceEntityResponse
+   */
   async addInvoiceEntityWithOptions(tmpReq: AddInvoiceEntityRequest, headers: AddInvoiceEntityHeaders, runtime: $Util.RuntimeOptions): Promise<AddInvoiceEntityResponse> {
     Util.validateModel(tmpReq);
     let request = new AddInvoiceEntityShrinkRequest({ });
@@ -56275,12 +56300,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddInvoiceEntityResponse>(await this.callApi(params, req, runtime), new AddInvoiceEntityResponse({}));
   }
 
+  /**
+   * @summary 新增发票抬头适用人员
+   *
+   * @param request AddInvoiceEntityRequest
+   * @return AddInvoiceEntityResponse
+   */
   async addInvoiceEntity(request: AddInvoiceEntityRequest): Promise<AddInvoiceEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AddInvoiceEntityHeaders({ });
     return await this.addInvoiceEntityWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 商旅功能页跳转
+   *
+   * @param request AddressGetRequest
+   * @param headers AddressGetHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddressGetResponse
+   */
   async addressGetWithOptions(request: AddressGetRequest, headers: AddressGetHeaders, runtime: $Util.RuntimeOptions): Promise<AddressGetResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -56375,12 +56414,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AddressGetResponse>(await this.callApi(params, req, runtime), new AddressGetResponse({}));
   }
 
+  /**
+   * @summary 商旅功能页跳转
+   *
+   * @param request AddressGetRequest
+   * @return AddressGetResponse
+   */
   async addressGet(request: AddressGetRequest): Promise<AddressGetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AddressGetHeaders({ });
     return await this.addressGetWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询机场数据
+   *
+   * @param request AirportSearchRequest
+   * @param headers AirportSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AirportSearchResponse
+   */
   async airportSearchWithOptions(request: AirportSearchRequest, headers: AirportSearchHeaders, runtime: $Util.RuntimeOptions): Promise<AirportSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -56419,12 +56472,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AirportSearchResponse>(await this.callApi(params, req, runtime), new AirportSearchResponse({}));
   }
 
+  /**
+   * @summary 查询机场数据
+   *
+   * @param request AirportSearchRequest
+   * @return AirportSearchResponse
+   */
   async airportSearch(request: AirportSearchRequest): Promise<AirportSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AirportSearchHeaders({ });
     return await this.airportSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 全量查询商旅城市行政区划编码信息
+   *
+   * @param headers AllBaseCityInfoQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllBaseCityInfoQueryResponse
+   */
   async allBaseCityInfoQueryWithOptions(headers: AllBaseCityInfoQueryHeaders, runtime: $Util.RuntimeOptions): Promise<AllBaseCityInfoQueryResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
@@ -56452,12 +56518,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AllBaseCityInfoQueryResponse>(await this.callApi(params, req, runtime), new AllBaseCityInfoQueryResponse({}));
   }
 
+  /**
+   * @summary 全量查询商旅城市行政区划编码信息
+   *
+   * @return AllBaseCityInfoQueryResponse
+   */
   async allBaseCityInfoQuery(): Promise<AllBaseCityInfoQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new AllBaseCityInfoQueryHeaders({ });
     return await this.allBaseCityInfoQueryWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary 新建出差审批单
+   *
+   * @param tmpReq ApplyAddRequest
+   * @param headers ApplyAddHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyAddResponse
+   */
   async applyAddWithOptions(tmpReq: ApplyAddRequest, headers: ApplyAddHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyAddResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyAddShrinkRequest({ });
@@ -56666,12 +56745,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyAddResponse>(await this.callApi(params, req, runtime), new ApplyAddResponse({}));
   }
 
+  /**
+   * @summary 新建出差审批单
+   *
+   * @param request ApplyAddRequest
+   * @return ApplyAddResponse
+   */
   async applyAdd(request: ApplyAddRequest): Promise<ApplyAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyAddHeaders({ });
     return await this.applyAddWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 更新出差审批单（状态）
+   *
+   * @param request ApplyApproveRequest
+   * @param headers ApplyApproveHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyApproveResponse
+   */
   async applyApproveWithOptions(request: ApplyApproveRequest, headers: ApplyApproveHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyApproveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -56730,12 +56823,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyApproveResponse>(await this.callApi(params, req, runtime), new ApplyApproveResponse({}));
   }
 
+  /**
+   * @summary 更新出差审批单（状态）
+   *
+   * @param request ApplyApproveRequest
+   * @return ApplyApproveResponse
+   */
   async applyApprove(request: ApplyApproveRequest): Promise<ApplyApproveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyApproveHeaders({ });
     return await this.applyApproveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 外部审批节点状态同步
+   *
+   * @param tmpReq ApplyExternalNodeStatusUpdateRequest
+   * @param headers ApplyExternalNodeStatusUpdateHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyExternalNodeStatusUpdateResponse
+   */
   async applyExternalNodeStatusUpdateWithOptions(tmpReq: ApplyExternalNodeStatusUpdateRequest, headers: ApplyExternalNodeStatusUpdateHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyExternalNodeStatusUpdateResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyExternalNodeStatusUpdateShrinkRequest({ });
@@ -56784,12 +56891,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyExternalNodeStatusUpdateResponse>(await this.callApi(params, req, runtime), new ApplyExternalNodeStatusUpdateResponse({}));
   }
 
+  /**
+   * @summary 外部审批节点状态同步
+   *
+   * @param request ApplyExternalNodeStatusUpdateRequest
+   * @return ApplyExternalNodeStatusUpdateResponse
+   */
   async applyExternalNodeStatusUpdate(request: ApplyExternalNodeStatusUpdateRequest): Promise<ApplyExternalNodeStatusUpdateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyExternalNodeStatusUpdateHeaders({ });
     return await this.applyExternalNodeStatusUpdateWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 申请发票
+   *
+   * @param tmpReq ApplyInvoiceTaskRequest
+   * @param headers ApplyInvoiceTaskHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyInvoiceTaskResponse
+   */
   async applyInvoiceTaskWithOptions(tmpReq: ApplyInvoiceTaskRequest, headers: ApplyInvoiceTaskHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyInvoiceTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyInvoiceTaskShrinkRequest({ });
@@ -56834,12 +56955,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyInvoiceTaskResponse>(await this.callApi(params, req, runtime), new ApplyInvoiceTaskResponse({}));
   }
 
+  /**
+   * @summary 申请发票
+   *
+   * @param request ApplyInvoiceTaskRequest
+   * @return ApplyInvoiceTaskResponse
+   */
   async applyInvoiceTask(request: ApplyInvoiceTaskRequest): Promise<ApplyInvoiceTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyInvoiceTaskHeaders({ });
     return await this.applyInvoiceTaskWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询出差审批单列表
+   *
+   * @param request ApplyListQueryRequest
+   * @param headers ApplyListQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyListQueryResponse
+   */
   async applyListQueryWithOptions(request: ApplyListQueryRequest, headers: ApplyListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -56918,12 +57053,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyListQueryResponse>(await this.callApi(params, req, runtime), new ApplyListQueryResponse({}));
   }
 
+  /**
+   * @summary 查询出差审批单列表
+   *
+   * @param request ApplyListQueryRequest
+   * @return ApplyListQueryResponse
+   */
   async applyListQuery(request: ApplyListQueryRequest): Promise<ApplyListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyListQueryHeaders({ });
     return await this.applyListQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 更新出差审批单
+   *
+   * @param tmpReq ApplyModifyRequest
+   * @param headers ApplyModifyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyModifyResponse
+   */
   async applyModifyWithOptions(tmpReq: ApplyModifyRequest, headers: ApplyModifyHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyModifyResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyModifyShrinkRequest({ });
@@ -57124,12 +57273,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyModifyResponse>(await this.callApi(params, req, runtime), new ApplyModifyResponse({}));
   }
 
+  /**
+   * @summary 更新出差审批单
+   *
+   * @param request ApplyModifyRequest
+   * @return ApplyModifyResponse
+   */
   async applyModify(request: ApplyModifyRequest): Promise<ApplyModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyModifyHeaders({ });
     return await this.applyModifyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询出差审批单详情
+   *
+   * @param request ApplyQueryRequest
+   * @param headers ApplyQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyQueryResponse
+   */
   async applyQueryWithOptions(request: ApplyQueryRequest, headers: ApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<ApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57180,12 +57343,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyQueryResponse>(await this.callApi(params, req, runtime), new ApplyQueryResponse({}));
   }
 
+  /**
+   * @summary 查询出差审批单详情
+   *
+   * @param request ApplyQueryRequest
+   * @return ApplyQueryResponse
+   */
   async applyQuery(request: ApplyQueryRequest): Promise<ApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ApplyQueryHeaders({ });
     return await this.applyQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 搜索国内/国际（港澳台）城市基础行政区划数据
+   *
+   * @param request BaseCityInfoSearchRequest
+   * @param headers BaseCityInfoSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BaseCityInfoSearchResponse
+   */
   async baseCityInfoSearchWithOptions(request: BaseCityInfoSearchRequest, headers: BaseCityInfoSearchHeaders, runtime: $Util.RuntimeOptions): Promise<BaseCityInfoSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57224,12 +57401,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BaseCityInfoSearchResponse>(await this.callApi(params, req, runtime), new BaseCityInfoSearchResponse({}));
   }
 
+  /**
+   * @summary 搜索国内/国际（港澳台）城市基础行政区划数据
+   *
+   * @param request BaseCityInfoSearchRequest
+   * @return BaseCityInfoSearchResponse
+   */
   async baseCityInfoSearch(request: BaseCityInfoSearchRequest): Promise<BaseCityInfoSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new BaseCityInfoSearchHeaders({ });
     return await this.baseCityInfoSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 商旅账单内容修改
+   *
+   * @param request BtripBillInfoAdjustRequest
+   * @param headers BtripBillInfoAdjustHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BtripBillInfoAdjustResponse
+   */
   async btripBillInfoAdjustWithOptions(request: BtripBillInfoAdjustRequest, headers: BtripBillInfoAdjustHeaders, runtime: $Util.RuntimeOptions): Promise<BtripBillInfoAdjustResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -57284,12 +57475,26 @@ export default class Client extends OpenApi {
     return $tea.cast<BtripBillInfoAdjustResponse>(await this.callApi(params, req, runtime), new BtripBillInfoAdjustResponse({}));
   }
 
+  /**
+   * @summary 商旅账单内容修改
+   *
+   * @param request BtripBillInfoAdjustRequest
+   * @return BtripBillInfoAdjustResponse
+   */
   async btripBillInfoAdjust(request: BtripBillInfoAdjustRequest): Promise<BtripBillInfoAdjustResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new BtripBillInfoAdjustHeaders({ });
     return await this.btripBillInfoAdjustWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 同步市内用车审批单
+   *
+   * @param tmpReq CarApplyAddRequest
+   * @param headers CarApplyAddHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CarApplyAddResponse
+   */
   async carApplyAddWithOptions(tmpReq: CarApplyAddRequest, headers: CarApplyAddHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyAddResponse> {
     Util.validateModel(tmpReq);
     let request = new CarApplyAddShrinkRequest({ });
@@ -57394,12 +57599,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CarApplyAddResponse>(await this.callApi(params, req, runtime), new CarApplyAddResponse({}));
   }
 
+  /**
+   * @summary 同步市内用车审批单
+   *
+   * @param request CarApplyAddRequest
+   * @return CarApplyAddResponse
+   */
   async carApplyAdd(request: CarApplyAddRequest): Promise<CarApplyAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarApplyAddHeaders({ });
     return await this.carApplyAddWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 更新市内用车审批单
+   *
+   * @param request CarApplyModifyRequest
+   * @param headers CarApplyModifyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CarApplyModifyResponse
+   */
   async carApplyModifyWithOptions(request: CarApplyModifyRequest, headers: CarApplyModifyHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -57450,12 +57669,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CarApplyModifyResponse>(await this.callApi(params, req, runtime), new CarApplyModifyResponse({}));
   }
 
+  /**
+   * @summary 更新市内用车审批单
+   *
+   * @param request CarApplyModifyRequest
+   * @return CarApplyModifyResponse
+   */
   async carApplyModify(request: CarApplyModifyRequest): Promise<CarApplyModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarApplyModifyHeaders({ });
     return await this.carApplyModifyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询市内用车审批单
+   *
+   * @param request CarApplyQueryRequest
+   * @param headers CarApplyQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CarApplyQueryResponse
+   */
   async carApplyQueryWithOptions(request: CarApplyQueryRequest, headers: CarApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57510,12 +57743,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CarApplyQueryResponse>(await this.callApi(params, req, runtime), new CarApplyQueryResponse({}));
   }
 
+  /**
+   * @summary 查询市内用车审批单
+   *
+   * @param request CarApplyQueryRequest
+   * @return CarApplyQueryResponse
+   */
   async carApplyQuery(request: CarApplyQueryRequest): Promise<CarApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarApplyQueryHeaders({ });
     return await this.carApplyQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询用车记账数据
+   *
+   * @param request CarBillSettlementQueryRequest
+   * @param headers CarBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CarBillSettlementQueryResponse
+   */
   async carBillSettlementQueryWithOptions(request: CarBillSettlementQueryRequest, headers: CarBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57562,12 +57809,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CarBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new CarBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询用车记账数据
+   *
+   * @param request CarBillSettlementQueryRequest
+   * @return CarBillSettlementQueryResponse
+   */
   async carBillSettlementQuery(request: CarBillSettlementQueryRequest): Promise<CarBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarBillSettlementQueryHeaders({ });
     return await this.carBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询用车订单列表
+   *
+   * @param request CarOrderListQueryRequest
+   * @param headers CarOrderListQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CarOrderListQueryResponse
+   */
   async carOrderListQueryWithOptions(request: CarOrderListQueryRequest, headers: CarOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57642,12 +57903,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CarOrderListQueryResponse>(await this.callApi(params, req, runtime), new CarOrderListQueryResponse({}));
   }
 
+  /**
+   * @summary 查询用车订单列表
+   *
+   * @param request CarOrderListQueryRequest
+   * @return CarOrderListQueryResponse
+   */
   async carOrderListQuery(request: CarOrderListQueryRequest): Promise<CarOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarOrderListQueryHeaders({ });
     return await this.carOrderListQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 用车订单查询
+   *
+   * @param request CarOrderQueryRequest
+   * @param headers CarOrderQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CarOrderQueryResponse
+   */
   async carOrderQueryWithOptions(request: CarOrderQueryRequest, headers: CarOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarOrderQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57686,12 +57961,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CarOrderQueryResponse>(await this.callApi(params, req, runtime), new CarOrderQueryResponse({}));
   }
 
+  /**
+   * @summary 用车订单查询
+   *
+   * @param request CarOrderQueryRequest
+   * @return CarOrderQueryResponse
+   */
   async carOrderQuery(request: CarOrderQueryRequest): Promise<CarOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarOrderQueryHeaders({ });
     return await this.carOrderQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询企业用车场景
+   *
+   * @param headers CarSceneQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CarSceneQueryResponse
+   */
   async carSceneQueryWithOptions(headers: CarSceneQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CarSceneQueryResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
@@ -57719,12 +58007,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CarSceneQueryResponse>(await this.callApi(params, req, runtime), new CarSceneQueryResponse({}));
   }
 
+  /**
+   * @summary 查询企业用车场景
+   *
+   * @return CarSceneQueryResponse
+   */
   async carSceneQuery(): Promise<CarSceneQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarSceneQueryHeaders({ });
     return await this.carSceneQueryWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary 查询行政区划（市，区）基础数据
+   *
+   * @param request CitySearchRequest
+   * @param headers CitySearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CitySearchResponse
+   */
   async citySearchWithOptions(request: CitySearchRequest, headers: CitySearchHeaders, runtime: $Util.RuntimeOptions): Promise<CitySearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57759,12 +58060,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CitySearchResponse>(await this.callApi(params, req, runtime), new CitySearchResponse({}));
   }
 
+  /**
+   * @summary 查询行政区划（市，区）基础数据
+   *
+   * @param request CitySearchRequest
+   * @return CitySearchResponse
+   */
   async citySearch(request: CitySearchRequest): Promise<CitySearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CitySearchHeaders({ });
     return await this.citySearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询退改审批信息
+   *
+   * @param request CommonApplyQueryRequest
+   * @param headers CommonApplyQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CommonApplyQueryResponse
+   */
   async commonApplyQueryWithOptions(request: CommonApplyQueryRequest, headers: CommonApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CommonApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57807,12 +58122,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CommonApplyQueryResponse>(await this.callApi(params, req, runtime), new CommonApplyQueryResponse({}));
   }
 
+  /**
+   * @summary 查询退改审批信息
+   *
+   * @param request CommonApplyQueryRequest
+   * @return CommonApplyQueryResponse
+   */
   async commonApplyQuery(request: CommonApplyQueryRequest): Promise<CommonApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CommonApplyQueryHeaders({ });
     return await this.commonApplyQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 退改审批结果同步
+   *
+   * @param request CommonApplySyncRequest
+   * @param headers CommonApplySyncHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CommonApplySyncResponse
+   */
   async commonApplySyncWithOptions(request: CommonApplySyncRequest, headers: CommonApplySyncHeaders, runtime: $Util.RuntimeOptions): Promise<CommonApplySyncResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57867,12 +58196,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CommonApplySyncResponse>(await this.callApi(params, req, runtime), new CommonApplySyncResponse({}));
   }
 
+  /**
+   * @summary 退改审批结果同步
+   *
+   * @param request CommonApplySyncRequest
+   * @return CommonApplySyncResponse
+   */
   async commonApplySync(request: CommonApplySyncRequest): Promise<CommonApplySyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CommonApplySyncHeaders({ });
     return await this.commonApplySyncWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询服务商机票记账数据
+   *
+   * @param request CooperatorFlightBillSettlementQueryRequest
+   * @param headers CooperatorFlightBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CooperatorFlightBillSettlementQueryResponse
+   */
   async cooperatorFlightBillSettlementQueryWithOptions(request: CooperatorFlightBillSettlementQueryRequest, headers: CooperatorFlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CooperatorFlightBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57923,12 +58266,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CooperatorFlightBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new CooperatorFlightBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询服务商机票记账数据
+   *
+   * @param request CooperatorFlightBillSettlementQueryRequest
+   * @return CooperatorFlightBillSettlementQueryResponse
+   */
   async cooperatorFlightBillSettlementQuery(request: CooperatorFlightBillSettlementQueryRequest): Promise<CooperatorFlightBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CooperatorFlightBillSettlementQueryHeaders({ });
     return await this.cooperatorFlightBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询服务商酒店记账数据
+   *
+   * @param request CooperatorHotelBillSettlementQueryRequest
+   * @param headers CooperatorHotelBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CooperatorHotelBillSettlementQueryResponse
+   */
   async cooperatorHotelBillSettlementQueryWithOptions(request: CooperatorHotelBillSettlementQueryRequest, headers: CooperatorHotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CooperatorHotelBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -57979,12 +58336,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CooperatorHotelBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new CooperatorHotelBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询服务商酒店记账数据
+   *
+   * @param request CooperatorHotelBillSettlementQueryRequest
+   * @return CooperatorHotelBillSettlementQueryResponse
+   */
   async cooperatorHotelBillSettlementQuery(request: CooperatorHotelBillSettlementQueryRequest): Promise<CooperatorHotelBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CooperatorHotelBillSettlementQueryHeaders({ });
     return await this.cooperatorHotelBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取关联可调用企业接口
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CorpAuthLinkInfoQueryResponse
+   */
   async corpAuthLinkInfoQueryWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CorpAuthLinkInfoQueryResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -58003,12 +58373,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CorpAuthLinkInfoQueryResponse>(await this.callApi(params, req, runtime), new CorpAuthLinkInfoQueryResponse({}));
   }
 
+  /**
+   * @summary 获取关联可调用企业接口
+   *
+   * @return CorpAuthLinkInfoQueryResponse
+   */
   async corpAuthLinkInfoQuery(): Promise<CorpAuthLinkInfoQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.corpAuthLinkInfoQueryWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary 换取CorpToken接口
+   *
+   * @param request CorpTokenRequest
+   * @param headers CorpTokenHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CorpTokenResponse
+   */
   async corpTokenWithOptions(request: CorpTokenRequest, headers: CorpTokenHeaders, runtime: $Util.RuntimeOptions): Promise<CorpTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -58051,12 +58434,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CorpTokenResponse>(await this.callApi(params, req, runtime), new CorpTokenResponse({}));
   }
 
+  /**
+   * @summary 换取CorpToken接口
+   *
+   * @param request CorpTokenRequest
+   * @return CorpTokenResponse
+   */
   async corpToken(request: CorpTokenRequest): Promise<CorpTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CorpTokenHeaders({ });
     return await this.corpTokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除成本中心
+   *
+   * @param request CostCenterDeleteRequest
+   * @param headers CostCenterDeleteHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CostCenterDeleteResponse
+   */
   async costCenterDeleteWithOptions(request: CostCenterDeleteRequest, headers: CostCenterDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterDeleteResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -58091,12 +58488,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CostCenterDeleteResponse>(await this.callApi(params, req, runtime), new CostCenterDeleteResponse({}));
   }
 
+  /**
+   * @summary 删除成本中心
+   *
+   * @param request CostCenterDeleteRequest
+   * @return CostCenterDeleteResponse
+   */
   async costCenterDelete(request: CostCenterDeleteRequest): Promise<CostCenterDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CostCenterDeleteHeaders({ });
     return await this.costCenterDeleteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 修改成本中心
+   *
+   * @param request CostCenterModifyRequest
+   * @param headers CostCenterModifyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CostCenterModifyResponse
+   */
   async costCenterModifyWithOptions(request: CostCenterModifyRequest, headers: CostCenterModifyHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -58151,12 +58562,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CostCenterModifyResponse>(await this.callApi(params, req, runtime), new CostCenterModifyResponse({}));
   }
 
+  /**
+   * @summary 修改成本中心
+   *
+   * @param request CostCenterModifyRequest
+   * @return CostCenterModifyResponse
+   */
   async costCenterModify(request: CostCenterModifyRequest): Promise<CostCenterModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CostCenterModifyHeaders({ });
     return await this.costCenterModifyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查看成本中心
+   *
+   * @param request CostCenterQueryRequest
+   * @param headers CostCenterQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CostCenterQueryResponse
+   */
   async costCenterQueryWithOptions(request: CostCenterQueryRequest, headers: CostCenterQueryHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -58207,12 +58632,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CostCenterQueryResponse>(await this.callApi(params, req, runtime), new CostCenterQueryResponse({}));
   }
 
+  /**
+   * @summary 查看成本中心
+   *
+   * @param request CostCenterQueryRequest
+   * @return CostCenterQueryResponse
+   */
   async costCenterQuery(request: CostCenterQueryRequest): Promise<CostCenterQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CostCenterQueryHeaders({ });
     return await this.costCenterQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 保存成本中心
+   *
+   * @param request CostCenterSaveRequest
+   * @param headers CostCenterSaveHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CostCenterSaveResponse
+   */
   async costCenterSaveWithOptions(request: CostCenterSaveRequest, headers: CostCenterSaveHeaders, runtime: $Util.RuntimeOptions): Promise<CostCenterSaveResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -58267,12 +58706,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CostCenterSaveResponse>(await this.callApi(params, req, runtime), new CostCenterSaveResponse({}));
   }
 
+  /**
+   * @summary 保存成本中心
+   *
+   * @param request CostCenterSaveRequest
+   * @return CostCenterSaveResponse
+   */
   async costCenterSave(request: CostCenterSaveRequest): Promise<CostCenterSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CostCenterSaveHeaders({ });
     return await this.costCenterSaveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建子企业
+   *
+   * @param request CreateSubCorpRequest
+   * @param headers CreateSubCorpHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSubCorpResponse
+   */
   async createSubCorpWithOptions(request: CreateSubCorpRequest, headers: CreateSubCorpHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSubCorpResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -58315,12 +58768,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSubCorpResponse>(await this.callApi(params, req, runtime), new CreateSubCorpResponse({}));
   }
 
+  /**
+   * @summary 创建子企业
+   *
+   * @param request CreateSubCorpRequest
+   * @return CreateSubCorpResponse
+   */
   async createSubCorp(request: CreateSubCorpRequest): Promise<CreateSubCorpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateSubCorpHeaders({ });
     return await this.createSubCorpWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除发票抬头适用人员
+   *
+   * @param tmpReq DeleteInvoiceEntityRequest
+   * @param headers DeleteInvoiceEntityHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInvoiceEntityResponse
+   */
   async deleteInvoiceEntityWithOptions(tmpReq: DeleteInvoiceEntityRequest, headers: DeleteInvoiceEntityHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteInvoiceEntityResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteInvoiceEntityShrinkRequest({ });
@@ -58369,12 +58836,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInvoiceEntityResponse>(await this.callApi(params, req, runtime), new DeleteInvoiceEntityResponse({}));
   }
 
+  /**
+   * @summary 删除发票抬头适用人员
+   *
+   * @param request DeleteInvoiceEntityRequest
+   * @return DeleteInvoiceEntityResponse
+   */
   async deleteInvoiceEntity(request: DeleteInvoiceEntityRequest): Promise<DeleteInvoiceEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new DeleteInvoiceEntityHeaders({ });
     return await this.deleteInvoiceEntityWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 同步外部平台部门信息至商旅内部
+   *
+   * @param tmpReq DepartmentSaveRequest
+   * @param headers DepartmentSaveHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DepartmentSaveResponse
+   */
   async departmentSaveWithOptions(tmpReq: DepartmentSaveRequest, headers: DepartmentSaveHeaders, runtime: $Util.RuntimeOptions): Promise<DepartmentSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new DepartmentSaveShrinkRequest({ });
@@ -58415,12 +58896,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DepartmentSaveResponse>(await this.callApi(params, req, runtime), new DepartmentSaveResponse({}));
   }
 
+  /**
+   * @summary 同步外部平台部门信息至商旅内部
+   *
+   * @param request DepartmentSaveRequest
+   * @return DepartmentSaveResponse
+   */
   async departmentSave(request: DepartmentSaveRequest): Promise<DepartmentSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new DepartmentSaveHeaders({ });
     return await this.departmentSaveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 增加成本中心人员信息
+   *
+   * @param tmpReq EntityAddRequest
+   * @param headers EntityAddHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EntityAddResponse
+   */
   async entityAddWithOptions(tmpReq: EntityAddRequest, headers: EntityAddHeaders, runtime: $Util.RuntimeOptions): Promise<EntityAddResponse> {
     Util.validateModel(tmpReq);
     let request = new EntityAddShrinkRequest({ });
@@ -58465,12 +58960,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EntityAddResponse>(await this.callApi(params, req, runtime), new EntityAddResponse({}));
   }
 
+  /**
+   * @summary 增加成本中心人员信息
+   *
+   * @param request EntityAddRequest
+   * @return EntityAddResponse
+   */
   async entityAdd(request: EntityAddRequest): Promise<EntityAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new EntityAddHeaders({ });
     return await this.entityAddWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除成本中心人员信息
+   *
+   * @param tmpReq EntityDeleteRequest
+   * @param headers EntityDeleteHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EntityDeleteResponse
+   */
   async entityDeleteWithOptions(tmpReq: EntityDeleteRequest, headers: EntityDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<EntityDeleteResponse> {
     Util.validateModel(tmpReq);
     let request = new EntityDeleteShrinkRequest({ });
@@ -58521,12 +59030,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EntityDeleteResponse>(await this.callApi(params, req, runtime), new EntityDeleteResponse({}));
   }
 
+  /**
+   * @summary 删除成本中心人员信息
+   *
+   * @param request EntityDeleteRequest
+   * @return EntityDeleteResponse
+   */
   async entityDelete(request: EntityDeleteRequest): Promise<EntityDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new EntityDeleteHeaders({ });
     return await this.entityDeleteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 设置成本中心人员信息
+   *
+   * @param tmpReq EntitySetRequest
+   * @param headers EntitySetHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EntitySetResponse
+   */
   async entitySetWithOptions(tmpReq: EntitySetRequest, headers: EntitySetHeaders, runtime: $Util.RuntimeOptions): Promise<EntitySetResponse> {
     Util.validateModel(tmpReq);
     let request = new EntitySetShrinkRequest({ });
@@ -58571,12 +59094,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EntitySetResponse>(await this.callApi(params, req, runtime), new EntitySetResponse({}));
   }
 
+  /**
+   * @summary 设置成本中心人员信息
+   *
+   * @param request EntitySetRequest
+   * @return EntitySetResponse
+   */
   async entitySet(request: EntitySetRequest): Promise<EntitySetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new EntitySetHeaders({ });
     return await this.entitySetWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 预估价格查询
+   *
+   * @param request EstimatedPriceQueryRequest
+   * @param headers EstimatedPriceQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EstimatedPriceQueryResponse
+   */
   async estimatedPriceQueryWithOptions(request: EstimatedPriceQueryRequest, headers: EstimatedPriceQueryHeaders, runtime: $Util.RuntimeOptions): Promise<EstimatedPriceQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -58639,12 +59176,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EstimatedPriceQueryResponse>(await this.callApi(params, req, runtime), new EstimatedPriceQueryResponse({}));
   }
 
+  /**
+   * @summary 预估价格查询
+   *
+   * @param request EstimatedPriceQueryRequest
+   * @return EstimatedPriceQueryResponse
+   */
   async estimatedPriceQuery(request: EstimatedPriceQueryRequest): Promise<EstimatedPriceQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new EstimatedPriceQueryHeaders({ });
     return await this.estimatedPriceQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 超标审批结果同步
+   *
+   * @param request ExceedApplySyncRequest
+   * @param headers ExceedApplySyncHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExceedApplySyncResponse
+   */
   async exceedApplySyncWithOptions(request: ExceedApplySyncRequest, headers: ExceedApplySyncHeaders, runtime: $Util.RuntimeOptions): Promise<ExceedApplySyncResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -58699,12 +59250,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ExceedApplySyncResponse>(await this.callApi(params, req, runtime), new ExceedApplySyncResponse({}));
   }
 
+  /**
+   * @summary 超标审批结果同步
+   *
+   * @param request ExceedApplySyncRequest
+   * @return ExceedApplySyncResponse
+   */
   async exceedApplySync(request: ExceedApplySyncRequest): Promise<ExceedApplySyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ExceedApplySyncHeaders({ });
     return await this.exceedApplySyncWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询机票记账数据
+   *
+   * @param request FlightBillSettlementQueryRequest
+   * @param headers FlightBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightBillSettlementQueryResponse
+   */
   async flightBillSettlementQueryWithOptions(request: FlightBillSettlementQueryRequest, headers: FlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -58751,12 +59316,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new FlightBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询机票记账数据
+   *
+   * @param request FlightBillSettlementQueryRequest
+   * @return FlightBillSettlementQueryResponse
+   */
   async flightBillSettlementQuery(request: FlightBillSettlementQueryRequest): Promise<FlightBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightBillSettlementQueryHeaders({ });
     return await this.flightBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班订单取消
+   *
+   * @param request FlightCancelOrderRequest
+   * @param headers FlightCancelOrderHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightCancelOrderResponse
+   */
   async flightCancelOrderWithOptions(request: FlightCancelOrderRequest, headers: FlightCancelOrderHeaders, runtime: $Util.RuntimeOptions): Promise<FlightCancelOrderResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -58791,12 +59370,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightCancelOrderResponse>(await this.callApi(params, req, runtime), new FlightCancelOrderResponse({}));
   }
 
+  /**
+   * @summary 航班订单取消
+   *
+   * @param request FlightCancelOrderRequest
+   * @return FlightCancelOrderResponse
+   */
   async flightCancelOrder(request: FlightCancelOrderRequest): Promise<FlightCancelOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightCancelOrderHeaders({ });
     return await this.flightCancelOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票订单取消
+   *
+   * @param request FlightCancelOrderV2Request
+   * @param headers FlightCancelOrderV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightCancelOrderV2Response
+   */
   async flightCancelOrderV2WithOptions(request: FlightCancelOrderV2Request, headers: FlightCancelOrderV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightCancelOrderV2Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -58839,12 +59432,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightCancelOrderV2Response>(await this.callApi(params, req, runtime), new FlightCancelOrderV2Response({}));
   }
 
+  /**
+   * @summary 机票订单取消
+   *
+   * @param request FlightCancelOrderV2Request
+   * @return FlightCancelOrderV2Response
+   */
   async flightCancelOrderV2(request: FlightCancelOrderV2Request): Promise<FlightCancelOrderV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightCancelOrderV2Headers({ });
     return await this.flightCancelOrderV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班订单创建
+   *
+   * @param tmpReq FlightCreateOrderRequest
+   * @param headers FlightCreateOrderHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightCreateOrderResponse
+   */
   async flightCreateOrderWithOptions(tmpReq: FlightCreateOrderRequest, headers: FlightCreateOrderHeaders, runtime: $Util.RuntimeOptions): Promise<FlightCreateOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new FlightCreateOrderShrinkRequest({ });
@@ -58965,12 +59572,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightCreateOrderResponse>(await this.callApi(params, req, runtime), new FlightCreateOrderResponse({}));
   }
 
+  /**
+   * @summary 航班订单创建
+   *
+   * @param request FlightCreateOrderRequest
+   * @return FlightCreateOrderResponse
+   */
   async flightCreateOrder(request: FlightCreateOrderRequest): Promise<FlightCreateOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightCreateOrderHeaders({ });
     return await this.flightCreateOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票订单创建
+   *
+   * @param tmpReq FlightCreateOrderV2Request
+   * @param headers FlightCreateOrderV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightCreateOrderV2Response
+   */
   async flightCreateOrderV2WithOptions(tmpReq: FlightCreateOrderV2Request, headers: FlightCreateOrderV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightCreateOrderV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightCreateOrderV2ShrinkRequest({ });
@@ -59051,12 +59672,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightCreateOrderV2Response>(await this.callApi(params, req, runtime), new FlightCreateOrderV2Response({}));
   }
 
+  /**
+   * @summary 机票订单创建
+   *
+   * @param request FlightCreateOrderV2Request
+   * @return FlightCreateOrderV2Response
+   */
   async flightCreateOrderV2(request: FlightCreateOrderV2Request): Promise<FlightCreateOrderV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightCreateOrderV2Headers({ });
     return await this.flightCreateOrderV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询飞机超标审批详情
+   *
+   * @param request FlightExceedApplyQueryRequest
+   * @param headers FlightExceedApplyQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightExceedApplyQueryResponse
+   */
   async flightExceedApplyQueryWithOptions(request: FlightExceedApplyQueryRequest, headers: FlightExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightExceedApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59091,12 +59726,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightExceedApplyQueryResponse>(await this.callApi(params, req, runtime), new FlightExceedApplyQueryResponse({}));
   }
 
+  /**
+   * @summary 查询飞机超标审批详情
+   *
+   * @param request FlightExceedApplyQueryRequest
+   * @return FlightExceedApplyQueryResponse
+   */
   async flightExceedApplyQuery(request: FlightExceedApplyQueryRequest): Promise<FlightExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightExceedApplyQueryHeaders({ });
     return await this.flightExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询机票行程单扫描件
+   *
+   * @param request FlightItineraryScanQueryRequest
+   * @param headers FlightItineraryScanQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightItineraryScanQueryResponse
+   */
   async flightItineraryScanQueryWithOptions(request: FlightItineraryScanQueryRequest, headers: FlightItineraryScanQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightItineraryScanQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59155,12 +59804,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightItineraryScanQueryResponse>(await this.callApi(params, req, runtime), new FlightItineraryScanQueryResponse({}));
   }
 
+  /**
+   * @summary 查询机票行程单扫描件
+   *
+   * @param request FlightItineraryScanQueryRequest
+   * @return FlightItineraryScanQueryResponse
+   */
   async flightItineraryScanQuery(request: FlightItineraryScanQueryRequest): Promise<FlightItineraryScanQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightItineraryScanQueryHeaders({ });
     return await this.flightItineraryScanQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班列表搜索
+   *
+   * @param request FlightListingSearchRequest
+   * @param headers FlightListingSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightListingSearchResponse
+   */
   async flightListingSearchWithOptions(request: FlightListingSearchRequest, headers: FlightListingSearchHeaders, runtime: $Util.RuntimeOptions): Promise<FlightListingSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59211,12 +59874,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightListingSearchResponse>(await this.callApi(params, req, runtime), new FlightListingSearchResponse({}));
   }
 
+  /**
+   * @summary 航班列表搜索
+   *
+   * @param request FlightListingSearchRequest
+   * @return FlightListingSearchResponse
+   */
   async flightListingSearch(request: FlightListingSearchRequest): Promise<FlightListingSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightListingSearchHeaders({ });
     return await this.flightListingSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班列表搜索
+   *
+   * @param tmpReq FlightListingSearchV2Request
+   * @param headers FlightListingSearchV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightListingSearchV2Response
+   */
   async flightListingSearchV2WithOptions(tmpReq: FlightListingSearchV2Request, headers: FlightListingSearchV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightListingSearchV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightListingSearchV2ShrinkRequest({ });
@@ -59301,12 +59978,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightListingSearchV2Response>(await this.callApi(params, req, runtime), new FlightListingSearchV2Response({}));
   }
 
+  /**
+   * @summary 航班列表搜索
+   *
+   * @param request FlightListingSearchV2Request
+   * @return FlightListingSearchV2Response
+   */
   async flightListingSearchV2(request: FlightListingSearchV2Request): Promise<FlightListingSearchV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightListingSearchV2Headers({ });
     return await this.flightListingSearchV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签申请
+   *
+   * @param tmpReq FlightModifyApplyV2Request
+   * @param headers FlightModifyApplyV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightModifyApplyV2Response
+   */
   async flightModifyApplyV2WithOptions(tmpReq: FlightModifyApplyV2Request, headers: FlightModifyApplyV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightModifyApplyV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightModifyApplyV2ShrinkRequest({ });
@@ -59387,12 +60078,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightModifyApplyV2Response>(await this.callApi(params, req, runtime), new FlightModifyApplyV2Response({}));
   }
 
+  /**
+   * @summary 机票改签申请
+   *
+   * @param request FlightModifyApplyV2Request
+   * @return FlightModifyApplyV2Response
+   */
   async flightModifyApplyV2(request: FlightModifyApplyV2Request): Promise<FlightModifyApplyV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightModifyApplyV2Headers({ });
     return await this.flightModifyApplyV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签取消
+   *
+   * @param request FlightModifyCancelV2Request
+   * @param headers FlightModifyCancelV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightModifyCancelV2Response
+   */
   async flightModifyCancelV2WithOptions(request: FlightModifyCancelV2Request, headers: FlightModifyCancelV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightModifyCancelV2Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59443,12 +60148,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightModifyCancelV2Response>(await this.callApi(params, req, runtime), new FlightModifyCancelV2Response({}));
   }
 
+  /**
+   * @summary 机票改签取消
+   *
+   * @param request FlightModifyCancelV2Request
+   * @return FlightModifyCancelV2Response
+   */
   async flightModifyCancelV2(request: FlightModifyCancelV2Request): Promise<FlightModifyCancelV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightModifyCancelV2Headers({ });
     return await this.flightModifyCancelV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签列表搜索
+   *
+   * @param tmpReq FlightModifyListingSearchV2Request
+   * @param headers FlightModifyListingSearchV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightModifyListingSearchV2Response
+   */
   async flightModifyListingSearchV2WithOptions(tmpReq: FlightModifyListingSearchV2Request, headers: FlightModifyListingSearchV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightModifyListingSearchV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightModifyListingSearchV2ShrinkRequest({ });
@@ -59545,12 +60264,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightModifyListingSearchV2Response>(await this.callApi(params, req, runtime), new FlightModifyListingSearchV2Response({}));
   }
 
+  /**
+   * @summary 机票改签列表搜索
+   *
+   * @param request FlightModifyListingSearchV2Request
+   * @return FlightModifyListingSearchV2Response
+   */
   async flightModifyListingSearchV2(request: FlightModifyListingSearchV2Request): Promise<FlightModifyListingSearchV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightModifyListingSearchV2Headers({ });
     return await this.flightModifyListingSearchV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签详情
+   *
+   * @param request FlightModifyOrderDetailV2Request
+   * @param headers FlightModifyOrderDetailV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightModifyOrderDetailV2Response
+   */
   async flightModifyOrderDetailV2WithOptions(request: FlightModifyOrderDetailV2Request, headers: FlightModifyOrderDetailV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightModifyOrderDetailV2Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59597,12 +60330,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightModifyOrderDetailV2Response>(await this.callApi(params, req, runtime), new FlightModifyOrderDetailV2Response({}));
   }
 
+  /**
+   * @summary 机票改签详情
+   *
+   * @param request FlightModifyOrderDetailV2Request
+   * @return FlightModifyOrderDetailV2Response
+   */
   async flightModifyOrderDetailV2(request: FlightModifyOrderDetailV2Request): Promise<FlightModifyOrderDetailV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightModifyOrderDetailV2Headers({ });
     return await this.flightModifyOrderDetailV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签报价搜索
+   *
+   * @param tmpReq FlightModifyOtaSearchV2Request
+   * @param headers FlightModifyOtaSearchV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightModifyOtaSearchV2Response
+   */
   async flightModifyOtaSearchV2WithOptions(tmpReq: FlightModifyOtaSearchV2Request, headers: FlightModifyOtaSearchV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightModifyOtaSearchV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightModifyOtaSearchV2ShrinkRequest({ });
@@ -59687,12 +60434,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightModifyOtaSearchV2Response>(await this.callApi(params, req, runtime), new FlightModifyOtaSearchV2Response({}));
   }
 
+  /**
+   * @summary 机票改签报价搜索
+   *
+   * @param request FlightModifyOtaSearchV2Request
+   * @return FlightModifyOtaSearchV2Response
+   */
   async flightModifyOtaSearchV2(request: FlightModifyOtaSearchV2Request): Promise<FlightModifyOtaSearchV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightModifyOtaSearchV2Headers({ });
     return await this.flightModifyOtaSearchV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签支付
+   *
+   * @param tmpReq FlightModifyPayV2Request
+   * @param headers FlightModifyPayV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightModifyPayV2Response
+   */
   async flightModifyPayV2WithOptions(tmpReq: FlightModifyPayV2Request, headers: FlightModifyPayV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightModifyPayV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightModifyPayV2ShrinkRequest({ });
@@ -59757,12 +60518,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightModifyPayV2Response>(await this.callApi(params, req, runtime), new FlightModifyPayV2Response({}));
   }
 
+  /**
+   * @summary 机票改签支付
+   *
+   * @param request FlightModifyPayV2Request
+   * @return FlightModifyPayV2Response
+   */
   async flightModifyPayV2(request: FlightModifyPayV2Request): Promise<FlightModifyPayV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightModifyPayV2Headers({ });
     return await this.flightModifyPayV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班订单明细信息
+   *
+   * @param request FlightOrderDetailInfoRequest
+   * @param headers FlightOrderDetailInfoHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightOrderDetailInfoResponse
+   */
   async flightOrderDetailInfoWithOptions(request: FlightOrderDetailInfoRequest, headers: FlightOrderDetailInfoHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderDetailInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59797,12 +60572,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOrderDetailInfoResponse>(await this.callApi(params, req, runtime), new FlightOrderDetailInfoResponse({}));
   }
 
+  /**
+   * @summary 航班订单明细信息
+   *
+   * @param request FlightOrderDetailInfoRequest
+   * @return FlightOrderDetailInfoResponse
+   */
   async flightOrderDetailInfo(request: FlightOrderDetailInfoRequest): Promise<FlightOrderDetailInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOrderDetailInfoHeaders({ });
     return await this.flightOrderDetailInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票订单详情
+   *
+   * @param request FlightOrderDetailV2Request
+   * @param headers FlightOrderDetailV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightOrderDetailV2Response
+   */
   async flightOrderDetailV2WithOptions(request: FlightOrderDetailV2Request, headers: FlightOrderDetailV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightOrderDetailV2Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59845,12 +60634,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOrderDetailV2Response>(await this.callApi(params, req, runtime), new FlightOrderDetailV2Response({}));
   }
 
+  /**
+   * @summary 机票订单详情
+   *
+   * @param request FlightOrderDetailV2Request
+   * @return FlightOrderDetailV2Response
+   */
   async flightOrderDetailV2(request: FlightOrderDetailV2Request): Promise<FlightOrderDetailV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOrderDetailV2Headers({ });
     return await this.flightOrderDetailV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询机票订单列表
+   *
+   * @param request FlightOrderListQueryRequest
+   * @param headers FlightOrderListQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightOrderListQueryResponse
+   */
   async flightOrderListQueryWithOptions(request: FlightOrderListQueryRequest, headers: FlightOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59925,12 +60728,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOrderListQueryResponse>(await this.callApi(params, req, runtime), new FlightOrderListQueryResponse({}));
   }
 
+  /**
+   * @summary 查询机票订单列表
+   *
+   * @param request FlightOrderListQueryRequest
+   * @return FlightOrderListQueryResponse
+   */
   async flightOrderListQuery(request: FlightOrderListQueryRequest): Promise<FlightOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOrderListQueryHeaders({ });
     return await this.flightOrderListQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询机票订单详情（含票信息）
+   *
+   * @param request FlightOrderQueryRequest
+   * @param headers FlightOrderQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightOrderQueryResponse
+   */
   async flightOrderQueryWithOptions(request: FlightOrderQueryRequest, headers: FlightOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOrderQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -59969,12 +60786,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOrderQueryResponse>(await this.callApi(params, req, runtime), new FlightOrderQueryResponse({}));
   }
 
+  /**
+   * @summary 查询机票订单详情（含票信息）
+   *
+   * @param request FlightOrderQueryRequest
+   * @return FlightOrderQueryResponse
+   */
   async flightOrderQuery(request: FlightOrderQueryRequest): Promise<FlightOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOrderQueryHeaders({ });
     return await this.flightOrderQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询退改规则行李额
+   *
+   * @param request FlightOtaItemDetailRequest
+   * @param headers FlightOtaItemDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightOtaItemDetailResponse
+   */
   async flightOtaItemDetailWithOptions(request: FlightOtaItemDetailRequest, headers: FlightOtaItemDetailHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOtaItemDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -60013,12 +60844,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOtaItemDetailResponse>(await this.callApi(params, req, runtime), new FlightOtaItemDetailResponse({}));
   }
 
+  /**
+   * @summary 查询退改规则行李额
+   *
+   * @param request FlightOtaItemDetailRequest
+   * @return FlightOtaItemDetailResponse
+   */
   async flightOtaItemDetail(request: FlightOtaItemDetailRequest): Promise<FlightOtaItemDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOtaItemDetailHeaders({ });
     return await this.flightOtaItemDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班最低价搜索
+   *
+   * @param request FlightOtaSearchRequest
+   * @param headers FlightOtaSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightOtaSearchResponse
+   */
   async flightOtaSearchWithOptions(request: FlightOtaSearchRequest, headers: FlightOtaSearchHeaders, runtime: $Util.RuntimeOptions): Promise<FlightOtaSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -60077,12 +60922,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOtaSearchResponse>(await this.callApi(params, req, runtime), new FlightOtaSearchResponse({}));
   }
 
+  /**
+   * @summary 航班最低价搜索
+   *
+   * @param request FlightOtaSearchRequest
+   * @return FlightOtaSearchResponse
+   */
   async flightOtaSearch(request: FlightOtaSearchRequest): Promise<FlightOtaSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOtaSearchHeaders({ });
     return await this.flightOtaSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 单航班报价搜索
+   *
+   * @param tmpReq FlightOtaSearchV2Request
+   * @param headers FlightOtaSearchV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightOtaSearchV2Response
+   */
   async flightOtaSearchV2WithOptions(tmpReq: FlightOtaSearchV2Request, headers: FlightOtaSearchV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightOtaSearchV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightOtaSearchV2ShrinkRequest({ });
@@ -60151,12 +61010,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightOtaSearchV2Response>(await this.callApi(params, req, runtime), new FlightOtaSearchV2Response({}));
   }
 
+  /**
+   * @summary 单航班报价搜索
+   *
+   * @param request FlightOtaSearchV2Request
+   * @return FlightOtaSearchV2Response
+   */
   async flightOtaSearchV2(request: FlightOtaSearchV2Request): Promise<FlightOtaSearchV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightOtaSearchV2Headers({ });
     return await this.flightOtaSearchV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班订单支付
+   *
+   * @param tmpReq FlightPayOrderRequest
+   * @param headers FlightPayOrderHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightPayOrderResponse
+   */
   async flightPayOrderWithOptions(tmpReq: FlightPayOrderRequest, headers: FlightPayOrderHeaders, runtime: $Util.RuntimeOptions): Promise<FlightPayOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new FlightPayOrderShrinkRequest({ });
@@ -60213,12 +61086,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightPayOrderResponse>(await this.callApi(params, req, runtime), new FlightPayOrderResponse({}));
   }
 
+  /**
+   * @summary 航班订单支付
+   *
+   * @param request FlightPayOrderRequest
+   * @return FlightPayOrderResponse
+   */
   async flightPayOrder(request: FlightPayOrderRequest): Promise<FlightPayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightPayOrderHeaders({ });
     return await this.flightPayOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票订单支付
+   *
+   * @param request FlightPayOrderV2Request
+   * @param headers FlightPayOrderV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightPayOrderV2Response
+   */
   async flightPayOrderV2WithOptions(request: FlightPayOrderV2Request, headers: FlightPayOrderV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightPayOrderV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -60269,12 +61156,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightPayOrderV2Response>(await this.callApi(params, req, runtime), new FlightPayOrderV2Response({}));
   }
 
+  /**
+   * @summary 机票订单支付
+   *
+   * @param request FlightPayOrderV2Request
+   * @return FlightPayOrderV2Response
+   */
   async flightPayOrderV2(request: FlightPayOrderV2Request): Promise<FlightPayOrderV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightPayOrderV2Headers({ });
     return await this.flightPayOrderV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班退票申请
+   *
+   * @param tmpReq FlightRefundApplyRequest
+   * @param headers FlightRefundApplyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightRefundApplyResponse
+   */
   async flightRefundApplyWithOptions(tmpReq: FlightRefundApplyRequest, headers: FlightRefundApplyHeaders, runtime: $Util.RuntimeOptions): Promise<FlightRefundApplyResponse> {
     Util.validateModel(tmpReq);
     let request = new FlightRefundApplyShrinkRequest({ });
@@ -60375,12 +61276,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightRefundApplyResponse>(await this.callApi(params, req, runtime), new FlightRefundApplyResponse({}));
   }
 
+  /**
+   * @summary 航班退票申请
+   *
+   * @param request FlightRefundApplyRequest
+   * @return FlightRefundApplyResponse
+   */
   async flightRefundApply(request: FlightRefundApplyRequest): Promise<FlightRefundApplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightRefundApplyHeaders({ });
     return await this.flightRefundApplyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票退票申请
+   *
+   * @param tmpReq FlightRefundApplyV2Request
+   * @param headers FlightRefundApplyV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightRefundApplyV2Response
+   */
   async flightRefundApplyV2WithOptions(tmpReq: FlightRefundApplyV2Request, headers: FlightRefundApplyV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightRefundApplyV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightRefundApplyV2ShrinkRequest({ });
@@ -60469,12 +61384,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightRefundApplyV2Response>(await this.callApi(params, req, runtime), new FlightRefundApplyV2Response({}));
   }
 
+  /**
+   * @summary 机票退票申请
+   *
+   * @param request FlightRefundApplyV2Request
+   * @return FlightRefundApplyV2Response
+   */
   async flightRefundApplyV2(request: FlightRefundApplyV2Request): Promise<FlightRefundApplyV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightRefundApplyV2Headers({ });
     return await this.flightRefundApplyV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班退票详情
+   *
+   * @param request FlightRefundDetailRequest
+   * @param headers FlightRefundDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightRefundDetailResponse
+   */
   async flightRefundDetailWithOptions(request: FlightRefundDetailRequest, headers: FlightRefundDetailHeaders, runtime: $Util.RuntimeOptions): Promise<FlightRefundDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -60513,12 +61442,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightRefundDetailResponse>(await this.callApi(params, req, runtime), new FlightRefundDetailResponse({}));
   }
 
+  /**
+   * @summary 航班退票详情
+   *
+   * @param request FlightRefundDetailRequest
+   * @return FlightRefundDetailResponse
+   */
   async flightRefundDetail(request: FlightRefundDetailRequest): Promise<FlightRefundDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightRefundDetailHeaders({ });
     return await this.flightRefundDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票退票详情
+   *
+   * @param request FlightRefundDetailV2Request
+   * @param headers FlightRefundDetailV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightRefundDetailV2Response
+   */
   async flightRefundDetailV2WithOptions(request: FlightRefundDetailV2Request, headers: FlightRefundDetailV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightRefundDetailV2Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -60561,12 +61504,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightRefundDetailV2Response>(await this.callApi(params, req, runtime), new FlightRefundDetailV2Response({}));
   }
 
+  /**
+   * @summary 机票退票详情
+   *
+   * @param request FlightRefundDetailV2Request
+   * @return FlightRefundDetailV2Response
+   */
   async flightRefundDetailV2(request: FlightRefundDetailV2Request): Promise<FlightRefundDetailV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightRefundDetailV2Headers({ });
     return await this.flightRefundDetailV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票退票预计算
+   *
+   * @param tmpReq FlightRefundPreCalRequest
+   * @param headers FlightRefundPreCalHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightRefundPreCalResponse
+   */
   async flightRefundPreCalWithOptions(tmpReq: FlightRefundPreCalRequest, headers: FlightRefundPreCalHeaders, runtime: $Util.RuntimeOptions): Promise<FlightRefundPreCalResponse> {
     Util.validateModel(tmpReq);
     let request = new FlightRefundPreCalShrinkRequest({ });
@@ -60615,12 +61572,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightRefundPreCalResponse>(await this.callApi(params, req, runtime), new FlightRefundPreCalResponse({}));
   }
 
+  /**
+   * @summary 机票退票预计算
+   *
+   * @param request FlightRefundPreCalRequest
+   * @return FlightRefundPreCalResponse
+   */
   async flightRefundPreCal(request: FlightRefundPreCalRequest): Promise<FlightRefundPreCalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightRefundPreCalHeaders({ });
     return await this.flightRefundPreCalWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票退票费用预计算
+   *
+   * @param tmpReq FlightRefundPreCalV2Request
+   * @param headers FlightRefundPreCalV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightRefundPreCalV2Response
+   */
   async flightRefundPreCalV2WithOptions(tmpReq: FlightRefundPreCalV2Request, headers: FlightRefundPreCalV2Headers, runtime: $Util.RuntimeOptions): Promise<FlightRefundPreCalV2Response> {
     Util.validateModel(tmpReq);
     let request = new FlightRefundPreCalV2ShrinkRequest({ });
@@ -60689,12 +61660,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightRefundPreCalV2Response>(await this.callApi(params, req, runtime), new FlightRefundPreCalV2Response({}));
   }
 
+  /**
+   * @summary 机票退票费用预计算
+   *
+   * @param request FlightRefundPreCalV2Request
+   * @return FlightRefundPreCalV2Response
+   */
   async flightRefundPreCalV2(request: FlightRefundPreCalV2Request): Promise<FlightRefundPreCalV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightRefundPreCalV2Headers({ });
     return await this.flightRefundPreCalV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 航班列表搜索
+   *
+   * @param request FlightSearchListRequest
+   * @param headers FlightSearchListHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FlightSearchListResponse
+   */
   async flightSearchListWithOptions(request: FlightSearchListRequest, headers: FlightSearchListHeaders, runtime: $Util.RuntimeOptions): Promise<FlightSearchListResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -60781,12 +61766,26 @@ export default class Client extends OpenApi {
     return $tea.cast<FlightSearchListResponse>(await this.callApi(params, req, runtime), new FlightSearchListResponse({}));
   }
 
+  /**
+   * @summary 航班列表搜索
+   *
+   * @param request FlightSearchListRequest
+   * @return FlightSearchListResponse
+   */
   async flightSearchList(request: FlightSearchListRequest): Promise<FlightSearchListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new FlightSearchListHeaders({ });
     return await this.flightSearchListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 换取GroupCorpToken接口
+   *
+   * @param request GroupCorpTokenRequest
+   * @param headers GroupCorpTokenHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GroupCorpTokenResponse
+   */
   async groupCorpTokenWithOptions(request: GroupCorpTokenRequest, headers: GroupCorpTokenHeaders, runtime: $Util.RuntimeOptions): Promise<GroupCorpTokenResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -60829,12 +61828,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GroupCorpTokenResponse>(await this.callApi(params, req, runtime), new GroupCorpTokenResponse({}));
   }
 
+  /**
+   * @summary 换取GroupCorpToken接口
+   *
+   * @param request GroupCorpTokenRequest
+   * @return GroupCorpTokenResponse
+   */
   async groupCorpToken(request: GroupCorpTokenRequest): Promise<GroupCorpTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GroupCorpTokenHeaders({ });
     return await this.groupCorpTokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 集团部门同步
+   *
+   * @param tmpReq GroupDepartSaveRequest
+   * @param headers GroupDepartSaveHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GroupDepartSaveResponse
+   */
   async groupDepartSaveWithOptions(tmpReq: GroupDepartSaveRequest, headers: GroupDepartSaveHeaders, runtime: $Util.RuntimeOptions): Promise<GroupDepartSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new GroupDepartSaveShrinkRequest({ });
@@ -60899,12 +61912,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GroupDepartSaveResponse>(await this.callApi(params, req, runtime), new GroupDepartSaveResponse({}));
   }
 
+  /**
+   * @summary 集团部门同步
+   *
+   * @param request GroupDepartSaveRequest
+   * @return GroupDepartSaveResponse
+   */
   async groupDepartSave(request: GroupDepartSaveRequest): Promise<GroupDepartSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GroupDepartSaveHeaders({ });
     return await this.groupDepartSaveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 集团人员同步
+   *
+   * @param tmpReq GroupUserSaveRequest
+   * @param headers GroupUserSaveHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GroupUserSaveResponse
+   */
   async groupUserSaveWithOptions(tmpReq: GroupUserSaveRequest, headers: GroupUserSaveHeaders, runtime: $Util.RuntimeOptions): Promise<GroupUserSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new GroupUserSaveShrinkRequest({ });
@@ -60985,12 +62012,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GroupUserSaveResponse>(await this.callApi(params, req, runtime), new GroupUserSaveResponse({}));
   }
 
+  /**
+   * @summary 集团人员同步
+   *
+   * @param request GroupUserSaveRequest
+   * @return GroupUserSaveResponse
+   */
   async groupUserSave(request: GroupUserSaveRequest): Promise<GroupUserSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GroupUserSaveHeaders({ });
     return await this.groupUserSaveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店起价
+   *
+   * @param tmpReq HotelAskingPriceRequest
+   * @param headers HotelAskingPriceHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelAskingPriceResponse
+   */
   async hotelAskingPriceWithOptions(tmpReq: HotelAskingPriceRequest, headers: HotelAskingPriceHeaders, runtime: $Util.RuntimeOptions): Promise<HotelAskingPriceResponse> {
     Util.validateModel(tmpReq);
     let request = new HotelAskingPriceShrinkRequest({ });
@@ -61075,12 +62116,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelAskingPriceResponse>(await this.callApi(params, req, runtime), new HotelAskingPriceResponse({}));
   }
 
+  /**
+   * @summary 酒店起价
+   *
+   * @param request HotelAskingPriceRequest
+   * @return HotelAskingPriceResponse
+   */
   async hotelAskingPrice(request: HotelAskingPriceRequest): Promise<HotelAskingPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelAskingPriceHeaders({ });
     return await this.hotelAskingPriceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询酒店记账数据
+   *
+   * @param request HotelBillSettlementQueryRequest
+   * @param headers HotelBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelBillSettlementQueryResponse
+   */
   async hotelBillSettlementQueryWithOptions(request: HotelBillSettlementQueryRequest, headers: HotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61127,12 +62182,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new HotelBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询酒店记账数据
+   *
+   * @param request HotelBillSettlementQueryRequest
+   * @return HotelBillSettlementQueryResponse
+   */
   async hotelBillSettlementQuery(request: HotelBillSettlementQueryRequest): Promise<HotelBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelBillSettlementQueryHeaders({ });
     return await this.hotelBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店城市列表
+   *
+   * @param request HotelCityCodeListRequest
+   * @param headers HotelCityCodeListHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelCityCodeListResponse
+   */
   async hotelCityCodeListWithOptions(request: HotelCityCodeListRequest, headers: HotelCityCodeListHeaders, runtime: $Util.RuntimeOptions): Promise<HotelCityCodeListResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61167,12 +62236,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelCityCodeListResponse>(await this.callApi(params, req, runtime), new HotelCityCodeListResponse({}));
   }
 
+  /**
+   * @summary 酒店城市列表
+   *
+   * @param request HotelCityCodeListRequest
+   * @return HotelCityCodeListResponse
+   */
   async hotelCityCodeList(request: HotelCityCodeListRequest): Promise<HotelCityCodeListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelCityCodeListHeaders({ });
     return await this.hotelCityCodeListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询酒店超标审批详情
+   *
+   * @param request HotelExceedApplyQueryRequest
+   * @param headers HotelExceedApplyQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelExceedApplyQueryResponse
+   */
   async hotelExceedApplyQueryWithOptions(request: HotelExceedApplyQueryRequest, headers: HotelExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelExceedApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61207,12 +62290,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelExceedApplyQueryResponse>(await this.callApi(params, req, runtime), new HotelExceedApplyQueryResponse({}));
   }
 
+  /**
+   * @summary 查询酒店超标审批详情
+   *
+   * @param request HotelExceedApplyQueryRequest
+   * @return HotelExceedApplyQueryResponse
+   */
   async hotelExceedApplyQuery(request: HotelExceedApplyQueryRequest): Promise<HotelExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelExceedApplyQueryHeaders({ });
     return await this.hotelExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店详情页报价接口(直连)
+   *
+   * @param request HotelGoodsQueryRequest
+   * @param headers HotelGoodsQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelGoodsQueryResponse
+   */
   async hotelGoodsQueryWithOptions(request: HotelGoodsQueryRequest, headers: HotelGoodsQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelGoodsQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61291,12 +62388,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelGoodsQueryResponse>(await this.callApi(params, req, runtime), new HotelGoodsQueryResponse({}));
   }
 
+  /**
+   * @summary 酒店详情页报价接口(直连)
+   *
+   * @param request HotelGoodsQueryRequest
+   * @return HotelGoodsQueryResponse
+   */
   async hotelGoodsQuery(request: HotelGoodsQueryRequest): Promise<HotelGoodsQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelGoodsQueryHeaders({ });
     return await this.hotelGoodsQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取酒店清单
+   *
+   * @param request HotelIndexInfoRequest
+   * @param headers HotelIndexInfoHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelIndexInfoResponse
+   */
   async hotelIndexInfoWithOptions(request: HotelIndexInfoRequest, headers: HotelIndexInfoHeaders, runtime: $Util.RuntimeOptions): Promise<HotelIndexInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61343,12 +62454,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelIndexInfoResponse>(await this.callApi(params, req, runtime), new HotelIndexInfoResponse({}));
   }
 
+  /**
+   * @summary 获取酒店清单
+   *
+   * @param request HotelIndexInfoRequest
+   * @return HotelIndexInfoResponse
+   */
   async hotelIndexInfo(request: HotelIndexInfoRequest): Promise<HotelIndexInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelIndexInfoHeaders({ });
     return await this.hotelIndexInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店订单取消
+   *
+   * @param request HotelOrderCancelRequest
+   * @param headers HotelOrderCancelHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderCancelResponse
+   */
   async hotelOrderCancelWithOptions(request: HotelOrderCancelRequest, headers: HotelOrderCancelHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderCancelResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61387,12 +62512,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderCancelResponse>(await this.callApi(params, req, runtime), new HotelOrderCancelResponse({}));
   }
 
+  /**
+   * @summary 酒店订单取消
+   *
+   * @param request HotelOrderCancelRequest
+   * @return HotelOrderCancelResponse
+   */
   async hotelOrderCancel(request: HotelOrderCancelRequest): Promise<HotelOrderCancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelOrderCancelHeaders({ });
     return await this.hotelOrderCancelWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店订单创建
+   *
+   * @param tmpReq HotelOrderCreateRequest
+   * @param headers HotelOrderCreateHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderCreateResponse
+   */
   async hotelOrderCreateWithOptions(tmpReq: HotelOrderCreateRequest, headers: HotelOrderCreateHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderCreateResponse> {
     Util.validateModel(tmpReq);
     let request = new HotelOrderCreateShrinkRequest({ });
@@ -61525,12 +62664,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderCreateResponse>(await this.callApi(params, req, runtime), new HotelOrderCreateResponse({}));
   }
 
+  /**
+   * @summary 酒店订单创建
+   *
+   * @param request HotelOrderCreateRequest
+   * @return HotelOrderCreateResponse
+   */
   async hotelOrderCreate(request: HotelOrderCreateRequest): Promise<HotelOrderCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelOrderCreateHeaders({ });
     return await this.hotelOrderCreateWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店订单明细信息
+   *
+   * @param request HotelOrderDetailInfoRequest
+   * @param headers HotelOrderDetailInfoHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderDetailInfoResponse
+   */
   async hotelOrderDetailInfoWithOptions(request: HotelOrderDetailInfoRequest, headers: HotelOrderDetailInfoHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderDetailInfoResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61569,12 +62722,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderDetailInfoResponse>(await this.callApi(params, req, runtime), new HotelOrderDetailInfoResponse({}));
   }
 
+  /**
+   * @summary 酒店订单明细信息
+   *
+   * @param request HotelOrderDetailInfoRequest
+   * @return HotelOrderDetailInfoResponse
+   */
   async hotelOrderDetailInfo(request: HotelOrderDetailInfoRequest): Promise<HotelOrderDetailInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelOrderDetailInfoHeaders({ });
     return await this.hotelOrderDetailInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询酒店订单列表
+   *
+   * @param request HotelOrderListQueryRequest
+   * @param headers HotelOrderListQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderListQueryResponse
+   */
   async hotelOrderListQueryWithOptions(request: HotelOrderListQueryRequest, headers: HotelOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61649,12 +62816,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderListQueryResponse>(await this.callApi(params, req, runtime), new HotelOrderListQueryResponse({}));
   }
 
+  /**
+   * @summary 查询酒店订单列表
+   *
+   * @param request HotelOrderListQueryRequest
+   * @return HotelOrderListQueryResponse
+   */
   async hotelOrderListQuery(request: HotelOrderListQueryRequest): Promise<HotelOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelOrderListQueryHeaders({ });
     return await this.hotelOrderListQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店订单支付
+   *
+   * @param request HotelOrderPayRequest
+   * @param headers HotelOrderPayHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderPayResponse
+   */
   async hotelOrderPayWithOptions(request: HotelOrderPayRequest, headers: HotelOrderPayHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderPayResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -61713,12 +62894,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderPayResponse>(await this.callApi(params, req, runtime), new HotelOrderPayResponse({}));
   }
 
+  /**
+   * @summary 酒店订单支付
+   *
+   * @param request HotelOrderPayRequest
+   * @return HotelOrderPayResponse
+   */
   async hotelOrderPay(request: HotelOrderPayRequest): Promise<HotelOrderPayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelOrderPayHeaders({ });
     return await this.hotelOrderPayWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店下单前校验
+   *
+   * @param tmpReq HotelOrderPreValidateRequest
+   * @param headers HotelOrderPreValidateHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderPreValidateResponse
+   */
   async hotelOrderPreValidateWithOptions(tmpReq: HotelOrderPreValidateRequest, headers: HotelOrderPreValidateHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderPreValidateResponse> {
     Util.validateModel(tmpReq);
     let request = new HotelOrderPreValidateShrinkRequest({ });
@@ -61811,12 +63006,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderPreValidateResponse>(await this.callApi(params, req, runtime), new HotelOrderPreValidateResponse({}));
   }
 
+  /**
+   * @summary 酒店下单前校验
+   *
+   * @param request HotelOrderPreValidateRequest
+   * @return HotelOrderPreValidateResponse
+   */
   async hotelOrderPreValidate(request: HotelOrderPreValidateRequest): Promise<HotelOrderPreValidateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelOrderPreValidateHeaders({ });
     return await this.hotelOrderPreValidateWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店订单查询
+   *
+   * @param request HotelOrderQueryRequest
+   * @param headers HotelOrderQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderQueryResponse
+   */
   async hotelOrderQueryWithOptions(request: HotelOrderQueryRequest, headers: HotelOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -61851,12 +63060,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelOrderQueryResponse>(await this.callApi(params, req, runtime), new HotelOrderQueryResponse({}));
   }
 
+  /**
+   * @summary 酒店订单查询
+   *
+   * @param request HotelOrderQueryRequest
+   * @return HotelOrderQueryResponse
+   */
   async hotelOrderQuery(request: HotelOrderQueryRequest): Promise<HotelOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelOrderQueryHeaders({ });
     return await this.hotelOrderQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店拉动态拉取价格接口(落地)
+   *
+   * @param tmpReq HotelPricePullRequest
+   * @param headers HotelPricePullHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelPricePullResponse
+   */
   async hotelPricePullWithOptions(tmpReq: HotelPricePullRequest, headers: HotelPricePullHeaders, runtime: $Util.RuntimeOptions): Promise<HotelPricePullResponse> {
     Util.validateModel(tmpReq);
     let request = new HotelPricePullShrinkRequest({ });
@@ -61917,12 +63140,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelPricePullResponse>(await this.callApi(params, req, runtime), new HotelPricePullResponse({}));
   }
 
+  /**
+   * @summary 酒店拉动态拉取价格接口(落地)
+   *
+   * @param request HotelPricePullRequest
+   * @return HotelPricePullResponse
+   */
   async hotelPricePull(request: HotelPricePullRequest): Promise<HotelPricePullResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelPricePullHeaders({ });
     return await this.hotelPricePullWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取酒店静态房型详情
+   *
+   * @param tmpReq HotelRoomInfoRequest
+   * @param headers HotelRoomInfoHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelRoomInfoResponse
+   */
   async hotelRoomInfoWithOptions(tmpReq: HotelRoomInfoRequest, headers: HotelRoomInfoHeaders, runtime: $Util.RuntimeOptions): Promise<HotelRoomInfoResponse> {
     Util.validateModel(tmpReq);
     let request = new HotelRoomInfoShrinkRequest({ });
@@ -61963,12 +63200,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelRoomInfoResponse>(await this.callApi(params, req, runtime), new HotelRoomInfoResponse({}));
   }
 
+  /**
+   * @summary 获取酒店静态房型详情
+   *
+   * @param request HotelRoomInfoRequest
+   * @return HotelRoomInfoResponse
+   */
   async hotelRoomInfo(request: HotelRoomInfoRequest): Promise<HotelRoomInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelRoomInfoHeaders({ });
     return await this.hotelRoomInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 酒店列表搜索接口(直连)
+   *
+   * @param tmpReq HotelSearchRequest
+   * @param headers HotelSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelSearchResponse
+   */
   async hotelSearchWithOptions(tmpReq: HotelSearchRequest, headers: HotelSearchHeaders, runtime: $Util.RuntimeOptions): Promise<HotelSearchResponse> {
     Util.validateModel(tmpReq);
     let request = new HotelSearchShrinkRequest({ });
@@ -62097,12 +63348,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelSearchResponse>(await this.callApi(params, req, runtime), new HotelSearchResponse({}));
   }
 
+  /**
+   * @summary 酒店列表搜索接口(直连)
+   *
+   * @param request HotelSearchRequest
+   * @return HotelSearchResponse
+   */
   async hotelSearch(request: HotelSearchRequest): Promise<HotelSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelSearchHeaders({ });
     return await this.hotelSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询酒店静态详情
+   *
+   * @param tmpReq HotelStaticInfoRequest
+   * @param headers HotelStaticInfoHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelStaticInfoResponse
+   */
   async hotelStaticInfoWithOptions(tmpReq: HotelStaticInfoRequest, headers: HotelStaticInfoHeaders, runtime: $Util.RuntimeOptions): Promise<HotelStaticInfoResponse> {
     Util.validateModel(tmpReq);
     let request = new HotelStaticInfoShrinkRequest({ });
@@ -62143,12 +63408,26 @@ export default class Client extends OpenApi {
     return $tea.cast<HotelStaticInfoResponse>(await this.callApi(params, req, runtime), new HotelStaticInfoResponse({}));
   }
 
+  /**
+   * @summary 查询酒店静态详情
+   *
+   * @param request HotelStaticInfoRequest
+   * @return HotelStaticInfoResponse
+   */
   async hotelStaticInfo(request: HotelStaticInfoRequest): Promise<HotelStaticInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelStaticInfoHeaders({ });
     return await this.hotelStaticInfoWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询国际机票记账数据
+   *
+   * @param request IeFlightBillSettlementQueryRequest
+   * @param headers IeFlightBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IeFlightBillSettlementQueryResponse
+   */
   async ieFlightBillSettlementQueryWithOptions(request: IeFlightBillSettlementQueryRequest, headers: IeFlightBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<IeFlightBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -62195,12 +63474,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IeFlightBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new IeFlightBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询国际机票记账数据
+   *
+   * @param request IeFlightBillSettlementQueryRequest
+   * @return IeFlightBillSettlementQueryResponse
+   */
   async ieFlightBillSettlementQuery(request: IeFlightBillSettlementQueryRequest): Promise<IeFlightBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IeFlightBillSettlementQueryHeaders({ });
     return await this.ieFlightBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询国际/中国港澳台酒店记账数据
+   *
+   * @param request IeHotelBillSettlementQueryRequest
+   * @param headers IeHotelBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IeHotelBillSettlementQueryResponse
+   */
   async ieHotelBillSettlementQueryWithOptions(request: IeHotelBillSettlementQueryRequest, headers: IeHotelBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<IeHotelBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -62251,12 +63544,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IeHotelBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new IeHotelBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询国际/中国港澳台酒店记账数据
+   *
+   * @param request IeHotelBillSettlementQueryRequest
+   * @return IeHotelBillSettlementQueryResponse
+   */
   async ieHotelBillSettlementQuery(request: IeHotelBillSettlementQueryRequest): Promise<IeHotelBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IeHotelBillSettlementQueryHeaders({ });
     return await this.ieHotelBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询保险电子发票
+   *
+   * @param request InsInvoiceScanQueryRequest
+   * @param headers InsInvoiceScanQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsInvoiceScanQueryResponse
+   */
   async insInvoiceScanQueryWithOptions(request: InsInvoiceScanQueryRequest, headers: InsInvoiceScanQueryHeaders, runtime: $Util.RuntimeOptions): Promise<InsInvoiceScanQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -62307,12 +63614,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsInvoiceScanQueryResponse>(await this.callApi(params, req, runtime), new InsInvoiceScanQueryResponse({}));
   }
 
+  /**
+   * @summary 查询保险电子发票
+   *
+   * @param request InsInvoiceScanQueryRequest
+   * @return InsInvoiceScanQueryResponse
+   */
   async insInvoiceScanQuery(request: InsInvoiceScanQueryRequest): Promise<InsInvoiceScanQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsInvoiceScanQueryHeaders({ });
     return await this.insInvoiceScanQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 保险订单申请
+   *
+   * @param request InsureOrderApplyRequest
+   * @param headers InsureOrderApplyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsureOrderApplyResponse
+   */
   async insureOrderApplyWithOptions(request: InsureOrderApplyRequest, headers: InsureOrderApplyHeaders, runtime: $Util.RuntimeOptions): Promise<InsureOrderApplyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -62371,12 +63692,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsureOrderApplyResponse>(await this.callApi(params, req, runtime), new InsureOrderApplyResponse({}));
   }
 
+  /**
+   * @summary 保险订单申请
+   *
+   * @param request InsureOrderApplyRequest
+   * @return InsureOrderApplyResponse
+   */
   async insureOrderApply(request: InsureOrderApplyRequest): Promise<InsureOrderApplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsureOrderApplyHeaders({ });
     return await this.insureOrderApplyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 保险订单取消
+   *
+   * @param request InsureOrderCancelRequest
+   * @param headers InsureOrderCancelHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsureOrderCancelResponse
+   */
   async insureOrderCancelWithOptions(insOrderId: string, request: InsureOrderCancelRequest, headers: InsureOrderCancelHeaders, runtime: $Util.RuntimeOptions): Promise<InsureOrderCancelResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -62423,12 +63758,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsureOrderCancelResponse>(await this.callApi(params, req, runtime), new InsureOrderCancelResponse({}));
   }
 
+  /**
+   * @summary 保险订单取消
+   *
+   * @param request InsureOrderCancelRequest
+   * @return InsureOrderCancelResponse
+   */
   async insureOrderCancel(insOrderId: string, request: InsureOrderCancelRequest): Promise<InsureOrderCancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsureOrderCancelHeaders({ });
     return await this.insureOrderCancelWithOptions(insOrderId, request, headers, runtime);
   }
 
+  /**
+   * @summary 保险订单创建
+   *
+   * @param tmpReq InsureOrderCreateRequest
+   * @param headers InsureOrderCreateHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsureOrderCreateResponse
+   */
   async insureOrderCreateWithOptions(tmpReq: InsureOrderCreateRequest, headers: InsureOrderCreateHeaders, runtime: $Util.RuntimeOptions): Promise<InsureOrderCreateResponse> {
     Util.validateModel(tmpReq);
     let request = new InsureOrderCreateShrinkRequest({ });
@@ -62505,12 +63854,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsureOrderCreateResponse>(await this.callApi(params, req, runtime), new InsureOrderCreateResponse({}));
   }
 
+  /**
+   * @summary 保险订单创建
+   *
+   * @param request InsureOrderCreateRequest
+   * @return InsureOrderCreateResponse
+   */
   async insureOrderCreate(request: InsureOrderCreateRequest): Promise<InsureOrderCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsureOrderCreateHeaders({ });
     return await this.insureOrderCreateWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 保险订单查询
+   *
+   * @param request InsureOrderDetailRequest
+   * @param headers InsureOrderDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsureOrderDetailResponse
+   */
   async insureOrderDetailWithOptions(request: InsureOrderDetailRequest, headers: InsureOrderDetailHeaders, runtime: $Util.RuntimeOptions): Promise<InsureOrderDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -62561,12 +63924,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsureOrderDetailResponse>(await this.callApi(params, req, runtime), new InsureOrderDetailResponse({}));
   }
 
+  /**
+   * @summary 保险订单查询
+   *
+   * @param request InsureOrderDetailRequest
+   * @return InsureOrderDetailResponse
+   */
   async insureOrderDetail(request: InsureOrderDetailRequest): Promise<InsureOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsureOrderDetailHeaders({ });
     return await this.insureOrderDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 保险订单支付
+   *
+   * @param request InsureOrderPayRequest
+   * @param headers InsureOrderPayHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsureOrderPayResponse
+   */
   async insureOrderPayWithOptions(insOrderId: string, request: InsureOrderPayRequest, headers: InsureOrderPayHeaders, runtime: $Util.RuntimeOptions): Promise<InsureOrderPayResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -62625,12 +64002,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsureOrderPayResponse>(await this.callApi(params, req, runtime), new InsureOrderPayResponse({}));
   }
 
+  /**
+   * @summary 保险订单支付
+   *
+   * @param request InsureOrderPayRequest
+   * @return InsureOrderPayResponse
+   */
   async insureOrderPay(insOrderId: string, request: InsureOrderPayRequest): Promise<InsureOrderPayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsureOrderPayHeaders({ });
     return await this.insureOrderPayWithOptions(insOrderId, request, headers, runtime);
   }
 
+  /**
+   * @summary 保险订单退保
+   *
+   * @param tmpReq InsureOrderRefundRequest
+   * @param headers InsureOrderRefundHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsureOrderRefundResponse
+   */
   async insureOrderRefundWithOptions(insOrderId: string, tmpReq: InsureOrderRefundRequest, headers: InsureOrderRefundHeaders, runtime: $Util.RuntimeOptions): Promise<InsureOrderRefundResponse> {
     Util.validateModel(tmpReq);
     let request = new InsureOrderRefundShrinkRequest({ });
@@ -62699,12 +64090,25 @@ export default class Client extends OpenApi {
     return $tea.cast<InsureOrderRefundResponse>(await this.callApi(params, req, runtime), new InsureOrderRefundResponse({}));
   }
 
+  /**
+   * @summary 保险订单退保
+   *
+   * @param request InsureOrderRefundRequest
+   * @return InsureOrderRefundResponse
+   */
   async insureOrderRefund(insOrderId: string, request: InsureOrderRefundRequest): Promise<InsureOrderRefundResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsureOrderRefundHeaders({ });
     return await this.insureOrderRefundWithOptions(insOrderId, request, headers, runtime);
   }
 
+  /**
+   * @summary 查询保单详情链接
+   *
+   * @param headers InsureOrderUrlDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsureOrderUrlDetailResponse
+   */
   async insureOrderUrlDetailWithOptions(insOrderId: string, headers: InsureOrderUrlDetailHeaders, runtime: $Util.RuntimeOptions): Promise<InsureOrderUrlDetailResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
@@ -62732,12 +64136,25 @@ export default class Client extends OpenApi {
     return $tea.cast<InsureOrderUrlDetailResponse>(await this.callApi(params, req, runtime), new InsureOrderUrlDetailResponse({}));
   }
 
+  /**
+   * @summary 查询保单详情链接
+   *
+   * @return InsureOrderUrlDetailResponse
+   */
   async insureOrderUrlDetail(insOrderId: string): Promise<InsureOrderUrlDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsureOrderUrlDetailHeaders({ });
     return await this.insureOrderUrlDetailWithOptions(insOrderId, headers, runtime);
   }
 
+  /**
+   * @summary 退保详情查询
+   *
+   * @param request InsureRefundDetailRequest
+   * @param headers InsureRefundDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsureRefundDetailResponse
+   */
   async insureRefundDetailWithOptions(request: InsureRefundDetailRequest, headers: InsureRefundDetailHeaders, runtime: $Util.RuntimeOptions): Promise<InsureRefundDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -62796,12 +64213,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsureRefundDetailResponse>(await this.callApi(params, req, runtime), new InsureRefundDetailResponse({}));
   }
 
+  /**
+   * @summary 退保详情查询
+   *
+   * @param request InsureRefundDetailRequest
+   * @return InsureRefundDetailResponse
+   */
   async insureRefundDetail(request: InsureRefundDetailRequest): Promise<InsureRefundDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InsureRefundDetailHeaders({ });
     return await this.insureRefundDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票创建订单
+   *
+   * @param tmpReq IntlFlightCreateOrderRequest
+   * @param headers IntlFlightCreateOrderHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightCreateOrderResponse
+   */
   async intlFlightCreateOrderWithOptions(tmpReq: IntlFlightCreateOrderRequest, headers: IntlFlightCreateOrderHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightCreateOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new IntlFlightCreateOrderShrinkRequest({ });
@@ -62906,12 +64337,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightCreateOrderResponse>(await this.callApi(params, req, runtime), new IntlFlightCreateOrderResponse({}));
   }
 
+  /**
+   * @summary 国际机票创建订单
+   *
+   * @param request IntlFlightCreateOrderRequest
+   * @return IntlFlightCreateOrderResponse
+   */
   async intlFlightCreateOrder(request: IntlFlightCreateOrderRequest): Promise<IntlFlightCreateOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightCreateOrderHeaders({ });
     return await this.intlFlightCreateOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票验舱验价
+   *
+   * @param tmpReq IntlFlightInventoryPriceCheckRequest
+   * @param headers IntlFlightInventoryPriceCheckHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightInventoryPriceCheckResponse
+   */
   async intlFlightInventoryPriceCheckWithOptions(tmpReq: IntlFlightInventoryPriceCheckRequest, headers: IntlFlightInventoryPriceCheckHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightInventoryPriceCheckResponse> {
     Util.validateModel(tmpReq);
     let request = new IntlFlightInventoryPriceCheckShrinkRequest({ });
@@ -62976,12 +64421,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightInventoryPriceCheckResponse>(await this.callApi(params, req, runtime), new IntlFlightInventoryPriceCheckResponse({}));
   }
 
+  /**
+   * @summary 国际机票验舱验价
+   *
+   * @param request IntlFlightInventoryPriceCheckRequest
+   * @return IntlFlightInventoryPriceCheckResponse
+   */
   async intlFlightInventoryPriceCheck(request: IntlFlightInventoryPriceCheckRequest): Promise<IntlFlightInventoryPriceCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightInventoryPriceCheckHeaders({ });
     return await this.intlFlightInventoryPriceCheckWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票航班搜索
+   *
+   * @param tmpReq IntlFlightListingSearchRequest
+   * @param headers IntlFlightListingSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightListingSearchResponse
+   */
   async intlFlightListingSearchWithOptions(tmpReq: IntlFlightListingSearchRequest, headers: IntlFlightListingSearchHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightListingSearchResponse> {
     Util.validateModel(tmpReq);
     let request = new IntlFlightListingSearchShrinkRequest({ });
@@ -63082,12 +64541,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightListingSearchResponse>(await this.callApi(params, req, runtime), new IntlFlightListingSearchResponse({}));
   }
 
+  /**
+   * @summary 国际机票航班搜索
+   *
+   * @param request IntlFlightListingSearchRequest
+   * @return IntlFlightListingSearchResponse
+   */
   async intlFlightListingSearch(request: IntlFlightListingSearchRequest): Promise<IntlFlightListingSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightListingSearchHeaders({ });
     return await this.intlFlightListingSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票订单取消
+   *
+   * @param request IntlFlightOrderCancelRequest
+   * @param headers IntlFlightOrderCancelHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightOrderCancelResponse
+   */
   async intlFlightOrderCancelWithOptions(request: IntlFlightOrderCancelRequest, headers: IntlFlightOrderCancelHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightOrderCancelResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -63134,12 +64607,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightOrderCancelResponse>(await this.callApi(params, req, runtime), new IntlFlightOrderCancelResponse({}));
   }
 
+  /**
+   * @summary 国际机票订单取消
+   *
+   * @param request IntlFlightOrderCancelRequest
+   * @return IntlFlightOrderCancelResponse
+   */
   async intlFlightOrderCancel(request: IntlFlightOrderCancelRequest): Promise<IntlFlightOrderCancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightOrderCancelHeaders({ });
     return await this.intlFlightOrderCancelWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票订单详情
+   *
+   * @param request IntlFlightOrderDetailRequest
+   * @param headers IntlFlightOrderDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightOrderDetailResponse
+   */
   async intlFlightOrderDetailWithOptions(request: IntlFlightOrderDetailRequest, headers: IntlFlightOrderDetailHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightOrderDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -63182,12 +64669,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightOrderDetailResponse>(await this.callApi(params, req, runtime), new IntlFlightOrderDetailResponse({}));
   }
 
+  /**
+   * @summary 国际机票订单详情
+   *
+   * @param request IntlFlightOrderDetailRequest
+   * @return IntlFlightOrderDetailResponse
+   */
   async intlFlightOrderDetail(request: IntlFlightOrderDetailRequest): Promise<IntlFlightOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightOrderDetailHeaders({ });
     return await this.intlFlightOrderDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票订单支付
+   *
+   * @param tmpReq IntlFlightOrderPayRequest
+   * @param headers IntlFlightOrderPayHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightOrderPayResponse
+   */
   async intlFlightOrderPayWithOptions(tmpReq: IntlFlightOrderPayRequest, headers: IntlFlightOrderPayHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightOrderPayResponse> {
     Util.validateModel(tmpReq);
     let request = new IntlFlightOrderPayShrinkRequest({ });
@@ -63244,12 +64745,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightOrderPayResponse>(await this.callApi(params, req, runtime), new IntlFlightOrderPayResponse({}));
   }
 
+  /**
+   * @summary 国际机票订单支付
+   *
+   * @param request IntlFlightOrderPayRequest
+   * @return IntlFlightOrderPayResponse
+   */
   async intlFlightOrderPay(request: IntlFlightOrderPayRequest): Promise<IntlFlightOrderPayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightOrderPayHeaders({ });
     return await this.intlFlightOrderPayWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票订单支付前校验
+   *
+   * @param request IntlFlightOrderPayCheckRequest
+   * @param headers IntlFlightOrderPayCheckHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightOrderPayCheckResponse
+   */
   async intlFlightOrderPayCheckWithOptions(request: IntlFlightOrderPayCheckRequest, headers: IntlFlightOrderPayCheckHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightOrderPayCheckResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -63292,12 +64807,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightOrderPayCheckResponse>(await this.callApi(params, req, runtime), new IntlFlightOrderPayCheckResponse({}));
   }
 
+  /**
+   * @summary 国际机票订单支付前校验
+   *
+   * @param request IntlFlightOrderPayCheckRequest
+   * @return IntlFlightOrderPayCheckResponse
+   */
   async intlFlightOrderPayCheck(request: IntlFlightOrderPayCheckRequest): Promise<IntlFlightOrderPayCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightOrderPayCheckHeaders({ });
     return await this.intlFlightOrderPayCheckWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票报价商品详情
+   *
+   * @param request IntlFlightOtaItemDetailRequest
+   * @param headers IntlFlightOtaItemDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightOtaItemDetailResponse
+   */
   async intlFlightOtaItemDetailWithOptions(otaItemId: string, request: IntlFlightOtaItemDetailRequest, headers: IntlFlightOtaItemDetailHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightOtaItemDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -63348,12 +64877,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightOtaItemDetailResponse>(await this.callApi(params, req, runtime), new IntlFlightOtaItemDetailResponse({}));
   }
 
+  /**
+   * @summary 国际机票报价商品详情
+   *
+   * @param request IntlFlightOtaItemDetailRequest
+   * @return IntlFlightOtaItemDetailResponse
+   */
   async intlFlightOtaItemDetail(otaItemId: string, request: IntlFlightOtaItemDetailRequest): Promise<IntlFlightOtaItemDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightOtaItemDetailHeaders({ });
     return await this.intlFlightOtaItemDetailWithOptions(otaItemId, request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票航班报价查询
+   *
+   * @param tmpReq IntlFlightOtaSearchRequest
+   * @param headers IntlFlightOtaSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightOtaSearchResponse
+   */
   async intlFlightOtaSearchWithOptions(tmpReq: IntlFlightOtaSearchRequest, headers: IntlFlightOtaSearchHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightOtaSearchResponse> {
     Util.validateModel(tmpReq);
     let request = new IntlFlightOtaSearchShrinkRequest({ });
@@ -63438,12 +64981,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightOtaSearchResponse>(await this.callApi(params, req, runtime), new IntlFlightOtaSearchResponse({}));
   }
 
+  /**
+   * @summary 国际机票航班报价查询
+   *
+   * @param request IntlFlightOtaSearchRequest
+   * @return IntlFlightOtaSearchResponse
+   */
   async intlFlightOtaSearch(request: IntlFlightOtaSearchRequest): Promise<IntlFlightOtaSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightOtaSearchHeaders({ });
     return await this.intlFlightOtaSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 国际机票航班可用证件查询
+   *
+   * @param request IntlFlightSegmentAvailableCertRequest
+   * @param headers IntlFlightSegmentAvailableCertHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IntlFlightSegmentAvailableCertResponse
+   */
   async intlFlightSegmentAvailableCertWithOptions(otaItemId: string, request: IntlFlightSegmentAvailableCertRequest, headers: IntlFlightSegmentAvailableCertHeaders, runtime: $Util.RuntimeOptions): Promise<IntlFlightSegmentAvailableCertResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -63490,12 +65047,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IntlFlightSegmentAvailableCertResponse>(await this.callApi(params, req, runtime), new IntlFlightSegmentAvailableCertResponse({}));
   }
 
+  /**
+   * @summary 国际机票航班可用证件查询
+   *
+   * @param request IntlFlightSegmentAvailableCertRequest
+   * @return IntlFlightSegmentAvailableCertResponse
+   */
   async intlFlightSegmentAvailableCert(otaItemId: string, request: IntlFlightSegmentAvailableCertRequest): Promise<IntlFlightSegmentAvailableCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IntlFlightSegmentAvailableCertHeaders({ });
     return await this.intlFlightSegmentAvailableCertWithOptions(otaItemId, request, headers, runtime);
   }
 
+  /**
+   * @summary 新增发票配置
+   *
+   * @param request InvoiceAddRequest
+   * @param headers InvoiceAddHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvoiceAddResponse
+   */
   async invoiceAddWithOptions(request: InvoiceAddRequest, headers: InvoiceAddHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceAddResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -63562,12 +65133,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceAddResponse>(await this.callApi(params, req, runtime), new InvoiceAddResponse({}));
   }
 
+  /**
+   * @summary 新增发票配置
+   *
+   * @param request InvoiceAddRequest
+   * @return InvoiceAddResponse
+   */
   async invoiceAdd(request: InvoiceAddRequest): Promise<InvoiceAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvoiceAddHeaders({ });
     return await this.invoiceAddWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除发票抬头
+   *
+   * @param request InvoiceDeleteRequest
+   * @param headers InvoiceDeleteHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvoiceDeleteResponse
+   */
   async invoiceDeleteWithOptions(request: InvoiceDeleteRequest, headers: InvoiceDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceDeleteResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -63602,12 +65187,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceDeleteResponse>(await this.callApi(params, req, runtime), new InvoiceDeleteResponse({}));
   }
 
+  /**
+   * @summary 删除发票抬头
+   *
+   * @param request InvoiceDeleteRequest
+   * @return InvoiceDeleteResponse
+   */
   async invoiceDelete(request: InvoiceDeleteRequest): Promise<InvoiceDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvoiceDeleteHeaders({ });
     return await this.invoiceDeleteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 修改发票配置
+   *
+   * @param request InvoiceModifyRequest
+   * @param headers InvoiceModifyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvoiceModifyResponse
+   */
   async invoiceModifyWithOptions(request: InvoiceModifyRequest, headers: InvoiceModifyHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -63674,12 +65273,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceModifyResponse>(await this.callApi(params, req, runtime), new InvoiceModifyResponse({}));
   }
 
+  /**
+   * @summary 修改发票配置
+   *
+   * @param request InvoiceModifyRequest
+   * @return InvoiceModifyResponse
+   */
   async invoiceModify(request: InvoiceModifyRequest): Promise<InvoiceModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvoiceModifyHeaders({ });
     return await this.invoiceModifyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 新增发票抬头可用员工
+   *
+   * @param tmpReq InvoiceRuleAddRequest
+   * @param headers InvoiceRuleAddHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvoiceRuleAddResponse
+   */
   async invoiceRuleAddWithOptions(tmpReq: InvoiceRuleAddRequest, headers: InvoiceRuleAddHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceRuleAddResponse> {
     Util.validateModel(tmpReq);
     let request = new InvoiceRuleAddShrinkRequest({ });
@@ -63724,12 +65337,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceRuleAddResponse>(await this.callApi(params, req, runtime), new InvoiceRuleAddResponse({}));
   }
 
+  /**
+   * @summary 新增发票抬头可用员工
+   *
+   * @param request InvoiceRuleAddRequest
+   * @return InvoiceRuleAddResponse
+   */
   async invoiceRuleAdd(request: InvoiceRuleAddRequest): Promise<InvoiceRuleAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvoiceRuleAddHeaders({ });
     return await this.invoiceRuleAddWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除发票抬头可用员工
+   *
+   * @param tmpReq InvoiceRuleDeleteRequest
+   * @param headers InvoiceRuleDeleteHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvoiceRuleDeleteResponse
+   */
   async invoiceRuleDeleteWithOptions(tmpReq: InvoiceRuleDeleteRequest, headers: InvoiceRuleDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceRuleDeleteResponse> {
     Util.validateModel(tmpReq);
     let request = new InvoiceRuleDeleteShrinkRequest({ });
@@ -63778,12 +65405,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceRuleDeleteResponse>(await this.callApi(params, req, runtime), new InvoiceRuleDeleteResponse({}));
   }
 
+  /**
+   * @summary 删除发票抬头可用员工
+   *
+   * @param request InvoiceRuleDeleteRequest
+   * @return InvoiceRuleDeleteResponse
+   */
   async invoiceRuleDelete(request: InvoiceRuleDeleteRequest): Promise<InvoiceRuleDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvoiceRuleDeleteHeaders({ });
     return await this.invoiceRuleDeleteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 保存发票规则
+   *
+   * @param tmpReq InvoiceRuleSaveRequest
+   * @param headers InvoiceRuleSaveHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvoiceRuleSaveResponse
+   */
   async invoiceRuleSaveWithOptions(tmpReq: InvoiceRuleSaveRequest, headers: InvoiceRuleSaveHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceRuleSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new InvoiceRuleSaveShrinkRequest({ });
@@ -63836,12 +65477,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceRuleSaveResponse>(await this.callApi(params, req, runtime), new InvoiceRuleSaveResponse({}));
   }
 
+  /**
+   * @summary 保存发票规则
+   *
+   * @param request InvoiceRuleSaveRequest
+   * @return InvoiceRuleSaveResponse
+   */
   async invoiceRuleSave(request: InvoiceRuleSaveRequest): Promise<InvoiceRuleSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvoiceRuleSaveHeaders({ });
     return await this.invoiceRuleSaveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 搜索用户可用发票抬头
+   *
+   * @param request InvoiceSearchRequest
+   * @param headers InvoiceSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvoiceSearchResponse
+   */
   async invoiceSearchWithOptions(request: InvoiceSearchRequest, headers: InvoiceSearchHeaders, runtime: $Util.RuntimeOptions): Promise<InvoiceSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -63884,12 +65539,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InvoiceSearchResponse>(await this.callApi(params, req, runtime), new InvoiceSearchResponse({}));
   }
 
+  /**
+   * @summary 搜索用户可用发票抬头
+   *
+   * @param request InvoiceSearchRequest
+   * @return InvoiceSearchResponse
+   */
   async invoiceSearch(request: InvoiceSearchRequest): Promise<InvoiceSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new InvoiceSearchHeaders({ });
     return await this.invoiceSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 员工特殊角色修改
+   *
+   * @param tmpReq IsvRuleSaveRequest
+   * @param headers IsvRuleSaveHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IsvRuleSaveResponse
+   */
   async isvRuleSaveWithOptions(tmpReq: IsvRuleSaveRequest, headers: IsvRuleSaveHeaders, runtime: $Util.RuntimeOptions): Promise<IsvRuleSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new IsvRuleSaveShrinkRequest({ });
@@ -63950,12 +65619,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IsvRuleSaveResponse>(await this.callApi(params, req, runtime), new IsvRuleSaveResponse({}));
   }
 
+  /**
+   * @summary 员工特殊角色修改
+   *
+   * @param request IsvRuleSaveRequest
+   * @return IsvRuleSaveResponse
+   */
   async isvRuleSave(request: IsvRuleSaveRequest): Promise<IsvRuleSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IsvRuleSaveHeaders({ });
     return await this.isvRuleSaveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 用户同步
+   *
+   * @param tmpReq IsvUserSaveRequest
+   * @param headers IsvUserSaveHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IsvUserSaveResponse
+   */
   async isvUserSaveWithOptions(tmpReq: IsvUserSaveRequest, headers: IsvUserSaveHeaders, runtime: $Util.RuntimeOptions): Promise<IsvUserSaveResponse> {
     Util.validateModel(tmpReq);
     let request = new IsvUserSaveShrinkRequest({ });
@@ -63996,12 +65679,26 @@ export default class Client extends OpenApi {
     return $tea.cast<IsvUserSaveResponse>(await this.callApi(params, req, runtime), new IsvUserSaveResponse({}));
   }
 
+  /**
+   * @summary 用户同步
+   *
+   * @param request IsvUserSaveRequest
+   * @return IsvUserSaveResponse
+   */
   async isvUserSave(request: IsvUserSaveRequest): Promise<IsvUserSaveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new IsvUserSaveHeaders({ });
     return await this.isvUserSaveWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询因公用餐记账数据
+   *
+   * @param request MealBillSettlementQueryRequest
+   * @param headers MealBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MealBillSettlementQueryResponse
+   */
   async mealBillSettlementQueryWithOptions(request: MealBillSettlementQueryRequest, headers: MealBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<MealBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64048,12 +65745,26 @@ export default class Client extends OpenApi {
     return $tea.cast<MealBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new MealBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询因公用餐记账数据
+   *
+   * @param request MealBillSettlementQueryRequest
+   * @return MealBillSettlementQueryResponse
+   */
   async mealBillSettlementQuery(request: MealBillSettlementQueryRequest): Promise<MealBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new MealBillSettlementQueryHeaders({ });
     return await this.mealBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取用餐订单详情
+   *
+   * @param request MealOrderDetailQueryRequest
+   * @param headers MealOrderDetailQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MealOrderDetailQueryResponse
+   */
   async mealOrderDetailQueryWithOptions(orderId: string, request: MealOrderDetailQueryRequest, headers: MealOrderDetailQueryHeaders, runtime: $Util.RuntimeOptions): Promise<MealOrderDetailQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64088,12 +65799,26 @@ export default class Client extends OpenApi {
     return $tea.cast<MealOrderDetailQueryResponse>(await this.callApi(params, req, runtime), new MealOrderDetailQueryResponse({}));
   }
 
+  /**
+   * @summary 获取用餐订单详情
+   *
+   * @param request MealOrderDetailQueryRequest
+   * @return MealOrderDetailQueryResponse
+   */
   async mealOrderDetailQuery(orderId: string, request: MealOrderDetailQueryRequest): Promise<MealOrderDetailQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new MealOrderDetailQueryHeaders({ });
     return await this.mealOrderDetailQueryWithOptions(orderId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取用餐订单列表
+   *
+   * @param request MealOrderListQueryRequest
+   * @param headers MealOrderListQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MealOrderListQueryResponse
+   */
   async mealOrderListQueryWithOptions(request: MealOrderListQueryRequest, headers: MealOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<MealOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64128,12 +65853,26 @@ export default class Client extends OpenApi {
     return $tea.cast<MealOrderListQueryResponse>(await this.callApi(params, req, runtime), new MealOrderListQueryResponse({}));
   }
 
+  /**
+   * @summary 获取用餐订单列表
+   *
+   * @param request MealOrderListQueryRequest
+   * @return MealOrderListQueryResponse
+   */
   async mealOrderListQuery(request: MealOrderListQueryRequest): Promise<MealOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new MealOrderListQueryHeaders({ });
     return await this.mealOrderListQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 月账单确认
+   *
+   * @param request MonthBillConfirmRequest
+   * @param headers MonthBillConfirmHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MonthBillConfirmResponse
+   */
   async monthBillConfirmWithOptions(request: MonthBillConfirmRequest, headers: MonthBillConfirmHeaders, runtime: $Util.RuntimeOptions): Promise<MonthBillConfirmResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -64172,12 +65911,26 @@ export default class Client extends OpenApi {
     return $tea.cast<MonthBillConfirmResponse>(await this.callApi(params, req, runtime), new MonthBillConfirmResponse({}));
   }
 
+  /**
+   * @summary 月账单确认
+   *
+   * @param request MonthBillConfirmRequest
+   * @return MonthBillConfirmResponse
+   */
   async monthBillConfirm(request: MonthBillConfirmRequest): Promise<MonthBillConfirmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new MonthBillConfirmHeaders({ });
     return await this.monthBillConfirmWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询企业月账单
+   *
+   * @param request MonthBillGetRequest
+   * @param headers MonthBillGetHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MonthBillGetResponse
+   */
   async monthBillGetWithOptions(request: MonthBillGetRequest, headers: MonthBillGetHeaders, runtime: $Util.RuntimeOptions): Promise<MonthBillGetResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64212,12 +65965,26 @@ export default class Client extends OpenApi {
     return $tea.cast<MonthBillGetResponse>(await this.callApi(params, req, runtime), new MonthBillGetResponse({}));
   }
 
+  /**
+   * @summary 查询企业月账单
+   *
+   * @param request MonthBillGetRequest
+   * @return MonthBillGetResponse
+   */
   async monthBillGet(request: MonthBillGetRequest): Promise<MonthBillGetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new MonthBillGetHeaders({ });
     return await this.monthBillGetWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 添加项目
+   *
+   * @param request ProjectAddRequest
+   * @param headers ProjectAddHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ProjectAddResponse
+   */
   async projectAddWithOptions(request: ProjectAddRequest, headers: ProjectAddHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectAddResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -64268,12 +66035,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ProjectAddResponse>(await this.callApi(params, req, runtime), new ProjectAddResponse({}));
   }
 
+  /**
+   * @summary 添加项目
+   *
+   * @param request ProjectAddRequest
+   * @return ProjectAddResponse
+   */
   async projectAdd(request: ProjectAddRequest): Promise<ProjectAddResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ProjectAddHeaders({ });
     return await this.projectAddWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除项目
+   *
+   * @param request ProjectDeleteRequest
+   * @param headers ProjectDeleteHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ProjectDeleteResponse
+   */
   async projectDeleteWithOptions(request: ProjectDeleteRequest, headers: ProjectDeleteHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectDeleteResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64308,12 +66089,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ProjectDeleteResponse>(await this.callApi(params, req, runtime), new ProjectDeleteResponse({}));
   }
 
+  /**
+   * @summary 删除项目
+   *
+   * @param request ProjectDeleteRequest
+   * @return ProjectDeleteResponse
+   */
   async projectDelete(request: ProjectDeleteRequest): Promise<ProjectDeleteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ProjectDeleteHeaders({ });
     return await this.projectDeleteWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 变更项目
+   *
+   * @param request ProjectModifyRequest
+   * @param headers ProjectModifyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ProjectModifyResponse
+   */
   async projectModifyWithOptions(request: ProjectModifyRequest, headers: ProjectModifyHeaders, runtime: $Util.RuntimeOptions): Promise<ProjectModifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -64364,12 +66159,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ProjectModifyResponse>(await this.callApi(params, req, runtime), new ProjectModifyResponse({}));
   }
 
+  /**
+   * @summary 变更项目
+   *
+   * @param request ProjectModifyRequest
+   * @return ProjectModifyResponse
+   */
   async projectModify(request: ProjectModifyRequest): Promise<ProjectModifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ProjectModifyHeaders({ });
     return await this.projectModifyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 报销单查询
+   *
+   * @param request QueryReimbursementOrderRequest
+   * @param headers QueryReimbursementOrderHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryReimbursementOrderResponse
+   */
   async queryReimbursementOrderWithOptions(request: QueryReimbursementOrderRequest, headers: QueryReimbursementOrderHeaders, runtime: $Util.RuntimeOptions): Promise<QueryReimbursementOrderResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64408,12 +66217,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryReimbursementOrderResponse>(await this.callApi(params, req, runtime), new QueryReimbursementOrderResponse({}));
   }
 
+  /**
+   * @summary 报销单查询
+   *
+   * @param request QueryReimbursementOrderRequest
+   * @return QueryReimbursementOrderResponse
+   */
   async queryReimbursementOrder(request: QueryReimbursementOrderRequest): Promise<QueryReimbursementOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryReimbursementOrderHeaders({ });
     return await this.queryReimbursementOrderWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 单个人员同步
+   *
+   * @param tmpReq SyncSingleUserRequest
+   * @param headers SyncSingleUserHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncSingleUserResponse
+   */
   async syncSingleUserWithOptions(tmpReq: SyncSingleUserRequest, headers: SyncSingleUserHeaders, runtime: $Util.RuntimeOptions): Promise<SyncSingleUserResponse> {
     Util.validateModel(tmpReq);
     let request = new SyncSingleUserShrinkRequest({ });
@@ -64494,12 +66317,26 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncSingleUserResponse>(await this.callApi(params, req, runtime), new SyncSingleUserResponse({}));
   }
 
+  /**
+   * @summary 单个人员同步
+   *
+   * @param request SyncSingleUserRequest
+   * @return SyncSingleUserResponse
+   */
   async syncSingleUser(request: SyncSingleUserRequest): Promise<SyncSingleUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new SyncSingleUserHeaders({ });
     return await this.syncSingleUserWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 同步三方用户映射关系
+   *
+   * @param request SyncThirdUserMappingRequest
+   * @param headers SyncThirdUserMappingHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncThirdUserMappingResponse
+   */
   async syncThirdUserMappingWithOptions(request: SyncThirdUserMappingRequest, headers: SyncThirdUserMappingHeaders, runtime: $Util.RuntimeOptions): Promise<SyncThirdUserMappingResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -64546,12 +66383,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncThirdUserMappingResponse>(await this.callApi(params, req, runtime), new SyncThirdUserMappingResponse({}));
   }
 
+  /**
+   * @summary 同步三方用户映射关系
+   *
+   * @param request SyncThirdUserMappingRequest
+   * @return SyncThirdUserMappingResponse
+   */
   async syncThirdUserMapping(request: SyncThirdUserMappingRequest): Promise<SyncThirdUserMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new SyncThirdUserMappingHeaders({ });
     return await this.syncThirdUserMappingWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询淘宝账号信息
+   *
+   * @param headers TBAccountInfoQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TBAccountInfoQueryResponse
+   */
   async tBAccountInfoQueryWithOptions(userId: string, headers: TBAccountInfoQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TBAccountInfoQueryResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
@@ -64579,12 +66429,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TBAccountInfoQueryResponse>(await this.callApi(params, req, runtime), new TBAccountInfoQueryResponse({}));
   }
 
+  /**
+   * @summary 查询淘宝账号信息
+   *
+   * @return TBAccountInfoQueryResponse
+   */
   async tBAccountInfoQuery(userId: string): Promise<TBAccountInfoQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TBAccountInfoQueryHeaders({ });
     return await this.tBAccountInfoQueryWithOptions(userId, headers, runtime);
   }
 
+  /**
+   * @summary 解绑淘宝账号
+   *
+   * @param headers TBAccountUnbindHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TBAccountUnbindResponse
+   */
   async tBAccountUnbindWithOptions(userId: string, headers: TBAccountUnbindHeaders, runtime: $Util.RuntimeOptions): Promise<TBAccountUnbindResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
@@ -64612,12 +66474,25 @@ export default class Client extends OpenApi {
     return $tea.cast<TBAccountUnbindResponse>(await this.callApi(params, req, runtime), new TBAccountUnbindResponse({}));
   }
 
+  /**
+   * @summary 解绑淘宝账号
+   *
+   * @return TBAccountUnbindResponse
+   */
   async tBAccountUnbind(userId: string): Promise<TBAccountUnbindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TBAccountUnbindHeaders({ });
     return await this.tBAccountUnbindWithOptions(userId, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签申请
+   *
+   * @param tmpReq TicketChangingApplyRequest
+   * @param headers TicketChangingApplyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TicketChangingApplyResponse
+   */
   async ticketChangingApplyWithOptions(tmpReq: TicketChangingApplyRequest, headers: TicketChangingApplyHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingApplyResponse> {
     Util.validateModel(tmpReq);
     let request = new TicketChangingApplyShrinkRequest({ });
@@ -64686,12 +66561,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TicketChangingApplyResponse>(await this.callApi(params, req, runtime), new TicketChangingApplyResponse({}));
   }
 
+  /**
+   * @summary 机票改签申请
+   *
+   * @param request TicketChangingApplyRequest
+   * @return TicketChangingApplyResponse
+   */
   async ticketChangingApply(request: TicketChangingApplyRequest): Promise<TicketChangingApplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TicketChangingApplyHeaders({ });
     return await this.ticketChangingApplyWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签取消
+   *
+   * @param request TicketChangingCancelRequest
+   * @param headers TicketChangingCancelHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TicketChangingCancelResponse
+   */
   async ticketChangingCancelWithOptions(request: TicketChangingCancelRequest, headers: TicketChangingCancelHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingCancelResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64730,12 +66619,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TicketChangingCancelResponse>(await this.callApi(params, req, runtime), new TicketChangingCancelResponse({}));
   }
 
+  /**
+   * @summary 机票改签取消
+   *
+   * @param request TicketChangingCancelRequest
+   * @return TicketChangingCancelResponse
+   */
   async ticketChangingCancel(request: TicketChangingCancelRequest): Promise<TicketChangingCancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TicketChangingCancelHeaders({ });
     return await this.ticketChangingCancelWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签详情
+   *
+   * @param request TicketChangingDetailRequest
+   * @param headers TicketChangingDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TicketChangingDetailResponse
+   */
   async ticketChangingDetailWithOptions(request: TicketChangingDetailRequest, headers: TicketChangingDetailHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingDetailResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64774,12 +66677,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TicketChangingDetailResponse>(await this.callApi(params, req, runtime), new TicketChangingDetailResponse({}));
   }
 
+  /**
+   * @summary 机票改签详情
+   *
+   * @param request TicketChangingDetailRequest
+   * @return TicketChangingDetailResponse
+   */
   async ticketChangingDetail(request: TicketChangingDetailRequest): Promise<TicketChangingDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TicketChangingDetailHeaders({ });
     return await this.ticketChangingDetailWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签询价
+   *
+   * @param request TicketChangingEnquiryRequest
+   * @param headers TicketChangingEnquiryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TicketChangingEnquiryResponse
+   */
   async ticketChangingEnquiryWithOptions(request: TicketChangingEnquiryRequest, headers: TicketChangingEnquiryHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingEnquiryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -64838,12 +66755,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TicketChangingEnquiryResponse>(await this.callApi(params, req, runtime), new TicketChangingEnquiryResponse({}));
   }
 
+  /**
+   * @summary 机票改签询价
+   *
+   * @param request TicketChangingEnquiryRequest
+   * @return TicketChangingEnquiryResponse
+   */
   async ticketChangingEnquiry(request: TicketChangingEnquiryRequest): Promise<TicketChangingEnquiryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TicketChangingEnquiryHeaders({ });
     return await this.ticketChangingEnquiryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签可改签航班列表
+   *
+   * @param tmpReq TicketChangingFlightListRequest
+   * @param headers TicketChangingFlightListHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TicketChangingFlightListResponse
+   */
   async ticketChangingFlightListWithOptions(tmpReq: TicketChangingFlightListRequest, headers: TicketChangingFlightListHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingFlightListResponse> {
     Util.validateModel(tmpReq);
     let request = new TicketChangingFlightListShrinkRequest({ });
@@ -64904,12 +66835,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TicketChangingFlightListResponse>(await this.callApi(params, req, runtime), new TicketChangingFlightListResponse({}));
   }
 
+  /**
+   * @summary 机票改签可改签航班列表
+   *
+   * @param request TicketChangingFlightListRequest
+   * @return TicketChangingFlightListResponse
+   */
   async ticketChangingFlightList(request: TicketChangingFlightListRequest): Promise<TicketChangingFlightListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TicketChangingFlightListHeaders({ });
     return await this.ticketChangingFlightListWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 机票改签航班支付
+   *
+   * @param tmpReq TicketChangingPayRequest
+   * @param headers TicketChangingPayHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TicketChangingPayResponse
+   */
   async ticketChangingPayWithOptions(tmpReq: TicketChangingPayRequest, headers: TicketChangingPayHeaders, runtime: $Util.RuntimeOptions): Promise<TicketChangingPayResponse> {
     Util.validateModel(tmpReq);
     let request = new TicketChangingPayShrinkRequest({ });
@@ -64970,12 +66915,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TicketChangingPayResponse>(await this.callApi(params, req, runtime), new TicketChangingPayResponse({}));
   }
 
+  /**
+   * @summary 机票改签航班支付
+   *
+   * @param request TicketChangingPayRequest
+   * @return TicketChangingPayResponse
+   */
   async ticketChangingPay(request: TicketChangingPayRequest): Promise<TicketChangingPayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TicketChangingPayHeaders({ });
     return await this.ticketChangingPayWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票改签申请
+   *
+   * @param tmpReq TrainApplyChangeRequest
+   * @param headers TrainApplyChangeHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainApplyChangeResponse
+   */
   async trainApplyChangeWithOptions(tmpReq: TrainApplyChangeRequest, headers: TrainApplyChangeHeaders, runtime: $Util.RuntimeOptions): Promise<TrainApplyChangeResponse> {
     Util.validateModel(tmpReq);
     let request = new TrainApplyChangeShrinkRequest({ });
@@ -65042,12 +67001,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainApplyChangeResponse>(await this.callApi(params, req, runtime), new TrainApplyChangeResponse({}));
   }
 
+  /**
+   * @summary 火车票改签申请
+   *
+   * @param request TrainApplyChangeRequest
+   * @return TrainApplyChangeResponse
+   */
   async trainApplyChange(request: TrainApplyChangeRequest): Promise<TrainApplyChangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainApplyChangeHeaders({ });
     return await this.trainApplyChangeWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票退票申请
+   *
+   * @param tmpReq TrainApplyRefundRequest
+   * @param headers TrainApplyRefundHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainApplyRefundResponse
+   */
   async trainApplyRefundWithOptions(tmpReq: TrainApplyRefundRequest, headers: TrainApplyRefundHeaders, runtime: $Util.RuntimeOptions): Promise<TrainApplyRefundResponse> {
     Util.validateModel(tmpReq);
     let request = new TrainApplyRefundShrinkRequest({ });
@@ -65100,12 +67073,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainApplyRefundResponse>(await this.callApi(params, req, runtime), new TrainApplyRefundResponse({}));
   }
 
+  /**
+   * @summary 火车票退票申请
+   *
+   * @param request TrainApplyRefundRequest
+   * @return TrainApplyRefundResponse
+   */
   async trainApplyRefund(request: TrainApplyRefundRequest): Promise<TrainApplyRefundResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainApplyRefundHeaders({ });
     return await this.trainApplyRefundWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询火车票记账数据
+   *
+   * @param request TrainBillSettlementQueryRequest
+   * @param headers TrainBillSettlementQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainBillSettlementQueryResponse
+   */
   async trainBillSettlementQueryWithOptions(request: TrainBillSettlementQueryRequest, headers: TrainBillSettlementQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainBillSettlementQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -65152,12 +67139,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainBillSettlementQueryResponse>(await this.callApi(params, req, runtime), new TrainBillSettlementQueryResponse({}));
   }
 
+  /**
+   * @summary 查询火车票记账数据
+   *
+   * @param request TrainBillSettlementQueryRequest
+   * @return TrainBillSettlementQueryResponse
+   */
   async trainBillSettlementQuery(request: TrainBillSettlementQueryRequest): Promise<TrainBillSettlementQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainBillSettlementQueryHeaders({ });
     return await this.trainBillSettlementQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询火车超标审批详情
+   *
+   * @param request TrainExceedApplyQueryRequest
+   * @param headers TrainExceedApplyQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainExceedApplyQueryResponse
+   */
   async trainExceedApplyQueryWithOptions(request: TrainExceedApplyQueryRequest, headers: TrainExceedApplyQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainExceedApplyQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -65192,12 +67193,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainExceedApplyQueryResponse>(await this.callApi(params, req, runtime), new TrainExceedApplyQueryResponse({}));
   }
 
+  /**
+   * @summary 查询火车超标审批详情
+   *
+   * @param request TrainExceedApplyQueryRequest
+   * @return TrainExceedApplyQueryResponse
+   */
   async trainExceedApplyQuery(request: TrainExceedApplyQueryRequest): Promise<TrainExceedApplyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainExceedApplyQueryHeaders({ });
     return await this.trainExceedApplyQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票改签费用预估
+   *
+   * @param tmpReq TrainFeeCalculateChangeRequest
+   * @param headers TrainFeeCalculateChangeHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainFeeCalculateChangeResponse
+   */
   async trainFeeCalculateChangeWithOptions(tmpReq: TrainFeeCalculateChangeRequest, headers: TrainFeeCalculateChangeHeaders, runtime: $Util.RuntimeOptions): Promise<TrainFeeCalculateChangeResponse> {
     Util.validateModel(tmpReq);
     let request = new TrainFeeCalculateChangeShrinkRequest({ });
@@ -65246,12 +67261,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainFeeCalculateChangeResponse>(await this.callApi(params, req, runtime), new TrainFeeCalculateChangeResponse({}));
   }
 
+  /**
+   * @summary 火车票改签费用预估
+   *
+   * @param request TrainFeeCalculateChangeRequest
+   * @return TrainFeeCalculateChangeResponse
+   */
   async trainFeeCalculateChange(request: TrainFeeCalculateChangeRequest): Promise<TrainFeeCalculateChangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainFeeCalculateChangeHeaders({ });
     return await this.trainFeeCalculateChangeWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票退票费用预估
+   *
+   * @param tmpReq TrainFeeCalculateRefundRequest
+   * @param headers TrainFeeCalculateRefundHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainFeeCalculateRefundResponse
+   */
   async trainFeeCalculateRefundWithOptions(tmpReq: TrainFeeCalculateRefundRequest, headers: TrainFeeCalculateRefundHeaders, runtime: $Util.RuntimeOptions): Promise<TrainFeeCalculateRefundResponse> {
     Util.validateModel(tmpReq);
     let request = new TrainFeeCalculateRefundShrinkRequest({ });
@@ -65300,12 +67329,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainFeeCalculateRefundResponse>(await this.callApi(params, req, runtime), new TrainFeeCalculateRefundResponse({}));
   }
 
+  /**
+   * @summary 火车票退票费用预估
+   *
+   * @param request TrainFeeCalculateRefundRequest
+   * @return TrainFeeCalculateRefundResponse
+   */
   async trainFeeCalculateRefund(request: TrainFeeCalculateRefundRequest): Promise<TrainFeeCalculateRefundResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainFeeCalculateRefundHeaders({ });
     return await this.trainFeeCalculateRefundWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票车次详情查询
+   *
+   * @param request TrainNoInfoSearchRequest
+   * @param headers TrainNoInfoSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainNoInfoSearchResponse
+   */
   async trainNoInfoSearchWithOptions(request: TrainNoInfoSearchRequest, headers: TrainNoInfoSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainNoInfoSearchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -65368,12 +67411,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainNoInfoSearchResponse>(await this.callApi(params, req, runtime), new TrainNoInfoSearchResponse({}));
   }
 
+  /**
+   * @summary 火车票车次详情查询
+   *
+   * @param request TrainNoInfoSearchRequest
+   * @return TrainNoInfoSearchResponse
+   */
   async trainNoInfoSearch(request: TrainNoInfoSearchRequest): Promise<TrainNoInfoSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainNoInfoSearchHeaders({ });
     return await this.trainNoInfoSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票车次列表查询
+   *
+   * @param tmpReq TrainNoListSearchRequest
+   * @param headers TrainNoListSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainNoListSearchResponse
+   */
   async trainNoListSearchWithOptions(tmpReq: TrainNoListSearchRequest, headers: TrainNoListSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainNoListSearchResponse> {
     Util.validateModel(tmpReq);
     let request = new TrainNoListSearchShrinkRequest({ });
@@ -65430,12 +67487,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainNoListSearchResponse>(await this.callApi(params, req, runtime), new TrainNoListSearchResponse({}));
   }
 
+  /**
+   * @summary 火车票车次列表查询
+   *
+   * @param request TrainNoListSearchRequest
+   * @return TrainNoListSearchResponse
+   */
   async trainNoListSearch(request: TrainNoListSearchRequest): Promise<TrainNoListSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainNoListSearchHeaders({ });
     return await this.trainNoListSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票订单取消
+   *
+   * @param request TrainOrderCancelRequest
+   * @param headers TrainOrderCancelHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainOrderCancelResponse
+   */
   async trainOrderCancelWithOptions(request: TrainOrderCancelRequest, headers: TrainOrderCancelHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderCancelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -65482,12 +67553,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderCancelResponse>(await this.callApi(params, req, runtime), new TrainOrderCancelResponse({}));
   }
 
+  /**
+   * @summary 火车票订单取消
+   *
+   * @param request TrainOrderCancelRequest
+   * @return TrainOrderCancelResponse
+   */
   async trainOrderCancel(request: TrainOrderCancelRequest): Promise<TrainOrderCancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderCancelHeaders({ });
     return await this.trainOrderCancelWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票改签确认
+   *
+   * @param request TrainOrderChangeConfirmRequest
+   * @param headers TrainOrderChangeConfirmHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainOrderChangeConfirmResponse
+   */
   async trainOrderChangeConfirmWithOptions(request: TrainOrderChangeConfirmRequest, headers: TrainOrderChangeConfirmHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderChangeConfirmResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -65538,12 +67623,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderChangeConfirmResponse>(await this.callApi(params, req, runtime), new TrainOrderChangeConfirmResponse({}));
   }
 
+  /**
+   * @summary 火车票改签确认
+   *
+   * @param request TrainOrderChangeConfirmRequest
+   * @return TrainOrderChangeConfirmResponse
+   */
   async trainOrderChangeConfirm(request: TrainOrderChangeConfirmRequest): Promise<TrainOrderChangeConfirmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderChangeConfirmHeaders({ });
     return await this.trainOrderChangeConfirmWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票正向预订
+   *
+   * @param tmpReq TrainOrderCreateRequest
+   * @param headers TrainOrderCreateHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainOrderCreateResponse
+   */
   async trainOrderCreateWithOptions(tmpReq: TrainOrderCreateRequest, headers: TrainOrderCreateHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderCreateResponse> {
     Util.validateModel(tmpReq);
     let request = new TrainOrderCreateShrinkRequest({ });
@@ -65632,12 +67731,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderCreateResponse>(await this.callApi(params, req, runtime), new TrainOrderCreateResponse({}));
   }
 
+  /**
+   * @summary 火车票正向预订
+   *
+   * @param request TrainOrderCreateRequest
+   * @return TrainOrderCreateResponse
+   */
   async trainOrderCreate(request: TrainOrderCreateRequest): Promise<TrainOrderCreateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderCreateHeaders({ });
     return await this.trainOrderCreateWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票订单详情
+   *
+   * @param request TrainOrderDetailQueryRequest
+   * @param headers TrainOrderDetailQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainOrderDetailQueryResponse
+   */
   async trainOrderDetailQueryWithOptions(request: TrainOrderDetailQueryRequest, headers: TrainOrderDetailQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderDetailQueryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -65676,12 +67789,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderDetailQueryResponse>(await this.callApi(params, req, runtime), new TrainOrderDetailQueryResponse({}));
   }
 
+  /**
+   * @summary 火车票订单详情
+   *
+   * @param request TrainOrderDetailQueryRequest
+   * @return TrainOrderDetailQueryResponse
+   */
   async trainOrderDetailQuery(request: TrainOrderDetailQueryRequest): Promise<TrainOrderDetailQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderDetailQueryHeaders({ });
     return await this.trainOrderDetailQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询火车票订单列表
+   *
+   * @param request TrainOrderListQueryRequest
+   * @param headers TrainOrderListQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainOrderListQueryResponse
+   */
   async trainOrderListQueryWithOptions(request: TrainOrderListQueryRequest, headers: TrainOrderListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -65756,12 +67883,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderListQueryResponse>(await this.callApi(params, req, runtime), new TrainOrderListQueryResponse({}));
   }
 
+  /**
+   * @summary 查询火车票订单列表
+   *
+   * @param request TrainOrderListQueryRequest
+   * @return TrainOrderListQueryResponse
+   */
   async trainOrderListQuery(request: TrainOrderListQueryRequest): Promise<TrainOrderListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderListQueryHeaders({ });
     return await this.trainOrderListQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票订单支付
+   *
+   * @param request TrainOrderPayRequest
+   * @param headers TrainOrderPayHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainOrderPayResponse
+   */
   async trainOrderPayWithOptions(request: TrainOrderPayRequest, headers: TrainOrderPayHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderPayResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -65804,12 +67945,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderPayResponse>(await this.callApi(params, req, runtime), new TrainOrderPayResponse({}));
   }
 
+  /**
+   * @summary 火车票订单支付
+   *
+   * @param request TrainOrderPayRequest
+   * @return TrainOrderPayResponse
+   */
   async trainOrderPay(request: TrainOrderPayRequest): Promise<TrainOrderPayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderPayHeaders({ });
     return await this.trainOrderPayWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询火车票订单详情（含票信息）
+   *
+   * @param request TrainOrderQueryRequest
+   * @param headers TrainOrderQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainOrderQueryResponse
+   */
   async trainOrderQueryWithOptions(request: TrainOrderQueryRequest, headers: TrainOrderQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainOrderQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -65848,12 +68003,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderQueryResponse>(await this.callApi(params, req, runtime), new TrainOrderQueryResponse({}));
   }
 
+  /**
+   * @summary 查询火车票订单详情（含票信息）
+   *
+   * @param request TrainOrderQueryRequest
+   * @return TrainOrderQueryResponse
+   */
   async trainOrderQuery(request: TrainOrderQueryRequest): Promise<TrainOrderQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderQueryHeaders({ });
     return await this.trainOrderQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票订单查询V2
+   *
+   * @param request TrainOrderQueryV2Request
+   * @param headers TrainOrderQueryV2Headers
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainOrderQueryV2Response
+   */
   async trainOrderQueryV2WithOptions(request: TrainOrderQueryV2Request, headers: TrainOrderQueryV2Headers, runtime: $Util.RuntimeOptions): Promise<TrainOrderQueryV2Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -65892,12 +68061,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainOrderQueryV2Response>(await this.callApi(params, req, runtime), new TrainOrderQueryV2Response({}));
   }
 
+  /**
+   * @summary 火车票订单查询V2
+   *
+   * @param request TrainOrderQueryV2Request
+   * @return TrainOrderQueryV2Response
+   */
   async trainOrderQueryV2(request: TrainOrderQueryV2Request): Promise<TrainOrderQueryV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainOrderQueryV2Headers({ });
     return await this.trainOrderQueryV2WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询火车站数据
+   *
+   * @param request TrainStationSearchRequest
+   * @param headers TrainStationSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainStationSearchResponse
+   */
   async trainStationSearchWithOptions(request: TrainStationSearchRequest, headers: TrainStationSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainStationSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -65932,12 +68115,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainStationSearchResponse>(await this.callApi(params, req, runtime), new TrainStationSearchResponse({}));
   }
 
+  /**
+   * @summary 查询火车站数据
+   *
+   * @param request TrainStationSearchRequest
+   * @return TrainStationSearchResponse
+   */
   async trainStationSearch(request: TrainStationSearchRequest): Promise<TrainStationSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainStationSearchHeaders({ });
     return await this.trainStationSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 火车票经停站查询
+   *
+   * @param request TrainStopoverSearchRequest
+   * @param headers TrainStopoverSearchHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainStopoverSearchResponse
+   */
   async trainStopoverSearchWithOptions(request: TrainStopoverSearchRequest, headers: TrainStopoverSearchHeaders, runtime: $Util.RuntimeOptions): Promise<TrainStopoverSearchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -65984,12 +68181,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainStopoverSearchResponse>(await this.callApi(params, req, runtime), new TrainStopoverSearchResponse({}));
   }
 
+  /**
+   * @summary 火车票经停站查询
+   *
+   * @param request TrainStopoverSearchRequest
+   * @return TrainStopoverSearchResponse
+   */
   async trainStopoverSearch(request: TrainStopoverSearchRequest): Promise<TrainStopoverSearchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainStopoverSearchHeaders({ });
     return await this.trainStopoverSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询火车票凭证扫描件
+   *
+   * @param request TrainTicketScanQueryRequest
+   * @param headers TrainTicketScanQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TrainTicketScanQueryResponse
+   */
   async trainTicketScanQueryWithOptions(request: TrainTicketScanQueryRequest, headers: TrainTicketScanQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TrainTicketScanQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -66048,12 +68259,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TrainTicketScanQueryResponse>(await this.callApi(params, req, runtime), new TrainTicketScanQueryResponse({}));
   }
 
+  /**
+   * @summary 查询火车票凭证扫描件
+   *
+   * @param request TrainTicketScanQueryRequest
+   * @return TrainTicketScanQueryResponse
+   */
   async trainTicketScanQuery(request: TrainTicketScanQueryRequest): Promise<TrainTicketScanQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TrainTicketScanQueryHeaders({ });
     return await this.trainTicketScanQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询差标列表
+   *
+   * @param request TravelStandardListQueryRequest
+   * @param headers TravelStandardListQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TravelStandardListQueryResponse
+   */
   async travelStandardListQueryWithOptions(request: TravelStandardListQueryRequest, headers: TravelStandardListQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TravelStandardListQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -66100,12 +68325,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TravelStandardListQueryResponse>(await this.callApi(params, req, runtime), new TravelStandardListQueryResponse({}));
   }
 
+  /**
+   * @summary 查询差标列表
+   *
+   * @param request TravelStandardListQueryRequest
+   * @return TravelStandardListQueryResponse
+   */
   async travelStandardListQuery(request: TravelStandardListQueryRequest): Promise<TravelStandardListQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TravelStandardListQueryHeaders({ });
     return await this.travelStandardListQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询差标详情
+   *
+   * @param tmpReq TravelStandardQueryRequest
+   * @param headers TravelStandardQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TravelStandardQueryResponse
+   */
   async travelStandardQueryWithOptions(tmpReq: TravelStandardQueryRequest, headers: TravelStandardQueryHeaders, runtime: $Util.RuntimeOptions): Promise<TravelStandardQueryResponse> {
     Util.validateModel(tmpReq);
     let request = new TravelStandardQueryShrinkRequest({ });
@@ -66154,12 +68393,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TravelStandardQueryResponse>(await this.callApi(params, req, runtime), new TravelStandardQueryResponse({}));
   }
 
+  /**
+   * @summary 查询差标详情
+   *
+   * @param request TravelStandardQueryRequest
+   * @return TravelStandardQueryResponse
+   */
   async travelStandardQuery(request: TravelStandardQueryRequest): Promise<TravelStandardQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TravelStandardQueryHeaders({ });
     return await this.travelStandardQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 人员查询
+   *
+   * @param request UserQueryRequest
+   * @param headers UserQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UserQueryResponse
+   */
   async userQueryWithOptions(request: UserQueryRequest, headers: UserQueryHeaders, runtime: $Util.RuntimeOptions): Promise<UserQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -66206,12 +68459,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UserQueryResponse>(await this.callApi(params, req, runtime), new UserQueryResponse({}));
   }
 
+  /**
+   * @summary 人员查询
+   *
+   * @param request UserQueryRequest
+   * @return UserQueryResponse
+   */
   async userQuery(request: UserQueryRequest): Promise<UserQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UserQueryHeaders({ });
     return await this.userQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询增值税发票扫描件
+   *
+   * @param request VatInvoiceScanQueryRequest
+   * @param headers VatInvoiceScanQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VatInvoiceScanQueryResponse
+   */
   async vatInvoiceScanQueryWithOptions(request: VatInvoiceScanQueryRequest, headers: VatInvoiceScanQueryHeaders, runtime: $Util.RuntimeOptions): Promise<VatInvoiceScanQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -66262,12 +68529,26 @@ export default class Client extends OpenApi {
     return $tea.cast<VatInvoiceScanQueryResponse>(await this.callApi(params, req, runtime), new VatInvoiceScanQueryResponse({}));
   }
 
+  /**
+   * @summary 查询增值税发票扫描件
+   *
+   * @param request VatInvoiceScanQueryRequest
+   * @return VatInvoiceScanQueryResponse
+   */
   async vatInvoiceScanQuery(request: VatInvoiceScanQueryRequest): Promise<VatInvoiceScanQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new VatInvoiceScanQueryHeaders({ });
     return await this.vatInvoiceScanQueryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查询账期待申请的发票数据
+   *
+   * @param request WaitApplyInvoiceTaskDetailQueryRequest
+   * @param headers WaitApplyInvoiceTaskDetailQueryHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return WaitApplyInvoiceTaskDetailQueryResponse
+   */
   async waitApplyInvoiceTaskDetailQueryWithOptions(request: WaitApplyInvoiceTaskDetailQueryRequest, headers: WaitApplyInvoiceTaskDetailQueryHeaders, runtime: $Util.RuntimeOptions): Promise<WaitApplyInvoiceTaskDetailQueryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -66302,6 +68583,12 @@ export default class Client extends OpenApi {
     return $tea.cast<WaitApplyInvoiceTaskDetailQueryResponse>(await this.callApi(params, req, runtime), new WaitApplyInvoiceTaskDetailQueryResponse({}));
   }
 
+  /**
+   * @summary 查询账期待申请的发票数据
+   *
+   * @param request WaitApplyInvoiceTaskDetailQueryRequest
+   * @return WaitApplyInvoiceTaskDetailQueryResponse
+   */
   async waitApplyInvoiceTaskDetailQuery(request: WaitApplyInvoiceTaskDetailQueryRequest): Promise<WaitApplyInvoiceTaskDetailQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new WaitApplyInvoiceTaskDetailQueryHeaders({ });
