@@ -72731,6 +72731,7 @@ export class ListCheckResultResponseBodyChecksCheckPolicies extends $tea.Model {
 export class ListCheckResultResponseBodyChecks extends $tea.Model {
   checkId?: number;
   checkPolicies?: ListCheckResultResponseBodyChecksCheckPolicies[];
+  checkSaleType?: number;
   checkShowName?: string;
   instanceSubType?: string;
   instanceType?: string;
@@ -72746,6 +72747,7 @@ export class ListCheckResultResponseBodyChecks extends $tea.Model {
     return {
       checkId: 'CheckId',
       checkPolicies: 'CheckPolicies',
+      checkSaleType: 'CheckSaleType',
       checkShowName: 'CheckShowName',
       instanceSubType: 'InstanceSubType',
       instanceType: 'InstanceType',
@@ -72764,6 +72766,7 @@ export class ListCheckResultResponseBodyChecks extends $tea.Model {
     return {
       checkId: 'number',
       checkPolicies: { 'type': 'array', 'itemType': ListCheckResultResponseBodyChecksCheckPolicies },
+      checkSaleType: 'number',
       checkShowName: 'string',
       instanceSubType: 'string',
       instanceType: 'string',
@@ -79295,6 +79298,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Select an operation for assets.
+   *
+   * @param request AddAssetSelectionCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddAssetSelectionCriteriaResponse
+   */
   async addAssetSelectionCriteriaWithOptions(request: AddAssetSelectionCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<AddAssetSelectionCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79331,11 +79341,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAssetSelectionCriteriaResponse>(await this.callApi(params, req, runtime), new AddAssetSelectionCriteriaResponse({}));
   }
 
+  /**
+   * @summary Select an operation for assets.
+   *
+   * @param request AddAssetSelectionCriteriaRequest
+   * @return AddAssetSelectionCriteriaResponse
+   */
   async addAssetSelectionCriteria(request: AddAssetSelectionCriteriaRequest): Promise<AddAssetSelectionCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAssetSelectionCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds check items to the whitelist for instances.
+   *
+   * @param request AddCheckInstanceResultWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddCheckInstanceResultWhiteListResponse
+   */
   async addCheckInstanceResultWhiteListWithOptions(request: AddCheckInstanceResultWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<AddCheckInstanceResultWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79368,11 +79391,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddCheckInstanceResultWhiteListResponse>(await this.callApi(params, req, runtime), new AddCheckInstanceResultWhiteListResponse({}));
   }
 
+  /**
+   * @summary Adds check items to the whitelist for instances.
+   *
+   * @param request AddCheckInstanceResultWhiteListRequest
+   * @return AddCheckInstanceResultWhiteListResponse
+   */
   async addCheckInstanceResultWhiteList(request: AddCheckInstanceResultWhiteListRequest): Promise<AddCheckInstanceResultWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addCheckInstanceResultWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds check items to the whitelist.
+   *
+   * @param request AddCheckResultWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddCheckResultWhiteListResponse
+   */
   async addCheckResultWhiteListWithOptions(request: AddCheckResultWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<AddCheckResultWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79397,11 +79433,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddCheckResultWhiteListResponse>(await this.callApi(params, req, runtime), new AddCheckResultWhiteListResponse({}));
   }
 
+  /**
+   * @summary Adds check items to the whitelist.
+   *
+   * @param request AddCheckResultWhiteListRequest
+   * @return AddCheckResultWhiteListResponse
+   */
   async addCheckResultWhiteList(request: AddCheckResultWhiteListRequest): Promise<AddCheckResultWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addCheckResultWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom defense rule.
+   *
+   * @param request AddClientUserDefineRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddClientUserDefineRuleResponse
+   */
   async addClientUserDefineRuleWithOptions(request: AddClientUserDefineRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddClientUserDefineRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79490,11 +79539,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddClientUserDefineRuleResponse>(await this.callApi(params, req, runtime), new AddClientUserDefineRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a custom defense rule.
+   *
+   * @param request AddClientUserDefineRuleRequest
+   * @return AddClientUserDefineRuleResponse
+   */
   async addClientUserDefineRule(request: AddClientUserDefineRuleRequest): Promise<AddClientUserDefineRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addClientUserDefineRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a rule for non-image program defense.
+   *
+   * @param tmpReq AddContainerDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddContainerDefenseRuleResponse
+   */
   async addContainerDefenseRuleWithOptions(tmpReq: AddContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddContainerDefenseRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new AddContainerDefenseRuleShrinkRequest({ });
@@ -79553,11 +79615,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddContainerDefenseRuleResponse>(await this.callApi(params, req, runtime), new AddContainerDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a rule for non-image program defense.
+   *
+   * @param request AddContainerDefenseRuleRequest
+   * @return AddContainerDefenseRuleResponse
+   */
   async addContainerDefenseRule(request: AddContainerDefenseRuleRequest): Promise<AddContainerDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addContainerDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a defense rule against container escapes.
+   *
+   * @param request AddContainerPluginRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddContainerPluginRuleResponse
+   */
   async addContainerPluginRuleWithOptions(request: AddContainerPluginRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddContainerPluginRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79606,11 +79681,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddContainerPluginRuleResponse>(await this.callApi(params, req, runtime), new AddContainerPluginRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a defense rule against container escapes.
+   *
+   * @param request AddContainerPluginRuleRequest
+   * @return AddContainerPluginRuleResponse
+   */
   async addContainerPluginRule(request: AddContainerPluginRuleRequest): Promise<AddContainerPluginRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addContainerPluginRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an alert handling rule.
+   *
+   * @param request AddImageEventOperationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddImageEventOperationResponse
+   */
   async addImageEventOperationWithOptions(request: AddImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<AddImageEventOperationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79655,11 +79743,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddImageEventOperationResponse>(await this.callApi(params, req, runtime), new AddImageEventOperationResponse({}));
   }
 
+  /**
+   * @summary Creates an alert handling rule.
+   *
+   * @param request AddImageEventOperationRequest
+   * @return AddImageEventOperationResponse
+   */
   async addImageEventOperation(request: AddImageEventOperationRequest): Promise<AddImageEventOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addImageEventOperationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds image vulnerabilities to the whitelist.
+   *
+   * @param request AddImageVulWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddImageVulWhiteListResponse
+   */
   async addImageVulWhiteListWithOptions(request: AddImageVulWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<AddImageVulWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79704,11 +79805,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddImageVulWhiteListResponse>(await this.callApi(params, req, runtime), new AddImageVulWhiteListResponse({}));
   }
 
+  /**
+   * @summary Adds image vulnerabilities to the whitelist.
+   *
+   * @param request AddImageVulWhiteListRequest
+   * @return AddImageVulWhiteListResponse
+   */
   async addImageVulWhiteList(request: AddImageVulWhiteListRequest): Promise<AddImageVulWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addImageVulWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a command that is used to install the Security Center agent.
+   *
+   * @param request AddInstallCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddInstallCodeResponse
+   */
   async addInstallCodeWithOptions(request: AddInstallCodeRequest, runtime: $Util.RuntimeOptions): Promise<AddInstallCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79753,11 +79867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddInstallCodeResponse>(await this.callApi(params, req, runtime), new AddInstallCodeResponse({}));
   }
 
+  /**
+   * @summary Creates a command that is used to install the Security Center agent.
+   *
+   * @param request AddInstallCodeRequest
+   * @return AddInstallCodeResponse
+   */
   async addInstallCode(request: AddInstallCodeRequest): Promise<AddInstallCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addInstallCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a self-managed image repository.
+   *
+   * @param request AddPrivateRegistryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddPrivateRegistryResponse
+   */
   async addPrivateRegistryWithOptions(request: AddPrivateRegistryRequest, runtime: $Util.RuntimeOptions): Promise<AddPrivateRegistryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79830,11 +79957,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddPrivateRegistryResponse>(await this.callApi(params, req, runtime), new AddPrivateRegistryResponse({}));
   }
 
+  /**
+   * @summary Adds a self-managed image repository.
+   *
+   * @param request AddPrivateRegistryRequest
+   * @return AddPrivateRegistryResponse
+   */
   async addPrivateRegistry(request: AddPrivateRegistryRequest): Promise<AddPrivateRegistryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrivateRegistryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a rule for container tamper-proofing.
+   *
+   * @param request AddSasContainerWebDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSasContainerWebDefenseRuleResponse
+   */
   async addSasContainerWebDefenseRuleWithOptions(request: AddSasContainerWebDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddSasContainerWebDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79863,11 +80003,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSasContainerWebDefenseRuleResponse>(await this.callApi(params, req, runtime), new AddSasContainerWebDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a rule for container tamper-proofing.
+   *
+   * @param request AddSasContainerWebDefenseRuleRequest
+   * @return AddSasContainerWebDefenseRuleResponse
+   */
   async addSasContainerWebDefenseRule(request: AddSasContainerWebDefenseRuleRequest): Promise<AddSasContainerWebDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSasContainerWebDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+   *
+   * @param request AddSasModuleTrialRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSasModuleTrialResponse
+   */
   async addSasModuleTrialWithOptions(request: AddSasModuleTrialRequest, runtime: $Util.RuntimeOptions): Promise<AddSasModuleTrialResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79896,17 +80049,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSasModuleTrialResponse>(await this.callApi(params, req, runtime), new AddSasModuleTrialResponse({}));
   }
 
+  /**
+   * @summary Enables the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+   *
+   * @param request AddSasModuleTrialRequest
+   * @return AddSasModuleTrialResponse
+   */
   async addSasModuleTrial(request: AddSasModuleTrialRequest): Promise<AddSasModuleTrialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSasModuleTrialWithOptions(request, runtime);
   }
 
   /**
-    * Security Center provides asset importance tags and custom tags. You can call the AddTagWithUuid operation to add only a custom tag to assets.
-    *
-    * @param request AddTagWithUuidRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddTagWithUuidResponse
+   * @summary Adds a tag to assets.
+   *
+   * @description Security Center provides asset importance tags and custom tags. You can call the AddTagWithUuid operation to add only a custom tag to assets.
+   *
+   * @param request AddTagWithUuidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTagWithUuidResponse
    */
   async addTagWithUuidWithOptions(request: AddTagWithUuidRequest, runtime: $Util.RuntimeOptions): Promise<AddTagWithUuidResponse> {
     Util.validateModel(request);
@@ -79937,16 +80098,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Security Center provides asset importance tags and custom tags. You can call the AddTagWithUuid operation to add only a custom tag to assets.
-    *
-    * @param request AddTagWithUuidRequest
-    * @return AddTagWithUuidResponse
+   * @summary Adds a tag to assets.
+   *
+   * @description Security Center provides asset importance tags and custom tags. You can call the AddTagWithUuid operation to add only a custom tag to assets.
+   *
+   * @param request AddTagWithUuidRequest
+   * @return AddTagWithUuidResponse
    */
   async addTagWithUuid(request: AddTagWithUuidRequest): Promise<AddTagWithUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTagWithUuidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds servers from which you want to uninstall the Security Center agent.
+   *
+   * @param request AddUninstallClientsByUuidsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUninstallClientsByUuidsResponse
+   */
   async addUninstallClientsByUuidsWithOptions(request: AddUninstallClientsByUuidsRequest, runtime: $Util.RuntimeOptions): Promise<AddUninstallClientsByUuidsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -79987,11 +80157,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUninstallClientsByUuidsResponse>(await this.callApi(params, req, runtime), new AddUninstallClientsByUuidsResponse({}));
   }
 
+  /**
+   * @summary Adds servers from which you want to uninstall the Security Center agent.
+   *
+   * @param request AddUninstallClientsByUuidsRequest
+   * @return AddUninstallClientsByUuidsResponse
+   */
   async addUninstallClientsByUuids(request: AddUninstallClientsByUuidsRequest): Promise<AddUninstallClientsByUuidsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUninstallClientsByUuidsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a honeypot.
+   *
+   * @param request AddVpcHoneyPotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddVpcHoneyPotResponse
+   */
   async addVpcHoneyPotWithOptions(request: AddVpcHoneyPotRequest, runtime: $Util.RuntimeOptions): Promise<AddVpcHoneyPotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80016,11 +80199,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddVpcHoneyPotResponse>(await this.callApi(params, req, runtime), new AddVpcHoneyPotResponse({}));
   }
 
+  /**
+   * @summary Creates a honeypot.
+   *
+   * @param request AddVpcHoneyPotRequest
+   * @return AddVpcHoneyPotResponse
+   */
   async addVpcHoneyPot(request: AddVpcHoneyPotRequest): Promise<AddVpcHoneyPotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addVpcHoneyPotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of an advanced whitelist rule.
+   *
+   * @param request AdvanceSecurityEventOperationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AdvanceSecurityEventOperationsResponse
+   */
   async advanceSecurityEventOperationsWithOptions(request: AdvanceSecurityEventOperationsRequest, runtime: $Util.RuntimeOptions): Promise<AdvanceSecurityEventOperationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80057,11 +80253,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AdvanceSecurityEventOperationsResponse>(await this.callApi(params, req, runtime), new AdvanceSecurityEventOperationsResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of an advanced whitelist rule.
+   *
+   * @param request AdvanceSecurityEventOperationsRequest
+   * @return AdvanceSecurityEventOperationsResponse
+   */
   async advanceSecurityEventOperations(request: AdvanceSecurityEventOperationsRequest): Promise<AdvanceSecurityEventOperationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.advanceSecurityEventOperationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes whitelist rules for alerts generated for sensitive files that are detected by using the agentless detection feature in batches.
+   *
+   * @param request BatchDeleteMaliciousFileWhitelistConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchDeleteMaliciousFileWhitelistConfigResponse
+   */
   async batchDeleteMaliciousFileWhitelistConfigWithOptions(request: BatchDeleteMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteMaliciousFileWhitelistConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80086,11 +80295,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchDeleteMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new BatchDeleteMaliciousFileWhitelistConfigResponse({}));
   }
 
+  /**
+   * @summary Deletes whitelist rules for alerts generated for sensitive files that are detected by using the agentless detection feature in batches.
+   *
+   * @param request BatchDeleteMaliciousFileWhitelistConfigRequest
+   * @return BatchDeleteMaliciousFileWhitelistConfigResponse
+   */
   async batchDeleteMaliciousFileWhitelistConfig(request: BatchDeleteMaliciousFileWhitelistConfigRequest): Promise<BatchDeleteMaliciousFileWhitelistConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables multiple features in proactive defense at a time.
+   *
+   * @param request BatchOperateCommonOverallConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchOperateCommonOverallConfigResponse
+   */
   async batchOperateCommonOverallConfigWithOptions(request: BatchOperateCommonOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchOperateCommonOverallConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80119,11 +80341,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchOperateCommonOverallConfigResponse>(await this.callApi(params, req, runtime), new BatchOperateCommonOverallConfigResponse({}));
   }
 
+  /**
+   * @summary Enables or disables multiple features in proactive defense at a time.
+   *
+   * @param request BatchOperateCommonOverallConfigRequest
+   * @return BatchOperateCommonOverallConfigResponse
+   */
   async batchOperateCommonOverallConfig(request: BatchOperateCommonOverallConfigRequest): Promise<BatchOperateCommonOverallConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchOperateCommonOverallConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies multiple alert whitelist rules of sensitive files that are detected by using the agentless detection feature at a time.
+   *
+   * @param request BatchUpdateMaliciousFileWhitelistConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchUpdateMaliciousFileWhitelistConfigResponse
+   */
   async batchUpdateMaliciousFileWhitelistConfigWithOptions(request: BatchUpdateMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateMaliciousFileWhitelistConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80148,11 +80383,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchUpdateMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new BatchUpdateMaliciousFileWhitelistConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies multiple alert whitelist rules of sensitive files that are detected by using the agentless detection feature at a time.
+   *
+   * @param request BatchUpdateMaliciousFileWhitelistConfigRequest
+   * @return BatchUpdateMaliciousFileWhitelistConfigResponse
+   */
   async batchUpdateMaliciousFileWhitelistConfig(request: BatchUpdateMaliciousFileWhitelistConfigRequest): Promise<BatchUpdateMaliciousFileWhitelistConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchUpdateMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Binds servers to Security Center or unbinds servers from Security Center.
+   *
+   * @param request BindAuthToMachineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindAuthToMachineResponse
+   */
   async bindAuthToMachineWithOptions(request: BindAuthToMachineRequest, runtime: $Util.RuntimeOptions): Promise<BindAuthToMachineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80213,11 +80461,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BindAuthToMachineResponse>(await this.callApi(params, req, runtime), new BindAuthToMachineResponse({}));
   }
 
+  /**
+   * @summary Binds servers to Security Center or unbinds servers from Security Center.
+   *
+   * @param request BindAuthToMachineRequest
+   * @return BindAuthToMachineResponse
+   */
   async bindAuthToMachine(request: BindAuthToMachineRequest): Promise<BindAuthToMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindAuthToMachineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds servers to Security Center over a proxy server. After you create a proxy cluster and deploy a proxy server, you can connect a server to the proxy cluster as a client. This way, the server is added to Security Center over the proxy server and is protected.
+   *
+   * @param request BindHybridProxyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindHybridProxyResponse
+   */
   async bindHybridProxyWithOptions(request: BindHybridProxyRequest, runtime: $Util.RuntimeOptions): Promise<BindHybridProxyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80246,11 +80507,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BindHybridProxyResponse>(await this.callApi(params, req, runtime), new BindHybridProxyResponse({}));
   }
 
+  /**
+   * @summary Adds servers to Security Center over a proxy server. After you create a proxy cluster and deploy a proxy server, you can connect a server to the proxy cluster as a client. This way, the server is added to Security Center over the proxy server and is protected.
+   *
+   * @param request BindHybridProxyRequest
+   * @return BindHybridProxyResponse
+   */
   async bindHybridProxy(request: BindHybridProxyRequest): Promise<BindHybridProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindHybridProxyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancels the main task.
+   *
+   * @param request CancelOnceTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelOnceTaskResponse
+   */
   async cancelOnceTaskWithOptions(request: CancelOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOnceTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80275,11 +80549,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelOnceTaskResponse>(await this.callApi(params, req, runtime), new CancelOnceTaskResponse({}));
   }
 
+  /**
+   * @summary Cancels the main task.
+   *
+   * @param request CancelOnceTaskRequest
+   * @return CancelOnceTaskResponse
+   */
   async cancelOnceTask(request: CancelOnceTaskRequest): Promise<CancelOnceTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOnceTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the interval of asset synchronization configurations.
+   *
+   * @param request ChangeAssetRefreshTaskConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeAssetRefreshTaskConfigResponse
+   */
   async changeAssetRefreshTaskConfigWithOptions(request: ChangeAssetRefreshTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<ChangeAssetRefreshTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80308,11 +80595,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeAssetRefreshTaskConfigResponse>(await this.callApi(params, req, runtime), new ChangeAssetRefreshTaskConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the interval of asset synchronization configurations.
+   *
+   * @param request ChangeAssetRefreshTaskConfigRequest
+   * @return ChangeAssetRefreshTaskConfigResponse
+   */
   async changeAssetRefreshTaskConfig(request: ChangeAssetRefreshTaskConfigRequest): Promise<ChangeAssetRefreshTaskConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeAssetRefreshTaskConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration items of the configuration assessment feature.
+   *
+   * @param tmpReq ChangeCheckConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeCheckConfigResponse
+   */
   async changeCheckConfigWithOptions(tmpReq: ChangeCheckConfigRequest, runtime: $Util.RuntimeOptions): Promise<ChangeCheckConfigResponse> {
     Util.validateModel(tmpReq);
     let request = new ChangeCheckConfigShrinkRequest({ });
@@ -80395,11 +80695,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeCheckConfigResponse>(await this.callApi(params, req, runtime), new ChangeCheckConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration items of the configuration assessment feature.
+   *
+   * @param request ChangeCheckConfigRequest
+   * @return ChangeCheckConfigResponse
+   */
   async changeCheckConfig(request: ChangeCheckConfigRequest): Promise<ChangeCheckConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeCheckConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the custom configuration items of a check item.
+   *
+   * @param request ChangeCheckCustomConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeCheckCustomConfigResponse
+   */
   async changeCheckCustomConfigWithOptions(request: ChangeCheckCustomConfigRequest, runtime: $Util.RuntimeOptions): Promise<ChangeCheckCustomConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80436,11 +80749,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeCheckCustomConfigResponse>(await this.callApi(params, req, runtime), new ChangeCheckCustomConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the custom configuration items of a check item.
+   *
+   * @param request ChangeCheckCustomConfigRequest
+   * @return ChangeCheckCustomConfigResponse
+   */
   async changeCheckCustomConfig(request: ChangeCheckCustomConfigRequest): Promise<ChangeCheckCustomConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeCheckCustomConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the details of the deduction modules of the security score feature, including custom settings.
+   *
+   * @param request ChangeSecurityScoreRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeSecurityScoreRuleResponse
+   */
   async changeSecurityScoreRuleWithOptions(request: ChangeSecurityScoreRuleRequest, runtime: $Util.RuntimeOptions): Promise<ChangeSecurityScoreRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80469,11 +80795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeSecurityScoreRuleResponse>(await this.callApi(params, req, runtime), new ChangeSecurityScoreRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the details of the deduction modules of the security score feature, including custom settings.
+   *
+   * @param request ChangeSecurityScoreRuleRequest
+   * @return ChangeSecurityScoreRuleResponse
+   */
   async changeSecurityScoreRule(request: ChangeSecurityScoreRuleRequest): Promise<ChangeSecurityScoreRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeSecurityScoreRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the language settings of log analysis. The modification on the language settings takes effect within 12 hours and affects only the language of the descriptions for security events in security logs.
+   *
+   * @param request ChangeUserLangRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeUserLangResponse
+   */
   async changeUserLangWithOptions(request: ChangeUserLangRequest, runtime: $Util.RuntimeOptions): Promise<ChangeUserLangResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80498,11 +80837,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeUserLangResponse>(await this.callApi(params, req, runtime), new ChangeUserLangResponse({}));
   }
 
+  /**
+   * @summary Modifies the language settings of log analysis. The modification on the language settings takes effect within 12 hours and affects only the language of the descriptions for security events in security logs.
+   *
+   * @param request ChangeUserLangRequest
+   * @return ChangeUserLangResponse
+   */
   async changeUserLang(request: ChangeUserLangRequest): Promise<ChangeUserLangResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeUserLangWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether the IDs of quarantined files are valid.
+   *
+   * @param request CheckQuaraFileIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckQuaraFileIdResponse
+   */
   async checkQuaraFileIdWithOptions(request: CheckQuaraFileIdRequest, runtime: $Util.RuntimeOptions): Promise<CheckQuaraFileIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80531,11 +80883,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckQuaraFileIdResponse>(await this.callApi(params, req, runtime), new CheckQuaraFileIdResponse({}));
   }
 
+  /**
+   * @summary Checks whether the IDs of quarantined files are valid.
+   *
+   * @param request CheckQuaraFileIdRequest
+   * @return CheckQuaraFileIdResponse
+   */
   async checkQuaraFileId(request: CheckQuaraFileIdRequest): Promise<CheckQuaraFileIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkQuaraFileIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether one or more alert events are generated on a specified server based on the IDs of the alert events.
+   *
+   * @param request CheckSecurityEventIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckSecurityEventIdResponse
+   */
   async checkSecurityEventIdWithOptions(request: CheckSecurityEventIdRequest, runtime: $Util.RuntimeOptions): Promise<CheckSecurityEventIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80564,11 +80929,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckSecurityEventIdResponse>(await this.callApi(params, req, runtime), new CheckSecurityEventIdResponse({}));
   }
 
+  /**
+   * @summary Checks whether one or more alert events are generated on a specified server based on the IDs of the alert events.
+   *
+   * @param request CheckSecurityEventIdRequest
+   * @return CheckSecurityEventIdResponse
+   */
   async checkSecurityEventId(request: CheckSecurityEventIdRequest): Promise<CheckSecurityEventIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkSecurityEventIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether Elastic Compute Service (ECS) instances exist.
+   *
+   * @param request CheckUserHasEcsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckUserHasEcsResponse
+   */
   async checkUserHasEcsWithOptions(request: CheckUserHasEcsRequest, runtime: $Util.RuntimeOptions): Promise<CheckUserHasEcsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80593,11 +80971,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckUserHasEcsResponse>(await this.callApi(params, req, runtime), new CheckUserHasEcsResponse({}));
   }
 
+  /**
+   * @summary Checks whether Elastic Compute Service (ECS) instances exist.
+   *
+   * @param request CheckUserHasEcsRequest
+   * @return CheckUserHasEcsResponse
+   */
   async checkUserHasEcs(request: CheckUserHasEcsRequest): Promise<CheckUserHasEcsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkUserHasEcsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Confirms the alert events that you want to handle.
+   *
+   * @param request ConfirmVirusEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfirmVirusEventsResponse
+   */
   async confirmVirusEventsWithOptions(request: ConfirmVirusEventsRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmVirusEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80630,11 +81021,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfirmVirusEventsResponse>(await this.callApi(params, req, runtime), new ConfirmVirusEventsResponse({}));
   }
 
+  /**
+   * @summary Confirms the alert events that you want to handle.
+   *
+   * @param request ConfirmVirusEventsRequest
+   * @return ConfirmVirusEventsResponse
+   */
   async confirmVirusEvents(request: ConfirmVirusEventsRequest): Promise<ConfirmVirusEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.confirmVirusEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an agentless detection task.
+   *
+   * @param request CreateAgentlessScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAgentlessScanTaskResponse
+   */
   async createAgentlessScanTaskWithOptions(request: CreateAgentlessScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateAgentlessScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80675,11 +81079,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAgentlessScanTaskResponse>(await this.callApi(params, req, runtime), new CreateAgentlessScanTaskResponse({}));
   }
 
+  /**
+   * @summary Creates an agentless detection task.
+   *
+   * @param request CreateAgentlessScanTaskRequest
+   * @return CreateAgentlessScanTaskResponse
+   */
   async createAgentlessScanTask(request: CreateAgentlessScanTaskRequest): Promise<CreateAgentlessScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAgentlessScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a defense rule against brute-force attacks.
+   *
+   * @param request CreateAntiBruteForceRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAntiBruteForceRuleResponse
+   */
   async createAntiBruteForceRuleWithOptions(request: CreateAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntiBruteForceRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80732,11 +81149,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAntiBruteForceRuleResponse>(await this.callApi(params, req, runtime), new CreateAntiBruteForceRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a defense rule against brute-force attacks.
+   *
+   * @param request CreateAntiBruteForceRuleRequest
+   * @return CreateAntiBruteForceRuleResponse
+   */
   async createAntiBruteForceRule(request: CreateAntiBruteForceRuleRequest): Promise<CreateAntiBruteForceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAntiBruteForceRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Create asset selection configurations.
+   *
+   * @param request CreateAssetSelectionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAssetSelectionConfigResponse
+   */
   async createAssetSelectionConfigWithOptions(request: CreateAssetSelectionConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateAssetSelectionConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80765,11 +81195,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAssetSelectionConfigResponse>(await this.callApi(params, req, runtime), new CreateAssetSelectionConfigResponse({}));
   }
 
+  /**
+   * @summary Create asset selection configurations.
+   *
+   * @param request CreateAssetSelectionConfigRequest
+   * @return CreateAssetSelectionConfigResponse
+   */
   async createAssetSelectionConfig(request: CreateAssetSelectionConfigRequest): Promise<CreateAssetSelectionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAssetSelectionConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an anti-ransomware policy for servers.
+   *
+   * @param tmpReq CreateBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackupPolicyResponse
+   */
   async createBackupPolicyWithOptions(tmpReq: CreateBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateBackupPolicyShrinkRequest({ });
@@ -80816,11 +81259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackupPolicyResponse>(await this.callApi(params, req, runtime), new CreateBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Creates an anti-ransomware policy for servers.
+   *
+   * @param request CreateBackupPolicyRequest
+   * @return CreateBackupPolicyResponse
+   */
   async createBackupPolicy(request: CreateBackupPolicyRequest): Promise<CreateBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a container scan task.
+   *
+   * @param request CreateContainerScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateContainerScanTaskResponse
+   */
   async createContainerScanTaskWithOptions(request: CreateContainerScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateContainerScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80853,11 +81309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateContainerScanTaskResponse>(await this.callApi(params, req, runtime), new CreateContainerScanTaskResponse({}));
   }
 
+  /**
+   * @summary Creates a container scan task.
+   *
+   * @param request CreateContainerScanTaskRequest
+   * @return CreateContainerScanTaskResponse
+   */
   async createContainerScanTask(request: CreateContainerScanTaskRequest): Promise<CreateContainerScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createContainerScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a scan task for a running container application based on the application name.
+   *
+   * @param request CreateContainerScanTaskByAppNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateContainerScanTaskByAppNameResponse
+   */
   async createContainerScanTaskByAppNameWithOptions(request: CreateContainerScanTaskByAppNameRequest, runtime: $Util.RuntimeOptions): Promise<CreateContainerScanTaskByAppNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80890,11 +81359,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateContainerScanTaskByAppNameResponse>(await this.callApi(params, req, runtime), new CreateContainerScanTaskByAppNameResponse({}));
   }
 
+  /**
+   * @summary Creates a scan task for a running container application based on the application name.
+   *
+   * @param request CreateContainerScanTaskByAppNameRequest
+   * @return CreateContainerScanTaskByAppNameResponse
+   */
   async createContainerScanTaskByAppName(request: CreateContainerScanTaskByAppNameRequest): Promise<CreateContainerScanTaskByAppNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createContainerScanTaskByAppNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an IP address blocking policy for one or more servers.
+   *
+   * @param request CreateCustomBlockRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomBlockRecordResponse
+   */
   async createCustomBlockRecordWithOptions(request: CreateCustomBlockRecordRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomBlockRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -80935,11 +81417,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomBlockRecordResponse>(await this.callApi(params, req, runtime), new CreateCustomBlockRecordResponse({}));
   }
 
+  /**
+   * @summary Creates an IP address blocking policy for one or more servers.
+   *
+   * @param request CreateCustomBlockRecordRequest
+   * @return CreateCustomBlockRecordResponse
+   */
   async createCustomBlockRecord(request: CreateCustomBlockRecordRequest): Promise<CreateCustomBlockRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomBlockRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+   *
+   * @param request CreateCycleTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCycleTaskResponse
+   */
   async createCycleTaskWithOptions(request: CreateCycleTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCycleTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81000,21 +81495,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCycleTaskResponse>(await this.callApi(params, req, runtime), new CreateCycleTaskResponse({}));
   }
 
+  /**
+   * @summary Creates a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+   *
+   * @param request CreateCycleTaskRequest
+   * @return CreateCycleTaskResponse
+   */
   async createCycleTask(request: CreateCycleTaskRequest): Promise<CreateCycleTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCycleTaskWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-    * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
-    * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
-    * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
-    * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
-    *
-    * @param request CreateFileDetectRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFileDetectResponse
+   * @summary Pushes a file to the cloud for detection.
+   *
+   * @description You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
+   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
+   * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
+   * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
+   * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
+   *
+   * @param request CreateFileDetectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileDetectResponse
    */
   async createFileDetectWithOptions(request: CreateFileDetectRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileDetectResponse> {
     Util.validateModel(request);
@@ -81069,14 +81572,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
-    * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
-    * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
-    * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
-    * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
-    *
-    * @param request CreateFileDetectRequest
-    * @return CreateFileDetectResponse
+   * @summary Pushes a file to the cloud for detection.
+   *
+   * @description You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
+   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the MD5 hash value before you call this operation.
+   * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
+   * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
+   * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
+   *
+   * @param request CreateFileDetectRequest
+   * @return CreateFileDetectResponse
    */
   async createFileDetect(request: CreateFileDetectRequest): Promise<CreateFileDetectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -81084,13 +81589,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
-    * The form upload method is provided by OSS. For more information, see [Form upload](~~84788~~).
-    * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-    *
-    * @param request CreateFileDetectUploadUrlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFileDetectUploadUrlResponse
+   * @summary Queries the parameters that are required to upload a file for detection.
+   *
+   * @description You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
+   * The form upload method is provided by OSS. For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
+   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+   *
+   * @param request CreateFileDetectUploadUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileDetectUploadUrlResponse
    */
   async createFileDetectUploadUrlWithOptions(request: CreateFileDetectUploadUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileDetectUploadUrlResponse> {
     Util.validateModel(request);
@@ -81125,18 +81632,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
-    * The form upload method is provided by OSS. For more information, see [Form upload](~~84788~~).
-    * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-    *
-    * @param request CreateFileDetectUploadUrlRequest
-    * @return CreateFileDetectUploadUrlResponse
+   * @summary Queries the parameters that are required to upload a file for detection.
+   *
+   * @description You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
+   * The form upload method is provided by OSS. For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
+   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+   *
+   * @param request CreateFileDetectUploadUrlRequest
+   * @return CreateFileDetectUploadUrlResponse
    */
   async createFileDetectUploadUrl(request: CreateFileDetectUploadUrlRequest): Promise<CreateFileDetectUploadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileDetectUploadUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a core file monitoring rule.
+   *
+   * @param request CreateFileProtectRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileProtectRuleResponse
+   */
   async createFileProtectRuleWithOptions(request: CreateFileProtectRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileProtectRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81189,11 +81705,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFileProtectRuleResponse>(await this.callApi(params, req, runtime), new CreateFileProtectRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a core file monitoring rule.
+   *
+   * @param request CreateFileProtectRuleRequest
+   * @return CreateFileProtectRuleResponse
+   */
   async createFileProtectRule(request: CreateFileProtectRuleRequest): Promise<CreateFileProtectRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileProtectRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Specifies the queries per second (QPS) limit on the files uploaded from the client.
+   *
+   * @param request CreateFileUploadLimitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileUploadLimitResponse
+   */
   async createFileUploadLimitWithOptions(request: CreateFileUploadLimitRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileUploadLimitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81218,11 +81747,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFileUploadLimitResponse>(await this.callApi(params, req, runtime), new CreateFileUploadLimitResponse({}));
   }
 
+  /**
+   * @summary Specifies the queries per second (QPS) limit on the files uploaded from the client.
+   *
+   * @param request CreateFileUploadLimitRequest
+   * @return CreateFileUploadLimitResponse
+   */
   async createFileUploadLimit(request: CreateFileUploadLimitRequest): Promise<CreateFileUploadLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileUploadLimitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a honeypot.
+   *
+   * @param request CreateHoneypotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHoneypotResponse
+   */
   async createHoneypotWithOptions(request: CreateHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<CreateHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81263,11 +81805,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHoneypotResponse>(await this.callApi(params, req, runtime), new CreateHoneypotResponse({}));
   }
 
+  /**
+   * @summary Creates a honeypot.
+   *
+   * @param request CreateHoneypotRequest
+   * @return CreateHoneypotResponse
+   */
   async createHoneypot(request: CreateHoneypotRequest): Promise<CreateHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHoneypotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a management node.
+   *
+   * @param request CreateHoneypotNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHoneypotNodeResponse
+   */
   async createHoneypotNodeWithOptions(request: CreateHoneypotNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateHoneypotNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81304,11 +81859,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHoneypotNodeResponse>(await this.callApi(params, req, runtime), new CreateHoneypotNodeResponse({}));
   }
 
+  /**
+   * @summary Creates a management node.
+   *
+   * @param request CreateHoneypotNodeRequest
+   * @return CreateHoneypotNodeResponse
+   */
   async createHoneypotNode(request: CreateHoneypotNodeRequest): Promise<CreateHoneypotNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHoneypotNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a honeypot template.
+   *
+   * @param request CreateHoneypotPresetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHoneypotPresetResponse
+   */
   async createHoneypotPresetWithOptions(request: CreateHoneypotPresetRequest, runtime: $Util.RuntimeOptions): Promise<CreateHoneypotPresetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81349,11 +81917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHoneypotPresetResponse>(await this.callApi(params, req, runtime), new CreateHoneypotPresetResponse({}));
   }
 
+  /**
+   * @summary Creates a honeypot template.
+   *
+   * @param request CreateHoneypotPresetRequest
+   * @return CreateHoneypotPresetResponse
+   */
   async createHoneypotPreset(request: CreateHoneypotPresetRequest): Promise<CreateHoneypotPresetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHoneypotPresetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a probe.
+   *
+   * @param request CreateHoneypotProbeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHoneypotProbeResponse
+   */
   async createHoneypotProbeWithOptions(request: CreateHoneypotProbeRequest, runtime: $Util.RuntimeOptions): Promise<CreateHoneypotProbeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81418,11 +81999,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHoneypotProbeResponse>(await this.callApi(params, req, runtime), new CreateHoneypotProbeResponse({}));
   }
 
+  /**
+   * @summary Creates a probe.
+   *
+   * @param request CreateHoneypotProbeRequest
+   * @return CreateHoneypotProbeResponse
+   */
   async createHoneypotProbe(request: CreateHoneypotProbeRequest): Promise<CreateHoneypotProbeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHoneypotProbeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a monitoring or forwarding service for a probe.
+   *
+   * @param request CreateHoneypotProbeBindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHoneypotProbeBindResponse
+   */
   async createHoneypotProbeBindWithOptions(request: CreateHoneypotProbeBindRequest, runtime: $Util.RuntimeOptions): Promise<CreateHoneypotProbeBindResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81463,11 +82057,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHoneypotProbeBindResponse>(await this.callApi(params, req, runtime), new CreateHoneypotProbeBindResponse({}));
   }
 
+  /**
+   * @summary Creates a monitoring or forwarding service for a probe.
+   *
+   * @param request CreateHoneypotProbeBindRequest
+   * @return CreateHoneypotProbeBindResponse
+   */
   async createHoneypotProbeBind(request: CreateHoneypotProbeBindRequest): Promise<CreateHoneypotProbeBindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHoneypotProbeBindWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a defense rule in the container firewall module.
+   *
+   * @param tmpReq CreateInterceptionRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInterceptionRuleResponse
+   */
   async createInterceptionRuleWithOptions(tmpReq: CreateInterceptionRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateInterceptionRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateInterceptionRuleShrinkRequest({ });
@@ -81534,11 +82141,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInterceptionRuleResponse>(await this.callApi(params, req, runtime), new CreateInterceptionRuleResponse({}));
   }
 
+  /**
+   * @summary Creates a defense rule in the container firewall module.
+   *
+   * @param request CreateInterceptionRuleRequest
+   * @return CreateInterceptionRuleResponse
+   */
   async createInterceptionRule(request: CreateInterceptionRuleRequest): Promise<CreateInterceptionRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInterceptionRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a defense object.
+   *
+   * @param request CreateInterceptionTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInterceptionTargetResponse
+   */
   async createInterceptionTargetWithOptions(request: CreateInterceptionTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateInterceptionTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81591,11 +82211,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInterceptionTargetResponse>(await this.callApi(params, req, runtime), new CreateInterceptionTargetResponse({}));
   }
 
+  /**
+   * @summary Creates a defense object.
+   *
+   * @param request CreateInterceptionTargetRequest
+   * @return CreateInterceptionTargetResponse
+   */
   async createInterceptionTarget(request: CreateInterceptionTargetRequest): Promise<CreateInterceptionTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInterceptionTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a Jenkins image repository.
+   *
+   * @param request CreateJenkinsImageRegistryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateJenkinsImageRegistryResponse
+   */
   async createJenkinsImageRegistryWithOptions(request: CreateJenkinsImageRegistryRequest, runtime: $Util.RuntimeOptions): Promise<CreateJenkinsImageRegistryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81682,11 +82315,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateJenkinsImageRegistryResponse>(await this.callApi(params, req, runtime), new CreateJenkinsImageRegistryResponse({}));
   }
 
+  /**
+   * @summary Creates a Jenkins image repository.
+   *
+   * @param request CreateJenkinsImageRegistryRequest
+   * @return CreateJenkinsImageRegistryResponse
+   */
   async createJenkinsImageRegistry(request: CreateJenkinsImageRegistryRequest): Promise<CreateJenkinsImageRegistryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createJenkinsImageRegistryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request CreateMaliciousFileWhitelistConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMaliciousFileWhitelistConfigResponse
+   */
   async createMaliciousFileWhitelistConfigWithOptions(request: CreateMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateMaliciousFileWhitelistConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81735,11 +82381,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new CreateMaliciousFileWhitelistConfigResponse({}));
   }
 
+  /**
+   * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request CreateMaliciousFileWhitelistConfigRequest
+   * @return CreateMaliciousFileWhitelistConfigResponse
+   */
   async createMaliciousFileWhitelistConfig(request: CreateMaliciousFileWhitelistConfigRequest): Promise<CreateMaliciousFileWhitelistConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds remarks to alert events for agentless detection.
+   *
+   * @param request CreateMaliciousNoteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMaliciousNoteResponse
+   */
   async createMaliciousNoteWithOptions(request: CreateMaliciousNoteRequest, runtime: $Util.RuntimeOptions): Promise<CreateMaliciousNoteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81768,11 +82427,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMaliciousNoteResponse>(await this.callApi(params, req, runtime), new CreateMaliciousNoteResponse({}));
   }
 
+  /**
+   * @summary Adds remarks to alert events for agentless detection.
+   *
+   * @param request CreateMaliciousNoteRequest
+   * @return CreateMaliciousNoteResponse
+   */
   async createMaliciousNote(request: CreateMaliciousNoteRequest): Promise<CreateMaliciousNoteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMaliciousNoteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Installs the components that are required by at-risk image blocking. The components are policy-template-controller, gatekeeper, and logtail-ds.
+   *
+   * @param request CreateOpaClusterPluginRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOpaClusterPluginResponse
+   */
   async createOpaClusterPluginWithOptions(request: CreateOpaClusterPluginRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpaClusterPluginResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81797,11 +82469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOpaClusterPluginResponse>(await this.callApi(params, req, runtime), new CreateOpaClusterPluginResponse({}));
   }
 
+  /**
+   * @summary Installs the components that are required by at-risk image blocking. The components are policy-template-controller, gatekeeper, and logtail-ds.
+   *
+   * @param request CreateOpaClusterPluginRequest
+   * @return CreateOpaClusterPluginResponse
+   */
   async createOpaClusterPlugin(request: CreateOpaClusterPluginRequest): Promise<CreateOpaClusterPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOpaClusterPluginWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a rule to block at-risk images.
+   *
+   * @param tmpReq CreateOpaStrategyNewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOpaStrategyNewResponse
+   */
   async createOpaStrategyNewWithOptions(tmpReq: CreateOpaStrategyNewRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpaStrategyNewResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateOpaStrategyNewShrinkRequest({ });
@@ -81884,17 +82569,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOpaStrategyNewResponse>(await this.callApi(params, req, runtime), new CreateOpaStrategyNewResponse({}));
   }
 
+  /**
+   * @summary Creates a rule to block at-risk images.
+   *
+   * @param request CreateOpaStrategyNewRequest
+   * @return CreateOpaStrategyNewResponse
+   */
   async createOpaStrategyNew(request: CreateOpaStrategyNewRequest): Promise<CreateOpaStrategyNewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOpaStrategyNewWithOptions(request, runtime);
   }
 
   /**
-    * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
-    *
-    * @param request CreateOrUpdateAssetGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateOrUpdateAssetGroupResponse
+   * @summary Modifies the mapping between an asset and an asset group. For example, you can call this operation to modify the server group to which the asset belongs or the asset list of the asset group.
+   *
+   * @description A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
+   *
+   * @param request CreateOrUpdateAssetGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateAssetGroupResponse
    */
   async createOrUpdateAssetGroupWithOptions(request: CreateOrUpdateAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateAssetGroupResponse> {
     Util.validateModel(request);
@@ -81929,16 +82622,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
-    *
-    * @param request CreateOrUpdateAssetGroupRequest
-    * @return CreateOrUpdateAssetGroupResponse
+   * @summary Modifies the mapping between an asset and an asset group. For example, you can call this operation to modify the server group to which the asset belongs or the asset list of the asset group.
+   *
+   * @description A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
+   *
+   * @param request CreateOrUpdateAssetGroupRequest
+   * @return CreateOrUpdateAssetGroupResponse
    */
   async createOrUpdateAssetGroup(request: CreateOrUpdateAssetGroupRequest): Promise<CreateOrUpdateAssetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateAssetGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies a DingTalk chatbot that sends notifications.
+   *
+   * @param request CreateOrUpdateDingTalkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateDingTalkResponse
+   */
   async createOrUpdateDingTalkWithOptions(request: CreateOrUpdateDingTalkRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateDingTalkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -81987,11 +82689,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateDingTalkResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateDingTalkResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies a DingTalk chatbot that sends notifications.
+   *
+   * @param request CreateOrUpdateDingTalkRequest
+   * @return CreateOrUpdateDingTalkResponse
+   */
   async createOrUpdateDingTalk(request: CreateOrUpdateDingTalkRequest): Promise<CreateOrUpdateDingTalkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateDingTalkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a bucket check task.
+   *
+   * @param request CreateOssBucketScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOssBucketScanTaskResponse
+   */
   async createOssBucketScanTaskWithOptions(request: CreateOssBucketScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOssBucketScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82044,11 +82759,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOssBucketScanTaskResponse>(await this.callApi(params, req, runtime), new CreateOssBucketScanTaskResponse({}));
   }
 
+  /**
+   * @summary Creates a bucket check task.
+   *
+   * @param request CreateOssBucketScanTaskRequest
+   * @return CreateOssBucketScanTaskResponse
+   */
   async createOssBucketScanTask(request: CreateOssBucketScanTaskRequest): Promise<CreateOssBucketScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOssBucketScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a scan policy.
+   *
+   * @param request CreateOssScanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOssScanConfigResponse
+   */
   async createOssScanConfigWithOptions(request: CreateOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateOssScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82113,11 +82841,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOssScanConfigResponse>(await this.callApi(params, req, runtime), new CreateOssScanConfigResponse({}));
   }
 
+  /**
+   * @summary Creates a scan policy.
+   *
+   * @param request CreateOssScanConfigRequest
+   * @return CreateOssScanConfigResponse
+   */
   async createOssScanConfig(request: CreateOssScanConfigRequest): Promise<CreateOssScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOssScanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a restoration task.
+   *
+   * @param request CreateRestoreJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRestoreJobResponse
+   */
   async createRestoreJobWithOptions(request: CreateRestoreJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRestoreJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82170,17 +82911,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRestoreJobResponse>(await this.callApi(params, req, runtime), new CreateRestoreJobResponse({}));
   }
 
+  /**
+   * @summary Creates a restoration task.
+   *
+   * @param request CreateRestoreJobRequest
+   * @return CreateRestoreJobResponse
+   */
   async createRestoreJob(request: CreateRestoreJobRequest): Promise<CreateRestoreJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRestoreJobWithOptions(request, runtime);
   }
 
   /**
-    * For more information about service-linked roles, see [Service-linked roles](~~160674~~).
-    *
-    * @param request CreateServiceLinkedRoleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateServiceLinkedRoleResponse
+   * @summary Creates a service-linked role and authorizes Security Center to access cloud resources.
+   *
+   * @description For more information about service-linked roles, see [Service-linked roles](https://help.aliyun.com/document_detail/160674.html).
+   *
+   * @param request CreateServiceLinkedRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceLinkedRoleResponse
    */
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
@@ -82207,16 +82956,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about service-linked roles, see [Service-linked roles](~~160674~~).
-    *
-    * @param request CreateServiceLinkedRoleRequest
-    * @return CreateServiceLinkedRoleResponse
+   * @summary Creates a service-linked role and authorizes Security Center to access cloud resources.
+   *
+   * @description For more information about service-linked roles, see [Service-linked roles](https://help.aliyun.com/document_detail/160674.html).
+   *
+   * @param request CreateServiceLinkedRoleRequest
+   * @return CreateServiceLinkedRoleResponse
    */
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Create a service trail.
+   *
+   * @param request CreateServiceTrailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceTrailResponse
+   */
   async createServiceTrailWithOptions(request: CreateServiceTrailRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceTrailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82241,11 +82999,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceTrailResponse>(await this.callApi(params, req, runtime), new CreateServiceTrailResponse({}));
   }
 
+  /**
+   * @summary Create a service trail.
+   *
+   * @param request CreateServiceTrailRequest
+   * @return CreateServiceTrailResponse
+   */
   async createServiceTrail(request: CreateServiceTrailRequest): Promise<CreateServiceTrailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceTrailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a task to query alert events that are triggered by the same rule or of the same alert type.
+   *
+   * @param request CreateSimilarSecurityEventsQueryTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSimilarSecurityEventsQueryTaskResponse
+   */
   async createSimilarSecurityEventsQueryTaskWithOptions(request: CreateSimilarSecurityEventsQueryTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimilarSecurityEventsQueryTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82282,11 +83053,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSimilarSecurityEventsQueryTaskResponse>(await this.callApi(params, req, runtime), new CreateSimilarSecurityEventsQueryTaskResponse({}));
   }
 
+  /**
+   * @summary Creates a task to query alert events that are triggered by the same rule or of the same alert type.
+   *
+   * @param request CreateSimilarSecurityEventsQueryTaskRequest
+   * @return CreateSimilarSecurityEventsQueryTaskResponse
+   */
   async createSimilarSecurityEventsQueryTask(request: CreateSimilarSecurityEventsQueryTaskRequest): Promise<CreateSimilarSecurityEventsQueryTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSimilarSecurityEventsQueryTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds remarks to an alert event.
+   *
+   * @param request CreateSuspEventNoteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSuspEventNoteResponse
+   */
   async createSuspEventNoteWithOptions(request: CreateSuspEventNoteRequest, runtime: $Util.RuntimeOptions): Promise<CreateSuspEventNoteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82315,11 +83099,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSuspEventNoteResponse>(await this.callApi(params, req, runtime), new CreateSuspEventNoteResponse({}));
   }
 
+  /**
+   * @summary Adds remarks to an alert event.
+   *
+   * @param request CreateSuspEventNoteRequest
+   * @return CreateSuspEventNoteResponse
+   */
   async createSuspEventNote(request: CreateSuspEventNoteRequest): Promise<CreateSuspEventNoteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSuspEventNoteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an anti-ransomware policy for a database.
+   *
+   * @param tmpReq CreateUniBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUniBackupPolicyResponse
+   */
   async createUniBackupPolicyWithOptions(tmpReq: CreateUniBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateUniBackupPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateUniBackupPolicyShrinkRequest({ });
@@ -82398,11 +83195,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUniBackupPolicyResponse>(await this.callApi(params, req, runtime), new CreateUniBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Creates an anti-ransomware policy for a database.
+   *
+   * @param request CreateUniBackupPolicyRequest
+   * @return CreateUniBackupPolicyResponse
+   */
   async createUniBackupPolicy(request: CreateUniBackupPolicyRequest): Promise<CreateUniBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUniBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a restoration task for a database.
+   *
+   * @param request CreateUniRestorePlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUniRestorePlanResponse
+   */
   async createUniRestorePlanWithOptions(request: CreateUniRestorePlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateUniRestorePlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82451,11 +83261,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUniRestorePlanResponse>(await this.callApi(params, req, runtime), new CreateUniRestorePlanResponse({}));
   }
 
+  /**
+   * @summary Creates a restoration task for a database.
+   *
+   * @param request CreateUniRestorePlanRequest
+   * @return CreateUniRestorePlanResponse
+   */
   async createUniRestorePlan(request: CreateUniRestorePlanRequest): Promise<CreateUniRestorePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUniRestorePlanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a one-time virus scan task that is immediately executed.
+   *
+   * @param request CreateVirusScanOnceTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVirusScanOnceTaskResponse
+   */
   async createVirusScanOnceTaskWithOptions(request: CreateVirusScanOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirusScanOnceTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82488,11 +83311,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVirusScanOnceTaskResponse>(await this.callApi(params, req, runtime), new CreateVirusScanOnceTaskResponse({}));
   }
 
+  /**
+   * @summary Creates a one-time virus scan task that is immediately executed.
+   *
+   * @param request CreateVirusScanOnceTaskRequest
+   * @return CreateVirusScanOnceTaskResponse
+   */
   async createVirusScanOnceTask(request: CreateVirusScanOnceTaskRequest): Promise<CreateVirusScanOnceTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVirusScanOnceTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a list of vulnerabilities that can be automatically fixed. After the list is created, you can select the list when you create a vulnerability fixing task on the Playbook page.
+   *
+   * @param request CreateVulAutoRepairConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVulAutoRepairConfigResponse
+   */
   async createVulAutoRepairConfigWithOptions(request: CreateVulAutoRepairConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateVulAutoRepairConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82525,11 +83361,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVulAutoRepairConfigResponse>(await this.callApi(params, req, runtime), new CreateVulAutoRepairConfigResponse({}));
   }
 
+  /**
+   * @summary Creates a list of vulnerabilities that can be automatically fixed. After the list is created, you can select the list when you create a vulnerability fixing task on the Playbook page.
+   *
+   * @param request CreateVulAutoRepairConfigRequest
+   * @return CreateVulAutoRepairConfigResponse
+   */
   async createVulAutoRepairConfig(request: CreateVulAutoRepairConfigRequest): Promise<CreateVulAutoRepairConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVulAutoRepairConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the specified defense rules against brute-force attacks.
+   *
+   * @param request DeleteAntiBruteForceRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAntiBruteForceRuleResponse
+   */
   async deleteAntiBruteForceRuleWithOptions(request: DeleteAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAntiBruteForceRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82554,11 +83403,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAntiBruteForceRuleResponse>(await this.callApi(params, req, runtime), new DeleteAntiBruteForceRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes the specified defense rules against brute-force attacks.
+   *
+   * @param request DeleteAntiBruteForceRuleRequest
+   * @return DeleteAntiBruteForceRuleResponse
+   */
   async deleteAntiBruteForceRule(request: DeleteAntiBruteForceRuleRequest): Promise<DeleteAntiBruteForceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAntiBruteForceRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an anti-ransomware policy.
+   *
+   * @param request DeleteBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBackupPolicyResponse
+   */
   async deleteBackupPolicyWithOptions(request: DeleteBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82587,11 +83449,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBackupPolicyResponse>(await this.callApi(params, req, runtime), new DeleteBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Deletes an anti-ransomware policy.
+   *
+   * @param request DeleteBackupPolicyRequest
+   * @return DeleteBackupPolicyResponse
+   */
   async deleteBackupPolicy(request: DeleteBackupPolicyRequest): Promise<DeleteBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a specified anti-ransomware policy that is applied to specified servers and uninstalls the anti-ransomware agent from the servers. If the backup vaults of the servers contain only backup data of the servers, the backup vaults are deleted.
+   *
+   * @param request DeleteBackupPolicyMachineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBackupPolicyMachineResponse
+   */
   async deleteBackupPolicyMachineWithOptions(request: DeleteBackupPolicyMachineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupPolicyMachineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82628,11 +83503,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBackupPolicyMachineResponse>(await this.callApi(params, req, runtime), new DeleteBackupPolicyMachineResponse({}));
   }
 
+  /**
+   * @summary Disables a specified anti-ransomware policy that is applied to specified servers and uninstalls the anti-ransomware agent from the servers. If the backup vaults of the servers contain only backup data of the servers, the backup vaults are deleted.
+   *
+   * @param request DeleteBackupPolicyMachineRequest
+   * @return DeleteBackupPolicyMachineResponse
+   */
   async deleteBackupPolicyMachine(request: DeleteBackupPolicyMachineRequest): Promise<DeleteBackupPolicyMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackupPolicyMachineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a binary security policy from the container signature feature.
+   *
+   * @param request DeleteBinarySecurityPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBinarySecurityPolicyResponse
+   */
   async deleteBinarySecurityPolicyWithOptions(request: DeleteBinarySecurityPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBinarySecurityPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82665,11 +83553,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBinarySecurityPolicyResponse>(await this.callApi(params, req, runtime), new DeleteBinarySecurityPolicyResponse({}));
   }
 
+  /**
+   * @summary Deletes a binary security policy from the container signature feature.
+   *
+   * @param request DeleteBinarySecurityPolicyRequest
+   * @return DeleteBinarySecurityPolicyResponse
+   */
   async deleteBinarySecurityPolicy(request: DeleteBinarySecurityPolicyRequest): Promise<DeleteBinarySecurityPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBinarySecurityPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes specified custom defense rules.
+   *
+   * @param request DeleteClientUserDefineRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteClientUserDefineRuleResponse
+   */
   async deleteClientUserDefineRuleWithOptions(request: DeleteClientUserDefineRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientUserDefineRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82694,11 +83595,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClientUserDefineRuleResponse>(await this.callApi(params, req, runtime), new DeleteClientUserDefineRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes specified custom defense rules.
+   *
+   * @param request DeleteClientUserDefineRuleRequest
+   * @return DeleteClientUserDefineRuleResponse
+   */
   async deleteClientUserDefineRule(request: DeleteClientUserDefineRuleRequest): Promise<DeleteClientUserDefineRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClientUserDefineRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a rule for non-image program defense.
+   *
+   * @param request DeleteContainerDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteContainerDefenseRuleResponse
+   */
   async deleteContainerDefenseRuleWithOptions(request: DeleteContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContainerDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82723,11 +83637,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteContainerDefenseRuleResponse>(await this.callApi(params, req, runtime), new DeleteContainerDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a rule for non-image program defense.
+   *
+   * @param request DeleteContainerDefenseRuleRequest
+   * @return DeleteContainerDefenseRuleResponse
+   */
   async deleteContainerDefenseRule(request: DeleteContainerDefenseRuleRequest): Promise<DeleteContainerDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteContainerDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a defense rule against container escapes.
+   *
+   * @param request DeleteContainerPluginRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteContainerPluginRuleResponse
+   */
   async deleteContainerPluginRuleWithOptions(request: DeleteContainerPluginRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContainerPluginRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82756,11 +83683,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteContainerPluginRuleResponse>(await this.callApi(params, req, runtime), new DeleteContainerPluginRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a defense rule against container escapes.
+   *
+   * @param request DeleteContainerPluginRuleRequest
+   * @return DeleteContainerPluginRuleResponse
+   */
   async deleteContainerPluginRule(request: DeleteContainerPluginRuleRequest): Promise<DeleteContainerPluginRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteContainerPluginRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified IP address blocking policy from one or more servers.
+   *
+   * @param request DeleteCustomBlockRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomBlockRecordResponse
+   */
   async deleteCustomBlockRecordWithOptions(request: DeleteCustomBlockRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomBlockRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82789,11 +83729,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomBlockRecordResponse>(await this.callApi(params, req, runtime), new DeleteCustomBlockRecordResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified IP address blocking policy from one or more servers.
+   *
+   * @param request DeleteCustomBlockRecordRequest
+   * @return DeleteCustomBlockRecordResponse
+   */
   async deleteCustomBlockRecord(request: DeleteCustomBlockRecordRequest): Promise<DeleteCustomBlockRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomBlockRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+   *
+   * @param request DeleteCycleTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCycleTaskResponse
+   */
   async deleteCycleTaskWithOptions(request: DeleteCycleTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCycleTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82818,11 +83771,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCycleTaskResponse>(await this.callApi(params, req, runtime), new DeleteCycleTaskResponse({}));
   }
 
+  /**
+   * @summary Deletes a periodic scan task. The task can be an image scan task, urgent vulnerability scan task, or virus scan task.
+   *
+   * @param request DeleteCycleTaskRequest
+   * @return DeleteCycleTaskResponse
+   */
   async deleteCycleTask(request: DeleteCycleTaskRequest): Promise<DeleteCycleTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCycleTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes core file monitoring rules.
+   *
+   * @param request DeleteFileProtectRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFileProtectRuleResponse
+   */
   async deleteFileProtectRuleWithOptions(request: DeleteFileProtectRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileProtectRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82847,17 +83813,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFileProtectRuleResponse>(await this.callApi(params, req, runtime), new DeleteFileProtectRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes core file monitoring rules.
+   *
+   * @param request DeleteFileProtectRuleRequest
+   * @return DeleteFileProtectRuleResponse
+   */
   async deleteFileProtectRule(request: DeleteFileProtectRuleRequest): Promise<DeleteFileProtectRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFileProtectRuleWithOptions(request, runtime);
   }
 
   /**
-    * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
-    *
-    * @param request DeleteGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteGroupResponse
+   * @summary Deletes a server group.
+   *
+   * @description The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
+   *
+   * @param request DeleteGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGroupResponse
    */
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
@@ -82888,16 +83862,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
-    *
-    * @param request DeleteGroupRequest
-    * @return DeleteGroupResponse
+   * @summary Deletes a server group.
+   *
+   * @description The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
+   *
+   * @param request DeleteGroupRequest
+   * @return DeleteGroupResponse
    */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified honeypot.
+   *
+   * @param request DeleteHoneypotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHoneypotResponse
+   */
   async deleteHoneypotWithOptions(request: DeleteHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82926,11 +83909,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHoneypotResponse>(await this.callApi(params, req, runtime), new DeleteHoneypotResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified honeypot.
+   *
+   * @param request DeleteHoneypotRequest
+   * @return DeleteHoneypotResponse
+   */
   async deleteHoneypot(request: DeleteHoneypotRequest): Promise<DeleteHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHoneypotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified management node.
+   *
+   * @param request DeleteHoneypotNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHoneypotNodeResponse
+   */
   async deleteHoneypotNodeWithOptions(request: DeleteHoneypotNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHoneypotNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82959,11 +83955,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHoneypotNodeResponse>(await this.callApi(params, req, runtime), new DeleteHoneypotNodeResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified management node.
+   *
+   * @param request DeleteHoneypotNodeRequest
+   * @return DeleteHoneypotNodeResponse
+   */
   async deleteHoneypotNode(request: DeleteHoneypotNodeRequest): Promise<DeleteHoneypotNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHoneypotNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified honeypot template.
+   *
+   * @param request DeleteHoneypotPresetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHoneypotPresetResponse
+   */
   async deleteHoneypotPresetWithOptions(request: DeleteHoneypotPresetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHoneypotPresetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -82992,11 +84001,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHoneypotPresetResponse>(await this.callApi(params, req, runtime), new DeleteHoneypotPresetResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified honeypot template.
+   *
+   * @param request DeleteHoneypotPresetRequest
+   * @return DeleteHoneypotPresetResponse
+   */
   async deleteHoneypotPreset(request: DeleteHoneypotPresetRequest): Promise<DeleteHoneypotPresetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHoneypotPresetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified probe.
+   *
+   * @param request DeleteHoneypotProbeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHoneypotProbeResponse
+   */
   async deleteHoneypotProbeWithOptions(request: DeleteHoneypotProbeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHoneypotProbeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83025,11 +84047,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHoneypotProbeResponse>(await this.callApi(params, req, runtime), new DeleteHoneypotProbeResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified probe.
+   *
+   * @param request DeleteHoneypotProbeRequest
+   * @return DeleteHoneypotProbeResponse
+   */
   async deleteHoneypotProbe(request: DeleteHoneypotProbeRequest): Promise<DeleteHoneypotProbeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHoneypotProbeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete the probe service.
+   *
+   * @param request DeleteHoneypotProbeBindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHoneypotProbeBindResponse
+   */
   async deleteHoneypotProbeBindWithOptions(request: DeleteHoneypotProbeBindRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHoneypotProbeBindResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83062,11 +84097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHoneypotProbeBindResponse>(await this.callApi(params, req, runtime), new DeleteHoneypotProbeBindResponse({}));
   }
 
+  /**
+   * @summary Delete the probe service.
+   *
+   * @param request DeleteHoneypotProbeBindRequest
+   * @return DeleteHoneypotProbeBindResponse
+   */
   async deleteHoneypotProbeBind(request: DeleteHoneypotProbeBindRequest): Promise<DeleteHoneypotProbeBindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHoneypotProbeBindWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an alert handling rule.
+   *
+   * @param request DeleteImageEventOperationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteImageEventOperationResponse
+   */
   async deleteImageEventOperationWithOptions(request: DeleteImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageEventOperationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83091,11 +84139,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteImageEventOperationResponse>(await this.callApi(params, req, runtime), new DeleteImageEventOperationResponse({}));
   }
 
+  /**
+   * @summary Deletes an alert handling rule.
+   *
+   * @param request DeleteImageEventOperationRequest
+   * @return DeleteImageEventOperationResponse
+   */
   async deleteImageEventOperation(request: DeleteImageEventOperationRequest): Promise<DeleteImageEventOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteImageEventOperationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an image vulnerability whitelist.
+   *
+   * @param request DeleteImageVulWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteImageVulWhitelistResponse
+   */
   async deleteImageVulWhitelistWithOptions(request: DeleteImageVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageVulWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83124,11 +84185,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteImageVulWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteImageVulWhitelistResponse({}));
   }
 
+  /**
+   * @summary Deletes an image vulnerability whitelist.
+   *
+   * @param request DeleteImageVulWhitelistRequest
+   * @return DeleteImageVulWhitelistResponse
+   */
   async deleteImageVulWhitelist(request: DeleteImageVulWhitelistRequest): Promise<DeleteImageVulWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteImageVulWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the command that is used to install the Security Center agent.
+   *
+   * @param request DeleteInstallCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstallCodeResponse
+   */
   async deleteInstallCodeWithOptions(request: DeleteInstallCodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstallCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83153,11 +84227,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstallCodeResponse>(await this.callApi(params, req, runtime), new DeleteInstallCodeResponse({}));
   }
 
+  /**
+   * @summary Deletes the command that is used to install the Security Center agent.
+   *
+   * @param request DeleteInstallCodeRequest
+   * @return DeleteInstallCodeResponse
+   */
   async deleteInstallCode(request: DeleteInstallCodeRequest): Promise<DeleteInstallCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstallCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a defense rule in the container firewall module.
+   *
+   * @param request DeleteInterceptionRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInterceptionRuleResponse
+   */
   async deleteInterceptionRuleWithOptions(request: DeleteInterceptionRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInterceptionRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83186,11 +84273,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInterceptionRuleResponse>(await this.callApi(params, req, runtime), new DeleteInterceptionRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a defense rule in the container firewall module.
+   *
+   * @param request DeleteInterceptionRuleRequest
+   * @return DeleteInterceptionRuleResponse
+   */
   async deleteInterceptionRule(request: DeleteInterceptionRuleRequest): Promise<DeleteInterceptionRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInterceptionRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes the network objects that are in effect in the container firewall.
+   *
+   * @param request DeleteInterceptionTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInterceptionTargetResponse
+   */
   async deleteInterceptionTargetWithOptions(request: DeleteInterceptionTargetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInterceptionTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83215,11 +84315,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInterceptionTargetResponse>(await this.callApi(params, req, runtime), new DeleteInterceptionTargetResponse({}));
   }
 
+  /**
+   * @summary Removes the network objects that are in effect in the container firewall.
+   *
+   * @param request DeleteInterceptionTargetRequest
+   * @return DeleteInterceptionTargetResponse
+   */
   async deleteInterceptionTarget(request: DeleteInterceptionTargetRequest): Promise<DeleteInterceptionTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInterceptionTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the Kubernetes access information.
+   *
+   * @param request DeleteK8sAccessInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteK8sAccessInfoResponse
+   */
   async deleteK8sAccessInfoWithOptions(request: DeleteK8sAccessInfoRequest, runtime: $Util.RuntimeOptions): Promise<DeleteK8sAccessInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83256,11 +84369,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteK8sAccessInfoResponse>(await this.callApi(params, req, runtime), new DeleteK8sAccessInfoResponse({}));
   }
 
+  /**
+   * @summary Deletes the Kubernetes access information.
+   *
+   * @param request DeleteK8sAccessInfoRequest
+   * @return DeleteK8sAccessInfoResponse
+   */
   async deleteK8sAccessInfo(request: DeleteK8sAccessInfoRequest): Promise<DeleteK8sAccessInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteK8sAccessInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the basic configuration information from the logon security configurations for a specific asset.
+   *
+   * @param request DeleteLoginBaseConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLoginBaseConfigResponse
+   */
   async deleteLoginBaseConfigWithOptions(request: DeleteLoginBaseConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoginBaseConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83293,11 +84419,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLoginBaseConfigResponse>(await this.callApi(params, req, runtime), new DeleteLoginBaseConfigResponse({}));
   }
 
+  /**
+   * @summary Deletes the basic configuration information from the logon security configurations for a specific asset.
+   *
+   * @param request DeleteLoginBaseConfigRequest
+   * @return DeleteLoginBaseConfigResponse
+   */
   async deleteLoginBaseConfig(request: DeleteLoginBaseConfigRequest): Promise<DeleteLoginBaseConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLoginBaseConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a whitelist rule for alerts generated for sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request DeleteMaliciousFileWhitelistConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMaliciousFileWhitelistConfigResponse
+   */
   async deleteMaliciousFileWhitelistConfigWithOptions(request: DeleteMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaliciousFileWhitelistConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83322,11 +84461,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new DeleteMaliciousFileWhitelistConfigResponse({}));
   }
 
+  /**
+   * @summary Deletes a whitelist rule for alerts generated for sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request DeleteMaliciousFileWhitelistConfigRequest
+   * @return DeleteMaliciousFileWhitelistConfigResponse
+   */
   async deleteMaliciousFileWhitelistConfig(request: DeleteMaliciousFileWhitelistConfigRequest): Promise<DeleteMaliciousFileWhitelistConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes the remarks added to alert events that are generated by the agentless detection feature.
+   *
+   * @param request DeleteMaliciousNoteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMaliciousNoteResponse
+   */
   async deleteMaliciousNoteWithOptions(request: DeleteMaliciousNoteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaliciousNoteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83351,11 +84503,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMaliciousNoteResponse>(await this.callApi(params, req, runtime), new DeleteMaliciousNoteResponse({}));
   }
 
+  /**
+   * @summary Removes the remarks added to alert events that are generated by the agentless detection feature.
+   *
+   * @param request DeleteMaliciousNoteRequest
+   * @return DeleteMaliciousNoteResponse
+   */
   async deleteMaliciousNote(request: DeleteMaliciousNoteRequest): Promise<DeleteMaliciousNoteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMaliciousNoteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes rules of the at-risk image blocking type.
+   *
+   * @param request DeleteOpaStrategyNewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteOpaStrategyNewResponse
+   */
   async deleteOpaStrategyNewWithOptions(request: DeleteOpaStrategyNewRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOpaStrategyNewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83380,11 +84545,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOpaStrategyNewResponse>(await this.callApi(params, req, runtime), new DeleteOpaStrategyNewResponse({}));
   }
 
+  /**
+   * @summary Deletes rules of the at-risk image blocking type.
+   *
+   * @param request DeleteOpaStrategyNewRequest
+   * @return DeleteOpaStrategyNewResponse
+   */
   async deleteOpaStrategyNew(request: DeleteOpaStrategyNewRequest): Promise<DeleteOpaStrategyNewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOpaStrategyNewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete oss scan policy.
+   *
+   * @param request DeleteOssScanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteOssScanConfigResponse
+   */
   async deleteOssScanConfigWithOptions(request: DeleteOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOssScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83409,11 +84587,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOssScanConfigResponse>(await this.callApi(params, req, runtime), new DeleteOssScanConfigResponse({}));
   }
 
+  /**
+   * @summary Delete oss scan policy.
+   *
+   * @param request DeleteOssScanConfigRequest
+   * @return DeleteOssScanConfigResponse
+   */
   async deleteOssScanConfig(request: DeleteOssScanConfigRequest): Promise<DeleteOssScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOssScanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a private image repository by using the ID of the image repository.
+   *
+   * @param request DeletePrivateRegistryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrivateRegistryResponse
+   */
   async deletePrivateRegistryWithOptions(request: DeletePrivateRegistryRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateRegistryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83438,11 +84629,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrivateRegistryResponse>(await this.callApi(params, req, runtime), new DeletePrivateRegistryResponse({}));
   }
 
+  /**
+   * @summary Deletes a private image repository by using the ID of the image repository.
+   *
+   * @param request DeletePrivateRegistryRequest
+   * @return DeletePrivateRegistryResponse
+   */
   async deletePrivateRegistry(request: DeletePrivateRegistryRequest): Promise<DeletePrivateRegistryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrivateRegistryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a rule for container tamper-proofing.
+   *
+   * @param request DeleteSasContainerWebDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSasContainerWebDefenseRuleResponse
+   */
   async deleteSasContainerWebDefenseRuleWithOptions(request: DeleteSasContainerWebDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSasContainerWebDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83467,11 +84671,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSasContainerWebDefenseRuleResponse>(await this.callApi(params, req, runtime), new DeleteSasContainerWebDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes a rule for container tamper-proofing.
+   *
+   * @param request DeleteSasContainerWebDefenseRuleRequest
+   * @return DeleteSasContainerWebDefenseRuleResponse
+   */
   async deleteSasContainerWebDefenseRule(request: DeleteSasContainerWebDefenseRuleRequest): Promise<DeleteSasContainerWebDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSasContainerWebDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+   *
+   * @param request DeleteSecurityEventMarkMissListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSecurityEventMarkMissListResponse
+   */
   async deleteSecurityEventMarkMissListWithOptions(request: DeleteSecurityEventMarkMissListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityEventMarkMissListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83500,11 +84717,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSecurityEventMarkMissListResponse>(await this.callApi(params, req, runtime), new DeleteSecurityEventMarkMissListResponse({}));
   }
 
+  /**
+   * @summary Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+   *
+   * @param request DeleteSecurityEventMarkMissListRequest
+   * @return DeleteSecurityEventMarkMissListResponse
+   */
   async deleteSecurityEventMarkMissList(request: DeleteSecurityEventMarkMissListRequest): Promise<DeleteSecurityEventMarkMissListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecurityEventMarkMissListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a service trail.
+   *
+   * @param request DeleteServiceTrailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceTrailResponse
+   */
   async deleteServiceTrailWithOptions(request: DeleteServiceTrailRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceTrailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83529,11 +84759,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceTrailResponse>(await this.callApi(params, req, runtime), new DeleteServiceTrailResponse({}));
   }
 
+  /**
+   * @summary Deletes a service trail.
+   *
+   * @param request DeleteServiceTrailRequest
+   * @return DeleteServiceTrailResponse
+   */
   async deleteServiceTrail(request: DeleteServiceTrailRequest): Promise<DeleteServiceTrailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServiceTrailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a baseline check policy.
+   *
+   * @param request DeleteStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteStrategyResponse
+   */
   async deleteStrategyWithOptions(request: DeleteStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83566,11 +84809,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteStrategyResponse>(await this.callApi(params, req, runtime), new DeleteStrategyResponse({}));
   }
 
+  /**
+   * @summary Deletes a baseline check policy.
+   *
+   * @param request DeleteStrategyRequest
+   * @return DeleteStrategyResponse
+   */
   async deleteStrategy(request: DeleteStrategyRequest): Promise<DeleteStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the description of an alert.
+   *
+   * @param request DeleteSuspEventNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSuspEventNodeResponse
+   */
   async deleteSuspEventNodeWithOptions(request: DeleteSuspEventNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSuspEventNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83595,17 +84851,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSuspEventNodeResponse>(await this.callApi(params, req, runtime), new DeleteSuspEventNodeResponse({}));
   }
 
+  /**
+   * @summary Deletes the description of an alert.
+   *
+   * @param request DeleteSuspEventNodeRequest
+   * @return DeleteSuspEventNodeResponse
+   */
   async deleteSuspEventNode(request: DeleteSuspEventNodeRequest): Promise<DeleteSuspEventNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSuspEventNodeWithOptions(request, runtime);
   }
 
   /**
-    * Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
-    *
-    * @param request DeleteTagWithUuidRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTagWithUuidResponse
+   * @summary Removes custom tags from assets.
+   *
+   * @description Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
+   *
+   * @param request DeleteTagWithUuidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTagWithUuidResponse
    */
   async deleteTagWithUuidWithOptions(request: DeleteTagWithUuidRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagWithUuidResponse> {
     Util.validateModel(request);
@@ -83636,16 +84900,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
-    *
-    * @param request DeleteTagWithUuidRequest
-    * @return DeleteTagWithUuidResponse
+   * @summary Removes custom tags from assets.
+   *
+   * @description Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
+   *
+   * @param request DeleteTagWithUuidRequest
+   * @return DeleteTagWithUuidResponse
    */
   async deleteTagWithUuid(request: DeleteTagWithUuidRequest): Promise<DeleteTagWithUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTagWithUuidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes anti-ransomware policies that are created for databases.
+   *
+   * @param request DeleteUniBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUniBackupPolicyResponse
+   */
   async deleteUniBackupPolicyWithOptions(request: DeleteUniBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUniBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83674,11 +84947,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUniBackupPolicyResponse>(await this.callApi(params, req, runtime), new DeleteUniBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Deletes anti-ransomware policies that are created for databases.
+   *
+   * @param request DeleteUniBackupPolicyRequest
+   * @return DeleteUniBackupPolicyResponse
+   */
   async deleteUniBackupPolicy(request: DeleteUniBackupPolicyRequest): Promise<DeleteUniBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUniBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a honeypot.
+   *
+   * @param request DeleteVpcHoneyPotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVpcHoneyPotResponse
+   */
   async deleteVpcHoneyPotWithOptions(request: DeleteVpcHoneyPotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcHoneyPotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83703,11 +84989,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVpcHoneyPotResponse>(await this.callApi(params, req, runtime), new DeleteVpcHoneyPotResponse({}));
   }
 
+  /**
+   * @summary Deletes a honeypot.
+   *
+   * @param request DeleteVpcHoneyPotRequest
+   * @return DeleteVpcHoneyPotResponse
+   */
   async deleteVpcHoneyPot(request: DeleteVpcHoneyPotRequest): Promise<DeleteVpcHoneyPotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVpcHoneyPotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete a list of vulnerabilities that can be automatically fixed. After the list is deleted, you can not select the list when you create a vulnerability fixing task on the Playbook page.
+   *
+   * @param request DeleteVulAutoRepairConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVulAutoRepairConfigResponse
+   */
   async deleteVulAutoRepairConfigWithOptions(request: DeleteVulAutoRepairConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVulAutoRepairConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83740,11 +85039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVulAutoRepairConfigResponse>(await this.callApi(params, req, runtime), new DeleteVulAutoRepairConfigResponse({}));
   }
 
+  /**
+   * @summary Delete a list of vulnerabilities that can be automatically fixed. After the list is deleted, you can not select the list when you create a vulnerability fixing task on the Playbook page.
+   *
+   * @param request DeleteVulAutoRepairConfigRequest
+   * @return DeleteVulAutoRepairConfigResponse
+   */
   async deleteVulAutoRepairConfig(request: DeleteVulAutoRepairConfigRequest): Promise<DeleteVulAutoRepairConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVulAutoRepairConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified vulnerability whitelist.
+   *
+   * @param request DeleteVulWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVulWhitelistResponse
+   */
   async deleteVulWhitelistWithOptions(request: DeleteVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVulWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83773,11 +85085,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVulWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteVulWhitelistResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified vulnerability whitelist.
+   *
+   * @param request DeleteVulWhitelistRequest
+   * @return DeleteVulWhitelistResponse
+   */
   async deleteVulWhitelist(request: DeleteVulWhitelistRequest): Promise<DeleteVulWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVulWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of AccessKey pair leaks.
+   *
+   * @param request DescribeAccessKeyLeakDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessKeyLeakDetailResponse
+   */
   async describeAccessKeyLeakDetailWithOptions(request: DescribeAccessKeyLeakDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessKeyLeakDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83806,11 +85131,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessKeyLeakDetailResponse>(await this.callApi(params, req, runtime), new DescribeAccessKeyLeakDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of AccessKey pair leaks.
+   *
+   * @param request DescribeAccessKeyLeakDetailRequest
+   * @return DescribeAccessKeyLeakDetailResponse
+   */
   async describeAccessKeyLeakDetail(request: DescribeAccessKeyLeakDetailRequest): Promise<DescribeAccessKeyLeakDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessKeyLeakDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the AccessKey pair leaks that are detected on your assets.
+   *
+   * @param request DescribeAccesskeyLeakListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccesskeyLeakListResponse
+   */
   async describeAccesskeyLeakListWithOptions(request: DescribeAccesskeyLeakListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccesskeyLeakListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83855,11 +85193,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccesskeyLeakListResponse>(await this.callApi(params, req, runtime), new DescribeAccesskeyLeakListResponse({}));
   }
 
+  /**
+   * @summary Queries the AccessKey pair leaks that are detected on your assets.
+   *
+   * @param request DescribeAccesskeyLeakListRequest
+   * @return DescribeAccesskeyLeakListResponse
+   */
   async describeAccesskeyLeakList(request: DescribeAccesskeyLeakListRequest): Promise<DescribeAccesskeyLeakListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccesskeyLeakListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the affected servers in the result of a virus scan task.
+   *
+   * @param request DescribeAffectedAssetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAffectedAssetsResponse
+   */
   async describeAffectedAssetsWithOptions(request: DescribeAffectedAssetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAffectedAssetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -83892,11 +85243,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAffectedAssetsResponse>(await this.callApi(params, req, runtime), new DescribeAffectedAssetsResponse({}));
   }
 
+  /**
+   * @summary Queries the affected servers in the result of a virus scan task.
+   *
+   * @param request DescribeAffectedAssetsRequest
+   * @return DescribeAffectedAssetsResponse
+   */
   async describeAffectedAssets(request: DescribeAffectedAssetsRequest): Promise<DescribeAffectedAssetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAffectedAssetsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of malicious image samples.
+   *
+   * @param request DescribeAffectedMaliciousFileImagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAffectedMaliciousFileImagesResponse
+   */
   async describeAffectedMaliciousFileImagesWithOptions(request: DescribeAffectedMaliciousFileImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAffectedMaliciousFileImagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84001,11 +85365,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAffectedMaliciousFileImagesResponse>(await this.callApi(params, req, runtime), new DescribeAffectedMaliciousFileImagesResponse({}));
   }
 
+  /**
+   * @summary Queries the details of malicious image samples.
+   *
+   * @param request DescribeAffectedMaliciousFileImagesRequest
+   * @return DescribeAffectedMaliciousFileImagesResponse
+   */
   async describeAffectedMaliciousFileImages(request: DescribeAffectedMaliciousFileImagesRequest): Promise<DescribeAffectedMaliciousFileImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAffectedMaliciousFileImagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant.
+   *
+   * @param request DescribeAgentInstallStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAgentInstallStatusResponse
+   */
   async describeAgentInstallStatusWithOptions(request: DescribeAgentInstallStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAgentInstallStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84038,11 +85415,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAgentInstallStatusResponse>(await this.callApi(params, req, runtime), new DescribeAgentInstallStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the installation status of the Security Center agent after you run an installation command by using Cloud Assistant.
+   *
+   * @param request DescribeAgentInstallStatusRequest
+   * @return DescribeAgentInstallStatusResponse
+   */
   async describeAgentInstallStatus(request: DescribeAgentInstallStatusRequest): Promise<DescribeAgentInstallStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAgentInstallStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
+   *
+   * @param request DescribeAlarmEventDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAlarmEventDetailResponse
+   */
   async describeAlarmEventDetailWithOptions(request: DescribeAlarmEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlarmEventDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84079,11 +85469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAlarmEventDetailResponse>(await this.callApi(params, req, runtime), new DescribeAlarmEventDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an alert event. An alert event consists of alerts and exceptions. Each alert event is associated with multiple exceptions.
+   *
+   * @param request DescribeAlarmEventDetailRequest
+   * @return DescribeAlarmEventDetailResponse
+   */
   async describeAlarmEventDetail(request: DescribeAlarmEventDetailRequest): Promise<DescribeAlarmEventDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAlarmEventDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the stack information about an alert event.
+   *
+   * @param request DescribeAlarmEventStackInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAlarmEventStackInfoResponse
+   */
   async describeAlarmEventStackInfoWithOptions(request: DescribeAlarmEventStackInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlarmEventStackInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84128,11 +85531,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAlarmEventStackInfoResponse>(await this.callApi(params, req, runtime), new DescribeAlarmEventStackInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the stack information about an alert event.
+   *
+   * @param request DescribeAlarmEventStackInfoRequest
+   * @return DescribeAlarmEventStackInfoResponse
+   */
   async describeAlarmEventStackInfo(request: DescribeAlarmEventStackInfoRequest): Promise<DescribeAlarmEventStackInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAlarmEventStackInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about all server assets, including the asset group IDs and asset names.
+   *
+   * @param request DescribeAllEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAllEntityResponse
+   */
   async describeAllEntityWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAllEntityResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -84149,11 +85565,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAllEntityResponse>(await this.callApi(params, req, runtime), new DescribeAllEntityResponse({}));
   }
 
+  /**
+   * @summary Queries the information about all server assets, including the asset group IDs and asset names.
+   *
+   * @return DescribeAllEntityResponse
+   */
   async describeAllEntity(): Promise<DescribeAllEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAllEntityWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information about all server groups.
+   *
+   * @param request DescribeAllGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAllGroupsResponse
+   */
   async describeAllGroupsWithOptions(request: DescribeAllGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAllGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84178,11 +85606,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAllGroupsResponse>(await this.callApi(params, req, runtime), new DescribeAllGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about all server groups.
+   *
+   * @param request DescribeAllGroupsRequest
+   * @return DescribeAllGroupsResponse
+   */
   async describeAllGroups(request: DescribeAllGroupsRequest): Promise<DescribeAllGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAllGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries baselines that are used in image baseline checks.
+   *
+   * @param request DescribeAllImageBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAllImageBaselineResponse
+   */
   async describeAllImageBaselineWithOptions(request: DescribeAllImageBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAllImageBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84207,11 +85648,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAllImageBaselineResponse>(await this.callApi(params, req, runtime), new DescribeAllImageBaselineResponse({}));
   }
 
+  /**
+   * @summary Queries baselines that are used in image baseline checks.
+   *
+   * @param request DescribeAllImageBaselineRequest
+   * @return DescribeAllImageBaselineResponse
+   */
   async describeAllImageBaseline(request: DescribeAllImageBaselineRequest): Promise<DescribeAllImageBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAllImageBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries created defense rules against brute-force attacks.
+   *
+   * @param request DescribeAntiBruteForceRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAntiBruteForceRulesResponse
+   */
   async describeAntiBruteForceRulesWithOptions(request: DescribeAntiBruteForceRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntiBruteForceRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84256,11 +85710,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAntiBruteForceRulesResponse>(await this.callApi(params, req, runtime), new DescribeAntiBruteForceRulesResponse({}));
   }
 
+  /**
+   * @summary Queries created defense rules against brute-force attacks.
+   *
+   * @param request DescribeAntiBruteForceRulesRequest
+   * @return DescribeAntiBruteForceRulesResponse
+   */
   async describeAntiBruteForceRules(request: DescribeAntiBruteForceRulesRequest): Promise<DescribeAntiBruteForceRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAntiBruteForceRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the scan cycle for application vulnerabilities.
+   *
+   * @param request DescribeAppVulScanCycleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppVulScanCycleResponse
+   */
   async describeAppVulScanCycleWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAppVulScanCycleResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -84277,11 +85744,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAppVulScanCycleResponse>(await this.callApi(params, req, runtime), new DescribeAppVulScanCycleResponse({}));
   }
 
+  /**
+   * @summary Queries the scan cycle for application vulnerabilities.
+   *
+   * @return DescribeAppVulScanCycleResponse
+   */
   async describeAppVulScanCycle(): Promise<DescribeAppVulScanCycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppVulScanCycleWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+   *
+   * @param request DescribeAssetDetailByUuidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAssetDetailByUuidResponse
+   */
   async describeAssetDetailByUuidWithOptions(request: DescribeAssetDetailByUuidRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetDetailByUuidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84314,11 +85793,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAssetDetailByUuidResponse>(await this.callApi(params, req, runtime), new DescribeAssetDetailByUuidResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+   *
+   * @param request DescribeAssetDetailByUuidRequest
+   * @return DescribeAssetDetailByUuidResponse
+   */
   async describeAssetDetailByUuid(request: DescribeAssetDetailByUuidRequest): Promise<DescribeAssetDetailByUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetDetailByUuidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of Elastic Compute Service (ECS) instances.
+   *
+   * @param request DescribeAssetDetailByUuidsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAssetDetailByUuidsResponse
+   */
   async describeAssetDetailByUuidsWithOptions(request: DescribeAssetDetailByUuidsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetDetailByUuidsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84351,11 +85843,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAssetDetailByUuidsResponse>(await this.callApi(params, req, runtime), new DescribeAssetDetailByUuidsResponse({}));
   }
 
+  /**
+   * @summary Queries the details of Elastic Compute Service (ECS) instances.
+   *
+   * @param request DescribeAssetDetailByUuidsRequest
+   * @return DescribeAssetDetailByUuidsResponse
+   */
   async describeAssetDetailByUuids(request: DescribeAssetDetailByUuidsRequest): Promise<DescribeAssetDetailByUuidsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetDetailByUuidsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the request, which is used to locate and troubleshoot issues.
+   *
+   * @param request DescribeAssetSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAssetSummaryResponse
+   */
   async describeAssetSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAssetSummaryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -84372,11 +85877,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAssetSummaryResponse>(await this.callApi(params, req, runtime), new DescribeAssetSummaryResponse({}));
   }
 
+  /**
+   * @summary The ID of the request, which is used to locate and troubleshoot issues.
+   *
+   * @return DescribeAssetSummaryResponse
+   */
   async describeAssetSummary(): Promise<DescribeAssetSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetSummaryWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the risk information about containers.
+   *
+   * @param request DescribeAssetsSecurityEventSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAssetsSecurityEventSummaryResponse
+   */
   async describeAssetsSecurityEventSummaryWithOptions(request: DescribeAssetsSecurityEventSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetsSecurityEventSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84417,11 +85934,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAssetsSecurityEventSummaryResponse>(await this.callApi(params, req, runtime), new DescribeAssetsSecurityEventSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the risk information about containers.
+   *
+   * @param request DescribeAssetsSecurityEventSummaryRequest
+   * @return DescribeAssetsSecurityEventSummaryResponse
+   */
   async describeAssetsSecurityEventSummary(request: DescribeAssetsSecurityEventSummaryRequest): Promise<DescribeAssetsSecurityEventSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetsSecurityEventSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the results of automatically connecting applications on Elastic Compute Service (ECS) instances to the application protection feature after the Runtime Application Self-Protection (RASP) agent is installed on the ECS instances.
+   *
+   * @param request DescribeAttachRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAttachRecordsResponse
+   */
   async describeAttachRecordsWithOptions(request: DescribeAttachRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAttachRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84450,11 +85980,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAttachRecordsResponse>(await this.callApi(params, req, runtime), new DescribeAttachRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries the results of automatically connecting applications on Elastic Compute Service (ECS) instances to the application protection feature after the Runtime Application Self-Protection (RASP) agent is installed on the ECS instances.
+   *
+   * @param request DescribeAttachRecordsRequest
+   * @return DescribeAttachRecordsResponse
+   */
   async describeAttachRecords(request: DescribeAttachRecordsRequest): Promise<DescribeAttachRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAttachRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of attack analysis.
+   *
+   * @param request DescribeAttackAnalysisDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAttackAnalysisDataResponse
+   */
   async describeAttackAnalysisDataWithOptions(request: DescribeAttackAnalysisDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAttackAnalysisDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84507,11 +86050,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAttackAnalysisDataResponse>(await this.callApi(params, req, runtime), new DescribeAttackAnalysisDataResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of attack analysis.
+   *
+   * @param request DescribeAttackAnalysisDataRequest
+   * @return DescribeAttackAnalysisDataResponse
+   */
   async describeAttackAnalysisData(request: DescribeAttackAnalysisDataRequest): Promise<DescribeAttackAnalysisDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAttackAnalysisDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
+   *
+   * @param request DescribeAutoDelConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoDelConfigResponse
+   */
   async describeAutoDelConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAutoDelConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -84528,11 +86084,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAutoDelConfigResponse>(await this.callApi(params, req, runtime), new DescribeAutoDelConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
+   *
+   * @return DescribeAutoDelConfigResponse
+   */
   async describeAutoDelConfig(): Promise<DescribeAutoDelConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoDelConfigWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information about a file to which archived alert events are exported.
+   *
+   * @param request DescribeBackUpExportInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackUpExportInfoResponse
+   */
   async describeBackUpExportInfoWithOptions(request: DescribeBackUpExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackUpExportInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84569,17 +86137,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackUpExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeBackUpExportInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a file to which archived alert events are exported.
+   *
+   * @param request DescribeBackUpExportInfoRequest
+   * @return DescribeBackUpExportInfoResponse
+   */
   async describeBackUpExportInfo(request: DescribeBackUpExportInfoRequest): Promise<DescribeBackUpExportInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackUpExportInfoWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
-    *
-    * @param request DescribeBackupClientsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupClientsResponse
+   * @summary Queries the servers on which the anti-ransomware agent is installed in a specified region.
+   *
+   * @description You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
+   *
+   * @param request DescribeBackupClientsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupClientsResponse
    */
   async describeBackupClientsWithOptions(request: DescribeBackupClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupClientsResponse> {
     Util.validateModel(request);
@@ -84606,16 +86182,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
-    *
-    * @param request DescribeBackupClientsRequest
-    * @return DescribeBackupClientsResponse
+   * @summary Queries the servers on which the anti-ransomware agent is installed in a specified region.
+   *
+   * @description You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
+   *
+   * @param request DescribeBackupClientsRequest
+   * @return DescribeBackupClientsResponse
    */
   async describeBackupClients(request: DescribeBackupClientsRequest): Promise<DescribeBackupClientsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupClientsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries backup files.
+   *
+   * @param request DescribeBackupFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupFilesResponse
+   */
   async describeBackupFilesWithOptions(request: DescribeBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84656,11 +86241,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupFilesResponse>(await this.callApi(params, req, runtime), new DescribeBackupFilesResponse({}));
   }
 
+  /**
+   * @summary Queries backup files.
+   *
+   * @param request DescribeBackupFilesRequest
+   * @return DescribeBackupFilesResponse
+   */
   async describeBackupFiles(request: DescribeBackupFilesRequest): Promise<DescribeBackupFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backup status of a sever to which an anti-ransomware policy is applied.
+   *
+   * @param request DescribeBackupMachineStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupMachineStatusResponse
+   */
   async describeBackupMachineStatusWithOptions(request: DescribeBackupMachineStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupMachineStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84693,11 +86291,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupMachineStatusResponse>(await this.callApi(params, req, runtime), new DescribeBackupMachineStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the backup status of a sever to which an anti-ransomware policy is applied.
+   *
+   * @param request DescribeBackupMachineStatusRequest
+   * @return DescribeBackupMachineStatusResponse
+   */
   async describeBackupMachineStatus(request: DescribeBackupMachineStatusRequest): Promise<DescribeBackupMachineStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupMachineStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries anti-ransomware policies.
+   *
+   * @param request DescribeBackupPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPoliciesResponse
+   */
   async describeBackupPoliciesWithOptions(request: DescribeBackupPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84738,11 +86349,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPoliciesResponse>(await this.callApi(params, req, runtime), new DescribeBackupPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries anti-ransomware policies.
+   *
+   * @param request DescribeBackupPoliciesRequest
+   * @return DescribeBackupPoliciesResponse
+   */
   async describeBackupPolicies(request: DescribeBackupPoliciesRequest): Promise<DescribeBackupPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an anti-ransomware policy for servers.
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84767,17 +86391,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an anti-ransomware policy for servers.
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
   /**
-    * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
-    *
-    * @param request DescribeBackupRestoreCountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupRestoreCountResponse
+   * @summary Queries the statistics of restoration tasks.
+   *
+   * @description If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
+   *
+   * @param request DescribeBackupRestoreCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupRestoreCountResponse
    */
   async describeBackupRestoreCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeBackupRestoreCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -84796,15 +86428,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
-    *
-    * @return DescribeBackupRestoreCountResponse
+   * @summary Queries the statistics of restoration tasks.
+   *
+   * @description If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
+   *
+   * @return DescribeBackupRestoreCountResponse
    */
   async describeBackupRestoreCount(): Promise<DescribeBackupRestoreCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupRestoreCountWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the IP addresses that are blocked by a defense rule against brute-force attacks.
+   *
+   * @param request DescribeBruteForceRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBruteForceRecordsResponse
+   */
   async describeBruteForceRecordsWithOptions(request: DescribeBruteForceRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBruteForceRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84853,11 +86494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBruteForceRecordsResponse>(await this.callApi(params, req, runtime), new DescribeBruteForceRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries the IP addresses that are blocked by a defense rule against brute-force attacks.
+   *
+   * @param request DescribeBruteForceRecordsRequest
+   * @return DescribeBruteForceRecordsResponse
+   */
   async describeBruteForceRecords(request: DescribeBruteForceRecordsRequest): Promise<DescribeBruteForceRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBruteForceRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The source IP address of the request.
+   *
+   * @param request DescribeBruteForceSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBruteForceSummaryResponse
+   */
   async describeBruteForceSummaryWithOptions(request: DescribeBruteForceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBruteForceSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -84886,11 +86540,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBruteForceSummaryResponse>(await this.callApi(params, req, runtime), new DescribeBruteForceSummaryResponse({}));
   }
 
+  /**
+   * @summary The source IP address of the request.
+   *
+   * @param request DescribeBruteForceSummaryRequest
+   * @return DescribeBruteForceSummaryResponse
+   */
   async describeBruteForceSummary(request: DescribeBruteForceSummaryRequest): Promise<DescribeBruteForceSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBruteForceSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of fixable vulnerabilities.
+   *
+   * @param request DescribeCanFixVulListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCanFixVulListResponse
+   */
   async describeCanFixVulListWithOptions(request: DescribeCanFixVulListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCanFixVulListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85019,11 +86686,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCanFixVulListResponse>(await this.callApi(params, req, runtime), new DescribeCanFixVulListResponse({}));
   }
 
+  /**
+   * @summary Queries the list of fixable vulnerabilities.
+   *
+   * @param request DescribeCanFixVulListRequest
+   * @return DescribeCanFixVulListResponse
+   */
   async describeCanFixVulList(request: DescribeCanFixVulListRequest): Promise<DescribeCanFixVulListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCanFixVulListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询分类并附带每个分类的未处理异常数量
+   *
+   * @param request DescribeCheckEcsWarningsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCheckEcsWarningsResponse
+   */
   async describeCheckEcsWarningsWithOptions(request: DescribeCheckEcsWarningsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckEcsWarningsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85048,11 +86728,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCheckEcsWarningsResponse>(await this.callApi(params, req, runtime), new DescribeCheckEcsWarningsResponse({}));
   }
 
+  /**
+   * @summary 查询分类并附带每个分类的未处理异常数量
+   *
+   * @param request DescribeCheckEcsWarningsRequest
+   * @return DescribeCheckEcsWarningsResponse
+   */
   async describeCheckEcsWarnings(request: DescribeCheckEcsWarningsRequest): Promise<DescribeCheckEcsWarningsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCheckEcsWarningsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the parameters that you can configure to fix specified risk items.
+   *
+   * @param request DescribeCheckFixDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCheckFixDetailsResponse
+   */
   async describeCheckFixDetailsWithOptions(request: DescribeCheckFixDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckFixDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85085,11 +86778,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCheckFixDetailsResponse>(await this.callApi(params, req, runtime), new DescribeCheckFixDetailsResponse({}));
   }
 
+  /**
+   * @summary Queries the parameters that you can configure to fix specified risk items.
+   *
+   * @param request DescribeCheckFixDetailsRequest
+   * @return DescribeCheckFixDetailsResponse
+   */
   async describeCheckFixDetails(request: DescribeCheckFixDetailsRequest): Promise<DescribeCheckFixDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCheckFixDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a specified check item.
+   *
+   * @param request DescribeCheckWarningDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCheckWarningDetailResponse
+   */
   async describeCheckWarningDetailWithOptions(request: DescribeCheckWarningDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85134,11 +86840,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCheckWarningDetailResponse>(await this.callApi(params, req, runtime), new DescribeCheckWarningDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a specified check item.
+   *
+   * @param request DescribeCheckWarningDetailRequest
+   * @return DescribeCheckWarningDetailResponse
+   */
   async describeCheckWarningDetail(request: DescribeCheckWarningDetailRequest): Promise<DescribeCheckWarningDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCheckWarningDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the servers on which the same risk item is detected by specifying a baseline and a check item.
+   *
+   * @param request DescribeCheckWarningMachinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCheckWarningMachinesResponse
+   */
   async describeCheckWarningMachinesWithOptions(request: DescribeCheckWarningMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningMachinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85179,11 +86898,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCheckWarningMachinesResponse>(await this.callApi(params, req, runtime), new DescribeCheckWarningMachinesResponse({}));
   }
 
+  /**
+   * @summary Queries the servers on which the same risk item is detected by specifying a baseline and a check item.
+   *
+   * @param request DescribeCheckWarningMachinesRequest
+   * @return DescribeCheckWarningMachinesResponse
+   */
   async describeCheckWarningMachines(request: DescribeCheckWarningMachinesRequest): Promise<DescribeCheckWarningMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCheckWarningMachinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistical information about baseline check results. The information includes the number of servers on which a baseline check is performed, the number of baseline check items, and the pass rate of check items in the last baseline check.
+   *
+   * @param request DescribeCheckWarningSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCheckWarningSummaryResponse
+   */
   async describeCheckWarningSummaryWithOptions(request: DescribeCheckWarningSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85264,11 +86996,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCheckWarningSummaryResponse>(await this.callApi(params, req, runtime), new DescribeCheckWarningSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the statistical information about baseline check results. The information includes the number of servers on which a baseline check is performed, the number of baseline check items, and the pass rate of check items in the last baseline check.
+   *
+   * @param request DescribeCheckWarningSummaryRequest
+   * @return DescribeCheckWarningSummaryResponse
+   */
   async describeCheckWarningSummary(request: DescribeCheckWarningSummaryRequest): Promise<DescribeCheckWarningSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCheckWarningSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about specified risk items and the check items of a specified server.
+   *
+   * @param request DescribeCheckWarningsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCheckWarningsResponse
+   */
   async describeCheckWarningsWithOptions(request: DescribeCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85333,11 +87078,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCheckWarningsResponse>(await this.callApi(params, req, runtime), new DescribeCheckWarningsResponse({}));
   }
 
+  /**
+   * @summary Queries information about specified risk items and the check items of a specified server.
+   *
+   * @param request DescribeCheckWarningsRequest
+   * @return DescribeCheckWarningsResponse
+   */
   async describeCheckWarnings(request: DescribeCheckWarningsRequest): Promise<DescribeCheckWarningsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCheckWarningsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the Security Center agent.
+   *
+   * @param request DescribeClientConfSetupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClientConfSetupResponse
+   */
   async describeClientConfSetupWithOptions(request: DescribeClientConfSetupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientConfSetupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85366,11 +87124,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClientConfSetupResponse>(await this.callApi(params, req, runtime), new DescribeClientConfSetupResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the Security Center agent.
+   *
+   * @param request DescribeClientConfSetupRequest
+   * @return DescribeClientConfSetupResponse
+   */
   async describeClientConfSetup(request: DescribeClientConfSetupRequest): Promise<DescribeClientConfSetupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClientConfSetupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of servers to which different tags are added.
+   *
+   * @param request DescribeClientConfStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClientConfStrategyResponse
+   */
   async describeClientConfStrategyWithOptions(request: DescribeClientConfStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientConfStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85399,17 +87170,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClientConfStrategyResponse>(await this.callApi(params, req, runtime), new DescribeClientConfStrategyResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of servers to which different tags are added.
+   *
+   * @param request DescribeClientConfStrategyRequest
+   * @return DescribeClientConfStrategyResponse
+   */
   async describeClientConfStrategy(request: DescribeClientConfStrategyRequest): Promise<DescribeClientConfStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClientConfStrategyWithOptions(request, runtime);
   }
 
   /**
-    * You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
-    *
-    * @param request DescribeCloudCenterInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCloudCenterInstancesResponse
+   * @summary Queries the information about assets that meet specific search conditions. For example, you can search for assets by the instance name or region of the asset.
+   *
+   * @description You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+   *
+   * @param request DescribeCloudCenterInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudCenterInstancesResponse
    */
   async describeCloudCenterInstancesWithOptions(request: DescribeCloudCenterInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudCenterInstancesResponse> {
     Util.validateModel(request);
@@ -85480,10 +87259,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
-    *
-    * @param request DescribeCloudCenterInstancesRequest
-    * @return DescribeCloudCenterInstancesResponse
+   * @summary Queries the information about assets that meet specific search conditions. For example, you can search for assets by the instance name or region of the asset.
+   *
+   * @description You can search for an asset by using search conditions, such as the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can also configure a logical relationship between multiple search conditions to search for the assets that meet the search conditions.
+   *
+   * @param request DescribeCloudCenterInstancesRequest
+   * @return DescribeCloudCenterInstancesResponse
    */
   async describeCloudCenterInstances(request: DescribeCloudCenterInstancesRequest): Promise<DescribeCloudCenterInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -85491,11 +87272,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
-    *
-    * @param request DescribeCloudProductFieldStatisticsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCloudProductFieldStatisticsResponse
+   * @deprecated OpenAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
+   *
+   * @summary Queries the statistics of cloud services.
+   *
+   * @param request DescribeCloudProductFieldStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudProductFieldStatisticsResponse
    */
   // Deprecated
   async describeCloudProductFieldStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCloudProductFieldStatisticsResponse> {
@@ -85515,9 +87298,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
-    *
-    * @return DescribeCloudProductFieldStatisticsResponse
+   * @deprecated OpenAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
+   *
+   * @summary Queries the statistics of cloud services.
+   *
+   * @return DescribeCloudProductFieldStatisticsResponse
    */
   // Deprecated
   async describeCloudProductFieldStatistics(): Promise<DescribeCloudProductFieldStatisticsResponse> {
@@ -85525,6 +87310,13 @@ export default class Client extends OpenApi {
     return await this.describeCloudProductFieldStatisticsWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information about an cluster based on the cluster ID.
+   *
+   * @param request DescribeClusterBasicInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterBasicInfoResponse
+   */
   async describeClusterBasicInfoWithOptions(request: DescribeClusterBasicInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterBasicInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85557,11 +87349,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterBasicInfoResponse>(await this.callApi(params, req, runtime), new DescribeClusterBasicInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an cluster based on the cluster ID.
+   *
+   * @param request DescribeClusterBasicInfoRequest
+   * @return DescribeClusterBasicInfoResponse
+   */
   async describeClusterBasicInfo(request: DescribeClusterBasicInfoRequest): Promise<DescribeClusterBasicInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterBasicInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a cluster.
+   *
+   * @param request DescribeClusterInfoListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterInfoListResponse
+   */
   async describeClusterInfoListWithOptions(request: DescribeClusterInfoListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterInfoListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85594,11 +87399,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterInfoListResponse>(await this.callApi(params, req, runtime), new DescribeClusterInfoListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a cluster.
+   *
+   * @param request DescribeClusterInfoListRequest
+   * @return DescribeClusterInfoListResponse
+   */
   async describeClusterInfoList(request: DescribeClusterInfoListRequest): Promise<DescribeClusterInfoListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterInfoListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the network topology edge by cluster.
+   *
+   * @param request DescribeClusterNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterNetworkResponse
+   */
   async describeClusterNetworkWithOptions(request: DescribeClusterNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85627,11 +87445,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNetworkResponse>(await this.callApi(params, req, runtime), new DescribeClusterNetworkResponse({}));
   }
 
+  /**
+   * @summary Queries information about the network topology edge by cluster.
+   *
+   * @param request DescribeClusterNetworkRequest
+   * @return DescribeClusterNetworkResponse
+   */
   async describeClusterNetwork(request: DescribeClusterNetworkRequest): Promise<DescribeClusterNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of vulnerabilities that are detected on a cluster.
+   *
+   * @param request DescribeClusterVulStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterVulStatisticsResponse
+   */
   async describeClusterVulStatisticsWithOptions(request: DescribeClusterVulStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterVulStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85660,11 +87491,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterVulStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeClusterVulStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of vulnerabilities that are detected on a cluster.
+   *
+   * @param request DescribeClusterVulStatisticsRequest
+   * @return DescribeClusterVulStatisticsResponse
+   */
   async describeClusterVulStatistics(request: DescribeClusterVulStatisticsRequest): Promise<DescribeClusterVulStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterVulStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a specified feature.
+   *
+   * @param request DescribeCommonOverallConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCommonOverallConfigResponse
+   */
   async describeCommonOverallConfigWithOptions(request: DescribeCommonOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommonOverallConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85693,11 +87537,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommonOverallConfigResponse>(await this.callApi(params, req, runtime), new DescribeCommonOverallConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a specified feature.
+   *
+   * @param request DescribeCommonOverallConfigRequest
+   * @return DescribeCommonOverallConfigResponse
+   */
   async describeCommonOverallConfig(request: DescribeCommonOverallConfigRequest): Promise<DescribeCommonOverallConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommonOverallConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of features in proactive defense.
+   *
+   * @param request DescribeCommonOverallConfigListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCommonOverallConfigListResponse
+   */
   async describeCommonOverallConfigListWithOptions(request: DescribeCommonOverallConfigListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommonOverallConfigListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85726,11 +87583,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommonOverallConfigListResponse>(await this.callApi(params, req, runtime), new DescribeCommonOverallConfigListResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of features in proactive defense.
+   *
+   * @param request DescribeCommonOverallConfigListRequest
+   * @return DescribeCommonOverallConfigListResponse
+   */
   async describeCommonOverallConfigList(request: DescribeCommonOverallConfigListRequest): Promise<DescribeCommonOverallConfigListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommonOverallConfigListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the proactive defense feature.
+   *
+   * @param request DescribeCommonTargetConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCommonTargetConfigResponse
+   */
   async describeCommonTargetConfigWithOptions(request: DescribeCommonTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommonTargetConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85755,11 +87625,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommonTargetConfigResponse>(await this.callApi(params, req, runtime), new DescribeCommonTargetConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the proactive defense feature.
+   *
+   * @param request DescribeCommonTargetConfigRequest
+   * @return DescribeCommonTargetConfigResponse
+   */
   async describeCommonTargetConfig(request: DescribeCommonTargetConfigRequest): Promise<DescribeCommonTargetConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommonTargetConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the servers based on the specified configuration item.
+   *
+   * @param request DescribeCommonTargetResultListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCommonTargetResultListResponse
+   */
   async describeCommonTargetResultListWithOptions(request: DescribeCommonTargetResultListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommonTargetResultListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85788,11 +87671,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommonTargetResultListResponse>(await this.callApi(params, req, runtime), new DescribeCommonTargetResultListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the servers based on the specified configuration item.
+   *
+   * @param request DescribeCommonTargetResultListRequest
+   * @return DescribeCommonTargetResultListResponse
+   */
   async describeCommonTargetResultList(request: DescribeCommonTargetResultListRequest): Promise<DescribeCommonTargetResultListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommonTargetResultListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the priorities to fix vulnerabilities.
+   *
+   * @param request DescribeConcernNecessityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeConcernNecessityResponse
+   */
   async describeConcernNecessityWithOptions(request: DescribeConcernNecessityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConcernNecessityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85817,11 +87713,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConcernNecessityResponse>(await this.callApi(params, req, runtime), new DescribeConcernNecessityResponse({}));
   }
 
+  /**
+   * @summary Queries the priorities to fix vulnerabilities.
+   *
+   * @param request DescribeConcernNecessityRequest
+   * @return DescribeConcernNecessityResponse
+   */
   async describeConcernNecessity(request: DescribeConcernNecessityRequest): Promise<DescribeConcernNecessityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeConcernNecessityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a containerized application.
+   *
+   * @param request DescribeContainerAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerAppsResponse
+   */
   async describeContainerAppsWithOptions(request: DescribeContainerAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerAppsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85858,11 +87767,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerAppsResponse>(await this.callApi(params, req, runtime), new DescribeContainerAppsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a containerized application.
+   *
+   * @param request DescribeContainerAppsRequest
+   * @return DescribeContainerAppsResponse
+   */
   async describeContainerApps(request: DescribeContainerAppsRequest): Promise<DescribeContainerAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the filter conditions that you can use to filter the containers.
+   *
+   * @param request DescribeContainerCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerCriteriaResponse
+   */
   async describeContainerCriteriaWithOptions(request: DescribeContainerCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85891,11 +87813,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeContainerCriteriaResponse({}));
   }
 
+  /**
+   * @summary Obtains the filter conditions that you can use to filter the containers.
+   *
+   * @param request DescribeContainerCriteriaRequest
+   * @return DescribeContainerCriteriaResponse
+   */
   async describeContainerCriteria(request: DescribeContainerCriteriaRequest): Promise<DescribeContainerCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about containers.
+   *
+   * @param request DescribeContainerInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerInstancesResponse
+   */
   async describeContainerInstancesWithOptions(request: DescribeContainerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85932,11 +87867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerInstancesResponse>(await this.callApi(params, req, runtime), new DescribeContainerInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about containers.
+   *
+   * @param request DescribeContainerInstancesRequest
+   * @return DescribeContainerInstancesResponse
+   */
   async describeContainerInstances(request: DescribeContainerInstancesRequest): Promise<DescribeContainerInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the vulnerability scan of one or more running container applications.
+   *
+   * @param request DescribeContainerScanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerScanConfigResponse
+   */
   async describeContainerScanConfigWithOptions(request: DescribeContainerScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -85961,17 +87909,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerScanConfigResponse>(await this.callApi(params, req, runtime), new DescribeContainerScanConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the vulnerability scan of one or more running container applications.
+   *
+   * @param request DescribeContainerScanConfigRequest
+   * @return DescribeContainerScanConfigResponse
+   */
   async describeContainerScanConfig(request: DescribeContainerScanConfigRequest): Promise<DescribeContainerScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerScanConfigWithOptions(request, runtime);
   }
 
   /**
-    * Only users who created a Container Registry Enterprise Edition instance can call this operation.
-    *
-    * @param request DescribeContainerStatisticsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeContainerStatisticsResponse
+   * @summary Queries the alert statistics on container assets.
+   *
+   * @description Only users who created a Container Registry Enterprise Edition instance can call this operation.
+   *
+   * @param request DescribeContainerStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerStatisticsResponse
    */
   async describeContainerStatisticsWithOptions(request: DescribeContainerStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerStatisticsResponse> {
     Util.validateModel(request);
@@ -85998,16 +87954,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only users who created a Container Registry Enterprise Edition instance can call this operation.
-    *
-    * @param request DescribeContainerStatisticsRequest
-    * @return DescribeContainerStatisticsResponse
+   * @summary Queries the alert statistics on container assets.
+   *
+   * @description Only users who created a Container Registry Enterprise Edition instance can call this operation.
+   *
+   * @param request DescribeContainerStatisticsRequest
+   * @return DescribeContainerStatisticsResponse
    */
   async describeContainerStatistics(request: DescribeContainerStatisticsRequest): Promise<DescribeContainerStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of container assets by using an attribute.
+   *
+   * @param request DescribeContainerTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContainerTagsResponse
+   */
   async describeContainerTagsWithOptions(request: DescribeContainerTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86056,11 +88021,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContainerTagsResponse>(await this.callApi(params, req, runtime), new DescribeContainerTagsResponse({}));
   }
 
+  /**
+   * @summary Queries the details of container assets by using an attribute.
+   *
+   * @param request DescribeContainerTagsRequest
+   * @return DescribeContainerTagsResponse
+   */
   async describeContainerTags(request: DescribeContainerTagsRequest): Promise<DescribeContainerTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of images that are not scanned.
+   *
+   * @param request DescribeCountNotScannedImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCountNotScannedImageResponse
+   */
   async describeCountNotScannedImageWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCountNotScannedImageResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -86077,11 +88055,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCountNotScannedImageResponse>(await this.callApi(params, req, runtime), new DescribeCountNotScannedImageResponse({}));
   }
 
+  /**
+   * @summary Queries the number of images that are not scanned.
+   *
+   * @return DescribeCountNotScannedImageResponse
+   */
   async describeCountNotScannedImage(): Promise<DescribeCountNotScannedImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCountNotScannedImageWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the number of images that are scanned.
+   *
+   * @param request DescribeCountScannedImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCountScannedImageResponse
+   */
   async describeCountScannedImageWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCountScannedImageResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -86098,11 +88088,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCountScannedImageResponse>(await this.callApi(params, req, runtime), new DescribeCountScannedImageResponse({}));
   }
 
+  /**
+   * @summary Queries the number of images that are scanned.
+   *
+   * @return DescribeCountScannedImageResponse
+   */
   async describeCountScannedImage(): Promise<DescribeCountScannedImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCountScannedImageWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the filter conditions that are used to search for assets in fuzzy match mode.
+   *
+   * @param request DescribeCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCriteriaResponse
+   */
   async describeCriteriaWithOptions(request: DescribeCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86135,11 +88137,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeCriteriaResponse({}));
   }
 
+  /**
+   * @summary Queries the filter conditions that are used to search for assets in fuzzy match mode.
+   *
+   * @param request DescribeCriteriaRequest
+   * @return DescribeCriteriaResponse
+   */
   async describeCriteria(request: DescribeCriteriaRequest): Promise<DescribeCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of servers on which the custom defense rule against brute-force attacks takes effect.
+   *
+   * @param request DescribeCustomBlockInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomBlockInstancesResponse
+   */
   async describeCustomBlockInstancesWithOptions(request: DescribeCustomBlockInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomBlockInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86184,11 +88199,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomBlockInstancesResponse>(await this.callApi(params, req, runtime), new DescribeCustomBlockInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the list of servers on which the custom defense rule against brute-force attacks takes effect.
+   *
+   * @param request DescribeCustomBlockInstancesRequest
+   * @return DescribeCustomBlockInstancesResponse
+   */
   async describeCustomBlockInstances(request: DescribeCustomBlockInstancesRequest): Promise<DescribeCustomBlockInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomBlockInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the defense rules against brute-force attacks that are applied to one or more servers.
+   *
+   * @param request DescribeCustomBlockRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomBlockRecordsResponse
+   */
   async describeCustomBlockRecordsWithOptions(request: DescribeCustomBlockRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomBlockRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86229,11 +88257,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomBlockRecordsResponse>(await this.callApi(params, req, runtime), new DescribeCustomBlockRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries the defense rules against brute-force attacks that are applied to one or more servers.
+   *
+   * @param request DescribeCustomBlockRecordsRequest
+   * @return DescribeCustomBlockRecordsResponse
+   */
   async describeCustomBlockRecords(request: DescribeCustomBlockRecordsRequest): Promise<DescribeCustomBlockRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomBlockRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries periodic scan tasks. The tasks include image scan tasks, urgent vulnerability scan tasks, and virus scan tasks.
+   *
+   * @param request DescribeCycleTaskListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCycleTaskListResponse
+   */
   async describeCycleTaskListWithOptions(request: DescribeCycleTaskListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCycleTaskListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86270,11 +88311,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCycleTaskListResponse>(await this.callApi(params, req, runtime), new DescribeCycleTaskListResponse({}));
   }
 
+  /**
+   * @summary Queries periodic scan tasks. The tasks include image scan tasks, urgent vulnerability scan tasks, and virus scan tasks.
+   *
+   * @param request DescribeCycleTaskListRequest
+   * @return DescribeCycleTaskListResponse
+   */
   async describeCycleTaskList(request: DescribeCycleTaskListRequest): Promise<DescribeCycleTaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCycleTaskListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the default installation version of the proxy that is used in hybrid-cloud scenarios.
+   *
+   * @param request DescribeDefaultProxyInstallVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDefaultProxyInstallVersionResponse
+   */
   async describeDefaultProxyInstallVersionWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeDefaultProxyInstallVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -86291,11 +88345,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDefaultProxyInstallVersionResponse>(await this.callApi(params, req, runtime), new DescribeDefaultProxyInstallVersionResponse({}));
   }
 
+  /**
+   * @summary Queries the default installation version of the proxy that is used in hybrid-cloud scenarios.
+   *
+   * @return DescribeDefaultProxyInstallVersionResponse
+   */
   async describeDefaultProxyInstallVersion(): Promise<DescribeDefaultProxyInstallVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDefaultProxyInstallVersionWithOptions(runtime);
   }
 
+  /**
+   * @summary Obtains DingTalk notifications.
+   *
+   * @param request DescribeDingTalkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDingTalkResponse
+   */
   async describeDingTalkWithOptions(request: DescribeDingTalkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDingTalkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86328,11 +88394,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDingTalkResponse>(await this.callApi(params, req, runtime), new DescribeDingTalkResponse({}));
   }
 
+  /**
+   * @summary Obtains DingTalk notifications.
+   *
+   * @param request DescribeDingTalkRequest
+   * @return DescribeDingTalkResponse
+   */
   async describeDingTalk(request: DescribeDingTalkRequest): Promise<DescribeDingTalkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDingTalkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of domain assets within your Alibaba Cloud account.
+   *
+   * @param request DescribeDomainCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainCountResponse
+   */
   async describeDomainCountWithOptions(request: DescribeDomainCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86357,11 +88436,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainCountResponse>(await this.callApi(params, req, runtime), new DescribeDomainCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of domain assets within your Alibaba Cloud account.
+   *
+   * @param request DescribeDomainCountRequest
+   * @return DescribeDomainCountResponse
+   */
   async describeDomainCount(request: DescribeDomainCountRequest): Promise<DescribeDomainCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of domain assets within your Alibaba Cloud account.
+   *
+   * @param request DescribeDomainDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainDetailResponse
+   */
   async describeDomainDetailWithOptions(request: DescribeDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86390,11 +88482,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeDomainDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of domain assets within your Alibaba Cloud account.
+   *
+   * @param request DescribeDomainDetailRequest
+   * @return DescribeDomainDetailResponse
+   */
   async describeDomainDetail(request: DescribeDomainDetailRequest): Promise<DescribeDomainDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the domain assets within your Alibaba Cloud account.
+   *
+   * @param request DescribeDomainListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainListResponse
+   */
   async describeDomainListWithOptions(request: DescribeDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86435,11 +88540,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainListResponse>(await this.callApi(params, req, runtime), new DescribeDomainListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the domain assets within your Alibaba Cloud account.
+   *
+   * @param request DescribeDomainListRequest
+   * @return DescribeDomainListResponse
+   */
   async describeDomainList(request: DescribeDomainListRequest): Promise<DescribeDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether Security Center is authorized to scan for urgent vulnerabilities.
+   *
+   * @param request DescribeEmgUserAgreementRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEmgUserAgreementResponse
+   */
   async describeEmgUserAgreementWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeEmgUserAgreementResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -86456,11 +88574,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEmgUserAgreementResponse>(await this.callApi(params, req, runtime), new DescribeEmgUserAgreementResponse({}));
   }
 
+  /**
+   * @summary Queries whether Security Center is authorized to scan for urgent vulnerabilities.
+   *
+   * @return DescribeEmgUserAgreementResponse
+   */
   async describeEmgUserAgreement(): Promise<DescribeEmgUserAgreementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEmgUserAgreementWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the details of urgent vulnerabilities.
+   *
+   * @param request DescribeEmgVulItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEmgVulItemResponse
+   */
   async describeEmgVulItemWithOptions(request: DescribeEmgVulItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmgVulItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86509,11 +88639,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEmgVulItemResponse>(await this.callApi(params, req, runtime), new DescribeEmgVulItemResponse({}));
   }
 
+  /**
+   * @summary Queries the details of urgent vulnerabilities.
+   *
+   * @param request DescribeEmgVulItemRequest
+   * @return DescribeEmgVulItemResponse
+   */
   async describeEmgVulItem(request: DescribeEmgVulItemRequest): Promise<DescribeEmgVulItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEmgVulItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of alert events by risk level.
+   *
+   * @param request DescribeEventLevelCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEventLevelCountResponse
+   */
   async describeEventLevelCountWithOptions(request: DescribeEventLevelCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventLevelCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86558,11 +88701,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventLevelCountResponse>(await this.callApi(params, req, runtime), new DescribeEventLevelCountResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of alert events by risk level.
+   *
+   * @param request DescribeEventLevelCountRequest
+   * @return DescribeEventLevelCountResponse
+   */
   async describeEventLevelCount(request: DescribeEventLevelCountRequest): Promise<DescribeEventLevelCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventLevelCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the platforms that are supported by the feature of container threat detection.
+   *
+   * @param request DescribeEventOnStageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEventOnStageResponse
+   */
   async describeEventOnStageWithOptions(request: DescribeEventOnStageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventOnStageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86587,11 +88743,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventOnStageResponse>(await this.callApi(params, req, runtime), new DescribeEventOnStageResponse({}));
   }
 
+  /**
+   * @summary Queries the platforms that are supported by the feature of container threat detection.
+   *
+   * @param request DescribeEventOnStageRequest
+   * @return DescribeEventOnStageResponse
+   */
   async describeEventOnStage(request: DescribeEventOnStageRequest): Promise<DescribeEventOnStageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEventOnStageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the directories that are excluded from anti-ransomware.
+   *
+   * @param request DescribeExcludeSystemPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExcludeSystemPathResponse
+   */
   async describeExcludeSystemPathWithOptions(request: DescribeExcludeSystemPathRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExcludeSystemPathResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86620,11 +88789,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExcludeSystemPathResponse>(await this.callApi(params, req, runtime), new DescribeExcludeSystemPathResponse({}));
   }
 
+  /**
+   * @summary Queries the directories that are excluded from anti-ransomware.
+   *
+   * @param request DescribeExcludeSystemPathRequest
+   * @return DescribeExcludeSystemPathResponse
+   */
   async describeExcludeSystemPath(request: DescribeExcludeSystemPathRequest): Promise<DescribeExcludeSystemPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExcludeSystemPathWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the progress of a task that exports your assets to an Excel file.
+   *
+   * @param request DescribeExportInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExportInfoResponse
+   */
   async describeExportInfoWithOptions(request: DescribeExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExportInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86649,11 +88831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeExportInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the progress of a task that exports your assets to an Excel file.
+   *
+   * @param request DescribeExportInfoRequest
+   * @return DescribeExportInfoResponse
+   */
   async describeExportInfo(request: DescribeExportInfoRequest): Promise<DescribeExportInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExportInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the weak password-related risks of a specified server that is exposed on the Internet.
+   *
+   * @param request DescribeExposedCheckWarningRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExposedCheckWarningResponse
+   */
   async describeExposedCheckWarningWithOptions(request: DescribeExposedCheckWarningRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedCheckWarningResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86686,11 +88881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExposedCheckWarningResponse>(await this.callApi(params, req, runtime), new DescribeExposedCheckWarningResponse({}));
   }
 
+  /**
+   * @summary Queries the weak password-related risks of a specified server that is exposed on the Internet.
+   *
+   * @param request DescribeExposedCheckWarningRequest
+   * @return DescribeExposedCheckWarningResponse
+   */
   async describeExposedCheckWarning(request: DescribeExposedCheckWarningRequest): Promise<DescribeExposedCheckWarningResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExposedCheckWarningWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the search conditions that are used to search for exposed assets.
+   *
+   * @param request DescribeExposedInstanceCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExposedInstanceCriteriaResponse
+   */
   async describeExposedInstanceCriteriaWithOptions(request: DescribeExposedInstanceCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedInstanceCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86719,11 +88927,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExposedInstanceCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeExposedInstanceCriteriaResponse({}));
   }
 
+  /**
+   * @summary Queries the search conditions that are used to search for exposed assets.
+   *
+   * @param request DescribeExposedInstanceCriteriaRequest
+   * @return DescribeExposedInstanceCriteriaResponse
+   */
   async describeExposedInstanceCriteria(request: DescribeExposedInstanceCriteriaRequest): Promise<DescribeExposedInstanceCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExposedInstanceCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a specified server that is exposed on the Internet.
+   *
+   * @param request DescribeExposedInstanceDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExposedInstanceDetailResponse
+   */
   async describeExposedInstanceDetailWithOptions(request: DescribeExposedInstanceDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedInstanceDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86752,11 +88973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExposedInstanceDetailResponse>(await this.callApi(params, req, runtime), new DescribeExposedInstanceDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a specified server that is exposed on the Internet.
+   *
+   * @param request DescribeExposedInstanceDetailRequest
+   * @return DescribeExposedInstanceDetailResponse
+   */
   async describeExposedInstanceDetail(request: DescribeExposedInstanceDetailRequest): Promise<DescribeExposedInstanceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExposedInstanceDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the servers that are exposed on the Internet.
+   *
+   * @param request DescribeExposedInstanceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExposedInstanceListResponse
+   */
   async describeExposedInstanceListWithOptions(request: DescribeExposedInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedInstanceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86821,11 +89055,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExposedInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeExposedInstanceListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the servers that are exposed on the Internet.
+   *
+   * @param request DescribeExposedInstanceListRequest
+   * @return DescribeExposedInstanceListResponse
+   */
   async describeExposedInstanceList(request: DescribeExposedInstanceListRequest): Promise<DescribeExposedInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExposedInstanceListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the exposure statistics of the assets on the Internet.
+   *
+   * @param request DescribeExposedStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExposedStatisticsResponse
+   */
   async describeExposedStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeExposedStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -86842,11 +89089,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExposedStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeExposedStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the exposure statistics of the assets on the Internet.
+   *
+   * @return DescribeExposedStatisticsResponse
+   */
   async describeExposedStatistics(): Promise<DescribeExposedStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExposedStatisticsWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet.
+   *
+   * @param request DescribeExposedStatisticsDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExposedStatisticsDetailResponse
+   */
   async describeExposedStatisticsDetailWithOptions(request: DescribeExposedStatisticsDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedStatisticsDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86891,11 +89150,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExposedStatisticsDetailResponse>(await this.callApi(params, req, runtime), new DescribeExposedStatisticsDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet.
+   *
+   * @param request DescribeExposedStatisticsDetailRequest
+   * @return DescribeExposedStatisticsDetailResponse
+   */
   async describeExposedStatisticsDetail(request: DescribeExposedStatisticsDetailRequest): Promise<DescribeExposedStatisticsDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExposedStatisticsDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of servers.
+   *
+   * @param request DescribeFieldStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFieldStatisticsResponse
+   */
   async describeFieldStatisticsWithOptions(request: DescribeFieldStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFieldStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86928,11 +89200,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFieldStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeFieldStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of servers.
+   *
+   * @param request DescribeFieldStatisticsRequest
+   * @return DescribeFieldStatisticsResponse
+   */
   async describeFieldStatistics(request: DescribeFieldStatisticsRequest): Promise<DescribeFieldStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFieldStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看漏洞修复使用次数
+   *
+   * @param request DescribeFixUsedCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFixUsedCountResponse
+   */
   async describeFixUsedCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeFixUsedCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -86949,11 +89234,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFixUsedCountResponse>(await this.callApi(params, req, runtime), new DescribeFixUsedCountResponse({}));
   }
 
+  /**
+   * @summary 查看漏洞修复使用次数
+   *
+   * @return DescribeFixUsedCountResponse
+   */
   async describeFixUsedCount(): Promise<DescribeFixUsedCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFixUsedCountWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the pre-patches that are required to fix a specified Windows system vulnerability.
+   *
+   * @param request DescribeFrontVulPatchListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFrontVulPatchListResponse
+   */
   async describeFrontVulPatchListWithOptions(request: DescribeFrontVulPatchListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFrontVulPatchListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -86990,11 +89287,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFrontVulPatchListResponse>(await this.callApi(params, req, runtime), new DescribeFrontVulPatchListResponse({}));
   }
 
+  /**
+   * @summary Queries the pre-patches that are required to fix a specified Windows system vulnerability.
+   *
+   * @param request DescribeFrontVulPatchListRequest
+   * @return DescribeFrontVulPatchListResponse
+   */
   async describeFrontVulPatchList(request: DescribeFrontVulPatchListRequest): Promise<DescribeFrontVulPatchListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFrontVulPatchListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the structure of a group.
+   *
+   * @param request DescribeGroupStructRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupStructResponse
+   */
   async describeGroupStructWithOptions(request: DescribeGroupStructRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupStructResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87019,11 +89329,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupStructResponse>(await this.callApi(params, req, runtime), new DescribeGroupStructResponse({}));
   }
 
+  /**
+   * @summary Queries the structure of a group.
+   *
+   * @param request DescribeGroupStructRequest
+   * @return DescribeGroupStructResponse
+   */
   async describeGroupStruct(request: DescribeGroupStructRequest): Promise<DescribeGroupStructResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupStructWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries containers by group type.
+   *
+   * @param request DescribeGroupedContainerInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupedContainerInstancesResponse
+   */
   async describeGroupedContainerInstancesWithOptions(request: DescribeGroupedContainerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedContainerInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87068,11 +89391,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupedContainerInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGroupedContainerInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries containers by group type.
+   *
+   * @param request DescribeGroupedContainerInstancesRequest
+   * @return DescribeGroupedContainerInstancesResponse
+   */
   async describeGroupedContainerInstances(request: DescribeGroupedContainerInstancesRequest): Promise<DescribeGroupedContainerInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupedContainerInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistical information about assets based on a specified filter condition.
+   *
+   * @param request DescribeGroupedInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupedInstancesResponse
+   */
   async describeGroupedInstancesWithOptions(request: DescribeGroupedInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87133,11 +89469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupedInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGroupedInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the statistical information about assets based on a specified filter condition.
+   *
+   * @param request DescribeGroupedInstancesRequest
+   * @return DescribeGroupedInstancesResponse
+   */
   async describeGroupedInstances(request: DescribeGroupedInstancesRequest): Promise<DescribeGroupedInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupedInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of malicious image samples.
+   *
+   * @param request DescribeGroupedMaliciousFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupedMaliciousFilesResponse
+   */
   async describeGroupedMaliciousFilesWithOptions(request: DescribeGroupedMaliciousFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedMaliciousFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87222,11 +89571,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupedMaliciousFilesResponse>(await this.callApi(params, req, runtime), new DescribeGroupedMaliciousFilesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of malicious image samples.
+   *
+   * @param request DescribeGroupedMaliciousFilesRequest
+   * @return DescribeGroupedMaliciousFilesResponse
+   */
   async describeGroupedMaliciousFiles(request: DescribeGroupedMaliciousFilesRequest): Promise<DescribeGroupedMaliciousFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupedMaliciousFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of asset tags.
+   *
+   * @param request DescribeGroupedTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupedTagsResponse
+   */
   async describeGroupedTagsWithOptions(request: DescribeGroupedTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87251,11 +89613,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupedTagsResponse>(await this.callApi(params, req, runtime), new DescribeGroupedTagsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of asset tags.
+   *
+   * @param request DescribeGroupedTagsRequest
+   * @return DescribeGroupedTagsResponse
+   */
   async describeGroupedTags(request: DescribeGroupedTagsRequest): Promise<DescribeGroupedTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupedTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries vulnerabilities by group.
+   *
+   * @param request DescribeGroupedVulRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupedVulResponse
+   */
   async describeGroupedVulWithOptions(request: DescribeGroupedVulRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedVulResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87336,11 +89711,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupedVulResponse>(await this.callApi(params, req, runtime), new DescribeGroupedVulResponse({}));
   }
 
+  /**
+   * @summary Queries vulnerabilities by group.
+   *
+   * @param request DescribeGroupedVulRequest
+   * @return DescribeGroupedVulResponse
+   */
   async describeGroupedVul(request: DescribeGroupedVulRequest): Promise<DescribeGroupedVulResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupedVulWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about baseline export, including the name of the file to which baselines are exported and the download URL for the file.
+   *
+   * @param request DescribeHcExportInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHcExportInfoResponse
+   */
   async describeHcExportInfoWithOptions(request: DescribeHcExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHcExportInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87365,11 +89753,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHcExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeHcExportInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the information about baseline export, including the name of the file to which baselines are exported and the download URL for the file.
+   *
+   * @param request DescribeHcExportInfoRequest
+   * @return DescribeHcExportInfoResponse
+   */
   async describeHcExportInfo(request: DescribeHcExportInfoRequest): Promise<DescribeHcExportInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHcExportInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries statistics on the quota of honeypots.
+   *
+   * @param request DescribeHoneyPotAuthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHoneyPotAuthResponse
+   */
   async describeHoneyPotAuthWithOptions(request: DescribeHoneyPotAuthRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHoneyPotAuthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87394,11 +89795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHoneyPotAuthResponse>(await this.callApi(params, req, runtime), new DescribeHoneyPotAuthResponse({}));
   }
 
+  /**
+   * @summary Queries statistics on the quota of honeypots.
+   *
+   * @param request DescribeHoneyPotAuthRequest
+   * @return DescribeHoneyPotAuthResponse
+   */
   async describeHoneyPotAuth(request: DescribeHoneyPotAuthRequest): Promise<DescribeHoneyPotAuthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHoneyPotAuthWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the top five virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
+   *
+   * @param request DescribeHoneyPotSuspStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHoneyPotSuspStatisticsResponse
+   */
   async describeHoneyPotSuspStatisticsWithOptions(request: DescribeHoneyPotSuspStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHoneyPotSuspStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87435,11 +89849,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHoneyPotSuspStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeHoneyPotSuspStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the top five virtual private clouds (VPCs) or assets for which alerts are most frequently generated.
+   *
+   * @param request DescribeHoneyPotSuspStatisticsRequest
+   * @return DescribeHoneyPotSuspStatisticsResponse
+   */
   async describeHoneyPotSuspStatistics(request: DescribeHoneyPotSuspStatisticsRequest): Promise<DescribeHoneyPotSuspStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHoneyPotSuspStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries an image digest.
+   *
+   * @param request DescribeImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageResponse
+   */
   async describeImageWithOptions(request: DescribeImageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87476,11 +89903,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageResponse>(await this.callApi(params, req, runtime), new DescribeImageResponse({}));
   }
 
+  /**
+   * @summary Queries an image digest.
+   *
+   * @param request DescribeImageRequest
+   * @return DescribeImageResponse
+   */
   async describeImage(request: DescribeImageRequest): Promise<DescribeImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the security scan results of images.
+   *
+   * @param request DescribeImageBaselineCheckResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageBaselineCheckResultResponse
+   */
   async describeImageBaselineCheckResultWithOptions(request: DescribeImageBaselineCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageBaselineCheckResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87533,11 +89973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageBaselineCheckResultResponse>(await this.callApi(params, req, runtime), new DescribeImageBaselineCheckResultResponse({}));
   }
 
+  /**
+   * @summary Queries the security scan results of images.
+   *
+   * @param request DescribeImageBaselineCheckResultRequest
+   * @return DescribeImageBaselineCheckResultResponse
+   */
   async describeImageBaselineCheckResult(request: DescribeImageBaselineCheckResultRequest): Promise<DescribeImageBaselineCheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageBaselineCheckResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the check results of image baselines that are included in an image scan task.
+   *
+   * @param request DescribeImageBaselineCheckSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageBaselineCheckSummaryResponse
+   */
   async describeImageBaselineCheckSummaryWithOptions(request: DescribeImageBaselineCheckSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageBaselineCheckSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87590,11 +90043,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageBaselineCheckSummaryResponse>(await this.callApi(params, req, runtime), new DescribeImageBaselineCheckSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the check results of image baselines that are included in an image scan task.
+   *
+   * @param request DescribeImageBaselineCheckSummaryRequest
+   * @return DescribeImageBaselineCheckSummaryResponse
+   */
   async describeImageBaselineCheckSummary(request: DescribeImageBaselineCheckSummaryRequest): Promise<DescribeImageBaselineCheckSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageBaselineCheckSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about the baseline check result for an image.
+   *
+   * @param request DescribeImageBaselineDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageBaselineDetailResponse
+   */
   async describeImageBaselineDetailWithOptions(request: DescribeImageBaselineDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageBaselineDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87627,11 +90093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageBaselineDetailResponse>(await this.callApi(params, req, runtime), new DescribeImageBaselineDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details about the baseline check result for an image.
+   *
+   * @param request DescribeImageBaselineDetailRequest
+   * @return DescribeImageBaselineDetailResponse
+   */
   async describeImageBaselineDetail(request: DescribeImageBaselineDetailRequest): Promise<DescribeImageBaselineDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageBaselineDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries baseline check results based on images.
+   *
+   * @param request DescribeImageBaselineItemListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageBaselineItemListResponse
+   */
   async describeImageBaselineItemListWithOptions(request: DescribeImageBaselineItemListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageBaselineItemListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87688,11 +90167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageBaselineItemListResponse>(await this.callApi(params, req, runtime), new DescribeImageBaselineItemListResponse({}));
   }
 
+  /**
+   * @summary Queries baseline check results based on images.
+   *
+   * @param request DescribeImageBaselineItemListRequest
+   * @return DescribeImageBaselineItemListResponse
+   */
   async describeImageBaselineItemList(request: DescribeImageBaselineItemListRequest): Promise<DescribeImageBaselineItemListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageBaselineItemListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a baseline check policy for images.
+   *
+   * @param request DescribeImageBaselineStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageBaselineStrategyResponse
+   */
   async describeImageBaselineStrategyWithOptions(request: DescribeImageBaselineStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageBaselineStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87725,11 +90217,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageBaselineStrategyResponse>(await this.callApi(params, req, runtime), new DescribeImageBaselineStrategyResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a baseline check policy for images.
+   *
+   * @param request DescribeImageBaselineStrategyRequest
+   * @return DescribeImageBaselineStrategyResponse
+   */
   async describeImageBaselineStrategy(request: DescribeImageBaselineStrategyRequest): Promise<DescribeImageBaselineStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageBaselineStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the search conditions that are used to query images.
+   *
+   * @param request DescribeImageCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageCriteriaResponse
+   */
   async describeImageCriteriaWithOptions(request: DescribeImageCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87754,11 +90259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeImageCriteriaResponse({}));
   }
 
+  /**
+   * @summary Queries the search conditions that are used to query images.
+   *
+   * @param request DescribeImageCriteriaRequest
+   * @return DescribeImageCriteriaResponse
+   */
   async describeImageCriteria(request: DescribeImageCriteriaRequest): Promise<DescribeImageCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the conditions for handling alert events in an image.
+   *
+   * @param request DescribeImageEventOperationConditionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageEventOperationConditionResponse
+   */
   async describeImageEventOperationConditionWithOptions(request: DescribeImageEventOperationConditionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageEventOperationConditionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87787,11 +90305,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageEventOperationConditionResponse>(await this.callApi(params, req, runtime), new DescribeImageEventOperationConditionResponse({}));
   }
 
+  /**
+   * @summary Queries the conditions for handling alert events in an image.
+   *
+   * @param request DescribeImageEventOperationConditionRequest
+   * @return DescribeImageEventOperationConditionResponse
+   */
   async describeImageEventOperationCondition(request: DescribeImageEventOperationConditionRequest): Promise<DescribeImageEventOperationConditionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageEventOperationConditionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries alert handling rules by page.
+   *
+   * @param request DescribeImageEventOperationPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageEventOperationPageResponse
+   */
   async describeImageEventOperationPageWithOptions(request: DescribeImageEventOperationPageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageEventOperationPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87840,11 +90371,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageEventOperationPageResponse>(await this.callApi(params, req, runtime), new DescribeImageEventOperationPageResponse({}));
   }
 
+  /**
+   * @summary Queries alert handling rules by page.
+   *
+   * @param request DescribeImageEventOperationPageRequest
+   * @return DescribeImageEventOperationPageResponse
+   */
   async describeImageEventOperationPage(request: DescribeImageEventOperationPageRequest): Promise<DescribeImageEventOperationPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageEventOperationPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the scheduled fix of image risks.
+   *
+   * @param request DescribeImageFixCycleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageFixCycleConfigResponse
+   */
   async describeImageFixCycleConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageFixCycleConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -87861,11 +90405,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageFixCycleConfigResponse>(await this.callApi(params, req, runtime), new DescribeImageFixCycleConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the scheduled fix of image risks.
+   *
+   * @return DescribeImageFixCycleConfigResponse
+   */
   async describeImageFixCycleConfig(): Promise<DescribeImageFixCycleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageFixCycleConfigWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the tasks that you create to fix image risks.
+   *
+   * @param request DescribeImageFixTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageFixTaskResponse
+   */
   async describeImageFixTaskWithOptions(request: DescribeImageFixTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageFixTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -87906,11 +90462,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageFixTaskResponse>(await this.callApi(params, req, runtime), new DescribeImageFixTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the tasks that you create to fix image risks.
+   *
+   * @param request DescribeImageFixTaskRequest
+   * @return DescribeImageFixTaskResponse
+   */
   async describeImageFixTask(request: DescribeImageFixTaskRequest): Promise<DescribeImageFixTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageFixTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries image vulnerabilities.
+   *
+   * @param request DescribeImageGroupedVulListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageGroupedVulListResponse
+   */
   async describeImageGroupedVulListWithOptions(request: DescribeImageGroupedVulListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageGroupedVulListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88019,11 +90588,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageGroupedVulListResponse>(await this.callApi(params, req, runtime), new DescribeImageGroupedVulListResponse({}));
   }
 
+  /**
+   * @summary Queries image vulnerabilities.
+   *
+   * @param request DescribeImageGroupedVulListRequest
+   * @return DescribeImageGroupedVulListResponse
+   */
   async describeImageGroupedVulList(request: DescribeImageGroupedVulListRequest): Promise<DescribeImageGroupedVulListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageGroupedVulListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries images.
+   *
+   * @param request DescribeImageInfoListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageInfoListResponse
+   */
   async describeImageInfoListWithOptions(request: DescribeImageInfoListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageInfoListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88048,11 +90630,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageInfoListResponse>(await this.callApi(params, req, runtime), new DescribeImageInfoListResponse({}));
   }
 
+  /**
+   * @summary Queries images.
+   *
+   * @param request DescribeImageInfoListRequest
+   * @return DescribeImageInfoListResponse
+   */
   async describeImageInfoList(request: DescribeImageInfoListRequest): Promise<DescribeImageInfoListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageInfoListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about images.
+   *
+   * @param request DescribeImageInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageInstancesResponse
+   */
   async describeImageInstancesWithOptions(request: DescribeImageInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88093,11 +90688,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageInstancesResponse>(await this.callApi(params, req, runtime), new DescribeImageInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries information about images.
+   *
+   * @param request DescribeImageInstancesRequest
+   * @return DescribeImageInstancesResponse
+   */
   async describeImageInstances(request: DescribeImageInstancesRequest): Promise<DescribeImageInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the most recent scan task that is created for an image.
+   *
+   * @param request DescribeImageLatestScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageLatestScanTaskResponse
+   */
   async describeImageLatestScanTaskWithOptions(request: DescribeImageLatestScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageLatestScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88122,11 +90730,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageLatestScanTaskResponse>(await this.callApi(params, req, runtime), new DescribeImageLatestScanTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the most recent scan task that is created for an image.
+   *
+   * @param request DescribeImageLatestScanTaskRequest
+   * @return DescribeImageLatestScanTaskResponse
+   */
   async describeImageLatestScanTask(request: DescribeImageLatestScanTaskRequest): Promise<DescribeImageLatestScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageLatestScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about images that are affected by sensitive files.
+   *
+   * @param tmpReq DescribeImageListBySensitiveFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageListBySensitiveFileResponse
+   */
   async describeImageListBySensitiveFileWithOptions(tmpReq: DescribeImageListBySensitiveFileRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageListBySensitiveFileResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeImageListBySensitiveFileShrinkRequest({ });
@@ -88197,11 +90818,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageListBySensitiveFileResponse>(await this.callApi(params, req, runtime), new DescribeImageListBySensitiveFileResponse({}));
   }
 
+  /**
+   * @summary Queries information about images that are affected by sensitive files.
+   *
+   * @param request DescribeImageListBySensitiveFileRequest
+   * @return DescribeImageListBySensitiveFileResponse
+   */
   async describeImageListBySensitiveFile(request: DescribeImageListBySensitiveFileRequest): Promise<DescribeImageListBySensitiveFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageListBySensitiveFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about images in the results of image baseline checks.
+   *
+   * @param request DescribeImageListWithBaselineNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageListWithBaselineNameResponse
+   */
   async describeImageListWithBaselineNameWithOptions(request: DescribeImageListWithBaselineNameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageListWithBaselineNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88290,11 +90924,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageListWithBaselineNameResponse>(await this.callApi(params, req, runtime), new DescribeImageListWithBaselineNameResponse({}));
   }
 
+  /**
+   * @summary Queries the details about images in the results of image baseline checks.
+   *
+   * @param request DescribeImageListWithBaselineNameRequest
+   * @return DescribeImageListWithBaselineNameResponse
+   */
   async describeImageListWithBaselineName(request: DescribeImageListWithBaselineNameRequest): Promise<DescribeImageListWithBaselineNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageListWithBaselineNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the filter conditions that are supported by the image repository.
+   *
+   * @param request DescribeImageRepoCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageRepoCriteriaResponse
+   */
   async describeImageRepoCriteriaWithOptions(request: DescribeImageRepoCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageRepoCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88319,11 +90966,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageRepoCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeImageRepoCriteriaResponse({}));
   }
 
+  /**
+   * @summary Obtains the filter conditions that are supported by the image repository.
+   *
+   * @param request DescribeImageRepoCriteriaRequest
+   * @return DescribeImageRepoCriteriaResponse
+   */
   async describeImageRepoCriteria(request: DescribeImageRepoCriteriaRequest): Promise<DescribeImageRepoCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageRepoCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about image repositories.
+   *
+   * @param request DescribeImageRepoDetailListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageRepoDetailListResponse
+   */
   async describeImageRepoDetailListWithOptions(request: DescribeImageRepoDetailListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageRepoDetailListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88360,11 +91020,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageRepoDetailListResponse>(await this.callApi(params, req, runtime), new DescribeImageRepoDetailListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about image repositories.
+   *
+   * @param request DescribeImageRepoDetailListRequest
+   * @return DescribeImageRepoDetailListResponse
+   */
   async describeImageRepoDetailList(request: DescribeImageRepoDetailListRequest): Promise<DescribeImageRepoDetailListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageRepoDetailListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics and configurations of the feature that protects images.
+   *
+   * @param request DescribeImageRepoListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageRepoListResponse
+   */
   async describeImageRepoListWithOptions(request: DescribeImageRepoListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageRepoListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88421,11 +91094,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageRepoListResponse>(await this.callApi(params, req, runtime), new DescribeImageRepoListResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics and configurations of the feature that protects images.
+   *
+   * @param request DescribeImageRepoListRequest
+   * @return DescribeImageRepoListResponse
+   */
   async describeImageRepoList(request: DescribeImageRepoListRequest): Promise<DescribeImageRepoListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageRepoListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The quota for container image scan.
+   *
+   * @param request DescribeImageScanAuthCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageScanAuthCountResponse
+   */
   async describeImageScanAuthCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageScanAuthCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -88442,11 +91128,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageScanAuthCountResponse>(await this.callApi(params, req, runtime), new DescribeImageScanAuthCountResponse({}));
   }
 
+  /**
+   * @summary The quota for container image scan.
+   *
+   * @return DescribeImageScanAuthCountResponse
+   */
   async describeImageScanAuthCount(): Promise<DescribeImageScanAuthCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageScanAuthCountWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries whether Security Center is authorized to scan images.
+   *
+   * @param request DescribeImageScanAuthorizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageScanAuthorizationResponse
+   */
   async describeImageScanAuthorizationWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageScanAuthorizationResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -88463,11 +91161,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageScanAuthorizationResponse>(await this.callApi(params, req, runtime), new DescribeImageScanAuthorizationResponse({}));
   }
 
+  /**
+   * @summary Queries whether Security Center is authorized to scan images.
+   *
+   * @return DescribeImageScanAuthorizationResponse
+   */
   async describeImageScanAuthorization(): Promise<DescribeImageScanAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageScanAuthorizationWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the sensitive files in an image.
+   *
+   * @param tmpReq DescribeImageSensitiveFileByKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageSensitiveFileByKeyResponse
+   */
   async describeImageSensitiveFileByKeyWithOptions(tmpReq: DescribeImageSensitiveFileByKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageSensitiveFileByKeyResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeImageSensitiveFileByKeyShrinkRequest({ });
@@ -88518,11 +91228,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageSensitiveFileByKeyResponse>(await this.callApi(params, req, runtime), new DescribeImageSensitiveFileByKeyResponse({}));
   }
 
+  /**
+   * @summary Queries the sensitive files in an image.
+   *
+   * @param request DescribeImageSensitiveFileByKeyRequest
+   * @return DescribeImageSensitiveFileByKeyResponse
+   */
   async describeImageSensitiveFileByKey(request: DescribeImageSensitiveFileByKeyRequest): Promise<DescribeImageSensitiveFileByKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageSensitiveFileByKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about sensitive files.
+   *
+   * @param tmpReq DescribeImageSensitiveFileListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageSensitiveFileListResponse
+   */
   async describeImageSensitiveFileListWithOptions(tmpReq: DescribeImageSensitiveFileListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageSensitiveFileListResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeImageSensitiveFileListShrinkRequest({ });
@@ -88581,18 +91304,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageSensitiveFileListResponse>(await this.callApi(params, req, runtime), new DescribeImageSensitiveFileListResponse({}));
   }
 
+  /**
+   * @summary Queries information about sensitive files.
+   *
+   * @param request DescribeImageSensitiveFileListRequest
+   * @return DescribeImageSensitiveFileListResponse
+   */
   async describeImageSensitiveFileList(request: DescribeImageSensitiveFileListRequest): Promise<DescribeImageSensitiveFileListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageSensitiveFileListWithOptions(request, runtime);
   }
 
   /**
-    * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
-    * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
-    *
-    * @param request DescribeImageStatisticsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeImageStatisticsResponse
+   * @summary Queries the risk statistics on container images.
+   *
+   * @description Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
+   * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
+   *
+   * @param request DescribeImageStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageStatisticsResponse
    */
   async describeImageStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -88611,10 +91342,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
-    * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
-    *
-    * @return DescribeImageStatisticsResponse
+   * @summary Queries the risk statistics on container images.
+   *
+   * @description Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
+   * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
+   *
+   * @return DescribeImageStatisticsResponse
    */
   async describeImageStatistics(): Promise<DescribeImageStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -88622,11 +91355,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
-    *
-    * @param request DescribeImageVulListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeImageVulListResponse
+   * @summary Queries information about the vulnerabilities that are detected by using container image scan and the affected images.
+   *
+   * @description To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
+   *
+   * @param request DescribeImageVulListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageVulListResponse
    */
   async describeImageVulListWithOptions(request: DescribeImageVulListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageVulListResponse> {
     Util.validateModel(request);
@@ -88761,16 +91496,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
-    *
-    * @param request DescribeImageVulListRequest
-    * @return DescribeImageVulListResponse
+   * @summary Queries information about the vulnerabilities that are detected by using container image scan and the affected images.
+   *
+   * @description To query the information about the recently detected image vulnerabilities, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation. Wait 1 to 5 minutes until the call is successful and call the DescribeImageVulList operation.
+   *
+   * @param request DescribeImageVulListRequest
+   * @return DescribeImageVulListResponse
    */
   async describeImageVulList(request: DescribeImageVulListRequest): Promise<DescribeImageVulListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageVulListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the whitelist of image vulnerabilities.
+   *
+   * @param request DescribeImageVulWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageVulWhiteListResponse
+   */
   async describeImageVulWhiteListWithOptions(request: DescribeImageVulWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageVulWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88811,11 +91555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageVulWhiteListResponse>(await this.callApi(params, req, runtime), new DescribeImageVulWhiteListResponse({}));
   }
 
+  /**
+   * @summary Queries the whitelist of image vulnerabilities.
+   *
+   * @param request DescribeImageVulWhiteListRequest
+   * @return DescribeImageVulWhiteListResponse
+   */
   async describeImageVulWhiteList(request: DescribeImageVulWhiteListRequest): Promise<DescribeImageVulWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageVulWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the verification codes that are used to manually install the Security Center agent.
+   *
+   * @param request DescribeInstallCaptchaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstallCaptchaResponse
+   */
   async describeInstallCaptchaWithOptions(request: DescribeInstallCaptchaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstallCaptchaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88848,11 +91605,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstallCaptchaResponse>(await this.callApi(params, req, runtime), new DescribeInstallCaptchaResponse({}));
   }
 
+  /**
+   * @summary Queries the verification codes that are used to manually install the Security Center agent.
+   *
+   * @param request DescribeInstallCaptchaRequest
+   * @return DescribeInstallCaptchaResponse
+   */
   async describeInstallCaptcha(request: DescribeInstallCaptchaRequest): Promise<DescribeInstallCaptchaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstallCaptchaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the installation verification code that is used to run the installation command of the Security Center agent.
+   *
+   * @param request DescribeInstallCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstallCodeResponse
+   */
   async describeInstallCodeWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeInstallCodeResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -88869,19 +91639,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstallCodeResponse>(await this.callApi(params, req, runtime), new DescribeInstallCodeResponse({}));
   }
 
+  /**
+   * @summary Queries the installation verification code that is used to run the installation command of the Security Center agent.
+   *
+   * @return DescribeInstallCodeResponse
+   */
   async describeInstallCode(): Promise<DescribeInstallCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstallCodeWithOptions(runtime);
   }
 
   /**
-    * You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-    * ### QPS limit
-    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    *
-    * @param request DescribeInstallCodesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstallCodesResponse
+   * @summary Queries the commands that are used to manually install the Security Center Agent.
+   *
+   * @description You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+   * ### QPS limit
+   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   *
+   * @param request DescribeInstallCodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstallCodesResponse
    */
   async describeInstallCodesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeInstallCodesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -88900,17 +91677,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
-    * ### QPS limit
-    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    *
-    * @return DescribeInstallCodesResponse
+   * @summary Queries the commands that are used to manually install the Security Center Agent.
+   *
+   * @description You can call this operation to query the commands that are used to manually install the Security Center agent on the server. The return result contains the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+   * ### QPS limit
+   * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   *
+   * @return DescribeInstallCodesResponse
    */
   async describeInstallCodes(): Promise<DescribeInstallCodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstallCodesWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information about servers to which a defense rule against brute-force attacks is applied.
+   *
+   * @param request DescribeInstanceAntiBruteForceRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceAntiBruteForceRulesResponse
+   */
   async describeInstanceAntiBruteForceRulesWithOptions(request: DescribeInstanceAntiBruteForceRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAntiBruteForceRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88951,11 +91737,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAntiBruteForceRulesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAntiBruteForceRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about servers to which a defense rule against brute-force attacks is applied.
+   *
+   * @param request DescribeInstanceAntiBruteForceRulesRequest
+   * @return DescribeInstanceAntiBruteForceRulesResponse
+   */
   async describeInstanceAntiBruteForceRules(request: DescribeInstanceAntiBruteForceRulesRequest): Promise<DescribeInstanceAntiBruteForceRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAntiBruteForceRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of the instance that you restart.
+   *
+   * @param request DescribeInstanceRebootStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceRebootStatusResponse
+   */
   async describeInstanceRebootStatusWithOptions(request: DescribeInstanceRebootStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceRebootStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -88980,11 +91779,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceRebootStatusResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRebootStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of the instance that you restart.
+   *
+   * @param request DescribeInstanceRebootStatusRequest
+   * @return DescribeInstanceRebootStatusResponse
+   */
   async describeInstanceRebootStatus(request: DescribeInstanceRebootStatusRequest): Promise<DescribeInstanceRebootStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceRebootStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of assets that are protected by Security Center.
+   *
+   * @param request DescribeInstanceStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceStatisticsResponse
+   */
   async describeInstanceStatisticsWithOptions(request: DescribeInstanceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89021,11 +91833,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of assets that are protected by Security Center.
+   *
+   * @param request DescribeInstanceStatisticsRequest
+   * @return DescribeInstanceStatisticsResponse
+   */
   async describeInstanceStatistics(request: DescribeInstanceStatisticsRequest): Promise<DescribeInstanceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether an IP address is related to an alert event.
+   *
+   * @param request DescribeIpTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpTagsResponse
+   */
   async describeIpTagsWithOptions(request: DescribeIpTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89054,11 +91879,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpTagsResponse>(await this.callApi(params, req, runtime), new DescribeIpTagsResponse({}));
   }
 
+  /**
+   * @summary Checks whether an IP address is related to an alert event.
+   *
+   * @param request DescribeIpTagsRequest
+   * @return DescribeIpTagsResponse
+   */
   async describeIpTags(request: DescribeIpTagsRequest): Promise<DescribeIpTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询最新病毒扫描
+   *
+   * @param request DescribeLatestScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLatestScanTaskResponse
+   */
   async describeLatestScanTaskWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeLatestScanTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -89075,11 +91913,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLatestScanTaskResponse>(await this.callApi(params, req, runtime), new DescribeLatestScanTaskResponse({}));
   }
 
+  /**
+   * @summary 查询最新病毒扫描
+   *
+   * @return DescribeLatestScanTaskResponse
+   */
   async describeLatestScanTask(): Promise<DescribeLatestScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLatestScanTaskWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the log analysis feature provided by Security Center.
+   *
+   * @param request DescribeLogMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogMetaResponse
+   */
   async describeLogMetaWithOptions(request: DescribeLogMetaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89112,11 +91962,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogMetaResponse>(await this.callApi(params, req, runtime), new DescribeLogMetaResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the log analysis feature provided by Security Center.
+   *
+   * @param request DescribeLogMetaRequest
+   * @return DescribeLogMetaResponse
+   */
   async describeLogMeta(request: DescribeLogMetaRequest): Promise<DescribeLogMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status information about the log analysis feature.
+   *
+   * @param request DescribeLogShipperStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogShipperStatusResponse
+   */
   async describeLogShipperStatusWithOptions(request: DescribeLogShipperStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogShipperStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89141,11 +92004,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogShipperStatusResponse>(await this.callApi(params, req, runtime), new DescribeLogShipperStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status information about the log analysis feature.
+   *
+   * @param request DescribeLogShipperStatusRequest
+   * @return DescribeLogShipperStatusResponse
+   */
   async describeLogShipperStatus(request: DescribeLogShipperStatusRequest): Promise<DescribeLogShipperStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogShipperStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the configurations that are used to detect unusual logons to your servers.
+   *
+   * @param request DescribeLoginBaseConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoginBaseConfigsResponse
+   */
   async describeLoginBaseConfigsWithOptions(request: DescribeLoginBaseConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoginBaseConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89182,11 +92058,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoginBaseConfigsResponse>(await this.callApi(params, req, runtime), new DescribeLoginBaseConfigsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the configurations that are used to detect unusual logons to your servers.
+   *
+   * @param request DescribeLoginBaseConfigsRequest
+   * @return DescribeLoginBaseConfigsResponse
+   */
   async describeLoginBaseConfigs(request: DescribeLoginBaseConfigsRequest): Promise<DescribeLoginBaseConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoginBaseConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alerting status for unapproved logon IP addresses, unapproved logon time ranges, or unapproved logon accounts.
+   *
+   * @param request DescribeLoginSwitchConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoginSwitchConfigsResponse
+   */
   async describeLoginSwitchConfigsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeLoginSwitchConfigsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -89203,11 +92092,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoginSwitchConfigsResponse>(await this.callApi(params, req, runtime), new DescribeLoginSwitchConfigsResponse({}));
   }
 
+  /**
+   * @summary Queries the alerting status for unapproved logon IP addresses, unapproved logon time ranges, or unapproved logon accounts.
+   *
+   * @return DescribeLoginSwitchConfigsResponse
+   */
   async describeLoginSwitchConfigs(): Promise<DescribeLoginSwitchConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoginSwitchConfigsWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the purchased log storage capacity.
+   *
+   * @param request DescribeLogstoreStorageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogstoreStorageResponse
+   */
   async describeLogstoreStorageWithOptions(request: DescribeLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogstoreStorageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89236,11 +92137,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogstoreStorageResponse>(await this.callApi(params, req, runtime), new DescribeLogstoreStorageResponse({}));
   }
 
+  /**
+   * @summary Queries the purchased log storage capacity.
+   *
+   * @param request DescribeLogstoreStorageRequest
+   * @return DescribeLogstoreStorageResponse
+   */
   async describeLogstoreStorage(request: DescribeLogstoreStorageRequest): Promise<DescribeLogstoreStorageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogstoreStorageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether a server can be restarted after the vulnerabilities on the server are fixed. The fixes take effect only after the server is restarted.
+   *
+   * @param request DescribeMachineCanRebootRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMachineCanRebootResponse
+   */
   async describeMachineCanRebootWithOptions(request: DescribeMachineCanRebootRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMachineCanRebootResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89269,11 +92183,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMachineCanRebootResponse>(await this.callApi(params, req, runtime), new DescribeMachineCanRebootResponse({}));
   }
 
+  /**
+   * @summary Queries whether a server can be restarted after the vulnerabilities on the server are fixed. The fixes take effect only after the server is restarted.
+   *
+   * @param request DescribeMachineCanRebootRequest
+   * @return DescribeMachineCanRebootResponse
+   */
   async describeMachineCanReboot(request: DescribeMachineCanRebootRequest): Promise<DescribeMachineCanRebootResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMachineCanRebootWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询恶意文件类型列表。
+   *
+   * @param request DescribeMatchedMaliciousNamesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMatchedMaliciousNamesResponse
+   */
   async describeMatchedMaliciousNamesWithOptions(request: DescribeMatchedMaliciousNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMatchedMaliciousNamesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89302,11 +92229,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMatchedMaliciousNamesResponse>(await this.callApi(params, req, runtime), new DescribeMatchedMaliciousNamesResponse({}));
   }
 
+  /**
+   * @summary 查询恶意文件类型列表。
+   *
+   * @param request DescribeMatchedMaliciousNamesRequest
+   * @return DescribeMatchedMaliciousNamesResponse
+   */
   async describeMatchedMaliciousNames(request: DescribeMatchedMaliciousNamesRequest): Promise<DescribeMatchedMaliciousNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMatchedMaliciousNamesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the server.
+   *
+   * @param request DescribeModuleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeModuleConfigResponse
+   */
   async describeModuleConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeModuleConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -89323,11 +92263,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeModuleConfigResponse>(await this.callApi(params, req, runtime), new DescribeModuleConfigResponse({}));
   }
 
+  /**
+   * @summary The ID of the server.
+   *
+   * @return DescribeModuleConfigResponse
+   */
   async describeModuleConfig(): Promise<DescribeModuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeModuleConfigWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the list of accounts that are added to the multi-account management feature as members.
+   *
+   * @param request DescribeMonitorAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMonitorAccountsResponse
+   */
   async describeMonitorAccountsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeMonitorAccountsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -89344,11 +92296,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMonitorAccountsResponse>(await this.callApi(params, req, runtime), new DescribeMonitorAccountsResponse({}));
   }
 
+  /**
+   * @summary Queries the list of accounts that are added to the multi-account management feature as members.
+   *
+   * @return DescribeMonitorAccountsResponse
+   */
   async describeMonitorAccounts(): Promise<DescribeMonitorAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMonitorAccountsWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries notification settings.
+   *
+   * @param request DescribeNoticeConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNoticeConfigResponse
+   */
   async describeNoticeConfigWithOptions(request: DescribeNoticeConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNoticeConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89373,11 +92337,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNoticeConfigResponse>(await this.callApi(params, req, runtime), new DescribeNoticeConfigResponse({}));
   }
 
+  /**
+   * @summary Queries notification settings.
+   *
+   * @param request DescribeNoticeConfigRequest
+   * @return DescribeNoticeConfigResponse
+   */
   async describeNoticeConfig(request: DescribeNoticeConfigRequest): Promise<DescribeNoticeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNoticeConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an alert type.
+   *
+   * @param request DescribeNsasSuspEventTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNsasSuspEventTypeResponse
+   */
   async describeNsasSuspEventTypeWithOptions(request: DescribeNsasSuspEventTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNsasSuspEventTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89430,11 +92407,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNsasSuspEventTypeResponse>(await this.callApi(params, req, runtime), new DescribeNsasSuspEventTypeResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an alert type.
+   *
+   * @param request DescribeNsasSuspEventTypeRequest
+   * @return DescribeNsasSuspEventTypeResponse
+   */
   async describeNsasSuspEventType(request: DescribeNsasSuspEventTypeRequest): Promise<DescribeNsasSuspEventTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNsasSuspEventTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the servers whose Security Center agent status is Offline.
+   *
+   * @param request DescribeOfflineMachinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOfflineMachinesResponse
+   */
   async describeOfflineMachinesWithOptions(request: DescribeOfflineMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOfflineMachinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89487,11 +92477,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOfflineMachinesResponse>(await this.callApi(params, req, runtime), new DescribeOfflineMachinesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the servers whose Security Center agent status is Offline.
+   *
+   * @param request DescribeOfflineMachinesRequest
+   * @return DescribeOfflineMachinesResponse
+   */
   async describeOfflineMachines(request: DescribeOfflineMachinesRequest): Promise<DescribeOfflineMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOfflineMachinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries troubleshooting tasks for the Security Center agent.
+   *
+   * @param request DescribeOnceTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOnceTaskResponse
+   */
   async describeOnceTaskWithOptions(request: DescribeOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnceTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89540,11 +92543,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOnceTaskResponse>(await this.callApi(params, req, runtime), new DescribeOnceTaskResponse({}));
   }
 
+  /**
+   * @summary Queries troubleshooting tasks for the Security Center agent.
+   *
+   * @param request DescribeOnceTaskRequest
+   * @return DescribeOnceTaskResponse
+   */
   async describeOnceTask(request: DescribeOnceTaskRequest): Promise<DescribeOnceTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOnceTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the sub-task information of one-time scan task. A sub-task can be an image scan task or an image asset synchronization task.
+   *
+   * @param request DescribeOnceTaskLeafRecordPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOnceTaskLeafRecordPageResponse
+   */
   async describeOnceTaskLeafRecordPageWithOptions(request: DescribeOnceTaskLeafRecordPageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnceTaskLeafRecordPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89601,11 +92617,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOnceTaskLeafRecordPageResponse>(await this.callApi(params, req, runtime), new DescribeOnceTaskLeafRecordPageResponse({}));
   }
 
+  /**
+   * @summary Queries the sub-task information of one-time scan task. A sub-task can be an image scan task or an image asset synchronization task.
+   *
+   * @param request DescribeOnceTaskLeafRecordPageRequest
+   * @return DescribeOnceTaskLeafRecordPageResponse
+   */
   async describeOnceTaskLeafRecordPage(request: DescribeOnceTaskLeafRecordPageRequest): Promise<DescribeOnceTaskLeafRecordPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOnceTaskLeafRecordPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of asset fingerprints. The assets include processes, ports, software, accounts, middleware, websites, web services, scheduled tasks, startup items, and databases.
+   *
+   * @param request DescribePropertyCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyCountResponse
+   */
   async describePropertyCountWithOptions(request: DescribePropertyCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89634,11 +92663,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyCountResponse>(await this.callApi(params, req, runtime), new DescribePropertyCountResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of asset fingerprints. The assets include processes, ports, software, accounts, middleware, websites, web services, scheduled tasks, startup items, and databases.
+   *
+   * @param request DescribePropertyCountRequest
+   * @return DescribePropertyCountResponse
+   */
   async describePropertyCount(request: DescribePropertyCountRequest): Promise<DescribePropertyCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of scheduled tasks on the Host page.
+   *
+   * @param request DescribePropertyCronDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyCronDetailResponse
+   */
   async describePropertyCronDetailWithOptions(request: DescribePropertyCronDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyCronDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89687,11 +92729,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyCronDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyCronDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of scheduled tasks on the Host page.
+   *
+   * @param request DescribePropertyCronDetailRequest
+   * @return DescribePropertyCronDetailResponse
+   */
   async describePropertyCronDetail(request: DescribePropertyCronDetailRequest): Promise<DescribePropertyCronDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyCronDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the scheduled tasks of your assets.
+   *
+   * @param request DescribePropertyCronItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyCronItemResponse
+   */
   async describePropertyCronItemWithOptions(request: DescribePropertyCronItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyCronItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89728,11 +92783,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyCronItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyCronItemResponse({}));
   }
 
+  /**
+   * @summary Queries the scheduled tasks of your assets.
+   *
+   * @param request DescribePropertyCronItemRequest
+   * @return DescribePropertyCronItemResponse
+   */
   async describePropertyCronItem(request: DescribePropertyCronItemRequest): Promise<DescribePropertyCronItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyCronItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the fingerprints of ports on a specified server.
+   *
+   * @param request DescribePropertyPortDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyPortDetailResponse
+   */
   async describePropertyPortDetailWithOptions(request: DescribePropertyPortDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyPortDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89789,11 +92857,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyPortDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyPortDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the fingerprints of ports on a specified server.
+   *
+   * @param request DescribePropertyPortDetailRequest
+   * @return DescribePropertyPortDetailResponse
+   */
   async describePropertyPortDetail(request: DescribePropertyPortDetailRequest): Promise<DescribePropertyPortDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyPortDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about all ports.
+   *
+   * @param request DescribePropertyPortItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyPortItemResponse
+   */
   async describePropertyPortItemWithOptions(request: DescribePropertyPortItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyPortItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89830,11 +92911,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyPortItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyPortItemResponse({}));
   }
 
+  /**
+   * @summary Queries information about all ports.
+   *
+   * @param request DescribePropertyPortItemRequest
+   * @return DescribePropertyPortItemResponse
+   */
   async describePropertyPortItem(request: DescribePropertyPortItemRequest): Promise<DescribePropertyPortItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyPortItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the fingerprints of processes on a specified server.
+   *
+   * @param request DescribePropertyProcDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyProcDetailResponse
+   */
   async describePropertyProcDetailWithOptions(request: DescribePropertyProcDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyProcDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89899,11 +92993,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyProcDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyProcDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the fingerprints of processes on a specified server.
+   *
+   * @param request DescribePropertyProcDetailRequest
+   * @return DescribePropertyProcDetailResponse
+   */
   async describePropertyProcDetail(request: DescribePropertyProcDetailRequest): Promise<DescribePropertyProcDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyProcDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about all processes.
+   *
+   * @param request DescribePropertyProcItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyProcItemResponse
+   */
   async describePropertyProcItemWithOptions(request: DescribePropertyProcItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyProcItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -89940,11 +93047,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyProcItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyProcItemResponse({}));
   }
 
+  /**
+   * @summary Queries information about all processes.
+   *
+   * @param request DescribePropertyProcItemRequest
+   * @return DescribePropertyProcItemResponse
+   */
   async describePropertyProcItem(request: DescribePropertyProcItemRequest): Promise<DescribePropertyProcItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyProcItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries middleware fingerprints.
+   *
+   * @param request DescribePropertyScaDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyScaDetailResponse
+   */
   async describePropertyScaDetailWithOptions(request: DescribePropertyScaDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyScaDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90045,11 +93165,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyScaDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyScaDetailResponse({}));
   }
 
+  /**
+   * @summary Queries middleware fingerprints.
+   *
+   * @param request DescribePropertyScaDetailRequest
+   * @return DescribePropertyScaDetailResponse
+   */
   async describePropertyScaDetail(request: DescribePropertyScaDetailRequest): Promise<DescribePropertyScaDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyScaDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries middleware fingerprints.
+   *
+   * @param request DescribePropertyScaItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyScaItemResponse
+   */
   async describePropertyScaItemWithOptions(request: DescribePropertyScaItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyScaItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90098,11 +93231,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyScaItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyScaItemResponse({}));
   }
 
+  /**
+   * @summary Queries middleware fingerprints.
+   *
+   * @param request DescribePropertyScaItemRequest
+   * @return DescribePropertyScaItemResponse
+   */
   async describePropertyScaItem(request: DescribePropertyScaItemRequest): Promise<DescribePropertyScaItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyScaItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of scheduled tasks of asset fingerprint collection.
+   *
+   * @param request DescribePropertyScheduleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyScheduleConfigResponse
+   */
   async describePropertyScheduleConfigWithOptions(request: DescribePropertyScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyScheduleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90127,11 +93273,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyScheduleConfigResponse>(await this.callApi(params, req, runtime), new DescribePropertyScheduleConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of scheduled tasks of asset fingerprint collection.
+   *
+   * @param request DescribePropertyScheduleConfigRequest
+   * @return DescribePropertyScheduleConfigResponse
+   */
   async describePropertyScheduleConfig(request: DescribePropertyScheduleConfigRequest): Promise<DescribePropertyScheduleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyScheduleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a software asset.
+   *
+   * @param request DescribePropertySoftwareDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertySoftwareDetailResponse
+   */
   async describePropertySoftwareDetailWithOptions(request: DescribePropertySoftwareDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertySoftwareDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90192,11 +93351,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertySoftwareDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertySoftwareDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a software asset.
+   *
+   * @param request DescribePropertySoftwareDetailRequest
+   * @return DescribePropertySoftwareDetailResponse
+   */
   async describePropertySoftwareDetail(request: DescribePropertySoftwareDetailRequest): Promise<DescribePropertySoftwareDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertySoftwareDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about all software assets.
+   *
+   * @param request DescribePropertySoftwareItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertySoftwareItemResponse
+   */
   async describePropertySoftwareItemWithOptions(request: DescribePropertySoftwareItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertySoftwareItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90233,11 +93405,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertySoftwareItemResponse>(await this.callApi(params, req, runtime), new DescribePropertySoftwareItemResponse({}));
   }
 
+  /**
+   * @summary Queries information about all software assets.
+   *
+   * @param request DescribePropertySoftwareItemRequest
+   * @return DescribePropertySoftwareItemResponse
+   */
   async describePropertySoftwareItem(request: DescribePropertySoftwareItemRequest): Promise<DescribePropertySoftwareItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertySoftwareItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries middleware types.
+   *
+   * @param request DescribePropertyTypeScaItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyTypeScaItemResponse
+   */
   async describePropertyTypeScaItemWithOptions(request: DescribePropertyTypeScaItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyTypeScaItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90270,11 +93455,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyTypeScaItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyTypeScaItemResponse({}));
   }
 
+  /**
+   * @summary Queries middleware types.
+   *
+   * @param request DescribePropertyTypeScaItemRequest
+   * @return DescribePropertyTypeScaItemResponse
+   */
   async describePropertyTypeScaItem(request: DescribePropertyTypeScaItemRequest): Promise<DescribePropertyTypeScaItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyTypeScaItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询资产指纹用户创建时间统计
+   *
+   * @param request DescribePropertyUsageNewestRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyUsageNewestResponse
+   */
   async describePropertyUsageNewestWithOptions(request: DescribePropertyUsageNewestRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyUsageNewestResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90299,11 +93497,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyUsageNewestResponse>(await this.callApi(params, req, runtime), new DescribePropertyUsageNewestResponse({}));
   }
 
+  /**
+   * @summary 查询资产指纹用户创建时间统计
+   *
+   * @param request DescribePropertyUsageNewestRequest
+   * @return DescribePropertyUsageNewestResponse
+   */
   async describePropertyUsageNewest(request: DescribePropertyUsageNewestRequest): Promise<DescribePropertyUsageNewestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyUsageNewestWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the asset fingerprints for an account to which a server belongs.
+   *
+   * @param request DescribePropertyUserDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyUserDetailResponse
+   */
   async describePropertyUserDetailWithOptions(request: DescribePropertyUserDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyUserDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90360,11 +93571,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyUserDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyUserDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the asset fingerprints for an account to which a server belongs.
+   *
+   * @param request DescribePropertyUserDetailRequest
+   * @return DescribePropertyUserDetailResponse
+   */
   async describePropertyUserDetail(request: DescribePropertyUserDetailRequest): Promise<DescribePropertyUserDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyUserDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about an account.
+   *
+   * @param request DescribePropertyUserItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePropertyUserItemResponse
+   */
   async describePropertyUserItemWithOptions(request: DescribePropertyUserItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyUserItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90401,11 +93625,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePropertyUserItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyUserItemResponse({}));
   }
 
+  /**
+   * @summary Queries information about an account.
+   *
+   * @param request DescribePropertyUserItemRequest
+   * @return DescribePropertyUserItemResponse
+   */
   async describePropertyUserItem(request: DescribePropertyUserItemRequest): Promise<DescribePropertyUserItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePropertyUserItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the download information about a quarantined file.
+   *
+   * @param request DescribeQuaraFileDownloadInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeQuaraFileDownloadInfoResponse
+   */
   async describeQuaraFileDownloadInfoWithOptions(request: DescribeQuaraFileDownloadInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQuaraFileDownloadInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90434,18 +93671,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeQuaraFileDownloadInfoResponse>(await this.callApi(params, req, runtime), new DescribeQuaraFileDownloadInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the download information about a quarantined file.
+   *
+   * @param request DescribeQuaraFileDownloadInfoRequest
+   * @return DescribeQuaraFileDownloadInfoResponse
+   */
   async describeQuaraFileDownloadInfo(request: DescribeQuaraFileDownloadInfoRequest): Promise<DescribeQuaraFileDownloadInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeQuaraFileDownloadInfoWithOptions(request, runtime);
   }
 
   /**
-    * If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
-    * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](~~164781~~).
-    *
-    * @param request DescribeRestoreJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRestoreJobsResponse
+   * @summary Queries the details about restoration tasks.
+   *
+   * @description If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
+   * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](https://help.aliyun.com/document_detail/164781.html).
+   *
+   * @param request DescribeRestoreJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRestoreJobsResponse
    */
   async describeRestoreJobsWithOptions(request: DescribeRestoreJobsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreJobsResponse> {
     Util.validateModel(request);
@@ -90484,17 +93729,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
-    * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](~~164781~~).
-    *
-    * @param request DescribeRestoreJobsRequest
-    * @return DescribeRestoreJobsResponse
+   * @summary Queries the details about restoration tasks.
+   *
+   * @description If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
+   * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](https://help.aliyun.com/document_detail/164781.html).
+   *
+   * @param request DescribeRestoreJobsRequest
+   * @return DescribeRestoreJobsResponse
    */
   async describeRestoreJobs(request: DescribeRestoreJobsRequest): Promise<DescribeRestoreJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRestoreJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries restoration tasks.
+   *
+   * @param request DescribeRestorePlansRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRestorePlansResponse
+   */
   async describeRestorePlansWithOptions(request: DescribeRestorePlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestorePlansResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90531,18 +93785,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRestorePlansResponse>(await this.callApi(params, req, runtime), new DescribeRestorePlansResponse({}));
   }
 
+  /**
+   * @summary Queries restoration tasks.
+   *
+   * @param request DescribeRestorePlansRequest
+   * @return DescribeRestorePlansResponse
+   */
   async describeRestorePlans(request: DescribeRestorePlansRequest): Promise<DescribeRestorePlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRestorePlansWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the ListCheckInstanceResult operation.
-    *
-    * @param request DescribeRiskCheckItemResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRiskCheckItemResultResponse
+   * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
+   *
+   * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
+   *
+   * @description This operation is phased out. You can use the ListCheckInstanceResult operation.
+   *
+   * @param request DescribeRiskCheckItemResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRiskCheckItemResultResponse
    */
   // Deprecated
   async describeRiskCheckItemResultWithOptions(request: DescribeRiskCheckItemResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskCheckItemResultResponse> {
@@ -90590,11 +93853,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the ListCheckInstanceResult operation.
-    *
-    * @param request DescribeRiskCheckItemResultRequest
-    * @return DescribeRiskCheckItemResultResponse
+   * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
+   *
+   * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
+   *
+   * @description This operation is phased out. You can use the ListCheckInstanceResult operation.
+   *
+   * @param request DescribeRiskCheckItemResultRequest
+   * @return DescribeRiskCheckItemResultResponse
    */
   // Deprecated
   async describeRiskCheckItemResult(request: DescribeRiskCheckItemResultRequest): Promise<DescribeRiskCheckItemResultResponse> {
@@ -90603,12 +93869,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
-    *
-    * @param request DescribeRiskCheckResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRiskCheckResultResponse
+   * @deprecated OpenAPI DescribeRiskCheckResult is deprecated
+   *
+   * @summary Queries the check results of cloud service configurations by check item type or name.
+   *
+   * @description This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
+   *
+   * @param request DescribeRiskCheckResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRiskCheckResultResponse
    */
   // Deprecated
   async describeRiskCheckResultWithOptions(request: DescribeRiskCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskCheckResultResponse> {
@@ -90680,11 +93949,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
-    *
-    * @param request DescribeRiskCheckResultRequest
-    * @return DescribeRiskCheckResultResponse
+   * @deprecated OpenAPI DescribeRiskCheckResult is deprecated
+   *
+   * @summary Queries the check results of cloud service configurations by check item type or name.
+   *
+   * @description This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
+   *
+   * @param request DescribeRiskCheckResultRequest
+   * @return DescribeRiskCheckResultResponse
    */
   // Deprecated
   async describeRiskCheckResult(request: DescribeRiskCheckResultRequest): Promise<DescribeRiskCheckResultResponse> {
@@ -90693,12 +93965,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the GetCheckSummary operation.
-    *
-    * @param request DescribeRiskCheckSummaryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRiskCheckSummaryResponse
+   * @deprecated OpenAPI DescribeRiskCheckSummary is deprecated
+   *
+   * @summary Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics for each type of check item.
+   *
+   * @description This operation is phased out. You can use the GetCheckSummary operation.
+   *
+   * @param request DescribeRiskCheckSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRiskCheckSummaryResponse
    */
   // Deprecated
   async describeRiskCheckSummaryWithOptions(request: DescribeRiskCheckSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskCheckSummaryResponse> {
@@ -90738,11 +94013,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the GetCheckSummary operation.
-    *
-    * @param request DescribeRiskCheckSummaryRequest
-    * @return DescribeRiskCheckSummaryResponse
+   * @deprecated OpenAPI DescribeRiskCheckSummary is deprecated
+   *
+   * @summary Queries the summary information about the check results of cloud service configurations. The information includes the number of risk items, the risk rate, the number of affected assets, the check time, and the statistics for each type of check item.
+   *
+   * @description This operation is phased out. You can use the GetCheckSummary operation.
+   *
+   * @param request DescribeRiskCheckSummaryRequest
+   * @return DescribeRiskCheckSummaryResponse
    */
   // Deprecated
   async describeRiskCheckSummary(request: DescribeRiskCheckSummaryRequest): Promise<DescribeRiskCheckSummaryResponse> {
@@ -90751,12 +94029,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the ListCheckStandard operation instead.
-    *
-    * @param request DescribeRiskItemTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRiskItemTypeResponse
+   * @deprecated OpenAPI DescribeRiskItemType is deprecated
+   *
+   * @summary Queries the types of check items in configuration assessment.
+   *
+   * @description This operation is phased out. You can use the ListCheckStandard operation instead.
+   *
+   * @param request DescribeRiskItemTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRiskItemTypeResponse
    */
   // Deprecated
   async describeRiskItemTypeWithOptions(request: DescribeRiskItemTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskItemTypeResponse> {
@@ -90792,11 +94073,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the ListCheckStandard operation instead.
-    *
-    * @param request DescribeRiskItemTypeRequest
-    * @return DescribeRiskItemTypeResponse
+   * @deprecated OpenAPI DescribeRiskItemType is deprecated
+   *
+   * @summary Queries the types of check items in configuration assessment.
+   *
+   * @description This operation is phased out. You can use the ListCheckStandard operation instead.
+   *
+   * @param request DescribeRiskItemTypeRequest
+   * @return DescribeRiskItemTypeResponse
    */
   // Deprecated
   async describeRiskItemType(request: DescribeRiskItemTypeRequest): Promise<DescribeRiskItemTypeResponse> {
@@ -90805,12 +94089,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
-    *
-    * @param request DescribeRiskListCheckResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRiskListCheckResultResponse
+   * @deprecated OpenAPI DescribeRiskListCheckResult is deprecated
+   *
+   * @summary Queries the number of risk items detected in the configuration assessment of one or more cloud services by using the instance IDs of the cloud services.
+   *
+   * @description This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
+   *
+   * @param request DescribeRiskListCheckResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRiskListCheckResultResponse
    */
   // Deprecated
   async describeRiskListCheckResultWithOptions(request: DescribeRiskListCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskListCheckResultResponse> {
@@ -90858,11 +94145,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
-    *
-    * @param request DescribeRiskListCheckResultRequest
-    * @return DescribeRiskListCheckResultResponse
+   * @deprecated OpenAPI DescribeRiskListCheckResult is deprecated
+   *
+   * @summary Queries the number of risk items detected in the configuration assessment of one or more cloud services by using the instance IDs of the cloud services.
+   *
+   * @description This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
+   *
+   * @param request DescribeRiskListCheckResultRequest
+   * @return DescribeRiskListCheckResultResponse
    */
   // Deprecated
   async describeRiskListCheckResult(request: DescribeRiskListCheckResultRequest): Promise<DescribeRiskListCheckResultResponse> {
@@ -90870,6 +94160,13 @@ export default class Client extends OpenApi {
     return await this.describeRiskListCheckResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries baseline types.
+   *
+   * @param request DescribeRiskTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRiskTypeResponse
+   */
   async describeRiskTypeWithOptions(request: DescribeRiskTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90902,11 +94199,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRiskTypeResponse>(await this.callApi(params, req, runtime), new DescribeRiskTypeResponse({}));
   }
 
+  /**
+   * @summary Queries baseline types.
+   *
+   * @param request DescribeRiskTypeRequest
+   * @return DescribeRiskTypeResponse
+   */
   async describeRiskType(request: DescribeRiskTypeRequest): Promise<DescribeRiskTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRiskTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about baselines based on baseline IDs or names.
+   *
+   * @param request DescribeRisksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRisksResponse
+   */
   async describeRisksWithOptions(request: DescribeRisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRisksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90947,11 +94257,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRisksResponse>(await this.callApi(params, req, runtime), new DescribeRisksResponse({}));
   }
 
+  /**
+   * @summary Queries the information about baselines based on baseline IDs or names.
+   *
+   * @param request DescribeRisksRequest
+   * @return DescribeRisksResponse
+   */
   async describeRisks(request: DescribeRisksRequest): Promise<DescribeRisksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRisksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the servers on which you want to install Cloud Assistant or the CloudMonitor agent.
+   *
+   * @param request DescribeSasPmAgentListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSasPmAgentListResponse
+   */
   async describeSasPmAgentListWithOptions(request: DescribeSasPmAgentListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSasPmAgentListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -90980,11 +94303,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSasPmAgentListResponse>(await this.callApi(params, req, runtime), new DescribeSasPmAgentListResponse({}));
   }
 
+  /**
+   * @summary Queries the servers on which you want to install Cloud Assistant or the CloudMonitor agent.
+   *
+   * @param request DescribeSasPmAgentListRequest
+   * @return DescribeSasPmAgentListResponse
+   */
   async describeSasPmAgentList(request: DescribeSasPmAgentListRequest): Promise<DescribeSasPmAgentListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSasPmAgentListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary DescribeScanTaskProgress
+   *
+   * @param request DescribeScanTaskProgressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeScanTaskProgressResponse
+   */
   async describeScanTaskProgressWithOptions(request: DescribeScanTaskProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScanTaskProgressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91009,11 +94345,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeScanTaskProgressResponse>(await this.callApi(params, req, runtime), new DescribeScanTaskProgressResponse({}));
   }
 
+  /**
+   * @summary DescribeScanTaskProgress
+   *
+   * @param request DescribeScanTaskProgressRequest
+   * @return DescribeScanTaskProgressResponse
+   */
   async describeScanTaskProgress(request: DescribeScanTaskProgressRequest): Promise<DescribeScanTaskProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeScanTaskProgressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of virus detection tasks.
+   *
+   * @param request DescribeScanTaskStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeScanTaskStatisticsResponse
+   */
   async describeScanTaskStatisticsWithOptions(request: DescribeScanTaskStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScanTaskStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91038,11 +94387,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeScanTaskStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeScanTaskStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of virus detection tasks.
+   *
+   * @param request DescribeScanTaskStatisticsRequest
+   * @return DescribeScanTaskStatisticsResponse
+   */
   async describeScanTaskStatistics(request: DescribeScanTaskStatisticsRequest): Promise<DescribeScanTaskStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeScanTaskStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询资产的筛选条件
+   *
+   * @param request DescribeSearchConditionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSearchConditionResponse
+   */
   async describeSearchConditionWithOptions(request: DescribeSearchConditionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSearchConditionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91075,11 +94437,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSearchConditionResponse>(await this.callApi(params, req, runtime), new DescribeSearchConditionResponse({}));
   }
 
+  /**
+   * @summary 查询资产的筛选条件
+   *
+   * @param request DescribeSearchConditionRequest
+   * @return DescribeSearchConditionResponse
+   */
   async describeSearchCondition(request: DescribeSearchConditionRequest): Promise<DescribeSearchConditionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSearchConditionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries suggestions on how to handle the risks that affect the security score.
+   *
+   * @param request DescribeSecureSuggestionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecureSuggestionResponse
+   */
   async describeSecureSuggestionWithOptions(request: DescribeSecureSuggestionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecureSuggestionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91108,18 +94483,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecureSuggestionResponse>(await this.callApi(params, req, runtime), new DescribeSecureSuggestionResponse({}));
   }
 
+  /**
+   * @summary Queries suggestions on how to handle the risks that affect the security score.
+   *
+   * @param request DescribeSecureSuggestionRequest
+   * @return DescribeSecureSuggestionResponse
+   */
   async describeSecureSuggestion(request: DescribeSecureSuggestionRequest): Promise<DescribeSecureSuggestionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecureSuggestionWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the GetCheckConfig operation.
-    *
-    * @param request DescribeSecurityCheckScheduleConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSecurityCheckScheduleConfigResponse
+   * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
+   *
+   * @summary Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+   *
+   * @description This operation is phased out. You can use the GetCheckConfig operation.
+   *
+   * @param request DescribeSecurityCheckScheduleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityCheckScheduleConfigResponse
    */
   // Deprecated
   async describeSecurityCheckScheduleConfigWithOptions(request: DescribeSecurityCheckScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityCheckScheduleConfigResponse> {
@@ -91155,11 +94539,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the GetCheckConfig operation.
-    *
-    * @param request DescribeSecurityCheckScheduleConfigRequest
-    * @return DescribeSecurityCheckScheduleConfigResponse
+   * @deprecated OpenAPI DescribeSecurityCheckScheduleConfig is deprecated
+   *
+   * @summary Queries the day of a week when custom check tasks are performed and the time range during which the custom check tasks are performed.
+   *
+   * @description This operation is phased out. You can use the GetCheckConfig operation.
+   *
+   * @param request DescribeSecurityCheckScheduleConfigRequest
+   * @return DescribeSecurityCheckScheduleConfigResponse
    */
   // Deprecated
   async describeSecurityCheckScheduleConfig(request: DescribeSecurityCheckScheduleConfigRequest): Promise<DescribeSecurityCheckScheduleConfigResponse> {
@@ -91167,6 +94554,13 @@ export default class Client extends OpenApi {
     return await this.describeSecurityCheckScheduleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of whitelist rules.
+   *
+   * @param request DescribeSecurityEventMarkMissListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityEventMarkMissListResponse
+   */
   async describeSecurityEventMarkMissListWithOptions(request: DescribeSecurityEventMarkMissListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityEventMarkMissListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91211,11 +94605,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityEventMarkMissListResponse>(await this.callApi(params, req, runtime), new DescribeSecurityEventMarkMissListResponse({}));
   }
 
+  /**
+   * @summary Queries the list of whitelist rules.
+   *
+   * @param request DescribeSecurityEventMarkMissListRequest
+   * @return DescribeSecurityEventMarkMissListResponse
+   */
   async describeSecurityEventMarkMissList(request: DescribeSecurityEventMarkMissListRequest): Promise<DescribeSecurityEventMarkMissListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityEventMarkMissListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alert events that are triggered by the same IP address rule or of the same alert type as a specific alert event if you want to handle the specific alert event in batch operation mode.
+   *
+   * @param request DescribeSecurityEventOperationStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityEventOperationStatusResponse
+   */
   async describeSecurityEventOperationStatusWithOptions(request: DescribeSecurityEventOperationStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityEventOperationStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91252,11 +94659,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityEventOperationStatusResponse>(await this.callApi(params, req, runtime), new DescribeSecurityEventOperationStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the alert events that are triggered by the same IP address rule or of the same alert type as a specific alert event if you want to handle the specific alert event in batch operation mode.
+   *
+   * @param request DescribeSecurityEventOperationStatusRequest
+   * @return DescribeSecurityEventOperationStatusResponse
+   */
   async describeSecurityEventOperationStatus(request: DescribeSecurityEventOperationStatusRequest): Promise<DescribeSecurityEventOperationStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityEventOperationStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the operations that you can perform to handle an alert event.
+   *
+   * @param request DescribeSecurityEventOperationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityEventOperationsResponse
+   */
   async describeSecurityEventOperationsWithOptions(request: DescribeSecurityEventOperationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityEventOperationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91293,11 +94713,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityEventOperationsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityEventOperationsResponse({}));
   }
 
+  /**
+   * @summary Queries the operations that you can perform to handle an alert event.
+   *
+   * @param request DescribeSecurityEventOperationsRequest
+   * @return DescribeSecurityEventOperationsResponse
+   */
   async describeSecurityEventOperations(request: DescribeSecurityEventOperationsRequest): Promise<DescribeSecurityEventOperationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityEventOperationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of each security check item and the daily statistics in the trend chart based on each security check item.
+   *
+   * @param request DescribeSecurityStatInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityStatInfoResponse
+   */
   async describeSecurityStatInfoWithOptions(request: DescribeSecurityStatInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityStatInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91330,11 +94763,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityStatInfoResponse>(await this.callApi(params, req, runtime), new DescribeSecurityStatInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of each security check item and the daily statistics in the trend chart based on each security check item.
+   *
+   * @param request DescribeSecurityStatInfoRequest
+   * @return DescribeSecurityStatInfoResponse
+   */
   async describeSecurityStatInfo(request: DescribeSecurityStatInfoRequest): Promise<DescribeSecurityStatInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityStatInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether a service-linked role is created for Security Center.
+   *
+   * @param request DescribeServiceLinkedRoleStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceLinkedRoleStatusResponse
+   */
   async describeServiceLinkedRoleStatusWithOptions(request: DescribeServiceLinkedRoleStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServiceLinkedRoleStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91359,11 +94805,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceLinkedRoleStatusResponse>(await this.callApi(params, req, runtime), new DescribeServiceLinkedRoleStatusResponse({}));
   }
 
+  /**
+   * @summary Checks whether a service-linked role is created for Security Center.
+   *
+   * @param request DescribeServiceLinkedRoleStatusRequest
+   * @return DescribeServiceLinkedRoleStatusResponse
+   */
   async describeServiceLinkedRoleStatus(request: DescribeServiceLinkedRoleStatusRequest): Promise<DescribeServiceLinkedRoleStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeServiceLinkedRoleStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Alibaba Cloud CLI is a tool used to manage and configure Alibaba Cloud resources. After simple installation and configuration, you can use Alibaba Cloud CLI to manage multiple Alibaba Cloud products and services and migrate your data and business to the cloud with ease.
+   *
+   * @param request DescribeSimilarEventScenariosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSimilarEventScenariosResponse
+   */
   async describeSimilarEventScenariosWithOptions(request: DescribeSimilarEventScenariosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSimilarEventScenariosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91396,11 +94855,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSimilarEventScenariosResponse>(await this.callApi(params, req, runtime), new DescribeSimilarEventScenariosResponse({}));
   }
 
+  /**
+   * @summary Alibaba Cloud CLI is a tool used to manage and configure Alibaba Cloud resources. After simple installation and configuration, you can use Alibaba Cloud CLI to manage multiple Alibaba Cloud products and services and migrate your data and business to the cloud with ease.
+   *
+   * @param request DescribeSimilarEventScenariosRequest
+   * @return DescribeSimilarEventScenariosResponse
+   */
   async describeSimilarEventScenarios(request: DescribeSimilarEventScenariosRequest): Promise<DescribeSimilarEventScenariosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSimilarEventScenariosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries alert events that are triggered by the same rule or of the same alert type.
+   *
+   * @param request DescribeSimilarSecurityEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSimilarSecurityEventsResponse
+   */
   async describeSimilarSecurityEventsWithOptions(request: DescribeSimilarSecurityEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSimilarSecurityEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91445,11 +94917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSimilarSecurityEventsResponse>(await this.callApi(params, req, runtime), new DescribeSimilarSecurityEventsResponse({}));
   }
 
+  /**
+   * @summary Queries alert events that are triggered by the same rule or of the same alert type.
+   *
+   * @param request DescribeSimilarSecurityEventsRequest
+   * @return DescribeSimilarSecurityEventsResponse
+   */
   async describeSimilarSecurityEvents(request: DescribeSimilarSecurityEventsRequest): Promise<DescribeSimilarSecurityEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSimilarSecurityEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backup snapshots that are created for anti-ransomware.
+   *
+   * @param request DescribeSnapshotsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnapshotsResponse
+   */
   async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91506,11 +94991,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
   }
 
+  /**
+   * @summary Queries the backup snapshots that are created for anti-ransomware.
+   *
+   * @param request DescribeSnapshotsRequest
+   * @return DescribeSnapshotsResponse
+   */
   async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about baseline check policies.
+   *
+   * @param request DescribeStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeStrategyResponse
+   */
   async describeStrategyWithOptions(request: DescribeStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91547,11 +95045,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeStrategyResponse>(await this.callApi(params, req, runtime), new DescribeStrategyResponse({}));
   }
 
+  /**
+   * @summary Queries the details about baseline check policies.
+   *
+   * @param request DescribeStrategyRequest
+   * @return DescribeStrategyResponse
+   */
   async describeStrategy(request: DescribeStrategyRequest): Promise<DescribeStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a baseline check policy.
+   *
+   * @param request DescribeStrategyDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeStrategyDetailResponse
+   */
   async describeStrategyDetailWithOptions(request: DescribeStrategyDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStrategyDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91584,11 +95095,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeStrategyDetailResponse>(await this.callApi(params, req, runtime), new DescribeStrategyDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a baseline check policy.
+   *
+   * @param request DescribeStrategyDetailRequest
+   * @return DescribeStrategyDetailResponse
+   */
   async describeStrategyDetail(request: DescribeStrategyDetailRequest): Promise<DescribeStrategyDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeStrategyDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询单个基线检查策略的检查结果
+   *
+   * @param request DescribeStrategyExecDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeStrategyExecDetailResponse
+   */
   async describeStrategyExecDetailWithOptions(request: DescribeStrategyExecDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStrategyExecDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91625,11 +95149,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeStrategyExecDetailResponse>(await this.callApi(params, req, runtime), new DescribeStrategyExecDetailResponse({}));
   }
 
+  /**
+   * @summary 查询单个基线检查策略的检查结果
+   *
+   * @param request DescribeStrategyExecDetailRequest
+   * @return DescribeStrategyExecDetailResponse
+   */
   async describeStrategyExecDetail(request: DescribeStrategyExecDetailRequest): Promise<DescribeStrategyExecDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeStrategyExecDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the assets to which a baseline check policy is applied.
+   *
+   * @param request DescribeStrategyTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeStrategyTargetResponse
+   */
   async describeStrategyTargetWithOptions(request: DescribeStrategyTargetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStrategyTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91662,11 +95199,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeStrategyTargetResponse>(await this.callApi(params, req, runtime), new DescribeStrategyTargetResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the assets to which a baseline check policy is applied.
+   *
+   * @param request DescribeStrategyTargetRequest
+   * @return DescribeStrategyTargetResponse
+   */
   async describeStrategyTarget(request: DescribeStrategyTargetRequest): Promise<DescribeStrategyTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeStrategyTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the security information about your assets. The information includes the security score and the numbers of protected and unprotected assets.
+   *
+   * @param request DescribeSummaryInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSummaryInfoResponse
+   */
   async describeSummaryInfoWithOptions(request: DescribeSummaryInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSummaryInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91695,11 +95245,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSummaryInfoResponse>(await this.callApi(params, req, runtime), new DescribeSummaryInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the security information about your assets. The information includes the security score and the numbers of protected and unprotected assets.
+   *
+   * @param request DescribeSummaryInfoRequest
+   * @return DescribeSummaryInfoResponse
+   */
   async describeSummaryInfo(request: DescribeSummaryInfoRequest): Promise<DescribeSummaryInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSummaryInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询防勒索支持地域
+   *
+   * @param request DescribeSupportRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSupportRegionResponse
+   */
   async describeSupportRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeSupportRegionResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -91716,11 +95279,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSupportRegionResponse>(await this.callApi(params, req, runtime), new DescribeSupportRegionResponse({}));
   }
 
+  /**
+   * @summary 查询防勒索支持地域
+   *
+   * @return DescribeSupportRegionResponse
+   */
   async describeSupportRegion(): Promise<DescribeSupportRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSupportRegionWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the details of an exception. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+   *
+   * @param request DescribeSuspEventDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSuspEventDetailResponse
+   */
   async describeSuspEventDetailWithOptions(request: DescribeSuspEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91761,11 +95336,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSuspEventDetailResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an exception. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+   *
+   * @param request DescribeSuspEventDetailRequest
+   * @return DescribeSuspEventDetailResponse
+   */
   async describeSuspEventDetail(request: DescribeSuspEventDetailRequest): Promise<DescribeSuspEventDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspEventDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an export task of exceptions.
+   *
+   * @param request DescribeSuspEventExportInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSuspEventExportInfoResponse
+   */
   async describeSuspEventExportInfoWithOptions(request: DescribeSuspEventExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventExportInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91790,11 +95378,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSuspEventExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventExportInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an export task of exceptions.
+   *
+   * @param request DescribeSuspEventExportInfoRequest
+   * @return DescribeSuspEventExportInfoResponse
+   */
   async describeSuspEventExportInfo(request: DescribeSuspEventExportInfoRequest): Promise<DescribeSuspEventExportInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspEventExportInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries quarantined files by page.
+   *
+   * @param request DescribeSuspEventQuaraFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSuspEventQuaraFilesResponse
+   */
   async describeSuspEventQuaraFilesWithOptions(request: DescribeSuspEventQuaraFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventQuaraFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91847,11 +95448,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSuspEventQuaraFilesResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventQuaraFilesResponse({}));
   }
 
+  /**
+   * @summary Queries quarantined files by page.
+   *
+   * @param request DescribeSuspEventQuaraFilesRequest
+   * @return DescribeSuspEventQuaraFilesResponse
+   */
   async describeSuspEventQuaraFiles(request: DescribeSuspEventQuaraFilesRequest): Promise<DescribeSuspEventQuaraFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspEventQuaraFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the user settings for exceptions.
+   *
+   * @param request DescribeSuspEventUserSettingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSuspEventUserSettingResponse
+   */
   async describeSuspEventUserSettingWithOptions(request: DescribeSuspEventUserSettingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventUserSettingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -91884,11 +95498,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSuspEventUserSettingResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventUserSettingResponse({}));
   }
 
+  /**
+   * @summary Queries the user settings for exceptions.
+   *
+   * @param request DescribeSuspEventUserSettingRequest
+   * @return DescribeSuspEventUserSettingResponse
+   */
   async describeSuspEventUserSetting(request: DescribeSuspEventUserSettingRequest): Promise<DescribeSuspEventUserSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspEventUserSettingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of alert events that are generated without aggregation.
+   *
+   * @param request DescribeSuspEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSuspEventsResponse
+   */
   async describeSuspEventsWithOptions(request: DescribeSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92039,11 +95666,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSuspEventsResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of alert events that are generated without aggregation.
+   *
+   * @param request DescribeSuspEventsRequest
+   * @return DescribeSuspEventsResponse
+   */
   async describeSuspEvents(request: DescribeSuspEventsRequest): Promise<DescribeSuspEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configuration of a specified feature.
+   *
+   * @param request DescribeSuspiciousOverallConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSuspiciousOverallConfigResponse
+   */
   async describeSuspiciousOverallConfigWithOptions(request: DescribeSuspiciousOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspiciousOverallConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92072,11 +95712,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSuspiciousOverallConfigResponse>(await this.callApi(params, req, runtime), new DescribeSuspiciousOverallConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configuration of a specified feature.
+   *
+   * @param request DescribeSuspiciousOverallConfigRequest
+   * @return DescribeSuspiciousOverallConfigResponse
+   */
   async describeSuspiciousOverallConfig(request: DescribeSuspiciousOverallConfigRequest): Promise<DescribeSuspiciousOverallConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspiciousOverallConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
+   *
+   * @param request DescribeSuspiciousUUIDConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSuspiciousUUIDConfigResponse
+   */
   async describeSuspiciousUUIDConfigWithOptions(request: DescribeSuspiciousUUIDConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspiciousUUIDConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92101,11 +95754,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSuspiciousUUIDConfigResponse>(await this.callApi(params, req, runtime), new DescribeSuspiciousUUIDConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
+   *
+   * @param request DescribeSuspiciousUUIDConfigRequest
+   * @return DescribeSuspiciousUUIDConfigResponse
+   */
   async describeSuspiciousUUIDConfig(request: DescribeSuspiciousUUIDConfigRequest): Promise<DescribeSuspiciousUUIDConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspiciousUUIDConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the servers on which vulnerability scan is enabled.
+   *
+   * @param request DescribeTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTargetResponse
+   */
   async describeTargetWithOptions(request: DescribeTargetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92134,11 +95800,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTargetResponse>(await this.callApi(params, req, runtime), new DescribeTargetResponse({}));
   }
 
+  /**
+   * @summary Queries the servers on which vulnerability scan is enabled.
+   *
+   * @param request DescribeTargetRequest
+   * @return DescribeTargetResponse
+   */
   async describeTarget(request: DescribeTargetRequest): Promise<DescribeTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the error logs on a task that failed to fix image vulnerabilities.
+   *
+   * @param request DescribeTaskErrorLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTaskErrorLogResponse
+   */
   async describeTaskErrorLogWithOptions(request: DescribeTaskErrorLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTaskErrorLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92163,11 +95842,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTaskErrorLogResponse>(await this.callApi(params, req, runtime), new DescribeTaskErrorLogResponse({}));
   }
 
+  /**
+   * @summary Queries the error logs on a task that failed to fix image vulnerabilities.
+   *
+   * @param request DescribeTaskErrorLogRequest
+   * @return DescribeTaskErrorLogResponse
+   */
   async describeTaskErrorLog(request: DescribeTaskErrorLogRequest): Promise<DescribeTaskErrorLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTaskErrorLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries event statistics.
+   *
+   * @param request DescribeTotalStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTotalStatisticsResponse
+   */
   async describeTotalStatisticsWithOptions(request: DescribeTotalStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTotalStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92200,11 +95892,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTotalStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeTotalStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries event statistics.
+   *
+   * @param request DescribeTotalStatisticsRequest
+   * @return DescribeTotalStatisticsResponse
+   */
   async describeTotalStatistics(request: DescribeTotalStatisticsRequest): Promise<DescribeTotalStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTotalStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the trace information about alerts.
+   *
+   * @param request DescribeTraceInfoDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTraceInfoDetailResponse
+   */
   async describeTraceInfoDetailWithOptions(request: DescribeTraceInfoDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTraceInfoDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92253,11 +95958,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTraceInfoDetailResponse>(await this.callApi(params, req, runtime), new DescribeTraceInfoDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the trace information about alerts.
+   *
+   * @param request DescribeTraceInfoDetailRequest
+   * @return DescribeTraceInfoDetailResponse
+   */
   async describeTraceInfoDetail(request: DescribeTraceInfoDetailRequest): Promise<DescribeTraceInfoDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTraceInfoDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a trace node.
+   *
+   * @param request DescribeTraceInfoNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTraceInfoNodeResponse
+   */
   async describeTraceInfoNodeWithOptions(request: DescribeTraceInfoNodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTraceInfoNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92310,11 +96028,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTraceInfoNodeResponse>(await this.callApi(params, req, runtime), new DescribeTraceInfoNodeResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a trace node.
+   *
+   * @param request DescribeTraceInfoNodeRequest
+   * @return DescribeTraceInfoNodeResponse
+   */
   async describeTraceInfoNode(request: DescribeTraceInfoNodeRequest): Promise<DescribeTraceInfoNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTraceInfoNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about databases for which anti-ransomware policies are created.
+   *
+   * @param request DescribeUniBackupDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUniBackupDatabaseResponse
+   */
   async describeUniBackupDatabaseWithOptions(request: DescribeUniBackupDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniBackupDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92359,11 +96090,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUniBackupDatabaseResponse>(await this.callApi(params, req, runtime), new DescribeUniBackupDatabaseResponse({}));
   }
 
+  /**
+   * @summary Queries the information about databases for which anti-ransomware policies are created.
+   *
+   * @param request DescribeUniBackupDatabaseRequest
+   * @return DescribeUniBackupDatabaseResponse
+   */
   async describeUniBackupDatabase(request: DescribeUniBackupDatabaseRequest): Promise<DescribeUniBackupDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUniBackupDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the anti-ransomware policies that are created for databases.
+   *
+   * @param request DescribeUniBackupPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUniBackupPoliciesResponse
+   */
   async describeUniBackupPoliciesWithOptions(request: DescribeUniBackupPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniBackupPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92396,11 +96140,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUniBackupPoliciesResponse>(await this.callApi(params, req, runtime), new DescribeUniBackupPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries the anti-ransomware policies that are created for databases.
+   *
+   * @param request DescribeUniBackupPoliciesRequest
+   * @return DescribeUniBackupPoliciesResponse
+   */
   async describeUniBackupPolicies(request: DescribeUniBackupPoliciesRequest): Promise<DescribeUniBackupPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUniBackupPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an anti-ransomware policy for databases.
+   *
+   * @param request DescribeUniBackupPolicyDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUniBackupPolicyDetailResponse
+   */
   async describeUniBackupPolicyDetailWithOptions(request: DescribeUniBackupPolicyDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniBackupPolicyDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92425,11 +96182,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUniBackupPolicyDetailResponse>(await this.callApi(params, req, runtime), new DescribeUniBackupPolicyDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an anti-ransomware policy for databases.
+   *
+   * @param request DescribeUniBackupPolicyDetailRequest
+   * @return DescribeUniBackupPolicyDetailResponse
+   */
   async describeUniBackupPolicyDetail(request: DescribeUniBackupPolicyDetailRequest): Promise<DescribeUniBackupPolicyDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUniBackupPolicyDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backup snapshots from which the data of a database can be restored.
+   *
+   * @param request DescribeUniRecoverableListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUniRecoverableListResponse
+   */
   async describeUniRecoverableListWithOptions(request: DescribeUniRecoverableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniRecoverableListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92466,11 +96236,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUniRecoverableListResponse>(await this.callApi(params, req, runtime), new DescribeUniRecoverableListResponse({}));
   }
 
+  /**
+   * @summary Queries the backup snapshots from which the data of a database can be restored.
+   *
+   * @param request DescribeUniRecoverableListRequest
+   * @return DescribeUniRecoverableListResponse
+   */
   async describeUniRecoverableList(request: DescribeUniRecoverableListRequest): Promise<DescribeUniRecoverableListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUniRecoverableListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the region that is supported by anti-ransomware for databases.
+   *
+   * @param request DescribeUniSupportRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUniSupportRegionResponse
+   */
   async describeUniSupportRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUniSupportRegionResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -92487,11 +96270,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUniSupportRegionResponse>(await this.callApi(params, req, runtime), new DescribeUniSupportRegionResponse({}));
   }
 
+  /**
+   * @summary Queries the region that is supported by anti-ransomware for databases.
+   *
+   * @return DescribeUniSupportRegionResponse
+   */
   async describeUniSupportRegion(): Promise<DescribeUniSupportRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUniSupportRegionWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information about the servers to which an anti-ransomware policy is applied.
+   *
+   * @param request DescribeUserBackupMachinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserBackupMachinesResponse
+   */
   async describeUserBackupMachinesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserBackupMachinesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -92508,11 +96303,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserBackupMachinesResponse>(await this.callApi(params, req, runtime), new DescribeUserBackupMachinesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the servers to which an anti-ransomware policy is applied.
+   *
+   * @return DescribeUserBackupMachinesResponse
+   */
   async describeUserBackupMachines(): Promise<DescribeUserBackupMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserBackupMachinesWithOptions(runtime);
   }
 
+  /**
+   * @summary The source IP address of the request.
+   *
+   * @param request DescribeUserBaselineAuthorizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserBaselineAuthorizationResponse
+   */
   async describeUserBaselineAuthorizationWithOptions(request: DescribeUserBaselineAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserBaselineAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92545,11 +96352,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserBaselineAuthorizationResponse>(await this.callApi(params, req, runtime), new DescribeUserBaselineAuthorizationResponse({}));
   }
 
+  /**
+   * @summary The source IP address of the request.
+   *
+   * @param request DescribeUserBaselineAuthorizationRequest
+   * @return DescribeUserBaselineAuthorizationResponse
+   */
   async describeUserBaselineAuthorization(request: DescribeUserBaselineAuthorizationRequest): Promise<DescribeUserBaselineAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserBaselineAuthorizationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the brute-force attacks protection feature has been authorized. The brute-force attacks protection feature cannot be used without authorization.
+   *
+   * @param request DescribeUserLayoutAuthorizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserLayoutAuthorizationResponse
+   */
   async describeUserLayoutAuthorizationWithOptions(request: DescribeUserLayoutAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserLayoutAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92582,11 +96402,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserLayoutAuthorizationResponse>(await this.callApi(params, req, runtime), new DescribeUserLayoutAuthorizationResponse({}));
   }
 
+  /**
+   * @summary Queries whether the brute-force attacks protection feature has been authorized. The brute-force attacks protection feature cannot be used without authorization.
+   *
+   * @param request DescribeUserLayoutAuthorizationRequest
+   * @return DescribeUserLayoutAuthorizationResponse
+   */
   async describeUserLayoutAuthorization(request: DescribeUserLayoutAuthorizationRequest): Promise<DescribeUserLayoutAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserLayoutAuthorizationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of assets that support fixing based on vulnerability names.
+   *
+   * @param request DescribeUuidsByVulNamesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUuidsByVulNamesResponse
+   */
   async describeUuidsByVulNamesWithOptions(request: DescribeUuidsByVulNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUuidsByVulNamesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92667,11 +96500,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUuidsByVulNamesResponse>(await this.callApi(params, req, runtime), new DescribeUuidsByVulNamesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of assets that support fixing based on vulnerability names.
+   *
+   * @param request DescribeUuidsByVulNamesRequest
+   * @return DescribeUuidsByVulNamesResponse
+   */
   async describeUuidsByVulNames(request: DescribeUuidsByVulNamesRequest): Promise<DescribeUuidsByVulNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUuidsByVulNamesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the service providers whose assets can be added to Security Center.
+   *
+   * @param request DescribeVendorListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVendorListResponse
+   */
   async describeVendorListWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVendorListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -92688,11 +96534,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVendorListResponse>(await this.callApi(params, req, runtime), new DescribeVendorListResponse({}));
   }
 
+  /**
+   * @summary Queries the service providers whose assets can be added to Security Center.
+   *
+   * @return DescribeVendorListResponse
+   */
   async describeVendorList(): Promise<DescribeVendorListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVendorListWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the details about the edition of purchased Security Center.
+   *
+   * @param request DescribeVersionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVersionConfigResponse
+   */
   async describeVersionConfigWithOptions(request: DescribeVersionConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVersionConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92721,11 +96579,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVersionConfigResponse>(await this.callApi(params, req, runtime), new DescribeVersionConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the details about the edition of purchased Security Center.
+   *
+   * @param request DescribeVersionConfigRequest
+   * @return DescribeVersionConfigResponse
+   */
   async describeVersionConfig(request: DescribeVersionConfigRequest): Promise<DescribeVersionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVersionConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the search conditions that can be used to query honeypots.
+   *
+   * @param request DescribeVpcHoneyPotCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpcHoneyPotCriteriaResponse
+   */
   async describeVpcHoneyPotCriteriaWithOptions(request: DescribeVpcHoneyPotCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcHoneyPotCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92750,17 +96621,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcHoneyPotCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeVpcHoneyPotCriteriaResponse({}));
   }
 
+  /**
+   * @summary Queries the search conditions that can be used to query honeypots.
+   *
+   * @param request DescribeVpcHoneyPotCriteriaRequest
+   * @return DescribeVpcHoneyPotCriteriaResponse
+   */
   async describeVpcHoneyPotCriteria(request: DescribeVpcHoneyPotCriteriaRequest): Promise<DescribeVpcHoneyPotCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcHoneyPotCriteriaWithOptions(request, runtime);
   }
 
   /**
-    * If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
-    *
-    * @param request DescribeVpcHoneyPotListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeVpcHoneyPotListResponse
+   * @summary Queries virtual private clouds (VPCs) on which honeypots are deployed.
+   *
+   * @description If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
+   *
+   * @param request DescribeVpcHoneyPotListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpcHoneyPotListResponse
    */
   async describeVpcHoneyPotListWithOptions(request: DescribeVpcHoneyPotListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcHoneyPotListResponse> {
     Util.validateModel(request);
@@ -92807,16 +96686,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
-    *
-    * @param request DescribeVpcHoneyPotListRequest
-    * @return DescribeVpcHoneyPotListResponse
+   * @summary Queries virtual private clouds (VPCs) on which honeypots are deployed.
+   *
+   * @description If you specify only the Action request parameter in your request, Security Center returns the list of all VPCs regardless of whether a honeypot is deployed on a VPC.
+   *
+   * @param request DescribeVpcHoneyPotListRequest
+   * @return DescribeVpcHoneyPotListResponse
    */
   async describeVpcHoneyPotList(request: DescribeVpcHoneyPotListRequest): Promise<DescribeVpcHoneyPotListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcHoneyPotListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about virtual private clouds (VPCs).
+   *
+   * @param request DescribeVpcListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpcListResponse
+   */
   async describeVpcListWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVpcListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -92833,11 +96721,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcListResponse>(await this.callApi(params, req, runtime), new DescribeVpcListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about virtual private clouds (VPCs).
+   *
+   * @return DescribeVpcListResponse
+   */
   async describeVpcList(): Promise<DescribeVpcListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcListWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the status information about vulnerability scan tasks on a server.
+   *
+   * @param request DescribeVulCheckTaskStatusDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulCheckTaskStatusDetailResponse
+   */
   async describeVulCheckTaskStatusDetailWithOptions(request: DescribeVulCheckTaskStatusDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulCheckTaskStatusDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92870,11 +96770,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulCheckTaskStatusDetailResponse>(await this.callApi(params, req, runtime), new DescribeVulCheckTaskStatusDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the status information about vulnerability scan tasks on a server.
+   *
+   * @param request DescribeVulCheckTaskStatusDetailRequest
+   * @return DescribeVulCheckTaskStatusDetailResponse
+   */
   async describeVulCheckTaskStatusDetail(request: DescribeVulCheckTaskStatusDetailRequest): Promise<DescribeVulCheckTaskStatusDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulCheckTaskStatusDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of vulnerability management.
+   *
+   * @param request DescribeVulConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulConfigResponse
+   */
   async describeVulConfigWithOptions(request: DescribeVulConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92903,11 +96816,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulConfigResponse>(await this.callApi(params, req, runtime), new DescribeVulConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of vulnerability management.
+   *
+   * @param request DescribeVulConfigRequest
+   * @return DescribeVulConfigResponse
+   */
   async describeVulConfig(request: DescribeVulConfigRequest): Promise<DescribeVulConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a vulnerability.
+   *
+   * @param request DescribeVulDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulDetailsResponse
+   */
   async describeVulDetailsWithOptions(request: DescribeVulDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -92948,17 +96874,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulDetailsResponse>(await this.callApi(params, req, runtime), new DescribeVulDetailsResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a vulnerability.
+   *
+   * @param request DescribeVulDetailsRequest
+   * @return DescribeVulDetailsResponse
+   */
   async describeVulDetails(request: DescribeVulDetailsRequest): Promise<DescribeVulDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulDetailsWithOptions(request, runtime);
   }
 
   /**
-    * If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
-    *
-    * @param request DescribeVulExportInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeVulExportInfoResponse
+   * @summary Queries the progress of a task that exports vulnerabilities.
+   *
+   * @description If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
+   *
+   * @param request DescribeVulExportInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulExportInfoResponse
    */
   async describeVulExportInfoWithOptions(request: DescribeVulExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulExportInfoResponse> {
     Util.validateModel(request);
@@ -92985,16 +96919,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
-    *
-    * @param request DescribeVulExportInfoRequest
-    * @return DescribeVulExportInfoResponse
+   * @summary Queries the progress of a task that exports vulnerabilities.
+   *
+   * @description If the value of ExportStatus is success, the URL at which you can download the exported Excel file is returned.
+   *
+   * @param request DescribeVulExportInfoRequest
+   * @return DescribeVulExportInfoResponse
    */
   async describeVulExportInfo(request: DescribeVulExportInfoRequest): Promise<DescribeVulExportInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulExportInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of vulnerability fixes.
+   *
+   * @param request DescribeVulFixStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulFixStatisticsResponse
+   */
   async describeVulFixStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVulFixStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -93011,11 +96954,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulFixStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeVulFixStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of vulnerability fixes.
+   *
+   * @return DescribeVulFixStatisticsResponse
+   */
   async describeVulFixStatistics(): Promise<DescribeVulFixStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulFixStatisticsWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries vulnerabilities by type.
+   *
+   * @param request DescribeVulListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulListResponse
+   */
   async describeVulListWithOptions(request: DescribeVulListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93108,11 +97063,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulListResponse>(await this.callApi(params, req, runtime), new DescribeVulListResponse({}));
   }
 
+  /**
+   * @summary Queries vulnerabilities by type.
+   *
+   * @param request DescribeVulListRequest
+   * @return DescribeVulListResponse
+   */
   async describeVulList(request: DescribeVulListRequest): Promise<DescribeVulListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the vulnerabilities that can be detected.
+   *
+   * @param request DescribeVulListPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulListPageResponse
+   */
   async describeVulListPageWithOptions(request: DescribeVulListPageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulListPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93149,11 +97117,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulListPageResponse>(await this.callApi(params, req, runtime), new DescribeVulListPageResponse({}));
   }
 
+  /**
+   * @summary Queries the vulnerabilities that can be detected.
+   *
+   * @param request DescribeVulListPageRequest
+   * @return DescribeVulListPageResponse
+   */
   async describeVulListPage(request: DescribeVulListPageRequest): Promise<DescribeVulListPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulListPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of vulnerabilities.
+   *
+   * @param request DescribeVulNumStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulNumStatisticsResponse
+   */
   async describeVulNumStatisticsWithOptions(request: DescribeVulNumStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulNumStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93178,11 +97159,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulNumStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeVulNumStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of vulnerabilities.
+   *
+   * @param request DescribeVulNumStatisticsRequest
+   * @return DescribeVulNumStatisticsResponse
+   */
   async describeVulNumStatistics(request: DescribeVulNumStatisticsRequest): Promise<DescribeVulNumStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulNumStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the vulnerability scan feature for a server.
+   *
+   * @param request DescribeVulTargetConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulTargetConfigResponse
+   */
   async describeVulTargetConfigWithOptions(request: DescribeVulTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulTargetConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93211,11 +97205,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulTargetConfigResponse>(await this.callApi(params, req, runtime), new DescribeVulTargetConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the vulnerability scan feature for a server.
+   *
+   * @param request DescribeVulTargetConfigRequest
+   * @return DescribeVulTargetConfigResponse
+   */
   async describeVulTargetConfig(request: DescribeVulTargetConfigRequest): Promise<DescribeVulTargetConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulTargetConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of the vulnerability scan feature.
+   *
+   * @param request DescribeVulTargetStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulTargetStatisticsResponse
+   */
   async describeVulTargetStatisticsWithOptions(request: DescribeVulTargetStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulTargetStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93240,11 +97247,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulTargetStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeVulTargetStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of the vulnerability scan feature.
+   *
+   * @param request DescribeVulTargetStatisticsRequest
+   * @return DescribeVulTargetStatisticsResponse
+   */
   async describeVulTargetStatistics(request: DescribeVulTargetStatisticsRequest): Promise<DescribeVulTargetStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulTargetStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the whitelist of vulnerabilities by page.
+   *
+   * @param request DescribeVulWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVulWhitelistResponse
+   */
   async describeVulWhitelistWithOptions(request: DescribeVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93273,11 +97293,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVulWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeVulWhitelistResponse({}));
   }
 
+  /**
+   * @summary Queries the whitelist of vulnerabilities by page.
+   *
+   * @param request DescribeVulWhitelistRequest
+   * @return DescribeVulWhitelistResponse
+   */
   async describeVulWhitelist(request: DescribeVulWhitelistRequest): Promise<DescribeVulWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVulWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the progress of a export task for a baseline check result.
+   *
+   * @param request DescribeWarningExportInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWarningExportInfoResponse
+   */
   async describeWarningExportInfoWithOptions(request: DescribeWarningExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWarningExportInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93302,11 +97335,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWarningExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeWarningExportInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the progress of a export task for a baseline check result.
+   *
+   * @param request DescribeWarningExportInfoRequest
+   * @return DescribeWarningExportInfoResponse
+   */
   async describeWarningExportInfo(request: DescribeWarningExportInfoRequest): Promise<DescribeWarningExportInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWarningExportInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about servers on which a baseline check is performed. The information includes the IDs of the servers, the statistics of a risk item, and the status of the risk item.
+   *
+   * @param request DescribeWarningMachinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWarningMachinesResponse
+   */
   async describeWarningMachinesWithOptions(request: DescribeWarningMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWarningMachinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93383,11 +97429,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWarningMachinesResponse>(await this.callApi(params, req, runtime), new DescribeWarningMachinesResponse({}));
   }
 
+  /**
+   * @summary Queries information about servers on which a baseline check is performed. The information includes the IDs of the servers, the statistics of a risk item, and the status of the risk item.
+   *
+   * @param request DescribeWarningMachinesRequest
+   * @return DescribeWarningMachinesResponse
+   */
   async describeWarningMachines(request: DescribeWarningMachinesRequest): Promise<DescribeWarningMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWarningMachinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the servers that have web tamper proofing enabled.
+   *
+   * @param request DescribeWebLockBindListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockBindListResponse
+   */
   async describeWebLockBindListWithOptions(request: DescribeWebLockBindListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockBindListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93432,11 +97491,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockBindListResponse>(await this.callApi(params, req, runtime), new DescribeWebLockBindListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the servers that have web tamper proofing enabled.
+   *
+   * @param request DescribeWebLockBindListRequest
+   * @return DescribeWebLockBindListResponse
+   */
   async describeWebLockBindList(request: DescribeWebLockBindListRequest): Promise<DescribeWebLockBindListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockBindListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of web tamper proofing for a specified server.
+   *
+   * @param request DescribeWebLockConfigListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockConfigListResponse
+   */
   async describeWebLockConfigListWithOptions(request: DescribeWebLockConfigListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockConfigListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93469,11 +97541,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockConfigListResponse>(await this.callApi(params, req, runtime), new DescribeWebLockConfigListResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of web tamper proofing for a specified server.
+   *
+   * @param request DescribeWebLockConfigListRequest
+   * @return DescribeWebLockConfigListResponse
+   */
   async describeWebLockConfigList(request: DescribeWebLockConfigListRequest): Promise<DescribeWebLockConfigListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockConfigListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询排除文件类型
+   *
+   * @param request DescribeWebLockExclusiveFileTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockExclusiveFileTypeResponse
+   */
   async describeWebLockExclusiveFileTypeWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeWebLockExclusiveFileTypeResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -93490,11 +97575,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockExclusiveFileTypeResponse>(await this.callApi(params, req, runtime), new DescribeWebLockExclusiveFileTypeResponse({}));
   }
 
+  /**
+   * @summary 查询排除文件类型
+   *
+   * @return DescribeWebLockExclusiveFileTypeResponse
+   */
   async describeWebLockExclusiveFileType(): Promise<DescribeWebLockExclusiveFileTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockExclusiveFileTypeWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the statistics on changes to the files that are protected by web tamper proofing.
+   *
+   * @param request DescribeWebLockFileChangeStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockFileChangeStatisticsResponse
+   */
   async describeWebLockFileChangeStatisticsWithOptions(request: DescribeWebLockFileChangeStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockFileChangeStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93523,11 +97620,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockFileChangeStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeWebLockFileChangeStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on changes to the files that are protected by web tamper proofing.
+   *
+   * @param request DescribeWebLockFileChangeStatisticsRequest
+   * @return DescribeWebLockFileChangeStatisticsResponse
+   */
   async describeWebLockFileChangeStatistics(request: DescribeWebLockFileChangeStatisticsRequest): Promise<DescribeWebLockFileChangeStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockFileChangeStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries events on web tamper proofing.
+   *
+   * @param request DescribeWebLockFileEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockFileEventsResponse
+   */
   async describeWebLockFileEventsWithOptions(request: DescribeWebLockFileEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockFileEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93576,11 +97686,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockFileEventsResponse>(await this.callApi(params, req, runtime), new DescribeWebLockFileEventsResponse({}));
   }
 
+  /**
+   * @summary Queries events on web tamper proofing.
+   *
+   * @param request DescribeWebLockFileEventsRequest
+   * @return DescribeWebLockFileEventsResponse
+   */
   async describeWebLockFileEvents(request: DescribeWebLockFileEventsRequest): Promise<DescribeWebLockFileEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockFileEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The number of attempts.
+   *
+   * @param request DescribeWebLockFileTypeSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockFileTypeSummaryResponse
+   */
   async describeWebLockFileTypeSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeWebLockFileTypeSummaryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -93597,11 +97720,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockFileTypeSummaryResponse>(await this.callApi(params, req, runtime), new DescribeWebLockFileTypeSummaryResponse({}));
   }
 
+  /**
+   * @summary The number of attempts.
+   *
+   * @return DescribeWebLockFileTypeSummaryResponse
+   */
   async describeWebLockFileTypeSummary(): Promise<DescribeWebLockFileTypeSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockFileTypeSummaryWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the types of files that can be protected by web tamper proofing.
+   *
+   * @param request DescribeWebLockInclusiveFileTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockInclusiveFileTypeResponse
+   */
   async describeWebLockInclusiveFileTypeWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeWebLockInclusiveFileTypeResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -93618,11 +97753,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockInclusiveFileTypeResponse>(await this.callApi(params, req, runtime), new DescribeWebLockInclusiveFileTypeResponse({}));
   }
 
+  /**
+   * @summary Queries the types of files that can be protected by web tamper proofing.
+   *
+   * @return DescribeWebLockInclusiveFileTypeResponse
+   */
   async describeWebLockInclusiveFileType(): Promise<DescribeWebLockInclusiveFileTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockInclusiveFileTypeWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the statistics on processes for web tamper proofing.
+   *
+   * @param request DescribeWebLockProcessBlockStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockProcessBlockStatisticsResponse
+   */
   async describeWebLockProcessBlockStatisticsWithOptions(request: DescribeWebLockProcessBlockStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockProcessBlockStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93651,11 +97798,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockProcessBlockStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeWebLockProcessBlockStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on processes for web tamper proofing.
+   *
+   * @param request DescribeWebLockProcessBlockStatisticsRequest
+   * @return DescribeWebLockProcessBlockStatisticsResponse
+   */
   async describeWebLockProcessBlockStatistics(request: DescribeWebLockProcessBlockStatisticsRequest): Promise<DescribeWebLockProcessBlockStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockProcessBlockStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the processes for web tamper proofing.
+   *
+   * @param request DescribeWebLockProcessListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockProcessListResponse
+   */
   async describeWebLockProcessListWithOptions(request: DescribeWebLockProcessListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockProcessListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93692,11 +97852,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockProcessListResponse>(await this.callApi(params, req, runtime), new DescribeWebLockProcessListResponse({}));
   }
 
+  /**
+   * @summary Queries the processes for web tamper proofing.
+   *
+   * @param request DescribeWebLockProcessListRequest
+   * @return DescribeWebLockProcessListResponse
+   */
   async describeWebLockProcessList(request: DescribeWebLockProcessListRequest): Promise<DescribeWebLockProcessListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockProcessListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of web tamper proofing.
+   *
+   * @param request DescribeWebLockStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockStatusResponse
+   */
   async describeWebLockStatusWithOptions(request: DescribeWebLockStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93729,11 +97902,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockStatusResponse>(await this.callApi(params, req, runtime), new DescribeWebLockStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of web tamper proofing.
+   *
+   * @param request DescribeWebLockStatusRequest
+   * @return DescribeWebLockStatusResponse
+   */
   async describeWebLockStatus(request: DescribeWebLockStatusRequest): Promise<DescribeWebLockStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of times that the files protected by web tamper proofing are changed.
+   *
+   * @param request DescribeWebLockTotalFileChangeCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebLockTotalFileChangeCountResponse
+   */
   async describeWebLockTotalFileChangeCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeWebLockTotalFileChangeCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -93750,11 +97936,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebLockTotalFileChangeCountResponse>(await this.callApi(params, req, runtime), new DescribeWebLockTotalFileChangeCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of times that the files protected by web tamper proofing are changed.
+   *
+   * @return DescribeWebLockTotalFileChangeCountResponse
+   */
   async describeWebLockTotalFileChangeCount(): Promise<DescribeWebLockTotalFileChangeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebLockTotalFileChangeCountWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the custom web directories that are scanned based on the alerting feature.
+   *
+   * @param request DescribeWebPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebPathResponse
+   */
   async describeWebPathWithOptions(request: DescribeWebPathRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebPathResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93787,11 +97985,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebPathResponse>(await this.callApi(params, req, runtime), new DescribeWebPathResponse({}));
   }
 
+  /**
+   * @summary Queries the custom web directories that are scanned based on the alerting feature.
+   *
+   * @param request DescribeWebPathRequest
+   * @return DescribeWebPathResponse
+   */
   async describeWebPath(request: DescribeWebPathRequest): Promise<DescribeWebPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebPathWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables an IP address blocking policy that is in effect.
+   *
+   * @param request DisableBruteForceRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableBruteForceRecordResponse
+   */
   async disableBruteForceRecordWithOptions(request: DisableBruteForceRecordRequest, runtime: $Util.RuntimeOptions): Promise<DisableBruteForceRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93836,11 +98047,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableBruteForceRecordResponse>(await this.callApi(params, req, runtime), new DisableBruteForceRecordResponse({}));
   }
 
+  /**
+   * @summary Disables an IP address blocking policy that is in effect.
+   *
+   * @param request DisableBruteForceRecordRequest
+   * @return DisableBruteForceRecordResponse
+   */
   async disableBruteForceRecord(request: DisableBruteForceRecordRequest): Promise<DisableBruteForceRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableBruteForceRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a custom IP address blocking policy for servers.
+   *
+   * @param request DisableCustomBlockRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableCustomBlockRecordResponse
+   */
   async disableCustomBlockRecordWithOptions(request: DisableCustomBlockRecordRequest, runtime: $Util.RuntimeOptions): Promise<DisableCustomBlockRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93873,11 +98097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableCustomBlockRecordResponse>(await this.callApi(params, req, runtime), new DisableCustomBlockRecordResponse({}));
   }
 
+  /**
+   * @summary Disables a custom IP address blocking policy for servers.
+   *
+   * @param request DisableCustomBlockRecordRequest
+   * @return DisableCustomBlockRecordResponse
+   */
   async disableCustomBlockRecord(request: DisableCustomBlockRecordRequest): Promise<DisableCustomBlockRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableCustomBlockRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables an IP address blocking policy for a specified server.
+   *
+   * @param request EnableBruteForceRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableBruteForceRecordResponse
+   */
   async enableBruteForceRecordWithOptions(request: EnableBruteForceRecordRequest, runtime: $Util.RuntimeOptions): Promise<EnableBruteForceRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93922,11 +98159,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableBruteForceRecordResponse>(await this.callApi(params, req, runtime), new EnableBruteForceRecordResponse({}));
   }
 
+  /**
+   * @summary Enables an IP address blocking policy for a specified server.
+   *
+   * @param request EnableBruteForceRecordRequest
+   * @return EnableBruteForceRecordResponse
+   */
   async enableBruteForceRecord(request: EnableBruteForceRecordRequest): Promise<EnableBruteForceRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableBruteForceRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables a custom IP address blocking policy.
+   *
+   * @param request EnableCustomBlockRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableCustomBlockRecordResponse
+   */
   async enableCustomBlockRecordWithOptions(request: EnableCustomBlockRecordRequest, runtime: $Util.RuntimeOptions): Promise<EnableCustomBlockRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -93959,11 +98209,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableCustomBlockRecordResponse>(await this.callApi(params, req, runtime), new EnableCustomBlockRecordResponse({}));
   }
 
+  /**
+   * @summary Enables a custom IP address blocking policy.
+   *
+   * @param request EnableCustomBlockRecordRequest
+   * @return EnableCustomBlockRecordResponse
+   */
   async enableCustomBlockRecord(request: EnableCustomBlockRecordRequest): Promise<EnableCustomBlockRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableCustomBlockRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables a custom rule for an instance.
+   *
+   * @param request EnableCustomInstanceBlockRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableCustomInstanceBlockRecordResponse
+   */
   async enableCustomInstanceBlockRecordWithOptions(request: EnableCustomInstanceBlockRecordRequest, runtime: $Util.RuntimeOptions): Promise<EnableCustomInstanceBlockRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94000,11 +98263,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableCustomInstanceBlockRecordResponse>(await this.callApi(params, req, runtime), new EnableCustomInstanceBlockRecordResponse({}));
   }
 
+  /**
+   * @summary Enables a custom rule for an instance.
+   *
+   * @param request EnableCustomInstanceBlockRecordRequest
+   * @return EnableCustomInstanceBlockRecordResponse
+   */
   async enableCustomInstanceBlockRecord(request: EnableCustomInstanceBlockRecordRequest): Promise<EnableCustomInstanceBlockRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableCustomInstanceBlockRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Performs a baseline check on servers to which a specified baseline check policy is applied.
+   *
+   * @param request ExecStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecStrategyResponse
+   */
   async execStrategyWithOptions(request: ExecStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ExecStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94033,21 +98309,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecStrategyResponse>(await this.callApi(params, req, runtime), new ExecStrategyResponse({}));
   }
 
+  /**
+   * @summary Performs a baseline check on servers to which a specified baseline check policy is applied.
+   *
+   * @param request ExecStrategyRequest
+   * @return ExecStrategyResponse
+   */
   async execStrategy(request: ExecStrategyRequest): Promise<ExecStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.execStrategyWithOptions(request, runtime);
   }
 
   /**
-    * You can call the operation to export the following check result lists:
-    * *   The list of servers on the Host page.
-    * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
-    * *   The list of attack analysis data on the Attack Awareness page.
-    * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
-    *
-    * @param request ExportRecordRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExportRecordResponse
+   * @summary Exports the check results on the Host, Cloud Platform Configuration Assessment, Image Security, Attack Awareness, and AK leak detection pages to Excel files.
+   *
+   * @description You can call the operation to export the following check result lists:
+   * *   The list of servers on the Host page.
+   * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
+   * *   The list of attack analysis data on the Attack Awareness page.
+   * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
+   *
+   * @param request ExportRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportRecordResponse
    */
   async exportRecordWithOptions(request: ExportRecordRequest, runtime: $Util.RuntimeOptions): Promise<ExportRecordResponse> {
     Util.validateModel(request);
@@ -94086,20 +98370,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the operation to export the following check result lists:
-    * *   The list of servers on the Host page.
-    * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
-    * *   The list of attack analysis data on the Attack Awareness page.
-    * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
-    *
-    * @param request ExportRecordRequest
-    * @return ExportRecordResponse
+   * @summary Exports the check results on the Host, Cloud Platform Configuration Assessment, Image Security, Attack Awareness, and AK leak detection pages to Excel files.
+   *
+   * @description You can call the operation to export the following check result lists:
+   * *   The list of servers on the Host page.
+   * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
+   * *   The list of attack analysis data on the Attack Awareness page.
+   * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
+   *
+   * @param request ExportRecordRequest
+   * @return ExportRecordResponse
    */
   async exportRecord(request: ExportRecordRequest): Promise<ExportRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Exports the information about exceptions to a file.
+   *
+   * @param request ExportSuspEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportSuspEventsResponse
+   */
   async exportSuspEventsWithOptions(request: ExportSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<ExportSuspEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94212,20 +98505,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportSuspEventsResponse>(await this.callApi(params, req, runtime), new ExportSuspEventsResponse({}));
   }
 
+  /**
+   * @summary Exports the information about exceptions to a file.
+   *
+   * @param request ExportSuspEventsRequest
+   * @return ExportSuspEventsResponse
+   */
   async exportSuspEvents(request: ExportSuspEventsRequest): Promise<ExportSuspEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportSuspEventsWithOptions(request, runtime);
   }
 
   /**
-    * You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
-    * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ExportVulRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExportVulResponse
+   * @summary Exports vulnerabilities.
+   *
+   * @description You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
+   * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ExportVulRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportVulResponse
    */
   async exportVulWithOptions(request: ExportVulRequest, runtime: $Util.RuntimeOptions): Promise<ExportVulResponse> {
     Util.validateModel(request);
@@ -94312,19 +98613,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
-    * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ExportVulRequest
-    * @return ExportVulResponse
+   * @summary Exports vulnerabilities.
+   *
+   * @description You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
+   * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ExportVulRequest
+   * @return ExportVulResponse
    */
   async exportVul(request: ExportVulRequest): Promise<ExportVulResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportVulWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Exports baseline check results.
+   *
+   * @param request ExportWarningRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportWarningResponse
+   */
   async exportWarningWithOptions(request: ExportWarningRequest, runtime: $Util.RuntimeOptions): Promise<ExportWarningResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94409,11 +98719,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportWarningResponse>(await this.callApi(params, req, runtime), new ExportWarningResponse({}));
   }
 
+  /**
+   * @summary Exports baseline check results.
+   *
+   * @param request ExportWarningRequest
+   * @return ExportWarningResponse
+   */
   async exportWarning(request: ExportWarningRequest): Promise<ExportWarningResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportWarningWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 容器网络连接
+   *
+   * @param tmpReq FindContainerNetworkConnectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FindContainerNetworkConnectResponse
+   */
   async findContainerNetworkConnectWithOptions(tmpReq: FindContainerNetworkConnectRequest, runtime: $Util.RuntimeOptions): Promise<FindContainerNetworkConnectResponse> {
     Util.validateModel(tmpReq);
     let request = new FindContainerNetworkConnectShrinkRequest({ });
@@ -94472,11 +98795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FindContainerNetworkConnectResponse>(await this.callApi(params, req, runtime), new FindContainerNetworkConnectResponse({}));
   }
 
+  /**
+   * @summary 容器网络连接
+   *
+   * @param request FindContainerNetworkConnectRequest
+   * @return FindContainerNetworkConnectResponse
+   */
   async findContainerNetworkConnect(request: FindContainerNetworkConnectRequest): Promise<FindContainerNetworkConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.findContainerNetworkConnectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Fixes a baseline risk item.
+   *
+   * @param request FixCheckWarningsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FixCheckWarningsResponse
+   */
   async fixCheckWarningsWithOptions(request: FixCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<FixCheckWarningsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94517,11 +98853,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FixCheckWarningsResponse>(await this.callApi(params, req, runtime), new FixCheckWarningsResponse({}));
   }
 
+  /**
+   * @summary Fixes a baseline risk item.
+   *
+   * @param request FixCheckWarningsRequest
+   * @return FixCheckWarningsResponse
+   */
   async fixCheckWarnings(request: FixCheckWarningsRequest): Promise<FixCheckWarningsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fixCheckWarningsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Generates a command that is used to add a self-managed Kubernetes cluster.
+   *
+   * @param request GenerateK8sAccessInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateK8sAccessInfoResponse
+   */
   async generateK8sAccessInfoWithOptions(request: GenerateK8sAccessInfoRequest, runtime: $Util.RuntimeOptions): Promise<GenerateK8sAccessInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94582,11 +98931,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateK8sAccessInfoResponse>(await this.callApi(params, req, runtime), new GenerateK8sAccessInfoResponse({}));
   }
 
+  /**
+   * @summary Generates a command that is used to add a self-managed Kubernetes cluster.
+   *
+   * @param request GenerateK8sAccessInfoRequest
+   * @return GenerateK8sAccessInfoResponse
+   */
   async generateK8sAccessInfo(request: GenerateK8sAccessInfoRequest): Promise<GenerateK8sAccessInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateK8sAccessInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a one-time scan task.
+   *
+   * @param request GenerateOnceTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateOnceTaskResponse
+   */
   async generateOnceTaskWithOptions(request: GenerateOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<GenerateOnceTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94623,11 +98985,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateOnceTaskResponse>(await this.callApi(params, req, runtime), new GenerateOnceTaskResponse({}));
   }
 
+  /**
+   * @summary Creates a one-time scan task.
+   *
+   * @param request GenerateOnceTaskRequest
+   * @return GenerateOnceTaskResponse
+   */
   async generateOnceTask(request: GenerateOnceTaskRequest): Promise<GenerateOnceTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateOnceTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries search conditions that can be used to search for container file protection rules.
+   *
+   * @param request GetAegisContainerPluginRuleCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAegisContainerPluginRuleCriteriaResponse
+   */
   async getAegisContainerPluginRuleCriteriaWithOptions(request: GetAegisContainerPluginRuleCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<GetAegisContainerPluginRuleCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94656,11 +99031,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAegisContainerPluginRuleCriteriaResponse>(await this.callApi(params, req, runtime), new GetAegisContainerPluginRuleCriteriaResponse({}));
   }
 
+  /**
+   * @summary Queries search conditions that can be used to search for container file protection rules.
+   *
+   * @param request GetAegisContainerPluginRuleCriteriaRequest
+   * @return GetAegisContainerPluginRuleCriteriaResponse
+   */
   async getAegisContainerPluginRuleCriteria(request: GetAegisContainerPluginRuleCriteriaRequest): Promise<GetAegisContainerPluginRuleCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAegisContainerPluginRuleCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of agentless detection tasks.
+   *
+   * @param request GetAgentlessTaskCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAgentlessTaskCountResponse
+   */
   async getAgentlessTaskCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAgentlessTaskCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -94677,11 +99065,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentlessTaskCountResponse>(await this.callApi(params, req, runtime), new GetAgentlessTaskCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of agentless detection tasks.
+   *
+   * @return GetAgentlessTaskCountResponse
+   */
   async getAgentlessTaskCount(): Promise<GetAgentlessTaskCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentlessTaskCountWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the number of servers on which alerts are generated.
+   *
+   * @param request GetAlarmMachineCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAlarmMachineCountResponse
+   */
   async getAlarmMachineCountWithOptions(request: GetAlarmMachineCountRequest, runtime: $Util.RuntimeOptions): Promise<GetAlarmMachineCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94706,11 +99106,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAlarmMachineCountResponse>(await this.callApi(params, req, runtime), new GetAlarmMachineCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of servers on which alerts are generated.
+   *
+   * @param request GetAlarmMachineCountRequest
+   * @return GetAlarmMachineCountResponse
+   */
   async getAlarmMachineCount(request: GetAlarmMachineCountRequest): Promise<GetAlarmMachineCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAlarmMachineCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the network topology between containerized applications.
+   *
+   * @param request GetAppNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppNetworkResponse
+   */
   async getAppNetworkWithOptions(request: GetAppNetworkRequest, runtime: $Util.RuntimeOptions): Promise<GetAppNetworkResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -94731,11 +99144,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppNetworkResponse>(await this.callApi(params, req, runtime), new GetAppNetworkResponse({}));
   }
 
+  /**
+   * @summary Queries the network topology between containerized applications.
+   *
+   * @param request GetAppNetworkRequest
+   * @return GetAppNetworkResponse
+   */
   async getAppNetwork(request: GetAppNetworkRequest): Promise<GetAppNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+   *
+   * @param request GetAssetDetailByUuidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAssetDetailByUuidResponse
+   */
   async getAssetDetailByUuidWithOptions(request: GetAssetDetailByUuidRequest, runtime: $Util.RuntimeOptions): Promise<GetAssetDetailByUuidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94768,11 +99194,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAssetDetailByUuidResponse>(await this.callApi(params, req, runtime), new GetAssetDetailByUuidResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+   *
+   * @param request GetAssetDetailByUuidRequest
+   * @return GetAssetDetailByUuidResponse
+   */
   async getAssetDetailByUuid(request: GetAssetDetailByUuidRequest): Promise<GetAssetDetailByUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAssetDetailByUuidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries asset selection configurations.
+   *
+   * @param request GetAssetSelectionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAssetSelectionConfigResponse
+   */
   async getAssetSelectionConfigWithOptions(request: GetAssetSelectionConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetAssetSelectionConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94797,11 +99236,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAssetSelectionConfigResponse>(await this.callApi(params, req, runtime), new GetAssetSelectionConfigResponse({}));
   }
 
+  /**
+   * @summary Queries asset selection configurations.
+   *
+   * @param request GetAssetSelectionConfigRequest
+   * @return GetAssetSelectionConfigResponse
+   */
   async getAssetSelectionConfig(request: GetAssetSelectionConfigRequest): Promise<GetAssetSelectionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAssetSelectionConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about the asset fingerprints of the startup item, kernel module, or website type.
+   *
+   * @param request GetAssetsPropertyDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAssetsPropertyDetailResponse
+   */
   async getAssetsPropertyDetailWithOptions(request: GetAssetsPropertyDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetAssetsPropertyDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94854,11 +99306,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAssetsPropertyDetailResponse>(await this.callApi(params, req, runtime), new GetAssetsPropertyDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details about the asset fingerprints of the startup item, kernel module, or website type.
+   *
+   * @param request GetAssetsPropertyDetailRequest
+   * @return GetAssetsPropertyDetailResponse
+   */
   async getAssetsPropertyDetail(request: GetAssetsPropertyDetailRequest): Promise<GetAssetsPropertyDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAssetsPropertyDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the aggregation information about the asset fingerprints of the startup item, kernel module, or website type.
+   *
+   * @param request GetAssetsPropertyItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAssetsPropertyItemResponse
+   */
   async getAssetsPropertyItemWithOptions(request: GetAssetsPropertyItemRequest, runtime: $Util.RuntimeOptions): Promise<GetAssetsPropertyItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -94907,11 +99372,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAssetsPropertyItemResponse>(await this.callApi(params, req, runtime), new GetAssetsPropertyItemResponse({}));
   }
 
+  /**
+   * @summary Queries the aggregation information about the asset fingerprints of the startup item, kernel module, or website type.
+   *
+   * @param request GetAssetsPropertyItemRequest
+   * @return GetAssetsPropertyItemResponse
+   */
   async getAssetsPropertyItem(request: GetAssetsPropertyItemRequest): Promise<GetAssetsPropertyItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAssetsPropertyItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics about the numbers of assets protected by each edition of Security Center.
+   *
+   * @param request GetAuthVersionStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAuthVersionStatisticResponse
+   */
   async getAuthVersionStatisticWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAuthVersionStatisticResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -94928,11 +99406,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAuthVersionStatisticResponse>(await this.callApi(params, req, runtime), new GetAuthVersionStatisticResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics about the numbers of assets protected by each edition of Security Center.
+   *
+   * @return GetAuthVersionStatisticResponse
+   */
   async getAuthVersionStatistic(): Promise<GetAuthVersionStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthVersionStatisticWithOptions(runtime);
   }
 
+  /**
+   * @summary 查询防勒索存储统计
+   *
+   * @param request GetBackupStorageCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBackupStorageCountResponse
+   */
   async getBackupStorageCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetBackupStorageCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -94949,11 +99439,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBackupStorageCountResponse>(await this.callApi(params, req, runtime), new GetBackupStorageCountResponse({}));
   }
 
+  /**
+   * @summary 查询防勒索存储统计
+   *
+   * @return GetBackupStorageCountResponse
+   */
   async getBackupStorageCount(): Promise<GetBackupStorageCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBackupStorageCountWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information about an automatic configuration check on cloud services.
+   *
+   * @param request GetCheckConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCheckConfigResponse
+   */
   async getCheckConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCheckConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -94970,11 +99472,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckConfigResponse>(await this.callApi(params, req, runtime), new GetCheckConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an automatic configuration check on cloud services.
+   *
+   * @return GetCheckConfigResponse
+   */
   async getCheckConfig(): Promise<GetCheckConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCheckConfigWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the details about a check item that is used for configuration assessment.
+   *
+   * @param request GetCheckDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCheckDetailResponse
+   */
   async getCheckDetailWithOptions(request: GetCheckDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95007,11 +99521,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckDetailResponse>(await this.callApi(params, req, runtime), new GetCheckDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a check item that is used for configuration assessment.
+   *
+   * @param request GetCheckDetailRequest
+   * @return GetCheckDetailResponse
+   */
   async getCheckDetail(request: GetCheckDetailRequest): Promise<GetCheckDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCheckDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the progress of a configuration check task on cloud services.
+   *
+   * @param request GetCheckProcessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCheckProcessResponse
+   */
   async getCheckProcessWithOptions(request: GetCheckProcessRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckProcessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95036,11 +99563,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckProcessResponse>(await this.callApi(params, req, runtime), new GetCheckProcessResponse({}));
   }
 
+  /**
+   * @summary Queries the progress of a configuration check task on cloud services.
+   *
+   * @param request GetCheckProcessRequest
+   * @return GetCheckProcessResponse
+   */
   async getCheckProcess(request: GetCheckProcessRequest): Promise<GetCheckProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCheckProcessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on risk scenarios and check items that are used in the risk scenarios, including the statistics on low-risk, medium-risk, and high-risk items by baseline type.
+   *
+   * @param request GetCheckRiskStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCheckRiskStatisticsResponse
+   */
   async getCheckRiskStatisticsWithOptions(request: GetCheckRiskStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckRiskStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95073,11 +99613,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckRiskStatisticsResponse>(await this.callApi(params, req, runtime), new GetCheckRiskStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on risk scenarios and check items that are used in the risk scenarios, including the statistics on low-risk, medium-risk, and high-risk items by baseline type.
+   *
+   * @param request GetCheckRiskStatisticsRequest
+   * @return GetCheckRiskStatisticsResponse
+   */
   async getCheckRiskStatistics(request: GetCheckRiskStatisticsRequest): Promise<GetCheckRiskStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCheckRiskStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the sales information about the configuration assessment feature, including the purchased quota and the consumed quota.
+   *
+   * @param request GetCheckSaleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCheckSaleResponse
+   */
   async getCheckSaleWithOptions(request: GetCheckSaleRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckSaleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95102,11 +99655,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckSaleResponse>(await this.callApi(params, req, runtime), new GetCheckSaleResponse({}));
   }
 
+  /**
+   * @summary Queries the sales information about the configuration assessment feature, including the purchased quota and the consumed quota.
+   *
+   * @param request GetCheckSaleRequest
+   * @return GetCheckSaleResponse
+   */
   async getCheckSale(request: GetCheckSaleRequest): Promise<GetCheckSaleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCheckSaleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the summary information about the configuration checks on cloud services.
+   *
+   * @param request GetCheckSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCheckSummaryResponse
+   */
   async getCheckSummaryWithOptions(request: GetCheckSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetCheckSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95143,17 +99709,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCheckSummaryResponse>(await this.callApi(params, req, runtime), new GetCheckSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the summary information about the configuration checks on cloud services.
+   *
+   * @param request GetCheckSummaryRequest
+   * @return GetCheckSummaryResponse
+   */
   async getCheckSummary(request: GetCheckSummaryRequest): Promise<GetCheckSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCheckSummaryWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
-    *
-    * @param request GetClientInstallationStatisticRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetClientInstallationStatisticResponse
+   * @deprecated OpenAPI GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
+   *
+   * @summary Queries the installation rate of the client on cloud assets in the specified period of time.
+   *
+   * @param request GetClientInstallationStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClientInstallationStatisticResponse
    */
   // Deprecated
   async getClientInstallationStatisticWithOptions(request: GetClientInstallationStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetClientInstallationStatisticResponse> {
@@ -95185,10 +99759,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
-    *
-    * @param request GetClientInstallationStatisticRequest
-    * @return GetClientInstallationStatisticResponse
+   * @deprecated OpenAPI GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
+   *
+   * @summary Queries the installation rate of the client on cloud assets in the specified period of time.
+   *
+   * @param request GetClientInstallationStatisticRequest
+   * @return GetClientInstallationStatisticResponse
    */
   // Deprecated
   async getClientInstallationStatistic(request: GetClientInstallationStatisticRequest): Promise<GetClientInstallationStatisticResponse> {
@@ -95196,6 +99772,13 @@ export default class Client extends OpenApi {
     return await this.getClientInstallationStatisticWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the installation rate and online rate of the agent.
+   *
+   * @param request GetClientRatioStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClientRatioStatisticResponse
+   */
   async getClientRatioStatisticWithOptions(request: GetClientRatioStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetClientRatioStatisticResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95232,11 +99815,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClientRatioStatisticResponse>(await this.callApi(params, req, runtime), new GetClientRatioStatisticResponse({}));
   }
 
+  /**
+   * @summary Queries the installation rate and online rate of the agent.
+   *
+   * @param request GetClientRatioStatisticRequest
+   * @return GetClientRatioStatisticResponse
+   */
   async getClientRatioStatistic(request: GetClientRatioStatisticRequest): Promise<GetClientRatioStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClientRatioStatisticWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a custom defense rule.
+   *
+   * @param request GetClientUserDefineRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClientUserDefineRuleResponse
+   */
   async getClientUserDefineRuleWithOptions(request: GetClientUserDefineRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetClientUserDefineRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95261,11 +99857,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClientUserDefineRuleResponse>(await this.callApi(params, req, runtime), new GetClientUserDefineRuleResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a custom defense rule.
+   *
+   * @param request GetClientUserDefineRuleRequest
+   * @return GetClientUserDefineRuleResponse
+   */
   async getClientUserDefineRule(request: GetClientUserDefineRuleRequest): Promise<GetClientUserDefineRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClientUserDefineRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the filter conditions that are used to search for cloud assets.
+   *
+   * @param request GetCloudAssetCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCloudAssetCriteriaResponse
+   */
   async getCloudAssetCriteriaWithOptions(request: GetCloudAssetCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudAssetCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95294,11 +99903,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCloudAssetCriteriaResponse>(await this.callApi(params, req, runtime), new GetCloudAssetCriteriaResponse({}));
   }
 
+  /**
+   * @summary Queries the filter conditions that are used to search for cloud assets.
+   *
+   * @param request GetCloudAssetCriteriaRequest
+   * @return GetCloudAssetCriteriaResponse
+   */
   async getCloudAssetCriteria(request: GetCloudAssetCriteriaRequest): Promise<GetCloudAssetCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCloudAssetCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the details of cloud assets.
+   *
+   * @param request GetCloudAssetDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCloudAssetDetailResponse
+   */
   async getCloudAssetDetailWithOptions(request: GetCloudAssetDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudAssetDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95335,11 +99957,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCloudAssetDetailResponse>(await this.callApi(params, req, runtime), new GetCloudAssetDetailResponse({}));
   }
 
+  /**
+   * @summary Obtains the details of cloud assets.
+   *
+   * @param request GetCloudAssetDetailRequest
+   * @return GetCloudAssetDetailResponse
+   */
   async getCloudAssetDetail(request: GetCloudAssetDetailRequest): Promise<GetCloudAssetDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCloudAssetDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The total number of instances that are at risk.
+   *
+   * @param request GetCloudAssetSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCloudAssetSummaryResponse
+   */
   async getCloudAssetSummaryWithOptions(request: GetCloudAssetSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudAssetSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95364,11 +99999,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCloudAssetSummaryResponse>(await this.callApi(params, req, runtime), new GetCloudAssetSummaryResponse({}));
   }
 
+  /**
+   * @summary The total number of instances that are at risk.
+   *
+   * @param request GetCloudAssetSummaryRequest
+   * @return GetCloudAssetSummaryResponse
+   */
   async getCloudAssetSummary(request: GetCloudAssetSummaryRequest): Promise<GetCloudAssetSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCloudAssetSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on baseline risk items of container clusters.
+   *
+   * @param request GetClusterCheckItemWarningStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterCheckItemWarningStatisticsResponse
+   */
   async getClusterCheckItemWarningStatisticsWithOptions(request: GetClusterCheckItemWarningStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterCheckItemWarningStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95397,11 +100045,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterCheckItemWarningStatisticsResponse>(await this.callApi(params, req, runtime), new GetClusterCheckItemWarningStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on baseline risk items of container clusters.
+   *
+   * @param request GetClusterCheckItemWarningStatisticsRequest
+   * @return GetClusterCheckItemWarningStatisticsResponse
+   */
   async getClusterCheckItemWarningStatistics(request: GetClusterCheckItemWarningStatisticsRequest): Promise<GetClusterCheckItemWarningStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClusterCheckItemWarningStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the overall information about cluster defense rules that are configured for the container firewall feature.
+   *
+   * @param request GetClusterRuleSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterRuleSummaryResponse
+   */
   async getClusterRuleSummaryWithOptions(request: GetClusterRuleSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterRuleSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95426,11 +100087,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterRuleSummaryResponse>(await this.callApi(params, req, runtime), new GetClusterRuleSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the overall information about cluster defense rules that are configured for the container firewall feature.
+   *
+   * @param request GetClusterRuleSummaryRequest
+   * @return GetClusterRuleSummaryResponse
+   */
   async getClusterRuleSummary(request: GetClusterRuleSummaryRequest): Promise<GetClusterRuleSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClusterRuleSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of policies in each cluster.
+   *
+   * @param request GetClusterStrategyCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterStrategyCountResponse
+   */
   async getClusterStrategyCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetClusterStrategyCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -95447,11 +100121,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterStrategyCountResponse>(await this.callApi(params, req, runtime), new GetClusterStrategyCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of policies in each cluster.
+   *
+   * @return GetClusterStrategyCountResponse
+   */
   async getClusterStrategyCount(): Promise<GetClusterStrategyCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClusterStrategyCountWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the statistics on alert events that are generated for containers.
+   *
+   * @param request GetClusterSuspEventStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterSuspEventStatisticsResponse
+   */
   async getClusterSuspEventStatisticsWithOptions(request: GetClusterSuspEventStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterSuspEventStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95480,11 +100166,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterSuspEventStatisticsResponse>(await this.callApi(params, req, runtime), new GetClusterSuspEventStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on alert events that are generated for containers.
+   *
+   * @param request GetClusterSuspEventStatisticsRequest
+   * @return GetClusterSuspEventStatisticsResponse
+   */
   async getClusterSuspEventStatistics(request: GetClusterSuspEventStatisticsRequest): Promise<GetClusterSuspEventStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClusterSuspEventStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configuration of a common switch.
+   *
+   * @param request GetCommonSwitchConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCommonSwitchConfigResponse
+   */
   async getCommonSwitchConfigWithOptions(request: GetCommonSwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetCommonSwitchConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95509,11 +100208,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCommonSwitchConfigResponse>(await this.callApi(params, req, runtime), new GetCommonSwitchConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configuration of a common switch.
+   *
+   * @param request GetCommonSwitchConfigRequest
+   * @return GetCommonSwitchConfigResponse
+   */
   async getCommonSwitchConfig(request: GetCommonSwitchConfigRequest): Promise<GetCommonSwitchConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCommonSwitchConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a rule for non-image program defense.
+   *
+   * @param request GetContainerDefenseRuleDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetContainerDefenseRuleDetailResponse
+   */
   async getContainerDefenseRuleDetailWithOptions(request: GetContainerDefenseRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetContainerDefenseRuleDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95538,11 +100250,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetContainerDefenseRuleDetailResponse>(await this.callApi(params, req, runtime), new GetContainerDefenseRuleDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a rule for non-image program defense.
+   *
+   * @param request GetContainerDefenseRuleDetailRequest
+   * @return GetContainerDefenseRuleDetailResponse
+   */
   async getContainerDefenseRuleDetail(request: GetContainerDefenseRuleDetailRequest): Promise<GetContainerDefenseRuleDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getContainerDefenseRuleDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the usage information of the malicious file detection SDK.
+   *
+   * @param request GetFileDetectApiInvokeInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileDetectApiInvokeInfoResponse
+   */
   async getFileDetectApiInvokeInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetFileDetectApiInvokeInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -95559,11 +100284,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileDetectApiInvokeInfoResponse>(await this.callApi(params, req, runtime), new GetFileDetectApiInvokeInfoResponse({}));
   }
 
+  /**
+   * @summary Obtains the usage information of the malicious file detection SDK.
+   *
+   * @return GetFileDetectApiInvokeInfoResponse
+   */
   async getFileDetectApiInvokeInfo(): Promise<GetFileDetectApiInvokeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileDetectApiInvokeInfoWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the cloud sandbox check results of malicious files.
+   *
+   * @param request GetFileDetectReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileDetectReportResponse
+   */
   async getFileDetectReportWithOptions(request: GetFileDetectReportRequest, runtime: $Util.RuntimeOptions): Promise<GetFileDetectReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95604,17 +100341,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileDetectReportResponse>(await this.callApi(params, req, runtime), new GetFileDetectReportResponse({}));
   }
 
+  /**
+   * @summary Queries the cloud sandbox check results of malicious files.
+   *
+   * @param request GetFileDetectReportRequest
+   * @return GetFileDetectReportResponse
+   */
   async getFileDetectReport(request: GetFileDetectReportRequest): Promise<GetFileDetectReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileDetectReportWithOptions(request, runtime);
   }
 
   /**
-    * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-    *
-    * @param request GetFileDetectResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetFileDetectResultResponse
+   * @summary Obtains file detection results.
+   *
+   * @description The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+   *
+   * @param request GetFileDetectResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileDetectResultResponse
    */
   async getFileDetectResultWithOptions(request: GetFileDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<GetFileDetectResultResponse> {
     Util.validateModel(request);
@@ -95649,16 +100394,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
-    *
-    * @param request GetFileDetectResultRequest
-    * @return GetFileDetectResultResponse
+   * @summary Obtains file detection results.
+   *
+   * @description The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+   *
+   * @param request GetFileDetectResultRequest
+   * @return GetFileDetectResultResponse
    */
   async getFileDetectResult(request: GetFileDetectResultRequest): Promise<GetFileDetectResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileDetectResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
+   *
+   * @param request GetFileProtectDashboardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileProtectDashboardResponse
+   */
   async getFileProtectDashboardWithOptions(runtime: $Util.RuntimeOptions): Promise<GetFileProtectDashboardResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -95675,11 +100429,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileProtectDashboardResponse>(await this.callApi(params, req, runtime), new GetFileProtectDashboardResponse({}));
   }
 
+  /**
+   * @summary Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
+   *
+   * @return GetFileProtectDashboardResponse
+   */
   async getFileProtectDashboard(): Promise<GetFileProtectDashboardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileProtectDashboardWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries information about core file monitoring events.
+   *
+   * @param request GetFileProtectEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileProtectEventResponse
+   */
   async getFileProtectEventWithOptions(request: GetFileProtectEventRequest, runtime: $Util.RuntimeOptions): Promise<GetFileProtectEventResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95704,11 +100470,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileProtectEventResponse>(await this.callApi(params, req, runtime), new GetFileProtectEventResponse({}));
   }
 
+  /**
+   * @summary Queries information about core file monitoring events.
+   *
+   * @param request GetFileProtectEventRequest
+   * @return GetFileProtectEventResponse
+   */
   async getFileProtectEvent(request: GetFileProtectEventRequest): Promise<GetFileProtectEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileProtectEventWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the total number of core file monitoring events by filter condition.
+   *
+   * @param request GetFileProtectEventCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileProtectEventCountResponse
+   */
   async getFileProtectEventCountWithOptions(request: GetFileProtectEventCountRequest, runtime: $Util.RuntimeOptions): Promise<GetFileProtectEventCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95733,11 +100512,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileProtectEventCountResponse>(await this.callApi(params, req, runtime), new GetFileProtectEventCountResponse({}));
   }
 
+  /**
+   * @summary Queries the total number of core file monitoring events by filter condition.
+   *
+   * @param request GetFileProtectEventCountRequest
+   * @return GetFileProtectEventCountResponse
+   */
   async getFileProtectEventCount(request: GetFileProtectEventCountRequest): Promise<GetFileProtectEventCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileProtectEventCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a core file monitoring rule based on the ID of the rule.
+   *
+   * @param request GetFileProtectRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileProtectRuleResponse
+   */
   async getFileProtectRuleWithOptions(request: GetFileProtectRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetFileProtectRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95762,11 +100554,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileProtectRuleResponse>(await this.callApi(params, req, runtime), new GetFileProtectRuleResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a core file monitoring rule based on the ID of the rule.
+   *
+   * @param request GetFileProtectRuleRequest
+   * @return GetFileProtectRuleResponse
+   */
   async getFileProtectRule(request: GetFileProtectRuleRequest): Promise<GetFileProtectRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileProtectRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the queries per second (QPS) limit on the files uploaded from the client.
+   *
+   * @param request GetFileUploadLimitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileUploadLimitResponse
+   */
   async getFileUploadLimitWithOptions(runtime: $Util.RuntimeOptions): Promise<GetFileUploadLimitResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -95783,11 +100588,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileUploadLimitResponse>(await this.callApi(params, req, runtime), new GetFileUploadLimitResponse({}));
   }
 
+  /**
+   * @summary Queries the queries per second (QPS) limit on the files uploaded from the client.
+   *
+   * @return GetFileUploadLimitResponse
+   */
   async getFileUploadLimit(): Promise<GetFileUploadLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileUploadLimitWithOptions(runtime);
   }
 
+  /**
+   * @summary Obtains the URL that is used to upload a file to a honeypot.
+   *
+   * @param request GetHoneyPotUploadPolicyInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHoneyPotUploadPolicyInfoResponse
+   */
   async getHoneyPotUploadPolicyInfoWithOptions(request: GetHoneyPotUploadPolicyInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneyPotUploadPolicyInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95812,11 +100629,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHoneyPotUploadPolicyInfoResponse>(await this.callApi(params, req, runtime), new GetHoneyPotUploadPolicyInfoResponse({}));
   }
 
+  /**
+   * @summary Obtains the URL that is used to upload a file to a honeypot.
+   *
+   * @param request GetHoneyPotUploadPolicyInfoRequest
+   * @return GetHoneyPotUploadPolicyInfoResponse
+   */
   async getHoneyPotUploadPolicyInfo(request: GetHoneyPotUploadPolicyInfoRequest): Promise<GetHoneyPotUploadPolicyInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneyPotUploadPolicyInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetHoneypotAttackStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHoneypotAttackStatisticsResponse
+   */
   async getHoneypotAttackStatisticsWithOptions(request: GetHoneypotAttackStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotAttackStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95869,11 +100697,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHoneypotAttackStatisticsResponse>(await this.callApi(params, req, runtime), new GetHoneypotAttackStatisticsResponse({}));
   }
 
+  /**
+   * @param request GetHoneypotAttackStatisticsRequest
+   * @return GetHoneypotAttackStatisticsResponse
+   */
   async getHoneypotAttackStatistics(request: GetHoneypotAttackStatisticsRequest): Promise<GetHoneypotAttackStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotAttackStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtain attack trend statistics for a single attack source.
+   *
+   * @param request GetHoneypotEventTrendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHoneypotEventTrendResponse
+   */
   async getHoneypotEventTrendWithOptions(request: GetHoneypotEventTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotEventTrendResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95914,11 +100753,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHoneypotEventTrendResponse>(await this.callApi(params, req, runtime), new GetHoneypotEventTrendResponse({}));
   }
 
+  /**
+   * @summary Obtain attack trend statistics for a single attack source.
+   *
+   * @param request GetHoneypotEventTrendRequest
+   * @return GetHoneypotEventTrendResponse
+   */
   async getHoneypotEventTrend(request: GetHoneypotEventTrendRequest): Promise<GetHoneypotEventTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotEventTrendWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a specified management node.
+   *
+   * @param request GetHoneypotNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHoneypotNodeResponse
+   */
   async getHoneypotNodeWithOptions(request: GetHoneypotNodeRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -95947,11 +100799,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHoneypotNodeResponse>(await this.callApi(params, req, runtime), new GetHoneypotNodeResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a specified management node.
+   *
+   * @param request GetHoneypotNodeRequest
+   * @return GetHoneypotNodeResponse
+   */
   async getHoneypotNode(request: GetHoneypotNodeRequest): Promise<GetHoneypotNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+   *
+   * @param request GetHoneypotNodeMetricListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHoneypotNodeMetricListResponse
+   */
   async getHoneypotNodeMetricListWithOptions(request: GetHoneypotNodeMetricListRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotNodeMetricListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96004,11 +100869,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHoneypotNodeMetricListResponse>(await this.callApi(params, req, runtime), new GetHoneypotNodeMetricListResponse({}));
   }
 
+  /**
+   * @summary Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+   *
+   * @param request GetHoneypotNodeMetricListRequest
+   * @return GetHoneypotNodeMetricListResponse
+   */
   async getHoneypotNodeMetricList(request: GetHoneypotNodeMetricListRequest): Promise<GetHoneypotNodeMetricListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotNodeMetricListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of a specified honeypot template.
+   *
+   * @param request GetHoneypotPresetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHoneypotPresetResponse
+   */
   async getHoneypotPresetWithOptions(request: GetHoneypotPresetRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotPresetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96037,11 +100915,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHoneypotPresetResponse>(await this.callApi(params, req, runtime), new GetHoneypotPresetResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of a specified honeypot template.
+   *
+   * @param request GetHoneypotPresetRequest
+   * @return GetHoneypotPresetResponse
+   */
   async getHoneypotPreset(request: GetHoneypotPresetRequest): Promise<GetHoneypotPresetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotPresetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a specified probe.
+   *
+   * @param request GetHoneypotProbeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHoneypotProbeResponse
+   */
   async getHoneypotProbeWithOptions(request: GetHoneypotProbeRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotProbeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96070,11 +100961,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHoneypotProbeResponse>(await this.callApi(params, req, runtime), new GetHoneypotProbeResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a specified probe.
+   *
+   * @param request GetHoneypotProbeRequest
+   * @return GetHoneypotProbeResponse
+   */
   async getHoneypotProbe(request: GetHoneypotProbeRequest): Promise<GetHoneypotProbeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotProbeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取蜜罐使用量的统计数据
+   *
+   * @param request GetHoneypotStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHoneypotStatisticsResponse
+   */
   async getHoneypotStatisticsWithOptions(request: GetHoneypotStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetHoneypotStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96099,11 +101003,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHoneypotStatisticsResponse>(await this.callApi(params, req, runtime), new GetHoneypotStatisticsResponse({}));
   }
 
+  /**
+   * @summary 获取蜜罐使用量的统计数据
+   *
+   * @param request GetHoneypotStatisticsRequest
+   * @return GetHoneypotStatisticsResponse
+   */
   async getHoneypotStatistics(request: GetHoneypotStatisticsRequest): Promise<GetHoneypotStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHoneypotStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries alert handling rules.
+   *
+   * @param request GetImageEventOperationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageEventOperationResponse
+   */
   async getImageEventOperationWithOptions(request: GetImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<GetImageEventOperationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96132,11 +101049,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageEventOperationResponse>(await this.callApi(params, req, runtime), new GetImageEventOperationResponse({}));
   }
 
+  /**
+   * @summary Queries alert handling rules.
+   *
+   * @param request GetImageEventOperationRequest
+   * @return GetImageEventOperationResponse
+   */
   async getImageEventOperation(request: GetImageEventOperationRequest): Promise<GetImageEventOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageEventOperationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of image scans that are performed within the last several days.
+   *
+   * @param request GetImageScanNumInPeriodRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageScanNumInPeriodResponse
+   */
   async getImageScanNumInPeriodWithOptions(request: GetImageScanNumInPeriodRequest, runtime: $Util.RuntimeOptions): Promise<GetImageScanNumInPeriodResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96161,11 +101091,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageScanNumInPeriodResponse>(await this.callApi(params, req, runtime), new GetImageScanNumInPeriodResponse({}));
   }
 
+  /**
+   * @summary Queries the number of image scans that are performed within the last several days.
+   *
+   * @param request GetImageScanNumInPeriodRequest
+   * @return GetImageScanNumInPeriodResponse
+   */
   async getImageScanNumInPeriod(request: GetImageScanNumInPeriodRequest): Promise<GetImageScanNumInPeriodResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageScanNumInPeriodWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a microsegmentation defense rule.
+   *
+   * @param request GetInterceptionRuleDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInterceptionRuleDetailResponse
+   */
   async getInterceptionRuleDetailWithOptions(request: GetInterceptionRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetInterceptionRuleDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96194,11 +101137,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInterceptionRuleDetailResponse>(await this.callApi(params, req, runtime), new GetInterceptionRuleDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a microsegmentation defense rule.
+   *
+   * @param request GetInterceptionRuleDetailRequest
+   * @return GetInterceptionRuleDetailResponse
+   */
   async getInterceptionRuleDetail(request: GetInterceptionRuleDetailRequest): Promise<GetInterceptionRuleDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInterceptionRuleDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of the container firewall feature.
+   *
+   * @param request GetInterceptionSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInterceptionSummaryResponse
+   */
   async getInterceptionSummaryWithOptions(request: GetInterceptionSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetInterceptionSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96223,11 +101179,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInterceptionSummaryResponse>(await this.callApi(params, req, runtime), new GetInterceptionSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of the container firewall feature.
+   *
+   * @param request GetInterceptionSummaryRequest
+   * @return GetInterceptionSummaryResponse
+   */
   async getInterceptionSummary(request: GetInterceptionSummaryRequest): Promise<GetInterceptionSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInterceptionSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a specified network object that is protected by the container firewall feature.
+   *
+   * @param request GetInterceptionTargetDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInterceptionTargetDetailResponse
+   */
   async getInterceptionTargetDetailWithOptions(request: GetInterceptionTargetDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetInterceptionTargetDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96252,11 +101221,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInterceptionTargetDetailResponse>(await this.callApi(params, req, runtime), new GetInterceptionTargetDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a specified network object that is protected by the container firewall feature.
+   *
+   * @param request GetInterceptionTargetDetailRequest
+   * @return GetInterceptionTargetDetailResponse
+   */
   async getInterceptionTargetDetail(request: GetInterceptionTargetDetailRequest): Promise<GetInterceptionTargetDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInterceptionTargetDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the latest scan task to determine whether the task is complete.
+   *
+   * @param request GetLastOnceTaskInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLastOnceTaskInfoResponse
+   */
   async getLastOnceTaskInfoWithOptions(request: GetLastOnceTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetLastOnceTaskInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96289,11 +101271,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLastOnceTaskInfoResponse>(await this.callApi(params, req, runtime), new GetLastOnceTaskInfoResponse({}));
   }
 
+  /**
+   * @summary Queries information about the latest scan task to determine whether the task is complete.
+   *
+   * @param request GetLastOnceTaskInfoRequest
+   * @return GetLastOnceTaskInfoResponse
+   */
   async getLastOnceTaskInfo(request: GetLastOnceTaskInfoRequest): Promise<GetLastOnceTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLastOnceTaskInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a data shipping task of a log.
+   *
+   * @param request GetLogMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLogMetaResponse
+   */
   async getLogMetaWithOptions(request: GetLogMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetLogMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96318,11 +101313,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogMetaResponse>(await this.callApi(params, req, runtime), new GetLogMetaResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a data shipping task of a log.
+   *
+   * @param request GetLogMetaRequest
+   * @return GetLogMetaResponse
+   */
   async getLogMeta(request: GetLogMetaRequest): Promise<GetLogMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLogMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request GetMaliciousFileWhitelistConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMaliciousFileWhitelistConfigResponse
+   */
   async getMaliciousFileWhitelistConfigWithOptions(request: GetMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetMaliciousFileWhitelistConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96347,11 +101355,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new GetMaliciousFileWhitelistConfigResponse({}));
   }
 
+  /**
+   * @summary Queries an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request GetMaliciousFileWhitelistConfigRequest
+   * @return GetMaliciousFileWhitelistConfigResponse
+   */
   async getMaliciousFileWhitelistConfig(request: GetMaliciousFileWhitelistConfigRequest): Promise<GetMaliciousFileWhitelistConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of a module.
+   *
+   * @param request GetModuleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetModuleConfigResponse
+   */
   async getModuleConfigWithOptions(request: GetModuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetModuleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96380,11 +101401,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetModuleConfigResponse>(await this.callApi(params, req, runtime), new GetModuleConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of a module.
+   *
+   * @param request GetModuleConfigRequest
+   * @return GetModuleConfigResponse
+   */
   async getModuleConfig(request: GetModuleConfigRequest): Promise<GetModuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getModuleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+   *
+   * @param request GetModuleTrialAuthInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetModuleTrialAuthInfoResponse
+   */
   async getModuleTrialAuthInfoWithOptions(request: GetModuleTrialAuthInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetModuleTrialAuthInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96413,11 +101447,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetModuleTrialAuthInfoResponse>(await this.callApi(params, req, runtime), new GetModuleTrialAuthInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the qualification information about the trial use of Security Center value-added features, including vulnerability fixing and threat analysis.
+   *
+   * @param request GetModuleTrialAuthInfoRequest
+   * @return GetModuleTrialAuthInfoResponse
+   */
   async getModuleTrialAuthInfo(request: GetModuleTrialAuthInfoRequest): Promise<GetModuleTrialAuthInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getModuleTrialAuthInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an alert event that is generated for a malicious object.
+   *
+   * @param request GetObjectScanEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetObjectScanEventResponse
+   */
   async getObjectScanEventWithOptions(request: GetObjectScanEventRequest, runtime: $Util.RuntimeOptions): Promise<GetObjectScanEventResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96446,11 +101493,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetObjectScanEventResponse>(await this.callApi(params, req, runtime), new GetObjectScanEventResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an alert event that is generated for a malicious object.
+   *
+   * @param request GetObjectScanEventRequest
+   * @return GetObjectScanEventResponse
+   */
   async getObjectScanEvent(request: GetObjectScanEventRequest): Promise<GetObjectScanEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getObjectScanEventWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the execution result of a one-time scan task, such as asset fingerprint collection, vulnerability scan, and image security scan.
+   *
+   * @param request GetOnceTaskResultInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOnceTaskResultInfoResponse
+   */
   async getOnceTaskResultInfoWithOptions(request: GetOnceTaskResultInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetOnceTaskResultInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96483,11 +101543,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOnceTaskResultInfoResponse>(await this.callApi(params, req, runtime), new GetOnceTaskResultInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the execution result of a one-time scan task, such as asset fingerprint collection, vulnerability scan, and image security scan.
+   *
+   * @param request GetOnceTaskResultInfoRequest
+   * @return GetOnceTaskResultInfoResponse
+   */
   async getOnceTaskResultInfo(request: GetOnceTaskResultInfoRequest): Promise<GetOnceTaskResultInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOnceTaskResultInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the baselines that are supported by at-risk image blocking.
+   *
+   * @param request GetOpaClusterBaseLineListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpaClusterBaseLineListResponse
+   */
   async getOpaClusterBaseLineListWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOpaClusterBaseLineListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -96504,11 +101577,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpaClusterBaseLineListResponse>(await this.callApi(params, req, runtime), new GetOpaClusterBaseLineListResponse({}));
   }
 
+  /**
+   * @summary Queries the baselines that are supported by at-risk image blocking.
+   *
+   * @return GetOpaClusterBaseLineListResponse
+   */
   async getOpaClusterBaseLineList(): Promise<GetOpaClusterBaseLineListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaClusterBaseLineListWithOptions(runtime);
   }
 
+  /**
+   * @summary 查询集群镜像
+   *
+   * @param request GetOpaClusterImageListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpaClusterImageListResponse
+   */
   async getOpaClusterImageListWithOptions(request: GetOpaClusterImageListRequest, runtime: $Util.RuntimeOptions): Promise<GetOpaClusterImageListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96545,11 +101630,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpaClusterImageListResponse>(await this.callApi(params, req, runtime), new GetOpaClusterImageListResponse({}));
   }
 
+  /**
+   * @summary 查询集群镜像
+   *
+   * @param request GetOpaClusterImageListRequest
+   * @return GetOpaClusterImageListResponse
+   */
   async getOpaClusterImageList(request: GetOpaClusterImageListRequest): Promise<GetOpaClusterImageListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaClusterImageListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the tags that are added to containers based on the feature of proactive defense for containers.
+   *
+   * @param request GetOpaClusterLabelListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpaClusterLabelListResponse
+   */
   async getOpaClusterLabelListWithOptions(request: GetOpaClusterLabelListRequest, runtime: $Util.RuntimeOptions): Promise<GetOpaClusterLabelListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96586,11 +101684,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpaClusterLabelListResponse>(await this.callApi(params, req, runtime), new GetOpaClusterLabelListResponse({}));
   }
 
+  /**
+   * @summary Queries information about the tags that are added to containers based on the feature of proactive defense for containers.
+   *
+   * @param request GetOpaClusterLabelListRequest
+   * @return GetOpaClusterLabelListResponse
+   */
   async getOpaClusterLabelList(request: GetOpaClusterLabelListRequest): Promise<GetOpaClusterLabelListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaClusterLabelListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the namespaces of clusters for which the rules of the at-risk image blocking type are configured in proactive defense for containers.
+   *
+   * @param request GetOpaClusterNamespaceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpaClusterNamespaceListResponse
+   */
   async getOpaClusterNamespaceListWithOptions(request: GetOpaClusterNamespaceListRequest, runtime: $Util.RuntimeOptions): Promise<GetOpaClusterNamespaceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96627,11 +101738,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpaClusterNamespaceListResponse>(await this.callApi(params, req, runtime), new GetOpaClusterNamespaceListResponse({}));
   }
 
+  /**
+   * @summary Queries information about the namespaces of clusters for which the rules of the at-risk image blocking type are configured in proactive defense for containers.
+   *
+   * @param request GetOpaClusterNamespaceListRequest
+   * @return GetOpaClusterNamespaceListResponse
+   */
   async getOpaClusterNamespaceList(request: GetOpaClusterNamespaceListRequest): Promise<GetOpaClusterNamespaceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaClusterNamespaceListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the installation status of the components that are required for clusters protected by proactive defense for containers.
+   *
+   * @param request GetOpaPluginStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpaPluginStatusResponse
+   */
   async getOpaPluginStatusWithOptions(request: GetOpaPluginStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetOpaPluginStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96656,11 +101780,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpaPluginStatusResponse>(await this.callApi(params, req, runtime), new GetOpaPluginStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the installation status of the components that are required for clusters protected by proactive defense for containers.
+   *
+   * @param request GetOpaPluginStatusRequest
+   * @return GetOpaPluginStatusResponse
+   */
   async getOpaPluginStatus(request: GetOpaPluginStatusRequest): Promise<GetOpaPluginStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaPluginStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of the rule that is used to block at-risk images.
+   *
+   * @param request GetOpaStrategyDetailNewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpaStrategyDetailNewResponse
+   */
   async getOpaStrategyDetailNewWithOptions(request: GetOpaStrategyDetailNewRequest, runtime: $Util.RuntimeOptions): Promise<GetOpaStrategyDetailNewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96685,11 +101822,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpaStrategyDetailNewResponse>(await this.callApi(params, req, runtime), new GetOpaStrategyDetailNewResponse({}));
   }
 
+  /**
+   * @summary Queries the details of the rule that is used to block at-risk images.
+   *
+   * @param request GetOpaStrategyDetailNewRequest
+   * @return GetOpaStrategyDetailNewResponse
+   */
   async getOpaStrategyDetailNew(request: GetOpaStrategyDetailNewRequest): Promise<GetOpaStrategyDetailNewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaStrategyDetailNewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the usage statistics about the templates provided in the feature of proactive defense for containers for rules of the at-risk image blocking type.
+   *
+   * @param request GetOpaStrategyTemplateSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpaStrategyTemplateSummaryResponse
+   */
   async getOpaStrategyTemplateSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOpaStrategyTemplateSummaryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -96706,11 +101856,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpaStrategyTemplateSummaryResponse>(await this.callApi(params, req, runtime), new GetOpaStrategyTemplateSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the usage statistics about the templates provided in the feature of proactive defense for containers for rules of the at-risk image blocking type.
+   *
+   * @return GetOpaStrategyTemplateSummaryResponse
+   */
   async getOpaStrategyTemplateSummary(): Promise<GetOpaStrategyTemplateSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpaStrategyTemplateSummaryWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the statistics about an Object Storage Service (OSS) bucket check.
+   *
+   * @param request GetOssBucketScanStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOssBucketScanStatisticResponse
+   */
   async getOssBucketScanStatisticWithOptions(request: GetOssBucketScanStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetOssBucketScanStatisticResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96735,11 +101897,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOssBucketScanStatisticResponse>(await this.callApi(params, req, runtime), new GetOssBucketScanStatisticResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics about an Object Storage Service (OSS) bucket check.
+   *
+   * @param request GetOssBucketScanStatisticRequest
+   * @return GetOssBucketScanStatisticResponse
+   */
   async getOssBucketScanStatistic(request: GetOssBucketScanStatisticRequest): Promise<GetOssBucketScanStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOssBucketScanStatisticWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of an Object Storage Service (OSS) bucket check policy.
+   *
+   * @param request GetOssScanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOssScanConfigResponse
+   */
   async getOssScanConfigWithOptions(request: GetOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetOssScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96768,11 +101943,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOssScanConfigResponse>(await this.callApi(params, req, runtime), new GetOssScanConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of an Object Storage Service (OSS) bucket check policy.
+   *
+   * @param request GetOssScanConfigRequest
+   * @return GetOssScanConfigResponse
+   */
   async getOssScanConfig(request: GetOssScanConfigRequest): Promise<GetOssScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOssScanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations for the collection frequency of asset fingerprints.
+   *
+   * @param request GetPropertyScheduleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPropertyScheduleConfigResponse
+   */
   async getPropertyScheduleConfigWithOptions(request: GetPropertyScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetPropertyScheduleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96801,11 +101989,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPropertyScheduleConfigResponse>(await this.callApi(params, req, runtime), new GetPropertyScheduleConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations for the collection frequency of asset fingerprints.
+   *
+   * @param request GetPropertyScheduleConfigRequest
+   * @return GetPropertyScheduleConfigResponse
+   */
   async getPropertyScheduleConfig(request: GetPropertyScheduleConfigRequest): Promise<GetPropertyScheduleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPropertyScheduleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the numbers of system defense rules and custom defense rules.
+   *
+   * @param request GetRulesCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRulesCountResponse
+   */
   async getRulesCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetRulesCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -96822,11 +102023,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRulesCountResponse>(await this.callApi(params, req, runtime), new GetRulesCountResponse({}));
   }
 
+  /**
+   * @summary Queries the numbers of system defense rules and custom defense rules.
+   *
+   * @return GetRulesCountResponse
+   */
   async getRulesCount(): Promise<GetRulesCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRulesCountWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the applications that are specified in a rule for container tamper-proofing.
+   *
+   * @param request GetSasContainerWebDefenseRuleApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSasContainerWebDefenseRuleApplicationResponse
+   */
   async getSasContainerWebDefenseRuleApplicationWithOptions(request: GetSasContainerWebDefenseRuleApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetSasContainerWebDefenseRuleApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96851,11 +102064,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSasContainerWebDefenseRuleApplicationResponse>(await this.callApi(params, req, runtime), new GetSasContainerWebDefenseRuleApplicationResponse({}));
   }
 
+  /**
+   * @summary Queries the applications that are specified in a rule for container tamper-proofing.
+   *
+   * @param request GetSasContainerWebDefenseRuleApplicationRequest
+   * @return GetSasContainerWebDefenseRuleApplicationResponse
+   */
   async getSasContainerWebDefenseRuleApplication(request: GetSasContainerWebDefenseRuleApplicationRequest): Promise<GetSasContainerWebDefenseRuleApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSasContainerWebDefenseRuleApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries search conditions that can be used to search for container file protection rules.
+   *
+   * @param request GetSasContainerWebDefenseRuleCriteriaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSasContainerWebDefenseRuleCriteriaResponse
+   */
   async getSasContainerWebDefenseRuleCriteriaWithOptions(request: GetSasContainerWebDefenseRuleCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<GetSasContainerWebDefenseRuleCriteriaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96880,11 +102106,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSasContainerWebDefenseRuleCriteriaResponse>(await this.callApi(params, req, runtime), new GetSasContainerWebDefenseRuleCriteriaResponse({}));
   }
 
+  /**
+   * @summary Queries search conditions that can be used to search for container file protection rules.
+   *
+   * @param request GetSasContainerWebDefenseRuleCriteriaRequest
+   * @return GetSasContainerWebDefenseRuleCriteriaResponse
+   */
   async getSasContainerWebDefenseRuleCriteria(request: GetSasContainerWebDefenseRuleCriteriaRequest): Promise<GetSasContainerWebDefenseRuleCriteriaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSasContainerWebDefenseRuleCriteriaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of the deduction modules of the security score feature, including custom settings.
+   *
+   * @param request GetSecurityScoreRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSecurityScoreRuleResponse
+   */
   async getSecurityScoreRuleWithOptions(request: GetSecurityScoreRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetSecurityScoreRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96909,11 +102148,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSecurityScoreRuleResponse>(await this.callApi(params, req, runtime), new GetSecurityScoreRuleResponse({}));
   }
 
+  /**
+   * @summary Queries the details of the deduction modules of the security score feature, including custom settings.
+   *
+   * @param request GetSecurityScoreRuleRequest
+   * @return GetSecurityScoreRuleResponse
+   */
   async getSecurityScoreRule(request: GetSecurityScoreRuleRequest): Promise<GetSecurityScoreRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSecurityScoreRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the check rules of sensitive files.
+   *
+   * @param request GetSensitiveDefineRuleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSensitiveDefineRuleConfigResponse
+   */
   async getSensitiveDefineRuleConfigWithOptions(request: GetSensitiveDefineRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetSensitiveDefineRuleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96938,11 +102190,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSensitiveDefineRuleConfigResponse>(await this.callApi(params, req, runtime), new GetSensitiveDefineRuleConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the check rules of sensitive files.
+   *
+   * @param request GetSensitiveDefineRuleConfigRequest
+   * @return GetSensitiveDefineRuleConfigResponse
+   */
   async getSensitiveDefineRuleConfig(request: GetSensitiveDefineRuleConfigRequest): Promise<GetSensitiveDefineRuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSensitiveDefineRuleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the service trail that was delivered to ActionTrail.
+   *
+   * @param request GetServiceTrailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceTrailResponse
+   */
   async getServiceTrailWithOptions(request: GetServiceTrailRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceTrailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96967,11 +102232,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceTrailResponse>(await this.callApi(params, req, runtime), new GetServiceTrailResponse({}));
   }
 
+  /**
+   * @summary Queries the service trail that was delivered to ActionTrail.
+   *
+   * @param request GetServiceTrailRequest
+   * @return GetServiceTrailResponse
+   */
   async getServiceTrail(request: GetServiceTrailRequest): Promise<GetServiceTrailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceTrailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the usage details of templates provided in the feature of proactive defense for containers for rules.
+   *
+   * @param request GetStrategyTemplateDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStrategyTemplateDetailResponse
+   */
   async getStrategyTemplateDetailWithOptions(request: GetStrategyTemplateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetStrategyTemplateDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -96996,11 +102274,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStrategyTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetStrategyTemplateDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the usage details of templates provided in the feature of proactive defense for containers for rules.
+   *
+   * @param request GetStrategyTemplateDetailRequest
+   * @return GetStrategyTemplateDetailResponse
+   */
   async getStrategyTemplateDetail(request: GetStrategyTemplateDetailRequest): Promise<GetStrategyTemplateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStrategyTemplateDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on alerts in one or more asset groups.
+   *
+   * @param request GetSuspiciousStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSuspiciousStatisticsResponse
+   */
   async getSuspiciousStatisticsWithOptions(request: GetSuspiciousStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetSuspiciousStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97029,11 +102320,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSuspiciousStatisticsResponse>(await this.callApi(params, req, runtime), new GetSuspiciousStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on alerts in one or more asset groups.
+   *
+   * @param request GetSuspiciousStatisticsRequest
+   * @return GetSuspiciousStatisticsResponse
+   */
   async getSuspiciousStatistics(request: GetSuspiciousStatisticsRequest): Promise<GetSuspiciousStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSuspiciousStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status and progress of the task that is run to migrate a server from a region inside the Chinese mainland to the Singapore region.
+   *
+   * @param request GetSwitchRegionDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSwitchRegionDetailResponse
+   */
   async getSwitchRegionDetailWithOptions(request: GetSwitchRegionDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSwitchRegionDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97058,11 +102362,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSwitchRegionDetailResponse>(await this.callApi(params, req, runtime), new GetSwitchRegionDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the status and progress of the task that is run to migrate a server from a region inside the Chinese mainland to the Singapore region.
+   *
+   * @param request GetSwitchRegionDetailRequest
+   * @return GetSwitchRegionDetailResponse
+   */
   async getSwitchRegionDetail(request: GetSwitchRegionDetailRequest): Promise<GetSwitchRegionDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSwitchRegionDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the language settings of log analysis.
+   *
+   * @param request GetUserLangRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserLangResponse
+   */
   async getUserLangWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserLangResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -97079,11 +102396,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserLangResponse>(await this.callApi(params, req, runtime), new GetUserLangResponse({}));
   }
 
+  /**
+   * @summary Queries the language settings of log analysis.
+   *
+   * @return GetUserLangResponse
+   */
   async getUserLang(): Promise<GetUserLangResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserLangWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the configurations of a periodic virus scan task.
+   *
+   * @param request GetVirusScanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVirusScanConfigResponse
+   */
   async getVirusScanConfigWithOptions(request: GetVirusScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetVirusScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97108,11 +102437,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVirusScanConfigResponse>(await this.callApi(params, req, runtime), new GetVirusScanConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of a periodic virus scan task.
+   *
+   * @param request GetVirusScanConfigRequest
+   * @return GetVirusScanConfigResponse
+   */
   async getVirusScanConfig(request: GetVirusScanConfigRequest): Promise<GetVirusScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVirusScanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the latest virus scan task.
+   *
+   * @param request GetVirusScanLatestTaskStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVirusScanLatestTaskStatisticResponse
+   */
   async getVirusScanLatestTaskStatisticWithOptions(runtime: $Util.RuntimeOptions): Promise<GetVirusScanLatestTaskStatisticResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -97129,11 +102471,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVirusScanLatestTaskStatisticResponse>(await this.callApi(params, req, runtime), new GetVirusScanLatestTaskStatisticResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the latest virus scan task.
+   *
+   * @return GetVirusScanLatestTaskStatisticResponse
+   */
   async getVirusScanLatestTaskStatistic(): Promise<GetVirusScanLatestTaskStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVirusScanLatestTaskStatisticWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the statistics on vulnerabilities in asset groups.
+   *
+   * @param request GetVulStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVulStatisticsResponse
+   */
   async getVulStatisticsWithOptions(request: GetVulStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetVulStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97166,11 +102520,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVulStatisticsResponse>(await this.callApi(params, req, runtime), new GetVulStatisticsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on vulnerabilities in asset groups.
+   *
+   * @param request GetVulStatisticsRequest
+   * @return GetVulStatisticsResponse
+   */
   async getVulStatistics(request: GetVulStatisticsRequest): Promise<GetVulStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVulStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about a vulnerability whitelist.
+   *
+   * @param request GetVulWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVulWhitelistResponse
+   */
   async getVulWhitelistWithOptions(request: GetVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<GetVulWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97195,11 +102562,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVulWhitelistResponse>(await this.callApi(params, req, runtime), new GetVulWhitelistResponse({}));
   }
 
+  /**
+   * @summary Queries information about a vulnerability whitelist.
+   *
+   * @param request GetVulWhitelistRequest
+   * @return GetVulWhitelistResponse
+   */
   async getVulWhitelist(request: GetVulWhitelistRequest): Promise<GetVulWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVulWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Handles alert events.
+   *
+   * @param request HandleSecurityEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HandleSecurityEventsResponse
+   */
   async handleSecurityEventsWithOptions(request: HandleSecurityEventsRequest, runtime: $Util.RuntimeOptions): Promise<HandleSecurityEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97248,11 +102628,24 @@ export default class Client extends OpenApi {
     return $tea.cast<HandleSecurityEventsResponse>(await this.callApi(params, req, runtime), new HandleSecurityEventsResponse({}));
   }
 
+  /**
+   * @summary Handles alert events.
+   *
+   * @param request HandleSecurityEventsRequest
+   * @return HandleSecurityEventsResponse
+   */
   async handleSecurityEvents(request: HandleSecurityEventsRequest): Promise<HandleSecurityEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.handleSecurityEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Handles multiple alert events that are triggered by the same IP address rule or IP address rules of the same type at a time.
+   *
+   * @param request HandleSimilarSecurityEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HandleSimilarSecurityEventsResponse
+   */
   async handleSimilarSecurityEventsWithOptions(request: HandleSimilarSecurityEventsRequest, runtime: $Util.RuntimeOptions): Promise<HandleSimilarSecurityEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97301,11 +102694,24 @@ export default class Client extends OpenApi {
     return $tea.cast<HandleSimilarSecurityEventsResponse>(await this.callApi(params, req, runtime), new HandleSimilarSecurityEventsResponse({}));
   }
 
+  /**
+   * @summary Handles multiple alert events that are triggered by the same IP address rule or IP address rules of the same type at a time.
+   *
+   * @param request HandleSimilarSecurityEventsRequest
+   * @return HandleSimilarSecurityEventsResponse
+   */
   async handleSimilarSecurityEvents(request: HandleSimilarSecurityEventsRequest): Promise<HandleSimilarSecurityEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.handleSimilarSecurityEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds risk items to the whitelist or removes risk items from the whitelist by specifying servers and risk items.
+   *
+   * @param request IgnoreCheckItemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IgnoreCheckItemsResponse
+   */
   async ignoreCheckItemsWithOptions(request: IgnoreCheckItemsRequest, runtime: $Util.RuntimeOptions): Promise<IgnoreCheckItemsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97354,11 +102760,24 @@ export default class Client extends OpenApi {
     return $tea.cast<IgnoreCheckItemsResponse>(await this.callApi(params, req, runtime), new IgnoreCheckItemsResponse({}));
   }
 
+  /**
+   * @summary Adds risk items to the whitelist or removes risk items from the whitelist by specifying servers and risk items.
+   *
+   * @param request IgnoreCheckItemsRequest
+   * @return IgnoreCheckItemsResponse
+   */
   async ignoreCheckItems(request: IgnoreCheckItemsRequest): Promise<IgnoreCheckItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.ignoreCheckItemsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
+   *
+   * @param request IgnoreHcCheckWarningsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IgnoreHcCheckWarningsResponse
+   */
   async ignoreHcCheckWarningsWithOptions(request: IgnoreHcCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<IgnoreHcCheckWarningsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97407,11 +102826,25 @@ export default class Client extends OpenApi {
     return $tea.cast<IgnoreHcCheckWarningsResponse>(await this.callApi(params, req, runtime), new IgnoreHcCheckWarningsResponse({}));
   }
 
+  /**
+   * @summary Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
+   *
+   * @param request IgnoreHcCheckWarningsRequest
+   * @return IgnoreHcCheckWarningsResponse
+   */
   async ignoreHcCheckWarnings(request: IgnoreHcCheckWarningsRequest): Promise<IgnoreHcCheckWarningsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.ignoreHcCheckWarningsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The UUID of the server on which you want to install the anti-ransomware agent. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * >  You must specify at least one of the UuidList and Uuid parameters.
+   *
+   * @param request InstallBackupClientRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallBackupClientResponse
+   */
   async installBackupClientWithOptions(request: InstallBackupClientRequest, runtime: $Util.RuntimeOptions): Promise<InstallBackupClientResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97444,17 +102877,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallBackupClientResponse>(await this.callApi(params, req, runtime), new InstallBackupClientResponse({}));
   }
 
+  /**
+   * @summary The UUID of the server on which you want to install the anti-ransomware agent. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+   * >  You must specify at least one of the UuidList and Uuid parameters.
+   *
+   * @param request InstallBackupClientRequest
+   * @return InstallBackupClientResponse
+   */
   async installBackupClient(request: InstallBackupClientRequest): Promise<InstallBackupClientResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installBackupClientWithOptions(request, runtime);
   }
 
   /**
-    * > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
-    *
-    * @param request InstallCloudMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InstallCloudMonitorResponse
+   * @summary Installs the CloudMonitor agent on specified servers.
+   *
+   * @description > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
+   *
+   * @param request InstallCloudMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallCloudMonitorResponse
    */
   async installCloudMonitorWithOptions(request: InstallCloudMonitorRequest, runtime: $Util.RuntimeOptions): Promise<InstallCloudMonitorResponse> {
     Util.validateModel(request);
@@ -97497,16 +102939,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
-    *
-    * @param request InstallCloudMonitorRequest
-    * @return InstallCloudMonitorResponse
+   * @summary Installs the CloudMonitor agent on specified servers.
+   *
+   * @description > Before you call this operation, make sure that the Security Center agent on your servers is online and the servers can access Alibaba Cloud services.
+   *
+   * @param request InstallCloudMonitorRequest
+   * @return InstallCloudMonitorResponse
    */
   async installCloudMonitor(request: InstallCloudMonitorRequest): Promise<InstallCloudMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installCloudMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Installs the Security Center agent on a proxy server in a hybrid cloud.
+   *
+   * @param request InstallHybridProxyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallHybridProxyResponse
+   */
   async installHybridProxyWithOptions(request: InstallHybridProxyRequest, runtime: $Util.RuntimeOptions): Promise<InstallHybridProxyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97539,11 +102990,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallHybridProxyResponse>(await this.callApi(params, req, runtime), new InstallHybridProxyResponse({}));
   }
 
+  /**
+   * @summary Installs the Security Center agent on a proxy server in a hybrid cloud.
+   *
+   * @param request InstallHybridProxyRequest
+   * @return InstallHybridProxyResponse
+   */
   async installHybridProxy(request: InstallHybridProxyRequest): Promise<InstallHybridProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installHybridProxyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Installs the CloudMonitor agent on a server that is not deployed on Alibaba Cloud.
+   *
+   * @param request InstallPmAgentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallPmAgentResponse
+   */
   async installPmAgentWithOptions(request: InstallPmAgentRequest, runtime: $Util.RuntimeOptions): Promise<InstallPmAgentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97580,11 +103044,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallPmAgentResponse>(await this.callApi(params, req, runtime), new InstallPmAgentResponse({}));
   }
 
+  /**
+   * @summary Installs the CloudMonitor agent on a server that is not deployed on Alibaba Cloud.
+   *
+   * @param request InstallPmAgentRequest
+   * @return InstallPmAgentResponse
+   */
   async installPmAgent(request: InstallPmAgentRequest): Promise<InstallPmAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installPmAgentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Installs the Runtime Application Self-Protection (RASP) agent on Elastic Compute Service (ECS) instances to enable automatic application protection.
+   *
+   * @param request InstallRaspAttachRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallRaspAttachResponse
+   */
   async installRaspAttachWithOptions(request: InstallRaspAttachRequest, runtime: $Util.RuntimeOptions): Promise<InstallRaspAttachResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97613,11 +103090,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallRaspAttachResponse>(await this.callApi(params, req, runtime), new InstallRaspAttachResponse({}));
   }
 
+  /**
+   * @summary Installs the Runtime Application Self-Protection (RASP) agent on Elastic Compute Service (ECS) instances to enable automatic application protection.
+   *
+   * @param request InstallRaspAttachRequest
+   * @return InstallRaspAttachResponse
+   */
   async installRaspAttach(request: InstallRaspAttachRequest): Promise<InstallRaspAttachResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installRaspAttachWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Installs the anti-ransomware agent for databases.
+   *
+   * @param request InstallUniBackupAgentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallUniBackupAgentResponse
+   */
   async installUniBackupAgentWithOptions(request: InstallUniBackupAgentRequest, runtime: $Util.RuntimeOptions): Promise<InstallUniBackupAgentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97642,11 +103132,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallUniBackupAgentResponse>(await this.callApi(params, req, runtime), new InstallUniBackupAgentResponse({}));
   }
 
+  /**
+   * @summary Installs the anti-ransomware agent for databases.
+   *
+   * @param request InstallUniBackupAgentRequest
+   * @return InstallUniBackupAgentResponse
+   */
   async installUniBackupAgent(request: InstallUniBackupAgentRequest): Promise<InstallUniBackupAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installUniBackupAgentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds processes to the process whitelist of web tamper proofing.
+   *
+   * @param request JoinWebLockProcessWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return JoinWebLockProcessWhiteListResponse
+   */
   async joinWebLockProcessWhiteListWithOptions(request: JoinWebLockProcessWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<JoinWebLockProcessWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97675,11 +103178,24 @@ export default class Client extends OpenApi {
     return $tea.cast<JoinWebLockProcessWhiteListResponse>(await this.callApi(params, req, runtime), new JoinWebLockProcessWhiteListResponse({}));
   }
 
+  /**
+   * @summary Adds processes to the process whitelist of web tamper proofing.
+   *
+   * @param request JoinWebLockProcessWhiteListRequest
+   * @return JoinWebLockProcessWhiteListResponse
+   */
   async joinWebLockProcessWhiteList(request: JoinWebLockProcessWhiteListRequest): Promise<JoinWebLockProcessWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinWebLockProcessWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries defense rules against container escapes.
+   *
+   * @param request ListAegisContainerPluginRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAegisContainerPluginRuleResponse
+   */
   async listAegisContainerPluginRuleWithOptions(request: ListAegisContainerPluginRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListAegisContainerPluginRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97720,11 +103236,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAegisContainerPluginRuleResponse>(await this.callApi(params, req, runtime), new ListAegisContainerPluginRuleResponse({}));
   }
 
+  /**
+   * @summary Queries defense rules against container escapes.
+   *
+   * @param request ListAegisContainerPluginRuleRequest
+   * @return ListAegisContainerPluginRuleResponse
+   */
   async listAegisContainerPluginRule(request: ListAegisContainerPluginRuleRequest): Promise<ListAegisContainerPluginRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAegisContainerPluginRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries malicious files that are detected by agentless detection tasks.
+   *
+   * @param request ListAgentlessMaliciousFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAgentlessMaliciousFilesResponse
+   */
   async listAgentlessMaliciousFilesWithOptions(request: ListAgentlessMaliciousFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentlessMaliciousFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97789,11 +103318,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentlessMaliciousFilesResponse>(await this.callApi(params, req, runtime), new ListAgentlessMaliciousFilesResponse({}));
   }
 
+  /**
+   * @summary Queries malicious files that are detected by agentless detection tasks.
+   *
+   * @param request ListAgentlessMaliciousFilesRequest
+   * @return ListAgentlessMaliciousFilesResponse
+   */
   async listAgentlessMaliciousFiles(request: ListAgentlessMaliciousFilesRequest): Promise<ListAgentlessMaliciousFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentlessMaliciousFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the regions that are supported by the agentless detection feature.
+   *
+   * @param request ListAgentlessRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAgentlessRegionResponse
+   */
   async listAgentlessRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<ListAgentlessRegionResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -97810,11 +103352,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentlessRegionResponse>(await this.callApi(params, req, runtime), new ListAgentlessRegionResponse({}));
   }
 
+  /**
+   * @summary Queries the regions that are supported by the agentless detection feature.
+   *
+   * @return ListAgentlessRegionResponse
+   */
   async listAgentlessRegion(): Promise<ListAgentlessRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentlessRegionWithOptions(runtime);
   }
 
+  /**
+   * @summary Obtains the risks associated with an agentless detection event.
+   *
+   * @param request ListAgentlessRelateMaliciousRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAgentlessRelateMaliciousResponse
+   */
   async listAgentlessRelateMaliciousWithOptions(request: ListAgentlessRelateMaliciousRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentlessRelateMaliciousResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97847,11 +103401,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentlessRelateMaliciousResponse>(await this.callApi(params, req, runtime), new ListAgentlessRelateMaliciousResponse({}));
   }
 
+  /**
+   * @summary Obtains the risks associated with an agentless detection event.
+   *
+   * @param request ListAgentlessRelateMaliciousRequest
+   * @return ListAgentlessRelateMaliciousResponse
+   */
   async listAgentlessRelateMalicious(request: ListAgentlessRelateMaliciousRequest): Promise<ListAgentlessRelateMaliciousResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentlessRelateMaliciousWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries at-risk hosts that are detected by the agentless detection feature.
+   *
+   * @param request ListAgentlessRiskUuidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAgentlessRiskUuidResponse
+   */
   async listAgentlessRiskUuidWithOptions(request: ListAgentlessRiskUuidRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentlessRiskUuidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97900,11 +103467,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentlessRiskUuidResponse>(await this.callApi(params, req, runtime), new ListAgentlessRiskUuidResponse({}));
   }
 
+  /**
+   * @summary Queries at-risk hosts that are detected by the agentless detection feature.
+   *
+   * @param request ListAgentlessRiskUuidRequest
+   * @return ListAgentlessRiskUuidResponse
+   */
   async listAgentlessRiskUuid(request: ListAgentlessRiskUuidRequest): Promise<ListAgentlessRiskUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentlessRiskUuidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries agentless detection tasks.
+   *
+   * @param request ListAgentlessTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAgentlessTaskResponse
+   */
   async listAgentlessTaskWithOptions(request: ListAgentlessTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentlessTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -97985,11 +103565,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentlessTaskResponse>(await this.callApi(params, req, runtime), new ListAgentlessTaskResponse({}));
   }
 
+  /**
+   * @summary Queries agentless detection tasks.
+   *
+   * @param request ListAgentlessTaskRequest
+   * @return ListAgentlessTaskResponse
+   */
   async listAgentlessTask(request: ListAgentlessTaskRequest): Promise<ListAgentlessTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentlessTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations for cleaning offline hosts whose provider cannot be identified.
+   *
+   * @param request ListAssetCleanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAssetCleanConfigResponse
+   */
   async listAssetCleanConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<ListAssetCleanConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -98006,11 +103599,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAssetCleanConfigResponse>(await this.callApi(params, req, runtime), new ListAssetCleanConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations for cleaning offline hosts whose provider cannot be identified.
+   *
+   * @return ListAssetCleanConfigResponse
+   */
   async listAssetCleanConfig(): Promise<ListAssetCleanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAssetCleanConfigWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the configurations of asset synchronization.
+   *
+   * @param request ListAssetRefreshTaskConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAssetRefreshTaskConfigResponse
+   */
   async listAssetRefreshTaskConfigWithOptions(request: ListAssetRefreshTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListAssetRefreshTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98043,11 +103648,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAssetRefreshTaskConfigResponse>(await this.callApi(params, req, runtime), new ListAssetRefreshTaskConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of asset synchronization.
+   *
+   * @param request ListAssetRefreshTaskConfigRequest
+   * @return ListAssetRefreshTaskConfigResponse
+   */
   async listAssetRefreshTaskConfig(request: ListAssetRefreshTaskConfigRequest): Promise<ListAssetRefreshTaskConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAssetRefreshTaskConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the selected assets.
+   *
+   * @param request ListAssetSelectionSelectedTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAssetSelectionSelectedTargetResponse
+   */
   async listAssetSelectionSelectedTargetWithOptions(request: ListAssetSelectionSelectedTargetRequest, runtime: $Util.RuntimeOptions): Promise<ListAssetSelectionSelectedTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98076,11 +103694,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAssetSelectionSelectedTargetResponse>(await this.callApi(params, req, runtime), new ListAssetSelectionSelectedTargetResponse({}));
   }
 
+  /**
+   * @summary Queries the selected assets.
+   *
+   * @param request ListAssetSelectionSelectedTargetRequest
+   * @return ListAssetSelectionSelectedTargetResponse
+   */
   async listAssetSelectionSelectedTarget(request: ListAssetSelectionSelectedTargetRequest): Promise<ListAssetSelectionSelectedTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAssetSelectionSelectedTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the required asset.
+   *
+   * @param request ListAssetSelectionTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAssetSelectionTargetResponse
+   */
   async listAssetSelectionTargetWithOptions(request: ListAssetSelectionTargetRequest, runtime: $Util.RuntimeOptions): Promise<ListAssetSelectionTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98113,11 +103744,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAssetSelectionTargetResponse>(await this.callApi(params, req, runtime), new ListAssetSelectionTargetResponse({}));
   }
 
+  /**
+   * @summary Queries the required asset.
+   *
+   * @param request ListAssetSelectionTargetRequest
+   * @return ListAssetSelectionTargetResponse
+   */
   async listAssetSelectionTarget(request: ListAssetSelectionTargetRequest): Promise<ListAssetSelectionTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAssetSelectionTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about available honeypot templates.
+   *
+   * @param request ListAvailableHoneypotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAvailableHoneypotResponse
+   */
   async listAvailableHoneypotWithOptions(request: ListAvailableHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98142,11 +103786,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAvailableHoneypotResponse>(await this.callApi(params, req, runtime), new ListAvailableHoneypotResponse({}));
   }
 
+  /**
+   * @summary Queries the information about available honeypot templates.
+   *
+   * @param request ListAvailableHoneypotRequest
+   * @return ListAvailableHoneypotResponse
+   */
   async listAvailableHoneypot(request: ListAvailableHoneypotRequest): Promise<ListAvailableHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAvailableHoneypotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries backup records.
+   *
+   * @param request ListBackupRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBackupRecordResponse
+   */
   async listBackupRecordWithOptions(request: ListBackupRecordRequest, runtime: $Util.RuntimeOptions): Promise<ListBackupRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98191,11 +103848,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBackupRecordResponse>(await this.callApi(params, req, runtime), new ListBackupRecordResponse({}));
   }
 
+  /**
+   * @summary Queries backup records.
+   *
+   * @param request ListBackupRecordRequest
+   * @return ListBackupRecordResponse
+   */
   async listBackupRecord(request: ListBackupRecordRequest): Promise<ListBackupRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBackupRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the instances that failed a specified check item of configuration assessment.
+   *
+   * @param request ListCheckInstanceResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCheckInstanceResultResponse
+   */
   async listCheckInstanceResultWithOptions(request: ListCheckInstanceResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckInstanceResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98256,11 +103926,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCheckInstanceResultResponse>(await this.callApi(params, req, runtime), new ListCheckInstanceResultResponse({}));
   }
 
+  /**
+   * @summary Queries the instances that failed a specified check item of configuration assessment.
+   *
+   * @param request ListCheckInstanceResultRequest
+   * @return ListCheckInstanceResultResponse
+   */
   async listCheckInstanceResult(request: ListCheckInstanceResultRequest): Promise<ListCheckInstanceResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCheckInstanceResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the check items that can be customized.
+   *
+   * @param request ListCheckItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCheckItemResponse
+   */
   async listCheckItemWithOptions(request: ListCheckItemRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98293,11 +103976,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCheckItemResponse>(await this.callApi(params, req, runtime), new ListCheckItemResponse({}));
   }
 
+  /**
+   * @summary Queries the check items that can be customized.
+   *
+   * @param request ListCheckItemRequest
+   * @return ListCheckItemResponse
+   */
   async listCheckItem(request: ListCheckItemRequest): Promise<ListCheckItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCheckItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the servers that are affected by baseline risks.
+   *
+   * @param request ListCheckItemWarningMachineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCheckItemWarningMachineResponse
+   */
   async listCheckItemWarningMachineWithOptions(request: ListCheckItemWarningMachineRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckItemWarningMachineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98366,11 +104062,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCheckItemWarningMachineResponse>(await this.callApi(params, req, runtime), new ListCheckItemWarningMachineResponse({}));
   }
 
+  /**
+   * @summary Queries the servers that are affected by baseline risks.
+   *
+   * @param request ListCheckItemWarningMachineRequest
+   * @return ListCheckItemWarningMachineResponse
+   */
   async listCheckItemWarningMachine(request: ListCheckItemWarningMachineRequest): Promise<ListCheckItemWarningMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCheckItemWarningMachineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the risk statistics of check items by page.
+   *
+   * @param request ListCheckItemWarningSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCheckItemWarningSummaryResponse
+   */
   async listCheckItemWarningSummaryWithOptions(request: ListCheckItemWarningSummaryRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckItemWarningSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98443,11 +104152,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCheckItemWarningSummaryResponse>(await this.callApi(params, req, runtime), new ListCheckItemWarningSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the risk statistics of check items by page.
+   *
+   * @param request ListCheckItemWarningSummaryRequest
+   * @return ListCheckItemWarningSummaryResponse
+   */
   async listCheckItemWarningSummary(request: ListCheckItemWarningSummaryRequest): Promise<ListCheckItemWarningSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCheckItemWarningSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of the risk items that are detected in the configuration checks on cloud services.
+   *
+   * @param request ListCheckResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCheckResultResponse
+   */
   async listCheckResultWithOptions(request: ListCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98528,11 +104250,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCheckResultResponse>(await this.callApi(params, req, runtime), new ListCheckResultResponse({}));
   }
 
+  /**
+   * @summary Queries the details of the risk items that are detected in the configuration checks on cloud services.
+   *
+   * @param request ListCheckResultRequest
+   * @return ListCheckResultResponse
+   */
   async listCheckResult(request: ListCheckResultRequest): Promise<ListCheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCheckResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the standards of configuration checks.
+   *
+   * @param request ListCheckStandardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCheckStandardResponse
+   */
   async listCheckStandardWithOptions(request: ListCheckStandardRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckStandardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98573,11 +104308,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCheckStandardResponse>(await this.callApi(params, req, runtime), new ListCheckStandardResponse({}));
   }
 
+  /**
+   * @summary Queries the standards of configuration checks.
+   *
+   * @param request ListCheckStandardRequest
+   * @return ListCheckStandardResponse
+   */
   async listCheckStandard(request: ListCheckStandardRequest): Promise<ListCheckStandardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCheckStandardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the types of check items that meet the specified conditions based on the ID of a baseline.
+   *
+   * @param request ListCheckTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCheckTypesResponse
+   */
   async listCheckTypesWithOptions(request: ListCheckTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98626,11 +104374,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCheckTypesResponse>(await this.callApi(params, req, runtime), new ListCheckTypesResponse({}));
   }
 
+  /**
+   * @summary Queries the types of check items that meet the specified conditions based on the ID of a baseline.
+   *
+   * @param request ListCheckTypesRequest
+   * @return ListCheckTypesResponse
+   */
   async listCheckTypes(request: ListCheckTypesRequest): Promise<ListCheckTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCheckTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alert settings of assets. By default, the balanced mode is enabled. A detected list of assets can be returned only in strict mode.
+   *
+   * @param request ListClientAlertModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClientAlertModeResponse
+   */
   async listClientAlertModeWithOptions(request: ListClientAlertModeRequest, runtime: $Util.RuntimeOptions): Promise<ListClientAlertModeResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -98651,11 +104412,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClientAlertModeResponse>(await this.callApi(params, req, runtime), new ListClientAlertModeResponse({}));
   }
 
+  /**
+   * @summary Queries the alert settings of assets. By default, the balanced mode is enabled. A detected list of assets can be returned only in strict mode.
+   *
+   * @param request ListClientAlertModeRequest
+   * @return ListClientAlertModeResponse
+   */
   async listClientAlertMode(request: ListClientAlertModeRequest): Promise<ListClientAlertModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClientAlertModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取客户端支持的所有用户自定义类型
+   *
+   * @param request ListClientUserDefineRuleTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClientUserDefineRuleTypesResponse
+   */
   async listClientUserDefineRuleTypesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListClientUserDefineRuleTypesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -98672,11 +104446,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClientUserDefineRuleTypesResponse>(await this.callApi(params, req, runtime), new ListClientUserDefineRuleTypesResponse({}));
   }
 
+  /**
+   * @summary 获取客户端支持的所有用户自定义类型
+   *
+   * @return ListClientUserDefineRuleTypesResponse
+   */
   async listClientUserDefineRuleTypes(): Promise<ListClientUserDefineRuleTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClientUserDefineRuleTypesWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries custom defense rules.
+   *
+   * @param request ListClientUserDefineRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClientUserDefineRulesResponse
+   */
   async listClientUserDefineRulesWithOptions(request: ListClientUserDefineRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListClientUserDefineRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98713,11 +104499,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClientUserDefineRulesResponse>(await this.callApi(params, req, runtime), new ListClientUserDefineRulesResponse({}));
   }
 
+  /**
+   * @summary Queries custom defense rules.
+   *
+   * @param request ListClientUserDefineRulesRequest
+   * @return ListClientUserDefineRulesResponse
+   */
   async listClientUserDefineRules(request: ListClientUserDefineRulesRequest): Promise<ListClientUserDefineRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClientUserDefineRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries cloud service assets.
+   *
+   * @param request ListCloudAssetInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudAssetInstancesResponse
+   */
   async listCloudAssetInstancesWithOptions(request: ListCloudAssetInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudAssetInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98762,11 +104561,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCloudAssetInstancesResponse>(await this.callApi(params, req, runtime), new ListCloudAssetInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries cloud service assets.
+   *
+   * @param request ListCloudAssetInstancesRequest
+   * @return ListCloudAssetInstancesResponse
+   */
   async listCloudAssetInstances(request: ListCloudAssetInstancesRequest): Promise<ListCloudAssetInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCloudAssetInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the synchronization region configurations of other clouds on a site.
+   *
+   * @param request ListCloudVendorRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCloudVendorRegionsResponse
+   */
   async listCloudVendorRegionsWithOptions(request: ListCloudVendorRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudVendorRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98795,11 +104607,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCloudVendorRegionsResponse>(await this.callApi(params, req, runtime), new ListCloudVendorRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the synchronization region configurations of other clouds on a site.
+   *
+   * @param request ListCloudVendorRegionsRequest
+   * @return ListCloudVendorRegionsResponse
+   */
   async listCloudVendorRegions(request: ListCloudVendorRegionsRequest): Promise<ListCloudVendorRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCloudVendorRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the protection status of the container firewall.
+   *
+   * @param request ListClusterCnnfStatusDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterCnnfStatusDetailResponse
+   */
   async listClusterCnnfStatusDetailWithOptions(request: ListClusterCnnfStatusDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterCnnfStatusDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98824,11 +104649,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterCnnfStatusDetailResponse>(await this.callApi(params, req, runtime), new ListClusterCnnfStatusDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the protection status of the container firewall.
+   *
+   * @param request ListClusterCnnfStatusDetailRequest
+   * @return ListClusterCnnfStatusDetailResponse
+   */
   async listClusterCnnfStatusDetail(request: ListClusterCnnfStatusDetailRequest): Promise<ListClusterCnnfStatusDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterCnnfStatusDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the defense rules that are created for a cluster.
+   *
+   * @param request ListClusterInterceptionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterInterceptionConfigResponse
+   */
   async listClusterInterceptionConfigWithOptions(request: ListClusterInterceptionConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterInterceptionConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98869,11 +104707,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterInterceptionConfigResponse>(await this.callApi(params, req, runtime), new ListClusterInterceptionConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the defense rules that are created for a cluster.
+   *
+   * @param request ListClusterInterceptionConfigRequest
+   * @return ListClusterInterceptionConfigResponse
+   */
   async listClusterInterceptionConfig(request: ListClusterInterceptionConfigRequest): Promise<ListClusterInterceptionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterInterceptionConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of plug-ins on clusters.
+   *
+   * @param request ListClusterPluginInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterPluginInfoResponse
+   */
   async listClusterPluginInfoWithOptions(request: ListClusterPluginInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterPluginInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98906,11 +104757,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterPluginInfoResponse>(await this.callApi(params, req, runtime), new ListClusterPluginInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the status of plug-ins on clusters.
+   *
+   * @param request ListClusterPluginInfoRequest
+   * @return ListClusterPluginInfoResponse
+   */
   async listClusterPluginInfo(request: ListClusterPluginInfoRequest): Promise<ListClusterPluginInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterPluginInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取压缩包检测结果。
+   *
+   * @param request ListCompressFileDetectResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCompressFileDetectResultResponse
+   */
   async listCompressFileDetectResultWithOptions(request: ListCompressFileDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<ListCompressFileDetectResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98947,11 +104811,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCompressFileDetectResultResponse>(await this.callApi(params, req, runtime), new ListCompressFileDetectResultResponse({}));
   }
 
+  /**
+   * @summary 获取压缩包检测结果。
+   *
+   * @param request ListCompressFileDetectResultRequest
+   * @return ListCompressFileDetectResultResponse
+   */
   async listCompressFileDetectResult(request: ListCompressFileDetectResultRequest): Promise<ListCompressFileDetectResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCompressFileDetectResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of rules for non-image program defense.
+   *
+   * @param request ListContainerDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListContainerDefenseRuleResponse
+   */
   async listContainerDefenseRuleWithOptions(request: ListContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListContainerDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -98996,11 +104873,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListContainerDefenseRuleResponse>(await this.callApi(params, req, runtime), new ListContainerDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Queries a list of rules for non-image program defense.
+   *
+   * @param request ListContainerDefenseRuleRequest
+   * @return ListContainerDefenseRuleResponse
+   */
   async listContainerDefenseRule(request: ListContainerDefenseRuleRequest): Promise<ListContainerDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listContainerDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of clusters that are included in a rule for non-image program defense.
+   *
+   * @param request ListContainerDefenseRuleClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListContainerDefenseRuleClustersResponse
+   */
   async listContainerDefenseRuleClustersWithOptions(runtime: $Util.RuntimeOptions): Promise<ListContainerDefenseRuleClustersResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -99017,11 +104907,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListContainerDefenseRuleClustersResponse>(await this.callApi(params, req, runtime), new ListContainerDefenseRuleClustersResponse({}));
   }
 
+  /**
+   * @summary Queries a list of clusters that are included in a rule for non-image program defense.
+   *
+   * @return ListContainerDefenseRuleClustersResponse
+   */
   async listContainerDefenseRuleClusters(): Promise<ListContainerDefenseRuleClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listContainerDefenseRuleClustersWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the IDs and names of rules configured for proactive defense for containers.
+   *
+   * @param request ListCriteriaStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCriteriaStrategyResponse
+   */
   async listCriteriaStrategyWithOptions(request: ListCriteriaStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ListCriteriaStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99062,11 +104964,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCriteriaStrategyResponse>(await this.callApi(params, req, runtime), new ListCriteriaStrategyResponse({}));
   }
 
+  /**
+   * @summary Queries the IDs and names of rules configured for proactive defense for containers.
+   *
+   * @param request ListCriteriaStrategyRequest
+   * @return ListCriteriaStrategyResponse
+   */
   async listCriteriaStrategy(request: ListCriteriaStrategyRequest): Promise<ListCriteriaStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCriteriaStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries core file monitoring rules that meet the specified filter condition.
+   *
+   * @param request ListFileProtectEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFileProtectEventResponse
+   */
   async listFileProtectEventWithOptions(request: ListFileProtectEventRequest, runtime: $Util.RuntimeOptions): Promise<ListFileProtectEventResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99135,11 +105050,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFileProtectEventResponse>(await this.callApi(params, req, runtime), new ListFileProtectEventResponse({}));
   }
 
+  /**
+   * @summary Queries core file monitoring rules that meet the specified filter condition.
+   *
+   * @param request ListFileProtectEventRequest
+   * @return ListFileProtectEventResponse
+   */
   async listFileProtectEvent(request: ListFileProtectEventRequest): Promise<ListFileProtectEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFileProtectEventWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the Security Center agent installed on servers on which core file monitoring rules take effect. The information includes the installation status of the Security Center agent and whether the core file monitoring feature is supported.
+   *
+   * @param request ListFileProtectPluginStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFileProtectPluginStatusResponse
+   */
   async listFileProtectPluginStatusWithOptions(request: ListFileProtectPluginStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListFileProtectPluginStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99172,11 +105100,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFileProtectPluginStatusResponse>(await this.callApi(params, req, runtime), new ListFileProtectPluginStatusResponse({}));
   }
 
+  /**
+   * @summary Queries information about the Security Center agent installed on servers on which core file monitoring rules take effect. The information includes the installation status of the Security Center agent and whether the core file monitoring feature is supported.
+   *
+   * @param request ListFileProtectPluginStatusRequest
+   * @return ListFileProtectPluginStatusResponse
+   */
   async listFileProtectPluginStatus(request: ListFileProtectPluginStatusRequest): Promise<ListFileProtectPluginStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFileProtectPluginStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries core file monitoring rules.
+   *
+   * @param request ListFileProtectRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFileProtectRuleResponse
+   */
   async listFileProtectRuleWithOptions(request: ListFileProtectRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListFileProtectRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99217,11 +105158,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFileProtectRuleResponse>(await this.callApi(params, req, runtime), new ListFileProtectRuleResponse({}));
   }
 
+  /**
+   * @summary Queries core file monitoring rules.
+   *
+   * @param request ListFileProtectRuleRequest
+   * @return ListFileProtectRuleResponse
+   */
   async listFileProtectRule(request: ListFileProtectRuleRequest): Promise<ListFileProtectRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFileProtectRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the server groups.
+   *
+   * @param request ListGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupsResponse
+   */
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99262,11 +105216,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries the server groups.
+   *
+   * @param request ListGroupsRequest
+   * @return ListGroupsResponse
+   */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about honeypots.
+   *
+   * @param request ListHoneypotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotResponse
+   */
   async listHoneypotWithOptions(request: ListHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99311,11 +105278,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotResponse>(await this.callApi(params, req, runtime), new ListHoneypotResponse({}));
   }
 
+  /**
+   * @summary Queries the information about honeypots.
+   *
+   * @param request ListHoneypotRequest
+   * @return ListHoneypotResponse
+   */
   async listHoneypot(request: ListHoneypotRequest): Promise<ListHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about alert events that are generated.
+   *
+   * @param request ListHoneypotAlarmEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotAlarmEventsResponse
+   */
   async listHoneypotAlarmEventsWithOptions(request: ListHoneypotAlarmEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotAlarmEventsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -99336,11 +105316,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotAlarmEventsResponse>(await this.callApi(params, req, runtime), new ListHoneypotAlarmEventsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about alert events that are generated.
+   *
+   * @param request ListHoneypotAlarmEventsRequest
+   * @return ListHoneypotAlarmEventsResponse
+   */
   async listHoneypotAlarmEvents(request: ListHoneypotAlarmEventsRequest): Promise<ListHoneypotAlarmEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotAlarmEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attacker profile based on the source IP address of the attack.
+   *
+   * @param request ListHoneypotAttackerPortraitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotAttackerPortraitResponse
+   */
   async listHoneypotAttackerPortraitWithOptions(request: ListHoneypotAttackerPortraitRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotAttackerPortraitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99385,11 +105378,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotAttackerPortraitResponse>(await this.callApi(params, req, runtime), new ListHoneypotAttackerPortraitResponse({}));
   }
 
+  /**
+   * @summary Queries the attacker profile based on the source IP address of the attack.
+   *
+   * @param request ListHoneypotAttackerPortraitRequest
+   * @return ListHoneypotAttackerPortraitResponse
+   */
   async listHoneypotAttackerPortrait(request: ListHoneypotAttackerPortraitRequest): Promise<ListHoneypotAttackerPortraitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotAttackerPortraitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attack source IP addresses that are used to attack a honeypot.
+   *
+   * @param request ListHoneypotAttackerSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotAttackerSourceResponse
+   */
   async listHoneypotAttackerSourceWithOptions(request: ListHoneypotAttackerSourceRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotAttackerSourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99438,11 +105444,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotAttackerSourceResponse>(await this.callApi(params, req, runtime), new ListHoneypotAttackerSourceResponse({}));
   }
 
+  /**
+   * @summary Queries the attack source IP addresses that are used to attack a honeypot.
+   *
+   * @param request ListHoneypotAttackerSourceRequest
+   * @return ListHoneypotAttackerSourceResponse
+   */
   async listHoneypotAttackerSource(request: ListHoneypotAttackerSourceRequest): Promise<ListHoneypotAttackerSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotAttackerSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an intrusion event in a honeypot.
+   *
+   * @param request ListHoneypotEventFlowsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotEventFlowsResponse
+   */
   async listHoneypotEventFlowsWithOptions(request: ListHoneypotEventFlowsRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotEventFlowsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -99463,11 +105482,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotEventFlowsResponse>(await this.callApi(params, req, runtime), new ListHoneypotEventFlowsResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an intrusion event in a honeypot.
+   *
+   * @param request ListHoneypotEventFlowsRequest
+   * @return ListHoneypotEventFlowsResponse
+   */
   async listHoneypotEventFlows(request: ListHoneypotEventFlowsRequest): Promise<ListHoneypotEventFlowsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotEventFlowsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the intrusion events detected by honeypots.
+   *
+   * @param request ListHoneypotEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotEventsResponse
+   */
   async listHoneypotEventsWithOptions(request: ListHoneypotEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotEventsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -99488,11 +105520,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotEventsResponse>(await this.callApi(params, req, runtime), new ListHoneypotEventsResponse({}));
   }
 
+  /**
+   * @summary Queries the intrusion events detected by honeypots.
+   *
+   * @param request ListHoneypotEventsRequest
+   * @return ListHoneypotEventsResponse
+   */
   async listHoneypotEvents(request: ListHoneypotEventsRequest): Promise<ListHoneypotEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about management nodes.
+   *
+   * @param request ListHoneypotNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotNodeResponse
+   */
   async listHoneypotNodeWithOptions(request: ListHoneypotNodeRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99529,11 +105574,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotNodeResponse>(await this.callApi(params, req, runtime), new ListHoneypotNodeResponse({}));
   }
 
+  /**
+   * @summary Queries the information about management nodes.
+   *
+   * @param request ListHoneypotNodeRequest
+   * @return ListHoneypotNodeResponse
+   */
   async listHoneypotNode(request: ListHoneypotNodeRequest): Promise<ListHoneypotNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries honeypot templates.
+   *
+   * @param request ListHoneypotPresetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotPresetResponse
+   */
   async listHoneypotPresetWithOptions(request: ListHoneypotPresetRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotPresetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99582,11 +105640,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotPresetResponse>(await this.callApi(params, req, runtime), new ListHoneypotPresetResponse({}));
   }
 
+  /**
+   * @summary Queries honeypot templates.
+   *
+   * @param request ListHoneypotPresetRequest
+   * @return ListHoneypotPresetResponse
+   */
   async listHoneypotPreset(request: ListHoneypotPresetRequest): Promise<ListHoneypotPresetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotPresetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries probes.
+   *
+   * @param request ListHoneypotProbeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotProbeResponse
+   */
   async listHoneypotProbeWithOptions(request: ListHoneypotProbeRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotProbeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99631,11 +105702,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotProbeResponse>(await this.callApi(params, req, runtime), new ListHoneypotProbeResponse({}));
   }
 
+  /**
+   * @summary Queries probes.
+   *
+   * @param request ListHoneypotProbeRequest
+   * @return ListHoneypotProbeResponse
+   */
   async listHoneypotProbe(request: ListHoneypotProbeRequest): Promise<ListHoneypotProbeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotProbeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询已安装的探针
+   *
+   * @param request ListHoneypotProbeUuidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHoneypotProbeUuidResponse
+   */
   async listHoneypotProbeUuidWithOptions(request: ListHoneypotProbeUuidRequest, runtime: $Util.RuntimeOptions): Promise<ListHoneypotProbeUuidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99668,11 +105752,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHoneypotProbeUuidResponse>(await this.callApi(params, req, runtime), new ListHoneypotProbeUuidResponse({}));
   }
 
+  /**
+   * @summary 查询已安装的探针
+   *
+   * @param request ListHoneypotProbeUuidRequest
+   * @return ListHoneypotProbeUuidResponse
+   */
   async listHoneypotProbeUuid(request: ListHoneypotProbeUuidRequest): Promise<ListHoneypotProbeUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHoneypotProbeUuidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary List image risk items.
+   *
+   * @param request ListImageBuildRiskItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListImageBuildRiskItemResponse
+   */
   async listImageBuildRiskItemWithOptions(request: ListImageBuildRiskItemRequest, runtime: $Util.RuntimeOptions): Promise<ListImageBuildRiskItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99697,11 +105794,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListImageBuildRiskItemResponse>(await this.callApi(params, req, runtime), new ListImageBuildRiskItemResponse({}));
   }
 
+  /**
+   * @summary List image risk items.
+   *
+   * @param request ListImageBuildRiskItemRequest
+   * @return ListImageBuildRiskItemResponse
+   */
   async listImageBuildRiskItem(request: ListImageBuildRiskItemRequest): Promise<ListImageBuildRiskItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listImageBuildRiskItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The region ID of the image.
+   *
+   * @param request ListImageRegistryRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListImageRegistryRegionResponse
+   */
   async listImageRegistryRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<ListImageRegistryRegionResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -99718,11 +105828,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListImageRegistryRegionResponse>(await this.callApi(params, req, runtime), new ListImageRegistryRegionResponse({}));
   }
 
+  /**
+   * @summary The region ID of the image.
+   *
+   * @return ListImageRegistryRegionResponse
+   */
   async listImageRegistryRegion(): Promise<ListImageRegistryRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listImageRegistryRegionWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries security information about a container image.
+   *
+   * @param request ListImageRiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListImageRiskResponse
+   */
   async listImageRiskWithOptions(request: ListImageRiskRequest, runtime: $Util.RuntimeOptions): Promise<ListImageRiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99767,11 +105889,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListImageRiskResponse>(await this.callApi(params, req, runtime), new ListImageRiskResponse({}));
   }
 
+  /**
+   * @summary Queries security information about a container image.
+   *
+   * @param request ListImageRiskRequest
+   * @return ListImageRiskResponse
+   */
   async listImageRisk(request: ListImageRiskRequest): Promise<ListImageRiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listImageRiskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the asset types and asset subtypes for configuration assessment.
+   *
+   * @param request ListInstanceCatalogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceCatalogResponse
+   */
   async listInstanceCatalogWithOptions(request: ListInstanceCatalogRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceCatalogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99812,11 +105947,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceCatalogResponse>(await this.callApi(params, req, runtime), new ListInstanceCatalogResponse({}));
   }
 
+  /**
+   * @summary Queries the asset types and asset subtypes for configuration assessment.
+   *
+   * @param request ListInstanceCatalogRequest
+   * @return ListInstanceCatalogResponse
+   */
   async listInstanceCatalog(request: ListInstanceCatalogRequest): Promise<ListInstanceCatalogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceCatalogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the risk levels of instances.
+   *
+   * @param request ListInstanceRiskLevelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceRiskLevelsResponse
+   */
   async listInstanceRiskLevelsWithOptions(request: ListInstanceRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceRiskLevelsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99841,11 +105989,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceRiskLevelsResponse>(await this.callApi(params, req, runtime), new ListInstanceRiskLevelsResponse({}));
   }
 
+  /**
+   * @summary Queries the risk levels of instances.
+   *
+   * @param request ListInstanceRiskLevelsRequest
+   * @return ListInstanceRiskLevelsResponse
+   */
   async listInstanceRiskLevels(request: ListInstanceRiskLevelsRequest): Promise<ListInstanceRiskLevelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceRiskLevelsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics about risks in instances.
+   *
+   * @param request ListInstanceRiskNumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceRiskNumResponse
+   */
   async listInstanceRiskNumWithOptions(request: ListInstanceRiskNumRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceRiskNumResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99870,11 +106031,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceRiskNumResponse>(await this.callApi(params, req, runtime), new ListInstanceRiskNumResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics about risks in instances.
+   *
+   * @param request ListInstanceRiskNumRequest
+   * @return ListInstanceRiskNumResponse
+   */
   async listInstanceRiskNum(request: ListInstanceRiskNumRequest): Promise<ListInstanceRiskNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceRiskNumWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alerts generated by defense rules.
+   *
+   * @param request ListInterceptionHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInterceptionHistoryResponse
+   */
   async listInterceptionHistoryWithOptions(request: ListInterceptionHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListInterceptionHistoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99927,11 +106101,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInterceptionHistoryResponse>(await this.callApi(params, req, runtime), new ListInterceptionHistoryResponse({}));
   }
 
+  /**
+   * @summary Queries the alerts generated by defense rules.
+   *
+   * @param request ListInterceptionHistoryRequest
+   * @return ListInterceptionHistoryResponse
+   */
   async listInterceptionHistory(request: ListInterceptionHistoryRequest): Promise<ListInterceptionHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInterceptionHistoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries defense rules that are configured for the container firewall feature.
+   *
+   * @param request ListInterceptionRulePageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInterceptionRulePageResponse
+   */
   async listInterceptionRulePageWithOptions(request: ListInterceptionRulePageRequest, runtime: $Util.RuntimeOptions): Promise<ListInterceptionRulePageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -99972,11 +106159,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInterceptionRulePageResponse>(await this.callApi(params, req, runtime), new ListInterceptionRulePageResponse({}));
   }
 
+  /**
+   * @summary Queries defense rules that are configured for the container firewall feature.
+   *
+   * @param request ListInterceptionRulePageRequest
+   * @return ListInterceptionRulePageResponse
+   */
   async listInterceptionRulePage(request: ListInterceptionRulePageRequest): Promise<ListInterceptionRulePageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInterceptionRulePageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the network objects that are protected by the container firewall feature.
+   *
+   * @param request ListInterceptionTargetPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInterceptionTargetPageResponse
+   */
   async listInterceptionTargetPageWithOptions(request: ListInterceptionTargetPageRequest, runtime: $Util.RuntimeOptions): Promise<ListInterceptionTargetPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100029,17 +106229,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInterceptionTargetPageResponse>(await this.callApi(params, req, runtime), new ListInterceptionTargetPageResponse({}));
   }
 
+  /**
+   * @summary Queries the network objects that are protected by the container firewall feature.
+   *
+   * @param request ListInterceptionTargetPageRequest
+   * @return ListInterceptionTargetPageResponse
+   */
   async listInterceptionTargetPage(request: ListInterceptionTargetPageRequest): Promise<ListInterceptionTargetPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInterceptionTargetPageWithOptions(request, runtime);
   }
 
   /**
-    * You can use this operation to query the access information about Kubernetes clusters.
-    *
-    * @param request ListK8sAccessInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListK8sAccessInfoResponse
+   * @summary Queries the information about Kubernetes clusters that are added to Security Center.
+   *
+   * @description You can use this operation to query the access information about Kubernetes clusters.
+   *
+   * @param request ListK8sAccessInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListK8sAccessInfoResponse
    */
   async listK8sAccessInfoWithOptions(request: ListK8sAccessInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListK8sAccessInfoResponse> {
     Util.validateModel(request);
@@ -100078,16 +106286,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this operation to query the access information about Kubernetes clusters.
-    *
-    * @param request ListK8sAccessInfoRequest
-    * @return ListK8sAccessInfoResponse
+   * @summary Queries the information about Kubernetes clusters that are added to Security Center.
+   *
+   * @description You can use this operation to query the access information about Kubernetes clusters.
+   *
+   * @param request ListK8sAccessInfoRequest
+   * @return ListK8sAccessInfoResponse
    */
   async listK8sAccessInfo(request: ListK8sAccessInfoRequest): Promise<ListK8sAccessInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listK8sAccessInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alert whitelist rules of sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request ListMaliciousFileWhitelistConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMaliciousFileWhitelistConfigsResponse
+   */
   async listMaliciousFileWhitelistConfigsWithOptions(request: ListMaliciousFileWhitelistConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListMaliciousFileWhitelistConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100128,11 +106345,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMaliciousFileWhitelistConfigsResponse>(await this.callApi(params, req, runtime), new ListMaliciousFileWhitelistConfigsResponse({}));
   }
 
+  /**
+   * @summary Queries the alert whitelist rules of sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request ListMaliciousFileWhitelistConfigsRequest
+   * @return ListMaliciousFileWhitelistConfigsResponse
+   */
   async listMaliciousFileWhitelistConfigs(request: ListMaliciousFileWhitelistConfigsRequest): Promise<ListMaliciousFileWhitelistConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMaliciousFileWhitelistConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries alerts that are generated for malicious files.
+   *
+   * @param request ListObjectScanEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListObjectScanEventResponse
+   */
   async listObjectScanEventWithOptions(request: ListObjectScanEventRequest, runtime: $Util.RuntimeOptions): Promise<ListObjectScanEventResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100201,11 +106431,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListObjectScanEventResponse>(await this.callApi(params, req, runtime), new ListObjectScanEventResponse({}));
   }
 
+  /**
+   * @summary Queries alerts that are generated for malicious files.
+   *
+   * @param request ListObjectScanEventRequest
+   * @return ListObjectScanEventResponse
+   */
   async listObjectScanEvent(request: ListObjectScanEventRequest): Promise<ListObjectScanEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listObjectScanEventWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries at-risk image blocking rules.
+   *
+   * @param request ListOpaClusterStrategyNewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOpaClusterStrategyNewResponse
+   */
   async listOpaClusterStrategyNewWithOptions(request: ListOpaClusterStrategyNewRequest, runtime: $Util.RuntimeOptions): Promise<ListOpaClusterStrategyNewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100246,11 +106489,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOpaClusterStrategyNewResponse>(await this.callApi(params, req, runtime), new ListOpaClusterStrategyNewResponse({}));
   }
 
+  /**
+   * @summary Queries at-risk image blocking rules.
+   *
+   * @param request ListOpaClusterStrategyNewRequest
+   * @return ListOpaClusterStrategyNewResponse
+   */
   async listOpaClusterStrategyNew(request: ListOpaClusterStrategyNewRequest): Promise<ListOpaClusterStrategyNewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOpaClusterStrategyNewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Object Storage Service (OSS) buckets.
+   *
+   * @param request ListOssBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOssBucketResponse
+   */
   async listOssBucketWithOptions(request: ListOssBucketRequest, runtime: $Util.RuntimeOptions): Promise<ListOssBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100279,11 +106535,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOssBucketResponse>(await this.callApi(params, req, runtime), new ListOssBucketResponse({}));
   }
 
+  /**
+   * @summary Queries Object Storage Service (OSS) buckets.
+   *
+   * @param request ListOssBucketRequest
+   * @return ListOssBucketResponse
+   */
   async listOssBucket(request: ListOssBucketRequest): Promise<ListOssBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOssBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the risk information of an Object Storage Service (OSS) bucket.
+   *
+   * @param request ListOssBucketScanInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOssBucketScanInfoResponse
+   */
   async listOssBucketScanInfoWithOptions(request: ListOssBucketScanInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListOssBucketScanInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100332,11 +106601,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOssBucketScanInfoResponse>(await this.callApi(params, req, runtime), new ListOssBucketScanInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the risk information of an Object Storage Service (OSS) bucket.
+   *
+   * @param request ListOssBucketScanInfoRequest
+   * @return ListOssBucketScanInfoResponse
+   */
   async listOssBucketScanInfo(request: ListOssBucketScanInfoRequest): Promise<ListOssBucketScanInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOssBucketScanInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries oss scan policies.
+   *
+   * @param request ListOssScanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOssScanConfigResponse
+   */
   async listOssScanConfigWithOptions(request: ListOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListOssScanConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -100357,11 +106639,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOssScanConfigResponse>(await this.callApi(params, req, runtime), new ListOssScanConfigResponse({}));
   }
 
+  /**
+   * @summary Queries oss scan policies.
+   *
+   * @param request ListOssScanConfigRequest
+   * @return ListOssScanConfigResponse
+   */
   async listOssScanConfig(request: ListOssScanConfigRequest): Promise<ListOssScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOssScanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about plug-ins on a server.
+   *
+   * @param tmpReq ListPluginForUuidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPluginForUuidResponse
+   */
   async listPluginForUuidWithOptions(tmpReq: ListPluginForUuidRequest, runtime: $Util.RuntimeOptions): Promise<ListPluginForUuidResponse> {
     Util.validateModel(tmpReq);
     let request = new ListPluginForUuidShrinkRequest({ });
@@ -100396,11 +106691,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPluginForUuidResponse>(await this.callApi(params, req, runtime), new ListPluginForUuidResponse({}));
   }
 
+  /**
+   * @summary Queries the information about plug-ins on a server.
+   *
+   * @param request ListPluginForUuidRequest
+   * @return ListPluginForUuidResponse
+   */
   async listPluginForUuid(request: ListPluginForUuidRequest): Promise<ListPluginForUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPluginForUuidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the security risks of a pod.
+   *
+   * @param request ListPodRiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPodRiskResponse
+   */
   async listPodRiskWithOptions(request: ListPodRiskRequest, runtime: $Util.RuntimeOptions): Promise<ListPodRiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100445,11 +106753,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPodRiskResponse>(await this.callApi(params, req, runtime), new ListPodRiskResponse({}));
   }
 
+  /**
+   * @summary Queries the security risks of a pod.
+   *
+   * @param request ListPodRiskRequest
+   * @return ListPodRiskResponse
+   */
   async listPodRisk(request: ListPodRiskRequest): Promise<ListPodRiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPodRiskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries image repositories.
+   *
+   * @param request ListPrivateRegistryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrivateRegistryListResponse
+   */
   async listPrivateRegistryListWithOptions(request: ListPrivateRegistryListRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateRegistryListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100474,11 +106795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrivateRegistryListResponse>(await this.callApi(params, req, runtime), new ListPrivateRegistryListResponse({}));
   }
 
+  /**
+   * @summary Queries image repositories.
+   *
+   * @param request ListPrivateRegistryListRequest
+   * @return ListPrivateRegistryListResponse
+   */
   async listPrivateRegistryList(request: ListPrivateRegistryListRequest): Promise<ListPrivateRegistryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrivateRegistryListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of image repositories of each type.
+   *
+   * @param request ListPrivateRegistryTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrivateRegistryTypeResponse
+   */
   async listPrivateRegistryTypeWithOptions(request: ListPrivateRegistryTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateRegistryTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100503,11 +106837,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrivateRegistryTypeResponse>(await this.callApi(params, req, runtime), new ListPrivateRegistryTypeResponse({}));
   }
 
+  /**
+   * @summary Queries the number of image repositories of each type.
+   *
+   * @param request ListPrivateRegistryTypeRequest
+   * @return ListPrivateRegistryTypeResponse
+   */
   async listPrivateRegistryType(request: ListPrivateRegistryTypeRequest): Promise<ListPrivateRegistryTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrivateRegistryTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the installation information of one or more Runtime Application Self-protection-enabled (RASP-enabled) applications.
+   *
+   * @param request ListQueryRaspAppInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQueryRaspAppInfoResponse
+   */
   async listQueryRaspAppInfoWithOptions(request: ListQueryRaspAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListQueryRaspAppInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100536,11 +106883,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQueryRaspAppInfoResponse>(await this.callApi(params, req, runtime), new ListQueryRaspAppInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the installation information of one or more Runtime Application Self-protection-enabled (RASP-enabled) applications.
+   *
+   * @param request ListQueryRaspAppInfoRequest
+   * @return ListQueryRaspAppInfoResponse
+   */
   async listQueryRaspAppInfo(request: ListQueryRaspAppInfoRequest): Promise<ListQueryRaspAppInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQueryRaspAppInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the network objects based on which a specified cluster is protected.
+   *
+   * @param request ListRuleTargetAllRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRuleTargetAllResponse
+   */
   async listRuleTargetAllWithOptions(request: ListRuleTargetAllRequest, runtime: $Util.RuntimeOptions): Promise<ListRuleTargetAllResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100565,11 +106925,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRuleTargetAllResponse>(await this.callApi(params, req, runtime), new ListRuleTargetAllResponse({}));
   }
 
+  /**
+   * @summary Queries the network objects based on which a specified cluster is protected.
+   *
+   * @param request ListRuleTargetAllRequest
+   * @return ListRuleTargetAllResponse
+   */
   async listRuleTargetAll(request: ListRuleTargetAllRequest): Promise<ListRuleTargetAllResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRuleTargetAllWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries rules for container tamper-proofing.
+   *
+   * @param request ListSasContainerWebDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSasContainerWebDefenseRuleResponse
+   */
   async listSasContainerWebDefenseRuleWithOptions(request: ListSasContainerWebDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListSasContainerWebDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100606,11 +106979,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSasContainerWebDefenseRuleResponse>(await this.callApi(params, req, runtime), new ListSasContainerWebDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Queries rules for container tamper-proofing.
+   *
+   * @param request ListSasContainerWebDefenseRuleRequest
+   * @return ListSasContainerWebDefenseRuleResponse
+   */
   async listSasContainerWebDefenseRule(request: ListSasContainerWebDefenseRuleRequest): Promise<ListSasContainerWebDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSasContainerWebDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries supported file suffixes.
+   *
+   * @param request ListSupportObjectSuffixRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSupportObjectSuffixResponse
+   */
   async listSupportObjectSuffixWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSupportObjectSuffixResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -100627,11 +107013,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSupportObjectSuffixResponse>(await this.callApi(params, req, runtime), new ListSupportObjectSuffixResponse({}));
   }
 
+  /**
+   * @summary Queries supported file suffixes.
+   *
+   * @return ListSupportObjectSuffixResponse
+   */
   async listSupportObjectSuffix(): Promise<ListSupportObjectSuffixResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSupportObjectSuffixWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the details about the aggregation types of system defense rules.
+   *
+   * @param request ListSystemAggregationRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSystemAggregationRulesResponse
+   */
   async listSystemAggregationRulesWithOptions(request: ListSystemAggregationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemAggregationRulesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -100652,11 +107050,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSystemAggregationRulesResponse>(await this.callApi(params, req, runtime), new ListSystemAggregationRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the details about the aggregation types of system defense rules.
+   *
+   * @param request ListSystemAggregationRulesRequest
+   * @return ListSystemAggregationRulesResponse
+   */
   async listSystemAggregationRules(request: ListSystemAggregationRulesRequest): Promise<ListSystemAggregationRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSystemAggregationRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询对用户生效的系统规则类型
+   *
+   * @param request ListSystemClientRuleTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSystemClientRuleTypesResponse
+   */
   async listSystemClientRuleTypesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSystemClientRuleTypesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -100673,11 +107084,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSystemClientRuleTypesResponse>(await this.callApi(params, req, runtime), new ListSystemClientRuleTypesResponse({}));
   }
 
+  /**
+   * @summary 查询对用户生效的系统规则类型
+   *
+   * @return ListSystemClientRuleTypesResponse
+   */
   async listSystemClientRuleTypes(): Promise<ListSystemClientRuleTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSystemClientRuleTypesWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries system defense rules.
+   *
+   * @param request ListSystemClientRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSystemClientRulesResponse
+   */
   async listSystemClientRulesWithOptions(request: ListSystemClientRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemClientRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100730,11 +107153,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSystemClientRulesResponse>(await this.callApi(params, req, runtime), new ListSystemClientRulesResponse({}));
   }
 
+  /**
+   * @summary Queries system defense rules.
+   *
+   * @param request ListSystemClientRulesRequest
+   * @return ListSystemClientRulesResponse
+   */
   async listSystemClientRules(request: ListSystemClientRulesRequest): Promise<ListSystemClientRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSystemClientRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the aggregation types of system defense rules.
+   *
+   * @param request ListSystemRuleAggregationTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSystemRuleAggregationTypesResponse
+   */
   async listSystemRuleAggregationTypesWithOptions(request: ListSystemRuleAggregationTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemRuleAggregationTypesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -100755,11 +107191,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSystemRuleAggregationTypesResponse>(await this.callApi(params, req, runtime), new ListSystemRuleAggregationTypesResponse({}));
   }
 
+  /**
+   * @summary Queries the aggregation types of system defense rules.
+   *
+   * @param request ListSystemRuleAggregationTypesRequest
+   * @return ListSystemRuleAggregationTypesResponse
+   */
   async listSystemRuleAggregationTypes(request: ListSystemRuleAggregationTypesRequest): Promise<ListSystemRuleAggregationTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSystemRuleAggregationTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries tasks that are not complete by task type.
+   *
+   * @param request ListUnfinishedOnceTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUnfinishedOnceTaskResponse
+   */
   async listUnfinishedOnceTaskWithOptions(request: ListUnfinishedOnceTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListUnfinishedOnceTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100788,11 +107237,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUnfinishedOnceTaskResponse>(await this.callApi(params, req, runtime), new ListUnfinishedOnceTaskResponse({}));
   }
 
+  /**
+   * @summary Queries tasks that are not complete by task type.
+   *
+   * @param request ListUnfinishedOnceTaskRequest
+   * @return ListUnfinishedOnceTaskResponse
+   */
   async listUnfinishedOnceTask(request: ListUnfinishedOnceTaskRequest): Promise<ListUnfinishedOnceTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUnfinishedOnceTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the servers whose Security Center agent is not installed.
+   *
+   * @param request ListUninstallAegisMachinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUninstallAegisMachinesResponse
+   */
   async listUninstallAegisMachinesWithOptions(request: ListUninstallAegisMachinesRequest, runtime: $Util.RuntimeOptions): Promise<ListUninstallAegisMachinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100845,11 +107307,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUninstallAegisMachinesResponse>(await this.callApi(params, req, runtime), new ListUninstallAegisMachinesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the servers whose Security Center agent is not installed.
+   *
+   * @param request ListUninstallAegisMachinesRequest
+   * @return ListUninstallAegisMachinesResponse
+   */
   async listUninstallAegisMachines(request: ListUninstallAegisMachinesRequest): Promise<ListUninstallAegisMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUninstallAegisMachinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries protected assets by using the paths to specific web directories.
+   *
+   * @param request ListUuidsByWebPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUuidsByWebPathResponse
+   */
   async listUuidsByWebPathWithOptions(request: ListUuidsByWebPathRequest, runtime: $Util.RuntimeOptions): Promise<ListUuidsByWebPathResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100886,11 +107361,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUuidsByWebPathResponse>(await this.callApi(params, req, runtime), new ListUuidsByWebPathResponse({}));
   }
 
+  /**
+   * @summary Queries protected assets by using the paths to specific web directories.
+   *
+   * @param request ListUuidsByWebPathRequest
+   * @return ListUuidsByWebPathResponse
+   */
   async listUuidsByWebPath(request: ListUuidsByWebPathRequest): Promise<ListUuidsByWebPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUuidsByWebPathWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries servers on which virus detection and removal tasks are performed.
+   *
+   * @param request ListVirusScanMachineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVirusScanMachineResponse
+   */
   async listVirusScanMachineWithOptions(request: ListVirusScanMachineRequest, runtime: $Util.RuntimeOptions): Promise<ListVirusScanMachineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100927,11 +107415,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVirusScanMachineResponse>(await this.callApi(params, req, runtime), new ListVirusScanMachineResponse({}));
   }
 
+  /**
+   * @summary Queries servers on which virus detection and removal tasks are performed.
+   *
+   * @param request ListVirusScanMachineRequest
+   * @return ListVirusScanMachineResponse
+   */
   async listVirusScanMachine(request: ListVirusScanMachineRequest): Promise<ListVirusScanMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVirusScanMachineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alert events that are generated for viruses detected on a server.
+   *
+   * @param request ListVirusScanMachineEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVirusScanMachineEventResponse
+   */
   async listVirusScanMachineEventWithOptions(request: ListVirusScanMachineEventRequest, runtime: $Util.RuntimeOptions): Promise<ListVirusScanMachineEventResponse> {
     Util.validateModel(request);
     let query = { };
@@ -100972,11 +107473,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVirusScanMachineEventResponse>(await this.callApi(params, req, runtime), new ListVirusScanMachineEventResponse({}));
   }
 
+  /**
+   * @summary Queries the alert events that are generated for viruses detected on a server.
+   *
+   * @param request ListVirusScanMachineEventRequest
+   * @return ListVirusScanMachineEventResponse
+   */
   async listVirusScanMachineEvent(request: ListVirusScanMachineEventRequest): Promise<ListVirusScanMachineEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVirusScanMachineEventWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries virus scan tasks based on conditions such as the task type, task status, and server information.
+   *
+   * @param request ListVirusScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVirusScanTaskResponse
+   */
   async listVirusScanTaskWithOptions(request: ListVirusScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListVirusScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101053,11 +107567,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVirusScanTaskResponse>(await this.callApi(params, req, runtime), new ListVirusScanTaskResponse({}));
   }
 
+  /**
+   * @summary Queries virus scan tasks based on conditions such as the task type, task status, and server information.
+   *
+   * @param request ListVirusScanTaskRequest
+   * @return ListVirusScanTaskResponse
+   */
   async listVirusScanTask(request: ListVirusScanTaskRequest): Promise<ListVirusScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVirusScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the existing configurations of vulnerabilities that can be automatically fixed.
+   *
+   * @param request ListVulAutoRepairConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVulAutoRepairConfigResponse
+   */
   async listVulAutoRepairConfigWithOptions(request: ListVulAutoRepairConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListVulAutoRepairConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101094,11 +107621,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVulAutoRepairConfigResponse>(await this.callApi(params, req, runtime), new ListVulAutoRepairConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the existing configurations of vulnerabilities that can be automatically fixed.
+   *
+   * @param request ListVulAutoRepairConfigRequest
+   * @return ListVulAutoRepairConfigResponse
+   */
   async listVulAutoRepairConfig(request: ListVulAutoRepairConfigRequest): Promise<ListVulAutoRepairConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVulAutoRepairConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the global configurations of vulnerability detection.
+   *
+   * @param request ListVulGlobalConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVulGlobalConfigResponse
+   */
   async listVulGlobalConfigWithOptions(request: ListVulGlobalConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListVulGlobalConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101123,11 +107663,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVulGlobalConfigResponse>(await this.callApi(params, req, runtime), new ListVulGlobalConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the global configurations of vulnerability detection.
+   *
+   * @param request ListVulGlobalConfigRequest
+   * @return ListVulGlobalConfigResponse
+   */
   async listVulGlobalConfig(request: ListVulGlobalConfigRequest): Promise<ListVulGlobalConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVulGlobalConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Marks members for multi-account management. You can call this operation to mark selected members as followed. In the Security Center console, the drop-down list above the left-side navigation pane displays the followed members.
+   *
+   * @param request MarkMonitorAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MarkMonitorAccountsResponse
+   */
   async markMonitorAccountsWithOptions(request: MarkMonitorAccountsRequest, runtime: $Util.RuntimeOptions): Promise<MarkMonitorAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101152,11 +107705,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MarkMonitorAccountsResponse>(await this.callApi(params, req, runtime), new MarkMonitorAccountsResponse({}));
   }
 
+  /**
+   * @summary Marks members for multi-account management. You can call this operation to mark selected members as followed. In the Security Center console, the drop-down list above the left-side navigation pane displays the followed members.
+   *
+   * @param request MarkMonitorAccountsRequest
+   * @return MarkMonitorAccountsResponse
+   */
   async markMonitorAccounts(request: MarkMonitorAccountsRequest): Promise<MarkMonitorAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.markMonitorAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Handles AccessKey pair leaks.
+   *
+   * @param request ModifyAccessKeyLeakDealRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccessKeyLeakDealResponse
+   */
   async modifyAccessKeyLeakDealWithOptions(request: ModifyAccessKeyLeakDealRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessKeyLeakDealResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101193,11 +107759,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccessKeyLeakDealResponse>(await this.callApi(params, req, runtime), new ModifyAccessKeyLeakDealResponse({}));
   }
 
+  /**
+   * @summary Handles AccessKey pair leaks.
+   *
+   * @param request ModifyAccessKeyLeakDealRequest
+   * @return ModifyAccessKeyLeakDealResponse
+   */
   async modifyAccessKeyLeakDeal(request: ModifyAccessKeyLeakDealRequest): Promise<ModifyAccessKeyLeakDealResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccessKeyLeakDealWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a defense rule against brute-force attacks.
+   *
+   * @param request ModifyAntiBruteForceRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAntiBruteForceRuleResponse
+   */
   async modifyAntiBruteForceRuleWithOptions(request: ModifyAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAntiBruteForceRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101254,11 +107833,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAntiBruteForceRuleResponse>(await this.callApi(params, req, runtime), new ModifyAntiBruteForceRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies a defense rule against brute-force attacks.
+   *
+   * @param request ModifyAntiBruteForceRuleRequest
+   * @return ModifyAntiBruteForceRuleResponse
+   */
   async modifyAntiBruteForceRule(request: ModifyAntiBruteForceRuleRequest): Promise<ModifyAntiBruteForceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAntiBruteForceRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures a scan cycle for application vulnerabilities.
+   *
+   * @param request ModifyAppVulScanCycleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAppVulScanCycleResponse
+   */
   async modifyAppVulScanCycleWithOptions(request: ModifyAppVulScanCycleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppVulScanCycleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101283,11 +107875,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAppVulScanCycleResponse>(await this.callApi(params, req, runtime), new ModifyAppVulScanCycleResponse({}));
   }
 
+  /**
+   * @summary Configures a scan cycle for application vulnerabilities.
+   *
+   * @param request ModifyAppVulScanCycleRequest
+   * @return ModifyAppVulScanCycleResponse
+   */
   async modifyAppVulScanCycle(request: ModifyAppVulScanCycleRequest): Promise<ModifyAppVulScanCycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppVulScanCycleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations for cleaning offline hosts whose provider cannot be identified.
+   *
+   * @param request ModifyAssetCleanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAssetCleanConfigResponse
+   */
   async modifyAssetCleanConfigWithOptions(request: ModifyAssetCleanConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAssetCleanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101312,19 +107917,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAssetCleanConfigResponse>(await this.callApi(params, req, runtime), new ModifyAssetCleanConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations for cleaning offline hosts whose provider cannot be identified.
+   *
+   * @param request ModifyAssetCleanConfigRequest
+   * @return ModifyAssetCleanConfigResponse
+   */
   async modifyAssetCleanConfig(request: ModifyAssetCleanConfigRequest): Promise<ModifyAssetCleanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAssetCleanConfigWithOptions(request, runtime);
   }
 
   /**
-    * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
-    * ### Limits
-    * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyAssetGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAssetGroupResponse
+   * @summary Changes the server group to which specified servers belong.
+   *
+   * @description You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
+   * ### Limits
+   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyAssetGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAssetGroupResponse
    */
   async modifyAssetGroupWithOptions(request: ModifyAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAssetGroupResponse> {
     Util.validateModel(request);
@@ -101359,18 +107972,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
-    * ### Limits
-    * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyAssetGroupRequest
-    * @return ModifyAssetGroupResponse
+   * @summary Changes the server group to which specified servers belong.
+   *
+   * @description You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
+   * ### Limits
+   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyAssetGroupRequest
+   * @return ModifyAssetGroupResponse
    */
   async modifyAssetGroup(request: ModifyAssetGroupRequest): Promise<ModifyAssetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAssetGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the importance of an asset.
+   *
+   * @param request ModifyAssetImportantRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAssetImportantResponse
+   */
   async modifyAssetImportantWithOptions(request: ModifyAssetImportantRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAssetImportantResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101399,11 +108021,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAssetImportantResponse>(await this.callApi(params, req, runtime), new ModifyAssetImportantResponse({}));
   }
 
+  /**
+   * @summary Modifies the importance of an asset.
+   *
+   * @param request ModifyAssetImportantRequest
+   * @return ModifyAssetImportantResponse
+   */
   async modifyAssetImportant(request: ModifyAssetImportantRequest): Promise<ModifyAssetImportantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAssetImportantWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Specifies the number of days after which a detected vulnerability is automatically deleted.
+   *
+   * @param request ModifyAutoDelConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAutoDelConfigResponse
+   */
   async modifyAutoDelConfigWithOptions(request: ModifyAutoDelConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoDelConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101428,11 +108063,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAutoDelConfigResponse>(await this.callApi(params, req, runtime), new ModifyAutoDelConfigResponse({}));
   }
 
+  /**
+   * @summary Specifies the number of days after which a detected vulnerability is automatically deleted.
+   *
+   * @param request ModifyAutoDelConfigRequest
+   * @return ModifyAutoDelConfigResponse
+   */
   async modifyAutoDelConfig(request: ModifyAutoDelConfigRequest): Promise<ModifyAutoDelConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoDelConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an anti-ransomware policy.
+   *
+   * @param tmpReq ModifyBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicyWithOptions(tmpReq: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyBackupPolicyShrinkRequest({ });
@@ -101483,11 +108131,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Modifies an anti-ransomware policy.
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables an anti-ransomware policy.
+   *
+   * @param request ModifyBackupPolicyStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPolicyStatusResponse
+   */
   async modifyBackupPolicyStatusWithOptions(request: ModifyBackupPolicyStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101520,11 +108181,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyStatusResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables an anti-ransomware policy.
+   *
+   * @param request ModifyBackupPolicyStatusRequest
+   * @return ModifyBackupPolicyStatusResponse
+   */
   async modifyBackupPolicyStatus(request: ModifyBackupPolicyStatusRequest): Promise<ModifyBackupPolicyStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改日志容量
+   *
+   * @param request ModifyClearLogstoreStorageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClearLogstoreStorageResponse
+   */
   async modifyClearLogstoreStorageWithOptions(request: ModifyClearLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClearLogstoreStorageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101561,11 +108235,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClearLogstoreStorageResponse>(await this.callApi(params, req, runtime), new ModifyClearLogstoreStorageResponse({}));
   }
 
+  /**
+   * @summary 修改日志容量
+   *
+   * @param request ModifyClearLogstoreStorageRequest
+   * @return ModifyClearLogstoreStorageResponse
+   */
   async modifyClearLogstoreStorage(request: ModifyClearLogstoreStorageRequest): Promise<ModifyClearLogstoreStorageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClearLogstoreStorageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the resource configurations of the Security Center agent.
+   *
+   * @param request ModifyClientConfSetupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClientConfSetupResponse
+   */
   async modifyClientConfSetupWithOptions(request: ModifyClientConfSetupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClientConfSetupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101598,11 +108285,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClientConfSetupResponse>(await this.callApi(params, req, runtime), new ModifyClientConfSetupResponse({}));
   }
 
+  /**
+   * @summary Modifies the resource configurations of the Security Center agent.
+   *
+   * @param request ModifyClientConfSetupRequest
+   * @return ModifyClientConfSetupResponse
+   */
   async modifyClientConfSetup(request: ModifyClientConfSetupRequest): Promise<ModifyClientConfSetupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClientConfSetupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an agent configuration policy.
+   *
+   * @param request ModifyClientConfStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClientConfStrategyResponse
+   */
   async modifyClientConfStrategyWithOptions(request: ModifyClientConfStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClientConfStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101643,11 +108343,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClientConfStrategyResponse>(await this.callApi(params, req, runtime), new ModifyClientConfStrategyResponse({}));
   }
 
+  /**
+   * @summary Modifies an agent configuration policy.
+   *
+   * @param request ModifyClientConfStrategyRequest
+   * @return ModifyClientConfStrategyResponse
+   */
   async modifyClientConfStrategy(request: ModifyClientConfStrategyRequest): Promise<ModifyClientConfStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClientConfStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a custom defense rule.
+   *
+   * @param request ModifyClientUserDefineRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClientUserDefineRuleResponse
+   */
   async modifyClientUserDefineRuleWithOptions(request: ModifyClientUserDefineRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClientUserDefineRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101740,11 +108453,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClientUserDefineRuleResponse>(await this.callApi(params, req, runtime), new ModifyClientUserDefineRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies a custom defense rule.
+   *
+   * @param request ModifyClientUserDefineRuleRequest
+   * @return ModifyClientUserDefineRuleResponse
+   */
   async modifyClientUserDefineRule(request: ModifyClientUserDefineRuleRequest): Promise<ModifyClientUserDefineRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClientUserDefineRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Fixes the blocking status of clusters whose status is Normal to be confirmed.
+   *
+   * @param request ModifyClusterCnnfStatusUserConfirmRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterCnnfStatusUserConfirmResponse
+   */
   async modifyClusterCnnfStatusUserConfirmWithOptions(request: ModifyClusterCnnfStatusUserConfirmRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClusterCnnfStatusUserConfirmResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101773,11 +108499,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterCnnfStatusUserConfirmResponse>(await this.callApi(params, req, runtime), new ModifyClusterCnnfStatusUserConfirmResponse({}));
   }
 
+  /**
+   * @summary Fixes the blocking status of clusters whose status is Normal to be confirmed.
+   *
+   * @param request ModifyClusterCnnfStatusUserConfirmRequest
+   * @return ModifyClusterCnnfStatusUserConfirmResponse
+   */
   async modifyClusterCnnfStatusUserConfirm(request: ModifyClusterCnnfStatusUserConfirmRequest): Promise<ModifyClusterCnnfStatusUserConfirmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyClusterCnnfStatusUserConfirmWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the priority to fix vulnerabilities.
+   *
+   * @param request ModifyConcernNecessityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyConcernNecessityResponse
+   */
   async modifyConcernNecessityWithOptions(request: ModifyConcernNecessityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyConcernNecessityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101802,11 +108541,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyConcernNecessityResponse>(await this.callApi(params, req, runtime), new ModifyConcernNecessityResponse({}));
   }
 
+  /**
+   * @summary Modifies the priority to fix vulnerabilities.
+   *
+   * @param request ModifyConcernNecessityRequest
+   * @return ModifyConcernNecessityResponse
+   */
   async modifyConcernNecessity(request: ModifyConcernNecessityRequest): Promise<ModifyConcernNecessityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyConcernNecessityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a rule for non-image program defense.
+   *
+   * @param tmpReq ModifyContainerDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyContainerDefenseRuleResponse
+   */
   async modifyContainerDefenseRuleWithOptions(tmpReq: ModifyContainerDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyContainerDefenseRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyContainerDefenseRuleShrinkRequest({ });
@@ -101865,11 +108617,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyContainerDefenseRuleResponse>(await this.callApi(params, req, runtime), new ModifyContainerDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies a rule for non-image program defense.
+   *
+   * @param request ModifyContainerDefenseRuleRequest
+   * @return ModifyContainerDefenseRuleResponse
+   */
   async modifyContainerDefenseRule(request: ModifyContainerDefenseRuleRequest): Promise<ModifyContainerDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyContainerDefenseRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the status of rules for non-image program defense.
+   *
+   * @param request ModifyContainerDefenseRuleSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyContainerDefenseRuleSwitchResponse
+   */
   async modifyContainerDefenseRuleSwitchWithOptions(request: ModifyContainerDefenseRuleSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyContainerDefenseRuleSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101898,11 +108663,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyContainerDefenseRuleSwitchResponse>(await this.callApi(params, req, runtime), new ModifyContainerDefenseRuleSwitchResponse({}));
   }
 
+  /**
+   * @summary Changes the status of rules for non-image program defense.
+   *
+   * @param request ModifyContainerDefenseRuleSwitchRequest
+   * @return ModifyContainerDefenseRuleSwitchResponse
+   */
   async modifyContainerDefenseRuleSwitch(request: ModifyContainerDefenseRuleSwitchRequest): Promise<ModifyContainerDefenseRuleSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyContainerDefenseRuleSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the defense rule against container escapes.
+   *
+   * @param request ModifyContainerPluginRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyContainerPluginRuleResponse
+   */
   async modifyContainerPluginRuleWithOptions(request: ModifyContainerPluginRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyContainerPluginRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101951,11 +108729,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyContainerPluginRuleResponse>(await this.callApi(params, req, runtime), new ModifyContainerPluginRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the defense rule against container escapes.
+   *
+   * @param request ModifyContainerPluginRuleRequest
+   * @return ModifyContainerPluginRuleResponse
+   */
   async modifyContainerPluginRule(request: ModifyContainerPluginRuleRequest): Promise<ModifyContainerPluginRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyContainerPluginRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of vulnerability scan for a running container.
+   *
+   * @param request ModifyContainerScanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyContainerScanConfigResponse
+   */
   async modifyContainerScanConfigWithOptions(request: ModifyContainerScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyContainerScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -101988,11 +108779,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyContainerScanConfigResponse>(await this.callApi(params, req, runtime), new ModifyContainerScanConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of vulnerability scan for a running container.
+   *
+   * @param request ModifyContainerScanConfigRequest
+   * @return ModifyContainerScanConfigResponse
+   */
   async modifyContainerScanConfig(request: ModifyContainerScanConfigRequest): Promise<ModifyContainerScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyContainerScanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+   *
+   * @param request ModifyCreateVulWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCreateVulWhitelistResponse
+   */
   async modifyCreateVulWhitelistWithOptions(request: ModifyCreateVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCreateVulWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102025,11 +108829,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCreateVulWhitelistResponse>(await this.callApi(params, req, runtime), new ModifyCreateVulWhitelistResponse({}));
   }
 
+  /**
+   * @summary Adds vulnerabilities to the whitelist. After you add the vulnerabilities to the whitelist, Security Center no longer generates alerts for the vulnerabilities.
+   *
+   * @param request ModifyCreateVulWhitelistRequest
+   * @return ModifyCreateVulWhitelistResponse
+   */
   async modifyCreateVulWhitelist(request: ModifyCreateVulWhitelistRequest): Promise<ModifyCreateVulWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCreateVulWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a custom IP address blocking policy.
+   *
+   * @param request ModifyCustomBlockRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCustomBlockRecordResponse
+   */
   async modifyCustomBlockRecordWithOptions(request: ModifyCustomBlockRecordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomBlockRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102070,11 +108887,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCustomBlockRecordResponse>(await this.callApi(params, req, runtime), new ModifyCustomBlockRecordResponse({}));
   }
 
+  /**
+   * @summary Modifies a custom IP address blocking policy.
+   *
+   * @param request ModifyCustomBlockRecordRequest
+   * @return ModifyCustomBlockRecordResponse
+   */
   async modifyCustomBlockRecord(request: ModifyCustomBlockRecordRequest): Promise<ModifyCustomBlockRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCustomBlockRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the execution cycle of periodic tasks, including image scan, urgent vulnerability scan, and virus detection tasks.
+   *
+   * @param request ModifyCycleTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyCycleTaskResponse
+   */
   async modifyCycleTaskWithOptions(request: ModifyCycleTaskRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCycleTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102135,11 +108965,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyCycleTaskResponse>(await this.callApi(params, req, runtime), new ModifyCycleTaskResponse({}));
   }
 
+  /**
+   * @summary Modifies the execution cycle of periodic tasks, including image scan, urgent vulnerability scan, and virus detection tasks.
+   *
+   * @param request ModifyCycleTaskRequest
+   * @return ModifyCycleTaskResponse
+   */
   async modifyCycleTask(request: ModifyCycleTaskRequest): Promise<ModifyCycleTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyCycleTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Runs a scan task for urgent vulnerabilities.
+   *
+   * @param request ModifyEmgVulSubmitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyEmgVulSubmitResponse
+   */
   async modifyEmgVulSubmitWithOptions(request: ModifyEmgVulSubmitRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEmgVulSubmitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102172,11 +109015,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyEmgVulSubmitResponse>(await this.callApi(params, req, runtime), new ModifyEmgVulSubmitResponse({}));
   }
 
+  /**
+   * @summary Runs a scan task for urgent vulnerabilities.
+   *
+   * @param request ModifyEmgVulSubmitRequest
+   * @return ModifyEmgVulSubmitResponse
+   */
   async modifyEmgVulSubmit(request: ModifyEmgVulSubmitRequest): Promise<ModifyEmgVulSubmitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEmgVulSubmitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the name of a server group.
+   *
+   * @param request ModifyGroupPropertyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGroupPropertyResponse
+   */
   async modifyGroupPropertyWithOptions(request: ModifyGroupPropertyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGroupPropertyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102201,11 +109057,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGroupPropertyResponse>(await this.callApi(params, req, runtime), new ModifyGroupPropertyResponse({}));
   }
 
+  /**
+   * @summary Changes the name of a server group.
+   *
+   * @param request ModifyGroupPropertyRequest
+   * @return ModifyGroupPropertyResponse
+   */
   async modifyGroupProperty(request: ModifyGroupPropertyRequest): Promise<ModifyGroupPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGroupPropertyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a scheduled image fix.
+   *
+   * @param request ModifyImageFixCycleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyImageFixCycleConfigResponse
+   */
   async modifyImageFixCycleConfigWithOptions(request: ModifyImageFixCycleConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyImageFixCycleConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -102242,11 +109111,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyImageFixCycleConfigResponse>(await this.callApi(params, req, runtime), new ModifyImageFixCycleConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a scheduled image fix.
+   *
+   * @param request ModifyImageFixCycleConfigRequest
+   * @return ModifyImageFixCycleConfigResponse
+   */
   async modifyImageFixCycleConfig(request: ModifyImageFixCycleConfigRequest): Promise<ModifyImageFixCycleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyImageFixCycleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the transfer time of an image repository.
+   *
+   * @param request ModifyImageRegistryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyImageRegistryResponse
+   */
   async modifyImageRegistryWithOptions(request: ModifyImageRegistryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyImageRegistryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -102283,11 +109165,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyImageRegistryResponse>(await this.callApi(params, req, runtime), new ModifyImageRegistryResponse({}));
   }
 
+  /**
+   * @summary Modifies the transfer time of an image repository.
+   *
+   * @param request ModifyImageRegistryRequest
+   * @return ModifyImageRegistryResponse
+   */
   async modifyImageRegistry(request: ModifyImageRegistryRequest): Promise<ModifyImageRegistryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyImageRegistryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the defense rule against brute-force attacks that is applied to a specified server.
+   *
+   * @param request ModifyInstanceAntiBruteForceRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceAntiBruteForceRuleResponse
+   */
   async modifyInstanceAntiBruteForceRuleWithOptions(request: ModifyInstanceAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAntiBruteForceRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102324,11 +109219,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceAntiBruteForceRuleResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAntiBruteForceRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the defense rule against brute-force attacks that is applied to a specified server.
+   *
+   * @param request ModifyInstanceAntiBruteForceRuleRequest
+   * @return ModifyInstanceAntiBruteForceRuleResponse
+   */
   async modifyInstanceAntiBruteForceRule(request: ModifyInstanceAntiBruteForceRuleRequest): Promise<ModifyInstanceAntiBruteForceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAntiBruteForceRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a proactive defense rule for containers.
+   *
+   * @param tmpReq ModifyInterceptionRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInterceptionRuleResponse
+   */
   async modifyInterceptionRuleWithOptions(tmpReq: ModifyInterceptionRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInterceptionRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyInterceptionRuleShrinkRequest({ });
@@ -102391,11 +109299,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInterceptionRuleResponse>(await this.callApi(params, req, runtime), new ModifyInterceptionRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies a proactive defense rule for containers.
+   *
+   * @param request ModifyInterceptionRuleRequest
+   * @return ModifyInterceptionRuleResponse
+   */
   async modifyInterceptionRule(request: ModifyInterceptionRuleRequest): Promise<ModifyInterceptionRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInterceptionRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables a proactive defense rule for containers.
+   *
+   * @param request ModifyInterceptionRuleSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInterceptionRuleSwitchResponse
+   */
   async modifyInterceptionRuleSwitchWithOptions(request: ModifyInterceptionRuleSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInterceptionRuleSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102428,11 +109349,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInterceptionRuleSwitchResponse>(await this.callApi(params, req, runtime), new ModifyInterceptionRuleSwitchResponse({}));
   }
 
+  /**
+   * @summary Enables or disables a proactive defense rule for containers.
+   *
+   * @param request ModifyInterceptionRuleSwitchRequest
+   * @return ModifyInterceptionRuleSwitchResponse
+   */
   async modifyInterceptionRuleSwitch(request: ModifyInterceptionRuleSwitchRequest): Promise<ModifyInterceptionRuleSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInterceptionRuleSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about a network object of the container firewall feature.
+   *
+   * @param request ModifyInterceptionTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInterceptionTargetResponse
+   */
   async modifyInterceptionTargetWithOptions(request: ModifyInterceptionTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInterceptionTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102481,11 +109415,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInterceptionTargetResponse>(await this.callApi(params, req, runtime), new ModifyInterceptionTargetResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about a network object of the container firewall feature.
+   *
+   * @param request ModifyInterceptionTargetRequest
+   * @return ModifyInterceptionTargetResponse
+   */
   async modifyInterceptionTarget(request: ModifyInterceptionTargetRequest): Promise<ModifyInterceptionTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInterceptionTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the log analysis feature.
+   *
+   * @param request ModifyLogMetaStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLogMetaStatusResponse
+   */
   async modifyLogMetaStatusWithOptions(request: ModifyLogMetaStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogMetaStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102522,11 +109469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLogMetaStatusResponse>(await this.callApi(params, req, runtime), new ModifyLogMetaStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the log analysis feature.
+   *
+   * @param request ModifyLogMetaStatusRequest
+   * @return ModifyLogMetaStatusResponse
+   */
   async modifyLogMetaStatus(request: ModifyLogMetaStatusRequest): Promise<ModifyLogMetaStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLogMetaStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the logon configuration for a specified asset.
+   *
+   * @param request ModifyLoginBaseConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLoginBaseConfigResponse
+   */
   async modifyLoginBaseConfigWithOptions(request: ModifyLoginBaseConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoginBaseConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102559,11 +109519,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLoginBaseConfigResponse>(await this.callApi(params, req, runtime), new ModifyLoginBaseConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the logon configuration for a specified asset.
+   *
+   * @param request ModifyLoginBaseConfigRequest
+   * @return ModifyLoginBaseConfigResponse
+   */
   async modifyLoginBaseConfig(request: ModifyLoginBaseConfigRequest): Promise<ModifyLoginBaseConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLoginBaseConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the logon security settings for an asset.
+   *
+   * @param request ModifyLoginSwitchConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLoginSwitchConfigResponse
+   */
   async modifyLoginSwitchConfigWithOptions(request: ModifyLoginSwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoginSwitchConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102592,11 +109565,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLoginSwitchConfigResponse>(await this.callApi(params, req, runtime), new ModifyLoginSwitchConfigResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the logon security settings for an asset.
+   *
+   * @param request ModifyLoginSwitchConfigRequest
+   * @return ModifyLoginSwitchConfigResponse
+   */
   async modifyLoginSwitchConfig(request: ModifyLoginSwitchConfigRequest): Promise<ModifyLoginSwitchConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLoginSwitchConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies notification settings.
+   *
+   * @param request ModifyNoticeConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNoticeConfigResponse
+   */
   async modifyNoticeConfigWithOptions(request: ModifyNoticeConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNoticeConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102633,17 +109619,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNoticeConfigResponse>(await this.callApi(params, req, runtime), new ModifyNoticeConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies notification settings.
+   *
+   * @param request ModifyNoticeConfigRequest
+   * @return ModifyNoticeConfigResponse
+   */
   async modifyNoticeConfig(request: ModifyNoticeConfigRequest): Promise<ModifyNoticeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNoticeConfigWithOptions(request, runtime);
   }
 
   /**
-    * **Prerequisites** [Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) is activated. A service-linked role for Security Center is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role for Security Center and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
-    *
-    * @param request ModifyOpenLogShipperRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyOpenLogShipperResponse
+   * @summary Activates Simple Log Service.
+   *
+   * @description **Prerequisites** [Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) is activated. A service-linked role for Security Center is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role for Security Center and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
+   *
+   * @param request ModifyOpenLogShipperRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyOpenLogShipperResponse
    */
   async modifyOpenLogShipperWithOptions(request: ModifyOpenLogShipperRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOpenLogShipperResponse> {
     Util.validateModel(request);
@@ -102670,16 +109664,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Prerequisites** [Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) is activated. A service-linked role for Security Center is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role for Security Center and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
-    *
-    * @param request ModifyOpenLogShipperRequest
-    * @return ModifyOpenLogShipperResponse
+   * @summary Activates Simple Log Service.
+   *
+   * @description **Prerequisites** [Simple Log Service](https://www.alibabacloud.com/help/en/log-service/latest/billable-items) is activated. A service-linked role for Security Center is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create a service-linked role for Security Center and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the [ModifyOpenLogShipper](~~ModifyOpenLogShipper~~) operation to activate Simple Log Service.
+   *
+   * @param request ModifyOpenLogShipperRequest
+   * @return ModifyOpenLogShipperResponse
    */
   async modifyOpenLogShipper(request: ModifyOpenLogShipperRequest): Promise<ModifyOpenLogShipperResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyOpenLogShipperWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+   *
+   * @param request ModifyOperateVulRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyOperateVulResponse
+   */
   async modifyOperateVulWithOptions(request: ModifyOperateVulRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOperateVulResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102720,11 +109723,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyOperateVulResponse>(await this.callApi(params, req, runtime), new ModifyOperateVulResponse({}));
   }
 
+  /**
+   * @summary Handles detected vulnerabilities. You can fix, check, or ignore the vulnerabilities.
+   *
+   * @param request ModifyOperateVulRequest
+   * @return ModifyOperateVulResponse
+   */
   async modifyOperateVul(request: ModifyOperateVulRequest): Promise<ModifyOperateVulResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyOperateVulWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The new collection frequency of asset fingerprints. Valid values:
+   * *   **0**: disabled, which indicates that the asset fingerprints are not automatically or periodically collected.
+   * *   **1**: collects asset fingerprints once an hour.
+   * *   **3**: collects asset fingerprints once every 3 hours.
+   * *   **12**: collects asset fingerprints once every 12 hours.
+   * *   **24**: collects asset fingerprints once a day.
+   * *   **168**: collects asset fingerprints once every 7 days.
+   *
+   * @param request ModifyPropertyScheduleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPropertyScheduleConfigResponse
+   */
   async modifyPropertyScheduleConfigWithOptions(request: ModifyPropertyScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPropertyScheduleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102753,11 +109775,30 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPropertyScheduleConfigResponse>(await this.callApi(params, req, runtime), new ModifyPropertyScheduleConfigResponse({}));
   }
 
+  /**
+   * @summary The new collection frequency of asset fingerprints. Valid values:
+   * *   **0**: disabled, which indicates that the asset fingerprints are not automatically or periodically collected.
+   * *   **1**: collects asset fingerprints once an hour.
+   * *   **3**: collects asset fingerprints once every 3 hours.
+   * *   **12**: collects asset fingerprints once every 12 hours.
+   * *   **24**: collects asset fingerprints once a day.
+   * *   **168**: collects asset fingerprints once every 7 days.
+   *
+   * @param request ModifyPropertyScheduleConfigRequest
+   * @return ModifyPropertyScheduleConfigResponse
+   */
   async modifyPropertyScheduleConfig(request: ModifyPropertyScheduleConfigRequest): Promise<ModifyPropertyScheduleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPropertyScheduleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Performs security check tasks on servers with a few clicks.
+   *
+   * @param request ModifyPushAllTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPushAllTaskResponse
+   */
   async modifyPushAllTaskWithOptions(request: ModifyPushAllTaskRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPushAllTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102790,11 +109831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPushAllTaskResponse>(await this.callApi(params, req, runtime), new ModifyPushAllTaskResponse({}));
   }
 
+  /**
+   * @summary Performs security check tasks on servers with a few clicks.
+   *
+   * @param request ModifyPushAllTaskRequest
+   * @return ModifyPushAllTaskResponse
+   */
   async modifyPushAllTask(request: ModifyPushAllTaskRequest): Promise<ModifyPushAllTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPushAllTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Refreshes the list of processes that are associated with a Linux software vulnerability.
+   *
+   * @param request ModifyRefreshProcessInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRefreshProcessInfoResponse
+   */
   async modifyRefreshProcessInfoWithOptions(request: ModifyRefreshProcessInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRefreshProcessInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102819,20 +109873,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyRefreshProcessInfoResponse>(await this.callApi(params, req, runtime), new ModifyRefreshProcessInfoResponse({}));
   }
 
+  /**
+   * @summary Refreshes the list of processes that are associated with a Linux software vulnerability.
+   *
+   * @param request ModifyRefreshProcessInfoRequest
+   * @return ModifyRefreshProcessInfoResponse
+   */
   async modifyRefreshProcessInfo(request: ModifyRefreshProcessInfoRequest): Promise<ModifyRefreshProcessInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRefreshProcessInfoWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the following operations:
-    * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
-    * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
-    *
-    * @param request ModifyRiskCheckStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyRiskCheckStatusResponse
+   * @deprecated OpenAPI ModifyRiskCheckStatus is deprecated
+   *
+   * @summary Changes the status of a check item in the results of a check task. You can ignore or cancel ignoring a check item.
+   *
+   * @description This operation is phased out. You can use the following operations:
+   * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
+   * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
+   *
+   * @param request ModifyRiskCheckStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRiskCheckStatusResponse
    */
   // Deprecated
   async modifyRiskCheckStatusWithOptions(request: ModifyRiskCheckStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRiskCheckStatusResponse> {
@@ -102880,13 +109943,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the following operations:
-    * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
-    * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
-    *
-    * @param request ModifyRiskCheckStatusRequest
-    * @return ModifyRiskCheckStatusResponse
+   * @deprecated OpenAPI ModifyRiskCheckStatus is deprecated
+   *
+   * @summary Changes the status of a check item in the results of a check task. You can ignore or cancel ignoring a check item.
+   *
+   * @description This operation is phased out. You can use the following operations:
+   * \\-To **ignore a check item**, use the AddCheckResultWhiteList operation.
+   * \\-To **cancel ignoring a check item**, use the RemoveCheckResultWhiteList operation.
+   *
+   * @param request ModifyRiskCheckStatusRequest
+   * @return ModifyRiskCheckStatusResponse
    */
   // Deprecated
   async modifyRiskCheckStatus(request: ModifyRiskCheckStatusRequest): Promise<ModifyRiskCheckStatusResponse> {
@@ -102895,14 +109961,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the following operations:
-    * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
-    * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
-    *
-    * @param request ModifyRiskSingleResultStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyRiskSingleResultStatusResponse
+   * @deprecated OpenAPI ModifyRiskSingleResultStatus is deprecated
+   *
+   * @summary Modifies the status of a risk item that affects your assets. You can ignore the risk item or cancel ignoring the risk item.
+   *
+   * @description This operation is phased out. You can use the following operations:
+   * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
+   * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
+   *
+   * @param request ModifyRiskSingleResultStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRiskSingleResultStatusResponse
    */
   // Deprecated
   async modifyRiskSingleResultStatusWithOptions(request: ModifyRiskSingleResultStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRiskSingleResultStatusResponse> {
@@ -102950,13 +110019,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the following operations:
-    * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
-    * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
-    *
-    * @param request ModifyRiskSingleResultStatusRequest
-    * @return ModifyRiskSingleResultStatusResponse
+   * @deprecated OpenAPI ModifyRiskSingleResultStatus is deprecated
+   *
+   * @summary Modifies the status of a risk item that affects your assets. You can ignore the risk item or cancel ignoring the risk item.
+   *
+   * @description This operation is phased out. You can use the following operations:
+   * \\-To **ignore a risk item**, use the AddCheckInstanceResultWhiteList operation.
+   * \\-To **cancel ignoring a risk item**, use the RemoveCheckInstanceResultWhiteList operation.
+   *
+   * @param request ModifyRiskSingleResultStatusRequest
+   * @return ModifyRiskSingleResultStatusResponse
    */
   // Deprecated
   async modifyRiskSingleResultStatus(request: ModifyRiskSingleResultStatusRequest): Promise<ModifyRiskSingleResultStatusResponse> {
@@ -102964,6 +110036,13 @@ export default class Client extends OpenApi {
     return await this.modifyRiskSingleResultStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a rule for container tamper-proofing.
+   *
+   * @param request ModifySasContainerWebDefenseRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySasContainerWebDefenseRuleResponse
+   */
   async modifySasContainerWebDefenseRuleWithOptions(request: ModifySasContainerWebDefenseRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifySasContainerWebDefenseRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -102996,18 +110075,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySasContainerWebDefenseRuleResponse>(await this.callApi(params, req, runtime), new ModifySasContainerWebDefenseRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies a rule for container tamper-proofing.
+   *
+   * @param request ModifySasContainerWebDefenseRuleRequest
+   * @return ModifySasContainerWebDefenseRuleResponse
+   */
   async modifySasContainerWebDefenseRule(request: ModifySasContainerWebDefenseRuleRequest): Promise<ModifySasContainerWebDefenseRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySasContainerWebDefenseRuleWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the ChangeCheckConfig operation.
-    *
-    * @param request ModifySecurityCheckScheduleConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySecurityCheckScheduleConfigResponse
+   * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated
+   *
+   * @summary Specifies the time when an automatic configuration check is performed on cloud services.
+   *
+   * @description This operation is phased out. You can use the ChangeCheckConfig operation.
+   *
+   * @param request ModifySecurityCheckScheduleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityCheckScheduleConfigResponse
    */
   // Deprecated
   async modifySecurityCheckScheduleConfigWithOptions(request: ModifySecurityCheckScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityCheckScheduleConfigResponse> {
@@ -103055,11 +110143,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * This operation is phased out. You can use the ChangeCheckConfig operation.
-    *
-    * @param request ModifySecurityCheckScheduleConfigRequest
-    * @return ModifySecurityCheckScheduleConfigResponse
+   * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated
+   *
+   * @summary Specifies the time when an automatic configuration check is performed on cloud services.
+   *
+   * @description This operation is phased out. You can use the ChangeCheckConfig operation.
+   *
+   * @param request ModifySecurityCheckScheduleConfigRequest
+   * @return ModifySecurityCheckScheduleConfigResponse
    */
   // Deprecated
   async modifySecurityCheckScheduleConfig(request: ModifySecurityCheckScheduleConfigRequest): Promise<ModifySecurityCheckScheduleConfigResponse> {
@@ -103067,6 +110158,13 @@ export default class Client extends OpenApi {
     return await this.modifySecurityCheckScheduleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+   *
+   * @param request ModifySecurityEventMarkMissIndividuallyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityEventMarkMissIndividuallyResponse
+   */
   async modifySecurityEventMarkMissIndividuallyWithOptions(request: ModifySecurityEventMarkMissIndividuallyRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityEventMarkMissIndividuallyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103109,11 +110207,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityEventMarkMissIndividuallyResponse>(await this.callApi(params, req, runtime), new ModifySecurityEventMarkMissIndividuallyResponse({}));
   }
 
+  /**
+   * @summary Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+   *
+   * @param request ModifySecurityEventMarkMissIndividuallyRequest
+   * @return ModifySecurityEventMarkMissIndividuallyResponse
+   */
   async modifySecurityEventMarkMissIndividually(request: ModifySecurityEventMarkMissIndividuallyRequest): Promise<ModifySecurityEventMarkMissIndividuallyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityEventMarkMissIndividuallyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the quick scan feature. You can also enable the feature on the Vulnerabilities page of the Security Center console.
+   *
+   * @param request ModifyStartVulScanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyStartVulScanResponse
+   */
   async modifyStartVulScanWithOptions(request: ModifyStartVulScanRequest, runtime: $Util.RuntimeOptions): Promise<ModifyStartVulScanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103142,11 +110253,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyStartVulScanResponse>(await this.callApi(params, req, runtime), new ModifyStartVulScanResponse({}));
   }
 
+  /**
+   * @summary Enables the quick scan feature. You can also enable the feature on the Vulnerabilities page of the Security Center console.
+   *
+   * @param request ModifyStartVulScanRequest
+   * @return ModifyStartVulScanResponse
+   */
   async modifyStartVulScan(request: ModifyStartVulScanRequest): Promise<ModifyStartVulScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyStartVulScanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a baseline check policy.
+   *
+   * @param request ModifyStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyStrategyResponse
+   */
   async modifyStrategyWithOptions(request: ModifyStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103211,11 +110335,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyStrategyResponse>(await this.callApi(params, req, runtime), new ModifyStrategyResponse({}));
   }
 
+  /**
+   * @summary Modifies a baseline check policy.
+   *
+   * @param request ModifyStrategyRequest
+   * @return ModifyStrategyResponse
+   */
   async modifyStrategy(request: ModifyStrategyRequest): Promise<ModifyStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The source IP address of the request.
+   *
+   * @param request ModifyStrategyTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyStrategyTargetResponse
+   */
   async modifyStrategyTargetWithOptions(request: ModifyStrategyTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyStrategyTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103252,11 +110389,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyStrategyTargetResponse>(await this.callApi(params, req, runtime), new ModifyStrategyTargetResponse({}));
   }
 
+  /**
+   * @summary The source IP address of the request.
+   *
+   * @param request ModifyStrategyTargetRequest
+   * @return ModifyStrategyTargetResponse
+   */
   async modifyStrategyTarget(request: ModifyStrategyTargetRequest): Promise<ModifyStrategyTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyStrategyTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the names of the tags that are added to assets, or modifies the tags for assets.
+   *
+   * @param request ModifyTagWithUuidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTagWithUuidResponse
+   */
   async modifyTagWithUuidWithOptions(request: ModifyTagWithUuidRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTagWithUuidResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103297,11 +110447,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTagWithUuidResponse>(await this.callApi(params, req, runtime), new ModifyTagWithUuidResponse({}));
   }
 
+  /**
+   * @summary Modifies the names of the tags that are added to assets, or modifies the tags for assets.
+   *
+   * @param request ModifyTagWithUuidRequest
+   * @return ModifyTagWithUuidResponse
+   */
   async modifyTagWithUuid(request: ModifyTagWithUuidRequest): Promise<ModifyTagWithUuidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTagWithUuidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an anti-ransomware policy for databases.
+   *
+   * @param tmpReq ModifyUniBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyUniBackupPolicyResponse
+   */
   async modifyUniBackupPolicyWithOptions(tmpReq: ModifyUniBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUniBackupPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyUniBackupPolicyShrinkRequest({ });
@@ -103368,11 +110531,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyUniBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyUniBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Modifies an anti-ransomware policy for databases.
+   *
+   * @param request ModifyUniBackupPolicyRequest
+   * @return ModifyUniBackupPolicyResponse
+   */
   async modifyUniBackupPolicy(request: ModifyUniBackupPolicyRequest): Promise<ModifyUniBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUniBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables a honeypot.
+   *
+   * @param request ModifyVpcHoneyPotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpcHoneyPotResponse
+   */
   async modifyVpcHoneyPotWithOptions(request: ModifyVpcHoneyPotRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcHoneyPotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103401,11 +110577,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcHoneyPotResponse>(await this.callApi(params, req, runtime), new ModifyVpcHoneyPotResponse({}));
   }
 
+  /**
+   * @summary Enables or disables a honeypot.
+   *
+   * @param request ModifyVpcHoneyPotRequest
+   * @return ModifyVpcHoneyPotResponse
+   */
   async modifyVpcHoneyPot(request: ModifyVpcHoneyPotRequest): Promise<ModifyVpcHoneyPotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcHoneyPotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of the vulnerability scan feature.
+   *
+   * @param request ModifyVulConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVulConfigResponse
+   */
   async modifyVulConfigWithOptions(request: ModifyVulConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVulConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103434,11 +110623,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVulConfigResponse>(await this.callApi(params, req, runtime), new ModifyVulConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of the vulnerability scan feature.
+   *
+   * @param request ModifyVulConfigRequest
+   * @return ModifyVulConfigResponse
+   */
   async modifyVulConfig(request: ModifyVulConfigRequest): Promise<ModifyVulConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVulConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of the vulnerability scan feature for a server.
+   *
+   * @param request ModifyVulTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVulTargetResponse
+   */
   async modifyVulTargetWithOptions(request: ModifyVulTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVulTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103467,11 +110669,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVulTargetResponse>(await this.callApi(params, req, runtime), new ModifyVulTargetResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of the vulnerability scan feature for a server.
+   *
+   * @param request ModifyVulTargetRequest
+   * @return ModifyVulTargetResponse
+   */
   async modifyVulTarget(request: ModifyVulTargetRequest): Promise<ModifyVulTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVulTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures vulnerability scan for a server.
+   *
+   * @param request ModifyVulTargetConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVulTargetConfigResponse
+   */
   async modifyVulTargetConfigWithOptions(request: ModifyVulTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVulTargetConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103508,11 +110723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVulTargetConfigResponse>(await this.callApi(params, req, runtime), new ModifyVulTargetConfigResponse({}));
   }
 
+  /**
+   * @summary Configures vulnerability scan for a server.
+   *
+   * @param request ModifyVulTargetConfigRequest
+   * @return ModifyVulTargetConfigResponse
+   */
   async modifyVulTargetConfig(request: ModifyVulTargetConfigRequest): Promise<ModifyVulTargetConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVulTargetConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the servers that are added to a vulnerability whitelist.
+   *
+   * @param request ModifyVulWhitelistTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVulWhitelistTargetResponse
+   */
   async modifyVulWhitelistTargetWithOptions(request: ModifyVulWhitelistTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVulWhitelistTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103549,11 +110777,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVulWhitelistTargetResponse>(await this.callApi(params, req, runtime), new ModifyVulWhitelistTargetResponse({}));
   }
 
+  /**
+   * @summary Modifies the servers that are added to a vulnerability whitelist.
+   *
+   * @param request ModifyVulWhitelistTargetRequest
+   * @return ModifyVulWhitelistTargetResponse
+   */
   async modifyVulWhitelistTarget(request: ModifyVulWhitelistTargetRequest): Promise<ModifyVulWhitelistTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVulWhitelistTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a directory to protect for a specified server.
+   *
+   * @param request ModifyWebLockCreateConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebLockCreateConfigResponse
+   */
   async modifyWebLockCreateConfigWithOptions(request: ModifyWebLockCreateConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockCreateConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103622,17 +110863,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebLockCreateConfigResponse>(await this.callApi(params, req, runtime), new ModifyWebLockCreateConfigResponse({}));
   }
 
+  /**
+   * @summary Adds a directory to protect for a specified server.
+   *
+   * @param request ModifyWebLockCreateConfigRequest
+   * @return ModifyWebLockCreateConfigResponse
+   */
   async modifyWebLockCreateConfig(request: ModifyWebLockCreateConfigRequest): Promise<ModifyWebLockCreateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockCreateConfigWithOptions(request, runtime);
   }
 
   /**
-    * After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
-    *
-    * @param request ModifyWebLockDeleteConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyWebLockDeleteConfigResponse
+   * @summary Deletes a directory on a specified server from the protected directories of web tamper proofing.
+   *
+   * @description After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
+   *
+   * @param request ModifyWebLockDeleteConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebLockDeleteConfigResponse
    */
   async modifyWebLockDeleteConfigWithOptions(request: ModifyWebLockDeleteConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockDeleteConfigResponse> {
     Util.validateModel(request);
@@ -103671,16 +110920,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
-    *
-    * @param request ModifyWebLockDeleteConfigRequest
-    * @return ModifyWebLockDeleteConfigResponse
+   * @summary Deletes a directory on a specified server from the protected directories of web tamper proofing.
+   *
+   * @description After you delete a directory that has web tamper proofing enabled on a server, files in the directory are no longer protected by web tamper proofing. The information about the websites that are hosted on the server may be maliciously modified by attackers. Proceed with caution.
+   *
+   * @param request ModifyWebLockDeleteConfigRequest
+   * @return ModifyWebLockDeleteConfigResponse
    */
   async modifyWebLockDeleteConfig(request: ModifyWebLockDeleteConfigRequest): Promise<ModifyWebLockDeleteConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockDeleteConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the status of processes for web tamper proofing.
+   *
+   * @param request ModifyWebLockProcessStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebLockProcessStatusResponse
+   */
   async modifyWebLockProcessStatusWithOptions(request: ModifyWebLockProcessStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockProcessStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103721,11 +110979,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebLockProcessStatusResponse>(await this.callApi(params, req, runtime), new ModifyWebLockProcessStatusResponse({}));
   }
 
+  /**
+   * @summary Changes the status of processes for web tamper proofing.
+   *
+   * @param request ModifyWebLockProcessStatusRequest
+   * @return ModifyWebLockProcessStatusResponse
+   */
   async modifyWebLockProcessStatus(request: ModifyWebLockProcessStatusRequest): Promise<ModifyWebLockProcessStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockProcessStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables web tamper proofing for a specified server.
+   *
+   * @param request ModifyWebLockStartRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebLockStartResponse
+   */
   async modifyWebLockStartWithOptions(request: ModifyWebLockStartRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockStartResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103782,11 +111053,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebLockStartResponse>(await this.callApi(params, req, runtime), new ModifyWebLockStartResponse({}));
   }
 
+  /**
+   * @summary Enables web tamper proofing for a specified server.
+   *
+   * @param request ModifyWebLockStartRequest
+   * @return ModifyWebLockStartResponse
+   */
   async modifyWebLockStart(request: ModifyWebLockStartRequest): Promise<ModifyWebLockStartResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockStartWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables web tamper proofing for a server.
+   *
+   * @param request ModifyWebLockStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebLockStatusResponse
+   */
   async modifyWebLockStatusWithOptions(request: ModifyWebLockStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103823,11 +111107,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebLockStatusResponse>(await this.callApi(params, req, runtime), new ModifyWebLockStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables web tamper proofing for a server.
+   *
+   * @param request ModifyWebLockStatusRequest
+   * @return ModifyWebLockStatusResponse
+   */
   async modifyWebLockStatus(request: ModifyWebLockStatusRequest): Promise<ModifyWebLockStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables web tamper proofing for a specified server.
+   *
+   * @param request ModifyWebLockUnbindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebLockUnbindResponse
+   */
   async modifyWebLockUnbindWithOptions(request: ModifyWebLockUnbindRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockUnbindResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103852,11 +111149,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebLockUnbindResponse>(await this.callApi(params, req, runtime), new ModifyWebLockUnbindResponse({}));
   }
 
+  /**
+   * @summary Disables web tamper proofing for a specified server.
+   *
+   * @param request ModifyWebLockUnbindRequest
+   * @return ModifyWebLockUnbindResponse
+   */
   async modifyWebLockUnbind(request: ModifyWebLockUnbindRequest): Promise<ModifyWebLockUnbindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockUnbindWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the protection policy for a specified server.
+   *
+   * @param request ModifyWebLockUpdateConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebLockUpdateConfigResponse
+   */
   async modifyWebLockUpdateConfigWithOptions(request: ModifyWebLockUpdateConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockUpdateConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103929,11 +111239,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebLockUpdateConfigResponse>(await this.callApi(params, req, runtime), new ModifyWebLockUpdateConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the protection policy for a specified server.
+   *
+   * @param request ModifyWebLockUpdateConfigRequest
+   * @return ModifyWebLockUpdateConfigResponse
+   */
   async modifyWebLockUpdateConfig(request: ModifyWebLockUpdateConfigRequest): Promise<ModifyWebLockUpdateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockUpdateConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a custom web directory.
+   *
+   * @param request ModifyWebPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWebPathResponse
+   */
   async modifyWebPathWithOptions(request: ModifyWebPathRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebPathResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103966,11 +111289,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWebPathResponse>(await this.callApi(params, req, runtime), new ModifyWebPathResponse({}));
   }
 
+  /**
+   * @summary Modifies a custom web directory.
+   *
+   * @param request ModifyWebPathRequest
+   * @return ModifyWebPathResponse
+   */
   async modifyWebPath(request: ModifyWebPathRequest): Promise<ModifyWebPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebPathWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开启按量购买。
+   *
+   * @param request OpenPartialBuyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenPartialBuyResponse
+   */
   async openPartialBuyWithOptions(request: OpenPartialBuyRequest, runtime: $Util.RuntimeOptions): Promise<OpenPartialBuyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -103995,11 +111331,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenPartialBuyResponse>(await this.callApi(params, req, runtime), new OpenPartialBuyResponse({}));
   }
 
+  /**
+   * @summary 开启按量购买。
+   *
+   * @param request OpenPartialBuyRequest
+   * @return OpenPartialBuyResponse
+   */
   async openPartialBuy(request: OpenPartialBuyRequest): Promise<OpenPartialBuyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openPartialBuyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables sensitive file scan.
+   *
+   * @param request OpenSensitiveFileScanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenSensitiveFileScanResponse
+   */
   async openSensitiveFileScanWithOptions(request: OpenSensitiveFileScanRequest, runtime: $Util.RuntimeOptions): Promise<OpenSensitiveFileScanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104024,11 +111373,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenSensitiveFileScanResponse>(await this.callApi(params, req, runtime), new OpenSensitiveFileScanResponse({}));
   }
 
+  /**
+   * @summary Enables or disables sensitive file scan.
+   *
+   * @param request OpenSensitiveFileScanRequest
+   * @return OpenSensitiveFileScanResponse
+   */
   async openSensitiveFileScan(request: OpenSensitiveFileScanRequest): Promise<OpenSensitiveFileScanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openSensitiveFileScanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Installs the Security Center agent on servers.
+   *
+   * @param request OperateAgentClientInstallRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateAgentClientInstallResponse
+   */
   async operateAgentClientInstallWithOptions(request: OperateAgentClientInstallRequest, runtime: $Util.RuntimeOptions): Promise<OperateAgentClientInstallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104069,11 +111431,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateAgentClientInstallResponse>(await this.callApi(params, req, runtime), new OperateAgentClientInstallResponse({}));
   }
 
+  /**
+   * @summary Installs the Security Center agent on servers.
+   *
+   * @param request OperateAgentClientInstallRequest
+   * @return OperateAgentClientInstallResponse
+   */
   async operateAgentClientInstall(request: OperateAgentClientInstallRequest): Promise<OperateAgentClientInstallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateAgentClientInstallWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds or deletes container applications for tamper proofing.
+   *
+   * @param request OperateApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateApplicationResponse
+   */
   async operateApplicationWithOptions(request: OperateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<OperateApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104102,11 +111477,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateApplicationResponse>(await this.callApi(params, req, runtime), new OperateApplicationResponse({}));
   }
 
+  /**
+   * @summary Adds or deletes container applications for tamper proofing.
+   *
+   * @param request OperateApplicationRequest
+   * @return OperateApplicationResponse
+   */
   async operateApplication(request: OperateApplicationRequest): Promise<OperateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Manages an Object Storage Service (OSS) bucket check task.
+   *
+   * @param request OperateBucketScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateBucketScanTaskResponse
+   */
   async operateBucketScanTaskWithOptions(request: OperateBucketScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<OperateBucketScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104135,11 +111523,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateBucketScanTaskResponse>(await this.callApi(params, req, runtime), new OperateBucketScanTaskResponse({}));
   }
 
+  /**
+   * @summary Manages an Object Storage Service (OSS) bucket check task.
+   *
+   * @param request OperateBucketScanTaskRequest
+   * @return OperateBucketScanTaskResponse
+   */
   async operateBucketScanTask(request: OperateBucketScanTaskRequest): Promise<OperateBucketScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateBucketScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables a feature by type.
+   *
+   * @param request OperateCommonOverallConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateCommonOverallConfigResponse
+   */
   async operateCommonOverallConfigWithOptions(request: OperateCommonOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateCommonOverallConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104176,11 +111577,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateCommonOverallConfigResponse>(await this.callApi(params, req, runtime), new OperateCommonOverallConfigResponse({}));
   }
 
+  /**
+   * @summary Enables or disables a feature by type.
+   *
+   * @param request OperateCommonOverallConfigRequest
+   * @return OperateCommonOverallConfigResponse
+   */
   async operateCommonOverallConfig(request: OperateCommonOverallConfigRequest): Promise<OperateCommonOverallConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateCommonOverallConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures features by type. The features include container image scan, local file detection, container network visualization, and container escape prevention.
+   *
+   * @param request OperateCommonTargetConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateCommonTargetConfigResponse
+   */
   async operateCommonTargetConfigWithOptions(request: OperateCommonTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateCommonTargetConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104225,11 +111639,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateCommonTargetConfigResponse>(await this.callApi(params, req, runtime), new OperateCommonTargetConfigResponse({}));
   }
 
+  /**
+   * @summary Configures features by type. The features include container image scan, local file detection, container network visualization, and container escape prevention.
+   *
+   * @param request OperateCommonTargetConfigRequest
+   * @return OperateCommonTargetConfigResponse
+   */
   async operateCommonTargetConfig(request: OperateCommonTargetConfigRequest): Promise<OperateCommonTargetConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateCommonTargetConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a check item of an image baseline to the whitelist, or removes a check item of an image baseline from the whitelist.
+   *
+   * @param request OperateImageBaselineWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateImageBaselineWhitelistResponse
+   */
   async operateImageBaselineWhitelistWithOptions(request: OperateImageBaselineWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<OperateImageBaselineWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104270,11 +111697,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateImageBaselineWhitelistResponse>(await this.callApi(params, req, runtime), new OperateImageBaselineWhitelistResponse({}));
   }
 
+  /**
+   * @summary Adds a check item of an image baseline to the whitelist, or removes a check item of an image baseline from the whitelist.
+   *
+   * @param request OperateImageBaselineWhitelistRequest
+   * @return OperateImageBaselineWhitelistResponse
+   */
   async operateImageBaselineWhitelist(request: OperateImageBaselineWhitelistRequest): Promise<OperateImageBaselineWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateImageBaselineWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Handles an image vulnerability, such as fixing the image vulnerability, verifying the fix of the image vulnerability, ignoring the image vulnerability, or canceling ignoring the image vulnerability.
+   *
+   * @param request OperateImageVulRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateImageVulResponse
+   */
   async operateImageVulWithOptions(request: OperateImageVulRequest, runtime: $Util.RuntimeOptions): Promise<OperateImageVulResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104307,11 +111747,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateImageVulResponse>(await this.callApi(params, req, runtime), new OperateImageVulResponse({}));
   }
 
+  /**
+   * @summary Handles an image vulnerability, such as fixing the image vulnerability, verifying the fix of the image vulnerability, ignoring the image vulnerability, or canceling ignoring the image vulnerability.
+   *
+   * @param request OperateImageVulRequest
+   * @return OperateImageVulResponse
+   */
   async operateImageVul(request: OperateImageVulRequest): Promise<OperateImageVulResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateImageVulWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables a feature that detects exceptions.
+   *
+   * @param request OperateSuspiciousOverallConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateSuspiciousOverallConfigResponse
+   */
   async operateSuspiciousOverallConfigWithOptions(request: OperateSuspiciousOverallConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateSuspiciousOverallConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104352,11 +111805,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateSuspiciousOverallConfigResponse>(await this.callApi(params, req, runtime), new OperateSuspiciousOverallConfigResponse({}));
   }
 
+  /**
+   * @summary Enables or disables a feature that detects exceptions.
+   *
+   * @param request OperateSuspiciousOverallConfigRequest
+   * @return OperateSuspiciousOverallConfigResponse
+   */
   async operateSuspiciousOverallConfig(request: OperateSuspiciousOverallConfigRequest): Promise<OperateSuspiciousOverallConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateSuspiciousOverallConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the scope on which proactive defense takes effect.
+   *
+   * @param request OperateSuspiciousTargetConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateSuspiciousTargetConfigResponse
+   */
   async operateSuspiciousTargetConfigWithOptions(request: OperateSuspiciousTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateSuspiciousTargetConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104397,11 +111863,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateSuspiciousTargetConfigResponse>(await this.callApi(params, req, runtime), new OperateSuspiciousTargetConfigResponse({}));
   }
 
+  /**
+   * @summary Configures the scope on which proactive defense takes effect.
+   *
+   * @param request OperateSuspiciousTargetConfigRequest
+   * @return OperateSuspiciousTargetConfigResponse
+   */
   async operateSuspiciousTargetConfig(request: OperateSuspiciousTargetConfigRequest): Promise<OperateSuspiciousTargetConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateSuspiciousTargetConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Change the rule status for non-image program defense.
+   *
+   * @param request OperateSwitchStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateSwitchStatusResponse
+   */
   async operateSwitchStatusWithOptions(request: OperateSwitchStatusRequest, runtime: $Util.RuntimeOptions): Promise<OperateSwitchStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104430,11 +111909,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateSwitchStatusResponse>(await this.callApi(params, req, runtime), new OperateSwitchStatusResponse({}));
   }
 
+  /**
+   * @summary Change the rule status for non-image program defense.
+   *
+   * @param request OperateSwitchStatusRequest
+   * @return OperateSwitchStatusResponse
+   */
   async operateSwitchStatus(request: OperateSwitchStatusRequest): Promise<OperateSwitchStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateSwitchStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Handles alert events that are generated by the antivirus feature. You can perform in-depth detection and removal, add alert events to the whitelist, ignore alert events, or manually handle alert events.
+   *
+   * @param request OperateVirusEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateVirusEventsResponse
+   */
   async operateVirusEventsWithOptions(request: OperateVirusEventsRequest, runtime: $Util.RuntimeOptions): Promise<OperateVirusEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104467,11 +111959,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateVirusEventsResponse>(await this.callApi(params, req, runtime), new OperateVirusEventsResponse({}));
   }
 
+  /**
+   * @summary Handles alert events that are generated by the antivirus feature. You can perform in-depth detection and removal, add alert events to the whitelist, ignore alert events, or manually handle alert events.
+   *
+   * @param request OperateVirusEventsRequest
+   * @return OperateVirusEventsResponse
+   */
   async operateVirusEvents(request: OperateVirusEventsRequest): Promise<OperateVirusEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateVirusEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Fixes Linux software vulnerabilities.
+   *
+   * @param request OperateVulsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateVulsResponse
+   */
   async operateVulsWithOptions(request: OperateVulsRequest, runtime: $Util.RuntimeOptions): Promise<OperateVulsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104508,11 +112013,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateVulsResponse>(await this.callApi(params, req, runtime), new OperateVulsResponse({}));
   }
 
+  /**
+   * @summary Fixes Linux software vulnerabilities.
+   *
+   * @param request OperateVulsRequest
+   * @return OperateVulsResponse
+   */
   async operateVuls(request: OperateVulsRequest): Promise<OperateVulsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateVulsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Handles alert events that are generated for web tamper proofing.
+   *
+   * @param request OperateWebLockFileEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateWebLockFileEventsResponse
+   */
   async operateWebLockFileEventsWithOptions(request: OperateWebLockFileEventsRequest, runtime: $Util.RuntimeOptions): Promise<OperateWebLockFileEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104545,11 +112063,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperateWebLockFileEventsResponse>(await this.callApi(params, req, runtime), new OperateWebLockFileEventsResponse({}));
   }
 
+  /**
+   * @summary Handles alert events that are generated for web tamper proofing.
+   *
+   * @param request OperateWebLockFileEventsRequest
+   * @return OperateWebLockFileEventsResponse
+   */
   async operateWebLockFileEvents(request: OperateWebLockFileEventsRequest): Promise<OperateWebLockFileEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateWebLockFileEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancels ignoring alert events.
+   *
+   * @param request OperationCancelIgnoreSuspEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperationCancelIgnoreSuspEventResponse
+   */
   async operationCancelIgnoreSuspEventWithOptions(request: OperationCancelIgnoreSuspEventRequest, runtime: $Util.RuntimeOptions): Promise<OperationCancelIgnoreSuspEventResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104578,11 +112109,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperationCancelIgnoreSuspEventResponse>(await this.callApi(params, req, runtime), new OperationCancelIgnoreSuspEventResponse({}));
   }
 
+  /**
+   * @summary Cancels ignoring alert events.
+   *
+   * @param request OperationCancelIgnoreSuspEventRequest
+   * @return OperationCancelIgnoreSuspEventResponse
+   */
   async operationCancelIgnoreSuspEvent(request: OperationCancelIgnoreSuspEventRequest): Promise<OperationCancelIgnoreSuspEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operationCancelIgnoreSuspEventWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Handles multiple exceptions at a time.
+   *
+   * @param request OperationSuspEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperationSuspEventsResponse
+   */
   async operationSuspEventsWithOptions(request: OperationSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<OperationSuspEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104627,11 +112171,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OperationSuspEventsResponse>(await this.callApi(params, req, runtime), new OperationSuspEventsResponse({}));
   }
 
+  /**
+   * @summary Handles multiple exceptions at a time.
+   *
+   * @param request OperationSuspEventsRequest
+   * @return OperationSuspEventsResponse
+   */
   async operationSuspEvents(request: OperationSuspEventsRequest): Promise<OperationSuspEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operationSuspEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries image repositories by page.
+   *
+   * @param request PageImageRegistryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PageImageRegistryResponse
+   */
   async pageImageRegistryWithOptions(request: PageImageRegistryRequest, runtime: $Util.RuntimeOptions): Promise<PageImageRegistryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104678,11 +112235,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PageImageRegistryResponse>(await this.callApi(params, req, runtime), new PageImageRegistryResponse({}));
   }
 
+  /**
+   * @summary Queries image repositories by page.
+   *
+   * @param request PageImageRegistryRequest
+   * @return PageImageRegistryResponse
+   */
   async pageImageRegistry(request: PageImageRegistryRequest): Promise<PageImageRegistryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pageImageRegistryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the Security Center agent.
+   *
+   * @param request PauseClientRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PauseClientResponse
+   */
   async pauseClientWithOptions(request: PauseClientRequest, runtime: $Util.RuntimeOptions): Promise<PauseClientResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104711,17 +112281,25 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseClientResponse>(await this.callApi(params, req, runtime), new PauseClientResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the Security Center agent.
+   *
+   * @param request PauseClientRequest
+   * @return PauseClientResponse
+   */
   async pauseClient(request: PauseClientRequest): Promise<PauseClientResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pauseClientWithOptions(request, runtime);
   }
 
   /**
-    * Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
-    *
-    * @param request PublicCreateImageScanTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PublicCreateImageScanTaskResponse
+   * @summary Creates an image scan task.
+   *
+   * @description Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
+   *
+   * @param request PublicCreateImageScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublicCreateImageScanTaskResponse
    */
   async publicCreateImageScanTaskWithOptions(request: PublicCreateImageScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<PublicCreateImageScanTaskResponse> {
     Util.validateModel(request);
@@ -104780,16 +112358,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
-    *
-    * @param request PublicCreateImageScanTaskRequest
-    * @return PublicCreateImageScanTaskResponse
+   * @summary Creates an image scan task.
+   *
+   * @description Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
+   *
+   * @param request PublicCreateImageScanTaskRequest
+   * @return PublicCreateImageScanTaskResponse
    */
   async publicCreateImageScanTask(request: PublicCreateImageScanTaskRequest): Promise<PublicCreateImageScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publicCreateImageScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 预检测，不会实际创建扫描任务，返回本次扫描涉及的镜像数量和消耗授权数量。
+   *
+   * @param request PublicPreCheckImageScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublicPreCheckImageScanTaskResponse
+   */
   async publicPreCheckImageScanTaskWithOptions(request: PublicPreCheckImageScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<PublicPreCheckImageScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104846,11 +112433,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublicPreCheckImageScanTaskResponse>(await this.callApi(params, req, runtime), new PublicPreCheckImageScanTaskResponse({}));
   }
 
+  /**
+   * @summary 预检测，不会实际创建扫描任务，返回本次扫描涉及的镜像数量和消耗授权数量。
+   *
+   * @param request PublicPreCheckImageScanTaskRequest
+   * @return PublicPreCheckImageScanTaskResponse
+   */
   async publicPreCheckImageScanTask(request: PublicPreCheckImageScanTaskRequest): Promise<PublicPreCheckImageScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publicPreCheckImageScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds images to Security Center and creates an image scan task to scan the images.
+   *
+   * @param request PublicSyncAndCreateImageScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublicSyncAndCreateImageScanTaskResponse
+   */
   async publicSyncAndCreateImageScanTaskWithOptions(request: PublicSyncAndCreateImageScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<PublicSyncAndCreateImageScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104879,11 +112479,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublicSyncAndCreateImageScanTaskResponse>(await this.callApi(params, req, runtime), new PublicSyncAndCreateImageScanTaskResponse({}));
   }
 
+  /**
+   * @summary Adds images to Security Center and creates an image scan task to scan the images.
+   *
+   * @param request PublicSyncAndCreateImageScanTaskRequest
+   * @return PublicSyncAndCreateImageScanTaskResponse
+   */
   async publicSyncAndCreateImageScanTask(request: PublicSyncAndCreateImageScanTaskRequest): Promise<PublicSyncAndCreateImageScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publicSyncAndCreateImageScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of alert events in each attack phase.
+   *
+   * @param request QueryAttackCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAttackCountResponse
+   */
   async queryAttackCountWithOptions(request: QueryAttackCountRequest, runtime: $Util.RuntimeOptions): Promise<QueryAttackCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104922,11 +112535,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAttackCountResponse>(await this.callApi(params, req, runtime), new QueryAttackCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of alert events in each attack phase.
+   *
+   * @param request QueryAttackCountRequest
+   * @return QueryAttackCountResponse
+   */
   async queryAttackCount(request: QueryAttackCountRequest): Promise<QueryAttackCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAttackCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the progress of a database scan task.
+   *
+   * @param request QueryDiscoverDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDiscoverDatabaseResponse
+   */
   async queryDiscoverDatabaseWithOptions(request: QueryDiscoverDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<QueryDiscoverDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -104951,19 +112577,27 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDiscoverDatabaseResponse>(await this.callApi(params, req, runtime), new QueryDiscoverDatabaseResponse({}));
   }
 
+  /**
+   * @summary Queries the progress of a database scan task.
+   *
+   * @param request QueryDiscoverDatabaseRequest
+   * @return QueryDiscoverDatabaseResponse
+   */
   async queryDiscoverDatabase(request: QueryDiscoverDatabaseRequest): Promise<QueryDiscoverDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDiscoverDatabaseWithOptions(request, runtime);
   }
 
   /**
-    * You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request QueryGroupIdByGroupNameRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryGroupIdByGroupNameResponse
+   * @summary Queries the ID of an asset group by using the name of the asset group.
+   *
+   * @description You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QueryGroupIdByGroupNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryGroupIdByGroupNameResponse
    */
   async queryGroupIdByGroupNameWithOptions(request: QueryGroupIdByGroupNameRequest, runtime: $Util.RuntimeOptions): Promise<QueryGroupIdByGroupNameResponse> {
     Util.validateModel(request);
@@ -104994,18 +112628,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request QueryGroupIdByGroupNameRequest
-    * @return QueryGroupIdByGroupNameResponse
+   * @summary Queries the ID of an asset group by using the name of the asset group.
+   *
+   * @description You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request QueryGroupIdByGroupNameRequest
+   * @return QueryGroupIdByGroupNameResponse
    */
   async queryGroupIdByGroupName(request: QueryGroupIdByGroupNameRequest): Promise<QueryGroupIdByGroupNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGroupIdByGroupNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whitelist rules.
+   *
+   * @param request QueryGroupedSecurityEventMarkMissListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryGroupedSecurityEventMarkMissListResponse
+   */
   async queryGroupedSecurityEventMarkMissListWithOptions(request: QueryGroupedSecurityEventMarkMissListRequest, runtime: $Util.RuntimeOptions): Promise<QueryGroupedSecurityEventMarkMissListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105060,11 +112703,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryGroupedSecurityEventMarkMissListResponse>(await this.callApi(params, req, runtime), new QueryGroupedSecurityEventMarkMissListResponse({}));
   }
 
+  /**
+   * @summary Queries whitelist rules.
+   *
+   * @param request QueryGroupedSecurityEventMarkMissListRequest
+   * @return QueryGroupedSecurityEventMarkMissListResponse
+   */
   async queryGroupedSecurityEventMarkMissList(request: QueryGroupedSecurityEventMarkMissListRequest): Promise<QueryGroupedSecurityEventMarkMissListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGroupedSecurityEventMarkMissListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the icons that correspond to nodes and edges.
+   *
+   * @param request QueryIncidentIconListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryIncidentIconListResponse
+   */
   async queryIncidentIconListWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryIncidentIconListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -105081,11 +112737,23 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryIncidentIconListResponse>(await this.callApi(params, req, runtime), new QueryIncidentIconListResponse({}));
   }
 
+  /**
+   * @summary Queries the icons that correspond to nodes and edges.
+   *
+   * @return QueryIncidentIconListResponse
+   */
   async queryIncidentIconList(): Promise<QueryIncidentIconListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryIncidentIconListWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries whether a node can be drilled down.
+   *
+   * @param request QueryIncidentSubNodesCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryIncidentSubNodesCountResponse
+   */
   async queryIncidentSubNodesCountWithOptions(request: QueryIncidentSubNodesCountRequest, runtime: $Util.RuntimeOptions): Promise<QueryIncidentSubNodesCountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -105110,11 +112778,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryIncidentSubNodesCountResponse>(await this.callApi(params, req, runtime), new QueryIncidentSubNodesCountResponse({}));
   }
 
+  /**
+   * @summary Queries whether a node can be drilled down.
+   *
+   * @param request QueryIncidentSubNodesCountRequest
+   * @return QueryIncidentSubNodesCountResponse
+   */
   async queryIncidentSubNodesCount(request: QueryIncidentSubNodesCountRequest): Promise<QueryIncidentSubNodesCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryIncidentSubNodesCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the provenance graph of an event by using the event ID.
+   *
+   * @param request QueryIncidentTracingDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryIncidentTracingDetailResponse
+   */
   async queryIncidentTracingDetailWithOptions(request: QueryIncidentTracingDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryIncidentTracingDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -105139,11 +112820,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryIncidentTracingDetailResponse>(await this.callApi(params, req, runtime), new QueryIncidentTracingDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the provenance graph of an event by using the event ID.
+   *
+   * @param request QueryIncidentTracingDetailRequest
+   * @return QueryIncidentTracingDetailResponse
+   */
   async queryIncidentTracingDetail(request: QueryIncidentTracingDetailRequest): Promise<QueryIncidentTracingDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryIncidentTracingDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether an event has a provenance graph based on the event ID.
+   *
+   * @param request QueryIncidentTracingJudgeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryIncidentTracingJudgeResponse
+   */
   async queryIncidentTracingJudgeWithOptions(request: QueryIncidentTracingJudgeRequest, runtime: $Util.RuntimeOptions): Promise<QueryIncidentTracingJudgeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -105168,11 +112862,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryIncidentTracingJudgeResponse>(await this.callApi(params, req, runtime), new QueryIncidentTracingJudgeResponse({}));
   }
 
+  /**
+   * @summary Queries whether an event has a provenance graph based on the event ID.
+   *
+   * @param request QueryIncidentTracingJudgeRequest
+   * @return QueryIncidentTracingJudgeResponse
+   */
   async queryIncidentTracingJudge(request: QueryIncidentTracingJudgeRequest): Promise<QueryIncidentTracingJudgeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryIncidentTracingJudgeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the extended information about an event node.
+   *
+   * @param request QueryIncidentVertexExtendInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryIncidentVertexExtendInfoResponse
+   */
   async queryIncidentVertexExtendInfoWithOptions(request: QueryIncidentVertexExtendInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryIncidentVertexExtendInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -105213,11 +112920,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryIncidentVertexExtendInfoResponse>(await this.callApi(params, req, runtime), new QueryIncidentVertexExtendInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the extended information about an event node.
+   *
+   * @param request QueryIncidentVertexExtendInfoRequest
+   * @return QueryIncidentVertexExtendInfoResponse
+   */
   async queryIncidentVertexExtendInfo(request: QueryIncidentVertexExtendInfoRequest): Promise<QueryIncidentVertexExtendInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryIncidentVertexExtendInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about an event node.
+   *
+   * @param tmpReq QueryIncidentVertexNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryIncidentVertexNodesResponse
+   */
   async queryIncidentVertexNodesWithOptions(tmpReq: QueryIncidentVertexNodesRequest, runtime: $Util.RuntimeOptions): Promise<QueryIncidentVertexNodesResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryIncidentVertexNodesShrinkRequest({ });
@@ -105264,11 +112984,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryIncidentVertexNodesResponse>(await this.callApi(params, req, runtime), new QueryIncidentVertexNodesResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about an event node.
+   *
+   * @param request QueryIncidentVertexNodesRequest
+   * @return QueryIncidentVertexNodesResponse
+   */
   async queryIncidentVertexNodes(request: QueryIncidentVertexNodesRequest): Promise<QueryIncidentVertexNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryIncidentVertexNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the retention period of images that are stored in a Jenkins image repository.
+   *
+   * @param request QueryJenkinsImageRegistryPersistenceDayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryJenkinsImageRegistryPersistenceDayResponse
+   */
   async queryJenkinsImageRegistryPersistenceDayWithOptions(request: QueryJenkinsImageRegistryPersistenceDayRequest, runtime: $Util.RuntimeOptions): Promise<QueryJenkinsImageRegistryPersistenceDayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105293,11 +113026,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryJenkinsImageRegistryPersistenceDayResponse>(await this.callApi(params, req, runtime), new QueryJenkinsImageRegistryPersistenceDayResponse({}));
   }
 
+  /**
+   * @summary Queries the retention period of images that are stored in a Jenkins image repository.
+   *
+   * @param request QueryJenkinsImageRegistryPersistenceDayRequest
+   * @return QueryJenkinsImageRegistryPersistenceDayResponse
+   */
   async queryJenkinsImageRegistryPersistenceDay(request: QueryJenkinsImageRegistryPersistenceDayRequest): Promise<QueryJenkinsImageRegistryPersistenceDayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the result of a database precheck task.
+   *
+   * @param request QueryPreCheckDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPreCheckDatabaseResponse
+   */
   async queryPreCheckDatabaseWithOptions(request: QueryPreCheckDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<QueryPreCheckDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105330,11 +113076,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPreCheckDatabaseResponse>(await this.callApi(params, req, runtime), new QueryPreCheckDatabaseResponse({}));
   }
 
+  /**
+   * @summary Queries the result of a database precheck task.
+   *
+   * @param request QueryPreCheckDatabaseRequest
+   * @return QueryPreCheckDatabaseResponse
+   */
   async queryPreCheckDatabase(request: QueryPreCheckDatabaseRequest): Promise<QueryPreCheckDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPreCheckDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restarts a server. Only Windows servers are supported.
+   *
+   * @param request RebootMachineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebootMachineResponse
+   */
   async rebootMachineWithOptions(request: RebootMachineRequest, runtime: $Util.RuntimeOptions): Promise<RebootMachineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105359,11 +113118,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RebootMachineResponse>(await this.callApi(params, req, runtime), new RebootMachineResponse({}));
   }
 
+  /**
+   * @summary Restarts a server. Only Windows servers are supported.
+   *
+   * @param request RebootMachineRequest
+   * @return RebootMachineResponse
+   */
   async rebootMachine(request: RebootMachineRequest): Promise<RebootMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootMachineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Synchronizes assets.
+   *
+   * @param request RefreshAssetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefreshAssetsResponse
+   */
   async refreshAssetsWithOptions(request: RefreshAssetsRequest, runtime: $Util.RuntimeOptions): Promise<RefreshAssetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105400,11 +113172,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshAssetsResponse>(await this.callApi(params, req, runtime), new RefreshAssetsResponse({}));
   }
 
+  /**
+   * @summary Synchronizes assets.
+   *
+   * @param request RefreshAssetsRequest
+   * @return RefreshAssetsResponse
+   */
   async refreshAssets(request: RefreshAssetsRequest): Promise<RefreshAssetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshAssetsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Refreshes the statistics of container assets in the Assets module.
+   *
+   * @param request RefreshContainerAssetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefreshContainerAssetsResponse
+   */
   async refreshContainerAssetsWithOptions(request: RefreshContainerAssetsRequest, runtime: $Util.RuntimeOptions): Promise<RefreshContainerAssetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105429,11 +113214,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshContainerAssetsResponse>(await this.callApi(params, req, runtime), new RefreshContainerAssetsResponse({}));
   }
 
+  /**
+   * @summary Refreshes the statistics of container assets in the Assets module.
+   *
+   * @param request RefreshContainerAssetsRequest
+   * @return RefreshContainerAssetsResponse
+   */
   async refreshContainerAssets(request: RefreshContainerAssetsRequest): Promise<RefreshContainerAssetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshContainerAssetsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Refreshes the list of Object Storage Service (OSS) buckets.
+   *
+   * @param request RefreshOssBucketScanInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefreshOssBucketScanInfoResponse
+   */
   async refreshOssBucketScanInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<RefreshOssBucketScanInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -105450,11 +113248,23 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshOssBucketScanInfoResponse>(await this.callApi(params, req, runtime), new RefreshOssBucketScanInfoResponse({}));
   }
 
+  /**
+   * @summary Refreshes the list of Object Storage Service (OSS) buckets.
+   *
+   * @return RefreshOssBucketScanInfoResponse
+   */
   async refreshOssBucketScanInfo(): Promise<RefreshOssBucketScanInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshOssBucketScanInfoWithOptions(runtime);
   }
 
+  /**
+   * @summary 释放云安全中心实例
+   *
+   * @param request ReleaseSasInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseSasInstanceResponse
+   */
   async releaseSasInstanceWithOptions(request: ReleaseSasInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseSasInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -105483,11 +113293,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseSasInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseSasInstanceResponse({}));
   }
 
+  /**
+   * @summary 释放云安全中心实例
+   *
+   * @param request ReleaseSasInstanceRequest
+   * @return ReleaseSasInstanceResponse
+   */
   async releaseSasInstance(request: ReleaseSasInstanceRequest): Promise<ReleaseSasInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseSasInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes an instance from the whitelist.
+   *
+   * @param request RemoveCheckInstanceResultWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveCheckInstanceResultWhiteListResponse
+   */
   async removeCheckInstanceResultWhiteListWithOptions(request: RemoveCheckInstanceResultWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCheckInstanceResultWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105516,11 +113339,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveCheckInstanceResultWhiteListResponse>(await this.callApi(params, req, runtime), new RemoveCheckInstanceResultWhiteListResponse({}));
   }
 
+  /**
+   * @summary Removes an instance from the whitelist.
+   *
+   * @param request RemoveCheckInstanceResultWhiteListRequest
+   * @return RemoveCheckInstanceResultWhiteListResponse
+   */
   async removeCheckInstanceResultWhiteList(request: RemoveCheckInstanceResultWhiteListRequest): Promise<RemoveCheckInstanceResultWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeCheckInstanceResultWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes check items from the whitelist.
+   *
+   * @param request RemoveCheckResultWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveCheckResultWhiteListResponse
+   */
   async removeCheckResultWhiteListWithOptions(request: RemoveCheckResultWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCheckResultWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105553,11 +113389,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveCheckResultWhiteListResponse>(await this.callApi(params, req, runtime), new RemoveCheckResultWhiteListResponse({}));
   }
 
+  /**
+   * @summary Removes check items from the whitelist.
+   *
+   * @param request RemoveCheckResultWhiteListRequest
+   * @return RemoveCheckResultWhiteListResponse
+   */
   async removeCheckResultWhiteList(request: RemoveCheckResultWhiteListRequest): Promise<RemoveCheckResultWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeCheckResultWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reset the honeypot.
+   *
+   * @param request ResetHoneypotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetHoneypotResponse
+   */
   async resetHoneypotWithOptions(request: ResetHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<ResetHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105586,11 +113435,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetHoneypotResponse>(await this.callApi(params, req, runtime), new ResetHoneypotResponse({}));
   }
 
+  /**
+   * @summary Reset the honeypot.
+   *
+   * @param request ResetHoneypotRequest
+   * @return ResetHoneypotResponse
+   */
   async resetHoneypot(request: ResetHoneypotRequest): Promise<ResetHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetHoneypotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Retries agentless detection tasks.
+   *
+   * @param request RetryAgentlessTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryAgentlessTaskResponse
+   */
   async retryAgentlessTaskWithOptions(request: RetryAgentlessTaskRequest, runtime: $Util.RuntimeOptions): Promise<RetryAgentlessTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105615,11 +113477,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryAgentlessTaskResponse>(await this.callApi(params, req, runtime), new RetryAgentlessTaskResponse({}));
   }
 
+  /**
+   * @summary Retries agentless detection tasks.
+   *
+   * @param request RetryAgentlessTaskRequest
+   * @return RetryAgentlessTaskResponse
+   */
   async retryAgentlessTask(request: RetryAgentlessTaskRequest): Promise<RetryAgentlessTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryAgentlessTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Retry installing the honeypot probe.
+   *
+   * @param request RetryInstallProbeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryInstallProbeResponse
+   */
   async retryInstallProbeWithOptions(request: RetryInstallProbeRequest, runtime: $Util.RuntimeOptions): Promise<RetryInstallProbeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105644,11 +113519,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryInstallProbeResponse>(await this.callApi(params, req, runtime), new RetryInstallProbeResponse({}));
   }
 
+  /**
+   * @summary Retry installing the honeypot probe.
+   *
+   * @param request RetryInstallProbeRequest
+   * @return RetryInstallProbeResponse
+   */
   async retryInstallProbe(request: RetryInstallProbeRequest): Promise<RetryInstallProbeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryInstallProbeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消对文件隔离箱中文件的隔离
+   *
+   * @param request RollbackSuspEventQuaraFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RollbackSuspEventQuaraFileResponse
+   */
   async rollbackSuspEventQuaraFileWithOptions(request: RollbackSuspEventQuaraFileRequest, runtime: $Util.RuntimeOptions): Promise<RollbackSuspEventQuaraFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105681,11 +113569,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RollbackSuspEventQuaraFileResponse>(await this.callApi(params, req, runtime), new RollbackSuspEventQuaraFileResponse({}));
   }
 
+  /**
+   * @summary 取消对文件隔离箱中文件的隔离
+   *
+   * @param request RollbackSuspEventQuaraFileRequest
+   * @return RollbackSuspEventQuaraFileResponse
+   */
   async rollbackSuspEventQuaraFile(request: RollbackSuspEventQuaraFileRequest): Promise<RollbackSuspEventQuaraFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackSuspEventQuaraFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary SasInstallCode
+   *
+   * @param request SasInstallCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SasInstallCodeResponse
+   */
   async sasInstallCodeWithOptions(request: SasInstallCodeRequest, runtime: $Util.RuntimeOptions): Promise<SasInstallCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105710,11 +113611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SasInstallCodeResponse>(await this.callApi(params, req, runtime), new SasInstallCodeResponse({}));
   }
 
+  /**
+   * @summary SasInstallCode
+   *
+   * @param request SasInstallCodeRequest
+   * @return SasInstallCodeResponse
+   */
   async sasInstallCode(request: SasInstallCodeRequest): Promise<SasInstallCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sasInstallCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Saves a baseline check policy for images.
+   *
+   * @param request SaveImageBaselineStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveImageBaselineStrategyResponse
+   */
   async saveImageBaselineStrategyWithOptions(request: SaveImageBaselineStrategyRequest, runtime: $Util.RuntimeOptions): Promise<SaveImageBaselineStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105755,11 +113669,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveImageBaselineStrategyResponse>(await this.callApi(params, req, runtime), new SaveImageBaselineStrategyResponse({}));
   }
 
+  /**
+   * @summary Saves a baseline check policy for images.
+   *
+   * @param request SaveImageBaselineStrategyRequest
+   * @return SaveImageBaselineStrategyResponse
+   */
   async saveImageBaselineStrategy(request: SaveImageBaselineStrategyRequest): Promise<SaveImageBaselineStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveImageBaselineStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Saves alert settings.
+   *
+   * @param request SaveSuspEventUserSettingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSuspEventUserSettingResponse
+   */
   async saveSuspEventUserSettingWithOptions(request: SaveSuspEventUserSettingRequest, runtime: $Util.RuntimeOptions): Promise<SaveSuspEventUserSettingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105788,11 +113715,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveSuspEventUserSettingResponse>(await this.callApi(params, req, runtime), new SaveSuspEventUserSettingResponse({}));
   }
 
+  /**
+   * @summary Saves alert settings.
+   *
+   * @param request SaveSuspEventUserSettingRequest
+   * @return SaveSuspEventUserSettingResponse
+   */
   async saveSuspEventUserSetting(request: SaveSuspEventUserSettingRequest): Promise<SaveSuspEventUserSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveSuspEventUserSettingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the status of the container firewall feature.
+   *
+   * @param request SetClusterInterceptionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetClusterInterceptionConfigResponse
+   */
   async setClusterInterceptionConfigWithOptions(request: SetClusterInterceptionConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetClusterInterceptionConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105825,11 +113765,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetClusterInterceptionConfigResponse>(await this.callApi(params, req, runtime), new SetClusterInterceptionConfigResponse({}));
   }
 
+  /**
+   * @summary Configures the status of the container firewall feature.
+   *
+   * @param request SetClusterInterceptionConfigRequest
+   * @return SetClusterInterceptionConfigResponse
+   */
   async setClusterInterceptionConfig(request: SetClusterInterceptionConfigRequest): Promise<SetClusterInterceptionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setClusterInterceptionConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the status of sensitive files in an image.
+   *
+   * @param request SetImageSensitiveFileStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetImageSensitiveFileStatusResponse
+   */
   async setImageSensitiveFileStatusWithOptions(request: SetImageSensitiveFileStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetImageSensitiveFileStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105862,11 +113815,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetImageSensitiveFileStatusResponse>(await this.callApi(params, req, runtime), new SetImageSensitiveFileStatusResponse({}));
   }
 
+  /**
+   * @summary Modifies the status of sensitive files in an image.
+   *
+   * @param request SetImageSensitiveFileStatusRequest
+   * @return SetImageSensitiveFileStatusResponse
+   */
   async setImageSensitiveFileStatus(request: SetImageSensitiveFileStatusRequest): Promise<SetImageSensitiveFileStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setImageSensitiveFileStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Specifies a cycle to scan images for image repositories. Unit: days.
+   *
+   * @param request SetRegistryScanDayNumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetRegistryScanDayNumResponse
+   */
   async setRegistryScanDayNumWithOptions(request: SetRegistryScanDayNumRequest, runtime: $Util.RuntimeOptions): Promise<SetRegistryScanDayNumResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105891,11 +113857,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetRegistryScanDayNumResponse>(await this.callApi(params, req, runtime), new SetRegistryScanDayNumResponse({}));
   }
 
+  /**
+   * @summary Specifies a cycle to scan images for image repositories. Unit: days.
+   *
+   * @param request SetRegistryScanDayNumRequest
+   * @return SetRegistryScanDayNumResponse
+   */
   async setRegistryScanDayNum(request: SetRegistryScanDayNumRequest): Promise<SetRegistryScanDayNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setRegistryScanDayNumWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configure the check rules of sensitive files.
+   *
+   * @param request SetSensitiveDefineRuleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetSensitiveDefineRuleConfigResponse
+   */
   async setSensitiveDefineRuleConfigWithOptions(request: SetSensitiveDefineRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetSensitiveDefineRuleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -105920,17 +113899,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SetSensitiveDefineRuleConfigResponse>(await this.callApi(params, req, runtime), new SetSensitiveDefineRuleConfigResponse({}));
   }
 
+  /**
+   * @summary Configure the check rules of sensitive files.
+   *
+   * @param request SetSensitiveDefineRuleConfigRequest
+   * @return SetSensitiveDefineRuleConfigResponse
+   */
   async setSensitiveDefineRuleConfig(request: SetSensitiveDefineRuleConfigRequest): Promise<SetSensitiveDefineRuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setSensitiveDefineRuleConfigWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request StartBaselineSecurityCheckRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartBaselineSecurityCheckResponse
+   * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated
+   *
+   * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
+   *
+   * @param request StartBaselineSecurityCheckRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartBaselineSecurityCheckResponse
    */
   // Deprecated
   async startBaselineSecurityCheckWithOptions(request: StartBaselineSecurityCheckRequest, runtime: $Util.RuntimeOptions): Promise<StartBaselineSecurityCheckResponse> {
@@ -105974,10 +113961,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request StartBaselineSecurityCheckRequest
-    * @return StartBaselineSecurityCheckResponse
+   * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated
+   *
+   * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
+   *
+   * @param request StartBaselineSecurityCheckRequest
+   * @return StartBaselineSecurityCheckResponse
    */
   // Deprecated
   async startBaselineSecurityCheck(request: StartBaselineSecurityCheckRequest): Promise<StartBaselineSecurityCheckResponse> {
@@ -105985,6 +113974,13 @@ export default class Client extends OpenApi {
     return await this.startBaselineSecurityCheckWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Starts a database scan task.
+   *
+   * @param request StartDiscoverDatabaseTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartDiscoverDatabaseTaskResponse
+   */
   async startDiscoverDatabaseTaskWithOptions(runtime: $Util.RuntimeOptions): Promise<StartDiscoverDatabaseTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -106001,11 +113997,23 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDiscoverDatabaseTaskResponse>(await this.callApi(params, req, runtime), new StartDiscoverDatabaseTaskResponse({}));
   }
 
+  /**
+   * @summary Starts a database scan task.
+   *
+   * @return StartDiscoverDatabaseTaskResponse
+   */
   async startDiscoverDatabaseTask(): Promise<StartDiscoverDatabaseTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDiscoverDatabaseTaskWithOptions(runtime);
   }
 
+  /**
+   * @summary Start the honeypot.
+   *
+   * @param request StartHoneypotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartHoneypotResponse
+   */
   async startHoneypotWithOptions(request: StartHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<StartHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106034,11 +114042,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartHoneypotResponse>(await this.callApi(params, req, runtime), new StartHoneypotResponse({}));
   }
 
+  /**
+   * @summary Start the honeypot.
+   *
+   * @param request StartHoneypotRequest
+   * @return StartHoneypotResponse
+   */
   async startHoneypot(request: StartHoneypotRequest): Promise<StartHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startHoneypotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Starts a database precheck task.
+   *
+   * @param request StartPreCheckDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartPreCheckDatabaseResponse
+   */
   async startPreCheckDatabaseWithOptions(request: StartPreCheckDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<StartPreCheckDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106071,11 +114092,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartPreCheckDatabaseResponse>(await this.callApi(params, req, runtime), new StartPreCheckDatabaseResponse({}));
   }
 
+  /**
+   * @summary Starts a database precheck task.
+   *
+   * @param request StartPreCheckDatabaseRequest
+   * @return StartPreCheckDatabaseResponse
+   */
   async startPreCheckDatabase(request: StartPreCheckDatabaseRequest): Promise<StartPreCheckDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startPreCheckDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Performs a virus scan task on a server or multiple servers.
+   *
+   * @param request StartVirusScanTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartVirusScanTaskResponse
+   */
   async startVirusScanTaskWithOptions(request: StartVirusScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartVirusScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106100,11 +114134,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartVirusScanTaskResponse>(await this.callApi(params, req, runtime), new StartVirusScanTaskResponse({}));
   }
 
+  /**
+   * @summary Performs a virus scan task on a server or multiple servers.
+   *
+   * @param request StartVirusScanTaskRequest
+   * @return StartVirusScanTaskResponse
+   */
   async startVirusScanTask(request: StartVirusScanTaskRequest): Promise<StartVirusScanTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startVirusScanTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Stops a honeypot.
+   *
+   * @param request StopHoneypotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopHoneypotResponse
+   */
   async stopHoneypotWithOptions(request: StopHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<StopHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106133,11 +114180,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopHoneypotResponse>(await this.callApi(params, req, runtime), new StopHoneypotResponse({}));
   }
 
+  /**
+   * @summary Stops a honeypot.
+   *
+   * @param request StopHoneypotRequest
+   * @return StopHoneypotResponse
+   */
   async stopHoneypot(request: StopHoneypotRequest): Promise<StopHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopHoneypotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a configuration assessment task.
+   *
+   * @param request SubmitCheckRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitCheckResponse
+   */
   async submitCheckWithOptions(request: SubmitCheckRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCheckResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106162,11 +114222,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitCheckResponse>(await this.callApi(params, req, runtime), new SubmitCheckResponse({}));
   }
 
+  /**
+   * @summary Submits a configuration assessment task.
+   *
+   * @param request SubmitCheckRequest
+   * @return SubmitCheckResponse
+   */
   async submitCheck(request: SubmitCheckRequest): Promise<SubmitCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitCheckWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancel marking for members. You can call this operation to remove followed members from the list. In the Security Center console, the drop-down list above the left-side navigation pane no longer displays the members.
+   *
+   * @param request UnMarkMonitorAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnMarkMonitorAccountsResponse
+   */
   async unMarkMonitorAccountsWithOptions(request: UnMarkMonitorAccountsRequest, runtime: $Util.RuntimeOptions): Promise<UnMarkMonitorAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106191,21 +114264,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UnMarkMonitorAccountsResponse>(await this.callApi(params, req, runtime), new UnMarkMonitorAccountsResponse({}));
   }
 
+  /**
+   * @summary Cancel marking for members. You can call this operation to remove followed members from the list. In the Security Center console, the drop-down list above the left-side navigation pane no longer displays the members.
+   *
+   * @param request UnMarkMonitorAccountsRequest
+   * @return UnMarkMonitorAccountsResponse
+   */
   async unMarkMonitorAccounts(request: UnMarkMonitorAccountsRequest): Promise<UnMarkMonitorAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unMarkMonitorAccountsWithOptions(request, runtime);
   }
 
   /**
-    * If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
-    * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
-    * **Prerequisites**
-    * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
-    * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
-    *
-    * @param request UnbindAegisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnbindAegisResponse
+   * @summary Unbinds servers that are not deployed on Alibaba Cloud from Security Center.
+   *
+   * @description If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
+   * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
+   * **Prerequisites**
+   * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
+   * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
+   *
+   * @param request UnbindAegisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindAegisResponse
    */
   async unbindAegisWithOptions(request: UnbindAegisRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAegisResponse> {
     Util.validateModel(request);
@@ -106232,20 +114313,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
-    * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
-    * **Prerequisites**
-    * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
-    * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
-    *
-    * @param request UnbindAegisRequest
-    * @return UnbindAegisResponse
+   * @summary Unbinds servers that are not deployed on Alibaba Cloud from Security Center.
+   *
+   * @description If you no longer require protection for servers that are not deployed on Alibaba Cloud, you can call this operation to unbind the servers from Security Center. After you unbind a server that is not deployed on Alibaba Cloud from Security Center, the server no longer consumes the quota of protected servers or protected server vCPUs. This way, you can install the Security Center agent on other servers to meet your business requirements.
+   * > You can unbind only the servers that are not deployed on Alibaba Cloud from Security Center. If you use an Alibaba Cloud Elastic Compute Service (ECS) instance, you do not need to unbind the ECS instance. If you uninstall the Security Center agent from an ECS instance, the ECS instance still exists as a disconnected server in the asset list of the Security Center console. The ECS instance is not removed from the asset list.
+   * **Prerequisites**
+   * *   The server that you want to unbind from Security Center is not deployed on Alibaba Cloud and the Security Center agent is disabled for the server. In this case, the agent is in the Close state and Security Center does not protect the server. You can call the [PauseClient](~~PauseClient~~) operation to disable the agent.
+   * *   The client protection feature is disabled for the server that you want to unbind from Security Center. For more information about how to disable the client protection feature, see [Use the client protection feature](https://www.alibabacloud.com/help/en/security-center/latest/local-file-detection-engine).
+   *
+   * @param request UnbindAegisRequest
+   * @return UnbindAegisResponse
    */
   async unbindAegis(request: UnbindAegisRequest): Promise<UnbindAegisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindAegisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Uninstalls the anti-ransomware agent.
+   *
+   * @param request UninstallBackupClientRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UninstallBackupClientResponse
+   */
   async uninstallBackupClientWithOptions(request: UninstallBackupClientRequest, runtime: $Util.RuntimeOptions): Promise<UninstallBackupClientResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106278,11 +114368,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallBackupClientResponse>(await this.callApi(params, req, runtime), new UninstallBackupClientResponse({}));
   }
 
+  /**
+   * @summary Uninstalls the anti-ransomware agent.
+   *
+   * @param request UninstallBackupClientRequest
+   * @return UninstallBackupClientResponse
+   */
   async uninstallBackupClient(request: UninstallBackupClientRequest): Promise<UninstallBackupClientResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallBackupClientWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Uninstalls the Runtime Application Self-Protection (RASP) agent that is installed on Elastic Compute Service (ECS) instances to enable automatic application protection.
+   *
+   * @param request UninstallRaspAttachRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UninstallRaspAttachResponse
+   */
   async uninstallRaspAttachWithOptions(request: UninstallRaspAttachRequest, runtime: $Util.RuntimeOptions): Promise<UninstallRaspAttachResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106311,11 +114414,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallRaspAttachResponse>(await this.callApi(params, req, runtime), new UninstallRaspAttachResponse({}));
   }
 
+  /**
+   * @summary Uninstalls the Runtime Application Self-Protection (RASP) agent that is installed on Elastic Compute Service (ECS) instances to enable automatic application protection.
+   *
+   * @param request UninstallRaspAttachRequest
+   * @return UninstallRaspAttachResponse
+   */
   async uninstallRaspAttach(request: UninstallRaspAttachRequest): Promise<UninstallRaspAttachResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallRaspAttachWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Uninstalls the database backup agent.
+   *
+   * @param request UninstallUniBackupAgentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UninstallUniBackupAgentResponse
+   */
   async uninstallUniBackupAgentWithOptions(request: UninstallUniBackupAgentRequest, runtime: $Util.RuntimeOptions): Promise<UninstallUniBackupAgentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106340,11 +114456,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallUniBackupAgentResponse>(await this.callApi(params, req, runtime), new UninstallUniBackupAgentResponse({}));
   }
 
+  /**
+   * @summary Uninstalls the database backup agent.
+   *
+   * @param request UninstallUniBackupAgentRequest
+   * @return UninstallUniBackupAgentResponse
+   */
   async uninstallUniBackupAgent(request: UninstallUniBackupAgentRequest): Promise<UninstallUniBackupAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallUniBackupAgentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the status of the honeypot installation time.
+   *
+   * @param request UpdateAlarmEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAlarmEventResponse
+   */
   async updateAlarmEventWithOptions(request: UpdateAlarmEventRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAlarmEventResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -106377,11 +114506,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAlarmEventResponse>(await this.callApi(params, req, runtime), new UpdateAlarmEventResponse({}));
   }
 
+  /**
+   * @summary Updates the status of the honeypot installation time.
+   *
+   * @param request UpdateAlarmEventRequest
+   * @return UpdateAlarmEventResponse
+   */
   async updateAlarmEvent(request: UpdateAlarmEventRequest): Promise<UpdateAlarmEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAlarmEventWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies alerting settings for servers.
+   *
+   * @param request UpdateClientAlertModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateClientAlertModeResponse
+   */
   async updateClientAlertModeWithOptions(request: UpdateClientAlertModeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientAlertModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106410,11 +114552,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateClientAlertModeResponse>(await this.callApi(params, req, runtime), new UpdateClientAlertModeResponse({}));
   }
 
+  /**
+   * @summary Modifies alerting settings for servers.
+   *
+   * @param request UpdateClientAlertModeRequest
+   * @return UpdateClientAlertModeResponse
+   */
   async updateClientAlertMode(request: UpdateClientAlertModeRequest): Promise<UpdateClientAlertModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateClientAlertModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the settings of common switches.
+   *
+   * @param request UpdateCommonSwitchConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCommonSwitchConfigResponse
+   */
   async updateCommonSwitchConfigWithOptions(request: UpdateCommonSwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCommonSwitchConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106443,11 +114598,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCommonSwitchConfigResponse>(await this.callApi(params, req, runtime), new UpdateCommonSwitchConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the settings of common switches.
+   *
+   * @param request UpdateCommonSwitchConfigRequest
+   * @return UpdateCommonSwitchConfigResponse
+   */
   async updateCommonSwitchConfig(request: UpdateCommonSwitchConfigRequest): Promise<UpdateCommonSwitchConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCommonSwitchConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the status of core file monitoring events reported by the Security Center agent.
+   *
+   * @param request UpdateFileProtectEventStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFileProtectEventStatusResponse
+   */
   async updateFileProtectEventStatusWithOptions(request: UpdateFileProtectEventStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileProtectEventStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106476,11 +114644,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFileProtectEventStatusResponse>(await this.callApi(params, req, runtime), new UpdateFileProtectEventStatusResponse({}));
   }
 
+  /**
+   * @summary Modifies the status of core file monitoring events reported by the Security Center agent.
+   *
+   * @param request UpdateFileProtectEventStatusRequest
+   * @return UpdateFileProtectEventStatusResponse
+   */
   async updateFileProtectEventStatus(request: UpdateFileProtectEventStatusRequest): Promise<UpdateFileProtectEventStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileProtectEventStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds remarks to core file monitoring events reported by the Security Center agent.
+   *
+   * @param request UpdateFileProtectRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFileProtectRemarkResponse
+   */
   async updateFileProtectRemarkWithOptions(request: UpdateFileProtectRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileProtectRemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106509,11 +114690,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFileProtectRemarkResponse>(await this.callApi(params, req, runtime), new UpdateFileProtectRemarkResponse({}));
   }
 
+  /**
+   * @summary Adds remarks to core file monitoring events reported by the Security Center agent.
+   *
+   * @param request UpdateFileProtectRemarkRequest
+   * @return UpdateFileProtectRemarkResponse
+   */
   async updateFileProtectRemark(request: UpdateFileProtectRemarkRequest): Promise<UpdateFileProtectRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileProtectRemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the content of a core file monitoring rule based on the ID of the rule.
+   *
+   * @param request UpdateFileProtectRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFileProtectRuleResponse
+   */
   async updateFileProtectRuleWithOptions(request: UpdateFileProtectRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileProtectRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106566,11 +114760,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFileProtectRuleResponse>(await this.callApi(params, req, runtime), new UpdateFileProtectRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the content of a core file monitoring rule based on the ID of the rule.
+   *
+   * @param request UpdateFileProtectRuleRequest
+   * @return UpdateFileProtectRuleResponse
+   */
   async updateFileProtectRule(request: UpdateFileProtectRuleRequest): Promise<UpdateFileProtectRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileProtectRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the queries per second (QPS) limit on the files uploaded from the client.
+   *
+   * @param request UpdateFileUploadLimitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFileUploadLimitResponse
+   */
   async updateFileUploadLimitWithOptions(request: UpdateFileUploadLimitRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileUploadLimitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106595,11 +114802,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFileUploadLimitResponse>(await this.callApi(params, req, runtime), new UpdateFileUploadLimitResponse({}));
   }
 
+  /**
+   * @summary Modifies the queries per second (QPS) limit on the files uploaded from the client.
+   *
+   * @param request UpdateFileUploadLimitRequest
+   * @return UpdateFileUploadLimitResponse
+   */
   async updateFileUploadLimit(request: UpdateFileUploadLimitRequest): Promise<UpdateFileUploadLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileUploadLimitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of a specified honeypot.
+   *
+   * @param request UpdateHoneypotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateHoneypotResponse
+   */
   async updateHoneypotWithOptions(request: UpdateHoneypotRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHoneypotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106636,11 +114856,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHoneypotResponse>(await this.callApi(params, req, runtime), new UpdateHoneypotResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of a specified honeypot.
+   *
+   * @param request UpdateHoneypotRequest
+   * @return UpdateHoneypotResponse
+   */
   async updateHoneypot(request: UpdateHoneypotRequest): Promise<UpdateHoneypotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHoneypotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configuration of a specified management node.
+   *
+   * @param request UpdateHoneypotNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateHoneypotNodeResponse
+   */
   async updateHoneypotNodeWithOptions(request: UpdateHoneypotNodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHoneypotNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106677,11 +114910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHoneypotNodeResponse>(await this.callApi(params, req, runtime), new UpdateHoneypotNodeResponse({}));
   }
 
+  /**
+   * @summary Modifies the configuration of a specified management node.
+   *
+   * @param request UpdateHoneypotNodeRequest
+   * @return UpdateHoneypotNodeResponse
+   */
   async updateHoneypotNode(request: UpdateHoneypotNodeRequest): Promise<UpdateHoneypotNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHoneypotNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of the specified honeypot template.
+   *
+   * @param request UpdateHoneypotPresetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateHoneypotPresetResponse
+   */
   async updateHoneypotPresetWithOptions(request: UpdateHoneypotPresetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHoneypotPresetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106722,11 +114968,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHoneypotPresetResponse>(await this.callApi(params, req, runtime), new UpdateHoneypotPresetResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of the specified honeypot template.
+   *
+   * @param request UpdateHoneypotPresetRequest
+   * @return UpdateHoneypotPresetResponse
+   */
   async updateHoneypotPreset(request: UpdateHoneypotPresetRequest): Promise<UpdateHoneypotPresetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHoneypotPresetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the attributes of a specified probe.
+   *
+   * @param request UpdateHoneypotProbeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateHoneypotProbeResponse
+   */
   async updateHoneypotProbeWithOptions(request: UpdateHoneypotProbeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHoneypotProbeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106771,11 +115030,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHoneypotProbeResponse>(await this.callApi(params, req, runtime), new UpdateHoneypotProbeResponse({}));
   }
 
+  /**
+   * @summary Modifies the attributes of a specified probe.
+   *
+   * @param request UpdateHoneypotProbeRequest
+   * @return UpdateHoneypotProbeResponse
+   */
   async updateHoneypotProbe(request: UpdateHoneypotProbeRequest): Promise<UpdateHoneypotProbeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHoneypotProbeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a probe service.
+   *
+   * @param request UpdateHoneypotProbeBindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateHoneypotProbeBindResponse
+   */
   async updateHoneypotProbeBindWithOptions(request: UpdateHoneypotProbeBindRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHoneypotProbeBindResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106844,11 +115116,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHoneypotProbeBindResponse>(await this.callApi(params, req, runtime), new UpdateHoneypotProbeBindResponse({}));
   }
 
+  /**
+   * @summary Modifies a probe service.
+   *
+   * @param request UpdateHoneypotProbeBindRequest
+   * @return UpdateHoneypotProbeBindResponse
+   */
   async updateHoneypotProbeBind(request: UpdateHoneypotProbeBindRequest): Promise<UpdateHoneypotProbeBindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHoneypotProbeBindWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates an alert handling rule.
+   *
+   * @param request UpdateImageEventOperationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateImageEventOperationResponse
+   */
   async updateImageEventOperationWithOptions(request: UpdateImageEventOperationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageEventOperationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106877,11 +115162,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateImageEventOperationResponse>(await this.callApi(params, req, runtime), new UpdateImageEventOperationResponse({}));
   }
 
+  /**
+   * @summary Updates an alert handling rule.
+   *
+   * @param request UpdateImageEventOperationRequest
+   * @return UpdateImageEventOperationResponse
+   */
   async updateImageEventOperation(request: UpdateImageEventOperationRequest): Promise<UpdateImageEventOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateImageEventOperationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the vulnerability whitelist of an image.
+   *
+   * @param request UpdateImageVulWhitelistTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateImageVulWhitelistTargetResponse
+   */
   async updateImageVulWhitelistTargetWithOptions(request: UpdateImageVulWhitelistTargetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageVulWhitelistTargetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106922,11 +115220,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateImageVulWhitelistTargetResponse>(await this.callApi(params, req, runtime), new UpdateImageVulWhitelistTargetResponse({}));
   }
 
+  /**
+   * @summary Updates the vulnerability whitelist of an image.
+   *
+   * @param request UpdateImageVulWhitelistTargetRequest
+   * @return UpdateImageVulWhitelistTargetResponse
+   */
   async updateImageVulWhitelistTarget(request: UpdateImageVulWhitelistTargetRequest): Promise<UpdateImageVulWhitelistTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateImageVulWhitelistTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of a Jenkins image repository.
+   *
+   * @param request UpdateJenkinsImageRegistryNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateJenkinsImageRegistryNameResponse
+   */
   async updateJenkinsImageRegistryNameWithOptions(request: UpdateJenkinsImageRegistryNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJenkinsImageRegistryNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -106961,11 +115272,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateJenkinsImageRegistryNameResponse>(await this.callApi(params, req, runtime), new UpdateJenkinsImageRegistryNameResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of a Jenkins image repository.
+   *
+   * @param request UpdateJenkinsImageRegistryNameRequest
+   * @return UpdateJenkinsImageRegistryNameResponse
+   */
   async updateJenkinsImageRegistryName(request: UpdateJenkinsImageRegistryNameRequest): Promise<UpdateJenkinsImageRegistryNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateJenkinsImageRegistryNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the retention period of images that are stored in a Jenkins image repository.
+   *
+   * @param request UpdateJenkinsImageRegistryPersistenceDayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateJenkinsImageRegistryPersistenceDayResponse
+   */
   async updateJenkinsImageRegistryPersistenceDayWithOptions(request: UpdateJenkinsImageRegistryPersistenceDayRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJenkinsImageRegistryPersistenceDayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107000,11 +115324,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateJenkinsImageRegistryPersistenceDayResponse>(await this.callApi(params, req, runtime), new UpdateJenkinsImageRegistryPersistenceDayResponse({}));
   }
 
+  /**
+   * @summary Modifies the retention period of images that are stored in a Jenkins image repository.
+   *
+   * @param request UpdateJenkinsImageRegistryPersistenceDayRequest
+   * @return UpdateJenkinsImageRegistryPersistenceDayResponse
+   */
   async updateJenkinsImageRegistryPersistenceDay(request: UpdateJenkinsImageRegistryPersistenceDayRequest): Promise<UpdateJenkinsImageRegistryPersistenceDayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request UpdateMaliciousFileWhitelistConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMaliciousFileWhitelistConfigResponse
+   */
   async updateMaliciousFileWhitelistConfigWithOptions(request: UpdateMaliciousFileWhitelistConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMaliciousFileWhitelistConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107057,11 +115394,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMaliciousFileWhitelistConfigResponse>(await this.callApi(params, req, runtime), new UpdateMaliciousFileWhitelistConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+   *
+   * @param request UpdateMaliciousFileWhitelistConfigRequest
+   * @return UpdateMaliciousFileWhitelistConfigResponse
+   */
   async updateMaliciousFileWhitelistConfig(request: UpdateMaliciousFileWhitelistConfigRequest): Promise<UpdateMaliciousFileWhitelistConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMaliciousFileWhitelistConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the blocking rule for at-risk images.
+   *
+   * @param tmpReq UpdateOpaStrategyNewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateOpaStrategyNewResponse
+   */
   async updateOpaStrategyNewWithOptions(tmpReq: UpdateOpaStrategyNewRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOpaStrategyNewResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateOpaStrategyNewShrinkRequest({ });
@@ -107144,11 +115494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOpaStrategyNewResponse>(await this.callApi(params, req, runtime), new UpdateOpaStrategyNewResponse({}));
   }
 
+  /**
+   * @summary Updates the blocking rule for at-risk images.
+   *
+   * @param request UpdateOpaStrategyNewRequest
+   * @return UpdateOpaStrategyNewResponse
+   */
   async updateOpaStrategyNew(request: UpdateOpaStrategyNewRequest): Promise<UpdateOpaStrategyNewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOpaStrategyNewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the configurations of a bucket check policy.
+   *
+   * @param request UpdateOssScanConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateOssScanConfigResponse
+   */
   async updateOssScanConfigWithOptions(request: UpdateOssScanConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOssScanConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107217,11 +115580,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOssScanConfigResponse>(await this.callApi(params, req, runtime), new UpdateOssScanConfigResponse({}));
   }
 
+  /**
+   * @summary Updates the configurations of a bucket check policy.
+   *
+   * @param request UpdateOssScanConfigRequest
+   * @return UpdateOssScanConfigResponse
+   */
   async updateOssScanConfig(request: UpdateOssScanConfigRequest): Promise<UpdateOssScanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOssScanConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the unique identifier of an asset selection.
+   *
+   * @param request UpdateSelectionKeyByTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSelectionKeyByTypeResponse
+   */
   async updateSelectionKeyByTypeWithOptions(request: UpdateSelectionKeyByTypeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSelectionKeyByTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107250,11 +115626,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSelectionKeyByTypeResponse>(await this.callApi(params, req, runtime), new UpdateSelectionKeyByTypeResponse({}));
   }
 
+  /**
+   * @summary Updates the unique identifier of an asset selection.
+   *
+   * @param request UpdateSelectionKeyByTypeRequest
+   * @return UpdateSelectionKeyByTypeResponse
+   */
   async updateSelectionKeyByType(request: UpdateSelectionKeyByTypeRequest): Promise<UpdateSelectionKeyByTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSelectionKeyByTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Upgrades the version of an anti-ransomware policy.
+   *
+   * @param request UpgradeBackupPolicyVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeBackupPolicyVersionResponse
+   */
   async upgradeBackupPolicyVersionWithOptions(request: UpgradeBackupPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeBackupPolicyVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107279,11 +115668,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeBackupPolicyVersionResponse>(await this.callApi(params, req, runtime), new UpgradeBackupPolicyVersionResponse({}));
   }
 
+  /**
+   * @summary Upgrades the version of an anti-ransomware policy.
+   *
+   * @param request UpgradeBackupPolicyVersionRequest
+   * @return UpgradeBackupPolicyVersionResponse
+   */
   async upgradeBackupPolicyVersion(request: UpgradeBackupPolicyVersionRequest): Promise<UpgradeBackupPolicyVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeBackupPolicyVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Uploads a honeypot file.
+   *
+   * @param request UploadedHoneyPotFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadedHoneyPotFileResponse
+   */
   async uploadedHoneyPotFileWithOptions(request: UploadedHoneyPotFileRequest, runtime: $Util.RuntimeOptions): Promise<UploadedHoneyPotFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107332,11 +115734,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadedHoneyPotFileResponse>(await this.callApi(params, req, runtime), new UploadedHoneyPotFileResponse({}));
   }
 
+  /**
+   * @summary Uploads a honeypot file.
+   *
+   * @param request UploadedHoneyPotFileRequest
+   * @return UploadedHoneyPotFileResponse
+   */
   async uploadedHoneyPotFile(request: UploadedHoneyPotFileRequest): Promise<UploadedHoneyPotFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadedHoneyPotFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Verifies whether risk items are fixed. If a risk item is fixed, the status of the related check item is updated to Passed.
+   *
+   * @param request ValidateHcWarningsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidateHcWarningsResponse
+   */
   async validateHcWarningsWithOptions(request: ValidateHcWarningsRequest, runtime: $Util.RuntimeOptions): Promise<ValidateHcWarningsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107369,11 +115784,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateHcWarningsResponse>(await this.callApi(params, req, runtime), new ValidateHcWarningsResponse({}));
   }
 
+  /**
+   * @summary Verifies whether risk items are fixed. If a risk item is fixed, the status of the related check item is updated to Passed.
+   *
+   * @param request ValidateHcWarningsRequest
+   * @return ValidateHcWarningsResponse
+   */
   async validateHcWarnings(request: ValidateHcWarningsRequest): Promise<ValidateHcWarningsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.validateHcWarningsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Verifies the instances on which risks are detected based on a check item.
+   *
+   * @param request VerifyCheckInstanceResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyCheckInstanceResultResponse
+   */
   async verifyCheckInstanceResultWithOptions(request: VerifyCheckInstanceResultRequest, runtime: $Util.RuntimeOptions): Promise<VerifyCheckInstanceResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107402,11 +115830,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyCheckInstanceResultResponse>(await this.callApi(params, req, runtime), new VerifyCheckInstanceResultResponse({}));
   }
 
+  /**
+   * @summary Verifies the instances on which risks are detected based on a check item.
+   *
+   * @param request VerifyCheckInstanceResultRequest
+   * @return VerifyCheckInstanceResultResponse
+   */
   async verifyCheckInstanceResult(request: VerifyCheckInstanceResultRequest): Promise<VerifyCheckInstanceResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyCheckInstanceResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Verifies risk items that are detected based on check items.
+   *
+   * @param request VerifyCheckResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyCheckResultResponse
+   */
   async verifyCheckResultWithOptions(request: VerifyCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<VerifyCheckResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -107431,6 +115872,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyCheckResultResponse>(await this.callApi(params, req, runtime), new VerifyCheckResultResponse({}));
   }
 
+  /**
+   * @summary Verifies risk items that are detected based on check items.
+   *
+   * @param request VerifyCheckResultRequest
+   * @return VerifyCheckResultResponse
+   */
   async verifyCheckResult(request: VerifyCheckResultRequest): Promise<VerifyCheckResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyCheckResultWithOptions(request, runtime);
