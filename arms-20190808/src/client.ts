@@ -13302,6 +13302,7 @@ export class ListAlertEventsRequest extends $tea.Model {
   endTime?: string;
   matchingConditions?: string;
   page?: number;
+  showNotificationPolicies?: boolean;
   size?: number;
   startTime?: string;
   status?: string;
@@ -13311,6 +13312,7 @@ export class ListAlertEventsRequest extends $tea.Model {
       endTime: 'EndTime',
       matchingConditions: 'MatchingConditions',
       page: 'Page',
+      showNotificationPolicies: 'ShowNotificationPolicies',
       size: 'Size',
       startTime: 'StartTime',
       status: 'Status',
@@ -13323,6 +13325,7 @@ export class ListAlertEventsRequest extends $tea.Model {
       endTime: 'string',
       matchingConditions: 'string',
       page: 'number',
+      showNotificationPolicies: 'boolean',
       size: 'number',
       startTime: 'string',
       status: 'string',
@@ -29454,6 +29457,28 @@ export class ListAlertEventsResponseBodyPageBeanEventsAlarms extends $tea.Model 
   }
 }
 
+export class ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies extends $tea.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAlertEventsResponseBodyPageBeanEvents extends $tea.Model {
   alarms?: ListAlertEventsResponseBodyPageBeanEventsAlarms[];
   alertName?: string;
@@ -29465,10 +29490,12 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $tea.Model {
   integrationName?: string;
   integrationType?: string;
   labels?: string;
+  notificationPolicies?: ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies[];
   receiveTime?: string;
   severity?: string;
   startTime?: string;
   status?: string;
+  triggerCount?: number;
   static names(): { [key: string]: string } {
     return {
       alarms: 'Alarms',
@@ -29481,10 +29508,12 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $tea.Model {
       integrationName: 'IntegrationName',
       integrationType: 'IntegrationType',
       labels: 'Labels',
+      notificationPolicies: 'NotificationPolicies',
       receiveTime: 'ReceiveTime',
       severity: 'Severity',
       startTime: 'StartTime',
       status: 'Status',
+      triggerCount: 'TriggerCount',
     };
   }
 
@@ -29500,10 +29529,12 @@ export class ListAlertEventsResponseBodyPageBeanEvents extends $tea.Model {
       integrationName: 'string',
       integrationType: 'string',
       labels: 'string',
+      notificationPolicies: { 'type': 'array', 'itemType': ListAlertEventsResponseBodyPageBeanEventsNotificationPolicies },
       receiveTime: 'string',
       severity: 'string',
       startTime: 'string',
       status: 'string',
+      triggerCount: 'number',
     };
   }
 
@@ -34801,6 +34832,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Adds data sources to a global aggregation instance in Prometheus Service.
+   *
+   * @param request AddAliClusterIdsToPrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddAliClusterIdsToPrometheusGlobalViewResponse
+   */
   async addAliClusterIdsToPrometheusGlobalViewWithOptions(request: AddAliClusterIdsToPrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<AddAliClusterIdsToPrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34837,11 +34875,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAliClusterIdsToPrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new AddAliClusterIdsToPrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary Adds data sources to a global aggregation instance in Prometheus Service.
+   *
+   * @param request AddAliClusterIdsToPrometheusGlobalViewRequest
+   * @return AddAliClusterIdsToPrometheusGlobalViewResponse
+   */
   async addAliClusterIdsToPrometheusGlobalView(request: AddAliClusterIdsToPrometheusGlobalViewRequest): Promise<AddAliClusterIdsToPrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAliClusterIdsToPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Integrates the dashboard of Prometheus Service.
+   *
+   * @param request AddGrafanaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGrafanaResponse
+   */
   async addGrafanaWithOptions(request: AddGrafanaRequest, runtime: $Util.RuntimeOptions): Promise<AddGrafanaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34874,17 +34925,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGrafanaResponse>(await this.callApi(params, req, runtime), new AddGrafanaResponse({}));
   }
 
+  /**
+   * @summary Integrates the dashboard of Prometheus Service.
+   *
+   * @param request AddGrafanaRequest
+   * @return AddGrafanaResponse
+   */
   async addGrafana(request: AddGrafanaRequest): Promise<AddGrafanaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGrafanaWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
-    *
-    * @param request AddIntegrationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddIntegrationResponse
+   * @deprecated OpenAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+   *
+   * @summary 接入integration
+   *
+   * @param request AddIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddIntegrationResponse
    */
   // Deprecated
   async addIntegrationWithOptions(request: AddIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<AddIntegrationResponse> {
@@ -34920,10 +34979,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
-    *
-    * @param request AddIntegrationRequest
-    * @return AddIntegrationResponse
+   * @deprecated OpenAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+   *
+   * @summary 接入integration
+   *
+   * @param request AddIntegrationRequest
+   * @return AddIntegrationResponse
    */
   // Deprecated
   async addIntegration(request: AddIntegrationRequest): Promise<AddIntegrationResponse> {
@@ -34931,6 +34992,13 @@ export default class Client extends OpenApi {
     return await this.addIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a global aggregation instance in Prometheus Service.
+   *
+   * @param request AddPrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddPrometheusGlobalViewResponse
+   */
   async addPrometheusGlobalViewWithOptions(request: AddPrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<AddPrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34971,11 +35039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddPrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new AddPrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary Adds a global aggregation instance in Prometheus Service.
+   *
+   * @param request AddPrometheusGlobalViewRequest
+   * @return AddPrometheusGlobalViewResponse
+   */
   async addPrometheusGlobalView(request: AddPrometheusGlobalViewRequest): Promise<AddPrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a global aggregation instance in Prometheus Service.
+   *
+   * @param request AddPrometheusGlobalViewByAliClusterIdsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddPrometheusGlobalViewByAliClusterIdsResponse
+   */
   async addPrometheusGlobalViewByAliClusterIdsWithOptions(request: AddPrometheusGlobalViewByAliClusterIdsRequest, runtime: $Util.RuntimeOptions): Promise<AddPrometheusGlobalViewByAliClusterIdsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35012,11 +35093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddPrometheusGlobalViewByAliClusterIdsResponse>(await this.callApi(params, req, runtime), new AddPrometheusGlobalViewByAliClusterIdsResponse({}));
   }
 
+  /**
+   * @summary Creates a global aggregation instance in Prometheus Service.
+   *
+   * @param request AddPrometheusGlobalViewByAliClusterIdsRequest
+   * @return AddPrometheusGlobalViewByAliClusterIdsResponse
+   */
   async addPrometheusGlobalViewByAliClusterIds(request: AddPrometheusGlobalViewByAliClusterIdsRequest): Promise<AddPrometheusGlobalViewByAliClusterIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrometheusGlobalViewByAliClusterIdsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a Prometheus instance for Remote Write.
+   *
+   * @param request AddPrometheusInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddPrometheusInstanceResponse
+   */
   async addPrometheusInstanceWithOptions(request: AddPrometheusInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AddPrometheusInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35049,11 +35143,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddPrometheusInstanceResponse>(await this.callApi(params, req, runtime), new AddPrometheusInstanceResponse({}));
   }
 
+  /**
+   * @summary Creates a Prometheus instance for Remote Write.
+   *
+   * @param request AddPrometheusInstanceRequest
+   * @return AddPrometheusInstanceResponse
+   */
   async addPrometheusInstance(request: AddPrometheusInstanceRequest): Promise<AddPrometheusInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrometheusInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request AddPrometheusIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddPrometheusIntegrationResponse
+   */
   async addPrometheusIntegrationWithOptions(request: AddPrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<AddPrometheusIntegrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35090,11 +35197,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddPrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new AddPrometheusIntegrationResponse({}));
   }
 
+  /**
+   * @summary Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request AddPrometheusIntegrationRequest
+   * @return AddPrometheusIntegrationResponse
+   */
   async addPrometheusIntegration(request: AddPrometheusIntegrationRequest): Promise<AddPrometheusIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrometheusIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a remote write configuration item to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request AddPrometheusRemoteWriteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddPrometheusRemoteWriteResponse
+   */
   async addPrometheusRemoteWriteWithOptions(request: AddPrometheusRemoteWriteRequest, runtime: $Util.RuntimeOptions): Promise<AddPrometheusRemoteWriteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35129,11 +35249,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddPrometheusRemoteWriteResponse>(await this.callApi(params, req, runtime), new AddPrometheusRemoteWriteResponse({}));
   }
 
+  /**
+   * @summary Adds a remote write configuration item to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request AddPrometheusRemoteWriteRequest
+   * @return AddPrometheusRemoteWriteResponse
+   */
   async addPrometheusRemoteWrite(request: AddPrometheusRemoteWriteRequest): Promise<AddPrometheusRemoteWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPrometheusRemoteWriteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or updates a recording rule.
+   *
+   * @param request AddRecordingRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddRecordingRuleResponse
+   */
   async addRecordingRuleWithOptions(request: AddRecordingRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddRecordingRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35166,11 +35299,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddRecordingRuleResponse>(await this.callApi(params, req, runtime), new AddRecordingRuleResponse({}));
   }
 
+  /**
+   * @summary Creates or updates a recording rule.
+   *
+   * @param request AddRecordingRuleRequest
+   * @return AddRecordingRuleResponse
+   */
   async addRecordingRule(request: AddRecordingRuleRequest): Promise<AddRecordingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addRecordingRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Flink集群打标
+   *
+   * @param request AddTagToFlinkClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTagToFlinkClusterResponse
+   */
   async addTagToFlinkClusterWithOptions(request: AddTagToFlinkClusterRequest, runtime: $Util.RuntimeOptions): Promise<AddTagToFlinkClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35215,11 +35361,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddTagToFlinkClusterResponse>(await this.callApi(params, req, runtime), new AddTagToFlinkClusterResponse({}));
   }
 
+  /**
+   * @summary Flink集群打标
+   *
+   * @param request AddTagToFlinkClusterRequest
+   * @return AddTagToFlinkClusterResponse
+   */
   async addTagToFlinkCluster(request: AddTagToFlinkClusterRequest): Promise<AddTagToFlinkClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTagToFlinkClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a data source to a global aggregation instance.
+   *
+   * @param request AppendInstancesToPrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AppendInstancesToPrometheusGlobalViewResponse
+   */
   async appendInstancesToPrometheusGlobalViewWithOptions(request: AppendInstancesToPrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<AppendInstancesToPrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35256,11 +35415,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AppendInstancesToPrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new AppendInstancesToPrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary Adds a data source to a global aggregation instance.
+   *
+   * @param request AppendInstancesToPrometheusGlobalViewRequest
+   * @return AppendInstancesToPrometheusGlobalViewResponse
+   */
   async appendInstancesToPrometheusGlobalView(request: AppendInstancesToPrometheusGlobalViewRequest): Promise<AppendInstancesToPrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.appendInstancesToPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq ApplyScenarioRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApplyScenarioResponse
+   */
   async applyScenarioWithOptions(tmpReq: ApplyScenarioRequest, runtime: $Util.RuntimeOptions): Promise<ApplyScenarioResponse> {
     Util.validateModel(tmpReq);
     let request = new ApplyScenarioShrinkRequest({ });
@@ -35331,11 +35501,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ApplyScenarioResponse>(await this.callApi(params, req, runtime), new ApplyScenarioResponse({}));
   }
 
+  /**
+   * @param request ApplyScenarioRequest
+   * @return ApplyScenarioResponse
+   */
   async applyScenario(request: ApplyScenarioRequest): Promise<ApplyScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.applyScenarioWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Binds a Grafana workspace to a Prometheus instance.
+   *
+   * @param request BindPrometheusGrafanaInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindPrometheusGrafanaInstanceResponse
+   */
   async bindPrometheusGrafanaInstanceWithOptions(request: BindPrometheusGrafanaInstanceRequest, runtime: $Util.RuntimeOptions): Promise<BindPrometheusGrafanaInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35372,11 +35553,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BindPrometheusGrafanaInstanceResponse>(await this.callApi(params, req, runtime), new BindPrometheusGrafanaInstanceResponse({}));
   }
 
+  /**
+   * @summary Binds a Grafana workspace to a Prometheus instance.
+   *
+   * @param request BindPrometheusGrafanaInstanceRequest
+   * @return BindPrometheusGrafanaInstanceResponse
+   */
   async bindPrometheusGrafanaInstance(request: BindPrometheusGrafanaInstanceRequest): Promise<BindPrometheusGrafanaInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindPrometheusGrafanaInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 屏蔽告警通知
+   *
+   * @param request BlockAlarmNotificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BlockAlarmNotificationResponse
+   */
   async blockAlarmNotificationWithOptions(request: BlockAlarmNotificationRequest, runtime: $Util.RuntimeOptions): Promise<BlockAlarmNotificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35413,11 +35607,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BlockAlarmNotificationResponse>(await this.callApi(params, req, runtime), new BlockAlarmNotificationResponse({}));
   }
 
+  /**
+   * @summary 屏蔽告警通知
+   *
+   * @param request BlockAlarmNotificationRequest
+   * @return BlockAlarmNotificationResponse
+   */
   async blockAlarmNotification(request: BlockAlarmNotificationRequest): Promise<BlockAlarmNotificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.blockAlarmNotificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改告警等级
+   *
+   * @param request ChangeAlarmSeverityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeAlarmSeverityResponse
+   */
   async changeAlarmSeverityWithOptions(request: ChangeAlarmSeverityRequest, runtime: $Util.RuntimeOptions): Promise<ChangeAlarmSeverityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35454,11 +35661,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeAlarmSeverityResponse>(await this.callApi(params, req, runtime), new ChangeAlarmSeverityResponse({}));
   }
 
+  /**
+   * @summary 修改告警等级
+   *
+   * @param request ChangeAlarmSeverityRequest
+   * @return ChangeAlarmSeverityResponse
+   */
   async changeAlarmSeverity(request: ChangeAlarmSeverityRequest): Promise<ChangeAlarmSeverityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeAlarmSeverityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the resource group to which a resource belongs.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35495,17 +35715,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Changes the resource group to which a resource belongs.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to check whether ARMS is available for commercial use in a region.
-    *
-    * @param request CheckCommercialStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckCommercialStatusResponse
+   * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+   *
+   * @description You can call this operation to check whether ARMS is available for commercial use in a region.
+   *
+   * @param request CheckCommercialStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCommercialStatusResponse
    */
   async checkCommercialStatusWithOptions(request: CheckCommercialStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckCommercialStatusResponse> {
     Util.validateModel(request);
@@ -35528,16 +35756,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to check whether ARMS is available for commercial use in a region.
-    *
-    * @param request CheckCommercialStatusRequest
-    * @return CheckCommercialStatusResponse
+   * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+   *
+   * @description You can call this operation to check whether ARMS is available for commercial use in a region.
+   *
+   * @param request CheckCommercialStatusRequest
+   * @return CheckCommercialStatusResponse
    */
   async checkCommercialStatus(request: CheckCommercialStatusRequest): Promise<CheckCommercialStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCommercialStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks the status of a service in the current cluster, such as whether the service is activated and whether the payment is overdue.
+   *
+   * @param request CheckServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckServiceStatusResponse
+   */
   async checkServiceStatusWithOptions(request: CheckServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35566,11 +35803,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckServiceStatusResponse>(await this.callApi(params, req, runtime), new CheckServiceStatusResponse({}));
   }
 
+  /**
+   * @summary Checks the status of a service in the current cluster, such as whether the service is activated and whether the payment is overdue.
+   *
+   * @param request CheckServiceStatusRequest
+   * @return CheckServiceStatusResponse
+   */
   async checkServiceStatus(request: CheckServiceStatusRequest): Promise<CheckServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 认领告警
+   *
+   * @param request ClaimAlarmRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ClaimAlarmResponse
+   */
   async claimAlarmWithOptions(request: ClaimAlarmRequest, runtime: $Util.RuntimeOptions): Promise<ClaimAlarmResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35603,11 +35853,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ClaimAlarmResponse>(await this.callApi(params, req, runtime), new ClaimAlarmResponse({}));
   }
 
+  /**
+   * @summary 认领告警
+   *
+   * @param request ClaimAlarmRequest
+   * @return ClaimAlarmResponse
+   */
   async claimAlarm(request: ClaimAlarmRequest): Promise<ClaimAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.claimAlarmWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 关闭告警
+   *
+   * @param request CloseAlarmRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseAlarmResponse
+   */
   async closeAlarmWithOptions(request: CloseAlarmRequest, runtime: $Util.RuntimeOptions): Promise<CloseAlarmResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35644,17 +35907,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseAlarmResponse>(await this.callApi(params, req, runtime), new CloseAlarmResponse({}));
   }
 
+  /**
+   * @summary 关闭告警
+   *
+   * @param request CloseAlarmRequest
+   * @return CloseAlarmResponse
+   */
   async closeAlarm(request: CloseAlarmRequest): Promise<CloseAlarmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeAlarmWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request ConfigAppRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ConfigAppResponse
+   * @summary Turns on or off the main switch of an ARMS agent, or queries the status of the main switch.
+   *
+   * @description ****
+   *
+   * @param request ConfigAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigAppResponse
    */
   async configAppWithOptions(request: ConfigAppRequest, runtime: $Util.RuntimeOptions): Promise<ConfigAppResponse> {
     Util.validateModel(request);
@@ -35693,10 +35964,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request ConfigAppRequest
-    * @return ConfigAppResponse
+   * @summary Turns on or off the main switch of an ARMS agent, or queries the status of the main switch.
+   *
+   * @description ****
+   *
+   * @param request ConfigAppRequest
+   * @return ConfigAppResponse
    */
   async configApp(request: ConfigAppRequest): Promise<ConfigAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35704,11 +35977,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
-    *
-    * @param request CreateAlertContactRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAlertContactResponse
+   * @summary Creates an alert contact.
+   *
+   * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
+   *
+   * @param request CreateAlertContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAlertContactResponse
    */
   async createAlertContactWithOptions(request: CreateAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<CreateAlertContactResponse> {
     Util.validateModel(request);
@@ -35759,16 +36034,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
-    *
-    * @param request CreateAlertContactRequest
-    * @return CreateAlertContactResponse
+   * @summary Creates an alert contact.
+   *
+   * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
+   *
+   * @param request CreateAlertContactRequest
+   * @return CreateAlertContactResponse
    */
   async createAlertContact(request: CreateAlertContactRequest): Promise<CreateAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAlertContactWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAlertContactGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAlertContactGroupResponse
+   */
   async createAlertContactGroupWithOptions(request: CreateAlertContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAlertContactGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35801,11 +36083,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAlertContactGroupResponse>(await this.callApi(params, req, runtime), new CreateAlertContactGroupResponse({}));
   }
 
+  /**
+   * @param request CreateAlertContactGroupRequest
+   * @return CreateAlertContactGroupResponse
+   */
   async createAlertContactGroup(request: CreateAlertContactGroupRequest): Promise<CreateAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAlertContactGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to CreateDispatchRule.
+   *
+   * @param request CreateDispatchRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDispatchRuleResponse
+   */
   async createDispatchRuleWithOptions(request: CreateDispatchRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDispatchRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35834,11 +36127,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDispatchRuleResponse>(await this.callApi(params, req, runtime), new CreateDispatchRuleResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to CreateDispatchRule.
+   *
+   * @param request CreateDispatchRuleRequest
+   * @return CreateDispatchRuleResponse
+   */
   async createDispatchRule(request: CreateDispatchRuleRequest): Promise<CreateDispatchRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDispatchRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom job for an environment.
+   *
+   * @param request CreateEnvCustomJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEnvCustomJobResponse
+   */
   async createEnvCustomJobWithOptions(request: CreateEnvCustomJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnvCustomJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35881,11 +36187,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEnvCustomJobResponse>(await this.callApi(params, req, runtime), new CreateEnvCustomJobResponse({}));
   }
 
+  /**
+   * @summary Creates a custom job for an environment.
+   *
+   * @param request CreateEnvCustomJobRequest
+   * @return CreateEnvCustomJobResponse
+   */
   async createEnvCustomJob(request: CreateEnvCustomJobRequest): Promise<CreateEnvCustomJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnvCustomJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a PodMonitor for an environment.
+   *
+   * @param request CreateEnvPodMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEnvPodMonitorResponse
+   */
   async createEnvPodMonitorWithOptions(request: CreateEnvPodMonitorRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnvPodMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35928,11 +36247,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEnvPodMonitorResponse>(await this.callApi(params, req, runtime), new CreateEnvPodMonitorResponse({}));
   }
 
+  /**
+   * @summary Creates a PodMonitor for an environment.
+   *
+   * @param request CreateEnvPodMonitorRequest
+   * @return CreateEnvPodMonitorResponse
+   */
   async createEnvPodMonitor(request: CreateEnvPodMonitorRequest): Promise<CreateEnvPodMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnvPodMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a ServiceMonitor for an environment.
+   *
+   * @param request CreateEnvServiceMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEnvServiceMonitorResponse
+   */
   async createEnvServiceMonitorWithOptions(request: CreateEnvServiceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnvServiceMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35975,11 +36307,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEnvServiceMonitorResponse>(await this.callApi(params, req, runtime), new CreateEnvServiceMonitorResponse({}));
   }
 
+  /**
+   * @summary Creates a ServiceMonitor for an environment.
+   *
+   * @param request CreateEnvServiceMonitorRequest
+   * @return CreateEnvServiceMonitorResponse
+   */
   async createEnvServiceMonitor(request: CreateEnvServiceMonitorRequest): Promise<CreateEnvServiceMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnvServiceMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an environment instance.
+   *
+   * @param request CreateEnvironmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEnvironmentResponse
+   */
   async createEnvironmentWithOptions(request: CreateEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnvironmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36044,11 +36389,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEnvironmentResponse>(await this.callApi(params, req, runtime), new CreateEnvironmentResponse({}));
   }
 
+  /**
+   * @summary Creates an environment instance.
+   *
+   * @param request CreateEnvironmentRequest
+   * @return CreateEnvironmentResponse
+   */
   async createEnvironment(request: CreateEnvironmentRequest): Promise<CreateEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnvironmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建工作区
+   *
+   * @param tmpReq CreateGrafanaWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGrafanaWorkspaceResponse
+   */
   async createGrafanaWorkspaceWithOptions(tmpReq: CreateGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGrafanaWorkspaceResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateGrafanaWorkspaceShrinkRequest({ });
@@ -36111,11 +36469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateGrafanaWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 创建工作区
+   *
+   * @param request CreateGrafanaWorkspaceRequest
+   * @return CreateGrafanaWorkspaceResponse
+   */
   async createGrafanaWorkspace(request: CreateGrafanaWorkspaceRequest): Promise<CreateGrafanaWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGrafanaWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an alert integration.
+   *
+   * @param request CreateIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIntegrationResponse
+   */
   async createIntegrationWithOptions(request: CreateIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntegrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36162,11 +36533,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIntegrationResponse>(await this.callApi(params, req, runtime), new CreateIntegrationResponse({}));
   }
 
+  /**
+   * @summary Creates an alert integration.
+   *
+   * @param request CreateIntegrationRequest
+   * @return CreateIntegrationResponse
+   */
   async createIntegration(request: CreateIntegrationRequest): Promise<CreateIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies an alert rule.
+   *
+   * @param request CreateOrUpdateAlertRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateAlertRuleResponse
+   */
   async createOrUpdateAlertRuleWithOptions(request: CreateOrUpdateAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateAlertRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36303,11 +36687,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateAlertRuleResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateAlertRuleResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies an alert rule.
+   *
+   * @param request CreateOrUpdateAlertRuleRequest
+   * @return CreateOrUpdateAlertRuleResponse
+   */
   async createOrUpdateAlertRule(request: CreateOrUpdateAlertRuleRequest): Promise<CreateOrUpdateAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateAlertRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies an alert contact.
+   *
+   * @param request CreateOrUpdateContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateContactResponse
+   */
   async createOrUpdateContactWithOptions(request: CreateOrUpdateContactRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36366,11 +36763,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateContactResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateContactResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies an alert contact.
+   *
+   * @param request CreateOrUpdateContactRequest
+   * @return CreateOrUpdateContactResponse
+   */
   async createOrUpdateContact(request: CreateOrUpdateContactRequest): Promise<CreateOrUpdateContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateContactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies an alert contact group.
+   *
+   * @param request CreateOrUpdateContactGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateContactGroupResponse
+   */
   async createOrUpdateContactGroupWithOptions(request: CreateOrUpdateContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateContactGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36403,11 +36813,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateContactGroupResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateContactGroupResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies an alert contact group.
+   *
+   * @param request CreateOrUpdateContactGroupRequest
+   * @return CreateOrUpdateContactGroupResponse
+   */
   async createOrUpdateContactGroup(request: CreateOrUpdateContactGroupRequest): Promise<CreateOrUpdateContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateContactGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies an EventBridge integration that is used to push notifications.
+   *
+   * @param request CreateOrUpdateEventBridgeIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateEventBridgeIntegrationResponse
+   */
   async createOrUpdateEventBridgeIntegrationWithOptions(request: CreateOrUpdateEventBridgeIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateEventBridgeIntegrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36464,11 +36887,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateEventBridgeIntegrationResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateEventBridgeIntegrationResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies an EventBridge integration that is used to push notifications.
+   *
+   * @param request CreateOrUpdateEventBridgeIntegrationRequest
+   * @return CreateOrUpdateEventBridgeIntegrationResponse
+   */
   async createOrUpdateEventBridgeIntegration(request: CreateOrUpdateEventBridgeIntegrationRequest): Promise<CreateOrUpdateEventBridgeIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateEventBridgeIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or updates an IM chatbot.
+   *
+   * @param request CreateOrUpdateIMRobotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateIMRobotResponse
+   */
   async createOrUpdateIMRobotWithOptions(request: CreateOrUpdateIMRobotRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateIMRobotResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36529,11 +36965,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateIMRobotResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateIMRobotResponse({}));
   }
 
+  /**
+   * @summary Creates or updates an IM chatbot.
+   *
+   * @param request CreateOrUpdateIMRobotRequest
+   * @return CreateOrUpdateIMRobotResponse
+   */
   async createOrUpdateIMRobot(request: CreateOrUpdateIMRobotRequest): Promise<CreateOrUpdateIMRobotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateIMRobotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies a notification policy.
+   *
+   * @param request CreateOrUpdateNotificationPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateNotificationPolicyResponse
+   */
   async createOrUpdateNotificationPolicyWithOptions(request: CreateOrUpdateNotificationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateNotificationPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36606,11 +37055,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateNotificationPolicyResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateNotificationPolicyResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies a notification policy.
+   *
+   * @param request CreateOrUpdateNotificationPolicyRequest
+   * @return CreateOrUpdateNotificationPolicyResponse
+   */
   async createOrUpdateNotificationPolicy(request: CreateOrUpdateNotificationPolicyRequest): Promise<CreateOrUpdateNotificationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateNotificationPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies a silence policy.
+   *
+   * @param request CreateOrUpdateSilencePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateSilencePolicyResponse
+   */
   async createOrUpdateSilencePolicyWithOptions(request: CreateOrUpdateSilencePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateSilencePolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36647,11 +37109,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateSilencePolicyResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateSilencePolicyResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies a silence policy.
+   *
+   * @param request CreateOrUpdateSilencePolicyRequest
+   * @return CreateOrUpdateSilencePolicyResponse
+   */
   async createOrUpdateSilencePolicy(request: CreateOrUpdateSilencePolicyRequest): Promise<CreateOrUpdateSilencePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateSilencePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies a webhook alert contact.
+   *
+   * @param request CreateOrUpdateWebhookContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrUpdateWebhookContactResponse
+   */
   async createOrUpdateWebhookContactWithOptions(request: CreateOrUpdateWebhookContactRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateWebhookContactResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36704,11 +37179,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrUpdateWebhookContactResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateWebhookContactResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies a webhook alert contact.
+   *
+   * @param request CreateOrUpdateWebhookContactRequest
+   * @return CreateOrUpdateWebhookContactResponse
+   */
   async createOrUpdateWebhookContact(request: CreateOrUpdateWebhookContactRequest): Promise<CreateOrUpdateWebhookContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateWebhookContactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建Prometheus告警规则
+   *
+   * @param request CreatePrometheusAlertRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePrometheusAlertRuleResponse
+   */
   async createPrometheusAlertRuleWithOptions(request: CreatePrometheusAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrometheusAlertRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36777,11 +37265,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrometheusAlertRuleResponse>(await this.callApi(params, req, runtime), new CreatePrometheusAlertRuleResponse({}));
   }
 
+  /**
+   * @summary 创建Prometheus告警规则
+   *
+   * @param request CreatePrometheusAlertRuleRequest
+   * @return CreatePrometheusAlertRuleResponse
+   */
   async createPrometheusAlertRule(request: CreatePrometheusAlertRuleRequest): Promise<CreatePrometheusAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrometheusAlertRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a Prometheus instance.
+   *
+   * @param request CreatePrometheusInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePrometheusInstanceResponse
+   */
   async createPrometheusInstanceWithOptions(request: CreatePrometheusInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrometheusInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36858,11 +37359,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrometheusInstanceResponse>(await this.callApi(params, req, runtime), new CreatePrometheusInstanceResponse({}));
   }
 
+  /**
+   * @summary Creates a Prometheus instance.
+   *
+   * @param request CreatePrometheusInstanceRequest
+   * @return CreatePrometheusInstanceResponse
+   */
   async createPrometheusInstance(request: CreatePrometheusInstanceRequest): Promise<CreatePrometheusInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrometheusInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a monitoring configuration for a Prometheus instance.
+   *
+   * @param request CreatePrometheusMonitoringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePrometheusMonitoringResponse
+   */
   async createPrometheusMonitoringWithOptions(request: CreatePrometheusMonitoringRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrometheusMonitoringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36905,11 +37419,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrometheusMonitoringResponse>(await this.callApi(params, req, runtime), new CreatePrometheusMonitoringResponse({}));
   }
 
+  /**
+   * @summary Creates a monitoring configuration for a Prometheus instance.
+   *
+   * @param request CreatePrometheusMonitoringRequest
+   * @return CreatePrometheusMonitoringResponse
+   */
   async createPrometheusMonitoring(request: CreatePrometheusMonitoringRequest): Promise<CreatePrometheusMonitoringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrometheusMonitoringWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a Browser Monitoring task for an application.
+   *
+   * @param request CreateRetcodeAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRetcodeAppResponse
+   */
   async createRetcodeAppWithOptions(request: CreateRetcodeAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateRetcodeAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36950,11 +37477,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRetcodeAppResponse>(await this.callApi(params, req, runtime), new CreateRetcodeAppResponse({}));
   }
 
+  /**
+   * @summary Creates a Browser Monitoring task for an application.
+   *
+   * @param request CreateRetcodeAppRequest
+   * @return CreateRetcodeAppResponse
+   */
   async createRetcodeApp(request: CreateRetcodeAppRequest): Promise<CreateRetcodeAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRetcodeAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建前端监控应用
+   *
+   * @param request CreateRumAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRumAppResponse
+   */
   async createRumAppWithOptions(request: CreateRumAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateRumAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37011,11 +37551,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRumAppResponse>(await this.callApi(params, req, runtime), new CreateRumAppResponse({}));
   }
 
+  /**
+   * @summary 创建前端监控应用
+   *
+   * @param request CreateRumAppRequest
+   * @return CreateRumAppResponse
+   */
   async createRumApp(request: CreateRumAppRequest): Promise<CreateRumAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRumAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建前端监控上传oss的URL
+   *
+   * @param request CreateRumUploadFileUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRumUploadFileUrlResponse
+   */
   async createRumUploadFileUrlWithOptions(request: CreateRumUploadFileUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateRumUploadFileUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37068,11 +37621,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRumUploadFileUrlResponse>(await this.callApi(params, req, runtime), new CreateRumUploadFileUrlResponse({}));
   }
 
+  /**
+   * @summary 创建前端监控上传oss的URL
+   *
+   * @param request CreateRumUploadFileUrlRequest
+   * @return CreateRumUploadFileUrlResponse
+   */
   async createRumUploadFileUrl(request: CreateRumUploadFileUrlRequest): Promise<CreateRumUploadFileUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRumUploadFileUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建或更新云拨测定时监控任务
+   *
+   * @param tmpReq CreateSyntheticTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSyntheticTaskResponse
+   */
   async createSyntheticTaskWithOptions(tmpReq: CreateSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateSyntheticTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateSyntheticTaskShrinkRequest({ });
@@ -37183,11 +37749,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSyntheticTaskResponse>(await this.callApi(params, req, runtime), new CreateSyntheticTaskResponse({}));
   }
 
+  /**
+   * @summary 创建或更新云拨测定时监控任务
+   *
+   * @param request CreateSyntheticTaskRequest
+   * @return CreateSyntheticTaskResponse
+   */
   async createSyntheticTask(request: CreateSyntheticTaskRequest): Promise<CreateSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSyntheticTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建云拨测定时任务
+   *
+   * @param tmpReq CreateTimingSyntheticTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTimingSyntheticTaskResponse
+   */
   async createTimingSyntheticTaskWithOptions(tmpReq: CreateTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateTimingSyntheticTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateTimingSyntheticTaskShrinkRequest({ });
@@ -37282,11 +37861,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new CreateTimingSyntheticTaskResponse({}));
   }
 
+  /**
+   * @summary 创建云拨测定时任务
+   *
+   * @param request CreateTimingSyntheticTaskRequest
+   * @return CreateTimingSyntheticTaskResponse
+   */
   async createTimingSyntheticTask(request: CreateTimingSyntheticTaskRequest): Promise<CreateTimingSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTimingSyntheticTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a contact for webhook alerts.
+   *
+   * @param request CreateWebhookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWebhookResponse
+   */
   async createWebhookWithOptions(request: CreateWebhookRequest, runtime: $Util.RuntimeOptions): Promise<CreateWebhookResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37339,11 +37931,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWebhookResponse>(await this.callApi(params, req, runtime), new CreateWebhookResponse({}));
   }
 
+  /**
+   * @summary Adds a contact for webhook alerts.
+   *
+   * @param request CreateWebhookRequest
+   * @return CreateWebhookResponse
+   */
   async createWebhook(request: CreateWebhookRequest): Promise<CreateWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWebhookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables an authentication token.
+   *
+   * @param request DelAuthTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DelAuthTokenResponse
+   */
   async delAuthTokenWithOptions(request: DelAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<DelAuthTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37372,11 +37977,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DelAuthTokenResponse>(await this.callApi(params, req, runtime), new DelAuthTokenResponse({}));
   }
 
+  /**
+   * @summary Disables an authentication token.
+   *
+   * @param request DelAuthTokenRequest
+   * @return DelAuthTokenResponse
+   */
   async delAuthToken(request: DelAuthTokenRequest): Promise<DelAuthTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.delAuthTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete AddonRelease data by AddonRelease name.
+   *
+   * @param request DeleteAddonReleaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAddonReleaseResponse
+   */
   async deleteAddonReleaseWithOptions(request: DeleteAddonReleaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAddonReleaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37413,17 +38031,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAddonReleaseResponse>(await this.callApi(params, req, runtime), new DeleteAddonReleaseResponse({}));
   }
 
+  /**
+   * @summary Delete AddonRelease data by AddonRelease name.
+   *
+   * @param request DeleteAddonReleaseRequest
+   * @return DeleteAddonReleaseResponse
+   */
   async deleteAddonRelease(request: DeleteAddonReleaseRequest): Promise<DeleteAddonReleaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAddonReleaseWithOptions(request, runtime);
   }
 
   /**
-    * ********
-    *
-    * @param request DeleteAlertContactRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAlertContactResponse
+   * @summary Deletes an DeleteAlertContact contact.
+   *
+   * @description ********
+   *
+   * @param request DeleteAlertContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAlertContactResponse
    */
   async deleteAlertContactWithOptions(request: DeleteAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
     Util.validateModel(request);
@@ -37454,16 +38080,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ********
-    *
-    * @param request DeleteAlertContactRequest
-    * @return DeleteAlertContactResponse
+   * @summary Deletes an DeleteAlertContact contact.
+   *
+   * @description ********
+   *
+   * @param request DeleteAlertContactRequest
+   * @return DeleteAlertContactResponse
    */
   async deleteAlertContact(request: DeleteAlertContactRequest): Promise<DeleteAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertContactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an DeleteAlertContactGroup contact group.
+   *
+   * @param request DeleteAlertContactGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAlertContactGroupResponse
+   */
   async deleteAlertContactGroupWithOptions(request: DeleteAlertContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37492,11 +38127,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes an DeleteAlertContactGroup contact group.
+   *
+   * @param request DeleteAlertContactGroupRequest
+   * @return DeleteAlertContactGroupResponse
+   */
   async deleteAlertContactGroup(request: DeleteAlertContactGroupRequest): Promise<DeleteAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertContactGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an alert rule.
+   *
+   * @param request DeleteAlertRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAlertRuleResponse
+   */
   async deleteAlertRuleWithOptions(request: DeleteAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37521,11 +38169,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertRuleResponse>(await this.callApi(params, req, runtime), new DeleteAlertRuleResponse({}));
   }
 
+  /**
+   * @summary Deletes an alert rule.
+   *
+   * @param request DeleteAlertRuleRequest
+   * @return DeleteAlertRuleResponse
+   */
   async deleteAlertRule(request: DeleteAlertRuleRequest): Promise<DeleteAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteAlertRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAlertRulesResponse
+   */
   async deleteAlertRulesWithOptions(request: DeleteAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37554,11 +38213,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertRulesResponse>(await this.callApi(params, req, runtime), new DeleteAlertRulesResponse({}));
   }
 
+  /**
+   * @param request DeleteAlertRulesRequest
+   * @return DeleteAlertRulesResponse
+   */
   async deleteAlertRules(request: DeleteAlertRulesRequest): Promise<DeleteAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAlertRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes multiple applications at a time based on the process IDs (PIDs).
+   *
+   * @param request DeleteAppListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppListResponse
+   */
   async deleteAppListWithOptions(request: DeleteAppListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37587,17 +38257,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppListResponse>(await this.callApi(params, req, runtime), new DeleteAppListResponse({}));
   }
 
+  /**
+   * @summary Deletes multiple applications at a time based on the process IDs (PIDs).
+   *
+   * @param request DeleteAppListRequest
+   * @return DeleteAppListResponse
+   */
   async deleteAppList(request: DeleteAppListRequest): Promise<DeleteAppListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppListWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
-    *
-    * @param request DeleteCmsExporterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteCmsExporterResponse
+   * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+   *
+   * @summary Releases a Prometheus instance for Alibaba Cloud services.
+   *
+   * @param request DeleteCmsExporterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCmsExporterResponse
    */
   // Deprecated
   async deleteCmsExporterWithOptions(request: DeleteCmsExporterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCmsExporterResponse> {
@@ -37629,10 +38307,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
-    *
-    * @param request DeleteCmsExporterRequest
-    * @return DeleteCmsExporterResponse
+   * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+   *
+   * @summary Releases a Prometheus instance for Alibaba Cloud services.
+   *
+   * @param request DeleteCmsExporterRequest
+   * @return DeleteCmsExporterResponse
    */
   // Deprecated
   async deleteCmsExporter(request: DeleteCmsExporterRequest): Promise<DeleteCmsExporterResponse> {
@@ -37640,6 +38320,13 @@ export default class Client extends OpenApi {
     return await this.deleteCmsExporterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request DeleteContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteContactResponse
+   */
   async deleteContactWithOptions(request: DeleteContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37664,11 +38351,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteContactResponse>(await this.callApi(params, req, runtime), new DeleteContactResponse({}));
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request DeleteContactRequest
+   * @return DeleteContactResponse
+   */
   async deleteContact(request: DeleteContactRequest): Promise<DeleteContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteContactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an alert contact group.
+   *
+   * @param request DeleteContactGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteContactGroupResponse
+   */
   async deleteContactGroupWithOptions(request: DeleteContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContactGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37693,11 +38393,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteContactGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes an alert contact group.
+   *
+   * @param request DeleteContactGroupRequest
+   * @return DeleteContactGroupResponse
+   */
   async deleteContactGroup(request: DeleteContactGroupRequest): Promise<DeleteContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteContactGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDispatchRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDispatchRuleResponse
+   */
   async deleteDispatchRuleWithOptions(request: DeleteDispatchRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDispatchRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37726,11 +38437,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDispatchRuleResponse>(await this.callApi(params, req, runtime), new DeleteDispatchRuleResponse({}));
   }
 
+  /**
+   * @param request DeleteDispatchRuleRequest
+   * @return DeleteDispatchRuleResponse
+   */
   async deleteDispatchRule(request: DeleteDispatchRuleRequest): Promise<DeleteDispatchRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDispatchRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete custom jobs for the environment.
+   *
+   * @param request DeleteEnvCustomJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEnvCustomJobResponse
+   */
   async deleteEnvCustomJobWithOptions(request: DeleteEnvCustomJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvCustomJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37763,11 +38485,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnvCustomJobResponse>(await this.callApi(params, req, runtime), new DeleteEnvCustomJobResponse({}));
   }
 
+  /**
+   * @summary Delete custom jobs for the environment.
+   *
+   * @param request DeleteEnvCustomJobRequest
+   * @return DeleteEnvCustomJobResponse
+   */
   async deleteEnvCustomJob(request: DeleteEnvCustomJobRequest): Promise<DeleteEnvCustomJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEnvCustomJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete the environment PodMonitor.
+   *
+   * @param request DeleteEnvPodMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEnvPodMonitorResponse
+   */
   async deleteEnvPodMonitorWithOptions(request: DeleteEnvPodMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvPodMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37804,11 +38539,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnvPodMonitorResponse>(await this.callApi(params, req, runtime), new DeleteEnvPodMonitorResponse({}));
   }
 
+  /**
+   * @summary Delete the environment PodMonitor.
+   *
+   * @param request DeleteEnvPodMonitorRequest
+   * @return DeleteEnvPodMonitorResponse
+   */
   async deleteEnvPodMonitor(request: DeleteEnvPodMonitorRequest): Promise<DeleteEnvPodMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEnvPodMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete the environment ServiceMonitor.
+   *
+   * @param request DeleteEnvServiceMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEnvServiceMonitorResponse
+   */
   async deleteEnvServiceMonitorWithOptions(request: DeleteEnvServiceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvServiceMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37845,11 +38593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnvServiceMonitorResponse>(await this.callApi(params, req, runtime), new DeleteEnvServiceMonitorResponse({}));
   }
 
+  /**
+   * @summary Delete the environment ServiceMonitor.
+   *
+   * @param request DeleteEnvServiceMonitorRequest
+   * @return DeleteEnvServiceMonitorResponse
+   */
   async deleteEnvServiceMonitor(request: DeleteEnvServiceMonitorRequest): Promise<DeleteEnvServiceMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEnvServiceMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an environment instance.
+   *
+   * @param request DeleteEnvironmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEnvironmentResponse
+   */
   async deleteEnvironmentWithOptions(request: DeleteEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvironmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37882,11 +38643,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnvironmentResponse>(await this.callApi(params, req, runtime), new DeleteEnvironmentResponse({}));
   }
 
+  /**
+   * @summary Deletes an environment instance.
+   *
+   * @param request DeleteEnvironmentRequest
+   * @return DeleteEnvironmentResponse
+   */
   async deleteEnvironment(request: DeleteEnvironmentRequest): Promise<DeleteEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEnvironmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除feature信息
+   *
+   * @param request DeleteEnvironmentFeatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEnvironmentFeatureResponse
+   */
   async deleteEnvironmentFeatureWithOptions(request: DeleteEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnvironmentFeatureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37919,11 +38693,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new DeleteEnvironmentFeatureResponse({}));
   }
 
+  /**
+   * @summary 删除feature信息
+   *
+   * @param request DeleteEnvironmentFeatureRequest
+   * @return DeleteEnvironmentFeatureResponse
+   */
   async deleteEnvironmentFeature(request: DeleteEnvironmentFeatureRequest): Promise<DeleteEnvironmentFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEnvironmentFeatureWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an EventBridge integration that is used to push notifications.
+   *
+   * @param request DeleteEventBridgeIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEventBridgeIntegrationResponse
+   */
   async deleteEventBridgeIntegrationWithOptions(request: DeleteEventBridgeIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventBridgeIntegrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37948,11 +38735,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEventBridgeIntegrationResponse>(await this.callApi(params, req, runtime), new DeleteEventBridgeIntegrationResponse({}));
   }
 
+  /**
+   * @summary Deletes an EventBridge integration that is used to push notifications.
+   *
+   * @param request DeleteEventBridgeIntegrationRequest
+   * @return DeleteEventBridgeIntegrationResponse
+   */
   async deleteEventBridgeIntegration(request: DeleteEventBridgeIntegrationRequest): Promise<DeleteEventBridgeIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEventBridgeIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes Grafana dashboard resources from a cluster monitored by Prometheus Service.
+   *
+   * @param request DeleteGrafanaResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGrafanaResourceResponse
+   */
   async deleteGrafanaResourceWithOptions(request: DeleteGrafanaResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGrafanaResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37987,11 +38787,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGrafanaResourceResponse>(await this.callApi(params, req, runtime), new DeleteGrafanaResourceResponse({}));
   }
 
+  /**
+   * @summary Deletes Grafana dashboard resources from a cluster monitored by Prometheus Service.
+   *
+   * @param request DeleteGrafanaResourceRequest
+   * @return DeleteGrafanaResourceResponse
+   */
   async deleteGrafanaResource(request: DeleteGrafanaResourceRequest): Promise<DeleteGrafanaResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGrafanaResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 释放工作区
+   *
+   * @param request DeleteGrafanaWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGrafanaWorkspaceResponse
+   */
   async deleteGrafanaWorkspaceWithOptions(request: DeleteGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGrafanaWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38020,11 +38833,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new DeleteGrafanaWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 释放工作区
+   *
+   * @param request DeleteGrafanaWorkspaceRequest
+   * @return DeleteGrafanaWorkspaceResponse
+   */
   async deleteGrafanaWorkspace(request: DeleteGrafanaWorkspaceRequest): Promise<DeleteGrafanaWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGrafanaWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an instant messaging (IM) chatbot.
+   *
+   * @param request DeleteIMRobotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIMRobotResponse
+   */
   async deleteIMRobotWithOptions(request: DeleteIMRobotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIMRobotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38049,17 +38875,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIMRobotResponse>(await this.callApi(params, req, runtime), new DeleteIMRobotResponse({}));
   }
 
+  /**
+   * @summary Deletes an instant messaging (IM) chatbot.
+   *
+   * @param request DeleteIMRobotRequest
+   * @return DeleteIMRobotResponse
+   */
   async deleteIMRobot(request: DeleteIMRobotRequest): Promise<DeleteIMRobotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIMRobotWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
-    *
-    * @param request DeleteIntegrationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIntegrationResponse
+   * @deprecated OpenAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+   *
+   * @summary Deletes collection rules from an integration.
+   *
+   * @param request DeleteIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIntegrationResponse
    */
   // Deprecated
   async deleteIntegrationWithOptions(request: DeleteIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIntegrationResponse> {
@@ -38095,10 +38929,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
-    *
-    * @param request DeleteIntegrationRequest
-    * @return DeleteIntegrationResponse
+   * @deprecated OpenAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
+   *
+   * @summary Deletes collection rules from an integration.
+   *
+   * @param request DeleteIntegrationRequest
+   * @return DeleteIntegrationResponse
    */
   // Deprecated
   async deleteIntegration(request: DeleteIntegrationRequest): Promise<DeleteIntegrationResponse> {
@@ -38106,6 +38942,13 @@ export default class Client extends OpenApi {
     return await this.deleteIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an alert integration.
+   *
+   * @param request DeleteIntegrationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIntegrationsResponse
+   */
   async deleteIntegrationsWithOptions(request: DeleteIntegrationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIntegrationsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -38126,11 +38969,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIntegrationsResponse>(await this.callApi(params, req, runtime), new DeleteIntegrationsResponse({}));
   }
 
+  /**
+   * @summary Deletes an alert integration.
+   *
+   * @param request DeleteIntegrationsRequest
+   * @return DeleteIntegrationsResponse
+   */
   async deleteIntegrations(request: DeleteIntegrationsRequest): Promise<DeleteIntegrationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIntegrationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Indicates whether the notification policy was deleted successfully. Valid values:
+   * *   `true`: The notification policy was deleted successfully.
+   * *   `false`: The notification policy failed to be deleted.
+   *
+   * @param request DeleteNotificationPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNotificationPolicyResponse
+   */
   async deleteNotificationPolicyWithOptions(request: DeleteNotificationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNotificationPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38155,11 +39013,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNotificationPolicyResponse>(await this.callApi(params, req, runtime), new DeleteNotificationPolicyResponse({}));
   }
 
+  /**
+   * @summary Indicates whether the notification policy was deleted successfully. Valid values:
+   * *   `true`: The notification policy was deleted successfully.
+   * *   `false`: The notification policy failed to be deleted.
+   *
+   * @param request DeleteNotificationPolicyRequest
+   * @return DeleteNotificationPolicyResponse
+   */
   async deleteNotificationPolicy(request: DeleteNotificationPolicyRequest): Promise<DeleteNotificationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNotificationPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
+   *
+   * @param request DeletePrometheusAlertRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrometheusAlertRuleResponse
+   */
   async deletePrometheusAlertRuleWithOptions(request: DeletePrometheusAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrometheusAlertRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38188,11 +39061,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrometheusAlertRuleResponse>(await this.callApi(params, req, runtime), new DeletePrometheusAlertRuleResponse({}));
   }
 
+  /**
+   * @summary The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
+   *
+   * @param request DeletePrometheusAlertRuleRequest
+   * @return DeletePrometheusAlertRuleResponse
+   */
   async deletePrometheusAlertRule(request: DeletePrometheusAlertRuleRequest): Promise<DeletePrometheusAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrometheusAlertRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a global aggregation instance from Prometheus Service.
+   *
+   * @param request DeletePrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrometheusGlobalViewResponse
+   */
   async deletePrometheusGlobalViewWithOptions(request: DeletePrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38221,11 +39107,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new DeletePrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary Deletes a global aggregation instance from Prometheus Service.
+   *
+   * @param request DeletePrometheusGlobalViewRequest
+   * @return DeletePrometheusGlobalViewResponse
+   */
   async deletePrometheusGlobalView(request: DeletePrometheusGlobalViewRequest): Promise<DeletePrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request DeletePrometheusIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrometheusIntegrationResponse
+   */
   async deletePrometheusIntegrationWithOptions(request: DeletePrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrometheusIntegrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38262,11 +39161,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new DeletePrometheusIntegrationResponse({}));
   }
 
+  /**
+   * @summary Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request DeletePrometheusIntegrationRequest
+   * @return DeletePrometheusIntegrationResponse
+   */
   async deletePrometheusIntegration(request: DeletePrometheusIntegrationRequest): Promise<DeletePrometheusIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrometheusIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the monitoring configuration of a Prometheus instance.
+   *
+   * @param request DeletePrometheusMonitoringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrometheusMonitoringResponse
+   */
   async deletePrometheusMonitoringWithOptions(request: DeletePrometheusMonitoringRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrometheusMonitoringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38303,11 +39215,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrometheusMonitoringResponse>(await this.callApi(params, req, runtime), new DeletePrometheusMonitoringResponse({}));
   }
 
+  /**
+   * @summary Deletes the monitoring configuration of a Prometheus instance.
+   *
+   * @param request DeletePrometheusMonitoringRequest
+   * @return DeletePrometheusMonitoringResponse
+   */
   async deletePrometheusMonitoring(request: DeletePrometheusMonitoringRequest): Promise<DeletePrometheusMonitoringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrometheusMonitoringWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes one or more remote write configuration items from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request DeletePrometheusRemoteWriteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrometheusRemoteWriteResponse
+   */
   async deletePrometheusRemoteWriteWithOptions(request: DeletePrometheusRemoteWriteRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrometheusRemoteWriteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38340,11 +39265,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrometheusRemoteWriteResponse>(await this.callApi(params, req, runtime), new DeletePrometheusRemoteWriteResponse({}));
   }
 
+  /**
+   * @summary Deletes one or more remote write configuration items from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request DeletePrometheusRemoteWriteRequest
+   * @return DeletePrometheusRemoteWriteResponse
+   */
   async deletePrometheusRemoteWrite(request: DeletePrometheusRemoteWriteRequest): Promise<DeletePrometheusRemoteWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrometheusRemoteWriteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Browser Monitoring task.
+   *
+   * @param request DeleteRetcodeAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRetcodeAppResponse
+   */
   async deleteRetcodeAppWithOptions(request: DeleteRetcodeAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRetcodeAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38381,11 +39319,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRetcodeAppResponse>(await this.callApi(params, req, runtime), new DeleteRetcodeAppResponse({}));
   }
 
+  /**
+   * @summary Deletes a Browser Monitoring task.
+   *
+   * @param request DeleteRetcodeAppRequest
+   * @return DeleteRetcodeAppResponse
+   */
   async deleteRetcodeApp(request: DeleteRetcodeAppRequest): Promise<DeleteRetcodeAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRetcodeAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除前端监控应用
+   *
+   * @param request DeleteRumAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRumAppResponse
+   */
   async deleteRumAppWithOptions(request: DeleteRumAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRumAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38418,11 +39369,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRumAppResponse>(await this.callApi(params, req, runtime), new DeleteRumAppResponse({}));
   }
 
+  /**
+   * @summary 删除前端监控应用
+   *
+   * @param request DeleteRumAppRequest
+   * @return DeleteRumAppResponse
+   */
   async deleteRumApp(request: DeleteRumAppRequest): Promise<DeleteRumAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRumAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除前端监控在oss中的文件
+   *
+   * @param request DeleteRumUploadFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRumUploadFileResponse
+   */
   async deleteRumUploadFileWithOptions(request: DeleteRumUploadFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRumUploadFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38463,11 +39427,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRumUploadFileResponse>(await this.callApi(params, req, runtime), new DeleteRumUploadFileResponse({}));
   }
 
+  /**
+   * @summary 删除前端监控在oss中的文件
+   *
+   * @param request DeleteRumUploadFileRequest
+   * @return DeleteRumUploadFileResponse
+   */
   async deleteRumUploadFile(request: DeleteRumUploadFileRequest): Promise<DeleteRumUploadFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRumUploadFileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteScenarioRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteScenarioResponse
+   */
   async deleteScenarioWithOptions(request: DeleteScenarioRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScenarioResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38496,11 +39471,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteScenarioResponse>(await this.callApi(params, req, runtime), new DeleteScenarioResponse({}));
   }
 
+  /**
+   * @param request DeleteScenarioRequest
+   * @return DeleteScenarioResponse
+   */
   async deleteScenario(request: DeleteScenarioRequest): Promise<DeleteScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteScenarioWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the silence policy.
+   *
+   * @param request DeleteSilencePolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSilencePolicyResponse
+   */
   async deleteSilencePolicyWithOptions(request: DeleteSilencePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSilencePolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38525,11 +39511,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSilencePolicyResponse>(await this.callApi(params, req, runtime), new DeleteSilencePolicyResponse({}));
   }
 
+  /**
+   * @summary The ID of the silence policy.
+   *
+   * @param request DeleteSilencePolicyRequest
+   * @return DeleteSilencePolicyResponse
+   */
   async deleteSilencePolicy(request: DeleteSilencePolicyRequest): Promise<DeleteSilencePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSilencePolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除SourceMap
+   *
+   * @param tmpReq DeleteSourceMapRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSourceMapResponse
+   */
   async deleteSourceMapWithOptions(tmpReq: DeleteSourceMapRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSourceMapResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteSourceMapShrinkRequest({ });
@@ -38568,11 +39567,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSourceMapResponse>(await this.callApi(params, req, runtime), new DeleteSourceMapResponse({}));
   }
 
+  /**
+   * @summary 删除SourceMap
+   *
+   * @param request DeleteSourceMapRequest
+   * @return DeleteSourceMapResponse
+   */
   async deleteSourceMap(request: DeleteSourceMapRequest): Promise<DeleteSourceMapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSourceMapWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除云拨测任务
+   *
+   * @param request DeleteSyntheticTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSyntheticTaskResponse
+   */
   async deleteSyntheticTaskWithOptions(request: DeleteSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSyntheticTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38601,11 +39613,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSyntheticTaskResponse>(await this.callApi(params, req, runtime), new DeleteSyntheticTaskResponse({}));
   }
 
+  /**
+   * @summary 删除云拨测任务
+   *
+   * @param request DeleteSyntheticTaskRequest
+   * @return DeleteSyntheticTaskResponse
+   */
   async deleteSyntheticTask(request: DeleteSyntheticTaskRequest): Promise<DeleteSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSyntheticTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a scheduled synthetic monitoring task.
+   *
+   * @param request DeleteTimingSyntheticTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTimingSyntheticTaskResponse
+   */
   async deleteTimingSyntheticTaskWithOptions(request: DeleteTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTimingSyntheticTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38638,11 +39663,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new DeleteTimingSyntheticTaskResponse({}));
   }
 
+  /**
+   * @summary Deletes a scheduled synthetic monitoring task.
+   *
+   * @param request DeleteTimingSyntheticTaskRequest
+   * @return DeleteTimingSyntheticTaskResponse
+   */
   async deleteTimingSyntheticTask(request: DeleteTimingSyntheticTaskRequest): Promise<DeleteTimingSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTimingSyntheticTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an application based on a specified process identifier (PID) and application type.
+   *
+   * @param tmpReq DeleteTraceAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTraceAppResponse
+   */
   async deleteTraceAppWithOptions(tmpReq: DeleteTraceAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTraceAppResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteTraceAppShrinkRequest({ });
@@ -38689,11 +39727,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTraceAppResponse>(await this.callApi(params, req, runtime), new DeleteTraceAppResponse({}));
   }
 
+  /**
+   * @summary Deletes an application based on a specified process identifier (PID) and application type.
+   *
+   * @param request DeleteTraceAppRequest
+   * @return DeleteTraceAppResponse
+   */
   async deleteTraceApp(request: DeleteTraceAppRequest): Promise<DeleteTraceAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTraceAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a webhook alert contact.
+   *
+   * @param request DeleteWebhookContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWebhookContactResponse
+   */
   async deleteWebhookContactWithOptions(request: DeleteWebhookContactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebhookContactResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38718,11 +39769,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWebhookContactResponse>(await this.callApi(params, req, runtime), new DeleteWebhookContactResponse({}));
   }
 
+  /**
+   * @summary Deletes a webhook alert contact.
+   *
+   * @param request DeleteWebhookContactRequest
+   * @return DeleteWebhookContactResponse
+   */
   async deleteWebhookContact(request: DeleteWebhookContactRequest): Promise<DeleteWebhookContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWebhookContactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the release information of an add-on by name.
+   *
+   * @param request DescribeAddonReleaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAddonReleaseResponse
+   */
   async describeAddonReleaseWithOptions(request: DescribeAddonReleaseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddonReleaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38755,11 +39819,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAddonReleaseResponse>(await this.callApi(params, req, runtime), new DescribeAddonReleaseResponse({}));
   }
 
+  /**
+   * @summary Queries the release information of an add-on by name.
+   *
+   * @param request DescribeAddonReleaseRequest
+   * @return DescribeAddonReleaseResponse
+   */
   async describeAddonRelease(request: DescribeAddonReleaseRequest): Promise<DescribeAddonReleaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAddonReleaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries an alert contact group.
+   *
+   * @param request DescribeContactGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContactGroupsResponse
+   */
   async describeContactGroupsWithOptions(request: DescribeContactGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContactGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38804,11 +39881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContactGroupsResponse>(await this.callApi(params, req, runtime), new DescribeContactGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries an alert contact group.
+   *
+   * @param request DescribeContactGroupsRequest
+   * @return DescribeContactGroupsResponse
+   */
   async describeContactGroups(request: DescribeContactGroupsRequest): Promise<DescribeContactGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContactGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries alert contacts.
+   *
+   * @param request DescribeContactsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeContactsResponse
+   */
   async describeContactsWithOptions(request: DescribeContactsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContactsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38861,11 +39951,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeContactsResponse>(await this.callApi(params, req, runtime), new DescribeContactsResponse({}));
   }
 
+  /**
+   * @summary Queries alert contacts.
+   *
+   * @param request DescribeContactsRequest
+   * @return DescribeContactsResponse
+   */
   async describeContacts(request: DescribeContactsRequest): Promise<DescribeContactsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContactsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a dispatch policy.
+   *
+   * @param request DescribeDispatchRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDispatchRuleResponse
+   */
   async describeDispatchRuleWithOptions(request: DescribeDispatchRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDispatchRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38894,11 +39997,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDispatchRuleResponse>(await this.callApi(params, req, runtime), new DescribeDispatchRuleResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a dispatch policy.
+   *
+   * @param request DescribeDispatchRuleRequest
+   * @return DescribeDispatchRuleResponse
+   */
   async describeDispatchRule(request: DescribeDispatchRuleRequest): Promise<DescribeDispatchRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDispatchRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a custom job for an environment.
+   *
+   * @param request DescribeEnvCustomJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnvCustomJobResponse
+   */
   async describeEnvCustomJobWithOptions(request: DescribeEnvCustomJobRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvCustomJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38935,11 +40051,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnvCustomJobResponse>(await this.callApi(params, req, runtime), new DescribeEnvCustomJobResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a custom job for an environment.
+   *
+   * @param request DescribeEnvCustomJobRequest
+   * @return DescribeEnvCustomJobResponse
+   */
   async describeEnvCustomJob(request: DescribeEnvCustomJobRequest): Promise<DescribeEnvCustomJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnvCustomJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the PodMonitor details of an environment.
+   *
+   * @param request DescribeEnvPodMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnvPodMonitorResponse
+   */
   async describeEnvPodMonitorWithOptions(request: DescribeEnvPodMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvPodMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38976,11 +40105,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnvPodMonitorResponse>(await this.callApi(params, req, runtime), new DescribeEnvPodMonitorResponse({}));
   }
 
+  /**
+   * @summary Queries the PodMonitor details of an environment.
+   *
+   * @param request DescribeEnvPodMonitorRequest
+   * @return DescribeEnvPodMonitorResponse
+   */
   async describeEnvPodMonitor(request: DescribeEnvPodMonitorRequest): Promise<DescribeEnvPodMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnvPodMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the ServiceMonitor details of an environment.
+   *
+   * @param request DescribeEnvServiceMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnvServiceMonitorResponse
+   */
   async describeEnvServiceMonitorWithOptions(request: DescribeEnvServiceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvServiceMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39017,11 +40159,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnvServiceMonitorResponse>(await this.callApi(params, req, runtime), new DescribeEnvServiceMonitorResponse({}));
   }
 
+  /**
+   * @summary Queries the ServiceMonitor details of an environment.
+   *
+   * @param request DescribeEnvServiceMonitorRequest
+   * @return DescribeEnvServiceMonitorResponse
+   */
   async describeEnvServiceMonitor(request: DescribeEnvServiceMonitorRequest): Promise<DescribeEnvServiceMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnvServiceMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an environment.
+   *
+   * @param request DescribeEnvironmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnvironmentResponse
+   */
   async describeEnvironmentWithOptions(request: DescribeEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvironmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39050,11 +40205,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnvironmentResponse>(await this.callApi(params, req, runtime), new DescribeEnvironmentResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an environment.
+   *
+   * @param request DescribeEnvironmentRequest
+   * @return DescribeEnvironmentResponse
+   */
   async describeEnvironment(request: DescribeEnvironmentRequest): Promise<DescribeEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnvironmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a feature.
+   *
+   * @param request DescribeEnvironmentFeatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnvironmentFeatureResponse
+   */
   async describeEnvironmentFeatureWithOptions(request: DescribeEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnvironmentFeatureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39091,11 +40259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new DescribeEnvironmentFeatureResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a feature.
+   *
+   * @param request DescribeEnvironmentFeatureRequest
+   * @return DescribeEnvironmentFeatureResponse
+   */
   async describeEnvironmentFeature(request: DescribeEnvironmentFeatureRequest): Promise<DescribeEnvironmentFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnvironmentFeatureWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of IM chatbots.
+   *
+   * @param request DescribeIMRobotsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIMRobotsResponse
+   */
   async describeIMRobotsWithOptions(request: DescribeIMRobotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIMRobotsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39132,11 +40313,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIMRobotsResponse>(await this.callApi(params, req, runtime), new DescribeIMRobotsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of IM chatbots.
+   *
+   * @param request DescribeIMRobotsRequest
+   * @return DescribeIMRobotsResponse
+   */
   async describeIMRobots(request: DescribeIMRobotsRequest): Promise<DescribeIMRobotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIMRobotsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about an alert rule of Prometheus Service.
+   *
+   * @param request DescribePrometheusAlertRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePrometheusAlertRuleResponse
+   */
   async describePrometheusAlertRuleWithOptions(request: DescribePrometheusAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribePrometheusAlertRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39165,11 +40359,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePrometheusAlertRuleResponse>(await this.callApi(params, req, runtime), new DescribePrometheusAlertRuleResponse({}));
   }
 
+  /**
+   * @summary Queries the details about an alert rule of Prometheus Service.
+   *
+   * @param request DescribePrometheusAlertRuleRequest
+   * @return DescribePrometheusAlertRuleResponse
+   */
   async describePrometheusAlertRule(request: DescribePrometheusAlertRuleRequest): Promise<DescribePrometheusAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePrometheusAlertRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeTraceLicenseKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTraceLicenseKeyResponse
+   */
   async describeTraceLicenseKeyWithOptions(request: DescribeTraceLicenseKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTraceLicenseKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39194,11 +40399,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTraceLicenseKeyResponse>(await this.callApi(params, req, runtime), new DescribeTraceLicenseKeyResponse({}));
   }
 
+  /**
+   * @param request DescribeTraceLicenseKeyRequest
+   * @return DescribeTraceLicenseKeyResponse
+   */
   async describeTraceLicenseKey(request: DescribeTraceLicenseKeyRequest): Promise<DescribeTraceLicenseKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTraceLicenseKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the list of webhook alert contacts.
+   *
+   * @param request DescribeWebhookContactsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWebhookContactsResponse
+   */
   async describeWebhookContactsWithOptions(request: DescribeWebhookContactsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebhookContactsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -39219,11 +40435,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWebhookContactsResponse>(await this.callApi(params, req, runtime), new DescribeWebhookContactsResponse({}));
   }
 
+  /**
+   * @summary Queries the list of webhook alert contacts.
+   *
+   * @param request DescribeWebhookContactsRequest
+   * @return DescribeWebhookContactsResponse
+   */
   async describeWebhookContacts(request: DescribeWebhookContactsRequest): Promise<DescribeWebhookContactsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWebhookContactsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开启指标
+   *
+   * @param request EnableMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableMetricResponse
+   */
   async enableMetricWithOptions(request: EnableMetricRequest, runtime: $Util.RuntimeOptions): Promise<EnableMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39256,11 +40485,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableMetricResponse>(await this.callApi(params, req, runtime), new EnableMetricResponse({}));
   }
 
+  /**
+   * @summary 开启指标
+   *
+   * @param request EnableMetricRequest
+   * @return EnableMetricResponse
+   */
   async enableMetric(request: EnableMetricRequest): Promise<EnableMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableMetricWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
+   *
+   * @param request GetAgentDownloadUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAgentDownloadUrlResponse
+   */
   async getAgentDownloadUrlWithOptions(request: GetAgentDownloadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentDownloadUrlResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -39281,11 +40523,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentDownloadUrlResponse>(await this.callApi(params, req, runtime), new GetAgentDownloadUrlResponse({}));
   }
 
+  /**
+   * @summary Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
+   *
+   * @param request GetAgentDownloadUrlRequest
+   * @return GetAgentDownloadUrlResponse
+   */
   async getAgentDownloadUrl(request: GetAgentDownloadUrlRequest): Promise<GetAgentDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentDownloadUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries alert rules.
+   *
+   * @param request GetAlertRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAlertRulesResponse
+   */
   async getAlertRulesWithOptions(request: GetAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<GetAlertRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39346,11 +40601,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAlertRulesResponse>(await this.callApi(params, req, runtime), new GetAlertRulesResponse({}));
   }
 
+  /**
+   * @summary Queries alert rules.
+   *
+   * @param request GetAlertRulesRequest
+   * @return GetAlertRulesResponse
+   */
   async getAlertRules(request: GetAlertRulesRequest): Promise<GetAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAlertRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the API operations of application monitoring by page.
+   *
+   * @param request GetAppApiByPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppApiByPageResponse
+   */
   async getAppApiByPageWithOptions(request: GetAppApiByPageRequest, runtime: $Util.RuntimeOptions): Promise<GetAppApiByPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39399,11 +40667,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppApiByPageResponse>(await this.callApi(params, req, runtime), new GetAppApiByPageResponse({}));
   }
 
+  /**
+   * @summary Queries the API operations of application monitoring by page.
+   *
+   * @param request GetAppApiByPageRequest
+   * @return GetAppApiByPageResponse
+   */
   async getAppApiByPage(request: GetAppApiByPageRequest): Promise<GetAppApiByPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppApiByPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用各个实例的JVM配置信息
+   *
+   * @param request GetAppJVMConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppJVMConfigResponse
+   */
   async getAppJVMConfigWithOptions(request: GetAppJVMConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetAppJVMConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -39424,11 +40705,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppJVMConfigResponse>(await this.callApi(params, req, runtime), new GetAppJVMConfigResponse({}));
   }
 
+  /**
+   * @summary 应用各个实例的JVM配置信息
+   *
+   * @param request GetAppJVMConfigRequest
+   * @return GetAppJVMConfigResponse
+   */
   async getAppJVMConfig(request: GetAppJVMConfigRequest): Promise<GetAppJVMConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppJVMConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the authentication token for remote read and write over the Internet.
+   *
+   * @param request GetAuthTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAuthTokenResponse
+   */
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39457,17 +40751,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAuthTokenResponse>(await this.callApi(params, req, runtime), new GetAuthTokenResponse({}));
   }
 
+  /**
+   * @summary Obtains the authentication token for remote read and write over the Internet.
+   *
+   * @param request GetAuthTokenRequest
+   * @return GetAuthTokenResponse
+   */
   async getAuthToken(request: GetAuthTokenRequest): Promise<GetAuthTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthTokenWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead.
-    *
-    * @param request GetCloudClusterAllUrlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetCloudClusterAllUrlResponse
+   * @deprecated OpenAPI GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead.
+   *
+   * @summary Queries the read and write URLs of a CloudMonitor instance, such as Pushgateway and Grafana URLs.
+   *
+   * @param request GetCloudClusterAllUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCloudClusterAllUrlResponse
    */
   // Deprecated
   async getCloudClusterAllUrlWithOptions(request: GetCloudClusterAllUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetCloudClusterAllUrlResponse> {
@@ -39499,10 +40801,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead.
-    *
-    * @param request GetCloudClusterAllUrlRequest
-    * @return GetCloudClusterAllUrlResponse
+   * @deprecated OpenAPI GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead.
+   *
+   * @summary Queries the read and write URLs of a CloudMonitor instance, such as Pushgateway and Grafana URLs.
+   *
+   * @param request GetCloudClusterAllUrlRequest
+   * @return GetCloudClusterAllUrlResponse
    */
   // Deprecated
   async getCloudClusterAllUrl(request: GetCloudClusterAllUrlRequest): Promise<GetCloudClusterAllUrlResponse> {
@@ -39510,6 +40814,13 @@ export default class Client extends OpenApi {
     return await this.getCloudClusterAllUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
+   *
+   * @param request GetClusterAllUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterAllUrlResponse
+   */
   async getClusterAllUrlWithOptions(request: GetClusterAllUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterAllUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39538,11 +40849,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterAllUrlResponse>(await this.callApi(params, req, runtime), new GetClusterAllUrlResponse({}));
   }
 
+  /**
+   * @summary Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
+   *
+   * @param request GetClusterAllUrlRequest
+   * @return GetClusterAllUrlResponse
+   */
   async getClusterAllUrl(request: GetClusterAllUrlRequest): Promise<GetClusterAllUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClusterAllUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取商业化状态
+   *
+   * @param request GetCommercialStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCommercialStatusResponse
+   */
   async getCommercialStatusWithOptions(request: GetCommercialStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetCommercialStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39571,11 +40895,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCommercialStatusResponse>(await this.callApi(params, req, runtime), new GetCommercialStatusResponse({}));
   }
 
+  /**
+   * @summary 获取商业化状态
+   *
+   * @param request GetCommercialStatusRequest
+   * @return GetCommercialStatusResponse
+   */
   async getCommercialStatus(request: GetCommercialStatusRequest): Promise<GetCommercialStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCommercialStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the Explore feature of Grafana.
+   *
+   * @param request GetExploreUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetExploreUrlResponse
+   */
   async getExploreUrlWithOptions(request: GetExploreUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetExploreUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39612,11 +40949,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetExploreUrlResponse>(await this.callApi(params, req, runtime), new GetExploreUrlResponse({}));
   }
 
+  /**
+   * @summary Enables the Explore feature of Grafana.
+   *
+   * @param request GetExploreUrlRequest
+   * @return GetExploreUrlResponse
+   */
   async getExploreUrl(request: GetExploreUrlRequest): Promise<GetExploreUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getExploreUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取指定工作区
+   *
+   * @param request GetGrafanaWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGrafanaWorkspaceResponse
+   */
   async getGrafanaWorkspaceWithOptions(request: GetGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<GetGrafanaWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39649,17 +40999,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new GetGrafanaWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 获取指定工作区
+   *
+   * @param request GetGrafanaWorkspaceRequest
+   * @return GetGrafanaWorkspaceResponse
+   */
   async getGrafanaWorkspace(request: GetGrafanaWorkspaceRequest): Promise<GetGrafanaWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGrafanaWorkspaceWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
-    *
-    * @param request GetIntegrationStateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetIntegrationStateResponse
+   * @deprecated OpenAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
+   *
+   * @summary 获取Prometheus中是否已接入某种Integration类型
+   *
+   * @param request GetIntegrationStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIntegrationStateResponse
    */
   // Deprecated
   async getIntegrationStateWithOptions(request: GetIntegrationStateRequest, runtime: $Util.RuntimeOptions): Promise<GetIntegrationStateResponse> {
@@ -39695,10 +41053,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
-    *
-    * @param request GetIntegrationStateRequest
-    * @return GetIntegrationStateResponse
+   * @deprecated OpenAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
+   *
+   * @summary 获取Prometheus中是否已接入某种Integration类型
+   *
+   * @param request GetIntegrationStateRequest
+   * @return GetIntegrationStateResponse
    */
   // Deprecated
   async getIntegrationState(request: GetIntegrationStateRequest): Promise<GetIntegrationStateResponse> {
@@ -39706,6 +41066,13 @@ export default class Client extends OpenApi {
     return await this.getIntegrationStateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a Prometheus instance of a serverless Kubernetes (ASK) cluster or Elastic Compute Service (ECS) instance.
+   *
+   * @param request GetManagedPrometheusStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetManagedPrometheusStatusResponse
+   */
   async getManagedPrometheusStatusWithOptions(request: GetManagedPrometheusStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetManagedPrometheusStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39746,11 +41113,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetManagedPrometheusStatusResponse>(await this.callApi(params, req, runtime), new GetManagedPrometheusStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a Prometheus instance of a serverless Kubernetes (ASK) cluster or Elastic Compute Service (ECS) instance.
+   *
+   * @param request GetManagedPrometheusStatusRequest
+   * @return GetManagedPrometheusStatusResponse
+   */
   async getManagedPrometheusStatus(request: GetManagedPrometheusStatusRequest): Promise<GetManagedPrometheusStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getManagedPrometheusStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of one or more traces.
+   *
+   * @param request GetMultipleTraceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMultipleTraceResponse
+   */
   async getMultipleTraceWithOptions(request: GetMultipleTraceRequest, runtime: $Util.RuntimeOptions): Promise<GetMultipleTraceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39787,11 +41167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMultipleTraceResponse>(await this.callApi(params, req, runtime), new GetMultipleTraceResponse({}));
   }
 
+  /**
+   * @summary Queries the details of one or more traces.
+   *
+   * @param request GetMultipleTraceRequest
+   * @return GetMultipleTraceResponse
+   */
   async getMultipleTrace(request: GetMultipleTraceRequest): Promise<GetMultipleTraceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMultipleTraceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a scheduling policy.
+   *
+   * @param request GetOnCallSchedulesDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOnCallSchedulesDetailResponse
+   */
   async getOnCallSchedulesDetailWithOptions(request: GetOnCallSchedulesDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetOnCallSchedulesDetailResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -39812,17 +41205,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOnCallSchedulesDetailResponse>(await this.callApi(params, req, runtime), new GetOnCallSchedulesDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a scheduling policy.
+   *
+   * @param request GetOnCallSchedulesDetailRequest
+   * @return GetOnCallSchedulesDetailResponse
+   */
   async getOnCallSchedulesDetail(request: GetOnCallSchedulesDetailRequest): Promise<GetOnCallSchedulesDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOnCallSchedulesDetailWithOptions(request, runtime);
   }
 
   /**
-    * None.
-    *
-    * @param request GetPrometheusApiTokenRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetPrometheusApiTokenResponse
+   * @summary Queries the token required for integrating Prometheus Service.
+   *
+   * @description None.
+   *
+   * @param request GetPrometheusApiTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrometheusApiTokenResponse
    */
   async getPrometheusApiTokenWithOptions(request: GetPrometheusApiTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusApiTokenResponse> {
     Util.validateModel(request);
@@ -39849,16 +41250,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * None.
-    *
-    * @param request GetPrometheusApiTokenRequest
-    * @return GetPrometheusApiTokenResponse
+   * @summary Queries the token required for integrating Prometheus Service.
+   *
+   * @description None.
+   *
+   * @param request GetPrometheusApiTokenRequest
+   * @return GetPrometheusApiTokenResponse
    */
   async getPrometheusApiToken(request: GetPrometheusApiTokenRequest): Promise<GetPrometheusApiTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrometheusApiTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a global aggregation instance.
+   *
+   * @param request GetPrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrometheusGlobalViewResponse
+   */
   async getPrometheusGlobalViewWithOptions(request: GetPrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39887,11 +41297,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new GetPrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a global aggregation instance.
+   *
+   * @param request GetPrometheusGlobalViewRequest
+   * @return GetPrometheusGlobalViewResponse
+   */
   async getPrometheusGlobalView(request: GetPrometheusGlobalViewRequest): Promise<GetPrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a Prometheus instance.
+   *
+   * @param request GetPrometheusInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrometheusInstanceResponse
+   */
   async getPrometheusInstanceWithOptions(request: GetPrometheusInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39920,11 +41343,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrometheusInstanceResponse>(await this.callApi(params, req, runtime), new GetPrometheusInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a Prometheus instance.
+   *
+   * @param request GetPrometheusInstanceRequest
+   * @return GetPrometheusInstanceResponse
+   */
   async getPrometheusInstance(request: GetPrometheusInstanceRequest): Promise<GetPrometheusInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrometheusInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request GetPrometheusIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrometheusIntegrationResponse
+   */
   async getPrometheusIntegrationWithOptions(request: GetPrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusIntegrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39961,11 +41397,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new GetPrometheusIntegrationResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request GetPrometheusIntegrationRequest
+   * @return GetPrometheusIntegrationResponse
+   */
   async getPrometheusIntegration(request: GetPrometheusIntegrationRequest): Promise<GetPrometheusIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrometheusIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the monitoring configuration of a Prometheus instance.
+   *
+   * @param request GetPrometheusMonitoringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrometheusMonitoringResponse
+   */
   async getPrometheusMonitoringWithOptions(request: GetPrometheusMonitoringRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusMonitoringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40002,11 +41451,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrometheusMonitoringResponse>(await this.callApi(params, req, runtime), new GetPrometheusMonitoringResponse({}));
   }
 
+  /**
+   * @summary Queries the monitoring configuration of a Prometheus instance.
+   *
+   * @param request GetPrometheusMonitoringRequest
+   * @return GetPrometheusMonitoringResponse
+   */
   async getPrometheusMonitoring(request: GetPrometheusMonitoringRequest): Promise<GetPrometheusMonitoringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrometheusMonitoringWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request GetPrometheusRemoteWriteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrometheusRemoteWriteResponse
+   */
   async getPrometheusRemoteWriteWithOptions(request: GetPrometheusRemoteWriteRequest, runtime: $Util.RuntimeOptions): Promise<GetPrometheusRemoteWriteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40039,11 +41501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrometheusRemoteWriteResponse>(await this.callApi(params, req, runtime), new GetPrometheusRemoteWriteResponse({}));
   }
 
+  /**
+   * @summary Queries a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request GetPrometheusRemoteWriteRequest
+   * @return GetPrometheusRemoteWriteResponse
+   */
   async getPrometheusRemoteWrite(request: GetPrometheusRemoteWriteRequest): Promise<GetPrometheusRemoteWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrometheusRemoteWriteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the recording rule of a cluster.
+   *
+   * @param request GetRecordingRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRecordingRuleResponse
+   */
   async getRecordingRuleWithOptions(request: GetRecordingRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRecordingRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40072,11 +41547,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRecordingRuleResponse>(await this.callApi(params, req, runtime), new GetRecordingRuleResponse({}));
   }
 
+  /**
+   * @summary Obtains the recording rule of a cluster.
+   *
+   * @param request GetRecordingRuleRequest
+   * @return GetRecordingRuleResponse
+   */
   async getRecordingRule(request: GetRecordingRuleRequest): Promise<GetRecordingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRecordingRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the objects of a Browser Monitoring application by process identifier (PID).
+   *
+   * @param request GetRetcodeAppByPidRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRetcodeAppByPidResponse
+   */
   async getRetcodeAppByPidWithOptions(request: GetRetcodeAppByPidRequest, runtime: $Util.RuntimeOptions): Promise<GetRetcodeAppByPidResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -40097,11 +41585,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRetcodeAppByPidResponse>(await this.callApi(params, req, runtime), new GetRetcodeAppByPidResponse({}));
   }
 
+  /**
+   * @summary Queries the objects of a Browser Monitoring application by process identifier (PID).
+   *
+   * @param request GetRetcodeAppByPidRequest
+   * @return GetRetcodeAppByPidResponse
+   */
   async getRetcodeAppByPid(request: GetRetcodeAppByPidRequest): Promise<GetRetcodeAppByPidResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRetcodeAppByPidWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 传入SLS查询语句，查询出前端监控数据
+   *
+   * @param request GetRetcodeDataByQueryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRetcodeDataByQueryResponse
+   */
   async getRetcodeDataByQueryWithOptions(request: GetRetcodeDataByQueryRequest, runtime: $Util.RuntimeOptions): Promise<GetRetcodeDataByQueryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40142,11 +41643,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRetcodeDataByQueryResponse>(await this.callApi(params, req, runtime), new GetRetcodeDataByQueryResponse({}));
   }
 
+  /**
+   * @summary 传入SLS查询语句，查询出前端监控数据
+   *
+   * @param request GetRetcodeDataByQueryRequest
+   * @return GetRetcodeDataByQueryResponse
+   */
   async getRetcodeDataByQuery(request: GetRetcodeDataByQueryRequest): Promise<GetRetcodeDataByQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRetcodeDataByQueryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取前端监控应用SLS存储的详细信息
+   *
+   * @param request GetRetcodeLogstoreRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRetcodeLogstoreResponse
+   */
   async getRetcodeLogstoreWithOptions(request: GetRetcodeLogstoreRequest, runtime: $Util.RuntimeOptions): Promise<GetRetcodeLogstoreResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40175,11 +41689,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRetcodeLogstoreResponse>(await this.callApi(params, req, runtime), new GetRetcodeLogstoreResponse({}));
   }
 
+  /**
+   * @summary 获取前端监控应用SLS存储的详细信息
+   *
+   * @param request GetRetcodeLogstoreRequest
+   * @return GetRetcodeLogstoreResponse
+   */
   async getRetcodeLogstore(request: GetRetcodeLogstoreRequest): Promise<GetRetcodeLogstoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRetcodeLogstoreWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the logon-free URL of a Browser Monitoring application.
+   *
+   * @param request GetRetcodeShareUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRetcodeShareUrlResponse
+   */
   async getRetcodeShareUrlWithOptions(request: GetRetcodeShareUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetRetcodeShareUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40204,11 +41731,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRetcodeShareUrlResponse>(await this.callApi(params, req, runtime), new GetRetcodeShareUrlResponse({}));
   }
 
+  /**
+   * @summary Queries the logon-free URL of a Browser Monitoring application.
+   *
+   * @param request GetRetcodeShareUrlRequest
+   * @return GetRetcodeShareUrlResponse
+   */
   async getRetcodeShareUrl(request: GetRetcodeShareUrlRequest): Promise<GetRetcodeShareUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRetcodeShareUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取前端监控单个应用信息
+   *
+   * @param request GetRumAppInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRumAppInfoResponse
+   */
   async getRumAppInfoWithOptions(request: GetRumAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetRumAppInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40241,11 +41781,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRumAppInfoResponse>(await this.callApi(params, req, runtime), new GetRumAppInfoResponse({}));
   }
 
+  /**
+   * @summary 获取前端监控单个应用信息
+   *
+   * @param request GetRumAppInfoRequest
+   * @return GetRumAppInfoResponse
+   */
   async getRumAppInfo(request: GetRumAppInfoRequest): Promise<GetRumAppInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRumAppInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取前端监控应用列表信息
+   *
+   * @param request GetRumAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRumAppsResponse
+   */
   async getRumAppsWithOptions(request: GetRumAppsRequest, runtime: $Util.RuntimeOptions): Promise<GetRumAppsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40290,11 +41843,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRumAppsResponse>(await this.callApi(params, req, runtime), new GetRumAppsResponse({}));
   }
 
+  /**
+   * @summary 获取前端监控应用列表信息
+   *
+   * @param request GetRumAppsRequest
+   * @return GetRumAppsResponse
+   */
   async getRumApps(request: GetRumAppsRequest): Promise<GetRumAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRumAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取前端监控应用sql查询分页结果
+   *
+   * @param request GetRumDataForPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRumDataForPageResponse
+   */
   async getRumDataForPageWithOptions(request: GetRumDataForPageRequest, runtime: $Util.RuntimeOptions): Promise<GetRumDataForPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40347,11 +41913,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRumDataForPageResponse>(await this.callApi(params, req, runtime), new GetRumDataForPageResponse({}));
   }
 
+  /**
+   * @summary 获取前端监控应用sql查询分页结果
+   *
+   * @param request GetRumDataForPageRequest
+   * @return GetRumDataForPageResponse
+   */
   async getRumDataForPage(request: GetRumDataForPageRequest): Promise<GetRumDataForPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRumDataForPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取RUM异常堆栈
+   *
+   * @param request GetRumExceptionStackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRumExceptionStackResponse
+   */
   async getRumExceptionStackWithOptions(request: GetRumExceptionStackRequest, runtime: $Util.RuntimeOptions): Promise<GetRumExceptionStackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40392,11 +41971,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRumExceptionStackResponse>(await this.callApi(params, req, runtime), new GetRumExceptionStackResponse({}));
   }
 
+  /**
+   * @summary 获取RUM异常堆栈
+   *
+   * @param request GetRumExceptionStackRequest
+   * @return GetRumExceptionStackResponse
+   */
   async getRumExceptionStack(request: GetRumExceptionStackRequest): Promise<GetRumExceptionStackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRumExceptionStackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取前端监控在oss中文件
+   *
+   * @param request GetRumUploadFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRumUploadFilesResponse
+   */
   async getRumUploadFilesWithOptions(request: GetRumUploadFilesRequest, runtime: $Util.RuntimeOptions): Promise<GetRumUploadFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40429,11 +42021,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRumUploadFilesResponse>(await this.callApi(params, req, runtime), new GetRumUploadFilesResponse({}));
   }
 
+  /**
+   * @summary 获取前端监控在oss中文件
+   *
+   * @param request GetRumUploadFilesRequest
+   * @return GetRumUploadFilesResponse
+   */
   async getRumUploadFiles(request: GetRumUploadFilesRequest): Promise<GetRumUploadFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRumUploadFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取前端监控上传SourceMap的具体信息
+   *
+   * @param request GetSourceMapInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSourceMapInfoResponse
+   */
   async getSourceMapInfoWithOptions(request: GetSourceMapInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetSourceMapInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40478,11 +42083,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSourceMapInfoResponse>(await this.callApi(params, req, runtime), new GetSourceMapInfoResponse({}));
   }
 
+  /**
+   * @summary 获取前端监控上传SourceMap的具体信息
+   *
+   * @param request GetSourceMapInfoRequest
+   * @return GetSourceMapInfoResponse
+   */
   async getSourceMapInfo(request: GetSourceMapInfoRequest): Promise<GetSourceMapInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSourceMapInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of a method stack.
+   *
+   * @param request GetStackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStackResponse
+   */
   async getStackWithOptions(request: GetStackRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40527,11 +42145,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStackResponse>(await this.callApi(params, req, runtime), new GetStackResponse({}));
   }
 
+  /**
+   * @summary Queries the information of a method stack.
+   *
+   * @param request GetStackRequest
+   * @return GetStackResponse
+   */
   async getStack(request: GetStackRequest): Promise<GetStackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains detection points.
+   *
+   * @param tmpReq GetSyntheticMonitorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSyntheticMonitorsResponse
+   */
   async getSyntheticMonitorsWithOptions(tmpReq: GetSyntheticMonitorsRequest, runtime: $Util.RuntimeOptions): Promise<GetSyntheticMonitorsResponse> {
     Util.validateModel(tmpReq);
     let request = new GetSyntheticMonitorsShrinkRequest({ });
@@ -40558,11 +42189,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSyntheticMonitorsResponse>(await this.callApi(params, req, runtime), new GetSyntheticMonitorsResponse({}));
   }
 
+  /**
+   * @summary Obtains detection points.
+   *
+   * @param request GetSyntheticMonitorsRequest
+   * @return GetSyntheticMonitorsResponse
+   */
   async getSyntheticMonitors(request: GetSyntheticMonitorsRequest): Promise<GetSyntheticMonitorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSyntheticMonitorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取单个拨测任务的详情
+   *
+   * @param request GetSyntheticTaskDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSyntheticTaskDetailResponse
+   */
   async getSyntheticTaskDetailWithOptions(request: GetSyntheticTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSyntheticTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40591,11 +42235,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSyntheticTaskDetailResponse>(await this.callApi(params, req, runtime), new GetSyntheticTaskDetailResponse({}));
   }
 
+  /**
+   * @summary 获取单个拨测任务的详情
+   *
+   * @param request GetSyntheticTaskDetailRequest
+   * @return GetSyntheticTaskDetailResponse
+   */
   async getSyntheticTaskDetail(request: GetSyntheticTaskDetailRequest): Promise<GetSyntheticTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSyntheticTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取拨测任务列表
+   *
+   * @param request GetSyntheticTaskListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSyntheticTaskListResponse
+   */
   async getSyntheticTaskListWithOptions(request: GetSyntheticTaskListRequest, runtime: $Util.RuntimeOptions): Promise<GetSyntheticTaskListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40652,11 +42309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSyntheticTaskListResponse>(await this.callApi(params, req, runtime), new GetSyntheticTaskListResponse({}));
   }
 
+  /**
+   * @summary 获取拨测任务列表
+   *
+   * @param request GetSyntheticTaskListRequest
+   * @return GetSyntheticTaskListResponse
+   */
   async getSyntheticTaskList(request: GetSyntheticTaskListRequest): Promise<GetSyntheticTaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSyntheticTaskListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取拨测任务的监测点信息
+   *
+   * @param request GetSyntheticTaskMonitorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSyntheticTaskMonitorsResponse
+   */
   async getSyntheticTaskMonitorsWithOptions(request: GetSyntheticTaskMonitorsRequest, runtime: $Util.RuntimeOptions): Promise<GetSyntheticTaskMonitorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40681,11 +42351,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSyntheticTaskMonitorsResponse>(await this.callApi(params, req, runtime), new GetSyntheticTaskMonitorsResponse({}));
   }
 
+  /**
+   * @summary 获取拨测任务的监测点信息
+   *
+   * @param request GetSyntheticTaskMonitorsRequest
+   * @return GetSyntheticTaskMonitorsResponse
+   */
   async getSyntheticTaskMonitors(request: GetSyntheticTaskMonitorsRequest): Promise<GetSyntheticTaskMonitorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSyntheticTaskMonitorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the details of a synthetic monitoring task.
+   *
+   * @param request GetTimingSyntheticTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTimingSyntheticTaskResponse
+   */
   async getTimingSyntheticTaskWithOptions(request: GetTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTimingSyntheticTaskResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -40706,17 +42389,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new GetTimingSyntheticTaskResponse({}));
   }
 
+  /**
+   * @summary Obtains the details of a synthetic monitoring task.
+   *
+   * @param request GetTimingSyntheticTaskRequest
+   * @return GetTimingSyntheticTaskResponse
+   */
   async getTimingSyntheticTask(request: GetTimingSyntheticTaskRequest): Promise<GetTimingSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTimingSyntheticTaskWithOptions(request, runtime);
   }
 
   /**
-    * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
-    *
-    * @param request GetTraceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetTraceResponse
+   * @summary Queries the details of a trace.
+   *
+   * @description > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+   *
+   * @param request GetTraceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTraceResponse
    */
   async getTraceWithOptions(request: GetTraceRequest, runtime: $Util.RuntimeOptions): Promise<GetTraceResponse> {
     Util.validateModel(request);
@@ -40755,16 +42446,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
-    *
-    * @param request GetTraceRequest
-    * @return GetTraceResponse
+   * @summary Queries the details of a trace.
+   *
+   * @description > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+   *
+   * @param request GetTraceRequest
+   * @return GetTraceResponse
    */
   async getTrace(request: GetTraceRequest): Promise<GetTraceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTraceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an application monitoring task.
+   *
+   * @param request GetTraceAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTraceAppResponse
+   */
   async getTraceAppWithOptions(request: GetTraceAppRequest, runtime: $Util.RuntimeOptions): Promise<GetTraceAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40797,17 +42497,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTraceAppResponse>(await this.callApi(params, req, runtime), new GetTraceAppResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an application monitoring task.
+   *
+   * @param request GetTraceAppRequest
+   * @return GetTraceAppResponse
+   */
   async getTraceApp(request: GetTraceAppRequest): Promise<GetTraceAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTraceAppWithOptions(request, runtime);
   }
 
   /**
-    * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
-    *
-    * @param request ImportAppAlertRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportAppAlertRulesResponse
+   * @summary Creates an alert rule based on an alert template.
+   *
+   * @description >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
+   *
+   * @param request ImportAppAlertRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportAppAlertRulesResponse
    */
   async importAppAlertRulesWithOptions(request: ImportAppAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<ImportAppAlertRulesResponse> {
     Util.validateModel(request);
@@ -40858,16 +42566,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
-    *
-    * @param request ImportAppAlertRulesRequest
-    * @return ImportAppAlertRulesResponse
+   * @summary Creates an alert rule based on an alert template.
+   *
+   * @description >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
+   *
+   * @param request ImportAppAlertRulesRequest
+   * @return ImportAppAlertRulesResponse
    */
   async importAppAlertRules(request: ImportAppAlertRulesRequest): Promise<ImportAppAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importAppAlertRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Initializes an environment instance.
+   *
+   * @param request InitEnvironmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InitEnvironmentResponse
+   */
   async initEnvironmentWithOptions(request: InitEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<InitEnvironmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40908,11 +42625,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InitEnvironmentResponse>(await this.callApi(params, req, runtime), new InitEnvironmentResponse({}));
   }
 
+  /**
+   * @summary Initializes an environment instance.
+   *
+   * @param request InitEnvironmentRequest
+   * @return InitEnvironmentResponse
+   */
   async initEnvironment(request: InitEnvironmentRequest): Promise<InitEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.initEnvironmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Installs an add-on.
+   *
+   * @param request InstallAddonRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallAddonResponse
+   */
   async installAddonWithOptions(request: InstallAddonRequest, runtime: $Util.RuntimeOptions): Promise<InstallAddonResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40965,17 +42695,25 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallAddonResponse>(await this.callApi(params, req, runtime), new InstallAddonResponse({}));
   }
 
+  /**
+   * @summary Installs an add-on.
+   *
+   * @param request InstallAddonRequest
+   * @return InstallAddonResponse
+   */
   async installAddon(request: InstallAddonRequest): Promise<InstallAddonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installAddonWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
-    *
-    * @param request InstallCmsExporterRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InstallCmsExporterResponse
+   * @deprecated OpenAPI InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+   *
+   * @summary Installs the cms-exporter collector.
+   *
+   * @param request InstallCmsExporterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallCmsExporterResponse
    */
   // Deprecated
   async installCmsExporterWithOptions(request: InstallCmsExporterRequest, runtime: $Util.RuntimeOptions): Promise<InstallCmsExporterResponse> {
@@ -41019,10 +42757,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
-    *
-    * @param request InstallCmsExporterRequest
-    * @return InstallCmsExporterResponse
+   * @deprecated OpenAPI InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
+   *
+   * @summary Installs the cms-exporter collector.
+   *
+   * @param request InstallCmsExporterRequest
+   * @return InstallCmsExporterResponse
    */
   // Deprecated
   async installCmsExporter(request: InstallCmsExporterRequest): Promise<InstallCmsExporterResponse> {
@@ -41030,6 +42770,13 @@ export default class Client extends OpenApi {
     return await this.installCmsExporterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Installs a feature.
+   *
+   * @param request InstallEnvironmentFeatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallEnvironmentFeatureResponse
+   */
   async installEnvironmentFeatureWithOptions(request: InstallEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<InstallEnvironmentFeatureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41078,17 +42825,25 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new InstallEnvironmentFeatureResponse({}));
   }
 
+  /**
+   * @summary Installs a feature.
+   *
+   * @param request InstallEnvironmentFeatureRequest
+   * @return InstallEnvironmentFeatureResponse
+   */
   async installEnvironmentFeature(request: InstallEnvironmentFeatureRequest): Promise<InstallEnvironmentFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installEnvironmentFeatureWithOptions(request, runtime);
   }
 
   /**
-    * If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
-    *
-    * @param request InstallManagedPrometheusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return InstallManagedPrometheusResponse
+   * @summary Creates a Prometheus instance to monitor a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+   *
+   * @description If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
+   *
+   * @param request InstallManagedPrometheusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallManagedPrometheusResponse
    */
   async installManagedPrometheusWithOptions(request: InstallManagedPrometheusRequest, runtime: $Util.RuntimeOptions): Promise<InstallManagedPrometheusResponse> {
     Util.validateModel(request);
@@ -41151,16 +42906,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
-    *
-    * @param request InstallManagedPrometheusRequest
-    * @return InstallManagedPrometheusResponse
+   * @summary Creates a Prometheus instance to monitor a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+   *
+   * @description If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
+   *
+   * @param request InstallManagedPrometheusRequest
+   * @return InstallManagedPrometheusResponse
    */
   async installManagedPrometheus(request: InstallManagedPrometheusRequest): Promise<InstallManagedPrometheusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.installManagedPrometheusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alerts that have been triggered.
+   *
+   * @param request ListActivatedAlertsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListActivatedAlertsResponse
+   */
   async listActivatedAlertsWithOptions(request: ListActivatedAlertsRequest, runtime: $Util.RuntimeOptions): Promise<ListActivatedAlertsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41197,11 +42961,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListActivatedAlertsResponse>(await this.callApi(params, req, runtime), new ListActivatedAlertsResponse({}));
   }
 
+  /**
+   * @summary Queries the alerts that have been triggered.
+   *
+   * @param request ListActivatedAlertsRequest
+   * @return ListActivatedAlertsResponse
+   */
   async listActivatedAlerts(request: ListActivatedAlertsRequest): Promise<ListActivatedAlertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listActivatedAlertsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Query the Addons installed in the environment.
+   *
+   * @param request ListAddonReleasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAddonReleasesResponse
+   */
   async listAddonReleasesWithOptions(request: ListAddonReleasesRequest, runtime: $Util.RuntimeOptions): Promise<ListAddonReleasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41234,11 +43011,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAddonReleasesResponse>(await this.callApi(params, req, runtime), new ListAddonReleasesResponse({}));
   }
 
+  /**
+   * @summary Query the Addons installed in the environment.
+   *
+   * @param request ListAddonReleasesRequest
+   * @return ListAddonReleasesResponse
+   */
   async listAddonReleases(request: ListAddonReleasesRequest): Promise<ListAddonReleasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAddonReleasesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary List of access center products.
+   *
+   * @param request ListAddonsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAddonsResponse
+   */
   async listAddonsWithOptions(request: ListAddonsRequest, runtime: $Util.RuntimeOptions): Promise<ListAddonsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41279,11 +43069,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAddonsResponse>(await this.callApi(params, req, runtime), new ListAddonsResponse({}));
   }
 
+  /**
+   * @summary List of access center products.
+   *
+   * @param request ListAddonsRequest
+   * @return ListAddonsResponse
+   */
   async listAddons(request: ListAddonsRequest): Promise<ListAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAddonsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries historical alert events.
+   *
+   * @param request ListAlertEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAlertEventsResponse
+   */
   async listAlertEventsWithOptions(request: ListAlertEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41301,6 +43104,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.page)) {
       query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.showNotificationPolicies)) {
+      query["ShowNotificationPolicies"] = request.showNotificationPolicies;
     }
 
     if (!Util.isUnset(request.size)) {
@@ -41332,11 +43139,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlertEventsResponse>(await this.callApi(params, req, runtime), new ListAlertEventsResponse({}));
   }
 
+  /**
+   * @summary Queries historical alert events.
+   *
+   * @param request ListAlertEventsRequest
+   * @return ListAlertEventsResponse
+   */
   async listAlertEvents(request: ListAlertEventsRequest): Promise<ListAlertEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAlertEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the alert sending history.
+   *
+   * @param request ListAlertsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAlertsResponse
+   */
   async listAlertsWithOptions(request: ListAlertsRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41405,11 +43225,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlertsResponse>(await this.callApi(params, req, runtime), new ListAlertsResponse({}));
   }
 
+  /**
+   * @summary Queries the alert sending history.
+   *
+   * @param request ListAlertsRequest
+   * @return ListAlertsResponse
+   */
   async listAlerts(request: ListAlertsRequest): Promise<ListAlertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAlertsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all Grafana dashboards in a specified region.
+   *
+   * @param request ListClusterFromGrafanaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterFromGrafanaResponse
+   */
   async listClusterFromGrafanaWithOptions(request: ListClusterFromGrafanaRequest, runtime: $Util.RuntimeOptions): Promise<ListClusterFromGrafanaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41434,17 +43267,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterFromGrafanaResponse>(await this.callApi(params, req, runtime), new ListClusterFromGrafanaResponse({}));
   }
 
+  /**
+   * @summary Queries all Grafana dashboards in a specified region.
+   *
+   * @param request ListClusterFromGrafanaRequest
+   * @return ListClusterFromGrafanaResponse
+   */
   async listClusterFromGrafana(request: ListClusterFromGrafanaRequest): Promise<ListClusterFromGrafanaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClusterFromGrafanaWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead.
-    *
-    * @param request ListCmsInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListCmsInstancesResponse
+   * @deprecated OpenAPI ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead.
+   *
+   * @summary 查询Cms安装信息
+   *
+   * @param request ListCmsInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCmsInstancesResponse
    */
   // Deprecated
   async listCmsInstancesWithOptions(request: ListCmsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListCmsInstancesResponse> {
@@ -41480,10 +43321,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead.
-    *
-    * @param request ListCmsInstancesRequest
-    * @return ListCmsInstancesResponse
+   * @deprecated OpenAPI ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead.
+   *
+   * @summary 查询Cms安装信息
+   *
+   * @param request ListCmsInstancesRequest
+   * @return ListCmsInstancesResponse
    */
   // Deprecated
   async listCmsInstances(request: ListCmsInstancesRequest): Promise<ListCmsInstancesResponse> {
@@ -41492,11 +43335,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * None.
-    *
-    * @param request ListDashboardsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDashboardsResponse
+   * @summary Queries the Grafana dashboards of a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description None.
+   *
+   * @param request ListDashboardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDashboardsResponse
    */
   async listDashboardsWithOptions(request: ListDashboardsRequest, runtime: $Util.RuntimeOptions): Promise<ListDashboardsResponse> {
     Util.validateModel(request);
@@ -41551,16 +43396,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * None.
-    *
-    * @param request ListDashboardsRequest
-    * @return ListDashboardsResponse
+   * @summary Queries the Grafana dashboards of a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description None.
+   *
+   * @param request ListDashboardsRequest
+   * @return ListDashboardsResponse
    */
   async listDashboards(request: ListDashboardsRequest): Promise<ListDashboardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDashboardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Uses Loki data sources and other data sources to create a dashboard in Prometheus Service.
+   *
+   * @param request ListDashboardsByNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDashboardsByNameResponse
+   */
   async listDashboardsByNameWithOptions(request: ListDashboardsByNameRequest, runtime: $Util.RuntimeOptions): Promise<ListDashboardsByNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41617,11 +43471,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDashboardsByNameResponse>(await this.callApi(params, req, runtime), new ListDashboardsByNameResponse({}));
   }
 
+  /**
+   * @summary Uses Loki data sources and other data sources to create a dashboard in Prometheus Service.
+   *
+   * @param request ListDashboardsByNameRequest
+   * @return ListDashboardsByNameResponse
+   */
   async listDashboardsByName(request: ListDashboardsByNameRequest): Promise<ListDashboardsByNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDashboardsByNameWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListDispatchRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDispatchRuleResponse
+   */
   async listDispatchRuleWithOptions(request: ListDispatchRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListDispatchRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41654,11 +43519,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDispatchRuleResponse>(await this.callApi(params, req, runtime), new ListDispatchRuleResponse({}));
   }
 
+  /**
+   * @param request ListDispatchRuleRequest
+   * @return ListDispatchRuleResponse
+   */
   async listDispatchRule(request: ListDispatchRuleRequest): Promise<ListDispatchRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDispatchRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the custom jobs of an environment.
+   *
+   * @param request ListEnvCustomJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnvCustomJobsResponse
+   */
   async listEnvCustomJobsWithOptions(request: ListEnvCustomJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvCustomJobsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41691,11 +43567,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvCustomJobsResponse>(await this.callApi(params, req, runtime), new ListEnvCustomJobsResponse({}));
   }
 
+  /**
+   * @summary Queries the custom jobs of an environment.
+   *
+   * @param request ListEnvCustomJobsRequest
+   * @return ListEnvCustomJobsResponse
+   */
   async listEnvCustomJobs(request: ListEnvCustomJobsRequest): Promise<ListEnvCustomJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnvCustomJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the PodMonitors of an environment.
+   *
+   * @param request ListEnvPodMonitorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnvPodMonitorsResponse
+   */
   async listEnvPodMonitorsWithOptions(request: ListEnvPodMonitorsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvPodMonitorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41724,11 +43613,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvPodMonitorsResponse>(await this.callApi(params, req, runtime), new ListEnvPodMonitorsResponse({}));
   }
 
+  /**
+   * @summary Queries the PodMonitors of an environment.
+   *
+   * @param request ListEnvPodMonitorsRequest
+   * @return ListEnvPodMonitorsResponse
+   */
   async listEnvPodMonitors(request: ListEnvPodMonitorsRequest): Promise<ListEnvPodMonitorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnvPodMonitorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the ServiceMonitors of an environment.
+   *
+   * @param request ListEnvServiceMonitorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnvServiceMonitorsResponse
+   */
   async listEnvServiceMonitorsWithOptions(request: ListEnvServiceMonitorsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvServiceMonitorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41757,11 +43659,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvServiceMonitorsResponse>(await this.callApi(params, req, runtime), new ListEnvServiceMonitorsResponse({}));
   }
 
+  /**
+   * @summary Queries the ServiceMonitors of an environment.
+   *
+   * @param request ListEnvServiceMonitorsRequest
+   * @return ListEnvServiceMonitorsResponse
+   */
   async listEnvServiceMonitors(request: ListEnvServiceMonitorsRequest): Promise<ListEnvServiceMonitorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnvServiceMonitorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about a dashboard of an environment instance.
+   *
+   * @param request ListEnvironmentDashboardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnvironmentDashboardsResponse
+   */
   async listEnvironmentDashboardsWithOptions(request: ListEnvironmentDashboardsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentDashboardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41798,11 +43713,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvironmentDashboardsResponse>(await this.callApi(params, req, runtime), new ListEnvironmentDashboardsResponse({}));
   }
 
+  /**
+   * @summary Queries information about a dashboard of an environment instance.
+   *
+   * @param request ListEnvironmentDashboardsRequest
+   * @return ListEnvironmentDashboardsResponse
+   */
   async listEnvironmentDashboards(request: ListEnvironmentDashboardsRequest): Promise<ListEnvironmentDashboardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnvironmentDashboardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 环境的feature列表
+   *
+   * @param request ListEnvironmentFeaturesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnvironmentFeaturesResponse
+   */
   async listEnvironmentFeaturesWithOptions(request: ListEnvironmentFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentFeaturesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41831,11 +43759,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvironmentFeaturesResponse>(await this.callApi(params, req, runtime), new ListEnvironmentFeaturesResponse({}));
   }
 
+  /**
+   * @summary 环境的feature列表
+   *
+   * @param request ListEnvironmentFeaturesRequest
+   * @return ListEnvironmentFeaturesResponse
+   */
   async listEnvironmentFeatures(request: ListEnvironmentFeaturesRequest): Promise<ListEnvironmentFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnvironmentFeaturesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries environments.
+   *
+   * @param tmpReq ListEnvironmentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnvironmentsResponse
+   */
   async listEnvironmentsWithOptions(tmpReq: ListEnvironmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListEnvironmentsShrinkRequest({ });
@@ -41890,11 +43831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnvironmentsResponse>(await this.callApi(params, req, runtime), new ListEnvironmentsResponse({}));
   }
 
+  /**
+   * @summary Queries environments.
+   *
+   * @param request ListEnvironmentsRequest
+   * @return ListEnvironmentsResponse
+   */
   async listEnvironments(request: ListEnvironmentsRequest): Promise<ListEnvironmentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnvironmentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an escalation policy.
+   *
+   * @param request ListEscalationPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEscalationPoliciesResponse
+   */
   async listEscalationPoliciesWithOptions(request: ListEscalationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListEscalationPoliciesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -41915,11 +43869,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEscalationPoliciesResponse>(await this.callApi(params, req, runtime), new ListEscalationPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an escalation policy.
+   *
+   * @param request ListEscalationPoliciesRequest
+   * @return ListEscalationPoliciesResponse
+   */
   async listEscalationPolicies(request: ListEscalationPoliciesRequest): Promise<ListEscalationPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEscalationPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries EventBridge integrations that are used to push notifications.
+   *
+   * @param request ListEventBridgeIntegrationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEventBridgeIntegrationsResponse
+   */
   async listEventBridgeIntegrationsWithOptions(request: ListEventBridgeIntegrationsRequest, runtime: $Util.RuntimeOptions): Promise<ListEventBridgeIntegrationsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -41940,11 +43907,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEventBridgeIntegrationsResponse>(await this.callApi(params, req, runtime), new ListEventBridgeIntegrationsResponse({}));
   }
 
+  /**
+   * @summary Queries EventBridge integrations that are used to push notifications.
+   *
+   * @param request ListEventBridgeIntegrationsRequest
+   * @return ListEventBridgeIntegrationsResponse
+   */
   async listEventBridgeIntegrations(request: ListEventBridgeIntegrationsRequest): Promise<ListEventBridgeIntegrationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEventBridgeIntegrationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取指定工作区列表
+   *
+   * @param tmpReq ListGrafanaWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGrafanaWorkspaceResponse
+   */
   async listGrafanaWorkspaceWithOptions(tmpReq: ListGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<ListGrafanaWorkspaceResponse> {
     Util.validateModel(tmpReq);
     let request = new ListGrafanaWorkspaceShrinkRequest({ });
@@ -41987,11 +43967,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new ListGrafanaWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 获取指定工作区列表
+   *
+   * @param request ListGrafanaWorkspaceRequest
+   * @return ListGrafanaWorkspaceResponse
+   */
   async listGrafanaWorkspace(request: ListGrafanaWorkspaceRequest): Promise<ListGrafanaWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGrafanaWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the abnormal Insights events within a specified period of time.
+   *
+   * @param request ListInsightsEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInsightsEventsResponse
+   */
   async listInsightsEventsWithOptions(request: ListInsightsEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListInsightsEventsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42032,11 +44025,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInsightsEventsResponse>(await this.callApi(params, req, runtime), new ListInsightsEventsResponse({}));
   }
 
+  /**
+   * @summary Queries the abnormal Insights events within a specified period of time.
+   *
+   * @param request ListInsightsEventsRequest
+   * @return ListInsightsEventsResponse
+   */
   async listInsightsEvents(request: ListInsightsEventsRequest): Promise<ListInsightsEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInsightsEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary ListIntegration
+   *
+   * @param request ListIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIntegrationResponse
+   */
   async listIntegrationWithOptions(request: ListIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<ListIntegrationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -42057,11 +44063,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIntegrationResponse>(await this.callApi(params, req, runtime), new ListIntegrationResponse({}));
   }
 
+  /**
+   * @summary ListIntegration
+   *
+   * @param request ListIntegrationRequest
+   * @return ListIntegrationResponse
+   */
   async listIntegration(request: ListIntegrationRequest): Promise<ListIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries notification policies based on specified conditions.
+   *
+   * @param request ListNotificationPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNotificationPoliciesResponse
+   */
   async listNotificationPoliciesWithOptions(request: ListNotificationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListNotificationPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42110,11 +44129,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNotificationPoliciesResponse>(await this.callApi(params, req, runtime), new ListNotificationPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries notification policies based on specified conditions.
+   *
+   * @param request ListNotificationPoliciesRequest
+   * @return ListNotificationPoliciesResponse
+   */
   async listNotificationPolicies(request: ListNotificationPoliciesRequest): Promise<ListNotificationPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNotificationPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a scheduling policy.
+   *
+   * @param request ListOnCallSchedulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOnCallSchedulesResponse
+   */
   async listOnCallSchedulesWithOptions(request: ListOnCallSchedulesRequest, runtime: $Util.RuntimeOptions): Promise<ListOnCallSchedulesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -42135,11 +44167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOnCallSchedulesResponse>(await this.callApi(params, req, runtime), new ListOnCallSchedulesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a scheduling policy.
+   *
+   * @param request ListOnCallSchedulesRequest
+   * @return ListOnCallSchedulesResponse
+   */
   async listOnCallSchedules(request: ListOnCallSchedulesRequest): Promise<ListOnCallSchedulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOnCallSchedulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The value of the annotation.
+   *
+   * @param request ListPrometheusAlertRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrometheusAlertRulesResponse
+   */
   async listPrometheusAlertRulesWithOptions(request: ListPrometheusAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusAlertRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42188,11 +44233,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrometheusAlertRulesResponse>(await this.callApi(params, req, runtime), new ListPrometheusAlertRulesResponse({}));
   }
 
+  /**
+   * @summary The value of the annotation.
+   *
+   * @param request ListPrometheusAlertRulesRequest
+   * @return ListPrometheusAlertRulesResponse
+   */
   async listPrometheusAlertRules(request: ListPrometheusAlertRulesRequest): Promise<ListPrometheusAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrometheusAlertRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+   *
+   * @param request ListPrometheusAlertTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrometheusAlertTemplatesResponse
+   */
   async listPrometheusAlertTemplatesWithOptions(request: ListPrometheusAlertTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusAlertTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42221,11 +44279,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrometheusAlertTemplatesResponse>(await this.callApi(params, req, runtime), new ListPrometheusAlertTemplatesResponse({}));
   }
 
+  /**
+   * @summary The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+   *
+   * @param request ListPrometheusAlertTemplatesRequest
+   * @return ListPrometheusAlertTemplatesResponse
+   */
   async listPrometheusAlertTemplates(request: ListPrometheusAlertTemplatesRequest): Promise<ListPrometheusAlertTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrometheusAlertTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取账号下聚合实例列表
+   *
+   * @param request ListPrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrometheusGlobalViewResponse
+   */
   async listPrometheusGlobalViewWithOptions(request: ListPrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42250,11 +44321,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new ListPrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary 获取账号下聚合实例列表
+   *
+   * @param request ListPrometheusGlobalViewRequest
+   * @return ListPrometheusGlobalViewResponse
+   */
   async listPrometheusGlobalView(request: ListPrometheusGlobalViewRequest): Promise<ListPrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Prometheus instances by tag and resource group.
+   *
+   * @param request ListPrometheusInstanceByTagAndResourceGroupIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse
+   */
   async listPrometheusInstanceByTagAndResourceGroupIdWithOptions(request: ListPrometheusInstanceByTagAndResourceGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusInstanceByTagAndResourceGroupIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42287,11 +44371,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrometheusInstanceByTagAndResourceGroupIdResponse>(await this.callApi(params, req, runtime), new ListPrometheusInstanceByTagAndResourceGroupIdResponse({}));
   }
 
+  /**
+   * @summary Queries Prometheus instances by tag and resource group.
+   *
+   * @param request ListPrometheusInstanceByTagAndResourceGroupIdRequest
+   * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse
+   */
   async listPrometheusInstanceByTagAndResourceGroupId(request: ListPrometheusInstanceByTagAndResourceGroupIdRequest): Promise<ListPrometheusInstanceByTagAndResourceGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrometheusInstanceByTagAndResourceGroupIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all Prometheus instances in a region.
+   *
+   * @param request ListPrometheusInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrometheusInstancesResponse
+   */
   async listPrometheusInstancesWithOptions(request: ListPrometheusInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42324,11 +44421,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrometheusInstancesResponse>(await this.callApi(params, req, runtime), new ListPrometheusInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries all Prometheus instances in a region.
+   *
+   * @param request ListPrometheusInstancesRequest
+   * @return ListPrometheusInstancesResponse
+   */
   async listPrometheusInstances(request: ListPrometheusInstancesRequest): Promise<ListPrometheusInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrometheusInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
+   *
+   * @param request ListPrometheusIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrometheusIntegrationResponse
+   */
   async listPrometheusIntegrationWithOptions(request: ListPrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusIntegrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42361,11 +44471,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new ListPrometheusIntegrationResponse({}));
   }
 
+  /**
+   * @summary Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
+   *
+   * @param request ListPrometheusIntegrationRequest
+   * @return ListPrometheusIntegrationResponse
+   */
   async listPrometheusIntegration(request: ListPrometheusIntegrationRequest): Promise<ListPrometheusIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrometheusIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the monitoring configuration of a Prometheus instance.
+   *
+   * @param request ListPrometheusMonitoringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrometheusMonitoringResponse
+   */
   async listPrometheusMonitoringWithOptions(request: ListPrometheusMonitoringRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusMonitoringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42398,11 +44521,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrometheusMonitoringResponse>(await this.callApi(params, req, runtime), new ListPrometheusMonitoringResponse({}));
   }
 
+  /**
+   * @summary Queries the monitoring configuration of a Prometheus instance.
+   *
+   * @param request ListPrometheusMonitoringRequest
+   * @return ListPrometheusMonitoringResponse
+   */
   async listPrometheusMonitoring(request: ListPrometheusMonitoringRequest): Promise<ListPrometheusMonitoringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrometheusMonitoringWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the remote write configuration items of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request ListPrometheusRemoteWritesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrometheusRemoteWritesResponse
+   */
   async listPrometheusRemoteWritesWithOptions(request: ListPrometheusRemoteWritesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrometheusRemoteWritesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42431,17 +44567,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrometheusRemoteWritesResponse>(await this.callApi(params, req, runtime), new ListPrometheusRemoteWritesResponse({}));
   }
 
+  /**
+   * @summary Queries the remote write configuration items of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request ListPrometheusRemoteWritesRequest
+   * @return ListPrometheusRemoteWritesResponse
+   */
   async listPrometheusRemoteWrites(request: ListPrometheusRemoteWritesRequest): Promise<ListPrometheusRemoteWritesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrometheusRemoteWritesWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request ListRetcodeAppsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListRetcodeAppsResponse
+   * @summary Queries the Browser Monitoring tasks in a region.
+   *
+   * @description ****
+   *
+   * @param request ListRetcodeAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRetcodeAppsResponse
    */
   async listRetcodeAppsWithOptions(request: ListRetcodeAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListRetcodeAppsResponse> {
     Util.validateModel(request);
@@ -42476,16 +44620,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request ListRetcodeAppsRequest
-    * @return ListRetcodeAppsResponse
+   * @summary Queries the Browser Monitoring tasks in a region.
+   *
+   * @description ****
+   *
+   * @param request ListRetcodeAppsRequest
+   * @return ListRetcodeAppsResponse
    */
   async listRetcodeApps(request: ListRetcodeAppsRequest): Promise<ListRetcodeAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRetcodeAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListScenarioRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListScenarioResponse
+   */
   async listScenarioWithOptions(request: ListScenarioRequest, runtime: $Util.RuntimeOptions): Promise<ListScenarioResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42526,11 +44677,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListScenarioResponse>(await this.callApi(params, req, runtime), new ListScenarioResponse({}));
   }
 
+  /**
+   * @param request ListScenarioRequest
+   * @return ListScenarioResponse
+   */
   async listScenario(request: ListScenarioRequest): Promise<ListScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listScenarioWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of a silence policy list.
+   *
+   * @param request ListSilencePoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSilencePoliciesResponse
+   */
   async listSilencePoliciesWithOptions(request: ListSilencePoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListSilencePoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42571,11 +44733,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSilencePoliciesResponse>(await this.callApi(params, req, runtime), new ListSilencePoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries the information of a silence policy list.
+   *
+   * @param request ListSilencePoliciesRequest
+   * @return ListSilencePoliciesResponse
+   */
   async listSilencePolicies(request: ListSilencePoliciesRequest): Promise<ListSilencePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSilencePoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询拨测明细列表
+   *
+   * @param tmpReq ListSyntheticDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSyntheticDetailResponse
+   */
   async listSyntheticDetailWithOptions(tmpReq: ListSyntheticDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListSyntheticDetailResponse> {
     Util.validateModel(tmpReq);
     let request = new ListSyntheticDetailShrinkRequest({ });
@@ -42610,11 +44785,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSyntheticDetailResponse>(await this.callApi(params, req, runtime), new ListSyntheticDetailResponse({}));
   }
 
+  /**
+   * @summary 查询拨测明细列表
+   *
+   * @param request ListSyntheticDetailRequest
+   * @return ListSyntheticDetailResponse
+   */
   async listSyntheticDetail(request: ListSyntheticDetailRequest): Promise<ListSyntheticDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSyntheticDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries scheduled synthetic monitoring tasks.
+   *
+   * @param tmpReq ListTimingSyntheticTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTimingSyntheticTasksResponse
+   */
   async listTimingSyntheticTasksWithOptions(tmpReq: ListTimingSyntheticTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTimingSyntheticTasksResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTimingSyntheticTasksShrinkRequest({ });
@@ -42645,11 +44833,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTimingSyntheticTasksResponse>(await this.callApi(params, req, runtime), new ListTimingSyntheticTasksResponse({}));
   }
 
+  /**
+   * @summary Queries scheduled synthetic monitoring tasks.
+   *
+   * @param request ListTimingSyntheticTasksRequest
+   * @return ListTimingSyntheticTasksResponse
+   */
   async listTimingSyntheticTasks(request: ListTimingSyntheticTasksRequest): Promise<ListTimingSyntheticTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTimingSyntheticTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all Application Monitoring tasks in a specified region.
+   *
+   * @param request ListTraceAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTraceAppsResponse
+   */
   async listTraceAppsWithOptions(request: ListTraceAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListTraceAppsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42690,11 +44891,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTraceAppsResponse>(await this.callApi(params, req, runtime), new ListTraceAppsResponse({}));
   }
 
+  /**
+   * @summary Queries all Application Monitoring tasks in a specified region.
+   *
+   * @param request ListTraceAppsRequest
+   * @return ListTraceAppsResponse
+   */
   async listTraceApps(request: ListTraceAppsRequest): Promise<ListTraceAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTraceAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the recording rule of a Prometheus instance.
+   *
+   * @param request ManageGetRecordingRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ManageGetRecordingRuleResponse
+   */
   async manageGetRecordingRuleWithOptions(request: ManageGetRecordingRuleRequest, runtime: $Util.RuntimeOptions): Promise<ManageGetRecordingRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42727,11 +44941,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ManageGetRecordingRuleResponse>(await this.callApi(params, req, runtime), new ManageGetRecordingRuleResponse({}));
   }
 
+  /**
+   * @summary Obtains the recording rule of a Prometheus instance.
+   *
+   * @param request ManageGetRecordingRuleRequest
+   * @return ManageGetRecordingRuleResponse
+   */
   async manageGetRecordingRule(request: ManageGetRecordingRuleRequest): Promise<ManageGetRecordingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.manageGetRecordingRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the recording rule of a Prometheus instance.
+   *
+   * @param request ManageRecordingRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ManageRecordingRuleResponse
+   */
   async manageRecordingRuleWithOptions(request: ManageRecordingRuleRequest, runtime: $Util.RuntimeOptions): Promise<ManageRecordingRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42768,11 +44995,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ManageRecordingRuleResponse>(await this.callApi(params, req, runtime), new ManageRecordingRuleResponse({}));
   }
 
+  /**
+   * @summary Modifies the recording rule of a Prometheus instance.
+   *
+   * @param request ManageRecordingRuleRequest
+   * @return ManageRecordingRuleResponse
+   */
   async manageRecordingRule(request: ManageRecordingRuleRequest): Promise<ManageRecordingRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.manageRecordingRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Assigns the service-linked role AliyunServiceRoleForARMS to Application Real-Time Monitoring Service (ARMS).
+   *
+   * @param request OpenArmsDefaultSLRRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenArmsDefaultSLRResponse
+   */
   async openArmsDefaultSLRWithOptions(request: OpenArmsDefaultSLRRequest, runtime: $Util.RuntimeOptions): Promise<OpenArmsDefaultSLRResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42797,21 +45037,29 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenArmsDefaultSLRResponse>(await this.callApi(params, req, runtime), new OpenArmsDefaultSLRResponse({}));
   }
 
+  /**
+   * @summary Assigns the service-linked role AliyunServiceRoleForARMS to Application Real-Time Monitoring Service (ARMS).
+   *
+   * @param request OpenArmsDefaultSLRRequest
+   * @return OpenArmsDefaultSLRResponse
+   */
   async openArmsDefaultSLR(request: OpenArmsDefaultSLRRequest): Promise<OpenArmsDefaultSLRResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openArmsDefaultSLRWithOptions(request, runtime);
   }
 
   /**
-    * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
-    * *   Application Monitoring: Basic Edition
-    * *   Browser Monitoring: Basic Edition
-    * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
-    * *   Prometheus Service: Pro Edition
-    *
-    * @param request OpenArmsServiceSecondVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return OpenArmsServiceSecondVersionResponse
+   * @summary Activates a specified pay-as-you-go sub-service of Application Real-Time Monitoring Service (ARMS).
+   *
+   * @description The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+   * *   Application Monitoring: Basic Edition
+   * *   Browser Monitoring: Basic Edition
+   * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+   * *   Prometheus Service: Pro Edition
+   *
+   * @param request OpenArmsServiceSecondVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenArmsServiceSecondVersionResponse
    */
   async openArmsServiceSecondVersionWithOptions(request: OpenArmsServiceSecondVersionRequest, runtime: $Util.RuntimeOptions): Promise<OpenArmsServiceSecondVersionResponse> {
     Util.validateModel(request);
@@ -42842,20 +45090,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
-    * *   Application Monitoring: Basic Edition
-    * *   Browser Monitoring: Basic Edition
-    * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
-    * *   Prometheus Service: Pro Edition
-    *
-    * @param request OpenArmsServiceSecondVersionRequest
-    * @return OpenArmsServiceSecondVersionResponse
+   * @summary Activates a specified pay-as-you-go sub-service of Application Real-Time Monitoring Service (ARMS).
+   *
+   * @description The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+   * *   Application Monitoring: Basic Edition
+   * *   Browser Monitoring: Basic Edition
+   * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+   * *   Prometheus Service: Pro Edition
+   *
+   * @param request OpenArmsServiceSecondVersionRequest
+   * @return OpenArmsServiceSecondVersionResponse
    */
   async openArmsServiceSecondVersion(request: OpenArmsServiceSecondVersionRequest): Promise<OpenArmsServiceSecondVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openArmsServiceSecondVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Activates a virtual cluster.
+   *
+   * @param request OpenVClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenVClusterResponse
+   */
   async openVClusterWithOptions(request: OpenVClusterRequest, runtime: $Util.RuntimeOptions): Promise<OpenVClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42896,11 +45153,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenVClusterResponse>(await this.callApi(params, req, runtime), new OpenVClusterResponse({}));
   }
 
+  /**
+   * @summary Activates a virtual cluster.
+   *
+   * @param request OpenVClusterRequest
+   * @return OpenVClusterResponse
+   */
   async openVCluster(request: OpenVClusterRequest): Promise<OpenVClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openVClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
+   *
+   * @param request OpenXtraceDefaultSLRRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenXtraceDefaultSLRResponse
+   */
   async openXtraceDefaultSLRWithOptions(request: OpenXtraceDefaultSLRRequest, runtime: $Util.RuntimeOptions): Promise<OpenXtraceDefaultSLRResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42925,11 +45195,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenXtraceDefaultSLRResponse>(await this.callApi(params, req, runtime), new OpenXtraceDefaultSLRResponse({}));
   }
 
+  /**
+   * @summary Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
+   *
+   * @param request OpenXtraceDefaultSLRRequest
+   * @return OpenXtraceDefaultSLRResponse
+   */
   async openXtraceDefaultSLR(request: OpenXtraceDefaultSLRRequest): Promise<OpenXtraceDefaultSLRResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openXtraceDefaultSLRWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
+   *
+   * @param request QueryAppMetadataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAppMetadataResponse
+   */
   async queryAppMetadataWithOptions(request: QueryAppMetadataRequest, runtime: $Util.RuntimeOptions): Promise<QueryAppMetadataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -42950,11 +45233,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAppMetadataResponse>(await this.callApi(params, req, runtime), new QueryAppMetadataResponse({}));
   }
 
+  /**
+   * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
+   *
+   * @param request QueryAppMetadataRequest
+   * @return QueryAppMetadataResponse
+   */
   async queryAppMetadata(request: QueryAppMetadataRequest): Promise<QueryAppMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAppMetadataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询应用拓扑
+   *
+   * @param tmpReq QueryAppTopologyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAppTopologyResponse
+   */
   async queryAppTopologyWithOptions(tmpReq: QueryAppTopologyRequest, runtime: $Util.RuntimeOptions): Promise<QueryAppTopologyResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryAppTopologyShrinkRequest({ });
@@ -43021,11 +45317,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAppTopologyResponse>(await this.callApi(params, req, runtime), new QueryAppTopologyResponse({}));
   }
 
+  /**
+   * @summary 查询应用拓扑
+   *
+   * @param request QueryAppTopologyRequest
+   * @return QueryAppTopologyResponse
+   */
   async queryAppTopology(request: QueryAppTopologyRequest): Promise<QueryAppTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAppTopologyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryCommercialUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCommercialUsageResponse
+   */
   async queryCommercialUsageWithOptions(request: QueryCommercialUsageRequest, runtime: $Util.RuntimeOptions): Promise<QueryCommercialUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43086,11 +45393,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCommercialUsageResponse>(await this.callApi(params, req, runtime), new QueryCommercialUsageResponse({}));
   }
 
+  /**
+   * @param request QueryCommercialUsageRequest
+   * @return QueryCommercialUsageResponse
+   */
   async queryCommercialUsage(request: QueryCommercialUsageRequest): Promise<QueryCommercialUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCommercialUsageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries an Application Monitoring metric or a Browser Monitoring metric.
+   *
+   * @param request QueryMetricByPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMetricByPageResponse
+   */
   async queryMetricByPageWithOptions(request: QueryMetricByPageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMetricByPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43159,11 +45477,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMetricByPageResponse>(await this.callApi(params, req, runtime), new QueryMetricByPageResponse({}));
   }
 
+  /**
+   * @summary Queries an Application Monitoring metric or a Browser Monitoring metric.
+   *
+   * @param request QueryMetricByPageRequest
+   * @return QueryMetricByPageResponse
+   */
   async queryMetricByPage(request: QueryMetricByPageRequest): Promise<QueryMetricByPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMetricByPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the Prometheus agent is installed on a cluster.
+   *
+   * @param request QueryPromInstallStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPromInstallStatusResponse
+   */
   async queryPromInstallStatusWithOptions(request: QueryPromInstallStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryPromInstallStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43192,11 +45523,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPromInstallStatusResponse>(await this.callApi(params, req, runtime), new QueryPromInstallStatusResponse({}));
   }
 
+  /**
+   * @summary Queries whether the Prometheus agent is installed on a cluster.
+   *
+   * @param request QueryPromInstallStatusRequest
+   * @return QueryPromInstallStatusResponse
+   */
   async queryPromInstallStatus(request: QueryPromInstallStatusRequest): Promise<QueryPromInstallStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPromInstallStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary QueryReleaseMetric 
+   *
+   * @param request QueryReleaseMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryReleaseMetricResponse
+   */
   async queryReleaseMetricWithOptions(request: QueryReleaseMetricRequest, runtime: $Util.RuntimeOptions): Promise<QueryReleaseMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43249,11 +45593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryReleaseMetricResponse>(await this.callApi(params, req, runtime), new QueryReleaseMetricResponse({}));
   }
 
+  /**
+   * @summary QueryReleaseMetric 
+   *
+   * @param request QueryReleaseMetricRequest
+   * @return QueryReleaseMetricResponse
+   */
   async queryReleaseMetric(request: QueryReleaseMetricRequest): Promise<QueryReleaseMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryReleaseMetricWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes data sources from a global aggregation instance in Prometheus Service.
+   *
+   * @param request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse
+   */
   async removeAliClusterIdsFromPrometheusGlobalViewWithOptions(request: RemoveAliClusterIdsFromPrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAliClusterIdsFromPrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43290,11 +45647,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveAliClusterIdsFromPrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new RemoveAliClusterIdsFromPrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary Removes data sources from a global aggregation instance in Prometheus Service.
+   *
+   * @param request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
+   * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse
+   */
   async removeAliClusterIdsFromPrometheusGlobalView(request: RemoveAliClusterIdsFromPrometheusGlobalViewRequest): Promise<RemoveAliClusterIdsFromPrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeAliClusterIdsFromPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes custom data sources from a global aggregation instance in Prometheus Service.
+   *
+   * @param request RemoveSourcesFromPrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveSourcesFromPrometheusGlobalViewResponse
+   */
   async removeSourcesFromPrometheusGlobalViewWithOptions(request: RemoveSourcesFromPrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSourcesFromPrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43331,11 +45701,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveSourcesFromPrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new RemoveSourcesFromPrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary Removes custom data sources from a global aggregation instance in Prometheus Service.
+   *
+   * @param request RemoveSourcesFromPrometheusGlobalViewRequest
+   * @return RemoveSourcesFromPrometheusGlobalViewResponse
+   */
   async removeSourcesFromPrometheusGlobalView(request: RemoveSourcesFromPrometheusGlobalViewRequest): Promise<RemoveSourcesFromPrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeSourcesFromPrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 重新启动 feature信息
+   *
+   * @param request RestartEnvironmentFeatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartEnvironmentFeatureResponse
+   */
   async restartEnvironmentFeatureWithOptions(request: RestartEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<RestartEnvironmentFeatureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43368,11 +45751,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new RestartEnvironmentFeatureResponse({}));
   }
 
+  /**
+   * @summary 重新启动 feature信息
+   *
+   * @param request RestartEnvironmentFeatureRequest
+   * @return RestartEnvironmentFeatureResponse
+   */
   async restartEnvironmentFeature(request: RestartEnvironmentFeatureRequest): Promise<RestartEnvironmentFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartEnvironmentFeatureWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the settings of Application Monitoring, such as trace sampling and agent switch settings.
+   *
+   * @param request SaveTraceAppConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveTraceAppConfigResponse
+   */
   async saveTraceAppConfigWithOptions(request: SaveTraceAppConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveTraceAppConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43401,17 +45797,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveTraceAppConfigResponse>(await this.callApi(params, req, runtime), new SaveTraceAppConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the settings of Application Monitoring, such as trace sampling and agent switch settings.
+   *
+   * @param request SaveTraceAppConfigRequest
+   * @return SaveTraceAppConfigResponse
+   */
   async saveTraceAppConfig(request: SaveTraceAppConfigRequest): Promise<SaveTraceAppConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveTraceAppConfigWithOptions(request, runtime);
   }
 
   /**
-    * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
-    *
-    * @param request SearchAlertContactRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchAlertContactResponse
+   * @summary Queries alert contacts.
+   *
+   * @description This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
+   *
+   * @param request SearchAlertContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchAlertContactResponse
    */
   async searchAlertContactWithOptions(request: SearchAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<SearchAlertContactResponse> {
     Util.validateModel(request);
@@ -43462,10 +45866,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
-    *
-    * @param request SearchAlertContactRequest
-    * @return SearchAlertContactResponse
+   * @summary Queries alert contacts.
+   *
+   * @description This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
+   *
+   * @param request SearchAlertContactRequest
+   * @return SearchAlertContactResponse
    */
   async searchAlertContact(request: SearchAlertContactRequest): Promise<SearchAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43473,11 +45879,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
-    *
-    * @param request SearchAlertContactGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchAlertContactGroupResponse
+   * @summary Queries alert contact groups.
+   *
+   * @description The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
+   *
+   * @param request SearchAlertContactGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchAlertContactGroupResponse
    */
   async searchAlertContactGroupWithOptions(request: SearchAlertContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<SearchAlertContactGroupResponse> {
     Util.validateModel(request);
@@ -43524,10 +45932,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
-    *
-    * @param request SearchAlertContactGroupRequest
-    * @return SearchAlertContactGroupResponse
+   * @summary Queries alert contact groups.
+   *
+   * @description The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
+   *
+   * @param request SearchAlertContactGroupRequest
+   * @return SearchAlertContactGroupResponse
    */
   async searchAlertContactGroup(request: SearchAlertContactGroupRequest): Promise<SearchAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43535,11 +45945,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
-    *
-    * @param request SearchAlertHistoriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchAlertHistoriesResponse
+   * @summary Queries the alert records of an alert rule.
+   *
+   * @description This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
+   *
+   * @param request SearchAlertHistoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchAlertHistoriesResponse
    */
   async searchAlertHistoriesWithOptions(request: SearchAlertHistoriesRequest, runtime: $Util.RuntimeOptions): Promise<SearchAlertHistoriesResponse> {
     Util.validateModel(request);
@@ -43590,10 +46002,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
-    *
-    * @param request SearchAlertHistoriesRequest
-    * @return SearchAlertHistoriesResponse
+   * @summary Queries the alert records of an alert rule.
+   *
+   * @description This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
+   *
+   * @param request SearchAlertHistoriesRequest
+   * @return SearchAlertHistoriesResponse
    */
   async searchAlertHistories(request: SearchAlertHistoriesRequest): Promise<SearchAlertHistoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43601,11 +46015,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
-    *
-    * @param request SearchAlertRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchAlertRulesResponse
+   * @summary Queries alert rules.
+   *
+   * @description The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
+   *
+   * @param request SearchAlertRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchAlertRulesResponse
    */
   async searchAlertRulesWithOptions(request: SearchAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<SearchAlertRulesResponse> {
     Util.validateModel(request);
@@ -43672,10 +46088,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
-    *
-    * @param request SearchAlertRulesRequest
-    * @return SearchAlertRulesResponse
+   * @summary Queries alert rules.
+   *
+   * @description The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
+   *
+   * @param request SearchAlertRulesRequest
+   * @return SearchAlertRulesResponse
    */
   async searchAlertRules(request: SearchAlertRulesRequest): Promise<SearchAlertRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43683,11 +46101,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
-    *
-    * @param request SearchEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchEventsResponse
+   * @summary Queries alert event records.
+   *
+   * @description Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
+   *
+   * @param request SearchEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchEventsResponse
    */
   async searchEventsWithOptions(request: SearchEventsRequest, runtime: $Util.RuntimeOptions): Promise<SearchEventsResponse> {
     Util.validateModel(request);
@@ -43750,16 +46170,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
-    *
-    * @param request SearchEventsRequest
-    * @return SearchEventsResponse
+   * @summary Queries alert event records.
+   *
+   * @description Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
+   *
+   * @param request SearchEventsRequest
+   * @return SearchEventsResponse
    */
   async searchEvents(request: SearchEventsRequest): Promise<SearchEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchEventsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Browser Monitoring tasks by page.
+   *
+   * @param request SearchRetcodeAppByPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchRetcodeAppByPageResponse
+   */
   async searchRetcodeAppByPageWithOptions(request: SearchRetcodeAppByPageRequest, runtime: $Util.RuntimeOptions): Promise<SearchRetcodeAppByPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43808,11 +46237,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchRetcodeAppByPageResponse>(await this.callApi(params, req, runtime), new SearchRetcodeAppByPageResponse({}));
   }
 
+  /**
+   * @summary Queries Browser Monitoring tasks by page.
+   *
+   * @param request SearchRetcodeAppByPageRequest
+   * @return SearchRetcodeAppByPageResponse
+   */
   async searchRetcodeAppByPage(request: SearchRetcodeAppByPageRequest): Promise<SearchRetcodeAppByPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchRetcodeAppByPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Application Monitoring tasks by application name.
+   *
+   * @param request SearchTraceAppByNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchTraceAppByNameResponse
+   */
   async searchTraceAppByNameWithOptions(request: SearchTraceAppByNameRequest, runtime: $Util.RuntimeOptions): Promise<SearchTraceAppByNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43845,11 +46287,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchTraceAppByNameResponse>(await this.callApi(params, req, runtime), new SearchTraceAppByNameResponse({}));
   }
 
+  /**
+   * @summary Queries Application Monitoring tasks by application name.
+   *
+   * @param request SearchTraceAppByNameRequest
+   * @return SearchTraceAppByNameResponse
+   */
   async searchTraceAppByName(request: SearchTraceAppByNameRequest): Promise<SearchTraceAppByNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTraceAppByNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Application Monitoring tasks by page.
+   *
+   * @param request SearchTraceAppByPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchTraceAppByPageResponse
+   */
   async searchTraceAppByPageWithOptions(request: SearchTraceAppByPageRequest, runtime: $Util.RuntimeOptions): Promise<SearchTraceAppByPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43894,17 +46349,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchTraceAppByPageResponse>(await this.callApi(params, req, runtime), new SearchTraceAppByPageResponse({}));
   }
 
+  /**
+   * @summary Queries Application Monitoring tasks by page.
+   *
+   * @param request SearchTraceAppByPageRequest
+   * @return SearchTraceAppByPageResponse
+   */
   async searchTraceAppByPage(request: SearchTraceAppByPageRequest): Promise<SearchTraceAppByPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTraceAppByPageWithOptions(request, runtime);
   }
 
   /**
-    * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](~~175866~~).
-    *
-    * @param request SearchTracesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchTracesResponse
+   * @summary Queries traces by time, application name, IP address, span name, and tag.
+   *
+   * @description > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](https://help.aliyun.com/document_detail/175866.html).
+   *
+   * @param request SearchTracesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchTracesResponse
    */
   async searchTracesWithOptions(request: SearchTracesRequest, runtime: $Util.RuntimeOptions): Promise<SearchTracesResponse> {
     Util.validateModel(request);
@@ -43971,16 +46434,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](~~175866~~).
-    *
-    * @param request SearchTracesRequest
-    * @return SearchTracesResponse
+   * @summary Queries traces by time, application name, IP address, span name, and tag.
+   *
+   * @description > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](https://help.aliyun.com/document_detail/175866.html).
+   *
+   * @param request SearchTracesRequest
+   * @return SearchTracesResponse
    */
   async searchTraces(request: SearchTracesRequest): Promise<SearchTracesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTracesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries traces by page. You can query traces by time range, application name, IP address, span name, or tag.
+   *
+   * @param request SearchTracesByPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchTracesByPageResponse
+   */
   async searchTracesByPageWithOptions(request: SearchTracesByPageRequest, runtime: $Util.RuntimeOptions): Promise<SearchTracesByPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44057,17 +46529,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchTracesByPageResponse>(await this.callApi(params, req, runtime), new SearchTracesByPageResponse({}));
   }
 
+  /**
+   * @summary Queries traces by page. You can query traces by time range, application name, IP address, span name, or tag.
+   *
+   * @param request SearchTracesByPageRequest
+   * @return SearchTracesByPageResponse
+   */
   async searchTracesByPage(request: SearchTracesByPageRequest): Promise<SearchTracesByPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTracesByPageWithOptions(request, runtime);
   }
 
   /**
-    * After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
-    *
-    * @param request SendTTSVerifyLinkRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SendTTSVerifyLinkResponse
+   * @summary Sends a text message to an alert contact to verify the mobile number of the alert contact.
+   *
+   * @description After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
+   *
+   * @param request SendTTSVerifyLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendTTSVerifyLinkResponse
    */
   async sendTTSVerifyLinkWithOptions(request: SendTTSVerifyLinkRequest, runtime: $Util.RuntimeOptions): Promise<SendTTSVerifyLinkResponse> {
     Util.validateModel(request);
@@ -44098,16 +46578,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
-    *
-    * @param request SendTTSVerifyLinkRequest
-    * @return SendTTSVerifyLinkResponse
+   * @summary Sends a text message to an alert contact to verify the mobile number of the alert contact.
+   *
+   * @description After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
+   *
+   * @param request SendTTSVerifyLinkRequest
+   * @return SendTTSVerifyLinkResponse
    */
   async sendTTSVerifyLink(request: SendTTSVerifyLinkRequest): Promise<SendTTSVerifyLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendTTSVerifyLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
+   *
+   * @param request SetRetcodeShareStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetRetcodeShareStatusResponse
+   */
   async setRetcodeShareStatusWithOptions(request: SetRetcodeShareStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetRetcodeShareStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44140,11 +46629,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SetRetcodeShareStatusResponse>(await this.callApi(params, req, runtime), new SetRetcodeShareStatusResponse({}));
   }
 
+  /**
+   * @summary Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
+   *
+   * @param request SetRetcodeShareStatusRequest
+   * @return SetRetcodeShareStatusResponse
+   */
   async setRetcodeShareStatus(request: SetRetcodeShareStatusRequest): Promise<SetRetcodeShareStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setRetcodeShareStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StartAlertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartAlertResponse
+   */
   async startAlertWithOptions(request: StartAlertRequest, runtime: $Util.RuntimeOptions): Promise<StartAlertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44173,11 +46673,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartAlertResponse>(await this.callApi(params, req, runtime), new StartAlertResponse({}));
   }
 
+  /**
+   * @param request StartAlertRequest
+   * @return StartAlertResponse
+   */
   async startAlert(request: StartAlertRequest): Promise<StartAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startAlertWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 启动定时拨测任务
+   *
+   * @param tmpReq StartTimingSyntheticTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartTimingSyntheticTaskResponse
+   */
   async startTimingSyntheticTaskWithOptions(tmpReq: StartTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartTimingSyntheticTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new StartTimingSyntheticTaskShrinkRequest({ });
@@ -44212,11 +46723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new StartTimingSyntheticTaskResponse({}));
   }
 
+  /**
+   * @summary 启动定时拨测任务
+   *
+   * @param request StartTimingSyntheticTaskRequest
+   * @return StartTimingSyntheticTaskResponse
+   */
   async startTimingSyntheticTask(request: StartTimingSyntheticTaskRequest): Promise<StartTimingSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startTimingSyntheticTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Call StartAlert to stop an alert rule.
+   *
+   * @param request StopAlertRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopAlertResponse
+   */
   async stopAlertWithOptions(request: StopAlertRequest, runtime: $Util.RuntimeOptions): Promise<StopAlertResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44245,11 +46769,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopAlertResponse>(await this.callApi(params, req, runtime), new StopAlertResponse({}));
   }
 
+  /**
+   * @summary Call StartAlert to stop an alert rule.
+   *
+   * @param request StopAlertRequest
+   * @return StopAlertResponse
+   */
   async stopAlert(request: StopAlertRequest): Promise<StopAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopAlertWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Stops scheduled synthetic monitoring tasks.
+   *
+   * @param tmpReq StopTimingSyntheticTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopTimingSyntheticTaskResponse
+   */
   async stopTimingSyntheticTaskWithOptions(tmpReq: StopTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopTimingSyntheticTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new StopTimingSyntheticTaskShrinkRequest({ });
@@ -44284,11 +46821,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new StopTimingSyntheticTaskResponse({}));
   }
 
+  /**
+   * @summary Stops scheduled synthetic monitoring tasks.
+   *
+   * @param request StopTimingSyntheticTaskRequest
+   * @return StopTimingSyntheticTaskResponse
+   */
   async stopTimingSyntheticTask(request: StopTimingSyntheticTaskRequest): Promise<StopTimingSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopTimingSyntheticTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 启动或者禁用云拨测的任务
+   *
+   * @param request SwitchSyntheticTaskStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchSyntheticTaskStatusResponse
+   */
   async switchSyntheticTaskStatusWithOptions(request: SwitchSyntheticTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<SwitchSyntheticTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44317,11 +46867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchSyntheticTaskStatusResponse>(await this.callApi(params, req, runtime), new SwitchSyntheticTaskStatusResponse({}));
   }
 
+  /**
+   * @summary 启动或者禁用云拨测的任务
+   *
+   * @param request SwitchSyntheticTaskStatusRequest
+   * @return SwitchSyntheticTaskStatusResponse
+   */
   async switchSyntheticTaskStatus(request: SwitchSyntheticTaskStatusRequest): Promise<SwitchSyntheticTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchSyntheticTaskStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
+   *
+   * @param request SyncRecordingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncRecordingRulesResponse
+   */
   async syncRecordingRulesWithOptions(request: SyncRecordingRulesRequest, runtime: $Util.RuntimeOptions): Promise<SyncRecordingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44354,11 +46917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncRecordingRulesResponse>(await this.callApi(params, req, runtime), new SyncRecordingRulesResponse({}));
   }
 
+  /**
+   * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
+   *
+   * @param request SyncRecordingRulesRequest
+   * @return SyncRecordingRulesResponse
+   */
   async syncRecordingRules(request: SyncRecordingRulesRequest): Promise<SyncRecordingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.syncRecordingRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds tags to ARMS resources.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44391,17 +46967,25 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds tags to ARMS resources.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
-    *
-    * @param request UninstallManagedPrometheusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UninstallManagedPrometheusResponse
+   * @summary Removes a Prometheus instance from a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+   *
+   * @description Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
+   *
+   * @param request UninstallManagedPrometheusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UninstallManagedPrometheusResponse
    */
   async uninstallManagedPrometheusWithOptions(request: UninstallManagedPrometheusRequest, runtime: $Util.RuntimeOptions): Promise<UninstallManagedPrometheusResponse> {
     Util.validateModel(request);
@@ -44444,16 +47028,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
-    *
-    * @param request UninstallManagedPrometheusRequest
-    * @return UninstallManagedPrometheusResponse
+   * @summary Removes a Prometheus instance from a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+   *
+   * @description Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
+   *
+   * @param request UninstallManagedPrometheusRequest
+   * @return UninstallManagedPrometheusResponse
    */
   async uninstallManagedPrometheus(request: UninstallManagedPrometheusRequest): Promise<UninstallManagedPrometheusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallManagedPrometheusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases a Prometheus instance.
+   *
+   * @param request UninstallPromClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UninstallPromClusterResponse
+   */
   async uninstallPromClusterWithOptions(request: UninstallPromClusterRequest, runtime: $Util.RuntimeOptions): Promise<UninstallPromClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44486,11 +47079,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UninstallPromClusterResponse>(await this.callApi(params, req, runtime), new UninstallPromClusterResponse({}));
   }
 
+  /**
+   * @summary Releases a Prometheus instance.
+   *
+   * @param request UninstallPromClusterRequest
+   * @return UninstallPromClusterResponse
+   */
   async uninstallPromCluster(request: UninstallPromClusterRequest): Promise<UninstallPromClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallPromClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from ARMS resources.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44531,17 +47137,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from ARMS resources.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
-    *
-    * @param request UpdateAlertContactRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAlertContactResponse
+   * @summary Updates an alert contact.
+   *
+   * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
+   *
+   * @param request UpdateAlertContactRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAlertContactResponse
    */
   async updateAlertContactWithOptions(request: UpdateAlertContactRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAlertContactResponse> {
     Util.validateModel(request);
@@ -44592,16 +47206,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
-    *
-    * @param request UpdateAlertContactRequest
-    * @return UpdateAlertContactResponse
+   * @summary Updates an alert contact.
+   *
+   * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
+   *
+   * @param request UpdateAlertContactRequest
+   * @return UpdateAlertContactResponse
    */
   async updateAlertContact(request: UpdateAlertContactRequest): Promise<UpdateAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAlertContactWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates UpdateAlertContactGroup alarm contact group.
+   *
+   * @param request UpdateAlertContactGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAlertContactGroupResponse
+   */
   async updateAlertContactGroupWithOptions(request: UpdateAlertContactGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAlertContactGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44638,11 +47261,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAlertContactGroupResponse>(await this.callApi(params, req, runtime), new UpdateAlertContactGroupResponse({}));
   }
 
+  /**
+   * @summary Updates UpdateAlertContactGroup alarm contact group.
+   *
+   * @param request UpdateAlertContactGroupRequest
+   * @return UpdateAlertContactGroupResponse
+   */
   async updateAlertContactGroup(request: UpdateAlertContactGroupRequest): Promise<UpdateAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAlertContactGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAlertRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAlertRuleResponse
+   */
   async updateAlertRuleWithOptions(request: UpdateAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAlertRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44683,11 +47317,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAlertRuleResponse>(await this.callApi(params, req, runtime), new UpdateAlertRuleResponse({}));
   }
 
+  /**
+   * @param request UpdateAlertRuleRequest
+   * @return UpdateAlertRuleResponse
+   */
   async updateAlertRule(request: UpdateAlertRuleRequest): Promise<UpdateAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAlertRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request UpdateDispatchRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDispatchRuleResponse
+   */
   async updateDispatchRuleWithOptions(request: UpdateDispatchRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDispatchRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44716,11 +47361,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDispatchRuleResponse>(await this.callApi(params, req, runtime), new UpdateDispatchRuleResponse({}));
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request UpdateDispatchRuleRequest
+   * @return UpdateDispatchRuleResponse
+   */
   async updateDispatchRule(request: UpdateDispatchRuleRequest): Promise<UpdateDispatchRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDispatchRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a custom job for an environment.
+   *
+   * @param request UpdateEnvCustomJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEnvCustomJobResponse
+   */
   async updateEnvCustomJobWithOptions(request: UpdateEnvCustomJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnvCustomJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44767,11 +47425,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEnvCustomJobResponse>(await this.callApi(params, req, runtime), new UpdateEnvCustomJobResponse({}));
   }
 
+  /**
+   * @summary Updates a custom job for an environment.
+   *
+   * @param request UpdateEnvCustomJobRequest
+   * @return UpdateEnvCustomJobResponse
+   */
   async updateEnvCustomJob(request: UpdateEnvCustomJobRequest): Promise<UpdateEnvCustomJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEnvCustomJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the PodMonitor of an environment.
+   *
+   * @param request UpdateEnvPodMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEnvPodMonitorResponse
+   */
   async updateEnvPodMonitorWithOptions(request: UpdateEnvPodMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnvPodMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44822,11 +47493,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEnvPodMonitorResponse>(await this.callApi(params, req, runtime), new UpdateEnvPodMonitorResponse({}));
   }
 
+  /**
+   * @summary Updates the PodMonitor of an environment.
+   *
+   * @param request UpdateEnvPodMonitorRequest
+   * @return UpdateEnvPodMonitorResponse
+   */
   async updateEnvPodMonitor(request: UpdateEnvPodMonitorRequest): Promise<UpdateEnvPodMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEnvPodMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the ServiceMonitor of an environment.
+   *
+   * @param request UpdateEnvServiceMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEnvServiceMonitorResponse
+   */
   async updateEnvServiceMonitorWithOptions(request: UpdateEnvServiceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnvServiceMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44877,11 +47561,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEnvServiceMonitorResponse>(await this.callApi(params, req, runtime), new UpdateEnvServiceMonitorResponse({}));
   }
 
+  /**
+   * @summary Updates the ServiceMonitor of an environment.
+   *
+   * @param request UpdateEnvServiceMonitorRequest
+   * @return UpdateEnvServiceMonitorResponse
+   */
   async updateEnvServiceMonitor(request: UpdateEnvServiceMonitorRequest): Promise<UpdateEnvServiceMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEnvServiceMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the configuration of an environment.
+   *
+   * @param request UpdateEnvironmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEnvironmentResponse
+   */
   async updateEnvironmentWithOptions(request: UpdateEnvironmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnvironmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44922,11 +47619,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEnvironmentResponse>(await this.callApi(params, req, runtime), new UpdateEnvironmentResponse({}));
   }
 
+  /**
+   * @summary Updates the configuration of an environment.
+   *
+   * @param request UpdateEnvironmentRequest
+   * @return UpdateEnvironmentResponse
+   */
   async updateEnvironment(request: UpdateEnvironmentRequest): Promise<UpdateEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEnvironmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 编辑工作区
+   *
+   * @param request UpdateGrafanaWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGrafanaWorkspaceResponse
+   */
   async updateGrafanaWorkspaceWithOptions(request: UpdateGrafanaWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGrafanaWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44967,11 +47677,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGrafanaWorkspaceResponse>(await this.callApi(params, req, runtime), new UpdateGrafanaWorkspaceResponse({}));
   }
 
+  /**
+   * @summary 编辑工作区
+   *
+   * @param request UpdateGrafanaWorkspaceRequest
+   * @return UpdateGrafanaWorkspaceResponse
+   */
   async updateGrafanaWorkspace(request: UpdateGrafanaWorkspaceRequest): Promise<UpdateGrafanaWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGrafanaWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 升级指定工作区版本
+   *
+   * @param request UpdateGrafanaWorkspaceVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGrafanaWorkspaceVersionResponse
+   */
   async updateGrafanaWorkspaceVersionWithOptions(request: UpdateGrafanaWorkspaceVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGrafanaWorkspaceVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45008,11 +47731,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGrafanaWorkspaceVersionResponse>(await this.callApi(params, req, runtime), new UpdateGrafanaWorkspaceVersionResponse({}));
   }
 
+  /**
+   * @summary 升级指定工作区版本
+   *
+   * @param request UpdateGrafanaWorkspaceVersionRequest
+   * @return UpdateGrafanaWorkspaceVersionResponse
+   */
   async updateGrafanaWorkspaceVersion(request: UpdateGrafanaWorkspaceVersionRequest): Promise<UpdateGrafanaWorkspaceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGrafanaWorkspaceVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about an integration.
+   *
+   * @param request UpdateIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIntegrationResponse
+   */
   async updateIntegrationWithOptions(request: UpdateIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIntegrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45089,11 +47825,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIntegrationResponse>(await this.callApi(params, req, runtime), new UpdateIntegrationResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about an integration.
+   *
+   * @param request UpdateIntegrationRequest
+   * @return UpdateIntegrationResponse
+   */
   async updateIntegration(request: UpdateIntegrationRequest): Promise<UpdateIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新删除的metric
+   *
+   * @param request UpdateMetricDropRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMetricDropResponse
+   */
   async updateMetricDropWithOptions(request: UpdateMetricDropRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetricDropResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45126,11 +47875,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMetricDropResponse>(await this.callApi(params, req, runtime), new UpdateMetricDropResponse({}));
   }
 
+  /**
+   * @summary 更新删除的metric
+   *
+   * @param request UpdateMetricDropRequest
+   * @return UpdateMetricDropResponse
+   */
   async updateMetricDrop(request: UpdateMetricDropRequest): Promise<UpdateMetricDropResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMetricDropWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新Prometheus告警规则
+   *
+   * @param request UpdatePrometheusAlertRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrometheusAlertRuleResponse
+   */
   async updatePrometheusAlertRuleWithOptions(request: UpdatePrometheusAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusAlertRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45203,11 +47965,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrometheusAlertRuleResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusAlertRuleResponse({}));
   }
 
+  /**
+   * @summary 更新Prometheus告警规则
+   *
+   * @param request UpdatePrometheusAlertRuleRequest
+   * @return UpdatePrometheusAlertRuleResponse
+   */
   async updatePrometheusAlertRule(request: UpdatePrometheusAlertRuleRequest): Promise<UpdatePrometheusAlertRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusAlertRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the data sources of Prometheus instance for GlobalView.
+   *
+   * @param request UpdatePrometheusGlobalViewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrometheusGlobalViewResponse
+   */
   async updatePrometheusGlobalViewWithOptions(request: UpdatePrometheusGlobalViewRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusGlobalViewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45256,11 +48031,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrometheusGlobalViewResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusGlobalViewResponse({}));
   }
 
+  /**
+   * @summary Updates the data sources of Prometheus instance for GlobalView.
+   *
+   * @param request UpdatePrometheusGlobalViewRequest
+   * @return UpdatePrometheusGlobalViewResponse
+   */
   async updatePrometheusGlobalView(request: UpdatePrometheusGlobalViewRequest): Promise<UpdatePrometheusGlobalViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusGlobalViewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Update Prometheus instance config.
+   *
+   * @param request UpdatePrometheusInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrometheusInstanceResponse
+   */
   async updatePrometheusInstanceWithOptions(request: UpdatePrometheusInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45301,11 +48089,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrometheusInstanceResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusInstanceResponse({}));
   }
 
+  /**
+   * @summary Update Prometheus instance config.
+   *
+   * @param request UpdatePrometheusInstanceRequest
+   * @return UpdatePrometheusInstanceResponse
+   */
   async updatePrometheusInstance(request: UpdatePrometheusInstanceRequest): Promise<UpdatePrometheusInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request UpdatePrometheusIntegrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrometheusIntegrationResponse
+   */
   async updatePrometheusIntegrationWithOptions(request: UpdatePrometheusIntegrationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusIntegrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45346,11 +48147,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrometheusIntegrationResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusIntegrationResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request UpdatePrometheusIntegrationRequest
+   * @return UpdatePrometheusIntegrationResponse
+   */
   async updatePrometheusIntegration(request: UpdatePrometheusIntegrationRequest): Promise<UpdatePrometheusIntegrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusIntegrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the monitoring configuration of a Prometheus instance.
+   *
+   * @param request UpdatePrometheusMonitoringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrometheusMonitoringResponse
+   */
   async updatePrometheusMonitoringWithOptions(request: UpdatePrometheusMonitoringRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusMonitoringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45393,11 +48207,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrometheusMonitoringResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusMonitoringResponse({}));
   }
 
+  /**
+   * @summary Updates the monitoring configuration of a Prometheus instance.
+   *
+   * @param request UpdatePrometheusMonitoringRequest
+   * @return UpdatePrometheusMonitoringResponse
+   */
   async updatePrometheusMonitoring(request: UpdatePrometheusMonitoringRequest): Promise<UpdatePrometheusMonitoringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusMonitoringWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the status of the monitoring configuration of a Prometheus instance.
+   *
+   * @param request UpdatePrometheusMonitoringStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrometheusMonitoringStatusResponse
+   */
   async updatePrometheusMonitoringStatusWithOptions(request: UpdatePrometheusMonitoringStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusMonitoringStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45438,11 +48265,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrometheusMonitoringStatusResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusMonitoringStatusResponse({}));
   }
 
+  /**
+   * @summary Updates the status of the monitoring configuration of a Prometheus instance.
+   *
+   * @param request UpdatePrometheusMonitoringStatusRequest
+   * @return UpdatePrometheusMonitoringStatusResponse
+   */
   async updatePrometheusMonitoringStatus(request: UpdatePrometheusMonitoringStatusRequest): Promise<UpdatePrometheusMonitoringStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusMonitoringStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request UpdatePrometheusRemoteWriteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrometheusRemoteWriteResponse
+   */
   async updatePrometheusRemoteWriteWithOptions(request: UpdatePrometheusRemoteWriteRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrometheusRemoteWriteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45481,11 +48321,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrometheusRemoteWriteResponse>(await this.callApi(params, req, runtime), new UpdatePrometheusRemoteWriteResponse({}));
   }
 
+  /**
+   * @summary Modifies a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   *
+   * @param request UpdatePrometheusRemoteWriteRequest
+   * @return UpdatePrometheusRemoteWriteResponse
+   */
   async updatePrometheusRemoteWrite(request: UpdatePrometheusRemoteWriteRequest): Promise<UpdatePrometheusRemoteWriteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrometheusRemoteWriteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新前端监控应用信息
+   *
+   * @param request UpdateRumAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRumAppResponse
+   */
   async updateRumAppWithOptions(request: UpdateRumAppRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRumAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45542,11 +48395,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRumAppResponse>(await this.callApi(params, req, runtime), new UpdateRumAppResponse({}));
   }
 
+  /**
+   * @summary 更新前端监控应用信息
+   *
+   * @param request UpdateRumAppRequest
+   * @return UpdateRumAppResponse
+   */
   async updateRumApp(request: UpdateRumAppRequest): Promise<UpdateRumAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRumAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新Sourcemap文件状态
+   *
+   * @param request UpdateRumFileStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRumFileStatusResponse
+   */
   async updateRumFileStatusWithOptions(request: UpdateRumFileStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRumFileStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45595,11 +48461,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRumFileStatusResponse>(await this.callApi(params, req, runtime), new UpdateRumFileStatusResponse({}));
   }
 
+  /**
+   * @summary 更新Sourcemap文件状态
+   *
+   * @param request UpdateRumFileStatusRequest
+   * @return UpdateRumFileStatusResponse
+   */
   async updateRumFileStatus(request: UpdateRumFileStatusRequest): Promise<UpdateRumFileStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRumFileStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新定时拨测任务
+   *
+   * @param tmpReq UpdateTimingSyntheticTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTimingSyntheticTaskResponse
+   */
   async updateTimingSyntheticTaskWithOptions(tmpReq: UpdateTimingSyntheticTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTimingSyntheticTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateTimingSyntheticTaskShrinkRequest({ });
@@ -45690,17 +48569,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTimingSyntheticTaskResponse>(await this.callApi(params, req, runtime), new UpdateTimingSyntheticTaskResponse({}));
   }
 
+  /**
+   * @summary 更新定时拨测任务
+   *
+   * @param request UpdateTimingSyntheticTaskRequest
+   * @return UpdateTimingSyntheticTaskResponse
+   */
   async updateTimingSyntheticTask(request: UpdateTimingSyntheticTaskRequest): Promise<UpdateTimingSyntheticTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTimingSyntheticTaskWithOptions(request, runtime);
   }
 
   /**
-    * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
-    *
-    * @param request UpdateWebhookRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateWebhookResponse
+   * @summary Modifies the information about a webhook alert contact.
+   *
+   * @description This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
+   *
+   * @param request UpdateWebhookRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWebhookResponse
    */
   async updateWebhookWithOptions(request: UpdateWebhookRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWebhookResponse> {
     Util.validateModel(request);
@@ -45759,16 +48646,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
-    *
-    * @param request UpdateWebhookRequest
-    * @return UpdateWebhookResponse
+   * @summary Modifies the information about a webhook alert contact.
+   *
+   * @description This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
+   *
+   * @param request UpdateWebhookRequest
+   * @return UpdateWebhookResponse
    */
   async updateWebhook(request: UpdateWebhookRequest): Promise<UpdateWebhookResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWebhookWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Update the AddonRelease information.
+   *
+   * @param request UpgradeAddonReleaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeAddonReleaseResponse
+   */
   async upgradeAddonReleaseWithOptions(request: UpgradeAddonReleaseRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeAddonReleaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45813,11 +48709,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeAddonReleaseResponse>(await this.callApi(params, req, runtime), new UpgradeAddonReleaseResponse({}));
   }
 
+  /**
+   * @summary Update the AddonRelease information.
+   *
+   * @param request UpgradeAddonReleaseRequest
+   * @return UpgradeAddonReleaseResponse
+   */
   async upgradeAddonRelease(request: UpgradeAddonReleaseRequest): Promise<UpgradeAddonReleaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeAddonReleaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新 feature信息
+   *
+   * @param request UpgradeEnvironmentFeatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeEnvironmentFeatureResponse
+   */
   async upgradeEnvironmentFeatureWithOptions(request: UpgradeEnvironmentFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeEnvironmentFeatureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45862,11 +48771,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeEnvironmentFeatureResponse>(await this.callApi(params, req, runtime), new UpgradeEnvironmentFeatureResponse({}));
   }
 
+  /**
+   * @summary 更新 feature信息
+   *
+   * @param request UpgradeEnvironmentFeatureRequest
+   * @return UpgradeEnvironmentFeatureResponse
+   */
   async upgradeEnvironmentFeature(request: UpgradeEnvironmentFeatureRequest): Promise<UpgradeEnvironmentFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeEnvironmentFeatureWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Uploads a SourceMap file to ARMS Browser Monitoring.
+   *
+   * @param request UploadRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadResponse
+   */
   async uploadWithOptions(request: UploadRequest, runtime: $Util.RuntimeOptions): Promise<UploadResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45913,6 +48835,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadResponse>(await this.callApi(params, req, runtime), new UploadResponse({}));
   }
 
+  /**
+   * @summary Uploads a SourceMap file to ARMS Browser Monitoring.
+   *
+   * @param request UploadRequest
+   * @return UploadResponse
+   */
   async upload(request: UploadRequest): Promise<UploadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadWithOptions(request, runtime);
