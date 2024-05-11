@@ -10881,6 +10881,7 @@ export class DescribeUpdateVpcInfoTaskResponse extends $tea.Model {
 }
 
 export class DescribeVpcAccessesRequest extends $tea.Model {
+  accurateQuery?: boolean;
   instanceId?: string;
   name?: string;
   pageNumber?: number;
@@ -10892,6 +10893,7 @@ export class DescribeVpcAccessesRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      accurateQuery: 'AccurateQuery',
       instanceId: 'InstanceId',
       name: 'Name',
       pageNumber: 'PageNumber',
@@ -10906,6 +10908,7 @@ export class DescribeVpcAccessesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accurateQuery: 'boolean',
       instanceId: 'string',
       name: 'string',
       pageNumber: 'number',
@@ -25670,13 +25673,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and is the opposite of DeployApi.
-    * *   An API can be unpublished from a specified runtime environment in under 5 seconds.
-    * *   An unpublished API cannot be called in the specified runtime environment.
-    *
-    * @param request AbolishApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AbolishApiResponse
+   * @summary Unpublishes a specified API from a specified runtime environment.
+   *
+   * @description *   This operation is intended for API providers and is the opposite of DeployApi.
+   * *   An API can be unpublished from a specified runtime environment in under 5 seconds.
+   * *   An unpublished API cannot be called in the specified runtime environment.
+   *
+   * @param request AbolishApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AbolishApiResponse
    */
   async abolishApiWithOptions(request: AbolishApiRequest, runtime: $Util.RuntimeOptions): Promise<AbolishApiResponse> {
     Util.validateModel(request);
@@ -25715,18 +25720,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and is the opposite of DeployApi.
-    * *   An API can be unpublished from a specified runtime environment in under 5 seconds.
-    * *   An unpublished API cannot be called in the specified runtime environment.
-    *
-    * @param request AbolishApiRequest
-    * @return AbolishApiResponse
+   * @summary Unpublishes a specified API from a specified runtime environment.
+   *
+   * @description *   This operation is intended for API providers and is the opposite of DeployApi.
+   * *   An API can be unpublished from a specified runtime environment in under 5 seconds.
+   * *   An unpublished API cannot be called in the specified runtime environment.
+   *
+   * @param request AbolishApiRequest
+   * @return AbolishApiResponse
    */
   async abolishApi(request: AbolishApiRequest): Promise<AbolishApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.abolishApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary This feature provides instance-level access control capabilities for dedicated instances. Adds an IP address entry to the access control polocy of an instance.
+   *
+   * @param request AddAccessControlListEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddAccessControlListEntryResponse
+   */
   async addAccessControlListEntryWithOptions(request: AddAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddAccessControlListEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25759,20 +25773,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddAccessControlListEntryResponse>(await this.callApi(params, req, runtime), new AddAccessControlListEntryResponse({}));
   }
 
+  /**
+   * @summary This feature provides instance-level access control capabilities for dedicated instances. Adds an IP address entry to the access control polocy of an instance.
+   *
+   * @param request AddAccessControlListEntryRequest
+   * @return AddAccessControlListEntryResponse
+   */
   async addAccessControlListEntry(request: AddAccessControlListEntryRequest): Promise<AddAccessControlListEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addAccessControlListEntryWithOptions(request, runtime);
   }
 
   /**
-    * When you call this operation, note that:
-    * *   This operation is intended for API providers.
-    * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
-    * *   A maximum of 100 policies can be added to an ACL.
-    *
-    * @param request AddIpControlPolicyItemRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddIpControlPolicyItemResponse
+   * @summary Adds a policy to an existing ACL.
+   *
+   * @description When you call this operation, note that:
+   * *   This operation is intended for API providers.
+   * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
+   * *   A maximum of 100 policies can be added to an ACL.
+   *
+   * @param request AddIpControlPolicyItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddIpControlPolicyItemResponse
    */
   async addIpControlPolicyItemWithOptions(request: AddIpControlPolicyItemRequest, runtime: $Util.RuntimeOptions): Promise<AddIpControlPolicyItemResponse> {
     Util.validateModel(request);
@@ -25811,13 +25833,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, note that:
-    * *   This operation is intended for API providers.
-    * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
-    * *   A maximum of 100 policies can be added to an ACL.
-    *
-    * @param request AddIpControlPolicyItemRequest
-    * @return AddIpControlPolicyItemResponse
+   * @summary Adds a policy to an existing ACL.
+   *
+   * @description When you call this operation, note that:
+   * *   This operation is intended for API providers.
+   * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
+   * *   A maximum of 100 policies can be added to an ACL.
+   *
+   * @param request AddIpControlPolicyItemRequest
+   * @return AddIpControlPolicyItemResponse
    */
   async addIpControlPolicyItem(request: AddIpControlPolicyItemRequest): Promise<AddIpControlPolicyItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25825,13 +25849,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
-    * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
-    *
-    * @param request AddTrafficSpecialControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddTrafficSpecialControlResponse
+   * @summary Adds a custom special policy to a specified throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
+   * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
+   *
+   * @param request AddTrafficSpecialControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTrafficSpecialControlResponse
    */
   async addTrafficSpecialControlWithOptions(request: AddTrafficSpecialControlRequest, runtime: $Util.RuntimeOptions): Promise<AddTrafficSpecialControlResponse> {
     Util.validateModel(request);
@@ -25874,18 +25900,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
-    * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
-    *
-    * @param request AddTrafficSpecialControlRequest
-    * @return AddTrafficSpecialControlResponse
+   * @summary Adds a custom special policy to a specified throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
+   * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
+   *
+   * @param request AddTrafficSpecialControlRequest
+   * @return AddTrafficSpecialControlResponse
    */
   async addTrafficSpecialControl(request: AddTrafficSpecialControlRequest): Promise<AddTrafficSpecialControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addTrafficSpecialControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Attaches APIs to an API product. If the API product does not exist, the system automatically creates the API product.
+   *
+   * @param request AttachApiProductRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachApiProductResponse
+   */
   async attachApiProductWithOptions(request: AttachApiProductRequest, runtime: $Util.RuntimeOptions): Promise<AttachApiProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25918,20 +25953,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachApiProductResponse>(await this.callApi(params, req, runtime), new AttachApiProductResponse({}));
   }
 
+  /**
+   * @summary Attaches APIs to an API product. If the API product does not exist, the system automatically creates the API product.
+   *
+   * @param request AttachApiProductRequest
+   * @return AttachApiProductResponse
+   */
   async attachApiProduct(request: AttachApiProductRequest): Promise<AttachApiProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachApiProductWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   You can only bind plug-ins to published APIs.
-    * *   The plug-in takes effect immediately after it is bound to an API.
-    * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
-    *
-    * @param request AttachPluginRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachPluginResponse
+   * @summary Binds a plug-in to an API.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   You can only bind plug-ins to published APIs.
+   * *   The plug-in takes effect immediately after it is bound to an API.
+   * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
+   *
+   * @param request AttachPluginRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachPluginResponse
    */
   async attachPluginWithOptions(request: AttachPluginRequest, runtime: $Util.RuntimeOptions): Promise<AttachPluginResponse> {
     Util.validateModel(request);
@@ -25978,19 +26021,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   You can only bind plug-ins to published APIs.
-    * *   The plug-in takes effect immediately after it is bound to an API.
-    * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
-    *
-    * @param request AttachPluginRequest
-    * @return AttachPluginResponse
+   * @summary Binds a plug-in to an API.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   You can only bind plug-ins to published APIs.
+   * *   The plug-in takes effect immediately after it is bound to an API.
+   * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
+   *
+   * @param request AttachPluginRequest
+   * @return AttachPluginResponse
    */
   async attachPlugin(request: AttachPluginRequest): Promise<AttachPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachPluginWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unpublishes multiple published APIs at a time.
+   *
+   * @param request BatchAbolishApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchAbolishApisResponse
+   */
   async batchAbolishApisWithOptions(request: BatchAbolishApisRequest, runtime: $Util.RuntimeOptions): Promise<BatchAbolishApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26019,11 +26071,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchAbolishApisResponse>(await this.callApi(params, req, runtime), new BatchAbolishApisResponse({}));
   }
 
+  /**
+   * @summary Unpublishes multiple published APIs at a time.
+   *
+   * @param request BatchAbolishApisRequest
+   * @return BatchAbolishApisResponse
+   */
   async batchAbolishApis(request: BatchAbolishApisRequest): Promise<BatchAbolishApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchAbolishApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Publishes multiple APIs at a time.
+   *
+   * @param request BatchDeployApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchDeployApisResponse
+   */
   async batchDeployApisWithOptions(request: BatchDeployApisRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeployApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26060,11 +26125,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchDeployApisResponse>(await this.callApi(params, req, runtime), new BatchDeployApisResponse({}));
   }
 
+  /**
+   * @summary Publishes multiple APIs at a time.
+   *
+   * @param request BatchDeployApisRequest
+   * @return BatchDeployApisResponse
+   */
   async batchDeployApis(request: BatchDeployApisRequest): Promise<BatchDeployApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeployApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary This feature provides instance-level access control capabilities for dedicated instances. Creates an Access Control List (ACL). Each user is allowed to create five ACLs in each region.
+   *
+   * @param request CreateAccessControlListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccessControlListResponse
+   */
   async createAccessControlListWithOptions(request: CreateAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessControlListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26097,20 +26175,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccessControlListResponse>(await this.callApi(params, req, runtime), new CreateAccessControlListResponse({}));
   }
 
+  /**
+   * @summary This feature provides instance-level access control capabilities for dedicated instances. Creates an Access Control List (ACL). Each user is allowed to create five ACLs in each region.
+   *
+   * @param request CreateAccessControlListRequest
+   * @return CreateAccessControlListResponse
+   */
   async createAccessControlList(request: CreateAccessControlListRequest): Promise<CreateAccessControlListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccessControlListWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The name of an API must be unique within an API group.
-    * *   A request path must be unique within an API group.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request CreateApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateApiResponse
+   * @summary Creates an API.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The name of an API must be unique within an API group.
+   * *   A request path must be unique within an API group.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request CreateApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApiResponse
    */
   async createApiWithOptions(request: CreateApiRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiResponse> {
     Util.validateModel(request);
@@ -26247,19 +26333,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The name of an API must be unique within an API group.
-    * *   A request path must be unique within an API group.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request CreateApiRequest
-    * @return CreateApiResponse
+   * @summary Creates an API.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The name of an API must be unique within an API group.
+   * *   A request path must be unique within an API group.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request CreateApiRequest
+   * @return CreateApiResponse
    */
   async createApi(request: CreateApiRequest): Promise<CreateApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateApiGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApiGroupResponse
+   */
   async createApiGroupWithOptions(request: CreateApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26304,17 +26397,23 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApiGroupResponse>(await this.callApi(params, req, runtime), new CreateApiGroupResponse({}));
   }
 
+  /**
+   * @param request CreateApiGroupRequest
+   * @return CreateApiGroupResponse
+   */
   async createApiGroup(request: CreateApiGroupRequest): Promise<CreateApiGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApiGroupWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request CreateApiStageVariableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateApiStageVariableResponse
+   * @summary Adds a variable to an environment.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request CreateApiStageVariableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApiStageVariableResponse
    */
   async createApiStageVariableWithOptions(request: CreateApiStageVariableRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiStageVariableResponse> {
     Util.validateModel(request);
@@ -26365,10 +26464,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request CreateApiStageVariableRequest
-    * @return CreateApiStageVariableResponse
+   * @summary Adds a variable to an environment.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request CreateApiStageVariableRequest
+   * @return CreateApiStageVariableResponse
    */
   async createApiStageVariable(request: CreateApiStageVariableRequest): Promise<CreateApiStageVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26376,16 +26477,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   Each application has a key-value pair which is used for identity verification when you call an API.
-    * *   An application must be authorized to call an API.
-    * *   Each application has only one key-value pair, which can be reset if the pair is leaked.
-    * *   A maximum of 1,000 applications can be created for each Alibaba Cloud account.
-    * *   You can call this operation up to 50 times per second per account.
-    *
-    * @param request CreateAppRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAppResponse
+   * @summary Creates an application for calling APIs in API Gateway.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   Each application has a key-value pair which is used for identity verification when you call an API.
+   * *   An application must be authorized to call an API.
+   * *   Each application has only one key-value pair, which can be reset if the pair is leaked.
+   * *   A maximum of 1,000 applications can be created for each Alibaba Cloud account.
+   * *   You can call this operation up to 50 times per second per account.
+   *
+   * @param request CreateAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppResponse
    */
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
@@ -26440,21 +26543,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   Each application has a key-value pair which is used for identity verification when you call an API.
-    * *   An application must be authorized to call an API.
-    * *   Each application has only one key-value pair, which can be reset if the pair is leaked.
-    * *   A maximum of 1,000 applications can be created for each Alibaba Cloud account.
-    * *   You can call this operation up to 50 times per second per account.
-    *
-    * @param request CreateAppRequest
-    * @return CreateAppResponse
+   * @summary Creates an application for calling APIs in API Gateway.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   Each application has a key-value pair which is used for identity verification when you call an API.
+   * *   An application must be authorized to call an API.
+   * *   Each application has only one key-value pair, which can be reset if the pair is leaked.
+   * *   A maximum of 1,000 applications can be created for each Alibaba Cloud account.
+   * *   You can call this operation up to 50 times per second per account.
+   *
+   * @param request CreateAppRequest
+   * @return CreateAppResponse
    */
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建后端服务
+   *
+   * @param request CreateBackendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackendResponse
+   */
   async createBackendWithOptions(request: CreateBackendRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackendResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26503,11 +26615,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackendResponse>(await this.callApi(params, req, runtime), new CreateBackendResponse({}));
   }
 
+  /**
+   * @summary 创建后端服务
+   *
+   * @param request CreateBackendRequest
+   * @return CreateBackendResponse
+   */
   async createBackend(request: CreateBackendRequest): Promise<CreateBackendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackendWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建后端服务在环境上的配置
+   *
+   * @param request CreateBackendModelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackendModelResponse
+   */
   async createBackendModelWithOptions(request: CreateBackendModelRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackendModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26552,11 +26677,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBackendModelResponse>(await this.callApi(params, req, runtime), new CreateBackendModelResponse({}));
   }
 
+  /**
+   * @summary 创建后端服务在环境上的配置
+   *
+   * @param request CreateBackendModelRequest
+   * @return CreateBackendModelResponse
+   */
   async createBackendModel(request: CreateBackendModelRequest): Promise<CreateBackendModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackendModelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom dataset.
+   *
+   * @param request CreateDatasetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatasetResponse
+   */
   async createDatasetWithOptions(request: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26593,11 +26731,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatasetResponse>(await this.callApi(params, req, runtime), new CreateDatasetResponse({}));
   }
 
+  /**
+   * @summary Creates a custom dataset.
+   *
+   * @param request CreateDatasetRequest
+   * @return CreateDatasetResponse
+   */
   async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatasetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建自定义数据集条目
+   *
+   * @param request CreateDatasetItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatasetItemResponse
+   */
   async createDatasetItemWithOptions(request: CreateDatasetItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26638,11 +26789,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatasetItemResponse>(await this.callApi(params, req, runtime), new CreateDatasetItemResponse({}));
   }
 
+  /**
+   * @summary 创建自定义数据集条目
+   *
+   * @param request CreateDatasetItemRequest
+   * @return CreateDatasetItemResponse
+   */
   async createDatasetItem(request: CreateDatasetItemRequest): Promise<CreateDatasetItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatasetItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建网关实例
+   *
+   * @param request CreateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26719,11 +26883,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @summary 创建网关实例
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateIntranetDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIntranetDomainResponse
+   */
   async createIntranetDomainWithOptions(request: CreateIntranetDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntranetDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26752,20 +26927,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIntranetDomainResponse>(await this.callApi(params, req, runtime), new CreateIntranetDomainResponse({}));
   }
 
+  /**
+   * @param request CreateIntranetDomainRequest
+   * @return CreateIntranetDomainResponse
+   */
   async createIntranetDomain(request: CreateIntranetDomainRequest): Promise<CreateIntranetDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIntranetDomainWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
-    * *   You can add policies to an ACL when you create the ACL.
-    * *   If an ACL does not have any policy, the ACL is ineffective.
-    *
-    * @param request CreateIpControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIpControlResponse
+   * @summary Creates an access control list (ACL) in a region.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
+   * *   You can add policies to an ACL when you create the ACL.
+   * *   If an ACL does not have any policy, the ACL is ineffective.
+   *
+   * @param request CreateIpControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIpControlResponse
    */
   async createIpControlWithOptions(request: CreateIpControlRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpControlResponse> {
     Util.validateModel(request);
@@ -26808,19 +26989,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
-    * *   You can add policies to an ACL when you create the ACL.
-    * *   If an ACL does not have any policy, the ACL is ineffective.
-    *
-    * @param request CreateIpControlRequest
-    * @return CreateIpControlResponse
+   * @summary Creates an access control list (ACL) in a region.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
+   * *   You can add policies to an ACL when you create the ACL.
+   * *   If an ACL does not have any policy, the ACL is ineffective.
+   *
+   * @param request CreateIpControlRequest
+   * @return CreateIpControlResponse
    */
   async createIpControl(request: CreateIpControlRequest): Promise<CreateIpControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIpControlWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLogConfigResponse
+   */
   async createLogConfigWithOptions(request: CreateLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26857,18 +27045,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogConfigResponse>(await this.callApi(params, req, runtime), new CreateLogConfigResponse({}));
   }
 
+  /**
+   * @param request CreateLogConfigRequest
+   * @return CreateLogConfigResponse
+   */
   async createLogConfig(request: CreateLogConfigRequest): Promise<CreateLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLogConfigWithOptions(request, runtime);
   }
 
   /**
-    * *   For more information about the model definition, see [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04?spm=a2c4g.11186623.2.10.2e977ff7p4BpQd).
-    * *   JSON Schema supports only element attributes of the Object type.
-    *
-    * @param request CreateModelRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateModelResponse
+   * @summary Creates a model for an API group.
+   *
+   * @description *   For more information about the model definition, see [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04?spm=a2c4g.11186623.2.10.2e977ff7p4BpQd).
+   * *   JSON Schema supports only element attributes of the Object type.
+   *
+   * @param request CreateModelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateModelResponse
    */
   async createModelWithOptions(request: CreateModelRequest, runtime: $Util.RuntimeOptions): Promise<CreateModelResponse> {
     Util.validateModel(request);
@@ -26911,17 +27105,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For more information about the model definition, see [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04?spm=a2c4g.11186623.2.10.2e977ff7p4BpQd).
-    * *   JSON Schema supports only element attributes of the Object type.
-    *
-    * @param request CreateModelRequest
-    * @return CreateModelResponse
+   * @summary Creates a model for an API group.
+   *
+   * @description *   For more information about the model definition, see [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04?spm=a2c4g.11186623.2.10.2e977ff7p4BpQd).
+   * *   JSON Schema supports only element attributes of the Object type.
+   *
+   * @param request CreateModelRequest
+   * @return CreateModelResponse
    */
   async createModel(request: CreateModelRequest): Promise<CreateModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createModelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables CloudMonitor alerting for a specified API group.
+   *
+   * @param request CreateMonitorGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMonitorGroupResponse
+   */
   async createMonitorGroupWithOptions(request: CreateMonitorGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateMonitorGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26958,20 +27161,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMonitorGroupResponse>(await this.callApi(params, req, runtime), new CreateMonitorGroupResponse({}));
   }
 
+  /**
+   * @summary Enables CloudMonitor alerting for a specified API group.
+   *
+   * @param request CreateMonitorGroupRequest
+   * @return CreateMonitorGroupResponse
+   */
   async createMonitorGroup(request: CreateMonitorGroupRequest): Promise<CreateMonitorGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMonitorGroupWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
-    * *   The plug-in definitions for advanced features are restricted.
-    * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
-    *
-    * @param request CreatePluginRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePluginResponse
+   * @summary Creates a plug-in.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
+   * *   The plug-in definitions for advanced features are restricted.
+   * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
+   *
+   * @param request CreatePluginRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePluginResponse
    */
   async createPluginWithOptions(request: CreatePluginRequest, runtime: $Util.RuntimeOptions): Promise<CreatePluginResponse> {
     Util.validateModel(request);
@@ -27018,13 +27229,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
-    * *   The plug-in definitions for advanced features are restricted.
-    * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
-    *
-    * @param request CreatePluginRequest
-    * @return CreatePluginResponse
+   * @summary Creates a plug-in.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
+   * *   The plug-in definitions for advanced features are restricted.
+   * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
+   *
+   * @param request CreatePluginRequest
+   * @return CreatePluginResponse
    */
   async createPlugin(request: CreatePluginRequest): Promise<CreatePluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27032,14 +27245,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
-    * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request CreateSignatureRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSignatureResponse
+   * @summary Creates a backend signature key.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
+   * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request CreateSignatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSignatureResponse
    */
   async createSignatureWithOptions(request: CreateSignatureRequest, runtime: $Util.RuntimeOptions): Promise<CreateSignatureResponse> {
     Util.validateModel(request);
@@ -27078,13 +27293,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
-    * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request CreateSignatureRequest
-    * @return CreateSignatureResponse
+   * @summary Creates a backend signature key.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
+   * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request CreateSignatureRequest
+   * @return CreateSignatureResponse
    */
   async createSignature(request: CreateSignatureRequest): Promise<CreateSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27092,13 +27309,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request CreateTrafficControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTrafficControlResponse
+   * @summary Creates a custom throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request CreateTrafficControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTrafficControlResponse
    */
   async createTrafficControlWithOptions(request: CreateTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficControlResponse> {
     Util.validateModel(request);
@@ -27149,18 +27368,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request CreateTrafficControlRequest
-    * @return CreateTrafficControlResponse
+   * @summary Creates a custom throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request CreateTrafficControlRequest
+   * @return CreateTrafficControlResponse
    */
   async createTrafficControl(request: CreateTrafficControlRequest): Promise<CreateTrafficControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTrafficControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary This feature provides instance-level access control capabilities for dedicated instances. Deletes an access control policy.
+   *
+   * @param request DeleteAccessControlListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccessControlListResponse
+   */
   async deleteAccessControlListWithOptions(request: DeleteAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessControlListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27189,17 +27417,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccessControlListResponse>(await this.callApi(params, req, runtime), new DeleteAccessControlListResponse({}));
   }
 
+  /**
+   * @summary This feature provides instance-level access control capabilities for dedicated instances. Deletes an access control policy.
+   *
+   * @param request DeleteAccessControlListRequest
+   * @return DeleteAccessControlListResponse
+   */
   async deleteAccessControlList(request: DeleteAccessControlListRequest): Promise<DeleteAccessControlListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessControlListWithOptions(request, runtime);
   }
 
   /**
-    * *   This API is intended for API providers.
-    *
-    * @param request DeleteAllTrafficSpecialControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAllTrafficSpecialControlResponse
+   * @summary Deletes all custom special policies of a specified throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   *
+   * @param request DeleteAllTrafficSpecialControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAllTrafficSpecialControlResponse
    */
   async deleteAllTrafficSpecialControlWithOptions(request: DeleteAllTrafficSpecialControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAllTrafficSpecialControlResponse> {
     Util.validateModel(request);
@@ -27230,10 +27466,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    *
-    * @param request DeleteAllTrafficSpecialControlRequest
-    * @return DeleteAllTrafficSpecialControlResponse
+   * @summary Deletes all custom special policies of a specified throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   *
+   * @param request DeleteAllTrafficSpecialControlRequest
+   * @return DeleteAllTrafficSpecialControlResponse
    */
   async deleteAllTrafficSpecialControl(request: DeleteAllTrafficSpecialControlRequest): Promise<DeleteAllTrafficSpecialControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27241,13 +27479,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and cannot be undone after it is complete.
-    * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeleteApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteApiResponse
+   * @summary Deletes an API.
+   *
+   * @description *   This operation is intended for API providers and cannot be undone after it is complete.
+   * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeleteApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApiResponse
    */
   async deleteApiWithOptions(request: DeleteApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiResponse> {
     Util.validateModel(request);
@@ -27282,12 +27522,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and cannot be undone after it is complete.
-    * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeleteApiRequest
-    * @return DeleteApiResponse
+   * @summary Deletes an API.
+   *
+   * @description *   This operation is intended for API providers and cannot be undone after it is complete.
+   * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeleteApiRequest
+   * @return DeleteApiResponse
    */
   async deleteApi(request: DeleteApiRequest): Promise<DeleteApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27295,15 +27537,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
-    * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
-    * *   If the specified API group does not exist, a success response is returned.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeleteApiGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteApiGroupResponse
+   * @summary Deletes an API group.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
+   * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
+   * *   If the specified API group does not exist, a success response is returned.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeleteApiGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApiGroupResponse
    */
   async deleteApiGroupWithOptions(request: DeleteApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiGroupResponse> {
     Util.validateModel(request);
@@ -27338,20 +27582,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
-    * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
-    * *   If the specified API group does not exist, a success response is returned.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeleteApiGroupRequest
-    * @return DeleteApiGroupResponse
+   * @summary Deletes an API group.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
+   * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
+   * *   If the specified API group does not exist, a success response is returned.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeleteApiGroupRequest
+   * @return DeleteApiGroupResponse
    */
   async deleteApiGroup(request: DeleteApiGroupRequest): Promise<DeleteApiGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApiGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an API product. Deleting an API product causes the association between APIs and the deleted API product to be deleted as well. Exercise caution when you delete an API product. If any API in the API product is associated with an application, the API product fails to be deleted.
+   *
+   * @param request DeleteApiProductRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApiProductResponse
+   */
   async deleteApiProductWithOptions(request: DeleteApiProductRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27380,17 +27633,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApiProductResponse>(await this.callApi(params, req, runtime), new DeleteApiProductResponse({}));
   }
 
+  /**
+   * @summary Deletes an API product. Deleting an API product causes the association between APIs and the deleted API product to be deleted as well. Exercise caution when you delete an API product. If any API in the API product is associated with an application, the API product fails to be deleted.
+   *
+   * @param request DeleteApiProductRequest
+   * @return DeleteApiProductResponse
+   */
   async deleteApiProduct(request: DeleteApiProductRequest): Promise<DeleteApiProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApiProductWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request DeleteApiStageVariableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteApiStageVariableResponse
+   * @summary Deletes a specified variable in a specified environment.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request DeleteApiStageVariableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApiStageVariableResponse
    */
   async deleteApiStageVariableWithOptions(request: DeleteApiStageVariableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiStageVariableResponse> {
     Util.validateModel(request);
@@ -27429,10 +27690,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request DeleteApiStageVariableRequest
-    * @return DeleteApiStageVariableResponse
+   * @summary Deletes a specified variable in a specified environment.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request DeleteApiStageVariableRequest
+   * @return DeleteApiStageVariableResponse
    */
   async deleteApiStageVariable(request: DeleteApiStageVariableRequest): Promise<DeleteApiStageVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27440,13 +27703,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   After an application is deleted, the application and its API authorization cannot be restored.
-    * *   You can call this operation up to 50 times per second per account.
-    *
-    * @param request DeleteAppRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAppResponse
+   * @summary Deletes an application.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   After an application is deleted, the application and its API authorization cannot be restored.
+   * *   You can call this operation up to 50 times per second per account.
+   *
+   * @param request DeleteAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppResponse
    */
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     Util.validateModel(request);
@@ -27481,18 +27746,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   After an application is deleted, the application and its API authorization cannot be restored.
-    * *   You can call this operation up to 50 times per second per account.
-    *
-    * @param request DeleteAppRequest
-    * @return DeleteAppResponse
+   * @summary Deletes an application.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   After an application is deleted, the application and its API authorization cannot be restored.
+   * *   You can call this operation up to 50 times per second per account.
+   *
+   * @param request DeleteAppRequest
+   * @return DeleteAppResponse
    */
   async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a backend service.
+   *
+   * @param request DeleteBackendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBackendResponse
+   */
   async deleteBackendWithOptions(request: DeleteBackendRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackendResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27521,11 +27795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBackendResponse>(await this.callApi(params, req, runtime), new DeleteBackendResponse({}));
   }
 
+  /**
+   * @summary Deletes a backend service.
+   *
+   * @param request DeleteBackendRequest
+   * @return DeleteBackendResponse
+   */
   async deleteBackend(request: DeleteBackendRequest): Promise<DeleteBackendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackendWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the definition of a backend service in an environment. After the definition is deleted, the API that uses the backend service and is published to this environment will be unpublished.
+   *
+   * @param request DeleteBackendModelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBackendModelResponse
+   */
   async deleteBackendModelWithOptions(request: DeleteBackendModelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackendModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27562,11 +27849,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBackendModelResponse>(await this.callApi(params, req, runtime), new DeleteBackendModelResponse({}));
   }
 
+  /**
+   * @summary Deletes the definition of a backend service in an environment. After the definition is deleted, the API that uses the backend service and is published to this environment will be unpublished.
+   *
+   * @param request DeleteBackendModelRequest
+   * @return DeleteBackendModelResponse
+   */
   async deleteBackendModel(request: DeleteBackendModelRequest): Promise<DeleteBackendModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackendModelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除自定义数据集
+   *
+   * @param request DeleteDatasetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatasetResponse
+   */
   async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27595,11 +27895,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatasetResponse>(await this.callApi(params, req, runtime), new DeleteDatasetResponse({}));
   }
 
+  /**
+   * @summary 删除自定义数据集
+   *
+   * @param request DeleteDatasetRequest
+   * @return DeleteDatasetResponse
+   */
   async deleteDataset(request: DeleteDatasetRequest): Promise<DeleteDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatasetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a data entry from a custom dataset.
+   *
+   * @param request DeleteDatasetItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatasetItemResponse
+   */
   async deleteDatasetItemWithOptions(request: DeleteDatasetItemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27632,19 +27945,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatasetItemResponse>(await this.callApi(params, req, runtime), new DeleteDatasetItemResponse({}));
   }
 
+  /**
+   * @summary Deletes a data entry from a custom dataset.
+   *
+   * @param request DeleteDatasetItemRequest
+   * @return DeleteDatasetItemResponse
+   */
   async deleteDatasetItem(request: DeleteDatasetItemRequest): Promise<DeleteDatasetItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatasetItemWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   If the specified domain name does not exist, a successful response will still appear.
-    * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
-    *
-    * @param request DeleteDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDomainResponse
+   * @summary Unbinds a custom domain name from a specified API group.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   If the specified domain name does not exist, a successful response will still appear.
+   * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
+   *
+   * @param request DeleteDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainResponse
    */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
@@ -27679,18 +28000,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   If the specified domain name does not exist, a successful response will still appear.
-    * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
-    *
-    * @param request DeleteDomainRequest
-    * @return DeleteDomainResponse
+   * @summary Unbinds a custom domain name from a specified API group.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   If the specified domain name does not exist, a successful response will still appear.
+   * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
+   *
+   * @param request DeleteDomainRequest
+   * @return DeleteDomainResponse
    */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the SSL certificate of a specified domain name. This operation is intended for API providers. If the SSL certificate does not exist, a success response is still returned. If the specified API group does not exist, the InvalidGroupId.NotFound error is returned. Access over HTTPS is not supported after the SSL certificate is deleted. Exercise caution when using this API operation.
+   *
+   * @param request DeleteDomainCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainCertificateResponse
+   */
   async deleteDomainCertificateWithOptions(request: DeleteDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27727,11 +28057,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainCertificateResponse>(await this.callApi(params, req, runtime), new DeleteDomainCertificateResponse({}));
   }
 
+  /**
+   * @summary Deletes the SSL certificate of a specified domain name. This operation is intended for API providers. If the SSL certificate does not exist, a success response is still returned. If the specified API group does not exist, the InvalidGroupId.NotFound error is returned. Access over HTTPS is not supported after the SSL certificate is deleted. Exercise caution when using this API operation.
+   *
+   * @param request DeleteDomainCertificateRequest
+   * @return DeleteDomainCertificateResponse
+   */
   async deleteDomainCertificate(request: DeleteDomainCertificateRequest): Promise<DeleteDomainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainCertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an API Gateway instance.
+   *
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27760,19 +28103,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+   * @summary Deletes an API Gateway instance.
+   *
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
+   */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
-    * *   If you call this operation on an ACL that does not exist, a success message is returned.
-    *
-    * @param request DeleteIpControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpControlResponse
+   * @summary Deletes an access control list (ACL).
+   *
+   * @description *   This operation is intended for API providers.
+   * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
+   * *   If you call this operation on an ACL that does not exist, a success message is returned.
+   *
+   * @param request DeleteIpControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpControlResponse
    */
   async deleteIpControlWithOptions(request: DeleteIpControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpControlResponse> {
     Util.validateModel(request);
@@ -27803,18 +28154,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
-    * *   If you call this operation on an ACL that does not exist, a success message is returned.
-    *
-    * @param request DeleteIpControlRequest
-    * @return DeleteIpControlResponse
+   * @summary Deletes an access control list (ACL).
+   *
+   * @description *   This operation is intended for API providers.
+   * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
+   * *   If you call this operation on an ACL that does not exist, a success message is returned.
+   *
+   * @param request DeleteIpControlRequest
+   * @return DeleteIpControlResponse
    */
   async deleteIpControl(request: DeleteIpControlRequest): Promise<DeleteIpControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete the specified log configuration.
+   *
+   * @param request DeleteLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLogConfigResponse
+   */
   async deleteLogConfigWithOptions(request: DeleteLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27843,11 +28203,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogConfigResponse>(await this.callApi(params, req, runtime), new DeleteLogConfigResponse({}));
   }
 
+  /**
+   * @summary Delete the specified log configuration.
+   *
+   * @param request DeleteLogConfigRequest
+   * @return DeleteLogConfigResponse
+   */
   async deleteLogConfig(request: DeleteLogConfigRequest): Promise<DeleteLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLogConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a model from Model Management for an API group.
+   *
+   * @param request DeleteModelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteModelResponse
+   */
   async deleteModelWithOptions(request: DeleteModelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27876,11 +28249,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteModelResponse>(await this.callApi(params, req, runtime), new DeleteModelResponse({}));
   }
 
+  /**
+   * @summary Deletes a model from Model Management for an API group.
+   *
+   * @param request DeleteModelRequest
+   * @return DeleteModelResponse
+   */
   async deleteModel(request: DeleteModelRequest): Promise<DeleteModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteModelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a CloudMonitor application group corresponding to an API group.
+   *
+   * @param request DeleteMonitorGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMonitorGroupResponse
+   */
   async deleteMonitorGroupWithOptions(request: DeleteMonitorGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMonitorGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27913,18 +28299,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMonitorGroupResponse>(await this.callApi(params, req, runtime), new DeleteMonitorGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a CloudMonitor application group corresponding to an API group.
+   *
+   * @param request DeleteMonitorGroupRequest
+   * @return DeleteMonitorGroupResponse
+   */
   async deleteMonitorGroup(request: DeleteMonitorGroupRequest): Promise<DeleteMonitorGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMonitorGroupWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
-    *
-    * @param request DeletePluginRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeletePluginResponse
+   * @summary Deletes a plug-in.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
+   *
+   * @param request DeletePluginRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePluginResponse
    */
   async deletePluginWithOptions(request: DeletePluginRequest, runtime: $Util.RuntimeOptions): Promise<DeletePluginResponse> {
     Util.validateModel(request);
@@ -27959,11 +28353,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
-    *
-    * @param request DeletePluginRequest
-    * @return DeletePluginResponse
+   * @summary Deletes a plug-in.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
+   *
+   * @param request DeletePluginRequest
+   * @return DeletePluginResponse
    */
   async deletePlugin(request: DeletePluginRequest): Promise<DeletePluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27971,14 +28367,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API operation deletes an existing backend signature key.
-    * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeleteSignatureRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSignatureResponse
+   * @summary Deletes a backend signature key.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API operation deletes an existing backend signature key.
+   * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeleteSignatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSignatureResponse
    */
   async deleteSignatureWithOptions(request: DeleteSignatureRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSignatureResponse> {
     Util.validateModel(request);
@@ -28009,13 +28407,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API operation deletes an existing backend signature key.
-    * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeleteSignatureRequest
-    * @return DeleteSignatureResponse
+   * @summary Deletes a backend signature key.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API operation deletes an existing backend signature key.
+   * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeleteSignatureRequest
+   * @return DeleteSignatureResponse
    */
   async deleteSignature(request: DeleteSignatureRequest): Promise<DeleteSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28023,13 +28423,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeleteTrafficControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTrafficControlResponse
+   * @summary Deletes a custom throttling policy and the special throttling rules in the policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeleteTrafficControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTrafficControlResponse
    */
   async deleteTrafficControlWithOptions(request: DeleteTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficControlResponse> {
     Util.validateModel(request);
@@ -28060,12 +28462,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeleteTrafficControlRequest
-    * @return DeleteTrafficControlResponse
+   * @summary Deletes a custom throttling policy and the special throttling rules in the policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeleteTrafficControlRequest
+   * @return DeleteTrafficControlResponse
    */
   async deleteTrafficControl(request: DeleteTrafficControlRequest): Promise<DeleteTrafficControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28073,12 +28477,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   You can obtain the input parameters required in this operation by calling other APIs.
-    *
-    * @param request DeleteTrafficSpecialControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTrafficSpecialControlResponse
+   * @summary Deletes a custom special throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   You can obtain the input parameters required in this operation by calling other APIs.
+   *
+   * @param request DeleteTrafficSpecialControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTrafficSpecialControlResponse
    */
   async deleteTrafficSpecialControlWithOptions(request: DeleteTrafficSpecialControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficSpecialControlResponse> {
     Util.validateModel(request);
@@ -28117,11 +28523,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   You can obtain the input parameters required in this operation by calling other APIs.
-    *
-    * @param request DeleteTrafficSpecialControlRequest
-    * @return DeleteTrafficSpecialControlResponse
+   * @summary Deletes a custom special throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   You can obtain the input parameters required in this operation by calling other APIs.
+   *
+   * @param request DeleteTrafficSpecialControlRequest
+   * @return DeleteTrafficSpecialControlResponse
    */
   async deleteTrafficSpecialControl(request: DeleteTrafficSpecialControlRequest): Promise<DeleteTrafficSpecialControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28129,13 +28537,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
-    * *   An API is published to a cluster in under 5 seconds.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeployApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeployApiResponse
+   * @summary Publishes an API to an environment.
+   *
+   * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
+   * *   An API is published to a cluster in under 5 seconds.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeployApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployApiResponse
    */
   async deployApiWithOptions(request: DeployApiRequest, runtime: $Util.RuntimeOptions): Promise<DeployApiResponse> {
     Util.validateModel(request);
@@ -28178,18 +28588,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
-    * *   An API is published to a cluster in under 5 seconds.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request DeployApiRequest
-    * @return DeployApiResponse
+   * @summary Publishes an API to an environment.
+   *
+   * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
+   * *   An API is published to a cluster in under 5 seconds.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request DeployApiRequest
+   * @return DeployApiResponse
    */
   async deployApi(request: DeployApiRequest): Promise<DeployApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deployApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAbolishApiTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAbolishApiTaskResponse
+   */
   async describeAbolishApiTaskWithOptions(request: DescribeAbolishApiTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAbolishApiTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28218,11 +28635,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAbolishApiTaskResponse>(await this.callApi(params, req, runtime), new DescribeAbolishApiTaskResponse({}));
   }
 
+  /**
+   * @param request DescribeAbolishApiTaskRequest
+   * @return DescribeAbolishApiTaskResponse
+   */
   async describeAbolishApiTask(request: DescribeAbolishApiTaskRequest): Promise<DescribeAbolishApiTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAbolishApiTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary This feature provides instance-level access control for dedicated instances. Queries the details of an access control policy.
+   *
+   * @param request DescribeAccessControlListAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessControlListAttributeResponse
+   */
   async describeAccessControlListAttributeWithOptions(request: DescribeAccessControlListAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28251,11 +28679,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessControlListAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAccessControlListAttributeResponse({}));
   }
 
+  /**
+   * @summary This feature provides instance-level access control for dedicated instances. Queries the details of an access control policy.
+   *
+   * @param request DescribeAccessControlListAttributeRequest
+   * @return DescribeAccessControlListAttributeResponse
+   */
   async describeAccessControlListAttribute(request: DescribeAccessControlListAttributeRequest): Promise<DescribeAccessControlListAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessControlListAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary This feature provides instance-level access control for dedicated instances. Queries access control policies.
+   *
+   * @param request DescribeAccessControlListsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccessControlListsResponse
+   */
   async describeAccessControlListsWithOptions(request: DescribeAccessControlListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28296,17 +28737,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccessControlListsResponse>(await this.callApi(params, req, runtime), new DescribeAccessControlListsResponse({}));
   }
 
+  /**
+   * @summary This feature provides instance-level access control for dedicated instances. Queries access control policies.
+   *
+   * @param request DescribeAccessControlListsRequest
+   * @return DescribeAccessControlListsResponse
+   */
   async describeAccessControlLists(request: DescribeAccessControlListsRequest): Promise<DescribeAccessControlListsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccessControlListsWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request DescribeApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiResponse
+   * @summary Queries the definition of an API.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request DescribeApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiResponse
    */
   async describeApiWithOptions(request: DescribeApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiResponse> {
     Util.validateModel(request);
@@ -28341,10 +28790,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request DescribeApiRequest
-    * @return DescribeApiResponse
+   * @summary Queries the definition of an API.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request DescribeApiRequest
+   * @return DescribeApiResponse
    */
   async describeApi(request: DescribeApiRequest): Promise<DescribeApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28352,14 +28803,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
-    * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
-    * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
-    * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
-    *
-    * @param request DescribeApiDocRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiDocResponse
+   * @summary Queries the documentation of an API.
+   *
+   * @description *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
+   * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
+   * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
+   * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
+   *
+   * @param request DescribeApiDocRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiDocResponse
    */
   async describeApiDocWithOptions(request: DescribeApiDocRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiDocResponse> {
     Util.validateModel(request);
@@ -28398,13 +28851,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
-    * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
-    * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
-    * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
-    *
-    * @param request DescribeApiDocRequest
-    * @return DescribeApiDocResponse
+   * @summary Queries the documentation of an API.
+   *
+   * @description *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
+   * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
+   * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
+   * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
+   *
+   * @param request DescribeApiDocRequest
+   * @return DescribeApiDocResponse
    */
   async describeApiDoc(request: DescribeApiDocRequest): Promise<DescribeApiDocResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28412,11 +28867,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request DescribeApiGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiGroupResponse
+   * @summary You can call this operation to query details about an API group, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request DescribeApiGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiGroupResponse
    */
   async describeApiGroupWithOptions(request: DescribeApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiGroupResponse> {
     Util.validateModel(request);
@@ -28451,16 +28908,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request DescribeApiGroupRequest
-    * @return DescribeApiGroupResponse
+   * @summary You can call this operation to query details about an API group, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request DescribeApiGroupRequest
+   * @return DescribeApiGroupResponse
    */
   async describeApiGroup(request: DescribeApiGroupRequest): Promise<DescribeApiGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the VPC whitelist that is allowed to access an API group.
+   *
+   * @param request DescribeApiGroupVpcWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiGroupVpcWhitelistResponse
+   */
   async describeApiGroupVpcWhitelistWithOptions(request: DescribeApiGroupVpcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiGroupVpcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28489,17 +28955,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiGroupVpcWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeApiGroupVpcWhitelistResponse({}));
   }
 
+  /**
+   * @summary Queries the VPC whitelist that is allowed to access an API group.
+   *
+   * @param request DescribeApiGroupVpcWhitelistRequest
+   * @return DescribeApiGroupVpcWhitelistResponse
+   */
   async describeApiGroupVpcWhitelist(request: DescribeApiGroupVpcWhitelistRequest): Promise<DescribeApiGroupVpcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiGroupVpcWhitelistWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request DescribeApiGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiGroupsResponse
+   * @summary Queries existing API groups and their basic information.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request DescribeApiGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiGroupsResponse
    */
   async describeApiGroupsWithOptions(request: DescribeApiGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiGroupsResponse> {
     Util.validateModel(request);
@@ -28558,10 +29032,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request DescribeApiGroupsRequest
-    * @return DescribeApiGroupsResponse
+   * @summary Queries existing API groups and their basic information.
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request DescribeApiGroupsRequest
+   * @return DescribeApiGroupsResponse
    */
   async describeApiGroups(request: DescribeApiGroupsRequest): Promise<DescribeApiGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28569,12 +29045,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers. Only APIs that have been published have historical version records.
-    * *   This operation allows you to obtain the historical versions of an API. This operation is always called by other operations.
-    *
-    * @param request DescribeApiHistoriesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiHistoriesResponse
+   * @summary Queries the historical versions of a specified API.
+   *
+   * @description *   This operation is intended for API providers. Only APIs that have been published have historical version records.
+   * *   This operation allows you to obtain the historical versions of an API. This operation is always called by other operations.
+   *
+   * @param request DescribeApiHistoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiHistoriesResponse
    */
   async describeApiHistoriesWithOptions(request: DescribeApiHistoriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiHistoriesResponse> {
     Util.validateModel(request);
@@ -28625,11 +29103,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers. Only APIs that have been published have historical version records.
-    * *   This operation allows you to obtain the historical versions of an API. This operation is always called by other operations.
-    *
-    * @param request DescribeApiHistoriesRequest
-    * @return DescribeApiHistoriesResponse
+   * @summary Queries the historical versions of a specified API.
+   *
+   * @description *   This operation is intended for API providers. Only APIs that have been published have historical version records.
+   * *   This operation allows you to obtain the historical versions of an API. This operation is always called by other operations.
+   *
+   * @param request DescribeApiHistoriesRequest
+   * @return DescribeApiHistoriesResponse
    */
   async describeApiHistories(request: DescribeApiHistoriesRequest): Promise<DescribeApiHistoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28637,13 +29117,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Queries the details of a specified historical version of a specified API definition.
-    * *   This API is intended for API providers.
-    * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
-    *
-    * @param request DescribeApiHistoryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiHistoryResponse
+   * @summary Queries the details of a specified historical version of a specified API definition.
+   *
+   * @description Queries the details of a specified historical version of a specified API definition.
+   * *   This API is intended for API providers.
+   * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
+   *
+   * @param request DescribeApiHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiHistoryResponse
    */
   async describeApiHistoryWithOptions(request: DescribeApiHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiHistoryResponse> {
     Util.validateModel(request);
@@ -28686,12 +29168,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Queries the details of a specified historical version of a specified API definition.
-    * *   This API is intended for API providers.
-    * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
-    *
-    * @param request DescribeApiHistoryRequest
-    * @return DescribeApiHistoryResponse
+   * @summary Queries the details of a specified historical version of a specified API definition.
+   *
+   * @description Queries the details of a specified historical version of a specified API definition.
+   * *   This API is intended for API providers.
+   * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
+   *
+   * @param request DescribeApiHistoryRequest
+   * @return DescribeApiHistoryResponse
    */
   async describeApiHistory(request: DescribeApiHistoryRequest): Promise<DescribeApiHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28699,13 +29183,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   If an optional parameter is not specified, all results are returned on separate pages.
-    * ·
-    *
-    * @param request DescribeApiIpControlsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiIpControlsResponse
+   * @summary Queries the access control lists (ACLs) that are bound to all the APIs in an API group in a specified environment.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   If an optional parameter is not specified, all results are returned on separate pages.
+   * ·
+   *
+   * @param request DescribeApiIpControlsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiIpControlsResponse
    */
   async describeApiIpControlsWithOptions(request: DescribeApiIpControlsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiIpControlsResponse> {
     Util.validateModel(request);
@@ -28752,12 +29238,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   If an optional parameter is not specified, all results are returned on separate pages.
-    * ·
-    *
-    * @param request DescribeApiIpControlsRequest
-    * @return DescribeApiIpControlsResponse
+   * @summary Queries the access control lists (ACLs) that are bound to all the APIs in an API group in a specified environment.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   If an optional parameter is not specified, all results are returned on separate pages.
+   * ·
+   *
+   * @param request DescribeApiIpControlsRequest
+   * @return DescribeApiIpControlsResponse
    */
   async describeApiIpControls(request: DescribeApiIpControlsRequest): Promise<DescribeApiIpControlsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28765,13 +29253,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the latency metrics in milliseconds for a specified API.
-    * *   This API is intended for API providers.
-    * *   Only statistics for API calls made in the release environment are collected by default.
-    *
-    * @param request DescribeApiLatencyDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiLatencyDataResponse
+   * @summary Queries the response time statistics of an API.
+   *
+   * @description You can call this operation to query the latency metrics in milliseconds for a specified API.
+   * *   This API is intended for API providers.
+   * *   Only statistics for API calls made in the release environment are collected by default.
+   *
+   * @param request DescribeApiLatencyDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiLatencyDataResponse
    */
   async describeApiLatencyDataWithOptions(request: DescribeApiLatencyDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiLatencyDataResponse> {
     Util.validateModel(request);
@@ -28818,18 +29308,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the latency metrics in milliseconds for a specified API.
-    * *   This API is intended for API providers.
-    * *   Only statistics for API calls made in the release environment are collected by default.
-    *
-    * @param request DescribeApiLatencyDataRequest
-    * @return DescribeApiLatencyDataResponse
+   * @summary Queries the response time statistics of an API.
+   *
+   * @description You can call this operation to query the latency metrics in milliseconds for a specified API.
+   * *   This API is intended for API providers.
+   * *   Only statistics for API calls made in the release environment are collected by default.
+   *
+   * @param request DescribeApiLatencyDataRequest
+   * @return DescribeApiLatencyDataResponse
    */
   async describeApiLatencyData(request: DescribeApiLatencyDataRequest): Promise<DescribeApiLatencyDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiLatencyDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Alibaba Cloud Marketplace attributes of an API.
+   *
+   * @param request DescribeApiMarketAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiMarketAttributesResponse
+   */
   async describeApiMarketAttributesWithOptions(request: DescribeApiMarketAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiMarketAttributesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28862,11 +29361,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiMarketAttributesResponse>(await this.callApi(params, req, runtime), new DescribeApiMarketAttributesResponse({}));
   }
 
+  /**
+   * @summary Queries the Alibaba Cloud Marketplace attributes of an API.
+   *
+   * @param request DescribeApiMarketAttributesRequest
+   * @return DescribeApiMarketAttributesResponse
+   */
   async describeApiMarketAttributes(request: DescribeApiMarketAttributesRequest): Promise<DescribeApiMarketAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiMarketAttributesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attached APIs of an API product.
+   *
+   * @param request DescribeApiProductApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiProductApisResponse
+   */
   async describeApiProductApisWithOptions(request: DescribeApiProductApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiProductApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28903,11 +29415,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiProductApisResponse>(await this.callApi(params, req, runtime), new DescribeApiProductApisResponse({}));
   }
 
+  /**
+   * @summary Queries the attached APIs of an API product.
+   *
+   * @param request DescribeApiProductApisRequest
+   * @return DescribeApiProductApisResponse
+   */
   async describeApiProductApis(request: DescribeApiProductApisRequest): Promise<DescribeApiProductApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiProductApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries API products by application.
+   *
+   * @param request DescribeApiProductsByAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiProductsByAppResponse
+   */
   async describeApiProductsByAppWithOptions(request: DescribeApiProductsByAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiProductsByAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28944,18 +29469,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiProductsByAppResponse>(await this.callApi(params, req, runtime), new DescribeApiProductsByAppResponse({}));
   }
 
+  /**
+   * @summary Queries API products by application.
+   *
+   * @param request DescribeApiProductsByAppRequest
+   * @return DescribeApiProductsByAppResponse
+   */
   async describeApiProductsByApp(request: DescribeApiProductsByAppRequest): Promise<DescribeApiProductsByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiProductsByAppWithOptions(request, runtime);
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   Only statistics for API calls made in the release environment are collected by default.
-    *
-    * @param request DescribeApiQpsDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiQpsDataResponse
+   * @summary Queries the QPS statistics of an API.
+   *
+   * @description *   This API is intended for API providers.
+   * *   Only statistics for API calls made in the release environment are collected by default.
+   *
+   * @param request DescribeApiQpsDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiQpsDataResponse
    */
   async describeApiQpsDataWithOptions(request: DescribeApiQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiQpsDataResponse> {
     Util.validateModel(request);
@@ -29002,11 +29535,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   Only statistics for API calls made in the release environment are collected by default.
-    *
-    * @param request DescribeApiQpsDataRequest
-    * @return DescribeApiQpsDataResponse
+   * @summary Queries the QPS statistics of an API.
+   *
+   * @description *   This API is intended for API providers.
+   * *   Only statistics for API calls made in the release environment are collected by default.
+   *
+   * @param request DescribeApiQpsDataRequest
+   * @return DescribeApiQpsDataResponse
    */
   async describeApiQpsData(request: DescribeApiQpsDataRequest): Promise<DescribeApiQpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29014,12 +29549,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
-    *
-    * @param request DescribeApiSignaturesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiSignaturesResponse
+   * @summary Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+   *
+   * @param request DescribeApiSignaturesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiSignaturesResponse
    */
   async describeApiSignaturesWithOptions(request: DescribeApiSignaturesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiSignaturesResponse> {
     Util.validateModel(request);
@@ -29066,11 +29603,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
-    *
-    * @param request DescribeApiSignaturesRequest
-    * @return DescribeApiSignaturesResponse
+   * @summary Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+   *
+   * @param request DescribeApiSignaturesRequest
+   * @return DescribeApiSignaturesResponse
    */
   async describeApiSignatures(request: DescribeApiSignaturesRequest): Promise<DescribeApiSignaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29078,12 +29617,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
-    *
-    * @param request DescribeApiTrafficControlsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiTrafficControlsResponse
+   * @summary Queries the throttling policies bound to all members of an API group in a specified environment.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+   *
+   * @param request DescribeApiTrafficControlsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiTrafficControlsResponse
    */
   async describeApiTrafficControlsWithOptions(request: DescribeApiTrafficControlsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiTrafficControlsResponse> {
     Util.validateModel(request);
@@ -29130,11 +29671,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
-    *
-    * @param request DescribeApiTrafficControlsRequest
-    * @return DescribeApiTrafficControlsResponse
+   * @summary Queries the throttling policies bound to all members of an API group in a specified environment.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+   *
+   * @param request DescribeApiTrafficControlsRequest
+   * @return DescribeApiTrafficControlsResponse
    */
   async describeApiTrafficControls(request: DescribeApiTrafficControlsRequest): Promise<DescribeApiTrafficControlsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29142,12 +29685,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   Only statistics for API calls made in the release environment are collected by default.
-    *
-    * @param request DescribeApiTrafficDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApiTrafficDataResponse
+   * @summary Queries the statistics on the traffic of an API.
+   *
+   * @description *   This API is intended for API providers.
+   * *   Only statistics for API calls made in the release environment are collected by default.
+   *
+   * @param request DescribeApiTrafficDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApiTrafficDataResponse
    */
   async describeApiTrafficDataWithOptions(request: DescribeApiTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiTrafficDataResponse> {
     Util.validateModel(request);
@@ -29194,11 +29739,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   Only statistics for API calls made in the release environment are collected by default.
-    *
-    * @param request DescribeApiTrafficDataRequest
-    * @return DescribeApiTrafficDataResponse
+   * @summary Queries the statistics on the traffic of an API.
+   *
+   * @description *   This API is intended for API providers.
+   * *   Only statistics for API calls made in the release environment are collected by default.
+   *
+   * @param request DescribeApiTrafficDataRequest
+   * @return DescribeApiTrafficDataResponse
    */
   async describeApiTrafficData(request: DescribeApiTrafficDataRequest): Promise<DescribeApiTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29206,13 +29753,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   This operation returns a list of all APIs that are being defined. The basic information about these APIs is also returned in the list.
-    * *   This operation returns all APIs that are being edited, regardless of their environments. The returned definitions may be different from the definitions in the environments.
-    *
-    * @param request DescribeApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApisResponse
+   * @summary Queries a list of APIs that are being defined.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   This operation returns a list of all APIs that are being defined. The basic information about these APIs is also returned in the list.
+   * *   This operation returns all APIs that are being edited, regardless of their environments. The returned definitions may be different from the definitions in the environments.
+   *
+   * @param request DescribeApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisResponse
    */
   async describeApisWithOptions(request: DescribeApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisResponse> {
     Util.validateModel(request);
@@ -29291,18 +29840,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   This operation returns a list of all APIs that are being defined. The basic information about these APIs is also returned in the list.
-    * *   This operation returns all APIs that are being edited, regardless of their environments. The returned definitions may be different from the definitions in the environments.
-    *
-    * @param request DescribeApisRequest
-    * @return DescribeApisResponse
+   * @summary Queries a list of APIs that are being defined.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   This operation returns a list of all APIs that are being defined. The basic information about these APIs is also returned in the list.
+   * *   This operation returns all APIs that are being edited, regardless of their environments. The returned definitions may be different from the definitions in the environments.
+   *
+   * @param request DescribeApisRequest
+   * @return DescribeApisResponse
    */
   async describeApis(request: DescribeApisRequest): Promise<DescribeApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeApisByAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisByAppResponse
+   */
   async describeApisByAppWithOptions(request: DescribeApisByAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29359,11 +29915,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApisByAppResponse>(await this.callApi(params, req, runtime), new DescribeApisByAppResponse({}));
   }
 
+  /**
+   * @param request DescribeApisByAppRequest
+   * @return DescribeApisByAppResponse
+   */
   async describeApisByApp(request: DescribeApisByAppRequest): Promise<DescribeApisByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisByAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries APIs in the draft or published state that are created by using a specified backend service.
+   *
+   * @param request DescribeApisByBackendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisByBackendResponse
+   */
   async describeApisByBackendWithOptions(request: DescribeApisByBackendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByBackendResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29404,18 +29971,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApisByBackendResponse>(await this.callApi(params, req, runtime), new DescribeApisByBackendResponse({}));
   }
 
+  /**
+   * @summary Queries APIs in the draft or published state that are created by using a specified backend service.
+   *
+   * @param request DescribeApisByBackendRequest
+   * @return DescribeApisByBackendResponse
+   */
   async describeApisByBackend(request: DescribeApisByBackendRequest): Promise<DescribeApisByBackendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisByBackendWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   You can specify PageNumber to obtain the result on the specified page.
-    *
-    * @param request DescribeApisByIpControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApisByIpControlResponse
+   * @summary Queries the APIs that are bound to an access control list (ACL).
+   *
+   * @description *   This operation is intended for API callers.
+   * *   You can specify PageNumber to obtain the result on the specified page.
+   *
+   * @param request DescribeApisByIpControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisByIpControlResponse
    */
   async describeApisByIpControlWithOptions(request: DescribeApisByIpControlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByIpControlResponse> {
     Util.validateModel(request);
@@ -29454,11 +30029,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   You can specify PageNumber to obtain the result on the specified page.
-    *
-    * @param request DescribeApisByIpControlRequest
-    * @return DescribeApisByIpControlResponse
+   * @summary Queries the APIs that are bound to an access control list (ACL).
+   *
+   * @description *   This operation is intended for API callers.
+   * *   You can specify PageNumber to obtain the result on the specified page.
+   *
+   * @param request DescribeApisByIpControlRequest
+   * @return DescribeApisByIpControlResponse
    */
   async describeApisByIpControl(request: DescribeApisByIpControlRequest): Promise<DescribeApisByIpControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29466,12 +30043,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
-    *
-    * @param request DescribeApisBySignatureRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApisBySignatureResponse
+   * @summary Queries the APIs to which a specified backend signature key is bound.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
+   *
+   * @param request DescribeApisBySignatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisBySignatureResponse
    */
   async describeApisBySignatureWithOptions(request: DescribeApisBySignatureRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisBySignatureResponse> {
     Util.validateModel(request);
@@ -29510,11 +30089,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
-    *
-    * @param request DescribeApisBySignatureRequest
-    * @return DescribeApisBySignatureResponse
+   * @summary Queries the APIs to which a specified backend signature key is bound.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
+   *
+   * @param request DescribeApisBySignatureRequest
+   * @return DescribeApisBySignatureResponse
    */
   async describeApisBySignature(request: DescribeApisBySignatureRequest): Promise<DescribeApisBySignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29522,12 +30103,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   You can specify PageNumber to obtain the result on the specified page.
-    *
-    * @param request DescribeApisByTrafficControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeApisByTrafficControlResponse
+   * @summary Queries the APIs to which a specified throttling policy is bound.
+   *
+   * @description *   This API is intended for API providers.
+   * *   You can specify PageNumber to obtain the result on the specified page.
+   *
+   * @param request DescribeApisByTrafficControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisByTrafficControlResponse
    */
   async describeApisByTrafficControlWithOptions(request: DescribeApisByTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByTrafficControlResponse> {
     Util.validateModel(request);
@@ -29566,17 +30149,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   You can specify PageNumber to obtain the result on the specified page.
-    *
-    * @param request DescribeApisByTrafficControlRequest
-    * @return DescribeApisByTrafficControlResponse
+   * @summary Queries the APIs to which a specified throttling policy is bound.
+   *
+   * @description *   This API is intended for API providers.
+   * *   You can specify PageNumber to obtain the result on the specified page.
+   *
+   * @param request DescribeApisByTrafficControlRequest
+   * @return DescribeApisByTrafficControlResponse
    */
   async describeApisByTrafficControl(request: DescribeApisByTrafficControlRequest): Promise<DescribeApisByTrafficControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisByTrafficControlWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeApisByVpcAccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisByVpcAccessResponse
+   */
   async describeApisByVpcAccessWithOptions(request: DescribeApisByVpcAccessRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByVpcAccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29613,11 +30203,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApisByVpcAccessResponse>(await this.callApi(params, req, runtime), new DescribeApisByVpcAccessResponse({}));
   }
 
+  /**
+   * @param request DescribeApisByVpcAccessRequest
+   * @return DescribeApisByVpcAccessResponse
+   */
   async describeApisByVpcAccess(request: DescribeApisByVpcAccessRequest): Promise<DescribeApisByVpcAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisByVpcAccessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries APIs by application. The environment information is also returned.
+   *
+   * @param request DescribeApisWithStageNameIntegratedByAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApisWithStageNameIntegratedByAppResponse
+   */
   async describeApisWithStageNameIntegratedByAppWithOptions(request: DescribeApisWithStageNameIntegratedByAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisWithStageNameIntegratedByAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29674,11 +30275,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApisWithStageNameIntegratedByAppResponse>(await this.callApi(params, req, runtime), new DescribeApisWithStageNameIntegratedByAppResponse({}));
   }
 
+  /**
+   * @summary Queries APIs by application. The environment information is also returned.
+   *
+   * @param request DescribeApisWithStageNameIntegratedByAppRequest
+   * @return DescribeApisWithStageNameIntegratedByAppResponse
+   */
   async describeApisWithStageNameIntegratedByApp(request: DescribeApisWithStageNameIntegratedByAppRequest): Promise<DescribeApisWithStageNameIntegratedByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisWithStageNameIntegratedByAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the apps that can be authorized.
+   *
+   * @param request DescribeAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppResponse
+   */
   async describeAppWithOptions(request: DescribeAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29707,18 +30321,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAppResponse>(await this.callApi(params, req, runtime), new DescribeAppResponse({}));
   }
 
+  /**
+   * @summary Queries the apps that can be authorized.
+   *
+   * @param request DescribeAppRequest
+   * @return DescribeAppResponse
+   */
   async describeApp(request: DescribeAppRequest): Promise<DescribeAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   AppId is optional.
-    *
-    * @param request DescribeAppAttributesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAppAttributesResponse
+   * @summary Queries apps and their basic information.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   AppId is optional.
+   *
+   * @param request DescribeAppAttributesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppAttributesResponse
    */
   async describeAppAttributesWithOptions(request: DescribeAppAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppAttributesResponse> {
     Util.validateModel(request);
@@ -29785,11 +30407,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   AppId is optional.
-    *
-    * @param request DescribeAppAttributesRequest
-    * @return DescribeAppAttributesResponse
+   * @summary Queries apps and their basic information.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   AppId is optional.
+   *
+   * @param request DescribeAppAttributesRequest
+   * @return DescribeAppAttributesResponse
    */
   async describeAppAttributes(request: DescribeAppAttributesRequest): Promise<DescribeAppAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29797,11 +30421,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    *
-    * @param request DescribeAppSecurityRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAppSecurityResponse
+   * @summary This key is used for authentication when an API call is made.
+   *
+   * @description *   This operation is intended for API callers.
+   *
+   * @param request DescribeAppSecurityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppSecurityResponse
    */
   async describeAppSecurityWithOptions(request: DescribeAppSecurityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppSecurityResponse> {
     Util.validateModel(request);
@@ -29836,10 +30462,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    *
-    * @param request DescribeAppSecurityRequest
-    * @return DescribeAppSecurityResponse
+   * @summary This key is used for authentication when an API call is made.
+   *
+   * @description *   This operation is intended for API callers.
+   *
+   * @param request DescribeAppSecurityRequest
+   * @return DescribeAppSecurityResponse
    */
   async describeAppSecurity(request: DescribeAppSecurityRequest): Promise<DescribeAppSecurityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29847,13 +30475,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
-    * *   Each provider can call this operation for a maximum of 200 times every day in a region.
-    *
-    * @param request DescribeAppsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAppsResponse
+   * @summary Queries the apps. App information is returned only to the app owner.
+   *
+   * @description *   This API is intended for API providers.
+   * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+   * *   Each provider can call this operation for a maximum of 200 times every day in a region.
+   *
+   * @param request DescribeAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppsResponse
    */
   async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
     Util.validateModel(request);
@@ -29896,18 +30526,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
-    * *   Each provider can call this operation for a maximum of 200 times every day in a region.
-    *
-    * @param request DescribeAppsRequest
-    * @return DescribeAppsResponse
+   * @summary Queries the apps. App information is returned only to the app owner.
+   *
+   * @description *   This API is intended for API providers.
+   * *   API providers can use the app IDs or their Apsara Stack tenant accounts to query app information.
+   * *   Each provider can call this operation for a maximum of 200 times every day in a region.
+   *
+   * @param request DescribeAppsRequest
+   * @return DescribeAppsResponse
    */
   async describeApps(request: DescribeAppsRequest): Promise<DescribeAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries authorized applications by API product.
+   *
+   * @param request DescribeAppsByApiProductRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppsByApiProductResponse
+   */
   async describeAppsByApiProductWithOptions(request: DescribeAppsByApiProductRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsByApiProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29948,18 +30587,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAppsByApiProductResponse>(await this.callApi(params, req, runtime), new DescribeAppsByApiProductResponse({}));
   }
 
+  /**
+   * @summary Queries authorized applications by API product.
+   *
+   * @param request DescribeAppsByApiProductRequest
+   * @return DescribeAppsByApiProductResponse
+   */
   async describeAppsByApiProduct(request: DescribeAppsByApiProductRequest): Promise<DescribeAppsByApiProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppsByApiProductWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   The specified application can call all APIs included in the responses.
-    *
-    * @param request DescribeAuthorizedApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAuthorizedApisResponse
+   * @summary Queries the authorized APIs of a specified APP.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   The specified application can call all APIs included in the responses.
+   *
+   * @param request DescribeAuthorizedApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAuthorizedApisResponse
    */
   async describeAuthorizedApisWithOptions(request: DescribeAuthorizedApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuthorizedApisResponse> {
     Util.validateModel(request);
@@ -29998,11 +30645,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   The specified application can call all APIs included in the responses.
-    *
-    * @param request DescribeAuthorizedApisRequest
-    * @return DescribeAuthorizedApisResponse
+   * @summary Queries the authorized APIs of a specified APP.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   The specified application can call all APIs included in the responses.
+   *
+   * @param request DescribeAuthorizedApisRequest
+   * @return DescribeAuthorizedApisResponse
    */
   async describeAuthorizedApis(request: DescribeAuthorizedApisRequest): Promise<DescribeAuthorizedApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30010,12 +30659,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   All applications included in the responses have access to the specified API.
-    *
-    * @param request DescribeAuthorizedAppsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAuthorizedAppsResponse
+   * @summary Queries the current apps.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   All applications included in the responses have access to the specified API.
+   *
+   * @param request DescribeAuthorizedAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAuthorizedAppsResponse
    */
   async describeAuthorizedAppsWithOptions(request: DescribeAuthorizedAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuthorizedAppsResponse> {
     Util.validateModel(request);
@@ -30074,17 +30725,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   All applications included in the responses have access to the specified API.
-    *
-    * @param request DescribeAuthorizedAppsRequest
-    * @return DescribeAuthorizedAppsResponse
+   * @summary Queries the current apps.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   All applications included in the responses have access to the specified API.
+   *
+   * @param request DescribeAuthorizedAppsRequest
+   * @return DescribeAuthorizedAppsResponse
    */
   async describeAuthorizedApps(request: DescribeAuthorizedAppsRequest): Promise<DescribeAuthorizedAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuthorizedAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a backend service and its URL configured for each environment.
+   *
+   * @param request DescribeBackendInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackendInfoResponse
+   */
   async describeBackendInfoWithOptions(request: DescribeBackendInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackendInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30113,11 +30773,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackendInfoResponse>(await this.callApi(params, req, runtime), new DescribeBackendInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a backend service and its URL configured for each environment.
+   *
+   * @param request DescribeBackendInfoRequest
+   * @return DescribeBackendInfoResponse
+   */
   async describeBackendInfo(request: DescribeBackendInfoRequest): Promise<DescribeBackendInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackendInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries backend services. You can filter backend services by backend service name and backend service type.
+   *
+   * @param request DescribeBackendListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackendListResponse
+   */
   async describeBackendListWithOptions(request: DescribeBackendListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackendListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30162,11 +30835,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackendListResponse>(await this.callApi(params, req, runtime), new DescribeBackendListResponse({}));
   }
 
+  /**
+   * @summary Queries backend services. You can filter backend services by backend service name and backend service type.
+   *
+   * @param request DescribeBackendListRequest
+   * @return DescribeBackendListResponse
+   */
   async describeBackendList(request: DescribeBackendListRequest): Promise<DescribeBackendListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackendListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a single dataset.
+   *
+   * @param request DescribeDatasetInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDatasetInfoResponse
+   */
   async describeDatasetInfoWithOptions(request: DescribeDatasetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatasetInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30195,11 +30881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDatasetInfoResponse>(await this.callApi(params, req, runtime), new DescribeDatasetInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a single dataset.
+   *
+   * @param request DescribeDatasetInfoRequest
+   * @return DescribeDatasetInfoResponse
+   */
   async describeDatasetInfo(request: DescribeDatasetInfoRequest): Promise<DescribeDatasetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDatasetInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a data entry in a custom dataset.
+   *
+   * @param request DescribeDatasetItemInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDatasetItemInfoResponse
+   */
   async describeDatasetItemInfoWithOptions(request: DescribeDatasetItemInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatasetItemInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30236,11 +30935,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDatasetItemInfoResponse>(await this.callApi(params, req, runtime), new DescribeDatasetItemInfoResponse({}));
   }
 
+  /**
+   * @summary Queries a data entry in a custom dataset.
+   *
+   * @param request DescribeDatasetItemInfoRequest
+   * @return DescribeDatasetItemInfoResponse
+   */
   async describeDatasetItemInfo(request: DescribeDatasetItemInfoRequest): Promise<DescribeDatasetItemInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDatasetItemInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the data entries of a custom dataset.
+   *
+   * @param request DescribeDatasetItemListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDatasetItemListResponse
+   */
   async describeDatasetItemListWithOptions(request: DescribeDatasetItemListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatasetItemListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30281,11 +30993,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDatasetItemListResponse>(await this.callApi(params, req, runtime), new DescribeDatasetItemListResponse({}));
   }
 
+  /**
+   * @summary Queries the data entries of a custom dataset.
+   *
+   * @param request DescribeDatasetItemListRequest
+   * @return DescribeDatasetItemListResponse
+   */
   async describeDatasetItemList(request: DescribeDatasetItemListRequest): Promise<DescribeDatasetItemListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDatasetItemListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries custom datasets.
+   *
+   * @param request DescribeDatasetListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDatasetListResponse
+   */
   async describeDatasetListWithOptions(request: DescribeDatasetListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatasetListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30326,11 +31051,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDatasetListResponse>(await this.callApi(params, req, runtime), new DescribeDatasetListResponse({}));
   }
 
+  /**
+   * @summary Queries custom datasets.
+   *
+   * @param request DescribeDatasetListRequest
+   * @return DescribeDatasetListResponse
+   */
   async describeDatasetList(request: DescribeDatasetListRequest): Promise<DescribeDatasetListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDatasetListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the progress of an asynchronous API publishing task.
+   *
+   * @param request DescribeDeployApiTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDeployApiTaskResponse
+   */
   async describeDeployApiTaskWithOptions(request: DescribeDeployApiTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployApiTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30359,11 +31097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDeployApiTaskResponse>(await this.callApi(params, req, runtime), new DescribeDeployApiTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the progress of an asynchronous API publishing task.
+   *
+   * @param request DescribeDeployApiTaskRequest
+   * @return DescribeDeployApiTaskResponse
+   */
   async describeDeployApiTask(request: DescribeDeployApiTaskRequest): Promise<DescribeDeployApiTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDeployApiTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the definition of an API that takes effect in an environment. The definition may differ from the definition being edited.
+   *
+   * @param request DescribeDeployedApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDeployedApiResponse
+   */
   async describeDeployedApiWithOptions(request: DescribeDeployedApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployedApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30400,17 +31151,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDeployedApiResponse>(await this.callApi(params, req, runtime), new DescribeDeployedApiResponse({}));
   }
 
+  /**
+   * @summary Queries the definition of an API that takes effect in an environment. The definition may differ from the definition being edited.
+   *
+   * @param request DescribeDeployedApiRequest
+   * @return DescribeDeployedApiResponse
+   */
   async describeDeployedApi(request: DescribeDeployedApiRequest): Promise<DescribeDeployedApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDeployedApiWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API callers.
-    *
-    * @param request DescribeDeployedApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDeployedApisResponse
+   * @summary Queries the APIs that are published to and running in an environment.
+   *
+   * @description *   This operation is intended for API callers.
+   *
+   * @param request DescribeDeployedApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDeployedApisResponse
    */
   async describeDeployedApisWithOptions(request: DescribeDeployedApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployedApisResponse> {
     Util.validateModel(request);
@@ -30477,16 +31236,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    *
-    * @param request DescribeDeployedApisRequest
-    * @return DescribeDeployedApisResponse
+   * @summary Queries the APIs that are published to and running in an environment.
+   *
+   * @description *   This operation is intended for API callers.
+   *
+   * @param request DescribeDeployedApisRequest
+   * @return DescribeDeployedApisResponse
    */
   async describeDeployedApis(request: DescribeDeployedApisRequest): Promise<DescribeDeployedApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDeployedApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a bound custom domain name, including the system assigned second-level domain name, custom domain name, and SSL certificate.
+   *
+   * @param request DescribeDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainResponse
+   */
   async describeDomainWithOptions(request: DescribeDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30519,11 +31287,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainResponse>(await this.callApi(params, req, runtime), new DescribeDomainResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a bound custom domain name, including the system assigned second-level domain name, custom domain name, and SSL certificate.
+   *
+   * @param request DescribeDomainRequest
+   * @return DescribeDomainResponse
+   */
   async describeDomain(request: DescribeDomainRequest): Promise<DescribeDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the average latency of an API group in an environment.
+   *
+   * @param request DescribeGroupLatencyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupLatencyResponse
+   */
   async describeGroupLatencyWithOptions(request: DescribeGroupLatencyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupLatencyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30564,11 +31345,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupLatencyResponse>(await this.callApi(params, req, runtime), new DescribeGroupLatencyResponse({}));
   }
 
+  /**
+   * @summary Queries the average latency of an API group in an environment.
+   *
+   * @param request DescribeGroupLatencyRequest
+   * @return DescribeGroupLatencyResponse
+   */
   async describeGroupLatency(request: DescribeGroupLatencyRequest): Promise<DescribeGroupLatencyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupLatencyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics on the number of requests directed to an API group within a period of time.
+   *
+   * @param request DescribeGroupQpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupQpsResponse
+   */
   async describeGroupQpsWithOptions(request: DescribeGroupQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupQpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30609,11 +31403,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupQpsResponse>(await this.callApi(params, req, runtime), new DescribeGroupQpsResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics on the number of requests directed to an API group within a period of time.
+   *
+   * @param request DescribeGroupQpsRequest
+   * @return DescribeGroupQpsResponse
+   */
   async describeGroupQps(request: DescribeGroupQpsRequest): Promise<DescribeGroupQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupQpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the traffic of an API group.
+   *
+   * @param request DescribeGroupTrafficRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupTrafficResponse
+   */
   async describeGroupTrafficWithOptions(request: DescribeGroupTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupTrafficResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30654,11 +31461,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupTrafficResponse>(await this.callApi(params, req, runtime), new DescribeGroupTrafficResponse({}));
   }
 
+  /**
+   * @summary Queries the traffic of an API group.
+   *
+   * @param request DescribeGroupTrafficRequest
+   * @return DescribeGroupTrafficResponse
+   */
   async describeGroupTraffic(request: DescribeGroupTrafficRequest): Promise<DescribeGroupTrafficResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGroupTrafficWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeHistoryApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHistoryApisResponse
+   */
   async describeHistoryApisWithOptions(request: DescribeHistoryApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30707,11 +31525,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHistoryApisResponse>(await this.callApi(params, req, runtime), new DescribeHistoryApisResponse({}));
   }
 
+  /**
+   * @param request DescribeHistoryApisRequest
+   * @return DescribeHistoryApisResponse
+   */
   async describeHistoryApis(request: DescribeHistoryApisRequest): Promise<DescribeHistoryApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHistoryApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the result of an OAS API import task.
+   *
+   * @param request DescribeImportOASTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImportOASTaskResponse
+   */
   async describeImportOASTaskWithOptions(request: DescribeImportOASTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImportOASTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30740,11 +31569,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImportOASTaskResponse>(await this.callApi(params, req, runtime), new DescribeImportOASTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the result of an OAS API import task.
+   *
+   * @param request DescribeImportOASTaskRequest
+   * @return DescribeImportOASTaskResponse
+   */
   async describeImportOASTask(request: DescribeImportOASTaskRequest): Promise<DescribeImportOASTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImportOASTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of lost connections to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceDropConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceDropConnectionsResponse
+   */
   async describeInstanceDropConnectionsWithOptions(request: DescribeInstanceDropConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDropConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30785,11 +31627,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceDropConnectionsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDropConnectionsResponse({}));
   }
 
+  /**
+   * @summary Queries the number of lost connections to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceDropConnectionsRequest
+   * @return DescribeInstanceDropConnectionsResponse
+   */
   async describeInstanceDropConnections(request: DescribeInstanceDropConnectionsRequest): Promise<DescribeInstanceDropConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceDropConnectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of dropped packets within a period of time.
+   *
+   * @param request DescribeInstanceDropPacketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceDropPacketResponse
+   */
   async describeInstanceDropPacketWithOptions(request: DescribeInstanceDropPacketRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDropPacketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30830,11 +31685,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceDropPacketResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDropPacketResponse({}));
   }
 
+  /**
+   * @summary Queries the number of dropped packets within a period of time.
+   *
+   * @param request DescribeInstanceDropPacketRequest
+   * @return DescribeInstanceDropPacketResponse
+   */
   async describeInstanceDropPacket(request: DescribeInstanceDropPacketRequest): Promise<DescribeInstanceDropPacketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceDropPacketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the distribution of HTTP status codes of requests to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceHttpCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceHttpCodeResponse
+   */
   async describeInstanceHttpCodeWithOptions(request: DescribeInstanceHttpCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceHttpCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30875,11 +31743,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceHttpCodeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceHttpCodeResponse({}));
   }
 
+  /**
+   * @summary Queries the distribution of HTTP status codes of requests to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceHttpCodeRequest
+   * @return DescribeInstanceHttpCodeResponse
+   */
   async describeInstanceHttpCode(request: DescribeInstanceHttpCodeRequest): Promise<DescribeInstanceHttpCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceHttpCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the average latency of a dedicated instance over a period of time.
+   *
+   * @param request DescribeInstanceLatencyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceLatencyResponse
+   */
   async describeInstanceLatencyWithOptions(request: DescribeInstanceLatencyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceLatencyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30920,11 +31801,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceLatencyResponse>(await this.callApi(params, req, runtime), new DescribeInstanceLatencyResponse({}));
   }
 
+  /**
+   * @summary Queries the average latency of a dedicated instance over a period of time.
+   *
+   * @param request DescribeInstanceLatencyRequest
+   * @return DescribeInstanceLatencyResponse
+   */
   async describeInstanceLatency(request: DescribeInstanceLatencyRequest): Promise<DescribeInstanceLatencyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceLatencyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of new connections to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceNewConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceNewConnectionsResponse
+   */
   async describeInstanceNewConnectionsWithOptions(request: DescribeInstanceNewConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceNewConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30965,11 +31859,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceNewConnectionsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceNewConnectionsResponse({}));
   }
 
+  /**
+   * @summary Queries the number of new connections to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceNewConnectionsRequest
+   * @return DescribeInstanceNewConnectionsResponse
+   */
   async describeInstanceNewConnections(request: DescribeInstanceNewConnectionsRequest): Promise<DescribeInstanceNewConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceNewConnectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the numbers of inbound and outbound packets of a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstancePacketsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancePacketsResponse
+   */
   async describeInstancePacketsWithOptions(request: DescribeInstancePacketsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancePacketsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31010,11 +31917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancePacketsResponse>(await this.callApi(params, req, runtime), new DescribeInstancePacketsResponse({}));
   }
 
+  /**
+   * @summary Queries the numbers of inbound and outbound packets of a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstancePacketsRequest
+   * @return DescribeInstancePacketsResponse
+   */
   async describeInstancePackets(request: DescribeInstancePacketsRequest): Promise<DescribeInstancePacketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancePacketsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of requests to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceQpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceQpsResponse
+   */
   async describeInstanceQpsWithOptions(request: DescribeInstanceQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceQpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31055,11 +31975,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceQpsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceQpsResponse({}));
   }
 
+  /**
+   * @summary Queries the number of requests to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceQpsRequest
+   * @return DescribeInstanceQpsResponse
+   */
   async describeInstanceQps(request: DescribeInstanceQpsRequest): Promise<DescribeInstanceQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceQpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of concurrent connections to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceSlbConnectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSlbConnectResponse
+   */
   async describeInstanceSlbConnectWithOptions(request: DescribeInstanceSlbConnectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSlbConnectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31100,11 +32033,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSlbConnectResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSlbConnectResponse({}));
   }
 
+  /**
+   * @summary Queries the number of concurrent connections to a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceSlbConnectRequest
+   * @return DescribeInstanceSlbConnectResponse
+   */
   async describeInstanceSlbConnect(request: DescribeInstanceSlbConnectRequest): Promise<DescribeInstanceSlbConnectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSlbConnectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the request traffic and response traffic of a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceTrafficRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceTrafficResponse
+   */
   async describeInstanceTrafficWithOptions(request: DescribeInstanceTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTrafficResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31145,11 +32091,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTrafficResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTrafficResponse({}));
   }
 
+  /**
+   * @summary Queries the request traffic and response traffic of a dedicated instance within a period of time.
+   *
+   * @param request DescribeInstanceTrafficRequest
+   * @return DescribeInstanceTrafficResponse
+   */
   async describeInstanceTraffic(request: DescribeInstanceTrafficRequest): Promise<DescribeInstanceTrafficResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTrafficWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询实例信息
+   *
+   * @param request DescribeInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31190,18 +32149,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+   * @summary 查询实例信息
+   *
+   * @param request DescribeInstancesRequest
+   * @return DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   You can filter the query results by policy ID.
-    *
-    * @param request DescribeIpControlPolicyItemsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeIpControlPolicyItemsResponse
+   * @summary Queries the rule entries of an IP address-based traffic control policy.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   You can filter the query results by policy ID.
+   *
+   * @param request DescribeIpControlPolicyItemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpControlPolicyItemsResponse
    */
   async describeIpControlPolicyItemsWithOptions(request: DescribeIpControlPolicyItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpControlPolicyItemsResponse> {
     Util.validateModel(request);
@@ -31244,11 +32211,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   You can filter the query results by policy ID.
-    *
-    * @param request DescribeIpControlPolicyItemsRequest
-    * @return DescribeIpControlPolicyItemsResponse
+   * @summary Queries the rule entries of an IP address-based traffic control policy.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   You can filter the query results by policy ID.
+   *
+   * @param request DescribeIpControlPolicyItemsRequest
+   * @return DescribeIpControlPolicyItemsResponse
    */
   async describeIpControlPolicyItems(request: DescribeIpControlPolicyItemsRequest): Promise<DescribeIpControlPolicyItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31256,14 +32225,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   This operation is used to query the ACLs in a region. Region is a system parameter.
-    * *   You can filter the query results by ACL ID, name, or type.
-    * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~DescribeIpControlPolicyItems~~) operation.
-    *
-    * @param request DescribeIpControlsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeIpControlsResponse
+   * @summary Queries custom access control lists (ACLs) on separate pages.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   This operation is used to query the ACLs in a region. Region is a system parameter.
+   * *   You can filter the query results by ACL ID, name, or type.
+   * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~DescribeIpControlPolicyItems~~) operation.
+   *
+   * @param request DescribeIpControlsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpControlsResponse
    */
   async describeIpControlsWithOptions(request: DescribeIpControlsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpControlsResponse> {
     Util.validateModel(request);
@@ -31310,19 +32281,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   This operation is used to query the ACLs in a region. Region is a system parameter.
-    * *   You can filter the query results by ACL ID, name, or type.
-    * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~DescribeIpControlPolicyItems~~) operation.
-    *
-    * @param request DescribeIpControlsRequest
-    * @return DescribeIpControlsResponse
+   * @summary Queries custom access control lists (ACLs) on separate pages.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   This operation is used to query the ACLs in a region. Region is a system parameter.
+   * *   You can filter the query results by ACL ID, name, or type.
+   * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~DescribeIpControlPolicyItems~~) operation.
+   *
+   * @param request DescribeIpControlsRequest
+   * @return DescribeIpControlsResponse
    */
   async describeIpControls(request: DescribeIpControlsRequest): Promise<DescribeIpControlsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpControlsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogConfigResponse
+   */
   async describeLogConfigWithOptions(request: DescribeLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31351,11 +32329,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogConfigResponse>(await this.callApi(params, req, runtime), new DescribeLogConfigResponse({}));
   }
 
+  /**
+   * @param request DescribeLogConfigRequest
+   * @return DescribeLogConfigResponse
+   */
   async describeLogConfig(request: DescribeLogConfigRequest): Promise<DescribeLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of remaining ordered relationships for a purchaser.
+   *
+   * @param request DescribeMarketRemainsQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMarketRemainsQuotaResponse
+   */
   async describeMarketRemainsQuotaWithOptions(request: DescribeMarketRemainsQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMarketRemainsQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31384,17 +32373,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMarketRemainsQuotaResponse>(await this.callApi(params, req, runtime), new DescribeMarketRemainsQuotaResponse({}));
   }
 
+  /**
+   * @summary Queries the number of remaining ordered relationships for a purchaser.
+   *
+   * @param request DescribeMarketRemainsQuotaRequest
+   * @return DescribeMarketRemainsQuotaResponse
+   */
   async describeMarketRemainsQuota(request: DescribeMarketRemainsQuotaRequest): Promise<DescribeMarketRemainsQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMarketRemainsQuotaWithOptions(request, runtime);
   }
 
   /**
-    * *   Fuzzy queries are supported.
-    *
-    * @param request DescribeModelsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeModelsResponse
+   * @summary Obtains the created models of an API group.
+   *
+   * @description *   Fuzzy queries are supported.
+   *
+   * @param request DescribeModelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeModelsResponse
    */
   async describeModelsWithOptions(request: DescribeModelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeModelsResponse> {
     Util.validateModel(request);
@@ -31441,16 +32438,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Fuzzy queries are supported.
-    *
-    * @param request DescribeModelsRequest
-    * @return DescribeModelsResponse
+   * @summary Obtains the created models of an API group.
+   *
+   * @description *   Fuzzy queries are supported.
+   *
+   * @param request DescribeModelsRequest
+   * @return DescribeModelsResponse
    */
   async describeModels(request: DescribeModelsRequest): Promise<DescribeModelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeModelsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据查询查询绑定的API列表
+   *
+   * @param request DescribePluginApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePluginApisResponse
+   */
   async describePluginApisWithOptions(request: DescribePluginApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31511,11 +32517,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePluginApisResponse>(await this.callApi(params, req, runtime), new DescribePluginApisResponse({}));
   }
 
+  /**
+   * @summary 根据查询查询绑定的API列表
+   *
+   * @param request DescribePluginApisRequest
+   * @return DescribePluginApisResponse
+   */
   async describePluginApis(request: DescribePluginApisRequest): Promise<DescribePluginApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePluginApisWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribePluginSchemasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePluginSchemasResponse
+   */
   async describePluginSchemasWithOptions(request: DescribePluginSchemasRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginSchemasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31544,11 +32561,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePluginSchemasResponse>(await this.callApi(params, req, runtime), new DescribePluginSchemasResponse({}));
   }
 
+  /**
+   * @param request DescribePluginSchemasRequest
+   * @return DescribePluginSchemasResponse
+   */
   async describePluginSchemas(request: DescribePluginSchemasRequest): Promise<DescribePluginSchemasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePluginSchemasWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribePluginTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePluginTemplatesResponse
+   */
   async describePluginTemplatesWithOptions(request: DescribePluginTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31581,20 +32607,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePluginTemplatesResponse>(await this.callApi(params, req, runtime), new DescribePluginTemplatesResponse({}));
   }
 
+  /**
+   * @param request DescribePluginTemplatesRequest
+   * @return DescribePluginTemplatesResponse
+   */
   async describePluginTemplates(request: DescribePluginTemplatesRequest): Promise<DescribePluginTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePluginTemplatesWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation supports pagination.
-    * *   This operation allows you to query plug-ins by business type.
-    * *   This operation allows you to query plug-ins by ID.
-    * *   This operation allows you to query plug-ins by name.
-    *
-    * @param request DescribePluginsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePluginsResponse
+   * @summary Queries API Gateway plug-ins and the details of the plug-ins.
+   *
+   * @description *   This operation supports pagination.
+   * *   This operation allows you to query plug-ins by business type.
+   * *   This operation allows you to query plug-ins by ID.
+   * *   This operation allows you to query plug-ins by name.
+   *
+   * @param request DescribePluginsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePluginsResponse
    */
   async describePluginsWithOptions(request: DescribePluginsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginsResponse> {
     Util.validateModel(request);
@@ -31645,13 +32677,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation supports pagination.
-    * *   This operation allows you to query plug-ins by business type.
-    * *   This operation allows you to query plug-ins by ID.
-    * *   This operation allows you to query plug-ins by name.
-    *
-    * @param request DescribePluginsRequest
-    * @return DescribePluginsResponse
+   * @summary Queries API Gateway plug-ins and the details of the plug-ins.
+   *
+   * @description *   This operation supports pagination.
+   * *   This operation allows you to query plug-ins by business type.
+   * *   This operation allows you to query plug-ins by ID.
+   * *   This operation allows you to query plug-ins by name.
+   *
+   * @param request DescribePluginsRequest
+   * @return DescribePluginsResponse
    */
   async describePlugins(request: DescribePluginsRequest): Promise<DescribePluginsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31659,12 +32693,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   This operation supports pagination.
-    *
-    * @param request DescribePluginsByApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePluginsByApiResponse
+   * @summary Queries the plug-ins that are bound to a running API in an environment.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   This operation supports pagination.
+   *
+   * @param request DescribePluginsByApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePluginsByApiResponse
    */
   async describePluginsByApiWithOptions(request: DescribePluginsByApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginsByApiResponse> {
     Util.validateModel(request);
@@ -31711,17 +32747,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   This operation supports pagination.
-    *
-    * @param request DescribePluginsByApiRequest
-    * @return DescribePluginsByApiResponse
+   * @summary Queries the plug-ins that are bound to a running API in an environment.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   This operation supports pagination.
+   *
+   * @param request DescribePluginsByApiRequest
+   * @return DescribePluginsByApiResponse
    */
   async describePluginsByApi(request: DescribePluginsByApiRequest): Promise<DescribePluginsByApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePluginsByApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about an API group purchased from Alibaba Cloud Marketplace.
+   *
+   * @param request DescribePurchasedApiGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePurchasedApiGroupResponse
+   */
   async describePurchasedApiGroupWithOptions(request: DescribePurchasedApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribePurchasedApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31750,11 +32795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePurchasedApiGroupResponse>(await this.callApi(params, req, runtime), new DescribePurchasedApiGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the details about an API group purchased from Alibaba Cloud Marketplace.
+   *
+   * @param request DescribePurchasedApiGroupRequest
+   * @return DescribePurchasedApiGroupResponse
+   */
   async describePurchasedApiGroup(request: DescribePurchasedApiGroupRequest): Promise<DescribePurchasedApiGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePurchasedApiGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries API groups that are purchased from Alibaba Cloud Marketplace.
+   *
+   * @param request DescribePurchasedApiGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePurchasedApiGroupsResponse
+   */
   async describePurchasedApiGroupsWithOptions(request: DescribePurchasedApiGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePurchasedApiGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31787,11 +32845,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePurchasedApiGroupsResponse>(await this.callApi(params, req, runtime), new DescribePurchasedApiGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries API groups that are purchased from Alibaba Cloud Marketplace.
+   *
+   * @param request DescribePurchasedApiGroupsRequest
+   * @return DescribePurchasedApiGroupsResponse
+   */
   async describePurchasedApiGroups(request: DescribePurchasedApiGroupsRequest): Promise<DescribePurchasedApiGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePurchasedApiGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries APIs that are purchased from Alibaba Cloud Marketplace.
+   *
+   * @param request DescribePurchasedApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePurchasedApisResponse
+   */
   async describePurchasedApisWithOptions(request: DescribePurchasedApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribePurchasedApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31844,18 +32915,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePurchasedApisResponse>(await this.callApi(params, req, runtime), new DescribePurchasedApisResponse({}));
   }
 
+  /**
+   * @summary Queries APIs that are purchased from Alibaba Cloud Marketplace.
+   *
+   * @param request DescribePurchasedApisRequest
+   * @return DescribePurchasedApisResponse
+   */
   async describePurchasedApis(request: DescribePurchasedApisRequest): Promise<DescribePurchasedApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePurchasedApisWithOptions(request, runtime);
   }
 
   /**
-    * This operation queries regions in which API Gateway is available.
-    * *   This operation is intended for API providers and callers.
-    *
-    * @param request DescribeRegionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRegionsResponse
+   * @summary Queries the Alibaba Cloud regions that are supported by API Gateway.
+   *
+   * @description This operation queries regions in which API Gateway is available.
+   * *   This operation is intended for API providers and callers.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
    */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
@@ -31886,11 +32965,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation queries regions in which API Gateway is available.
-    * *   This operation is intended for API providers and callers.
-    *
-    * @param request DescribeRegionsRequest
-    * @return DescribeRegionsResponse
+   * @summary Queries the Alibaba Cloud regions that are supported by API Gateway.
+   *
+   * @description This operation queries regions in which API Gateway is available.
+   * *   This operation is intended for API providers and callers.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31898,12 +32979,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
-    *
-    * @param request DescribeSignaturesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSignaturesResponse
+   * @summary Queries backend signature keys.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
+   *
+   * @param request DescribeSignaturesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSignaturesResponse
    */
   async describeSignaturesWithOptions(request: DescribeSignaturesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSignaturesResponse> {
     Util.validateModel(request);
@@ -31946,11 +33029,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
-    *
-    * @param request DescribeSignaturesRequest
-    * @return DescribeSignaturesResponse
+   * @summary Queries backend signature keys.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
+   *
+   * @param request DescribeSignaturesRequest
+   * @return DescribeSignaturesResponse
    */
   async describeSignatures(request: DescribeSignaturesRequest): Promise<DescribeSignaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31958,11 +33043,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    *
-    * @param request DescribeSignaturesByApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSignaturesByApiResponse
+   * @summary Queries the backend signature keys that are bound to a specified API.
+   *
+   * @description *   This API is intended for API providers.
+   *
+   * @param request DescribeSignaturesByApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSignaturesByApiResponse
    */
   async describeSignaturesByApiWithOptions(request: DescribeSignaturesByApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSignaturesByApiResponse> {
     Util.validateModel(request);
@@ -32001,16 +33088,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    *
-    * @param request DescribeSignaturesByApiRequest
-    * @return DescribeSignaturesByApiResponse
+   * @summary Queries the backend signature keys that are bound to a specified API.
+   *
+   * @description *   This API is intended for API providers.
+   *
+   * @param request DescribeSignaturesByApiRequest
+   * @return DescribeSignaturesByApiResponse
    */
   async describeSignaturesByApi(request: DescribeSignaturesByApiRequest): Promise<DescribeSignaturesByApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSignaturesByApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of API Gateway resources in a region.
+   *
+   * @param request DescribeSummaryDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSummaryDataResponse
+   */
   async describeSummaryDataWithOptions(request: DescribeSummaryDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSummaryDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32035,18 +33131,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSummaryDataResponse>(await this.callApi(params, req, runtime), new DescribeSummaryDataResponse({}));
   }
 
+  /**
+   * @summary Queries the number of API Gateway resources in a region.
+   *
+   * @param request DescribeSummaryDataRequest
+   * @return DescribeSummaryDataResponse
+   */
   async describeSummaryData(request: DescribeSummaryDataRequest): Promise<DescribeSummaryDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSummaryDataWithOptions(request, runtime);
   }
 
   /**
-    * *   This API is intended for API callers.
-    * *   The response of this API contains the system parameters that are optional in API definitions.
-    *
-    * @param request DescribeSystemParametersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSystemParametersResponse
+   * @summary Queries the common parameters supported by the system.
+   *
+   * @description *   This API is intended for API callers.
+   * *   The response of this API contains the system parameters that are optional in API definitions.
+   *
+   * @param request DescribeSystemParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSystemParametersResponse
    */
   async describeSystemParametersWithOptions(request: DescribeSystemParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSystemParametersResponse> {
     Util.validateModel(request);
@@ -32073,11 +33177,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API callers.
-    * *   The response of this API contains the system parameters that are optional in API definitions.
-    *
-    * @param request DescribeSystemParametersRequest
-    * @return DescribeSystemParametersResponse
+   * @summary Queries the common parameters supported by the system.
+   *
+   * @description *   This API is intended for API callers.
+   * *   The response of this API contains the system parameters that are optional in API definitions.
+   *
+   * @param request DescribeSystemParametersRequest
+   * @return DescribeSystemParametersResponse
    */
   async describeSystemParameters(request: DescribeSystemParametersRequest): Promise<DescribeSystemParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32085,13 +33191,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
-    * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
-    *
-    * @param request DescribeTrafficControlsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTrafficControlsResponse
+   * @summary Queries custom throttling policies and their details. Conditional queries are supported.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
+   * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
+   *
+   * @param request DescribeTrafficControlsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTrafficControlsResponse
    */
   async describeTrafficControlsWithOptions(request: DescribeTrafficControlsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficControlsResponse> {
     Util.validateModel(request);
@@ -32146,12 +33254,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
-    * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
-    *
-    * @param request DescribeTrafficControlsRequest
-    * @return DescribeTrafficControlsResponse
+   * @summary Queries custom throttling policies and their details. Conditional queries are supported.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
+   * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
+   *
+   * @param request DescribeTrafficControlsRequest
+   * @return DescribeTrafficControlsResponse
    */
   async describeTrafficControls(request: DescribeTrafficControlsRequest): Promise<DescribeTrafficControlsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32159,11 +33269,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    *
-    * @param request DescribeTrafficControlsByApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTrafficControlsByApiResponse
+   * @summary Queries the throttling policy that is bound to a specific API.
+   *
+   * @description *   This API is intended for API providers.
+   *
+   * @param request DescribeTrafficControlsByApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTrafficControlsByApiResponse
    */
   async describeTrafficControlsByApiWithOptions(request: DescribeTrafficControlsByApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficControlsByApiResponse> {
     Util.validateModel(request);
@@ -32202,16 +33314,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    *
-    * @param request DescribeTrafficControlsByApiRequest
-    * @return DescribeTrafficControlsByApiResponse
+   * @summary Queries the throttling policy that is bound to a specific API.
+   *
+   * @description *   This API is intended for API providers.
+   *
+   * @param request DescribeTrafficControlsByApiRequest
+   * @return DescribeTrafficControlsByApiResponse
    */
   async describeTrafficControlsByApi(request: DescribeTrafficControlsByApiRequest): Promise<DescribeTrafficControlsByApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTrafficControlsByApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询批量更新API后端元定结果
+   *
+   * @param request DescribeUpdateBackendTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUpdateBackendTaskResponse
+   */
   async describeUpdateBackendTaskWithOptions(request: DescribeUpdateBackendTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpdateBackendTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32240,11 +33361,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUpdateBackendTaskResponse>(await this.callApi(params, req, runtime), new DescribeUpdateBackendTaskResponse({}));
   }
 
+  /**
+   * @summary 查询批量更新API后端元定结果
+   *
+   * @param request DescribeUpdateBackendTaskRequest
+   * @return DescribeUpdateBackendTaskResponse
+   */
   async describeUpdateBackendTask(request: DescribeUpdateBackendTaskRequest): Promise<DescribeUpdateBackendTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUpdateBackendTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeUpdateVpcInfoTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUpdateVpcInfoTaskResponse
+   */
   async describeUpdateVpcInfoTaskWithOptions(request: DescribeUpdateVpcInfoTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpdateVpcInfoTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32273,14 +33405,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUpdateVpcInfoTaskResponse>(await this.callApi(params, req, runtime), new DescribeUpdateVpcInfoTaskResponse({}));
   }
 
+  /**
+   * @param request DescribeUpdateVpcInfoTaskRequest
+   * @return DescribeUpdateVpcInfoTaskResponse
+   */
   async describeUpdateVpcInfoTask(request: DescribeUpdateVpcInfoTaskRequest): Promise<DescribeUpdateVpcInfoTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUpdateVpcInfoTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries VPC access authorizations.
+   *
+   * @param request DescribeVpcAccessesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVpcAccessesResponse
+   */
   async describeVpcAccessesWithOptions(request: DescribeVpcAccessesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcAccessesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accurateQuery)) {
+      query["AccurateQuery"] = request.accurateQuery;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -32334,11 +33481,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVpcAccessesResponse>(await this.callApi(params, req, runtime), new DescribeVpcAccessesResponse({}));
   }
 
+  /**
+   * @summary Queries VPC access authorizations.
+   *
+   * @param request DescribeVpcAccessesRequest
+   * @return DescribeVpcAccessesResponse
+   */
   async describeVpcAccesses(request: DescribeVpcAccessesRequest): Promise<DescribeVpcAccessesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVpcAccessesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries zones in a region.
+   *
+   * @param request DescribeZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeZonesResponse
+   */
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32367,11 +33527,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
+  /**
+   * @summary Queries zones in a region.
+   *
+   * @param request DescribeZonesRequest
+   * @return DescribeZonesResponse
+   */
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Detaches APIs from an API product.
+   *
+   * @param request DetachApiProductRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachApiProductResponse
+   */
   async detachApiProductWithOptions(request: DetachApiProductRequest, runtime: $Util.RuntimeOptions): Promise<DetachApiProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32404,11 +33577,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachApiProductResponse>(await this.callApi(params, req, runtime), new DetachApiProductResponse({}));
   }
 
+  /**
+   * @summary Detaches APIs from an API product.
+   *
+   * @param request DetachApiProductRequest
+   * @return DetachApiProductResponse
+   */
   async detachApiProduct(request: DetachApiProductRequest): Promise<DetachApiProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachApiProductWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 解绑插件
+   *
+   * @param request DetachPluginRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachPluginResponse
+   */
   async detachPluginWithOptions(request: DetachPluginRequest, runtime: $Util.RuntimeOptions): Promise<DetachPluginResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32449,11 +33635,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachPluginResponse>(await this.callApi(params, req, runtime), new DetachPluginResponse({}));
   }
 
+  /**
+   * @summary 解绑插件
+   *
+   * @param request DetachPluginRequest
+   * @return DetachPluginResponse
+   */
   async detachPlugin(request: DetachPluginRequest): Promise<DetachPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachPluginWithOptions(request, runtime);
   }
 
+  /**
+   * @summary This feature provides instance-level access control capabilities for dedicated API Gateway instances. Disables access control on an instance.
+   *
+   * @param request DisableInstanceAccessControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableInstanceAccessControlResponse
+   */
   async disableInstanceAccessControlWithOptions(request: DisableInstanceAccessControlRequest, runtime: $Util.RuntimeOptions): Promise<DisableInstanceAccessControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32490,11 +33689,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableInstanceAccessControlResponse>(await this.callApi(params, req, runtime), new DisableInstanceAccessControlResponse({}));
   }
 
+  /**
+   * @summary This feature provides instance-level access control capabilities for dedicated API Gateway instances. Disables access control on an instance.
+   *
+   * @param request DisableInstanceAccessControlRequest
+   * @return DisableInstanceAccessControlResponse
+   */
   async disableInstanceAccessControl(request: DisableInstanceAccessControlRequest): Promise<DisableInstanceAccessControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableInstanceAccessControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks the syntax before Swagger-compliant data is imported.
+   *
+   * @param tmpReq DryRunSwaggerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DryRunSwaggerResponse
+   */
   async dryRunSwaggerWithOptions(tmpReq: DryRunSwaggerRequest, runtime: $Util.RuntimeOptions): Promise<DryRunSwaggerResponse> {
     Util.validateModel(tmpReq);
     let request = new DryRunSwaggerShrinkRequest({ });
@@ -32547,11 +33759,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DryRunSwaggerResponse>(await this.callApi(params, req, runtime), new DryRunSwaggerResponse({}));
   }
 
+  /**
+   * @summary Checks the syntax before Swagger-compliant data is imported.
+   *
+   * @param request DryRunSwaggerRequest
+   * @return DryRunSwaggerResponse
+   */
   async dryRunSwagger(request: DryRunSwaggerRequest): Promise<DryRunSwaggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dryRunSwaggerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开启实例的访问控制
+   *
+   * @param request EnableInstanceAccessControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableInstanceAccessControlResponse
+   */
   async enableInstanceAccessControlWithOptions(request: EnableInstanceAccessControlRequest, runtime: $Util.RuntimeOptions): Promise<EnableInstanceAccessControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32592,11 +33817,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableInstanceAccessControlResponse>(await this.callApi(params, req, runtime), new EnableInstanceAccessControlResponse({}));
   }
 
+  /**
+   * @summary 开启实例的访问控制
+   *
+   * @param request EnableInstanceAccessControlRequest
+   * @return EnableInstanceAccessControlResponse
+   */
   async enableInstanceAccessControl(request: EnableInstanceAccessControlRequest): Promise<EnableInstanceAccessControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableInstanceAccessControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Imports APIs based on the OAS standard.
+   *
+   * @param request ImportOASRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportOASResponse
+   */
   async importOASWithOptions(request: ImportOASRequest, runtime: $Util.RuntimeOptions): Promise<ImportOASResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32659,18 +33897,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportOASResponse>(await this.callApi(params, req, runtime), new ImportOASResponse({}));
   }
 
+  /**
+   * @summary Imports APIs based on the OAS standard.
+   *
+   * @param request ImportOASRequest
+   * @return ImportOASResponse
+   */
   async importOAS(request: ImportOASRequest): Promise<ImportOASResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importOASWithOptions(request, runtime);
   }
 
   /**
-    * *   Alibaba Cloud supports extensions based on Swagger 2.0.
-    * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
-    *
-    * @param tmpReq ImportSwaggerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportSwaggerResponse
+   * @summary Creates an API by importing Swagger-compliant data.
+   *
+   * @description *   Alibaba Cloud supports extensions based on Swagger 2.0.
+   * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
+   *
+   * @param tmpReq ImportSwaggerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportSwaggerResponse
    */
   async importSwaggerWithOptions(tmpReq: ImportSwaggerRequest, runtime: $Util.RuntimeOptions): Promise<ImportSwaggerResponse> {
     Util.validateModel(tmpReq);
@@ -32729,11 +33975,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Alibaba Cloud supports extensions based on Swagger 2.0.
-    * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
-    *
-    * @param request ImportSwaggerRequest
-    * @return ImportSwaggerResponse
+   * @summary Creates an API by importing Swagger-compliant data.
+   *
+   * @description *   Alibaba Cloud supports extensions based on Swagger 2.0.
+   * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
+   *
+   * @param request ImportSwaggerRequest
+   * @return ImportSwaggerResponse
    */
   async importSwagger(request: ImportSwaggerRequest): Promise<ImportSwaggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32741,19 +33989,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
-    * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
-    * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
-    * *   You can query both user tags and visible system tags.
-    * *   In addition to the required parameters, you can also specify ResourceId.N to query the visible resource tags of a specified resource in a region.
-    * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
-    * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
-    * *   You can query tags of the same type or different types in a single operation.
-    * *   You can query all your user types and visible system tags.
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @summary Queries the visible resource tags.
+   *
+   * @description *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
+   * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
+   * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
+   * *   You can query both user tags and visible system tags.
+   * *   In addition to the required parameters, you can also specify ResourceId.N to query the visible resource tags of a specified resource in a region.
+   * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
+   * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
+   * *   You can query tags of the same type or different types in a single operation.
+   * *   You can query all your user types and visible system tags.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -32792,18 +34042,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
-    * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
-    * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
-    * *   You can query both user tags and visible system tags.
-    * *   In addition to the required parameters, you can also specify ResourceId.N to query the visible resource tags of a specified resource in a region.
-    * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
-    * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
-    * *   You can query tags of the same type or different types in a single operation.
-    * *   You can query all your user types and visible system tags.
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @summary Queries the visible resource tags.
+   *
+   * @description *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
+   * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
+   * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
+   * *   You can query both user tags and visible system tags.
+   * *   In addition to the required parameters, you can also specify ResourceId.N to query the visible resource tags of a specified resource in a region.
+   * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
+   * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
+   * *   You can query tags of the same type or different types in a single operation.
+   * *   You can query all your user types and visible system tags.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32811,15 +34063,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **This operation is intended for API providers.**
-    * *   This API operation requires a full update. Updates of partial parameters are not supported.
-    * *   When you modify an API name, make sure that the name of each API within the same group is unique.
-    * *   When you modify the request path, make sure that each request path within the same group is unique.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request ModifyApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyApiResponse
+   * @summary Modifies the definition of an API.
+   *
+   * @description **This operation is intended for API providers.**
+   * *   This API operation requires a full update. Updates of partial parameters are not supported.
+   * *   When you modify an API name, make sure that the name of each API within the same group is unique.
+   * *   When you modify the request path, make sure that each request path within the same group is unique.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request ModifyApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApiResponse
    */
   async modifyApiWithOptions(request: ModifyApiRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiResponse> {
     Util.validateModel(request);
@@ -32956,20 +34210,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **This operation is intended for API providers.**
-    * *   This API operation requires a full update. Updates of partial parameters are not supported.
-    * *   When you modify an API name, make sure that the name of each API within the same group is unique.
-    * *   When you modify the request path, make sure that each request path within the same group is unique.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request ModifyApiRequest
-    * @return ModifyApiResponse
+   * @summary Modifies the definition of an API.
+   *
+   * @description **This operation is intended for API providers.**
+   * *   This API operation requires a full update. Updates of partial parameters are not supported.
+   * *   When you modify an API name, make sure that the name of each API within the same group is unique.
+   * *   When you modify the request path, make sure that each request path within the same group is unique.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request ModifyApiRequest
+   * @return ModifyApiResponse
    */
   async modifyApi(request: ModifyApiRequest): Promise<ModifyApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+   *
+   * @param request ModifyApiConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApiConfigurationResponse
+   */
   async modifyApiConfigurationWithOptions(request: ModifyApiConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33134,18 +34397,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyApiConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyApiConfigurationResponse({}));
   }
 
+  /**
+   * @summary Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+   *
+   * @param request ModifyApiConfigurationRequest
+   * @return ModifyApiConfigurationResponse
+   */
   async modifyApiConfiguration(request: ModifyApiConfigurationRequest): Promise<ModifyApiConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiConfigurationWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request ModifyApiGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyApiGroupResponse
+   * @summary Modifies the name, description, or basepath of an existing API group.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request ModifyApiGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApiGroupResponse
    */
   async modifyApiGroupWithOptions(request: ModifyApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupResponse> {
     Util.validateModel(request);
@@ -33224,17 +34495,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request ModifyApiGroupRequest
-    * @return ModifyApiGroupResponse
+   * @summary Modifies the name, description, or basepath of an existing API group.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request ModifyApiGroupRequest
+   * @return ModifyApiGroupResponse
    */
   async modifyApiGroup(request: ModifyApiGroupRequest): Promise<ModifyApiGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyApiGroupInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApiGroupInstanceResponse
+   */
   async modifyApiGroupInstanceWithOptions(request: ModifyApiGroupInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33275,11 +34553,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyApiGroupInstanceResponse>(await this.callApi(params, req, runtime), new ModifyApiGroupInstanceResponse({}));
   }
 
+  /**
+   * @param request ModifyApiGroupInstanceRequest
+   * @return ModifyApiGroupInstanceResponse
+   */
   async modifyApiGroupInstance(request: ModifyApiGroupInstanceRequest): Promise<ModifyApiGroupInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiGroupInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the network policy of an API group.
+   *
+   * @param request ModifyApiGroupNetworkPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApiGroupNetworkPolicyResponse
+   */
   async modifyApiGroupNetworkPolicyWithOptions(request: ModifyApiGroupNetworkPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupNetworkPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33332,11 +34621,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyApiGroupNetworkPolicyResponse>(await this.callApi(params, req, runtime), new ModifyApiGroupNetworkPolicyResponse({}));
   }
 
+  /**
+   * @summary Modifies the network policy of an API group.
+   *
+   * @param request ModifyApiGroupNetworkPolicyRequest
+   * @return ModifyApiGroupNetworkPolicyResponse
+   */
   async modifyApiGroupNetworkPolicy(request: ModifyApiGroupNetworkPolicyRequest): Promise<ModifyApiGroupNetworkPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiGroupNetworkPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the VPC whitelist of an API group.
+   *
+   * @param request ModifyApiGroupVpcWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApiGroupVpcWhitelistResponse
+   */
   async modifyApiGroupVpcWhitelistWithOptions(request: ModifyApiGroupVpcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupVpcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33369,19 +34671,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyApiGroupVpcWhitelistResponse>(await this.callApi(params, req, runtime), new ModifyApiGroupVpcWhitelistResponse({}));
   }
 
+  /**
+   * @summary Modifies the VPC whitelist of an API group.
+   *
+   * @param request ModifyApiGroupVpcWhitelistRequest
+   * @return ModifyApiGroupVpcWhitelistResponse
+   */
   async modifyApiGroupVpcWhitelist(request: ModifyApiGroupVpcWhitelistRequest): Promise<ModifyApiGroupVpcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiGroupVpcWhitelistWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   **AppName** or **Description** can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a success response.
-    * *   You can call this operation up to 50 times per second per account.
-    *
-    * @param request ModifyAppRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyAppResponse
+   * @summary Modifies a specified application.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   **AppName** or **Description** can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a success response.
+   * *   You can call this operation up to 50 times per second per account.
+   *
+   * @param request ModifyAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAppResponse
    */
   async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
     Util.validateModel(request);
@@ -33428,18 +34738,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   **AppName** or **Description** can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a success response.
-    * *   You can call this operation up to 50 times per second per account.
-    *
-    * @param request ModifyAppRequest
-    * @return ModifyAppResponse
+   * @summary Modifies a specified application.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   **AppName** or **Description** can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a success response.
+   * *   You can call this operation up to 50 times per second per account.
+   *
+   * @param request ModifyAppRequest
+   * @return ModifyAppResponse
    */
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改后端服务
+   *
+   * @param request ModifyBackendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackendResponse
+   */
   async modifyBackendWithOptions(request: ModifyBackendRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackendResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33480,11 +34799,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackendResponse>(await this.callApi(params, req, runtime), new ModifyBackendResponse({}));
   }
 
+  /**
+   * @summary 修改后端服务
+   *
+   * @param request ModifyBackendRequest
+   * @return ModifyBackendResponse
+   */
   async modifyBackend(request: ModifyBackendRequest): Promise<ModifyBackendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackendWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改后端服务在环境上的定义
+   *
+   * @param request ModifyBackendModelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackendModelResponse
+   */
   async modifyBackendModelWithOptions(request: ModifyBackendModelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackendModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33533,11 +34865,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackendModelResponse>(await this.callApi(params, req, runtime), new ModifyBackendModelResponse({}));
   }
 
+  /**
+   * @summary 修改后端服务在环境上的定义
+   *
+   * @param request ModifyBackendModelRequest
+   * @return ModifyBackendModelResponse
+   */
   async modifyBackendModel(request: ModifyBackendModelRequest): Promise<ModifyBackendModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackendModelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of a custom dataset.
+   *
+   * @param request ModifyDatasetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDatasetResponse
+   */
   async modifyDatasetWithOptions(request: ModifyDatasetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatasetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33570,11 +34915,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDatasetResponse>(await this.callApi(params, req, runtime), new ModifyDatasetResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of a custom dataset.
+   *
+   * @param request ModifyDatasetRequest
+   * @return ModifyDatasetResponse
+   */
   async modifyDataset(request: ModifyDatasetRequest): Promise<ModifyDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDatasetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the expiration time and description of a data entry in a custom dataset.
+   *
+   * @param request ModifyDatasetItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDatasetItemResponse
+   */
   async modifyDatasetItemWithOptions(request: ModifyDatasetItemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatasetItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33615,11 +34973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDatasetItemResponse>(await this.callApi(params, req, runtime), new ModifyDatasetItemResponse({}));
   }
 
+  /**
+   * @summary Modifies the expiration time and description of a data entry in a custom dataset.
+   *
+   * @param request ModifyDatasetItemRequest
+   * @return ModifyDatasetItemResponse
+   */
   async modifyDatasetItem(request: ModifyDatasetItemRequest): Promise<ModifyDatasetItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDatasetItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改API网关实例属性
+   *
+   * @param tmpReq ModifyInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceAttributeResponse
+   */
   async modifyInstanceAttributeWithOptions(tmpReq: ModifyInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAttributeResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyInstanceAttributeShrinkRequest({ });
@@ -33694,11 +35065,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAttributeResponse({}));
   }
 
+  /**
+   * @summary 修改API网关实例属性
+   *
+   * @param request ModifyInstanceAttributeRequest
+   * @return ModifyInstanceAttributeResponse
+   */
   async modifyInstanceAttribute(request: ModifyInstanceAttributeRequest): Promise<ModifyInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Upgrades or downgrades the configurations of an API Gateway instance.
+   *
+   * @param request ModifyInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceSpecResponse
+   */
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33743,11 +35127,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyInstanceSpecResponse({}));
   }
 
+  /**
+   * @summary Upgrades or downgrades the configurations of an API Gateway instance.
+   *
+   * @param request ModifyInstanceSpecRequest
+   * @return ModifyInstanceSpecResponse
+   */
   async modifyInstanceSpec(request: ModifyInstanceSpecRequest): Promise<ModifyInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceSpecWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the VPC domain name policy of an API group.
+   *
+   * @param request ModifyIntranetDomainPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIntranetDomainPolicyResponse
+   */
   async modifyIntranetDomainPolicyWithOptions(request: ModifyIntranetDomainPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIntranetDomainPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33780,18 +35177,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyIntranetDomainPolicyResponse>(await this.callApi(params, req, runtime), new ModifyIntranetDomainPolicyResponse({}));
   }
 
+  /**
+   * @summary Modifies the VPC domain name policy of an API group.
+   *
+   * @param request ModifyIntranetDomainPolicyRequest
+   * @return ModifyIntranetDomainPolicyResponse
+   */
   async modifyIntranetDomainPolicy(request: ModifyIntranetDomainPolicyRequest): Promise<ModifyIntranetDomainPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIntranetDomainPolicyWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
-    *
-    * @param request ModifyIpControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyIpControlResponse
+   * @summary Modifies an access control list (ACL).
+   *
+   * @description *   This operation is intended for API providers.
+   * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
+   *
+   * @param request ModifyIpControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIpControlResponse
    */
   async modifyIpControlWithOptions(request: ModifyIpControlRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpControlResponse> {
     Util.validateModel(request);
@@ -33830,11 +35235,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
-    *
-    * @param request ModifyIpControlRequest
-    * @return ModifyIpControlResponse
+   * @summary Modifies an access control list (ACL).
+   *
+   * @description *   This operation is intended for API providers.
+   * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
+   *
+   * @param request ModifyIpControlRequest
+   * @return ModifyIpControlResponse
    */
   async modifyIpControl(request: ModifyIpControlRequest): Promise<ModifyIpControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33842,13 +35249,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The modification immediately takes effect on all the APIs that are bound to the policy.
-    * *   This operation causes a full modification of the content of a policy.
-    *
-    * @param request ModifyIpControlPolicyItemRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyIpControlPolicyItemResponse
+   * @summary Modifies a policy in an access control list (ACL).
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The modification immediately takes effect on all the APIs that are bound to the policy.
+   * *   This operation causes a full modification of the content of a policy.
+   *
+   * @param request ModifyIpControlPolicyItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyIpControlPolicyItemResponse
    */
   async modifyIpControlPolicyItemWithOptions(request: ModifyIpControlPolicyItemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpControlPolicyItemResponse> {
     Util.validateModel(request);
@@ -33891,18 +35300,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The modification immediately takes effect on all the APIs that are bound to the policy.
-    * *   This operation causes a full modification of the content of a policy.
-    *
-    * @param request ModifyIpControlPolicyItemRequest
-    * @return ModifyIpControlPolicyItemResponse
+   * @summary Modifies a policy in an access control list (ACL).
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The modification immediately takes effect on all the APIs that are bound to the policy.
+   * *   This operation causes a full modification of the content of a policy.
+   *
+   * @param request ModifyIpControlPolicyItemRequest
+   * @return ModifyIpControlPolicyItemResponse
    */
   async modifyIpControlPolicyItem(request: ModifyIpControlPolicyItemRequest): Promise<ModifyIpControlPolicyItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyIpControlPolicyItemWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyLogConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLogConfigResponse
+   */
   async modifyLogConfigWithOptions(request: ModifyLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33939,11 +35355,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyLogConfigResponse({}));
   }
 
+  /**
+   * @param request ModifyLogConfigRequest
+   * @return ModifyLogConfigResponse
+   */
   async modifyLogConfig(request: ModifyLogConfigRequest): Promise<ModifyLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLogConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the model of an API group.
+   *
+   * @param request ModifyModelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyModelResponse
+   */
   async modifyModelWithOptions(request: ModifyModelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33984,18 +35411,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyModelResponse>(await this.callApi(params, req, runtime), new ModifyModelResponse({}));
   }
 
+  /**
+   * @summary Updates the model of an API group.
+   *
+   * @param request ModifyModelRequest
+   * @return ModifyModelResponse
+   */
   async modifyModel(request: ModifyModelRequest): Promise<ModifyModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyModelWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The name of the plug-in must be unique.
-    *
-    * @param request ModifyPluginRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyPluginResponse
+   * @summary Modifies the information of a plug-in.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The name of the plug-in must be unique.
+   *
+   * @param request ModifyPluginRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPluginResponse
    */
   async modifyPluginWithOptions(request: ModifyPluginRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPluginResponse> {
     Util.validateModel(request);
@@ -34042,11 +35477,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The name of the plug-in must be unique.
-    *
-    * @param request ModifyPluginRequest
-    * @return ModifyPluginResponse
+   * @summary Modifies the information of a plug-in.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The name of the plug-in must be unique.
+   *
+   * @param request ModifyPluginRequest
+   * @return ModifyPluginResponse
    */
   async modifyPlugin(request: ModifyPluginRequest): Promise<ModifyPluginResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34054,14 +35491,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
-    * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request ModifySignatureRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySignatureResponse
+   * @summary Modifies a backend signature key.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
+   * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request ModifySignatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySignatureResponse
    */
   async modifySignatureWithOptions(request: ModifySignatureRequest, runtime: $Util.RuntimeOptions): Promise<ModifySignatureResponse> {
     Util.validateModel(request);
@@ -34104,13 +35543,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
-    * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request ModifySignatureRequest
-    * @return ModifySignatureResponse
+   * @summary Modifies a backend signature key.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
+   * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request ModifySignatureRequest
+   * @return ModifySignatureResponse
    */
   async modifySignature(request: ModifySignatureRequest): Promise<ModifySignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34118,13 +35559,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The modifications take effect on the bound APIs instantly.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request ModifyTrafficControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyTrafficControlResponse
+   * @summary Modifies the settings of a custom throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The modifications take effect on the bound APIs instantly.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request ModifyTrafficControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTrafficControlResponse
    */
   async modifyTrafficControlWithOptions(request: ModifyTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTrafficControlResponse> {
     Util.validateModel(request);
@@ -34179,18 +35622,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The modifications take effect on the bound APIs instantly.
-    * *   The QPS limit on this operation is 50 per user.
-    *
-    * @param request ModifyTrafficControlRequest
-    * @return ModifyTrafficControlResponse
+   * @summary Modifies the settings of a custom throttling policy.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The modifications take effect on the bound APIs instantly.
+   * *   The QPS limit on this operation is 50 per user.
+   *
+   * @param request ModifyTrafficControlRequest
+   * @return ModifyTrafficControlResponse
    */
   async modifyTrafficControl(request: ModifyTrafficControlRequest): Promise<ModifyTrafficControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTrafficControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+   *
+   * @param request ModifyVpcAccessAndUpdateApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVpcAccessAndUpdateApisResponse
+   */
   async modifyVpcAccessAndUpdateApisWithOptions(request: ModifyVpcAccessAndUpdateApisRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcAccessAndUpdateApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34247,11 +35699,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVpcAccessAndUpdateApisResponse>(await this.callApi(params, req, runtime), new ModifyVpcAccessAndUpdateApisResponse({}));
   }
 
+  /**
+   * @summary Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+   *
+   * @param request ModifyVpcAccessAndUpdateApisRequest
+   * @return ModifyVpcAccessAndUpdateApisResponse
+   */
   async modifyVpcAccessAndUpdateApis(request: ModifyVpcAccessAndUpdateApisRequest): Promise<ModifyVpcAccessAndUpdateApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVpcAccessAndUpdateApisWithOptions(request, runtime);
   }
 
+  /**
+   * @param request OpenApiGatewayServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiGatewayServiceResponse
+   */
   async openApiGatewayServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenApiGatewayServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -34268,11 +35731,21 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiGatewayServiceResponse>(await this.callApi(params, req, runtime), new OpenApiGatewayServiceResponse({}));
   }
 
+  /**
+   * @return OpenApiGatewayServiceResponse
+   */
   async openApiGatewayService(): Promise<OpenApiGatewayServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiGatewayServiceWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the request logs of a user.
+   *
+   * @param request QueryRequestLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryRequestLogsResponse
+   */
   async queryRequestLogsWithOptions(request: QueryRequestLogsRequest, runtime: $Util.RuntimeOptions): Promise<QueryRequestLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34301,20 +35774,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRequestLogsResponse>(await this.callApi(params, req, runtime), new QueryRequestLogsResponse({}));
   }
 
+  /**
+   * @summary Queries the request logs of a user.
+   *
+   * @param request QueryRequestLogsRequest
+   * @return QueryRequestLogsResponse
+   */
   async queryRequestLogs(request: QueryRequestLogsRequest): Promise<QueryRequestLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRequestLogsWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
-    * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
-    * *   You can call this operation to reactivate the domain name to resume normal access.
-    *
-    * @param request ReactivateDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReactivateDomainResponse
+   * @summary Reactivates a custom domain name whose validity status is Abnormal.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
+   * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
+   * *   You can call this operation to reactivate the domain name to resume normal access.
+   *
+   * @param request ReactivateDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReactivateDomainResponse
    */
   async reactivateDomainWithOptions(request: ReactivateDomainRequest, runtime: $Util.RuntimeOptions): Promise<ReactivateDomainResponse> {
     Util.validateModel(request);
@@ -34349,19 +35830,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
-    * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
-    * *   You can call this operation to reactivate the domain name to resume normal access.
-    *
-    * @param request ReactivateDomainRequest
-    * @return ReactivateDomainResponse
+   * @summary Reactivates a custom domain name whose validity status is Abnormal.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
+   * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
+   * *   You can call this operation to reactivate the domain name to resume normal access.
+   *
+   * @param request ReactivateDomainRequest
+   * @return ReactivateDomainResponse
    */
   async reactivateDomain(request: ReactivateDomainRequest): Promise<ReactivateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reactivateDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除访问控制策略中IP条目
+   *
+   * @param request RemoveAccessControlListEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveAccessControlListEntryResponse
+   */
   async removeAccessControlListEntryWithOptions(request: RemoveAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAccessControlListEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34394,11 +35884,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveAccessControlListEntryResponse>(await this.callApi(params, req, runtime), new RemoveAccessControlListEntryResponse({}));
   }
 
+  /**
+   * @summary 删除访问控制策略中IP条目
+   *
+   * @param request RemoveAccessControlListEntryRequest
+   * @return RemoveAccessControlListEntryResponse
+   */
   async removeAccessControlListEntry(request: RemoveAccessControlListEntryRequest): Promise<RemoveAccessControlListEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeAccessControlListEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes permissions on API products from an application.
+   *
+   * @param tmpReq RemoveApiProductsAuthoritiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveApiProductsAuthoritiesResponse
+   */
   async removeApiProductsAuthoritiesWithOptions(tmpReq: RemoveApiProductsAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveApiProductsAuthoritiesResponse> {
     Util.validateModel(tmpReq);
     let request = new RemoveApiProductsAuthoritiesShrinkRequest({ });
@@ -34437,18 +35940,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveApiProductsAuthoritiesResponse>(await this.callApi(params, req, runtime), new RemoveApiProductsAuthoritiesResponse({}));
   }
 
+  /**
+   * @summary Revokes permissions on API products from an application.
+   *
+   * @param request RemoveApiProductsAuthoritiesRequest
+   * @return RemoveApiProductsAuthoritiesResponse
+   */
   async removeApiProductsAuthorities(request: RemoveApiProductsAuthoritiesRequest): Promise<RemoveApiProductsAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeApiProductsAuthoritiesWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers and callers.
-    * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
-    *
-    * @param request RemoveApisAuthoritiesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveApisAuthoritiesResponse
+   * @summary Revokes the access permissions on multiple APIs from a specified application.
+   *
+   * @description *   This operation is intended for API providers and callers.
+   * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+   *
+   * @param request RemoveApisAuthoritiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveApisAuthoritiesResponse
    */
   async removeApisAuthoritiesWithOptions(request: RemoveApisAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveApisAuthoritiesResponse> {
     Util.validateModel(request);
@@ -34495,11 +36006,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and callers.
-    * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
-    *
-    * @param request RemoveApisAuthoritiesRequest
-    * @return RemoveApisAuthoritiesResponse
+   * @summary Revokes the access permissions on multiple APIs from a specified application.
+   *
+   * @description *   This operation is intended for API providers and callers.
+   * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+   *
+   * @param request RemoveApisAuthoritiesRequest
+   * @return RemoveApisAuthoritiesResponse
    */
   async removeApisAuthorities(request: RemoveApisAuthoritiesRequest): Promise<RemoveApisAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34507,12 +36020,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and callers.
-    * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
-    *
-    * @param request RemoveAppsAuthoritiesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveAppsAuthoritiesResponse
+   * @summary Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+   *
+   * @description *   This operation is intended for API providers and callers.
+   * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+   *
+   * @param request RemoveAppsAuthoritiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveAppsAuthoritiesResponse
    */
   async removeAppsAuthoritiesWithOptions(request: RemoveAppsAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAppsAuthoritiesResponse> {
     Util.validateModel(request);
@@ -34555,11 +36070,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and callers.
-    * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
-    *
-    * @param request RemoveAppsAuthoritiesRequest
-    * @return RemoveAppsAuthoritiesResponse
+   * @summary Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+   *
+   * @description *   This operation is intended for API providers and callers.
+   * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+   *
+   * @param request RemoveAppsAuthoritiesRequest
+   * @return RemoveAppsAuthoritiesResponse
    */
   async removeAppsAuthorities(request: RemoveAppsAuthoritiesRequest): Promise<RemoveAppsAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34567,12 +36084,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
-    *
-    * @param request RemoveIpControlApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveIpControlApisResponse
+   * @summary Unbinds an API from an access control list (ACL).
+   *
+   * @description *   This operation is intended for API callers.
+   * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
+   *
+   * @param request RemoveIpControlApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveIpControlApisResponse
    */
   async removeIpControlApisWithOptions(request: RemoveIpControlApisRequest, runtime: $Util.RuntimeOptions): Promise<RemoveIpControlApisResponse> {
     Util.validateModel(request);
@@ -34615,11 +36134,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
-    *
-    * @param request RemoveIpControlApisRequest
-    * @return RemoveIpControlApisResponse
+   * @summary Unbinds an API from an access control list (ACL).
+   *
+   * @description *   This operation is intended for API callers.
+   * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
+   *
+   * @param request RemoveIpControlApisRequest
+   * @return RemoveIpControlApisResponse
    */
   async removeIpControlApis(request: RemoveIpControlApisRequest): Promise<RemoveIpControlApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34627,11 +36148,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request RemoveIpControlPolicyItemRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveIpControlPolicyItemResponse
+   * @summary Removes one or more policies from an access control list (ACL).
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request RemoveIpControlPolicyItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveIpControlPolicyItemResponse
    */
   async removeIpControlPolicyItemWithOptions(request: RemoveIpControlPolicyItemRequest, runtime: $Util.RuntimeOptions): Promise<RemoveIpControlPolicyItemResponse> {
     Util.validateModel(request);
@@ -34666,10 +36189,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    *
-    * @param request RemoveIpControlPolicyItemRequest
-    * @return RemoveIpControlPolicyItemResponse
+   * @summary Removes one or more policies from an access control list (ACL).
+   *
+   * @description *   This operation is intended for API providers.
+   *
+   * @param request RemoveIpControlPolicyItemRequest
+   * @return RemoveIpControlPolicyItemResponse
    */
   async removeIpControlPolicyItem(request: RemoveIpControlPolicyItemRequest): Promise<RemoveIpControlPolicyItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34677,12 +36202,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
-    *
-    * @param request RemoveSignatureApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveSignatureApisResponse
+   * @summary Unbinds a backend signature key from APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
+   *
+   * @param request RemoveSignatureApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveSignatureApisResponse
    */
   async removeSignatureApisWithOptions(request: RemoveSignatureApisRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSignatureApisResponse> {
     Util.validateModel(request);
@@ -34725,11 +36252,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
-    *
-    * @param request RemoveSignatureApisRequest
-    * @return RemoveSignatureApisResponse
+   * @summary Unbinds a backend signature key from APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
+   *
+   * @param request RemoveSignatureApisRequest
+   * @return RemoveSignatureApisResponse
    */
   async removeSignatureApis(request: RemoveSignatureApisRequest): Promise<RemoveSignatureApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34737,12 +36266,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
-    *
-    * @param request RemoveTrafficControlApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveTrafficControlApisResponse
+   * @summary Unbinds a specified throttling policy from APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
+   *
+   * @param request RemoveTrafficControlApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveTrafficControlApisResponse
    */
   async removeTrafficControlApisWithOptions(request: RemoveTrafficControlApisRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTrafficControlApisResponse> {
     Util.validateModel(request);
@@ -34785,11 +36316,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
-    *
-    * @param request RemoveTrafficControlApisRequest
-    * @return RemoveTrafficControlApisResponse
+   * @summary Unbinds a specified throttling policy from APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
+   *
+   * @param request RemoveTrafficControlApisRequest
+   * @return RemoveTrafficControlApisResponse
    */
   async removeTrafficControlApis(request: RemoveTrafficControlApisRequest): Promise<RemoveTrafficControlApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34797,13 +36330,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   Revokes the permissions of API Gateway to access your VPC instance.
-    * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
-    *
-    * @param request RemoveVpcAccessRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveVpcAccessResponse
+   * @summary Deletes a VPC authorization without unpublishing the associated APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   Revokes the permissions of API Gateway to access your VPC instance.
+   * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
+   *
+   * @param request RemoveVpcAccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveVpcAccessResponse
    */
   async removeVpcAccessWithOptions(request: RemoveVpcAccessRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVpcAccessResponse> {
     Util.validateModel(request);
@@ -34846,18 +36381,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   Revokes the permissions of API Gateway to access your VPC instance.
-    * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
-    *
-    * @param request RemoveVpcAccessRequest
-    * @return RemoveVpcAccessResponse
+   * @summary Deletes a VPC authorization without unpublishing the associated APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   Revokes the permissions of API Gateway to access your VPC instance.
+   * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
+   *
+   * @param request RemoveVpcAccessRequest
+   * @return RemoveVpcAccessResponse
    */
   async removeVpcAccess(request: RemoveVpcAccessRequest): Promise<RemoveVpcAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeVpcAccessWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RemoveVpcAccessAndAbolishApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveVpcAccessAndAbolishApisResponse
+   */
   async removeVpcAccessAndAbolishApisWithOptions(request: RemoveVpcAccessAndAbolishApisRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVpcAccessAndAbolishApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34898,11 +36440,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveVpcAccessAndAbolishApisResponse>(await this.callApi(params, req, runtime), new RemoveVpcAccessAndAbolishApisResponse({}));
   }
 
+  /**
+   * @param request RemoveVpcAccessAndAbolishApisRequest
+   * @return RemoveVpcAccessAndAbolishApisResponse
+   */
   async removeVpcAccessAndAbolishApis(request: RemoveVpcAccessAndAbolishApisRequest): Promise<RemoveVpcAccessAndAbolishApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeVpcAccessAndAbolishApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Resets the AppCode of an app.
+   *
+   * @param request ResetAppCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAppCodeResponse
+   */
   async resetAppCodeWithOptions(request: ResetAppCodeRequest, runtime: $Util.RuntimeOptions): Promise<ResetAppCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34935,19 +36488,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAppCodeResponse>(await this.callApi(params, req, runtime), new ResetAppCodeResponse({}));
   }
 
+  /**
+   * @summary Resets the AppCode of an app.
+   *
+   * @param request ResetAppCodeRequest
+   * @return ResetAppCodeResponse
+   */
   async resetAppCode(request: ResetAppCodeRequest): Promise<ResetAppCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAppCodeWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
-    * *   The results returned by this operation do not contain the application secret. You can obtain the secret by calling DescribeAppSecurity.
-    *
-    * @param request ResetAppSecretRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetAppSecretResponse
+   * @summary Resets the key of an application.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
+   * *   The results returned by this operation do not contain the application secret. You can obtain the secret by calling DescribeAppSecurity.
+   *
+   * @param request ResetAppSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAppSecretResponse
    */
   async resetAppSecretWithOptions(request: ResetAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<ResetAppSecretResponse> {
     Util.validateModel(request);
@@ -34986,18 +36547,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
-    * *   The results returned by this operation do not contain the application secret. You can obtain the secret by calling DescribeAppSecurity.
-    *
-    * @param request ResetAppSecretRequest
-    * @return ResetAppSecretResponse
+   * @summary Resets the key of an application.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
+   * *   The results returned by this operation do not contain the application secret. You can obtain the secret by calling DescribeAppSecurity.
+   *
+   * @param request ResetAppSecretRequest
+   * @return ResetAppSecretResponse
    */
   async resetAppSecret(request: ResetAppSecretRequest): Promise<ResetAppSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAppSecretWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SdkGenerateByAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SdkGenerateByAppResponse
+   */
   async sdkGenerateByAppWithOptions(request: SdkGenerateByAppRequest, runtime: $Util.RuntimeOptions): Promise<SdkGenerateByAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35030,11 +36598,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SdkGenerateByAppResponse>(await this.callApi(params, req, runtime), new SdkGenerateByAppResponse({}));
   }
 
+  /**
+   * @param request SdkGenerateByAppRequest
+   * @return SdkGenerateByAppResponse
+   */
   async sdkGenerateByApp(request: SdkGenerateByAppRequest): Promise<SdkGenerateByAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sdkGenerateByAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 生成与App关联的API的SDK
+   *
+   * @param request SdkGenerateByAppForRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SdkGenerateByAppForRegionResponse
+   */
   async sdkGenerateByAppForRegionWithOptions(request: SdkGenerateByAppForRegionRequest, runtime: $Util.RuntimeOptions): Promise<SdkGenerateByAppForRegionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35067,11 +36646,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SdkGenerateByAppForRegionResponse>(await this.callApi(params, req, runtime), new SdkGenerateByAppForRegionResponse({}));
   }
 
+  /**
+   * @summary 生成与App关联的API的SDK
+   *
+   * @param request SdkGenerateByAppForRegionRequest
+   * @return SdkGenerateByAppForRegionResponse
+   */
   async sdkGenerateByAppForRegion(request: SdkGenerateByAppForRegionRequest): Promise<SdkGenerateByAppForRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sdkGenerateByAppForRegionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SdkGenerateByGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SdkGenerateByGroupResponse
+   */
   async sdkGenerateByGroupWithOptions(request: SdkGenerateByGroupRequest, runtime: $Util.RuntimeOptions): Promise<SdkGenerateByGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35104,11 +36694,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SdkGenerateByGroupResponse>(await this.callApi(params, req, runtime), new SdkGenerateByGroupResponse({}));
   }
 
+  /**
+   * @param request SdkGenerateByGroupRequest
+   * @return SdkGenerateByGroupResponse
+   */
   async sdkGenerateByGroup(request: SdkGenerateByGroupRequest): Promise<SdkGenerateByGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sdkGenerateByGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改访问控制策略的名称
+   *
+   * @param request SetAccessControlListAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetAccessControlListAttributeResponse
+   */
   async setAccessControlListAttributeWithOptions(request: SetAccessControlListAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetAccessControlListAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35141,11 +36742,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetAccessControlListAttributeResponse>(await this.callApi(params, req, runtime), new SetAccessControlListAttributeResponse({}));
   }
 
+  /**
+   * @summary 修改访问控制策略的名称
+   *
+   * @param request SetAccessControlListAttributeRequest
+   * @return SetAccessControlListAttributeResponse
+   */
   async setAccessControlListAttribute(request: SetAccessControlListAttributeRequest): Promise<SetAccessControlListAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAccessControlListAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 给多个API产品添加APP授权
+   *
+   * @param tmpReq SetApiProductsAuthoritiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetApiProductsAuthoritiesResponse
+   */
   async setApiProductsAuthoritiesWithOptions(tmpReq: SetApiProductsAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<SetApiProductsAuthoritiesResponse> {
     Util.validateModel(tmpReq);
     let request = new SetApiProductsAuthoritiesShrinkRequest({ });
@@ -35192,19 +36806,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SetApiProductsAuthoritiesResponse>(await this.callApi(params, req, runtime), new SetApiProductsAuthoritiesResponse({}));
   }
 
+  /**
+   * @summary 给多个API产品添加APP授权
+   *
+   * @param request SetApiProductsAuthoritiesRequest
+   * @return SetApiProductsAuthoritiesResponse
+   */
   async setApiProductsAuthorities(request: SetApiProductsAuthoritiesRequest): Promise<SetApiProductsAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApiProductsAuthoritiesWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers and callers.
-    * *   API providers can authorize any apps to call their APIs.
-    * *   API callers can authorize their own apps to call the APIs that they have purchased.
-    *
-    * @param request SetApisAuthoritiesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetApisAuthoritiesResponse
+   * @summary Authorizes a specified application to call multiple APIs.
+   *
+   * @description *   This operation is intended for API providers and callers.
+   * *   API providers can authorize any apps to call their APIs.
+   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+   *
+   * @param request SetApisAuthoritiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetApisAuthoritiesResponse
    */
   async setApisAuthoritiesWithOptions(request: SetApisAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<SetApisAuthoritiesResponse> {
     Util.validateModel(request);
@@ -35255,18 +36877,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and callers.
-    * *   API providers can authorize any apps to call their APIs.
-    * *   API callers can authorize their own apps to call the APIs that they have purchased.
-    *
-    * @param request SetApisAuthoritiesRequest
-    * @return SetApisAuthoritiesResponse
+   * @summary Authorizes a specified application to call multiple APIs.
+   *
+   * @description *   This operation is intended for API providers and callers.
+   * *   API providers can authorize any apps to call their APIs.
+   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+   *
+   * @param request SetApisAuthoritiesRequest
+   * @return SetApisAuthoritiesResponse
    */
   async setApisAuthorities(request: SetApisAuthoritiesRequest): Promise<SetApisAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setApisAuthoritiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 将多个APP授权给API产品
+   *
+   * @param request SetAppsAuthToApiProductRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetAppsAuthToApiProductResponse
+   */
   async setAppsAuthToApiProductWithOptions(request: SetAppsAuthToApiProductRequest, runtime: $Util.RuntimeOptions): Promise<SetAppsAuthToApiProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35307,19 +36938,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SetAppsAuthToApiProductResponse>(await this.callApi(params, req, runtime), new SetAppsAuthToApiProductResponse({}));
   }
 
+  /**
+   * @summary 将多个APP授权给API产品
+   *
+   * @param request SetAppsAuthToApiProductRequest
+   * @return SetAppsAuthToApiProductResponse
+   */
   async setAppsAuthToApiProduct(request: SetAppsAuthToApiProductRequest): Promise<SetAppsAuthToApiProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAppsAuthToApiProductWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers and callers.
-    * *   API providers can authorize any apps to call their APIs.
-    * *   API callers can authorize their own apps to call the APIs that they have purchased.
-    *
-    * @param request SetAppsAuthoritiesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetAppsAuthoritiesResponse
+   * @summary Grants access permissions on a specified API to multiple applications.
+   *
+   * @description *   This operation is intended for API providers and callers.
+   * *   API providers can authorize any apps to call their APIs.
+   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+   *
+   * @param request SetAppsAuthoritiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetAppsAuthoritiesResponse
    */
   async setAppsAuthoritiesWithOptions(request: SetAppsAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<SetAppsAuthoritiesResponse> {
     Util.validateModel(request);
@@ -35370,18 +37009,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers and callers.
-    * *   API providers can authorize any apps to call their APIs.
-    * *   API callers can authorize their own apps to call the APIs that they have purchased.
-    *
-    * @param request SetAppsAuthoritiesRequest
-    * @return SetAppsAuthoritiesResponse
+   * @summary Grants access permissions on a specified API to multiple applications.
+   *
+   * @description *   This operation is intended for API providers and callers.
+   * *   API providers can authorize any apps to call their APIs.
+   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+   *
+   * @param request SetAppsAuthoritiesRequest
+   * @return SetAppsAuthoritiesResponse
    */
   async setAppsAuthorities(request: SetAppsAuthoritiesRequest): Promise<SetAppsAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAppsAuthoritiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Binds a custom domain name to a specified API group.
+   *
+   * @param request SetDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDomainResponse
+   */
   async setDomainWithOptions(request: SetDomainRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35426,19 +37074,27 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDomainResponse>(await this.callApi(params, req, runtime), new SetDomainResponse({}));
   }
 
+  /**
+   * @summary Binds a custom domain name to a specified API group.
+   *
+   * @param request SetDomainRequest
+   * @return SetDomainResponse
+   */
   async setDomain(request: SetDomainRequest): Promise<SetDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The SSL certificate must match the custom domain name.
-    * *   After the SSL certificate is bound, HTTPS-based API services become available.
-    *
-    * @param request SetDomainCertificateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDomainCertificateResponse
+   * @summary Uploads an SSL certificate for a custom domain name.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The SSL certificate must match the custom domain name.
+   * *   After the SSL certificate is bound, HTTPS-based API services become available.
+   *
+   * @param request SetDomainCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDomainCertificateResponse
    */
   async setDomainCertificateWithOptions(request: SetDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainCertificateResponse> {
     Util.validateModel(request);
@@ -35493,18 +37149,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API providers.
-    * *   The SSL certificate must match the custom domain name.
-    * *   After the SSL certificate is bound, HTTPS-based API services become available.
-    *
-    * @param request SetDomainCertificateRequest
-    * @return SetDomainCertificateResponse
+   * @summary Uploads an SSL certificate for a custom domain name.
+   *
+   * @description *   This operation is intended for API providers.
+   * *   The SSL certificate must match the custom domain name.
+   * *   After the SSL certificate is bound, HTTPS-based API services become available.
+   *
+   * @param request SetDomainCertificateRequest
+   * @return SetDomainCertificateResponse
    */
   async setDomainCertificate(request: SetDomainCertificateRequest): Promise<SetDomainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainCertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables WebSocket for a custom domain name.
+   *
+   * @param request SetDomainWebSocketStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDomainWebSocketStatusResponse
+   */
   async setDomainWebSocketStatusWithOptions(request: SetDomainWebSocketStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainWebSocketStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35545,11 +37210,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDomainWebSocketStatusResponse>(await this.callApi(params, req, runtime), new SetDomainWebSocketStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables WebSocket for a custom domain name.
+   *
+   * @param request SetDomainWebSocketStatusRequest
+   * @return SetDomainWebSocketStatusResponse
+   */
   async setDomainWebSocketStatus(request: SetDomainWebSocketStatusRequest): Promise<SetDomainWebSocketStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainWebSocketStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetGroupAuthAppCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetGroupAuthAppCodeResponse
+   */
   async setGroupAuthAppCodeWithOptions(request: SetGroupAuthAppCodeRequest, runtime: $Util.RuntimeOptions): Promise<SetGroupAuthAppCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35582,18 +37258,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetGroupAuthAppCodeResponse>(await this.callApi(params, req, runtime), new SetGroupAuthAppCodeResponse({}));
   }
 
+  /**
+   * @param request SetGroupAuthAppCodeRequest
+   * @return SetGroupAuthAppCodeResponse
+   */
   async setGroupAuthAppCode(request: SetGroupAuthAppCodeRequest): Promise<SetGroupAuthAppCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setGroupAuthAppCodeWithOptions(request, runtime);
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   A maximum of 100 APIs can be bound at a time.
-    *
-    * @param request SetIpControlApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetIpControlApisResponse
+   * @summary Creates a binding relationship between specified access control lists (ACLs) and APIs.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   A maximum of 100 APIs can be bound at a time.
+   *
+   * @param request SetIpControlApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetIpControlApisResponse
    */
   async setIpControlApisWithOptions(request: SetIpControlApisRequest, runtime: $Util.RuntimeOptions): Promise<SetIpControlApisResponse> {
     Util.validateModel(request);
@@ -35636,11 +37318,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is intended for API callers.
-    * *   A maximum of 100 APIs can be bound at a time.
-    *
-    * @param request SetIpControlApisRequest
-    * @return SetIpControlApisResponse
+   * @summary Creates a binding relationship between specified access control lists (ACLs) and APIs.
+   *
+   * @description *   This operation is intended for API callers.
+   * *   A maximum of 100 APIs can be bound at a time.
+   *
+   * @param request SetIpControlApisRequest
+   * @return SetIpControlApisResponse
    */
   async setIpControlApis(request: SetIpControlApisRequest): Promise<SetIpControlApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35648,12 +37332,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
-    *
-    * @param request SetSignatureApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetSignatureApisResponse
+   * @summary Binds a signature key to APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
+   *
+   * @param request SetSignatureApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetSignatureApisResponse
    */
   async setSignatureApisWithOptions(request: SetSignatureApisRequest, runtime: $Util.RuntimeOptions): Promise<SetSignatureApisResponse> {
     Util.validateModel(request);
@@ -35696,11 +37382,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
-    *
-    * @param request SetSignatureApisRequest
-    * @return SetSignatureApisResponse
+   * @summary Binds a signature key to APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
+   *
+   * @param request SetSignatureApisRequest
+   * @return SetSignatureApisResponse
    */
   async setSignatureApis(request: SetSignatureApisRequest): Promise<SetSignatureApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35708,12 +37396,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
-    *
-    * @param request SetTrafficControlApisRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetTrafficControlApisResponse
+   * @summary Binds a throttling policy to APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
+   *
+   * @param request SetTrafficControlApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetTrafficControlApisResponse
    */
   async setTrafficControlApisWithOptions(request: SetTrafficControlApisRequest, runtime: $Util.RuntimeOptions): Promise<SetTrafficControlApisResponse> {
     Util.validateModel(request);
@@ -35756,11 +37446,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
-    *
-    * @param request SetTrafficControlApisRequest
-    * @return SetTrafficControlApisResponse
+   * @summary Binds a throttling policy to APIs.
+   *
+   * @description *   This API is intended for API providers.
+   * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
+   *
+   * @param request SetTrafficControlApisRequest
+   * @return SetTrafficControlApisResponse
    */
   async setTrafficControlApis(request: SetTrafficControlApisRequest): Promise<SetTrafficControlApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35768,12 +37460,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * This operation is intended for API providers.
-    * * This operation is used to authorize API Gateway to access your VPC instance.
-    *
-    * @param request SetVpcAccessRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetVpcAccessResponse
+   * @summary Creates a virtual private cloud (VPC) access authorization and enables reverse access.
+   *
+   * @description * This operation is intended for API providers.
+   * * This operation is used to authorize API Gateway to access your VPC instance.
+   *
+   * @param request SetVpcAccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetVpcAccessResponse
    */
   async setVpcAccessWithOptions(request: SetVpcAccessRequest, runtime: $Util.RuntimeOptions): Promise<SetVpcAccessResponse> {
     Util.validateModel(request);
@@ -35828,17 +37522,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * * This operation is intended for API providers.
-    * * This operation is used to authorize API Gateway to access your VPC instance.
-    *
-    * @param request SetVpcAccessRequest
-    * @return SetVpcAccessResponse
+   * @summary Creates a virtual private cloud (VPC) access authorization and enables reverse access.
+   *
+   * @description * This operation is intended for API providers.
+   * * This operation is used to authorize API Gateway to access your VPC instance.
+   *
+   * @param request SetVpcAccessRequest
+   * @return SetVpcAccessResponse
    */
   async setVpcAccess(request: SetVpcAccessRequest): Promise<SetVpcAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setVpcAccessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Specifies a wildcard domain name template for a bound custom domain name.
+   *
+   * @param request SetWildcardDomainPatternsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetWildcardDomainPatternsResponse
+   */
   async setWildcardDomainPatternsWithOptions(request: SetWildcardDomainPatternsRequest, runtime: $Util.RuntimeOptions): Promise<SetWildcardDomainPatternsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35875,21 +37578,29 @@ export default class Client extends OpenApi {
     return $tea.cast<SetWildcardDomainPatternsResponse>(await this.callApi(params, req, runtime), new SetWildcardDomainPatternsResponse({}));
   }
 
+  /**
+   * @summary Specifies a wildcard domain name template for a bound custom domain name.
+   *
+   * @param request SetWildcardDomainPatternsRequest
+   * @return SetWildcardDomainPatternsResponse
+   */
   async setWildcardDomainPatterns(request: SetWildcardDomainPatternsRequest): Promise<SetWildcardDomainPatternsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setWildcardDomainPatternsWithOptions(request, runtime);
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
-    * *   Only APIs that have been published more than once have historical versions.
-    * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
-    * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
-    *
-    * @param request SwitchApiRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchApiResponse
+   * @summary Switches the definition of an API in a specified runtime environment to a historical version.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
+   * *   Only APIs that have been published more than once have historical versions.
+   * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
+   * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
+   *
+   * @param request SwitchApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchApiResponse
    */
   async switchApiWithOptions(request: SwitchApiRequest, runtime: $Util.RuntimeOptions): Promise<SwitchApiResponse> {
     Util.validateModel(request);
@@ -35936,14 +37647,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This API is intended for API providers.
-    * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
-    * *   Only APIs that have been published more than once have historical versions.
-    * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
-    * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
-    *
-    * @param request SwitchApiRequest
-    * @return SwitchApiResponse
+   * @summary Switches the definition of an API in a specified runtime environment to a historical version.
+   *
+   * @description *   This API is intended for API providers.
+   * *   The historical version can be obtained by calling the **DescribeHistoryApis** operation.
+   * *   Only APIs that have been published more than once have historical versions.
+   * *   This operation can only be performed on running APIs. Exercise caution when you perform this operation because the operation cannot be undone. The operation takes up to 5 seconds.
+   * *   The switch operation is essentially a publish operation. A reason for this operation must be provided.
+   *
+   * @param request SwitchApiRequest
+   * @return SwitchApiResponse
    */
   async switchApi(request: SwitchApiRequest): Promise<SwitchApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35951,15 +37664,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
-    * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
-    * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
-    * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
-    * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Creates a tag-resource relationship.
+   *
+   * @description *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
+   * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
+   * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
+   * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
+   * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -35998,14 +37713,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
-    * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
-    * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
-    * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
-    * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Creates a tag-resource relationship.
+   *
+   * @description *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
+   * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
+   * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
+   * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
+   * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36013,15 +37730,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
-    * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
-    * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
-    * *   When tag keys are specified, the All parameter is invalid.
-    * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
-    *
-    * @param request UntagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UntagResourcesResponse
+   * @summary Removes tags from resources.
+   *
+   * @description *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
+   * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
+   * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
+   * *   When tag keys are specified, the All parameter is invalid.
+   * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -36064,20 +37783,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
-    * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
-    * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
-    * *   When tag keys are specified, the All parameter is invalid.
-    * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
-    *
-    * @param request UntagResourcesRequest
-    * @return UntagResourcesResponse
+   * @summary Removes tags from resources.
+   *
+   * @description *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
+   * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
+   * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
+   * *   When tag keys are specified, the All parameter is invalid.
+   * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Tests the network connectivity between an API Gateway instance and a port on an Elastic Compute Service (ECS) or Server Load Balance (SLB) instance in a virtual private cloud (VPC) access authorization.
+   *
+   * @param request ValidateVpcConnectivityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidateVpcConnectivityResponse
+   */
   async validateVpcConnectivityWithOptions(request: ValidateVpcConnectivityRequest, runtime: $Util.RuntimeOptions): Promise<ValidateVpcConnectivityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36110,6 +37838,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateVpcConnectivityResponse>(await this.callApi(params, req, runtime), new ValidateVpcConnectivityResponse({}));
   }
 
+  /**
+   * @summary Tests the network connectivity between an API Gateway instance and a port on an Elastic Compute Service (ECS) or Server Load Balance (SLB) instance in a virtual private cloud (VPC) access authorization.
+   *
+   * @param request ValidateVpcConnectivityRequest
+   * @return ValidateVpcConnectivityResponse
+   */
   async validateVpcConnectivity(request: ValidateVpcConnectivityRequest): Promise<ValidateVpcConnectivityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.validateVpcConnectivityWithOptions(request, runtime);
