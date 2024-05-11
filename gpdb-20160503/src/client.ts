@@ -14369,13 +14369,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](~~204879~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request AllocateInstancePublicConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AllocateInstancePublicConnectionResponse
+   * @summary Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request AllocateInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
@@ -14426,18 +14428,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](~~204879~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request AllocateInstancePublicConnectionRequest
-    * @return AllocateInstancePublicConnectionResponse
+   * @summary Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request AllocateInstancePublicConnectionRequest
+   * @return AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消上传文档任务
+   *
+   * @param request CancelUploadDocumentJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelUploadDocumentJobResponse
+   */
   async cancelUploadDocumentJobWithOptions(request: CancelUploadDocumentJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelUploadDocumentJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14488,11 +14499,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelUploadDocumentJobResponse>(await this.callApi(params, req, runtime), new CancelUploadDocumentJobResponse({}));
   }
 
+  /**
+   * @summary 取消上传文档任务
+   *
+   * @param request CancelUploadDocumentJobRequest
+   * @return CancelUploadDocumentJobResponse
+   */
   async cancelUploadDocumentJob(request: CancelUploadDocumentJobRequest): Promise<CancelUploadDocumentJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelUploadDocumentJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消上传数据任务
+   *
+   * @param request CancelUpsertCollectionDataJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelUpsertCollectionDataJobResponse
+   */
   async cancelUpsertCollectionDataJobWithOptions(request: CancelUpsertCollectionDataJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelUpsertCollectionDataJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14543,11 +14567,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelUpsertCollectionDataJobResponse>(await this.callApi(params, req, runtime), new CancelUpsertCollectionDataJobResponse({}));
   }
 
+  /**
+   * @summary 取消上传数据任务
+   *
+   * @param request CancelUpsertCollectionDataJobRequest
+   * @return CancelUpsertCollectionDataJobResponse
+   */
   async cancelUpsertCollectionDataJob(request: CancelUpsertCollectionDataJobRequest): Promise<CancelUpsertCollectionDataJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelUpsertCollectionDataJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether a service-linked role is created.
+   *
+   * @param request CheckServiceLinkedRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckServiceLinkedRoleResponse
+   */
   async checkServiceLinkedRoleWithOptions(request: CheckServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14572,20 +14609,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CheckServiceLinkedRoleResponse({}));
   }
 
+  /**
+   * @summary Queries whether a service-linked role is created.
+   *
+   * @param request CheckServiceLinkedRoleRequest
+   * @return CheckServiceLinkedRoleResponse
+   */
   async checkServiceLinkedRole(request: CheckServiceLinkedRoleRequest): Promise<CheckServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkServiceLinkedRoleWithOptions(request, runtime);
   }
 
   /**
-    * *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
-    * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](~~50206~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAccountResponse
+   * @summary Creates a privileged account for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
+   * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccountResponse
    */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
@@ -14636,19 +14681,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
-    * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](~~50206~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateAccountRequest
-    * @return CreateAccountResponse
+   * @summary Creates a privileged account for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
+   * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateAccountRequest
+   * @return CreateAccountResponse
    */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建Collection
+   *
+   * @param request CreateCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCollectionResponse
+   */
   async createCollectionWithOptions(request: CreateCollectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14729,20 +14783,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCollectionResponse>(await this.callApi(params, req, runtime), new CreateCollectionResponse({}));
   }
 
+  /**
+   * @summary 创建Collection
+   *
+   * @param request CreateCollectionRequest
+   * @return CreateCollectionResponse
+   */
   async createCollection(request: CreateCollectionRequest): Promise<CreateCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCollectionWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
-    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-    *
-    * @param request CreateDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBInstanceResponse
+   * @summary Creates an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
+   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   *
+   * @param request CreateDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstanceResponse
    */
   async createDBInstanceWithOptions(request: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(request);
@@ -14925,13 +14987,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
-    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-    *
-    * @param request CreateDBInstanceRequest
-    * @return CreateDBInstanceResponse
+   * @summary Creates an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
+   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   *
+   * @param request CreateDBInstanceRequest
+   * @return CreateDBInstanceResponse
    */
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14939,13 +15003,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The plan management feature is supported only for pay-as-you-go instances.
-    * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
-    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    *
-    * @param request CreateDBInstancePlanRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBInstancePlanResponse
+   * @summary Creates a plan for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description *   The plan management feature is supported only for pay-as-you-go instances.
+   * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
+   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   *
+   * @param request CreateDBInstancePlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstancePlanResponse
    */
   async createDBInstancePlanWithOptions(request: CreateDBInstancePlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstancePlanResponse> {
     Util.validateModel(request);
@@ -15004,18 +15070,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The plan management feature is supported only for pay-as-you-go instances.
-    * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
-    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    *
-    * @param request CreateDBInstancePlanRequest
-    * @return CreateDBInstancePlanResponse
+   * @summary Creates a plan for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description *   The plan management feature is supported only for pay-as-you-go instances.
+   * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
+   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   *
+   * @param request CreateDBInstancePlanRequest
+   * @return CreateDBInstancePlanResponse
    */
   async createDBInstancePlan(request: CreateDBInstancePlanRequest): Promise<CreateDBInstancePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstancePlanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建知识库
+   *
+   * @param request CreateDocumentCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDocumentCollectionResponse
+   */
   async createDocumentCollectionWithOptions(request: CreateDocumentCollectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocumentCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15096,11 +15171,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDocumentCollectionResponse>(await this.callApi(params, req, runtime), new CreateDocumentCollectionResponse({}));
   }
 
+  /**
+   * @summary 创建知识库
+   *
+   * @param request CreateDocumentCollectionRequest
+   * @return CreateDocumentCollectionResponse
+   */
   async createDocumentCollection(request: CreateDocumentCollectionRequest): Promise<CreateDocumentCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDocumentCollectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a vector namespace.
+   *
+   * @param request CreateNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNamespaceResponse
+   */
   async createNamespaceWithOptions(request: CreateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15149,24 +15237,32 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
   }
 
+  /**
+   * @summary Creates a vector namespace.
+   *
+   * @param request CreateNamespaceRequest
+   * @return CreateNamespaceResponse
+   */
   async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNamespaceWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](~~452277~~).
-    * ## Precautions
-    * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
-    * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
-    * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
-    * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateSampleDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSampleDataResponse
+   * @summary Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+   * ## Precautions
+   * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
+   * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
+   * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
+   * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateSampleDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSampleDataResponse
    */
   async createSampleDataWithOptions(request: CreateSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<CreateSampleDataResponse> {
     Util.validateModel(request);
@@ -15197,23 +15293,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](~~452277~~).
-    * ## Precautions
-    * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
-    * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
-    * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
-    * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CreateSampleDataRequest
-    * @return CreateSampleDataResponse
+   * @summary Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+   * ## Precautions
+   * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
+   * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
+   * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
+   * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CreateSampleDataRequest
+   * @return CreateSampleDataResponse
    */
   async createSampleData(request: CreateSampleDataRequest): Promise<CreateSampleDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSampleDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a service-linked role.
+   *
+   * @param request CreateServiceLinkedRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceLinkedRoleResponse
+   */
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15242,11 +15347,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
   }
 
+  /**
+   * @summary Creates a service-linked role.
+   *
+   * @param request CreateServiceLinkedRoleRequest
+   * @return CreateServiceLinkedRoleResponse
+   */
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建向量索引
+   *
+   * @param request CreateVectorIndexRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVectorIndexResponse
+   */
   async createVectorIndexWithOptions(request: CreateVectorIndexRequest, runtime: $Util.RuntimeOptions): Promise<CreateVectorIndexResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15315,11 +15433,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVectorIndexResponse>(await this.callApi(params, req, runtime), new CreateVectorIndexResponse({}));
   }
 
+  /**
+   * @summary 创建向量索引
+   *
+   * @param request CreateVectorIndexRequest
+   * @return CreateVectorIndexResponse
+   */
   async createVectorIndex(request: CreateVectorIndexRequest): Promise<CreateVectorIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVectorIndexWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a vector collection.
+   *
+   * @param request DeleteCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCollectionResponse
+   */
   async deleteCollectionWithOptions(request: DeleteCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15364,11 +15495,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCollectionResponse>(await this.callApi(params, req, runtime), new DeleteCollectionResponse({}));
   }
 
+  /**
+   * @summary Deletes a vector collection.
+   *
+   * @param request DeleteCollectionRequest
+   * @return DeleteCollectionResponse
+   */
   async deleteCollection(request: DeleteCollectionRequest): Promise<DeleteCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCollectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes vector data.
+   *
+   * @param request DeleteCollectionDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCollectionDataResponse
+   */
   async deleteCollectionDataWithOptions(request: DeleteCollectionDataRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCollectionDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15421,20 +15565,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCollectionDataResponse>(await this.callApi(params, req, runtime), new DeleteCollectionDataResponse({}));
   }
 
+  /**
+   * @summary Deletes vector data.
+   *
+   * @param request DeleteCollectionDataRequest
+   * @return DeleteCollectionDataResponse
+   */
   async deleteCollectionData(request: DeleteCollectionDataRequest): Promise<DeleteCollectionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCollectionDataWithOptions(request, runtime);
   }
 
   /**
-    * *   Subscription instances cannot be manually released. They are automatically released when they expire.
-    * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDBInstanceResponse
+   * @summary Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
+   *
+   * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
+   * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBInstanceResponse
    */
   async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
     Util.validateModel(request);
@@ -15473,13 +15625,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Subscription instances cannot be manually released. They are automatically released when they expire.
-    * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteDBInstanceRequest
-    * @return DeleteDBInstanceResponse
+   * @summary Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
+   *
+   * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
+   * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteDBInstanceRequest
+   * @return DeleteDBInstanceResponse
    */
   async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15487,13 +15641,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteDBInstancePlanRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDBInstancePlanResponse
+   * @summary Deletes a plan from an AnalyticDB for PostgreSQL instance.
+   *
+   * @description If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteDBInstancePlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBInstancePlanResponse
    */
   async deleteDBInstancePlanWithOptions(request: DeleteDBInstancePlanRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstancePlanResponse> {
     Util.validateModel(request);
@@ -15528,18 +15684,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteDBInstancePlanRequest
-    * @return DeleteDBInstancePlanResponse
+   * @summary Deletes a plan from an AnalyticDB for PostgreSQL instance.
+   *
+   * @description If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteDBInstancePlanRequest
+   * @return DeleteDBInstancePlanResponse
    */
   async deleteDBInstancePlan(request: DeleteDBInstancePlanRequest): Promise<DeleteDBInstancePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBInstancePlanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除文档
+   *
+   * @param request DeleteDocumentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDocumentResponse
+   */
   async deleteDocumentWithOptions(request: DeleteDocumentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocumentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15588,11 +15753,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDocumentResponse>(await this.callApi(params, req, runtime), new DeleteDocumentResponse({}));
   }
 
+  /**
+   * @summary 删除文档
+   *
+   * @param request DeleteDocumentRequest
+   * @return DeleteDocumentResponse
+   */
   async deleteDocument(request: DeleteDocumentRequest): Promise<DeleteDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDocumentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除知识库
+   *
+   * @param request DeleteDocumentCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDocumentCollectionResponse
+   */
   async deleteDocumentCollectionWithOptions(request: DeleteDocumentCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocumentCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15637,11 +15815,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDocumentCollectionResponse>(await this.callApi(params, req, runtime), new DeleteDocumentCollectionResponse({}));
   }
 
+  /**
+   * @summary 删除知识库
+   *
+   * @param request DeleteDocumentCollectionRequest
+   * @return DeleteDocumentCollectionResponse
+   */
   async deleteDocumentCollection(request: DeleteDocumentCollectionRequest): Promise<DeleteDocumentCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDocumentCollectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a namespace.
+   *
+   * @param request DeleteNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNamespaceResponse
+   */
   async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15686,11 +15877,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
   }
 
+  /**
+   * @summary Deletes a namespace.
+   *
+   * @param request DeleteNamespaceRequest
+   * @return DeleteNamespaceResponse
+   */
   async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNamespaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a vector index.
+   *
+   * @param request DeleteVectorIndexRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVectorIndexResponse
+   */
   async deleteVectorIndexWithOptions(request: DeleteVectorIndexRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVectorIndexResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15739,19 +15943,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVectorIndexResponse>(await this.callApi(params, req, runtime), new DeleteVectorIndexResponse({}));
   }
 
+  /**
+   * @summary Deletes a vector index.
+   *
+   * @param request DeleteVectorIndexRequest
+   * @return DeleteVectorIndexResponse
+   */
   async deleteVectorIndex(request: DeleteVectorIndexRequest): Promise<DeleteVectorIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVectorIndexWithOptions(request, runtime);
   }
 
   /**
-    * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
-    * ## Limit
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeAccountsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAccountsResponse
+   * @summary Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+   * ## Limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccountsResponse
    */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
@@ -15782,18 +15994,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
-    * ## Limit
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeAccountsRequest
-    * @return DescribeAccountsResponse
+   * @summary Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+   * ## Limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeAccountsRequest
+   * @return DescribeAccountsResponse
    */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取实例活跃的SQL列表
+   *
+   * @param request DescribeActiveSQLRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveSQLRecordsResponse
+   */
   async describeActiveSQLRecordsWithOptions(request: DescribeActiveSQLRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveSQLRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15850,17 +16071,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeActiveSQLRecordsResponse>(await this.callApi(params, req, runtime), new DescribeActiveSQLRecordsResponse({}));
   }
 
+  /**
+   * @summary 获取实例活跃的SQL列表
+   *
+   * @param request DescribeActiveSQLRecordsRequest
+   * @return DescribeActiveSQLRecordsResponse
+   */
   async describeActiveSQLRecords(request: DescribeActiveSQLRecordsRequest): Promise<DescribeActiveSQLRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActiveSQLRecordsWithOptions(request, runtime);
   }
 
   /**
-    * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
-    *
-    * @param request DescribeAvailableResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAvailableResourcesResponse
+   * @summary Queries the information about available resources of AnalyticDB for PostgreSQL.
+   *
+   * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
+   *
+   * @param request DescribeAvailableResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableResourcesResponse
    */
   async describeAvailableResourcesWithOptions(request: DescribeAvailableResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourcesResponse> {
     Util.validateModel(request);
@@ -15895,10 +16124,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
-    *
-    * @param request DescribeAvailableResourcesRequest
-    * @return DescribeAvailableResourcesResponse
+   * @summary Queries the information about available resources of AnalyticDB for PostgreSQL.
+   *
+   * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
+   *
+   * @param request DescribeAvailableResourcesRequest
+   * @return DescribeAvailableResourcesResponse
    */
   async describeAvailableResources(request: DescribeAvailableResourcesRequest): Promise<DescribeAvailableResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15906,13 +16137,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](~~210095~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeBackupPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBackupPolicyResponse
+   * @summary Queries the backup policy of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPolicyResponse
    */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
@@ -15939,18 +16172,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](~~210095~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeBackupPolicyRequest
-    * @return DescribeBackupPolicyResponse
+   * @summary Queries the backup policy of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @return DescribeBackupPolicyResponse
    */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a vector collection.
+   *
+   * @param request DescribeCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCollectionResponse
+   */
   async describeCollectionWithOptions(request: DescribeCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15995,20 +16237,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCollectionResponse>(await this.callApi(params, req, runtime), new DescribeCollectionResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a vector collection.
+   *
+   * @param request DescribeCollectionRequest
+   * @return DescribeCollectionResponse
+   */
   async describeCollection(request: DescribeCollectionRequest): Promise<DescribeCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCollectionWithOptions(request, runtime);
   }
 
   /**
-    * ##
-    * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBClusterNodeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBClusterNodeResponse
+   * @summary Queries a list of nodes in an AnalyticDB for PostgreSQL instance.
+   *
+   * @description ##
+   * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBClusterNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterNodeResponse
    */
   async describeDBClusterNodeWithOptions(request: DescribeDBClusterNodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterNodeResponse> {
     Util.validateModel(request);
@@ -16039,13 +16289,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
-    * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBClusterNodeRequest
-    * @return DescribeDBClusterNodeResponse
+   * @summary Queries a list of nodes in an AnalyticDB for PostgreSQL instance.
+   *
+   * @description ##
+   * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBClusterNodeRequest
+   * @return DescribeDBClusterNodeResponse
    */
   async describeDBClusterNode(request: DescribeDBClusterNodeRequest): Promise<DescribeDBClusterNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16053,11 +16305,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query monitoring information only within the last 30 days.
-    *
-    * @param request DescribeDBClusterPerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBClusterPerformanceResponse
+   * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+   *
+   * @description You can query monitoring information only within the last 30 days.
+   *
+   * @param request DescribeDBClusterPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterPerformanceResponse
    */
   async describeDBClusterPerformanceWithOptions(request: DescribeDBClusterPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterPerformanceResponse> {
     Util.validateModel(request);
@@ -16108,10 +16362,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can query monitoring information only within the last 30 days.
-    *
-    * @param request DescribeDBClusterPerformanceRequest
-    * @return DescribeDBClusterPerformanceResponse
+   * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+   *
+   * @description You can query monitoring information only within the last 30 days.
+   *
+   * @param request DescribeDBClusterPerformanceRequest
+   * @return DescribeDBClusterPerformanceResponse
    */
   async describeDBClusterPerformance(request: DescribeDBClusterPerformanceRequest): Promise<DescribeDBClusterPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16119,14 +16375,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
-    * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceAttributeResponse
+   * @summary Queries the information about an AnalyticDB for PostgreSQL instance.
+   *
+   * @description ##
+   * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceAttributeResponse
    */
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
     Util.validateModel(request);
@@ -16161,13 +16419,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
-    * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceAttributeRequest
-    * @return DescribeDBInstanceAttributeResponse
+   * @summary Queries the information about an AnalyticDB for PostgreSQL instance.
+   *
+   * @description ##
+   * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceAttributeRequest
+   * @return DescribeDBInstanceAttributeResponse
    */
   async describeDBInstanceAttribute(request: DescribeDBInstanceAttributeRequest): Promise<DescribeDBInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16175,13 +16435,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceDataBloatRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceDataBloatResponse
+   * @summary Queries the information about data bloat for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceDataBloatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceDataBloatResponse
    */
   async describeDBInstanceDataBloatWithOptions(request: DescribeDBInstanceDataBloatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDataBloatResponse> {
     Util.validateModel(request);
@@ -16216,12 +16478,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceDataBloatRequest
-    * @return DescribeDBInstanceDataBloatResponse
+   * @summary Queries the information about data bloat for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceDataBloatRequest
+   * @return DescribeDBInstanceDataBloatResponse
    */
   async describeDBInstanceDataBloat(request: DescribeDBInstanceDataBloatRequest): Promise<DescribeDBInstanceDataBloatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16229,13 +16493,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceDataSkewRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceDataSkewResponse
+   * @summary Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceDataSkewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceDataSkewResponse
    */
   async describeDBInstanceDataSkewWithOptions(request: DescribeDBInstanceDataSkewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDataSkewResponse> {
     Util.validateModel(request);
@@ -16270,12 +16536,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceDataSkewRequest
-    * @return DescribeDBInstanceDataSkewResponse
+   * @summary Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceDataSkewRequest
+   * @return DescribeDBInstanceDataSkewResponse
    */
   async describeDBInstanceDataSkew(request: DescribeDBInstanceDataSkewRequest): Promise<DescribeDBInstanceDataSkewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16283,11 +16551,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
-    *
-    * @param request DescribeDBInstanceDiagnosisSummaryRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceDiagnosisSummaryResponse
+   * @summary Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeDBInstanceDiagnosisSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceDiagnosisSummaryResponse
    */
   async describeDBInstanceDiagnosisSummaryWithOptions(request: DescribeDBInstanceDiagnosisSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDiagnosisSummaryResponse> {
     Util.validateModel(request);
@@ -16334,10 +16604,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
-    *
-    * @param request DescribeDBInstanceDiagnosisSummaryRequest
-    * @return DescribeDBInstanceDiagnosisSummaryResponse
+   * @summary Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeDBInstanceDiagnosisSummaryRequest
+   * @return DescribeDBInstanceDiagnosisSummaryResponse
    */
   async describeDBInstanceDiagnosisSummary(request: DescribeDBInstanceDiagnosisSummaryRequest): Promise<DescribeDBInstanceDiagnosisSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16345,13 +16617,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceErrorLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceErrorLogResponse
+   * @summary Queries the error logs of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceErrorLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceErrorLogResponse
    */
   async describeDBInstanceErrorLogWithOptions(request: DescribeDBInstanceErrorLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceErrorLogResponse> {
     Util.validateModel(request);
@@ -16414,12 +16688,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceErrorLogRequest
-    * @return DescribeDBInstanceErrorLogResponse
+   * @summary Queries the error logs of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceErrorLogRequest
+   * @return DescribeDBInstanceErrorLogResponse
    */
   async describeDBInstanceErrorLog(request: DescribeDBInstanceErrorLogRequest): Promise<DescribeDBInstanceErrorLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16427,13 +16703,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceIPArrayListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceIPArrayListResponse
+   * @summary Queries the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceIPArrayListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceIPArrayListResponse
    */
   async describeDBInstanceIPArrayListWithOptions(request: DescribeDBInstanceIPArrayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIPArrayListResponse> {
     Util.validateModel(request);
@@ -16468,12 +16746,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstanceIPArrayListRequest
-    * @return DescribeDBInstanceIPArrayListResponse
+   * @summary Queries the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstanceIPArrayListRequest
+   * @return DescribeDBInstanceIPArrayListResponse
    */
   async describeDBInstanceIPArrayList(request: DescribeDBInstanceIPArrayListRequest): Promise<DescribeDBInstanceIPArrayListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16481,12 +16761,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
-    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    *
-    * @param request DescribeDBInstanceIndexUsageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstanceIndexUsageResponse
+   * @summary Queries the index usage of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
+   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   *
+   * @param request DescribeDBInstanceIndexUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceIndexUsageResponse
    */
   async describeDBInstanceIndexUsageWithOptions(request: DescribeDBInstanceIndexUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIndexUsageResponse> {
     Util.validateModel(request);
@@ -16521,17 +16803,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
-    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    *
-    * @param request DescribeDBInstanceIndexUsageRequest
-    * @return DescribeDBInstanceIndexUsageResponse
+   * @summary Queries the index usage of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
+   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   *
+   * @param request DescribeDBInstanceIndexUsageRequest
+   * @return DescribeDBInstanceIndexUsageResponse
    */
   async describeDBInstanceIndexUsage(request: DescribeDBInstanceIndexUsageRequest): Promise<DescribeDBInstanceIndexUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceIndexUsageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the connection information of an instance.
+   *
+   * @param request DescribeDBInstanceNetInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceNetInfoResponse
+   */
   async describeDBInstanceNetInfoWithOptions(request: DescribeDBInstanceNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16560,11 +16851,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceNetInfoResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceNetInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the connection information of an instance.
+   *
+   * @param request DescribeDBInstanceNetInfoRequest
+   * @return DescribeDBInstanceNetInfoResponse
+   */
   async describeDBInstanceNetInfo(request: DescribeDBInstanceNetInfoRequest): Promise<DescribeDBInstanceNetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceNetInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+   *
+   * @param request DescribeDBInstancePerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancePerformanceResponse
+   */
   async describeDBInstancePerformanceWithOptions(request: DescribeDBInstancePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16605,19 +16909,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancePerformanceResponse({}));
   }
 
+  /**
+   * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+   *
+   * @param request DescribeDBInstancePerformanceRequest
+   * @return DescribeDBInstancePerformanceResponse
+   */
   async describeDBInstancePerformance(request: DescribeDBInstancePerformanceRequest): Promise<DescribeDBInstancePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancePerformanceWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstancePlansRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancePlansResponse
+   * @summary Queries the information about plans for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstancePlansRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancePlansResponse
    */
   async describeDBInstancePlansWithOptions(request: DescribeDBInstancePlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePlansResponse> {
     Util.validateModel(request);
@@ -16668,18 +16980,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstancePlansRequest
-    * @return DescribeDBInstancePlansResponse
+   * @summary Queries the information about plans for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstancePlansRequest
+   * @return DescribeDBInstancePlansResponse
    */
   async describeDBInstancePlans(request: DescribeDBInstancePlansRequest): Promise<DescribeDBInstancePlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancePlansWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeDBInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceSSLResponse
+   */
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16704,11 +17025,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSSLResponse({}));
   }
 
+  /**
+   * @summary Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeDBInstanceSSLRequest
+   * @return DescribeDBInstanceSSLResponse
+   */
   async describeDBInstanceSSL(request: DescribeDBInstanceSSLRequest): Promise<DescribeDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询实例最大吞吐和IOPS
+   *
+   * @param request DescribeDBInstanceSupportMaxPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceSupportMaxPerformanceResponse
+   */
   async describeDBInstanceSupportMaxPerformanceWithOptions(request: DescribeDBInstanceSupportMaxPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSupportMaxPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16737,20 +17071,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceSupportMaxPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSupportMaxPerformanceResponse({}));
   }
 
+  /**
+   * @summary 查询实例最大吞吐和IOPS
+   *
+   * @param request DescribeDBInstanceSupportMaxPerformanceRequest
+   * @return DescribeDBInstanceSupportMaxPerformanceResponse
+   */
   async describeDBInstanceSupportMaxPerformance(request: DescribeDBInstanceSupportMaxPerformanceRequest): Promise<DescribeDBInstanceSupportMaxPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceSupportMaxPerformanceWithOptions(request, runtime);
   }
 
   /**
-    * ##
-    * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param tmpReq DescribeDBInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBInstancesResponse
+   * @summary Queries a list of AnalyticDB for PostgreSQL instances.
+   *
+   * @description ##
+   * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param tmpReq DescribeDBInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancesResponse
    */
   async describeDBInstancesWithOptions(tmpReq: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(tmpReq);
@@ -16847,22 +17189,39 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ##
-    * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDBInstancesRequest
-    * @return DescribeDBInstancesResponse
+   * @summary Queries a list of AnalyticDB for PostgreSQL instances.
+   *
+   * @description ##
+   * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDBInstancesRequest
+   * @return DescribeDBInstancesResponse
    */
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取资源管理模式
+   *
+   * @param request DescribeDBResourceManagementModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBResourceManagementModeResponse
+   */
   async describeDBResourceManagementModeWithOptions(request: DescribeDBResourceManagementModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBResourceManagementModeResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16871,7 +17230,7 @@ export default class Client extends OpenApi {
       version: "2016-05-03",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -16880,11 +17239,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBResourceManagementModeResponse>(await this.callApi(params, req, runtime), new DescribeDBResourceManagementModeResponse({}));
   }
 
+  /**
+   * @summary 获取资源管理模式
+   *
+   * @param request DescribeDBResourceManagementModeRequest
+   * @return DescribeDBResourceManagementModeResponse
+   */
   async describeDBResourceManagementMode(request: DescribeDBResourceManagementModeRequest): Promise<DescribeDBResourceManagementModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBResourceManagementModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
+   *
+   * @param request DescribeDBVersionInfosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBVersionInfosResponse
+   */
   async describeDBVersionInfosWithOptions(request: DescribeDBVersionInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBVersionInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16925,17 +17297,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBVersionInfosResponse>(await this.callApi(params, req, runtime), new DescribeDBVersionInfosResponse({}));
   }
 
+  /**
+   * @summary Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
+   *
+   * @param request DescribeDBVersionInfosRequest
+   * @return DescribeDBVersionInfosResponse
+   */
   async describeDBVersionInfos(request: DescribeDBVersionInfosRequest): Promise<DescribeDBVersionInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBVersionInfosWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
-    *
-    * @param request DescribeDataBackupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDataBackupsResponse
+   * @summary Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+   *
+   * @param request DescribeDataBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataBackupsResponse
    */
   async describeDataBackupsWithOptions(request: DescribeDataBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataBackupsResponse> {
     Util.validateModel(request);
@@ -16994,16 +17374,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
-    *
-    * @param request DescribeDataBackupsRequest
-    * @return DescribeDataBackupsResponse
+   * @summary Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+   *
+   * @param request DescribeDataBackupsRequest
+   * @return DescribeDataBackupsResponse
    */
   async describeDataBackups(request: DescribeDataBackupsRequest): Promise<DescribeDataBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataBackupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+   *
+   * @param request DescribeDataReDistributeInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataReDistributeInfoResponse
+   */
   async describeDataReDistributeInfoWithOptions(request: DescribeDataReDistributeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataReDistributeInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17032,17 +17421,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataReDistributeInfoResponse>(await this.callApi(params, req, runtime), new DescribeDataReDistributeInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+   *
+   * @param request DescribeDataReDistributeInfoRequest
+   * @return DescribeDataReDistributeInfoResponse
+   */
   async describeDataReDistributeInfo(request: DescribeDataReDistributeInfoRequest): Promise<DescribeDataReDistributeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataReDistributeInfoWithOptions(request, runtime);
   }
 
   /**
-    * Data sharing is supported only for instances in Serverless mode.
-    *
-    * @param request DescribeDataShareInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDataShareInstancesResponse
+   * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+   *
+   * @description Data sharing is supported only for instances in Serverless mode.
+   *
+   * @param request DescribeDataShareInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataShareInstancesResponse
    */
   async describeDataShareInstancesWithOptions(request: DescribeDataShareInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataShareInstancesResponse> {
     Util.validateModel(request);
@@ -17089,10 +17486,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Data sharing is supported only for instances in Serverless mode.
-    *
-    * @param request DescribeDataShareInstancesRequest
-    * @return DescribeDataShareInstancesResponse
+   * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+   *
+   * @description Data sharing is supported only for instances in Serverless mode.
+   *
+   * @param request DescribeDataShareInstancesRequest
+   * @return DescribeDataShareInstancesResponse
    */
   async describeDataShareInstances(request: DescribeDataShareInstancesRequest): Promise<DescribeDataShareInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17100,13 +17499,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDataSharePerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDataSharePerformanceResponse
+   * @summary Queries the information about data sharing performance metrics.
+   *
+   * @description You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDataSharePerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataSharePerformanceResponse
    */
   async describeDataSharePerformanceWithOptions(request: DescribeDataSharePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataSharePerformanceResponse> {
     Util.validateModel(request);
@@ -17149,12 +17550,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDataSharePerformanceRequest
-    * @return DescribeDataSharePerformanceResponse
+   * @summary Queries the information about data sharing performance metrics.
+   *
+   * @description You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDataSharePerformanceRequest
+   * @return DescribeDataSharePerformanceResponse
    */
   async describeDataSharePerformance(request: DescribeDataSharePerformanceRequest): Promise<DescribeDataSharePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17162,13 +17565,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDiagnosisDimensionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDiagnosisDimensionsResponse
+   * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDiagnosisDimensionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDiagnosisDimensionsResponse
    */
   async describeDiagnosisDimensionsWithOptions(request: DescribeDiagnosisDimensionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisDimensionsResponse> {
     Util.validateModel(request);
@@ -17195,12 +17600,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDiagnosisDimensionsRequest
-    * @return DescribeDiagnosisDimensionsResponse
+   * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDiagnosisDimensionsRequest
+   * @return DescribeDiagnosisDimensionsResponse
    */
   async describeDiagnosisDimensions(request: DescribeDiagnosisDimensionsRequest): Promise<DescribeDiagnosisDimensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17208,13 +17615,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDiagnosisMonitorPerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDiagnosisMonitorPerformanceResponse
+   * @summary Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDiagnosisMonitorPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDiagnosisMonitorPerformanceResponse
    */
   async describeDiagnosisMonitorPerformanceWithOptions(request: DescribeDiagnosisMonitorPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisMonitorPerformanceResponse> {
     Util.validateModel(request);
@@ -17261,12 +17670,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDiagnosisMonitorPerformanceRequest
-    * @return DescribeDiagnosisMonitorPerformanceResponse
+   * @summary Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDiagnosisMonitorPerformanceRequest
+   * @return DescribeDiagnosisMonitorPerformanceResponse
    */
   async describeDiagnosisMonitorPerformance(request: DescribeDiagnosisMonitorPerformanceRequest): Promise<DescribeDiagnosisMonitorPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17274,13 +17685,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDiagnosisRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDiagnosisRecordsResponse
+   * @summary Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDiagnosisRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDiagnosisRecordsResponse
    */
   async describeDiagnosisRecordsWithOptions(request: DescribeDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisRecordsResponse> {
     Util.validateModel(request);
@@ -17343,12 +17756,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDiagnosisRecordsRequest
-    * @return DescribeDiagnosisRecordsResponse
+   * @summary Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDiagnosisRecordsRequest
+   * @return DescribeDiagnosisRecordsResponse
    */
   async describeDiagnosisRecords(request: DescribeDiagnosisRecordsRequest): Promise<DescribeDiagnosisRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17356,12 +17771,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
-    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    *
-    * @param request DescribeDiagnosisSQLInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDiagnosisSQLInfoResponse
+   * @summary Queries the information about a query for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   *
+   * @param request DescribeDiagnosisSQLInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDiagnosisSQLInfoResponse
    */
   async describeDiagnosisSQLInfoWithOptions(request: DescribeDiagnosisSQLInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosisSQLInfoResponse> {
     Util.validateModel(request);
@@ -17396,17 +17813,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
-    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    *
-    * @param request DescribeDiagnosisSQLInfoRequest
-    * @return DescribeDiagnosisSQLInfoResponse
+   * @summary Queries the information about a query for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   *
+   * @param request DescribeDiagnosisSQLInfoRequest
+   * @return DescribeDiagnosisSQLInfoResponse
    */
   async describeDiagnosisSQLInfo(request: DescribeDiagnosisSQLInfoRequest): Promise<DescribeDiagnosisSQLInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDiagnosisSQLInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取文档详情
+   *
+   * @param request DescribeDocumentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDocumentResponse
+   */
   async describeDocumentWithOptions(request: DescribeDocumentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDocumentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17455,18 +17881,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDocumentResponse>(await this.callApi(params, req, runtime), new DescribeDocumentResponse({}));
   }
 
+  /**
+   * @summary 获取文档详情
+   *
+   * @param request DescribeDocumentRequest
+   * @return DescribeDocumentResponse
+   */
   async describeDocument(request: DescribeDocumentRequest): Promise<DescribeDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDocumentWithOptions(request, runtime);
   }
 
   /**
-    * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
-    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    *
-    * @param request DescribeDownloadRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDownloadRecordsResponse
+   * @summary Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
+   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   *
+   * @param request DescribeDownloadRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDownloadRecordsResponse
    */
   async describeDownloadRecordsWithOptions(request: DescribeDownloadRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadRecordsResponse> {
     Util.validateModel(request);
@@ -17493,17 +17927,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
-    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    *
-    * @param request DescribeDownloadRecordsRequest
-    * @return DescribeDownloadRecordsResponse
+   * @summary Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
+   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   *
+   * @param request DescribeDownloadRecordsRequest
+   * @return DescribeDownloadRecordsResponse
    */
   async describeDownloadRecords(request: DescribeDownloadRecordsRequest): Promise<DescribeDownloadRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDownloadRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeDownloadSQLLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDownloadSQLLogsResponse
+   */
   async describeDownloadSQLLogsWithOptions(request: DescribeDownloadSQLLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadSQLLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17528,19 +17971,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDownloadSQLLogsResponse>(await this.callApi(params, req, runtime), new DescribeDownloadSQLLogsResponse({}));
   }
 
+  /**
+   * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeDownloadSQLLogsRequest
+   * @return DescribeDownloadSQLLogsResponse
+   */
   async describeDownloadSQLLogs(request: DescribeDownloadSQLLogsRequest): Promise<DescribeDownloadSQLLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDownloadSQLLogsWithOptions(request, runtime);
   }
 
   /**
-    * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeHealthStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeHealthStatusResponse
+   * @summary Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
+   *
+   * @description This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeHealthStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHealthStatusResponse
    */
   async describeHealthStatusWithOptions(request: DescribeHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthStatusResponse> {
     Util.validateModel(request);
@@ -17571,18 +18022,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeHealthStatusRequest
-    * @return DescribeHealthStatusResponse
+   * @summary Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
+   *
+   * @description This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeHealthStatusRequest
+   * @return DescribeHealthStatusResponse
    */
   async describeHealthStatus(request: DescribeHealthStatusRequest): Promise<DescribeHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHealthStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询实时物化视图信息
+   *
+   * @param request DescribeIMVInfosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIMVInfosResponse
+   */
   async describeIMVInfosWithOptions(request: DescribeIMVInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIMVInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17615,11 +18075,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIMVInfosResponse>(await this.callApi(params, req, runtime), new DescribeIMVInfosResponse({}));
   }
 
+  /**
+   * @summary 查询实时物化视图信息
+   *
+   * @param request DescribeIMVInfosRequest
+   * @return DescribeIMVInfosResponse
+   */
   async describeIMVInfos(request: DescribeIMVInfosRequest): Promise<DescribeIMVInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIMVInfosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of log backups.
+   *
+   * @param request DescribeLogBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogBackupsResponse
+   */
   async describeLogBackupsWithOptions(request: DescribeLogBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17660,11 +18133,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogBackupsResponse>(await this.callApi(params, req, runtime), new DescribeLogBackupsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of log backups.
+   *
+   * @param request DescribeLogBackupsRequest
+   * @return DescribeLogBackupsResponse
+   */
   async describeLogBackups(request: DescribeLogBackupsRequest): Promise<DescribeLogBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogBackupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeModifyParameterLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeModifyParameterLogResponse
+   */
   async describeModifyParameterLogWithOptions(request: DescribeModifyParameterLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeModifyParameterLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17697,11 +18183,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeModifyParameterLogResponse>(await this.callApi(params, req, runtime), new DescribeModifyParameterLogResponse({}));
   }
 
+  /**
+   * @summary Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeModifyParameterLogRequest
+   * @return DescribeModifyParameterLogResponse
+   */
   async describeModifyParameterLog(request: DescribeModifyParameterLogRequest): Promise<DescribeModifyParameterLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeModifyParameterLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a namespace.
+   *
+   * @param request DescribeNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNamespaceResponse
+   */
   async describeNamespaceWithOptions(request: DescribeNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17746,19 +18245,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNamespaceResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a namespace.
+   *
+   * @param request DescribeNamespaceRequest
+   * @return DescribeNamespaceResponse
+   */
   async describeNamespace(request: DescribeNamespaceRequest): Promise<DescribeNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNamespaceWithOptions(request, runtime);
   }
 
   /**
-    * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeParametersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParametersResponse
+   * @summary Queries the information about configuration parameters for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParametersResponse
    */
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
@@ -17785,12 +18292,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeParametersRequest
-    * @return DescribeParametersResponse
+   * @summary Queries the information about configuration parameters for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeParametersRequest
+   * @return DescribeParametersResponse
    */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17798,13 +18307,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeRdsVSwitchsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRdsVSwitchsResponse
+   * @summary Queries a list of vSwitches.
+   *
+   * @description When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeRdsVSwitchsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRdsVSwitchsResponse
    */
   async describeRdsVSwitchsWithOptions(request: DescribeRdsVSwitchsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsVSwitchsResponse> {
     Util.validateModel(request);
@@ -17863,12 +18374,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeRdsVSwitchsRequest
-    * @return DescribeRdsVSwitchsResponse
+   * @summary Queries a list of vSwitches.
+   *
+   * @description When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeRdsVSwitchsRequest
+   * @return DescribeRdsVSwitchsResponse
    */
   async describeRdsVSwitchs(request: DescribeRdsVSwitchsRequest): Promise<DescribeRdsVSwitchsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17876,13 +18389,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeRdsVpcsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRdsVpcsResponse
+   * @summary Queries a list of VPCs.
+   *
+   * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeRdsVpcsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRdsVpcsResponse
    */
   async describeRdsVpcsWithOptions(request: DescribeRdsVpcsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsVpcsResponse> {
     Util.validateModel(request);
@@ -17937,12 +18452,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeRdsVpcsRequest
-    * @return DescribeRdsVpcsResponse
+   * @summary Queries a list of VPCs.
+   *
+   * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeRdsVpcsRequest
+   * @return DescribeRdsVpcsResponse
    */
   async describeRdsVpcs(request: DescribeRdsVpcsRequest): Promise<DescribeRdsVpcsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17950,13 +18467,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
-    * ## Limit
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeRegionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRegionsResponse
+   * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
+   *
+   * @description Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+   * ## Limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
    */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
@@ -17983,12 +18502,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
-    * ## Limit
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeRegionsRequest
-    * @return DescribeRegionsResponse
+   * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
+   *
+   * @description Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+   * ## Limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17996,11 +18517,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is not available for instances in reserved storage mode.
-    *
-    * @param request DescribeSQLLogCountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSQLLogCountResponse
+   * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation is not available for instances in reserved storage mode.
+   *
+   * @param request DescribeSQLLogCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLLogCountResponse
    */
   async describeSQLLogCountWithOptions(request: DescribeSQLLogCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogCountResponse> {
     Util.validateModel(request);
@@ -18075,10 +18598,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is not available for instances in reserved storage mode.
-    *
-    * @param request DescribeSQLLogCountRequest
-    * @return DescribeSQLLogCountResponse
+   * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation is not available for instances in reserved storage mode.
+   *
+   * @param request DescribeSQLLogCountRequest
+   * @return DescribeSQLLogCountResponse
    */
   async describeSQLLogCount(request: DescribeSQLLogCountRequest): Promise<DescribeSQLLogCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18086,11 +18611,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](~~453722~~) operation.
-    *
-    * @param request DescribeSQLLogsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSQLLogsResponse
+   * @summary Queries the SQL execution logs of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
+   *
+   * @param request DescribeSQLLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLLogsResponse
    */
   async describeSQLLogsWithOptions(request: DescribeSQLLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogsResponse> {
     Util.validateModel(request);
@@ -18173,10 +18700,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](~~453722~~) operation.
-    *
-    * @param request DescribeSQLLogsRequest
-    * @return DescribeSQLLogsResponse
+   * @summary Queries the SQL execution logs of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
+   *
+   * @param request DescribeSQLLogsRequest
+   * @return DescribeSQLLogsResponse
    */
   async describeSQLLogs(request: DescribeSQLLogsRequest): Promise<DescribeSQLLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18184,13 +18713,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSQLLogsV2Request
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSQLLogsV2Response
+   * @summary Queries SQL logs within a specific time range.
+   *
+   * @description You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSQLLogsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLLogsV2Response
    */
   async describeSQLLogsV2WithOptions(request: DescribeSQLLogsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogsV2Response> {
     Util.validateModel(request);
@@ -18281,12 +18812,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSQLLogsV2Request
-    * @return DescribeSQLLogsV2Response
+   * @summary Queries SQL logs within a specific time range.
+   *
+   * @description You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSQLLogsV2Request
+   * @return DescribeSQLLogsV2Response
    */
   async describeSQLLogsV2(request: DescribeSQLLogsV2Request): Promise<DescribeSQLLogsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18294,11 +18827,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSampleDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSampleDataResponse
+   * @summary Queries whether a sample dataset is loaded to an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSampleDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSampleDataResponse
    */
   async describeSampleDataWithOptions(request: DescribeSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSampleDataResponse> {
     Util.validateModel(request);
@@ -18329,16 +18864,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeSampleDataRequest
-    * @return DescribeSampleDataResponse
+   * @summary Queries whether a sample dataset is loaded to an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeSampleDataRequest
+   * @return DescribeSampleDataResponse
    */
   async describeSampleData(request: DescribeSampleDataRequest): Promise<DescribeSampleDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSampleDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeSupportFeaturesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSupportFeaturesResponse
+   */
   async describeSupportFeaturesWithOptions(request: DescribeSupportFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportFeaturesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18367,11 +18911,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSupportFeaturesResponse>(await this.callApi(params, req, runtime), new DescribeSupportFeaturesResponse({}));
   }
 
+  /**
+   * @summary Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DescribeSupportFeaturesRequest
+   * @return DescribeSupportFeaturesResponse
+   */
   async describeSupportFeatures(request: DescribeSupportFeaturesRequest): Promise<DescribeSupportFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSupportFeaturesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of tags for AnalyticDB for PostgreSQL instances.
+   *
+   * @param request DescribeTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagsResponse
+   */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18420,11 +18977,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of tags for AnalyticDB for PostgreSQL instances.
+   *
+   * @param request DescribeTagsRequest
+   * @return DescribeTagsResponse
+   */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of Key Management Service (KMS) keys.
+   *
+   * @param request DescribeUserEncryptionKeyListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserEncryptionKeyListResponse
+   */
   async describeUserEncryptionKeyListWithOptions(request: DescribeUserEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserEncryptionKeyListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18457,19 +19027,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new DescribeUserEncryptionKeyListResponse({}));
   }
 
+  /**
+   * @summary Queries a list of Key Management Service (KMS) keys.
+   *
+   * @param request DescribeUserEncryptionKeyListRequest
+   * @return DescribeUserEncryptionKeyListResponse
+   */
   async describeUserEncryptionKeyList(request: DescribeUserEncryptionKeyListRequest): Promise<DescribeUserEncryptionKeyListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeWaitingSQLInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeWaitingSQLInfoResponse
+   * @summary Queries the information about a lock-waiting query for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeWaitingSQLInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWaitingSQLInfoResponse
    */
   async describeWaitingSQLInfoWithOptions(request: DescribeWaitingSQLInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWaitingSQLInfoResponse> {
     Util.validateModel(request);
@@ -18504,12 +19082,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeWaitingSQLInfoRequest
-    * @return DescribeWaitingSQLInfoResponse
+   * @summary Queries the information about a lock-waiting query for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeWaitingSQLInfoRequest
+   * @return DescribeWaitingSQLInfoResponse
    */
   async describeWaitingSQLInfo(request: DescribeWaitingSQLInfoRequest): Promise<DescribeWaitingSQLInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18517,13 +19097,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeWaitingSQLRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeWaitingSQLRecordsResponse
+   * @summary Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeWaitingSQLRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWaitingSQLRecordsResponse
    */
   async describeWaitingSQLRecordsWithOptions(request: DescribeWaitingSQLRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWaitingSQLRecordsResponse> {
     Util.validateModel(request);
@@ -18586,12 +19168,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeWaitingSQLRecordsRequest
-    * @return DescribeWaitingSQLRecordsResponse
+   * @summary Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeWaitingSQLRecordsRequest
+   * @return DescribeWaitingSQLRecordsResponse
    */
   async describeWaitingSQLRecords(request: DescribeWaitingSQLRecordsRequest): Promise<DescribeWaitingSQLRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18599,14 +19183,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](~~447712~~) operation to query download records and download URLs.
-    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DownloadDiagnosisRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DownloadDiagnosisRecordsResponse
+   * @summary Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
+   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DownloadDiagnosisRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DownloadDiagnosisRecordsResponse
    */
   async downloadDiagnosisRecordsWithOptions(request: DownloadDiagnosisRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDiagnosisRecordsResponse> {
     Util.validateModel(request);
@@ -18661,19 +19247,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](~~447712~~) operation to query download records and download URLs.
-    * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DownloadDiagnosisRecordsRequest
-    * @return DownloadDiagnosisRecordsResponse
+   * @summary Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
+   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DownloadDiagnosisRecordsRequest
+   * @return DownloadDiagnosisRecordsResponse
    */
   async downloadDiagnosisRecords(request: DownloadDiagnosisRecordsRequest): Promise<DownloadDiagnosisRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.downloadDiagnosisRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Download the slow query logs of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DownloadSQLLogsRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DownloadSQLLogsRecordsResponse
+   */
   async downloadSQLLogsRecordsWithOptions(request: DownloadSQLLogsRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DownloadSQLLogsRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18758,11 +19353,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DownloadSQLLogsRecordsResponse>(await this.callApi(params, req, runtime), new DownloadSQLLogsRecordsResponse({}));
   }
 
+  /**
+   * @summary Download the slow query logs of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request DownloadSQLLogsRecordsRequest
+   * @return DownloadSQLLogsRecordsResponse
+   */
   async downloadSQLLogsRecords(request: DownloadSQLLogsRecordsRequest): Promise<DownloadSQLLogsRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.downloadSQLLogsRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询上传文档任务的状态
+   *
+   * @param request GetUploadDocumentJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUploadDocumentJobResponse
+   */
   async getUploadDocumentJobWithOptions(request: GetUploadDocumentJobRequest, runtime: $Util.RuntimeOptions): Promise<GetUploadDocumentJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18813,11 +19421,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUploadDocumentJobResponse>(await this.callApi(params, req, runtime), new GetUploadDocumentJobResponse({}));
   }
 
+  /**
+   * @summary 查询上传文档任务的状态
+   *
+   * @param request GetUploadDocumentJobRequest
+   * @return GetUploadDocumentJobResponse
+   */
   async getUploadDocumentJob(request: GetUploadDocumentJobRequest): Promise<GetUploadDocumentJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUploadDocumentJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询上传向量任务结果
+   *
+   * @param request GetUpsertCollectionDataJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUpsertCollectionDataJobResponse
+   */
   async getUpsertCollectionDataJobWithOptions(request: GetUpsertCollectionDataJobRequest, runtime: $Util.RuntimeOptions): Promise<GetUpsertCollectionDataJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18868,11 +19489,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUpsertCollectionDataJobResponse>(await this.callApi(params, req, runtime), new GetUpsertCollectionDataJobResponse({}));
   }
 
+  /**
+   * @summary 查询上传向量任务结果
+   *
+   * @param request GetUpsertCollectionDataJobRequest
+   * @return GetUpsertCollectionDataJobResponse
+   */
   async getUpsertCollectionDataJob(request: GetUpsertCollectionDataJobRequest): Promise<GetUpsertCollectionDataJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUpsertCollectionDataJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Grants vector collection permissions to a namespace.
+   *
+   * @param request GrantCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantCollectionResponse
+   */
   async grantCollectionWithOptions(request: GrantCollectionRequest, runtime: $Util.RuntimeOptions): Promise<GrantCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18929,11 +19563,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantCollectionResponse>(await this.callApi(params, req, runtime), new GrantCollectionResponse({}));
   }
 
+  /**
+   * @summary Grants vector collection permissions to a namespace.
+   *
+   * @param request GrantCollectionRequest
+   * @return GrantCollectionResponse
+   */
   async grantCollection(request: GrantCollectionRequest): Promise<GrantCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantCollectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 处理指定的查询SQL
+   *
+   * @param request HandleActiveSQLRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HandleActiveSQLRecordResponse
+   */
   async handleActiveSQLRecordWithOptions(request: HandleActiveSQLRecordRequest, runtime: $Util.RuntimeOptions): Promise<HandleActiveSQLRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18966,11 +19613,24 @@ export default class Client extends OpenApi {
     return $tea.cast<HandleActiveSQLRecordResponse>(await this.callApi(params, req, runtime), new HandleActiveSQLRecordResponse({}));
   }
 
+  /**
+   * @summary 处理指定的查询SQL
+   *
+   * @param request HandleActiveSQLRecordRequest
+   * @return HandleActiveSQLRecordResponse
+   */
   async handleActiveSQLRecord(request: HandleActiveSQLRecordRequest): Promise<HandleActiveSQLRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.handleActiveSQLRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Initializes vector databases.
+   *
+   * @param request InitVectorDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InitVectorDatabaseResponse
+   */
   async initVectorDatabaseWithOptions(request: InitVectorDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<InitVectorDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19011,11 +19671,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InitVectorDatabaseResponse>(await this.callApi(params, req, runtime), new InitVectorDatabaseResponse({}));
   }
 
+  /**
+   * @summary Initializes vector databases.
+   *
+   * @param request InitVectorDatabaseRequest
+   * @return InitVectorDatabaseResponse
+   */
   async initVectorDatabase(request: InitVectorDatabaseRequest): Promise<InitVectorDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.initVectorDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of vector collections.
+   *
+   * @param request ListCollectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCollectionsResponse
+   */
   async listCollectionsWithOptions(request: ListCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListCollectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19056,11 +19729,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCollectionsResponse>(await this.callApi(params, req, runtime), new ListCollectionsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of vector collections.
+   *
+   * @param request ListCollectionsRequest
+   * @return ListCollectionsResponse
+   */
   async listCollections(request: ListCollectionsRequest): Promise<ListCollectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCollectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取知识库列表
+   *
+   * @param request ListDocumentCollectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDocumentCollectionsResponse
+   */
   async listDocumentCollectionsWithOptions(request: ListDocumentCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListDocumentCollectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19101,11 +19787,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDocumentCollectionsResponse>(await this.callApi(params, req, runtime), new ListDocumentCollectionsResponse({}));
   }
 
+  /**
+   * @summary 获取知识库列表
+   *
+   * @param request ListDocumentCollectionsRequest
+   * @return ListDocumentCollectionsResponse
+   */
   async listDocumentCollections(request: ListDocumentCollectionsRequest): Promise<ListDocumentCollectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDocumentCollectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询文档列表
+   *
+   * @param request ListDocumentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDocumentsResponse
+   */
   async listDocumentsWithOptions(request: ListDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ListDocumentsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19150,11 +19849,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDocumentsResponse>(await this.callApi(params, req, runtime), new ListDocumentsResponse({}));
   }
 
+  /**
+   * @summary 查询文档列表
+   *
+   * @param request ListDocumentsRequest
+   * @return ListDocumentsResponse
+   */
   async listDocuments(request: ListDocumentsRequest): Promise<ListDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDocumentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of namespaces.
+   *
+   * @param request ListNamespacesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNamespacesResponse
+   */
   async listNamespacesWithOptions(request: ListNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<ListNamespacesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19195,11 +19907,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNamespacesResponse>(await this.callApi(params, req, runtime), new ListNamespacesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of namespaces.
+   *
+   * @param request ListNamespacesRequest
+   * @return ListNamespacesResponse
+   */
   async listNamespaces(request: ListNamespacesRequest): Promise<ListNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNamespacesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19256,11 +19981,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyAccountDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19293,11 +20031,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyAccountDescriptionRequest
+   * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the backup policy of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19342,11 +20093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Configures the backup policy of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @return ModifyBackupPolicyResponse
+   */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+   *
+   * @param request ModifyDBInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceConfigResponse
+   */
   async modifyDBInstanceConfigWithOptions(request: ModifyDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19387,11 +20151,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConfigResponse({}));
   }
 
+  /**
+   * @summary Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+   *
+   * @param request ModifyDBInstanceConfigRequest
+   * @return ModifyDBInstanceConfigResponse
+   */
   async modifyDBInstanceConfig(request: ModifyDBInstanceConfigRequest): Promise<ModifyDBInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the endpoint of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyDBInstanceConnectionStringRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceConnectionStringResponse
+   */
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19428,19 +20205,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
   }
 
+  /**
+   * @summary Changes the endpoint of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyDBInstanceConnectionStringRequest
+   * @return ModifyDBInstanceConnectionStringResponse
+   */
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
   }
 
   /**
-    * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyDBInstanceDescriptionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceDescriptionResponse
+   * @summary Changes the description of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyDBInstanceDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceDescriptionResponse
    */
   async modifyDBInstanceDescriptionWithOptions(request: ModifyDBInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDescriptionResponse> {
     Util.validateModel(request);
@@ -19475,12 +20260,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyDBInstanceDescriptionRequest
-    * @return ModifyDBInstanceDescriptionResponse
+   * @summary Changes the description of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyDBInstanceDescriptionRequest
+   * @return ModifyDBInstanceDescriptionResponse
    */
   async modifyDBInstanceDescription(request: ModifyDBInstanceDescriptionRequest): Promise<ModifyDBInstanceDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19488,13 +20275,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyDBInstanceMaintainTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceMaintainTimeResponse
+   * @summary Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyDBInstanceMaintainTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceMaintainTimeResponse
    */
   async modifyDBInstanceMaintainTimeWithOptions(request: ModifyDBInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMaintainTimeResponse> {
     Util.validateModel(request);
@@ -19533,12 +20322,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyDBInstanceMaintainTimeRequest
-    * @return ModifyDBInstanceMaintainTimeResponse
+   * @summary Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyDBInstanceMaintainTimeRequest
+   * @return ModifyDBInstanceMaintainTimeResponse
    */
   async modifyDBInstanceMaintainTime(request: ModifyDBInstanceMaintainTimeRequest): Promise<ModifyDBInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19546,11 +20337,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~)
-    *
-    * @param request ModifyDBInstanceResourceGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBInstanceResourceGroupResponse
+   * @summary Moves an AnalyticDB for PostgreSQL instance to a resource group.
+   *
+   * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+   *
+   * @param request ModifyDBInstanceResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceResourceGroupResponse
    */
   async modifyDBInstanceResourceGroupWithOptions(request: ModifyDBInstanceResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceResourceGroupResponse> {
     Util.validateModel(request);
@@ -19601,16 +20394,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~)
-    *
-    * @param request ModifyDBInstanceResourceGroupRequest
-    * @return ModifyDBInstanceResourceGroupResponse
+   * @summary Moves an AnalyticDB for PostgreSQL instance to a resource group.
+   *
+   * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+   *
+   * @param request ModifyDBInstanceResourceGroupRequest
+   * @return ModifyDBInstanceResourceGroupResponse
    */
   async modifyDBInstanceResourceGroup(request: ModifyDBInstanceResourceGroupRequest): Promise<ModifyDBInstanceResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyDBInstanceSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceSSLResponse
+   */
   async modifyDBInstanceSSLWithOptions(request: ModifyDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19643,11 +20445,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceSSLResponse({}));
   }
 
+  /**
+   * @summary Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyDBInstanceSSLRequest
+   * @return ModifyDBInstanceSSLResponse
+   */
   async modifyDBInstanceSSL(request: ModifyDBInstanceSSLRequest): Promise<ModifyDBInstanceSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceSSLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改master规格
+   *
+   * @param request ModifyMasterSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyMasterSpecResponse
+   */
   async modifyMasterSpecWithOptions(request: ModifyMasterSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMasterSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19684,19 +20499,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyMasterSpecResponse>(await this.callApi(params, req, runtime), new ModifyMasterSpecResponse({}));
   }
 
+  /**
+   * @summary 修改master规格
+   *
+   * @param request ModifyMasterSpecRequest
+   * @return ModifyMasterSpecResponse
+   */
   async modifyMasterSpec(request: ModifyMasterSpecRequest): Promise<ModifyMasterSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMasterSpecWithOptions(request, runtime);
   }
 
   /**
-    * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyParametersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyParametersResponse
+   * @summary Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyParametersResponse
    */
   async modifyParametersWithOptions(request: ModifyParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParametersResponse> {
     Util.validateModel(request);
@@ -19731,18 +20554,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyParametersRequest
-    * @return ModifyParametersResponse
+   * @summary Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyParametersRequest
+   * @return ModifyParametersResponse
    */
   async modifyParameters(request: ModifyParametersRequest): Promise<ModifyParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifySQLCollectorPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySQLCollectorPolicyResponse
+   */
   async modifySQLCollectorPolicyWithOptions(request: ModifySQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifySQLCollectorPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19771,19 +20603,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySQLCollectorPolicyResponse>(await this.callApi(params, req, runtime), new ModifySQLCollectorPolicyResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifySQLCollectorPolicyRequest
+   * @return ModifySQLCollectorPolicyResponse
+   */
   async modifySQLCollectorPolicy(request: ModifySQLCollectorPolicyRequest): Promise<ModifySQLCollectorPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySQLCollectorPolicyWithOptions(request, runtime);
   }
 
   /**
-    * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifySecurityIpsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySecurityIpsResponse
+   * @summary Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifySecurityIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityIpsResponse
    */
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
@@ -19830,18 +20670,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifySecurityIpsRequest
-    * @return ModifySecurityIpsResponse
+   * @summary Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifySecurityIpsRequest
+   * @return ModifySecurityIpsResponse
    */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyVectorConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVectorConfigurationResponse
+   */
   async modifyVectorConfigurationWithOptions(request: ModifyVectorConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVectorConfigurationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19874,21 +20723,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyVectorConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyVectorConfigurationResponse({}));
   }
 
+  /**
+   * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ModifyVectorConfigurationRequest
+   * @return ModifyVectorConfigurationResponse
+   */
   async modifyVectorConfiguration(request: ModifyVectorConfigurationRequest): Promise<ModifyVectorConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVectorConfigurationWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
-    * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request PauseInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PauseInstanceResponse
+   * @summary Pauses an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request PauseInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PauseInstanceResponse
    */
   async pauseInstanceWithOptions(request: PauseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<PauseInstanceResponse> {
     Util.validateModel(request);
@@ -19919,20 +20776,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
-    * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request PauseInstanceRequest
-    * @return PauseInstanceResponse
+   * @summary Pauses an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request PauseInstanceRequest
+   * @return PauseInstanceResponse
    */
   async pauseInstance(request: PauseInstanceRequest): Promise<PauseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pauseInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询向量数据
+   *
+   * @param tmpReq QueryCollectionDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCollectionDataResponse
+   */
   async queryCollectionDataWithOptions(tmpReq: QueryCollectionDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryCollectionDataResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryCollectionDataShrinkRequest({ });
@@ -20031,11 +20897,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCollectionDataResponse>(await this.callApi(params, req, runtime), new QueryCollectionDataResponse({}));
   }
 
+  /**
+   * @summary 查询向量数据
+   *
+   * @param request QueryCollectionDataRequest
+   * @return QueryCollectionDataResponse
+   */
   async queryCollectionData(request: QueryCollectionDataRequest): Promise<QueryCollectionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCollectionDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询
+   *
+   * @param tmpReq QueryContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryContentResponse
+   */
   async queryContentWithOptions(tmpReq: QueryContentRequest, runtime: $Util.RuntimeOptions): Promise<QueryContentResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryContentShrinkRequest({ });
@@ -20142,6 +21021,12 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryContentResponse>(await this.callApi(params, req, runtime), new QueryContentResponse({}));
   }
 
+  /**
+   * @summary 查询
+   *
+   * @param request QueryContentRequest
+   * @return QueryContentResponse
+   */
   async queryContent(request: QueryContentRequest): Promise<QueryContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryContentWithOptions(request, runtime);
@@ -20221,6 +21106,13 @@ export default class Client extends OpenApi {
     return queryContentResp;
   }
 
+  /**
+   * @summary Rebalances an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request RebalanceDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebalanceDBInstanceResponse
+   */
   async rebalanceDBInstanceWithOptions(request: RebalanceDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebalanceDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20249,11 +21141,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RebalanceDBInstanceResponse>(await this.callApi(params, req, runtime), new RebalanceDBInstanceResponse({}));
   }
 
+  /**
+   * @summary Rebalances an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request RebalanceDBInstanceRequest
+   * @return RebalanceDBInstanceResponse
+   */
   async rebalanceDBInstance(request: RebalanceDBInstanceRequest): Promise<RebalanceDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebalanceDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20286,11 +21191,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
   }
 
+  /**
+   * @summary Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ResetAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAccountPasswordResponse
+   */
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20323,11 +21241,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
   }
 
+  /**
+   * @summary Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request ResetAccountPasswordRequest
+   * @return ResetAccountPasswordResponse
+   */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 重置IMV统计信息
+   *
+   * @param request ResetIMVMonitorDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetIMVMonitorDataResponse
+   */
   async resetIMVMonitorDataWithOptions(request: ResetIMVMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<ResetIMVMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20356,19 +21287,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetIMVMonitorDataResponse>(await this.callApi(params, req, runtime), new ResetIMVMonitorDataResponse({}));
   }
 
+  /**
+   * @summary 重置IMV统计信息
+   *
+   * @param request ResetIMVMonitorDataRequest
+   * @return ResetIMVMonitorDataResponse
+   */
   async resetIMVMonitorData(request: ResetIMVMonitorDataRequest): Promise<ResetIMVMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetIMVMonitorDataWithOptions(request, runtime);
   }
 
   /**
-    * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
-    * ## Limit
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request RestartDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RestartDBInstanceResponse
+   * @summary Restarts an AnalyticDB for PostgreSQL instance.
+   *
+   * @description A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+   * ## Limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request RestartDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartDBInstanceResponse
    */
   async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
     Util.validateModel(request);
@@ -20399,12 +21338,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
-    * ## Limit
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request RestartDBInstanceRequest
-    * @return RestartDBInstanceResponse
+   * @summary Restarts an AnalyticDB for PostgreSQL instance.
+   *
+   * @description A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+   * ## Limit
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request RestartDBInstanceRequest
+   * @return RestartDBInstanceResponse
    */
   async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20412,15 +21353,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
-    * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ResumeInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResumeInstanceResponse
+   * @summary Resumes an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ResumeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeInstanceResponse
    */
   async resumeInstanceWithOptions(request: ResumeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResumeInstanceResponse> {
     Util.validateModel(request);
@@ -20451,14 +21394,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
-    * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-    * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ResumeInstanceRequest
-    * @return ResumeInstanceResponse
+   * @summary Resumes an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ResumeInstanceRequest
+   * @return ResumeInstanceResponse
    */
   async resumeInstance(request: ResumeInstanceRequest): Promise<ResumeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20466,13 +21411,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request SetDBInstancePlanStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDBInstancePlanStatusResponse
+   * @summary Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request SetDBInstancePlanStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDBInstancePlanStatusResponse
    */
   async setDBInstancePlanStatusWithOptions(request: SetDBInstancePlanStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDBInstancePlanStatusResponse> {
     Util.validateModel(request);
@@ -20511,12 +21458,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request SetDBInstancePlanStatusRequest
-    * @return SetDBInstancePlanStatusResponse
+   * @summary Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request SetDBInstancePlanStatusRequest
+   * @return SetDBInstancePlanStatusResponse
    */
   async setDBInstancePlanStatus(request: SetDBInstancePlanStatusRequest): Promise<SetDBInstancePlanStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20524,13 +21473,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    *
-    * @param tmpReq SetDataShareInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDataShareInstanceResponse
+   * @summary Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   *
+   * @param tmpReq SetDataShareInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDataShareInstanceResponse
    */
   async setDataShareInstanceWithOptions(tmpReq: SetDataShareInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SetDataShareInstanceResponse> {
     Util.validateModel(tmpReq);
@@ -20575,18 +21526,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-    *
-    * @param request SetDataShareInstanceRequest
-    * @return SetDataShareInstanceResponse
+   * @summary Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   *
+   * @param request SetDataShareInstanceRequest
+   * @return SetDataShareInstanceResponse
    */
   async setDataShareInstance(request: SetDataShareInstanceRequest): Promise<SetDataShareInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataShareInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Switches the internal or public endpoint for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request SwitchDBInstanceNetTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchDBInstanceNetTypeResponse
+   */
   async switchDBInstanceNetTypeWithOptions(request: SwitchDBInstanceNetTypeRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceNetTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20619,11 +21579,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchDBInstanceNetTypeResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceNetTypeResponse({}));
   }
 
+  /**
+   * @summary Switches the internal or public endpoint for an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request SwitchDBInstanceNetTypeRequest
+   * @return SwitchDBInstanceNetTypeResponse
+   */
   async switchDBInstanceNetType(request: SwitchDBInstanceNetTypeRequest): Promise<SwitchDBInstanceNetTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDBInstanceNetTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates and adds tags to AnalyticDB for PostgreSQL instances.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20676,19 +21649,27 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Creates and adds tags to AnalyticDB for PostgreSQL instances.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request UnloadSampleDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnloadSampleDataResponse
+   * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request UnloadSampleDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnloadSampleDataResponse
    */
   async unloadSampleDataWithOptions(request: UnloadSampleDataRequest, runtime: $Util.RuntimeOptions): Promise<UnloadSampleDataResponse> {
     Util.validateModel(request);
@@ -20719,18 +21700,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request UnloadSampleDataRequest
-    * @return UnloadSampleDataResponse
+   * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request UnloadSampleDataRequest
+   * @return UnloadSampleDataResponse
    */
   async unloadSampleData(request: UnloadSampleDataRequest): Promise<UnloadSampleDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unloadSampleDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20787,11 +21777,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新Collection Data的Metadata数据
+   *
+   * @param tmpReq UpdateCollectionDataMetadataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCollectionDataMetadataResponse
+   */
   async updateCollectionDataMetadataWithOptions(tmpReq: UpdateCollectionDataMetadataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCollectionDataMetadataResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateCollectionDataMetadataShrinkRequest({ });
@@ -20858,19 +21861,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCollectionDataMetadataResponse>(await this.callApi(params, req, runtime), new UpdateCollectionDataMetadataResponse({}));
   }
 
+  /**
+   * @summary 更新Collection Data的Metadata数据
+   *
+   * @param request UpdateCollectionDataMetadataRequest
+   * @return UpdateCollectionDataMetadataResponse
+   */
   async updateCollectionDataMetadata(request: UpdateCollectionDataMetadataRequest): Promise<UpdateCollectionDataMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCollectionDataMetadataWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request UpdateDBInstancePlanRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateDBInstancePlanResponse
+   * @summary Modifies a plan for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request UpdateDBInstancePlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDBInstancePlanResponse
    */
   async updateDBInstancePlanWithOptions(request: UpdateDBInstancePlanRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDBInstancePlanResponse> {
     Util.validateModel(request);
@@ -20925,12 +21936,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
-    * ## Limits
-    * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request UpdateDBInstancePlanRequest
-    * @return UpdateDBInstancePlanResponse
+   * @summary Modifies a plan for an AnalyticDB for PostgreSQL instance.
+   *
+   * @description You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+   * ## Limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request UpdateDBInstancePlanRequest
+   * @return UpdateDBInstancePlanResponse
    */
   async updateDBInstancePlan(request: UpdateDBInstancePlanRequest): Promise<UpdateDBInstancePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20938,12 +21951,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is not available for instances in reserved storage mode.
-    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    *
-    * @param request UpgradeDBInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeDBInstanceResponse
+   * @summary Changes the configurations of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation is not available for instances in reserved storage mode.
+   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   *
+   * @param request UpgradeDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBInstanceResponse
    */
   async upgradeDBInstanceWithOptions(request: UpgradeDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceResponse> {
     Util.validateModel(request);
@@ -21022,17 +22037,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is not available for instances in reserved storage mode.
-    * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-    *
-    * @param request UpgradeDBInstanceRequest
-    * @return UpgradeDBInstanceResponse
+   * @summary Changes the configurations of an AnalyticDB for PostgreSQL instance.
+   *
+   * @description This operation is not available for instances in reserved storage mode.
+   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+   *
+   * @param request UpgradeDBInstanceRequest
+   * @return UpgradeDBInstanceResponse
    */
   async upgradeDBInstance(request: UpgradeDBInstanceRequest): Promise<UpgradeDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request UpgradeDBVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBVersionResponse
+   */
   async upgradeDBVersionWithOptions(request: UpgradeDBVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21081,11 +22105,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBVersionResponse({}));
   }
 
+  /**
+   * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+   *
+   * @param request UpgradeDBVersionRequest
+   * @return UpgradeDBVersionResponse
+   */
   async upgradeDBVersion(request: UpgradeDBVersionRequest): Promise<UpgradeDBVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 异步上传文档
+   *
+   * @param tmpReq UploadDocumentAsyncRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadDocumentAsyncResponse
+   */
   async uploadDocumentAsyncWithOptions(tmpReq: UploadDocumentAsyncRequest, runtime: $Util.RuntimeOptions): Promise<UploadDocumentAsyncResponse> {
     Util.validateModel(tmpReq);
     let request = new UploadDocumentAsyncShrinkRequest({ });
@@ -21182,6 +22219,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadDocumentAsyncResponse>(await this.callApi(params, req, runtime), new UploadDocumentAsyncResponse({}));
   }
 
+  /**
+   * @summary 异步上传文档
+   *
+   * @param request UploadDocumentAsyncRequest
+   * @return UploadDocumentAsyncResponse
+   */
   async uploadDocumentAsync(request: UploadDocumentAsyncRequest): Promise<UploadDocumentAsyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadDocumentAsyncWithOptions(request, runtime);
@@ -21261,6 +22304,13 @@ export default class Client extends OpenApi {
     return uploadDocumentAsyncResp;
   }
 
+  /**
+   * @summary 上传切分后的文本
+   *
+   * @param tmpReq UpsertChunksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpsertChunksResponse
+   */
   async upsertChunksWithOptions(tmpReq: UpsertChunksRequest, runtime: $Util.RuntimeOptions): Promise<UpsertChunksResponse> {
     Util.validateModel(tmpReq);
     let request = new UpsertChunksShrinkRequest({ });
@@ -21321,11 +22371,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpsertChunksResponse>(await this.callApi(params, req, runtime), new UpsertChunksResponse({}));
   }
 
+  /**
+   * @summary 上传切分后的文本
+   *
+   * @param request UpsertChunksRequest
+   * @return UpsertChunksResponse
+   */
   async upsertChunks(request: UpsertChunksRequest): Promise<UpsertChunksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upsertChunksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Uploads vector data to a vector collection.
+   *
+   * @param tmpReq UpsertCollectionDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpsertCollectionDataResponse
+   */
   async upsertCollectionDataWithOptions(tmpReq: UpsertCollectionDataRequest, runtime: $Util.RuntimeOptions): Promise<UpsertCollectionDataResponse> {
     Util.validateModel(tmpReq);
     let request = new UpsertCollectionDataShrinkRequest({ });
@@ -21382,11 +22445,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpsertCollectionDataResponse>(await this.callApi(params, req, runtime), new UpsertCollectionDataResponse({}));
   }
 
+  /**
+   * @summary Uploads vector data to a vector collection.
+   *
+   * @param request UpsertCollectionDataRequest
+   * @return UpsertCollectionDataResponse
+   */
   async upsertCollectionData(request: UpsertCollectionDataRequest): Promise<UpsertCollectionDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upsertCollectionDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 上传向量数据异步接口
+   *
+   * @param request UpsertCollectionDataAsyncRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpsertCollectionDataAsyncResponse
+   */
   async upsertCollectionDataAsyncWithOptions(request: UpsertCollectionDataAsyncRequest, runtime: $Util.RuntimeOptions): Promise<UpsertCollectionDataAsyncResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21437,6 +22513,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpsertCollectionDataAsyncResponse>(await this.callApi(params, req, runtime), new UpsertCollectionDataAsyncResponse({}));
   }
 
+  /**
+   * @summary 上传向量数据异步接口
+   *
+   * @param request UpsertCollectionDataAsyncRequest
+   * @return UpsertCollectionDataAsyncResponse
+   */
   async upsertCollectionDataAsync(request: UpsertCollectionDataAsyncRequest): Promise<UpsertCollectionDataAsyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upsertCollectionDataAsyncWithOptions(request, runtime);
