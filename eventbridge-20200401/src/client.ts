@@ -1469,6 +1469,280 @@ export class EnableRuleResponse extends $tea.Model {
   }
 }
 
+export class EventCenterCheckEnabledOnDefaultBusResponseBody extends $tea.Model {
+  code?: string;
+  data?: EventCenterCheckEnabledOnDefaultBusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: EventCenterCheckEnabledOnDefaultBusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterCheckEnabledOnDefaultBusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EventCenterCheckEnabledOnDefaultBusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EventCenterCheckEnabledOnDefaultBusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterDisableOnDefaultBusResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterDisableOnDefaultBusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EventCenterDisableOnDefaultBusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EventCenterDisableOnDefaultBusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterEnableOnDefaultBusResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterEnableOnDefaultBusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EventCenterEnableOnDefaultBusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EventCenterEnableOnDefaultBusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsRequest extends $tea.Model {
+  body?: EventCenterQueryEventsRequestBody;
+  busName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      busName: 'BusName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: EventCenterQueryEventsRequestBody,
+      busName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsShrinkRequest extends $tea.Model {
+  bodyShrink?: string;
+  busName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bodyShrink: 'Body',
+      busName: 'BusName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodyShrink: 'string',
+      busName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsResponseBody extends $tea.Model {
+  code?: string;
+  data?: EventCenterQueryEventsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: EventCenterQueryEventsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EventCenterQueryEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EventCenterQueryEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApiDestinationRequest extends $tea.Model {
   apiDestinationName?: string;
   static names(): { [key: string]: string } {
@@ -6907,6 +7181,243 @@ export class DeleteTargetsResponseBodyData extends $tea.Model {
     return {
       errorEntries: { 'type': 'array', 'itemType': DeleteTargetsResponseBodyDataErrorEntries },
       errorEntriesCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterCheckEnabledOnDefaultBusResponseBodyData extends $tea.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsRequestBodyParametersCalculations extends $tea.Model {
+  column?: string;
+  op?: string;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+      op: 'Op',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: 'string',
+      op: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsRequestBodyParametersFilters extends $tea.Model {
+  column?: string;
+  op?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+      op: 'Op',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: 'string',
+      op: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsRequestBodyParametersOrders extends $tea.Model {
+  column?: string;
+  desc?: boolean;
+  op?: string;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+      desc: 'Desc',
+      op: 'Op',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: 'string',
+      desc: 'boolean',
+      op: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsRequestBodyParameters extends $tea.Model {
+  breakdowns?: string[];
+  calculations?: EventCenterQueryEventsRequestBodyParametersCalculations[];
+  endTime?: number;
+  filterCombination?: string;
+  filters?: EventCenterQueryEventsRequestBodyParametersFilters[];
+  granularity?: number;
+  limit?: number;
+  offset?: number;
+  orders?: EventCenterQueryEventsRequestBodyParametersOrders[];
+  startTime?: number;
+  timeRange?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakdowns: 'Breakdowns',
+      calculations: 'Calculations',
+      endTime: 'EndTime',
+      filterCombination: 'FilterCombination',
+      filters: 'Filters',
+      granularity: 'Granularity',
+      limit: 'Limit',
+      offset: 'Offset',
+      orders: 'Orders',
+      startTime: 'StartTime',
+      timeRange: 'TimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakdowns: { 'type': 'array', 'itemType': 'string' },
+      calculations: { 'type': 'array', 'itemType': EventCenterQueryEventsRequestBodyParametersCalculations },
+      endTime: 'number',
+      filterCombination: 'string',
+      filters: { 'type': 'array', 'itemType': EventCenterQueryEventsRequestBodyParametersFilters },
+      granularity: 'number',
+      limit: 'number',
+      offset: 'number',
+      orders: { 'type': 'array', 'itemType': EventCenterQueryEventsRequestBodyParametersOrders },
+      startTime: 'number',
+      timeRange: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsRequestBody extends $tea.Model {
+  parameters?: EventCenterQueryEventsRequestBodyParameters;
+  queryType?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameters: 'Parameters',
+      queryType: 'QueryType',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameters: EventCenterQueryEventsRequestBodyParameters,
+      queryType: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsResponseBodyDataTable extends $tea.Model {
+  rowData?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      rowData: 'RowData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rowData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsResponseBodyDataTimeSeries extends $tea.Model {
+  rowData?: { [key: string]: any };
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rowData: 'RowData',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rowData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EventCenterQueryEventsResponseBodyData extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  table?: EventCenterQueryEventsResponseBodyDataTable[];
+  timeSeries?: EventCenterQueryEventsResponseBodyDataTimeSeries[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      table: 'Table',
+      timeSeries: 'TimeSeries',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      table: { 'type': 'array', 'itemType': EventCenterQueryEventsResponseBodyDataTable },
+      timeSeries: { 'type': 'array', 'itemType': EventCenterQueryEventsResponseBodyDataTimeSeries },
+      totalCount: 'number',
     };
   }
 
@@ -14667,11 +15178,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create an API destination.
-    *
-    * @param tmpReq CreateApiDestinationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateApiDestinationResponse
+   * @summary Creates an API destination.
+   *
+   * @description You can call this API operation to create an API destination.
+   *
+   * @param tmpReq CreateApiDestinationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApiDestinationResponse
    */
   async createApiDestinationWithOptions(tmpReq: CreateApiDestinationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiDestinationResponse> {
     Util.validateModel(tmpReq);
@@ -14716,10 +15229,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create an API destination.
-    *
-    * @param request CreateApiDestinationRequest
-    * @return CreateApiDestinationResponse
+   * @summary Creates an API destination.
+   *
+   * @description You can call this API operation to create an API destination.
+   *
+   * @param request CreateApiDestinationRequest
+   * @return CreateApiDestinationResponse
    */
   async createApiDestination(request: CreateApiDestinationRequest): Promise<CreateApiDestinationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14727,11 +15242,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create a connection.
-    *
-    * @param tmpReq CreateConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateConnectionResponse
+   * @summary Creates a connection.
+   *
+   * @description You can call this API operation to create a connection.
+   *
+   * @param tmpReq CreateConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConnectionResponse
    */
   async createConnectionWithOptions(tmpReq: CreateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionResponse> {
     Util.validateModel(tmpReq);
@@ -14780,10 +15297,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create a connection.
-    *
-    * @param request CreateConnectionRequest
-    * @return CreateConnectionResponse
+   * @summary Creates a connection.
+   *
+   * @description You can call this API operation to create a connection.
+   *
+   * @param request CreateConnectionRequest
+   * @return CreateConnectionResponse
    */
   async createConnection(request: CreateConnectionRequest): Promise<CreateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14791,11 +15310,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create an event bus.
-    *
-    * @param request CreateEventBusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateEventBusResponse
+   * @summary Creates an event bus.
+   *
+   * @description You can call this API operation to create an event bus.
+   *
+   * @param request CreateEventBusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEventBusResponse
    */
   async createEventBusWithOptions(request: CreateEventBusRequest, runtime: $Util.RuntimeOptions): Promise<CreateEventBusResponse> {
     Util.validateModel(request);
@@ -14826,10 +15347,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create an event bus.
-    *
-    * @param request CreateEventBusRequest
-    * @return CreateEventBusResponse
+   * @summary Creates an event bus.
+   *
+   * @description You can call this API operation to create an event bus.
+   *
+   * @param request CreateEventBusRequest
+   * @return CreateEventBusResponse
    */
   async createEventBus(request: CreateEventBusRequest): Promise<CreateEventBusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14837,11 +15360,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to create an event source.
-    *
-    * @param tmpReq CreateEventSourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateEventSourceResponse
+   * @summary Creates an event source.
+   *
+   * @description You can call this operation to create an event source.
+   *
+   * @param tmpReq CreateEventSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEventSourceResponse
    */
   async createEventSourceWithOptions(tmpReq: CreateEventSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEventSourceResponse> {
     Util.validateModel(tmpReq);
@@ -14934,10 +15459,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to create an event source.
-    *
-    * @param request CreateEventSourceRequest
-    * @return CreateEventSourceResponse
+   * @summary Creates an event source.
+   *
+   * @description You can call this operation to create an event source.
+   *
+   * @param request CreateEventSourceRequest
+   * @return CreateEventSourceResponse
    */
   async createEventSource(request: CreateEventSourceRequest): Promise<CreateEventSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14945,11 +15472,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create an event stream.
-    *
-    * @param tmpReq CreateEventStreamingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateEventStreamingResponse
+   * @summary Creates an event stream.
+   *
+   * @description You can call this API operation to create an event stream.
+   *
+   * @param tmpReq CreateEventStreamingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEventStreamingResponse
    */
   async createEventStreamingWithOptions(tmpReq: CreateEventStreamingRequest, runtime: $Util.RuntimeOptions): Promise<CreateEventStreamingResponse> {
     Util.validateModel(tmpReq);
@@ -15018,10 +15547,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create an event stream.
-    *
-    * @param request CreateEventStreamingRequest
-    * @return CreateEventStreamingResponse
+   * @summary Creates an event stream.
+   *
+   * @description You can call this API operation to create an event stream.
+   *
+   * @param request CreateEventStreamingRequest
+   * @return CreateEventStreamingResponse
    */
   async createEventStreaming(request: CreateEventStreamingRequest): Promise<CreateEventStreamingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15029,11 +15560,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create an event rule.
-    *
-    * @param tmpReq CreateRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateRuleResponse
+   * @summary Creates an event rule.
+   *
+   * @description You can call this API operation to create an event rule.
+   *
+   * @param tmpReq CreateRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRuleResponse
    */
   async createRuleWithOptions(tmpReq: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(tmpReq);
@@ -15086,10 +15619,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create an event rule.
-    *
-    * @param request CreateRuleRequest
-    * @return CreateRuleResponse
+   * @summary Creates an event rule.
+   *
+   * @description You can call this API operation to create an event rule.
+   *
+   * @param request CreateRuleRequest
+   * @return CreateRuleResponse
    */
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15097,11 +15632,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create a service-linked role for your cloud service.
-    *
-    * @param request CreateServiceLinkedRoleForProductRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateServiceLinkedRoleForProductResponse
+   * @summary Creates a service-linked role for your cloud service.
+   *
+   * @description You can call this API operation to create a service-linked role for your cloud service.
+   *
+   * @param request CreateServiceLinkedRoleForProductRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceLinkedRoleForProductResponse
    */
   async createServiceLinkedRoleForProductWithOptions(request: CreateServiceLinkedRoleForProductRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleForProductResponse> {
     Util.validateModel(request);
@@ -15128,10 +15665,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create a service-linked role for your cloud service.
-    *
-    * @param request CreateServiceLinkedRoleForProductRequest
-    * @return CreateServiceLinkedRoleForProductResponse
+   * @summary Creates a service-linked role for your cloud service.
+   *
+   * @description You can call this API operation to create a service-linked role for your cloud service.
+   *
+   * @param request CreateServiceLinkedRoleForProductRequest
+   * @return CreateServiceLinkedRoleForProductResponse
    */
   async createServiceLinkedRoleForProduct(request: CreateServiceLinkedRoleForProductRequest): Promise<CreateServiceLinkedRoleForProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15139,11 +15678,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an API destination.
-    *
-    * @param request DeleteApiDestinationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteApiDestinationResponse
+   * @summary Deletes an API destination.
+   *
+   * @description You can call this API operation to delete an API destination.
+   *
+   * @param request DeleteApiDestinationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApiDestinationResponse
    */
   async deleteApiDestinationWithOptions(request: DeleteApiDestinationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiDestinationResponse> {
     Util.validateModel(request);
@@ -15170,10 +15711,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an API destination.
-    *
-    * @param request DeleteApiDestinationRequest
-    * @return DeleteApiDestinationResponse
+   * @summary Deletes an API destination.
+   *
+   * @description You can call this API operation to delete an API destination.
+   *
+   * @param request DeleteApiDestinationRequest
+   * @return DeleteApiDestinationResponse
    */
   async deleteApiDestination(request: DeleteApiDestinationRequest): Promise<DeleteApiDestinationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15181,11 +15724,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete a connection.
-    *
-    * @param request DeleteConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteConnectionResponse
+   * @summary Deletes a connection.
+   *
+   * @description You can call this API operation to delete a connection.
+   *
+   * @param request DeleteConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConnectionResponse
    */
   async deleteConnectionWithOptions(request: DeleteConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnectionResponse> {
     Util.validateModel(request);
@@ -15212,10 +15757,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete a connection.
-    *
-    * @param request DeleteConnectionRequest
-    * @return DeleteConnectionResponse
+   * @summary Deletes a connection.
+   *
+   * @description You can call this API operation to delete a connection.
+   *
+   * @param request DeleteConnectionRequest
+   * @return DeleteConnectionResponse
    */
   async deleteConnection(request: DeleteConnectionRequest): Promise<DeleteConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15223,11 +15770,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an event bus.
-    *
-    * @param request DeleteEventBusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteEventBusResponse
+   * @summary Deletes an event bus.
+   *
+   * @description You can call this API operation to delete an event bus.
+   *
+   * @param request DeleteEventBusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEventBusResponse
    */
   async deleteEventBusWithOptions(request: DeleteEventBusRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventBusResponse> {
     Util.validateModel(request);
@@ -15254,10 +15803,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an event bus.
-    *
-    * @param request DeleteEventBusRequest
-    * @return DeleteEventBusResponse
+   * @summary Deletes an event bus.
+   *
+   * @description You can call this API operation to delete an event bus.
+   *
+   * @param request DeleteEventBusRequest
+   * @return DeleteEventBusResponse
    */
   async deleteEventBus(request: DeleteEventBusRequest): Promise<DeleteEventBusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15265,11 +15816,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an event source.
-    *
-    * @param request DeleteEventSourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteEventSourceResponse
+   * @summary Deletes an event source.
+   *
+   * @description You can call this API operation to delete an event source.
+   *
+   * @param request DeleteEventSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEventSourceResponse
    */
   async deleteEventSourceWithOptions(request: DeleteEventSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventSourceResponse> {
     Util.validateModel(request);
@@ -15300,10 +15853,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an event source.
-    *
-    * @param request DeleteEventSourceRequest
-    * @return DeleteEventSourceResponse
+   * @summary Deletes an event source.
+   *
+   * @description You can call this API operation to delete an event source.
+   *
+   * @param request DeleteEventSourceRequest
+   * @return DeleteEventSourceResponse
    */
   async deleteEventSource(request: DeleteEventSourceRequest): Promise<DeleteEventSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15311,11 +15866,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an event stream.
-    *
-    * @param request DeleteEventStreamingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteEventStreamingResponse
+   * @summary Deletes an event stream.
+   *
+   * @description You can call this API operation to delete an event stream.
+   *
+   * @param request DeleteEventStreamingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEventStreamingResponse
    */
   async deleteEventStreamingWithOptions(request: DeleteEventStreamingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventStreamingResponse> {
     Util.validateModel(request);
@@ -15342,10 +15899,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an event stream.
-    *
-    * @param request DeleteEventStreamingRequest
-    * @return DeleteEventStreamingResponse
+   * @summary Deletes an event stream.
+   *
+   * @description You can call this API operation to delete an event stream.
+   *
+   * @param request DeleteEventStreamingRequest
+   * @return DeleteEventStreamingResponse
    */
   async deleteEventStreaming(request: DeleteEventStreamingRequest): Promise<DeleteEventStreamingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15353,11 +15912,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an event rule.
-    *
-    * @param request DeleteRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteRuleResponse
+   * @summary Deletes an event rule.
+   *
+   * @description You can call this API operation to delete an event rule.
+   *
+   * @param request DeleteRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRuleResponse
    */
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
@@ -15388,10 +15949,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete an event rule.
-    *
-    * @param request DeleteRuleRequest
-    * @return DeleteRuleResponse
+   * @summary Deletes an event rule.
+   *
+   * @description You can call this API operation to delete an event rule.
+   *
+   * @param request DeleteRuleRequest
+   * @return DeleteRuleResponse
    */
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15399,11 +15962,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete one or more event targets of an event rule.
-    *
-    * @param tmpReq DeleteTargetsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTargetsResponse
+   * @summary Deletes one or more event targets of an event rule.
+   *
+   * @description You can call this API operation to delete one or more event targets of an event rule.
+   *
+   * @param tmpReq DeleteTargetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTargetsResponse
    */
   async deleteTargetsWithOptions(tmpReq: DeleteTargetsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTargetsResponse> {
     Util.validateModel(tmpReq);
@@ -15444,10 +16009,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to delete one or more event targets of an event rule.
-    *
-    * @param request DeleteTargetsRequest
-    * @return DeleteTargetsResponse
+   * @summary Deletes one or more event targets of an event rule.
+   *
+   * @description You can call this API operation to delete one or more event targets of an event rule.
+   *
+   * @param request DeleteTargetsRequest
+   * @return DeleteTargetsResponse
    */
   async deleteTargets(request: DeleteTargetsRequest): Promise<DeleteTargetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15455,11 +16022,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to disable an event rule.
-    *
-    * @param request DisableRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisableRuleResponse
+   * @summary Disables an event rule.
+   *
+   * @description You can call this API operation to disable an event rule.
+   *
+   * @param request DisableRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableRuleResponse
    */
   async disableRuleWithOptions(request: DisableRuleRequest, runtime: $Util.RuntimeOptions): Promise<DisableRuleResponse> {
     Util.validateModel(request);
@@ -15490,10 +16059,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to disable an event rule.
-    *
-    * @param request DisableRuleRequest
-    * @return DisableRuleResponse
+   * @summary Disables an event rule.
+   *
+   * @description You can call this API operation to disable an event rule.
+   *
+   * @param request DisableRuleRequest
+   * @return DisableRuleResponse
    */
   async disableRule(request: DisableRuleRequest): Promise<DisableRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15501,11 +16072,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to enable an event rule.
-    *
-    * @param request EnableRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnableRuleResponse
+   * @summary Enables an event rule.
+   *
+   * @description You can call this API operation to enable an event rule.
+   *
+   * @param request EnableRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableRuleResponse
    */
   async enableRuleWithOptions(request: EnableRuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableRuleResponse> {
     Util.validateModel(request);
@@ -15536,10 +16109,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to enable an event rule.
-    *
-    * @param request EnableRuleRequest
-    * @return EnableRuleResponse
+   * @summary Enables an event rule.
+   *
+   * @description You can call this API operation to enable an event rule.
+   *
+   * @param request EnableRuleRequest
+   * @return EnableRuleResponse
    */
   async enableRule(request: EnableRuleRequest): Promise<EnableRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15547,11 +16122,174 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the information about an API destination.
-    *
-    * @param request GetApiDestinationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetApiDestinationResponse
+   * @summary EventCenterCheckEnabledOnDefaultBus
+   *
+   * @param request EventCenterCheckEnabledOnDefaultBusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EventCenterCheckEnabledOnDefaultBusResponse
+   */
+  async eventCenterCheckEnabledOnDefaultBusWithOptions(runtime: $Util.RuntimeOptions): Promise<EventCenterCheckEnabledOnDefaultBusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "EventCenterCheckEnabledOnDefaultBus",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EventCenterCheckEnabledOnDefaultBusResponse>(await this.callApi(params, req, runtime), new EventCenterCheckEnabledOnDefaultBusResponse({}));
+  }
+
+  /**
+   * @summary EventCenterCheckEnabledOnDefaultBus
+   *
+   * @return EventCenterCheckEnabledOnDefaultBusResponse
+   */
+  async eventCenterCheckEnabledOnDefaultBus(): Promise<EventCenterCheckEnabledOnDefaultBusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.eventCenterCheckEnabledOnDefaultBusWithOptions(runtime);
+  }
+
+  /**
+   * @summary EventCenterDisableOnDefaultBus
+   *
+   * @param request EventCenterDisableOnDefaultBusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EventCenterDisableOnDefaultBusResponse
+   */
+  async eventCenterDisableOnDefaultBusWithOptions(runtime: $Util.RuntimeOptions): Promise<EventCenterDisableOnDefaultBusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "EventCenterDisableOnDefaultBus",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EventCenterDisableOnDefaultBusResponse>(await this.callApi(params, req, runtime), new EventCenterDisableOnDefaultBusResponse({}));
+  }
+
+  /**
+   * @summary EventCenterDisableOnDefaultBus
+   *
+   * @return EventCenterDisableOnDefaultBusResponse
+   */
+  async eventCenterDisableOnDefaultBus(): Promise<EventCenterDisableOnDefaultBusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.eventCenterDisableOnDefaultBusWithOptions(runtime);
+  }
+
+  /**
+   * @summary EventCenterEnableOnDefaultBus
+   *
+   * @param request EventCenterEnableOnDefaultBusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EventCenterEnableOnDefaultBusResponse
+   */
+  async eventCenterEnableOnDefaultBusWithOptions(runtime: $Util.RuntimeOptions): Promise<EventCenterEnableOnDefaultBusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "EventCenterEnableOnDefaultBus",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EventCenterEnableOnDefaultBusResponse>(await this.callApi(params, req, runtime), new EventCenterEnableOnDefaultBusResponse({}));
+  }
+
+  /**
+   * @summary EventCenterEnableOnDefaultBus
+   *
+   * @return EventCenterEnableOnDefaultBusResponse
+   */
+  async eventCenterEnableOnDefaultBus(): Promise<EventCenterEnableOnDefaultBusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.eventCenterEnableOnDefaultBusWithOptions(runtime);
+  }
+
+  /**
+   * @summary EventCenterQueryEvents
+   *
+   * @param tmpReq EventCenterQueryEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EventCenterQueryEventsResponse
+   */
+  async eventCenterQueryEventsWithOptions(tmpReq: EventCenterQueryEventsRequest, runtime: $Util.RuntimeOptions): Promise<EventCenterQueryEventsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new EventCenterQueryEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "Body", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.busName)) {
+      query["BusName"] = request.busName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bodyShrink)) {
+      body["Body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "EventCenterQueryEvents",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EventCenterQueryEventsResponse>(await this.callApi(params, req, runtime), new EventCenterQueryEventsResponse({}));
+  }
+
+  /**
+   * @summary EventCenterQueryEvents
+   *
+   * @param request EventCenterQueryEventsRequest
+   * @return EventCenterQueryEventsResponse
+   */
+  async eventCenterQueryEvents(request: EventCenterQueryEventsRequest): Promise<EventCenterQueryEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.eventCenterQueryEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the information about an API destination.
+   *
+   * @description You can call this API operation to query the information about an API destination.
+   *
+   * @param request GetApiDestinationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApiDestinationResponse
    */
   async getApiDestinationWithOptions(request: GetApiDestinationRequest, runtime: $Util.RuntimeOptions): Promise<GetApiDestinationResponse> {
     Util.validateModel(request);
@@ -15578,10 +16316,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the information about an API destination.
-    *
-    * @param request GetApiDestinationRequest
-    * @return GetApiDestinationResponse
+   * @summary Queries the information about an API destination.
+   *
+   * @description You can call this API operation to query the information about an API destination.
+   *
+   * @param request GetApiDestinationRequest
+   * @return GetApiDestinationResponse
    */
   async getApiDestination(request: GetApiDestinationRequest): Promise<GetApiDestinationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15589,11 +16329,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the configurations of a connection.
-    *
-    * @param request GetConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetConnectionResponse
+   * @summary Queries the configurations of a connection.
+   *
+   * @description You can call this API operation to query the configurations of a connection.
+   *
+   * @param request GetConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConnectionResponse
    */
   async getConnectionWithOptions(request: GetConnectionRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionResponse> {
     Util.validateModel(request);
@@ -15620,10 +16362,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the configurations of a connection.
-    *
-    * @param request GetConnectionRequest
-    * @return GetConnectionResponse
+   * @summary Queries the configurations of a connection.
+   *
+   * @description You can call this API operation to query the configurations of a connection.
+   *
+   * @param request GetConnectionRequest
+   * @return GetConnectionResponse
    */
   async getConnection(request: GetConnectionRequest): Promise<GetConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15631,11 +16375,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the detailed information about an event bus.
-    *
-    * @param request GetEventBusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetEventBusResponse
+   * @summary Queries the detailed information about an event bus.
+   *
+   * @description You can call this API operation to query the detailed information about an event bus.
+   *
+   * @param request GetEventBusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEventBusResponse
    */
   async getEventBusWithOptions(request: GetEventBusRequest, runtime: $Util.RuntimeOptions): Promise<GetEventBusResponse> {
     Util.validateModel(request);
@@ -15662,10 +16408,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the detailed information about an event bus.
-    *
-    * @param request GetEventBusRequest
-    * @return GetEventBusResponse
+   * @summary Queries the detailed information about an event bus.
+   *
+   * @description You can call this API operation to query the detailed information about an event bus.
+   *
+   * @param request GetEventBusRequest
+   * @return GetEventBusResponse
    */
   async getEventBus(request: GetEventBusRequest): Promise<GetEventBusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15673,11 +16421,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the details of an event stream.
-    *
-    * @param request GetEventStreamingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetEventStreamingResponse
+   * @summary Queries the details of an event stream.
+   *
+   * @description You can call this API operation to query the details of an event stream.
+   *
+   * @param request GetEventStreamingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEventStreamingResponse
    */
   async getEventStreamingWithOptions(request: GetEventStreamingRequest, runtime: $Util.RuntimeOptions): Promise<GetEventStreamingResponse> {
     Util.validateModel(request);
@@ -15704,10 +16454,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the details of an event stream.
-    *
-    * @param request GetEventStreamingRequest
-    * @return GetEventStreamingResponse
+   * @summary Queries the details of an event stream.
+   *
+   * @description You can call this API operation to query the details of an event stream.
+   *
+   * @param request GetEventStreamingRequest
+   * @return GetEventStreamingResponse
    */
   async getEventStreaming(request: GetEventStreamingRequest): Promise<GetEventStreamingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15715,11 +16467,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the details of an event rule.
-    *
-    * @param request GetRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetRuleResponse
+   * @summary Queries the details of an event rule.
+   *
+   * @description You can call this API operation to query the details of an event rule.
+   *
+   * @param request GetRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRuleResponse
    */
   async getRuleWithOptions(request: GetRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleResponse> {
     Util.validateModel(request);
@@ -15750,10 +16504,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the details of an event rule.
-    *
-    * @param request GetRuleRequest
-    * @return GetRuleResponse
+   * @summary Queries the details of an event rule.
+   *
+   * @description You can call this API operation to query the details of an event rule.
+   *
+   * @param request GetRuleRequest
+   * @return GetRuleResponse
    */
   async getRule(request: GetRuleRequest): Promise<GetRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15761,11 +16517,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query all Alibaba Cloud service event sources.
-    *
-    * @param request ListAliyunOfficialEventSourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListAliyunOfficialEventSourcesResponse
+   * @summary Queries all Alibaba Cloud service event sources.
+   *
+   * @description You can call this API operation to query all Alibaba Cloud service event sources.
+   *
+   * @param request ListAliyunOfficialEventSourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAliyunOfficialEventSourcesResponse
    */
   async listAliyunOfficialEventSourcesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListAliyunOfficialEventSourcesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -15784,9 +16542,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query all Alibaba Cloud service event sources.
-    *
-    * @return ListAliyunOfficialEventSourcesResponse
+   * @summary Queries all Alibaba Cloud service event sources.
+   *
+   * @description You can call this API operation to query all Alibaba Cloud service event sources.
+   *
+   * @return ListAliyunOfficialEventSourcesResponse
    */
   async listAliyunOfficialEventSources(): Promise<ListAliyunOfficialEventSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15794,11 +16554,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this API operation to query a list of API destinations.
-    *
-    * @param request ListApiDestinationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListApiDestinationsResponse
+   * @summary Queries a list of API destinations.
+   *
+   * @description You can use this API operation to query a list of API destinations.
+   *
+   * @param request ListApiDestinationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApiDestinationsResponse
    */
   async listApiDestinationsWithOptions(request: ListApiDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApiDestinationsResponse> {
     Util.validateModel(request);
@@ -15837,10 +16599,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this API operation to query a list of API destinations.
-    *
-    * @param request ListApiDestinationsRequest
-    * @return ListApiDestinationsResponse
+   * @summary Queries a list of API destinations.
+   *
+   * @description You can use this API operation to query a list of API destinations.
+   *
+   * @param request ListApiDestinationsRequest
+   * @return ListApiDestinationsResponse
    */
   async listApiDestinations(request: ListApiDestinationsRequest): Promise<ListApiDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15848,11 +16612,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query connections.
-    *
-    * @param request ListConnectionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListConnectionsResponse
+   * @summary Queries connections.
+   *
+   * @description You can call this API operation to query connections.
+   *
+   * @param request ListConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConnectionsResponse
    */
   async listConnectionsWithOptions(request: ListConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionsResponse> {
     Util.validateModel(request);
@@ -15887,10 +16653,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query connections.
-    *
-    * @param request ListConnectionsRequest
-    * @return ListConnectionsResponse
+   * @summary Queries connections.
+   *
+   * @description You can call this API operation to query connections.
+   *
+   * @param request ListConnectionsRequest
+   * @return ListConnectionsResponse
    */
   async listConnections(request: ListConnectionsRequest): Promise<ListConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15898,11 +16666,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query all event buses.
-    *
-    * @param request ListEventBusesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListEventBusesResponse
+   * @summary Queries all event buses.
+   *
+   * @description You can call this API operation to query all event buses.
+   *
+   * @param request ListEventBusesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEventBusesResponse
    */
   async listEventBusesWithOptions(request: ListEventBusesRequest, runtime: $Util.RuntimeOptions): Promise<ListEventBusesResponse> {
     Util.validateModel(request);
@@ -15937,10 +16707,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query all event buses.
-    *
-    * @param request ListEventBusesRequest
-    * @return ListEventBusesResponse
+   * @summary Queries all event buses.
+   *
+   * @description You can call this API operation to query all event buses.
+   *
+   * @param request ListEventBusesRequest
+   * @return ListEventBusesResponse
    */
   async listEventBuses(request: ListEventBusesRequest): Promise<ListEventBusesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15948,11 +16720,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query event streams.
-    *
-    * @param request ListEventStreamingsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListEventStreamingsResponse
+   * @summary Queries event streams.
+   *
+   * @description You can call this API operation to query event streams.
+   *
+   * @param request ListEventStreamingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEventStreamingsResponse
    */
   async listEventStreamingsWithOptions(request: ListEventStreamingsRequest, runtime: $Util.RuntimeOptions): Promise<ListEventStreamingsResponse> {
     Util.validateModel(request);
@@ -15995,10 +16769,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query event streams.
-    *
-    * @param request ListEventStreamingsRequest
-    * @return ListEventStreamingsResponse
+   * @summary Queries event streams.
+   *
+   * @description You can call this API operation to query event streams.
+   *
+   * @param request ListEventStreamingsRequest
+   * @return ListEventStreamingsResponse
    */
   async listEventStreamings(request: ListEventStreamingsRequest): Promise<ListEventStreamingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16006,11 +16782,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query all rules of an event bus.
-    *
-    * @param request ListRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListRulesResponse
+   * @summary Queries all rules of an event bus.
+   *
+   * @description You can call this API operation to query all rules of an event bus.
+   *
+   * @param request ListRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRulesResponse
    */
   async listRulesWithOptions(request: ListRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListRulesResponse> {
     Util.validateModel(request);
@@ -16049,16 +16827,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query all rules of an event bus.
-    *
-    * @param request ListRulesRequest
-    * @return ListRulesResponse
+   * @summary Queries all rules of an event bus.
+   *
+   * @description You can call this API operation to query all rules of an event bus.
+   *
+   * @param request ListRulesRequest
+   * @return ListRulesResponse
    */
   async listRules(request: ListRulesRequest): Promise<ListRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all event targets of an event rule.
+   *
+   * @param request ListTargetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTargetsResponse
+   */
   async listTargetsWithOptions(request: ListTargetsRequest, runtime: $Util.RuntimeOptions): Promise<ListTargetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16099,17 +16886,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTargetsResponse>(await this.callApi(params, req, runtime), new ListTargetsResponse({}));
   }
 
+  /**
+   * @summary Queries all event targets of an event rule.
+   *
+   * @param request ListTargetsRequest
+   * @return ListTargetsResponse
+   */
   async listTargets(request: ListTargetsRequest): Promise<ListTargetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTargetsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this API operation to query custom event sources.
-    *
-    * @param request ListUserDefinedEventSourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListUserDefinedEventSourcesResponse
+   * @summary Queries all custom event sources.
+   *
+   * @description You can call this API operation to query custom event sources.
+   *
+   * @param request ListUserDefinedEventSourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserDefinedEventSourcesResponse
    */
   async listUserDefinedEventSourcesWithOptions(request: ListUserDefinedEventSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserDefinedEventSourcesResponse> {
     Util.validateModel(request);
@@ -16148,10 +16943,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query custom event sources.
-    *
-    * @param request ListUserDefinedEventSourcesRequest
-    * @return ListUserDefinedEventSourcesResponse
+   * @summary Queries all custom event sources.
+   *
+   * @description You can call this API operation to query custom event sources.
+   *
+   * @param request ListUserDefinedEventSourcesRequest
+   * @return ListUserDefinedEventSourcesResponse
    */
   async listUserDefinedEventSources(request: ListUserDefinedEventSourcesRequest): Promise<ListUserDefinedEventSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16159,11 +16956,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to stop an event stream that is running.
-    *
-    * @param request PauseEventStreamingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PauseEventStreamingResponse
+   * @summary Stops an event stream that is running.
+   *
+   * @description You can call this API operation to stop an event stream that is running.
+   *
+   * @param request PauseEventStreamingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PauseEventStreamingResponse
    */
   async pauseEventStreamingWithOptions(request: PauseEventStreamingRequest, runtime: $Util.RuntimeOptions): Promise<PauseEventStreamingResponse> {
     Util.validateModel(request);
@@ -16190,10 +16989,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to stop an event stream that is running.
-    *
-    * @param request PauseEventStreamingRequest
-    * @return PauseEventStreamingResponse
+   * @summary Stops an event stream that is running.
+   *
+   * @description You can call this API operation to stop an event stream that is running.
+   *
+   * @param request PauseEventStreamingRequest
+   * @return PauseEventStreamingResponse
    */
   async pauseEventStreaming(request: PauseEventStreamingRequest): Promise<PauseEventStreamingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16201,11 +17002,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create or update event targets under a rule.
-    *
-    * @param tmpReq PutTargetsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PutTargetsResponse
+   * @summary Creates or updates event targets under a rule.
+   *
+   * @description You can call this API operation to create or update event targets under a rule.
+   *
+   * @param tmpReq PutTargetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutTargetsResponse
    */
   async putTargetsWithOptions(tmpReq: PutTargetsRequest, runtime: $Util.RuntimeOptions): Promise<PutTargetsResponse> {
     Util.validateModel(tmpReq);
@@ -16246,10 +17049,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create or update event targets under a rule.
-    *
-    * @param request PutTargetsRequest
-    * @return PutTargetsResponse
+   * @summary Creates or updates event targets under a rule.
+   *
+   * @description You can call this API operation to create or update event targets under a rule.
+   *
+   * @param request PutTargetsRequest
+   * @return PutTargetsResponse
    */
   async putTargets(request: PutTargetsRequest): Promise<PutTargetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16257,11 +17062,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the content of an event.
-    *
-    * @param request QueryEventRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryEventResponse
+   * @summary Queries the content of an event.
+   *
+   * @description You can call this API operation to query the content of an event.
+   *
+   * @param request QueryEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryEventResponse
    */
   async queryEventWithOptions(request: QueryEventRequest, runtime: $Util.RuntimeOptions): Promise<QueryEventResponse> {
     Util.validateModel(request);
@@ -16296,10 +17103,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query the content of an event.
-    *
-    * @param request QueryEventRequest
-    * @return QueryEventResponse
+   * @summary Queries the content of an event.
+   *
+   * @description You can call this API operation to query the content of an event.
+   *
+   * @param request QueryEventRequest
+   * @return QueryEventResponse
    */
   async queryEvent(request: QueryEventRequest): Promise<QueryEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16307,11 +17116,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query event traces.
-    *
-    * @param request QueryEventTracesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryEventTracesResponse
+   * @summary Queries event traces.
+   *
+   * @description You can call this API operation to query event traces.
+   *
+   * @param request QueryEventTracesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryEventTracesResponse
    */
   async queryEventTracesWithOptions(request: QueryEventTracesRequest, runtime: $Util.RuntimeOptions): Promise<QueryEventTracesResponse> {
     Util.validateModel(request);
@@ -16342,10 +17153,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query event traces.
-    *
-    * @param request QueryEventTracesRequest
-    * @return QueryEventTracesResponse
+   * @summary Queries event traces.
+   *
+   * @description You can call this API operation to query event traces.
+   *
+   * @param request QueryEventTracesRequest
+   * @return QueryEventTracesResponse
    */
   async queryEventTraces(request: QueryEventTracesRequest): Promise<QueryEventTracesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16353,11 +17166,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query event traces by event ID.
-    *
-    * @param request QueryTracedEventByEventIdRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryTracedEventByEventIdResponse
+   * @summary Queries event traces by event ID.
+   *
+   * @description You can call this API operation to query event traces by event ID.
+   *
+   * @param request QueryTracedEventByEventIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTracedEventByEventIdResponse
    */
   async queryTracedEventByEventIdWithOptions(request: QueryTracedEventByEventIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryTracedEventByEventIdResponse> {
     Util.validateModel(request);
@@ -16392,10 +17207,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query event traces by event ID.
-    *
-    * @param request QueryTracedEventByEventIdRequest
-    * @return QueryTracedEventByEventIdResponse
+   * @summary Queries event traces by event ID.
+   *
+   * @description You can call this API operation to query event traces by event ID.
+   *
+   * @param request QueryTracedEventByEventIdRequest
+   * @return QueryTracedEventByEventIdResponse
    */
   async queryTracedEventByEventId(request: QueryTracedEventByEventIdRequest): Promise<QueryTracedEventByEventIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16403,11 +17220,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query event traces by time range.
-    *
-    * @param request QueryTracedEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryTracedEventsResponse
+   * @summary Queries event traces by time range.
+   *
+   * @description You can call this API operation to query event traces by time range.
+   *
+   * @param request QueryTracedEventsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTracedEventsResponse
    */
   async queryTracedEventsWithOptions(request: QueryTracedEventsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTracedEventsResponse> {
     Util.validateModel(request);
@@ -16462,10 +17281,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to query event traces by time range.
-    *
-    * @param request QueryTracedEventsRequest
-    * @return QueryTracedEventsResponse
+   * @summary Queries event traces by time range.
+   *
+   * @description You can call this API operation to query event traces by time range.
+   *
+   * @param request QueryTracedEventsRequest
+   * @return QueryTracedEventsResponse
    */
   async queryTracedEvents(request: QueryTracedEventsRequest): Promise<QueryTracedEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16473,11 +17294,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to enable a created or deactivated event stream.
-    *
-    * @param request StartEventStreamingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartEventStreamingResponse
+   * @summary Enables a created or deactivated event stream.
+   *
+   * @description You can call this API operation to enable a created or deactivated event stream.
+   *
+   * @param request StartEventStreamingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartEventStreamingResponse
    */
   async startEventStreamingWithOptions(request: StartEventStreamingRequest, runtime: $Util.RuntimeOptions): Promise<StartEventStreamingResponse> {
     Util.validateModel(request);
@@ -16504,10 +17327,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to enable a created or deactivated event stream.
-    *
-    * @param request StartEventStreamingRequest
-    * @return StartEventStreamingResponse
+   * @summary Enables a created or deactivated event stream.
+   *
+   * @description You can call this API operation to enable a created or deactivated event stream.
+   *
+   * @param request StartEventStreamingRequest
+   * @return StartEventStreamingResponse
    */
   async startEventStreaming(request: StartEventStreamingRequest): Promise<StartEventStreamingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16515,11 +17340,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to check whether the event pattern matches the provided JSON format.
-    *
-    * @param request TestEventPatternRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TestEventPatternResponse
+   * @summary Checks whether the event pattern matches the provided JSON format.
+   *
+   * @description You can call this API operation to check whether the event pattern matches the provided JSON format.
+   *
+   * @param request TestEventPatternRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TestEventPatternResponse
    */
   async testEventPatternWithOptions(request: TestEventPatternRequest, runtime: $Util.RuntimeOptions): Promise<TestEventPatternResponse> {
     Util.validateModel(request);
@@ -16550,10 +17377,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to check whether the event pattern matches the provided JSON format.
-    *
-    * @param request TestEventPatternRequest
-    * @return TestEventPatternResponse
+   * @summary Checks whether the event pattern matches the provided JSON format.
+   *
+   * @description You can call this API operation to check whether the event pattern matches the provided JSON format.
+   *
+   * @param request TestEventPatternRequest
+   * @return TestEventPatternResponse
    */
   async testEventPattern(request: TestEventPatternRequest): Promise<TestEventPatternResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16561,11 +17390,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update an API destination.
-    *
-    * @param tmpReq UpdateApiDestinationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateApiDestinationResponse
+   * @summary Updates an API destination.
+   *
+   * @description You can call this API operation to update an API destination.
+   *
+   * @param tmpReq UpdateApiDestinationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApiDestinationResponse
    */
   async updateApiDestinationWithOptions(tmpReq: UpdateApiDestinationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApiDestinationResponse> {
     Util.validateModel(tmpReq);
@@ -16610,10 +17441,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update an API destination.
-    *
-    * @param request UpdateApiDestinationRequest
-    * @return UpdateApiDestinationResponse
+   * @summary Updates an API destination.
+   *
+   * @description You can call this API operation to update an API destination.
+   *
+   * @param request UpdateApiDestinationRequest
+   * @return UpdateApiDestinationResponse
    */
   async updateApiDestination(request: UpdateApiDestinationRequest): Promise<UpdateApiDestinationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16621,11 +17454,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update a connection.
-    *
-    * @param tmpReq UpdateConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateConnectionResponse
+   * @summary Updates a connection.
+   *
+   * @description You can call this API operation to update a connection.
+   *
+   * @param tmpReq UpdateConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateConnectionResponse
    */
   async updateConnectionWithOptions(tmpReq: UpdateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnectionResponse> {
     Util.validateModel(tmpReq);
@@ -16674,10 +17509,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update a connection.
-    *
-    * @param request UpdateConnectionRequest
-    * @return UpdateConnectionResponse
+   * @summary Updates a connection.
+   *
+   * @description You can call this API operation to update a connection.
+   *
+   * @param request UpdateConnectionRequest
+   * @return UpdateConnectionResponse
    */
   async updateConnection(request: UpdateConnectionRequest): Promise<UpdateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16685,11 +17522,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to modify an event bus.
-    *
-    * @param request UpdateEventBusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateEventBusResponse
+   * @summary Modifies an event bus.
+   *
+   * @description You can call this API operation to modify an event bus.
+   *
+   * @param request UpdateEventBusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEventBusResponse
    */
   async updateEventBusWithOptions(request: UpdateEventBusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEventBusResponse> {
     Util.validateModel(request);
@@ -16720,10 +17559,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to modify an event bus.
-    *
-    * @param request UpdateEventBusRequest
-    * @return UpdateEventBusResponse
+   * @summary Modifies an event bus.
+   *
+   * @description You can call this API operation to modify an event bus.
+   *
+   * @param request UpdateEventBusRequest
+   * @return UpdateEventBusResponse
    */
   async updateEventBus(request: UpdateEventBusRequest): Promise<UpdateEventBusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16731,11 +17572,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update an event source.
-    *
-    * @param tmpReq UpdateEventSourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateEventSourceResponse
+   * @summary Updates an event source.
+   *
+   * @description You can call this API operation to update an event source.
+   *
+   * @param tmpReq UpdateEventSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEventSourceResponse
    */
   async updateEventSourceWithOptions(tmpReq: UpdateEventSourceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEventSourceResponse> {
     Util.validateModel(tmpReq);
@@ -16828,10 +17671,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update an event source.
-    *
-    * @param request UpdateEventSourceRequest
-    * @return UpdateEventSourceResponse
+   * @summary Updates an event source.
+   *
+   * @description You can call this API operation to update an event source.
+   *
+   * @param request UpdateEventSourceRequest
+   * @return UpdateEventSourceResponse
    */
   async updateEventSource(request: UpdateEventSourceRequest): Promise<UpdateEventSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16839,11 +17684,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
-    *
-    * @param tmpReq UpdateEventStreamingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateEventStreamingResponse
+   * @summary Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+   *
+   * @description You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+   *
+   * @param tmpReq UpdateEventStreamingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEventStreamingResponse
    */
   async updateEventStreamingWithOptions(tmpReq: UpdateEventStreamingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEventStreamingResponse> {
     Util.validateModel(tmpReq);
@@ -16912,10 +17759,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
-    *
-    * @param request UpdateEventStreamingRequest
-    * @return UpdateEventStreamingResponse
+   * @summary Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+   *
+   * @description You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+   *
+   * @param request UpdateEventStreamingRequest
+   * @return UpdateEventStreamingResponse
    */
   async updateEventStreaming(request: UpdateEventStreamingRequest): Promise<UpdateEventStreamingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16923,11 +17772,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update the configurations of an event rule.
-    *
-    * @param request UpdateRuleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateRuleResponse
+   * @summary Updates the configurations of an event rule.
+   *
+   * @description You can call this API operation to update the configurations of an event rule.
+   *
+   * @param request UpdateRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRuleResponse
    */
   async updateRuleWithOptions(request: UpdateRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleResponse> {
     Util.validateModel(request);
@@ -16970,10 +17821,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to update the configurations of an event rule.
-    *
-    * @param request UpdateRuleRequest
-    * @return UpdateRuleResponse
+   * @summary Updates the configurations of an event rule.
+   *
+   * @description You can call this API operation to update the configurations of an event rule.
+   *
+   * @param request UpdateRuleRequest
+   * @return UpdateRuleResponse
    */
   async updateRule(request: UpdateRuleRequest): Promise<UpdateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
