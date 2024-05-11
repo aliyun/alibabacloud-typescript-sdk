@@ -1748,6 +1748,56 @@ export class ImageAsyncModerationResponseBodyData extends $tea.Model {
   }
 }
 
+export class ImageModerationResponseBodyDataExtOcrResultLocation extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtOcrResult extends $tea.Model {
+  location?: ImageModerationResponseBodyDataExtOcrResultLocation;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      location: 'Location',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      location: ImageModerationResponseBodyDataExtOcrResultLocation,
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataExtRecognition extends $tea.Model {
   classification?: string;
   confidence?: number;
@@ -1771,15 +1821,18 @@ export class ImageModerationResponseBodyDataExtRecognition extends $tea.Model {
 }
 
 export class ImageModerationResponseBodyDataExt extends $tea.Model {
+  ocrResult?: ImageModerationResponseBodyDataExtOcrResult[];
   recognition?: ImageModerationResponseBodyDataExtRecognition[];
   static names(): { [key: string]: string } {
     return {
+      ocrResult: 'OcrResult',
       recognition: 'Recognition',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ocrResult: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtOcrResult },
       recognition: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtRecognition },
     };
   }
@@ -2443,6 +2496,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 文档审核结果
+   *
+   * @param request DescribeFileModerationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFileModerationResultResponse
+   */
   async describeFileModerationResultWithOptions(request: DescribeFileModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileModerationResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2471,11 +2531,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFileModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeFileModerationResultResponse({}));
   }
 
+  /**
+   * @summary 文档审核结果
+   *
+   * @param request DescribeFileModerationResultRequest
+   * @return DescribeFileModerationResultResponse
+   */
   async describeFileModerationResult(request: DescribeFileModerationResultRequest): Promise<DescribeFileModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFileModerationResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询异步检测结果
+   *
+   * @param request DescribeImageModerationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageModerationResultResponse
+   */
   async describeImageModerationResultWithOptions(request: DescribeImageModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageModerationResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2500,11 +2573,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeImageModerationResultResponse({}));
   }
 
+  /**
+   * @summary 查询异步检测结果
+   *
+   * @param request DescribeImageModerationResultRequest
+   * @return DescribeImageModerationResultResponse
+   */
   async describeImageModerationResult(request: DescribeImageModerationResultRequest): Promise<DescribeImageModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageModerationResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询检测结果辅助信息
+   *
+   * @param request DescribeImageResultExtRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageResultExtResponse
+   */
   async describeImageResultExtWithOptions(request: DescribeImageResultExtRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageResultExtResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2533,11 +2619,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageResultExtResponse>(await this.callApi(params, req, runtime), new DescribeImageResultExtResponse({}));
   }
 
+  /**
+   * @summary 查询检测结果辅助信息
+   *
+   * @param request DescribeImageResultExtRequest
+   * @return DescribeImageResultExtResponse
+   */
   async describeImageResultExt(request: DescribeImageResultExtRequest): Promise<DescribeImageResultExtResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageResultExtWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询上传token
+   *
+   * @param request DescribeUploadTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUploadTokenResponse
+   */
   async describeUploadTokenWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUploadTokenResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -2554,11 +2653,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUploadTokenResponse>(await this.callApi(params, req, runtime), new DescribeUploadTokenResponse({}));
   }
 
+  /**
+   * @summary 查询上传token
+   *
+   * @return DescribeUploadTokenResponse
+   */
   async describeUploadToken(): Promise<DescribeUploadTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUploadTokenWithOptions(runtime);
   }
 
+  /**
+   * @summary 查询 url 检测结果
+   *
+   * @param request DescribeUrlModerationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUrlModerationResultResponse
+   */
   async describeUrlModerationResultWithOptions(request: DescribeUrlModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUrlModerationResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2583,11 +2694,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUrlModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeUrlModerationResultResponse({}));
   }
 
+  /**
+   * @summary 查询 url 检测结果
+   *
+   * @param request DescribeUrlModerationResultRequest
+   * @return DescribeUrlModerationResultResponse
+   */
   async describeUrlModerationResult(request: DescribeUrlModerationResultRequest): Promise<DescribeUrlModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUrlModerationResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档审核
+   *
+   * @param request FileModerationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FileModerationResponse
+   */
   async fileModerationWithOptions(request: FileModerationRequest, runtime: $Util.RuntimeOptions): Promise<FileModerationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2616,11 +2740,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FileModerationResponse>(await this.callApi(params, req, runtime), new FileModerationResponse({}));
   }
 
+  /**
+   * @summary 文档审核
+   *
+   * @param request FileModerationRequest
+   * @return FileModerationResponse
+   */
   async fileModeration(request: FileModerationRequest): Promise<FileModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fileModerationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 图片异步检测
+   *
+   * @param request ImageAsyncModerationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImageAsyncModerationResponse
+   */
   async imageAsyncModerationWithOptions(request: ImageAsyncModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageAsyncModerationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2649,11 +2786,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ImageAsyncModerationResponse>(await this.callApi(params, req, runtime), new ImageAsyncModerationResponse({}));
   }
 
+  /**
+   * @summary 图片异步检测
+   *
+   * @param request ImageAsyncModerationRequest
+   * @return ImageAsyncModerationResponse
+   */
   async imageAsyncModeration(request: ImageAsyncModerationRequest): Promise<ImageAsyncModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.imageAsyncModerationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 图片审核
+   *
+   * @param request ImageModerationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImageModerationResponse
+   */
   async imageModerationWithOptions(request: ImageModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageModerationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2682,11 +2832,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ImageModerationResponse>(await this.callApi(params, req, runtime), new ImageModerationResponse({}));
   }
 
+  /**
+   * @summary 图片审核
+   *
+   * @param request ImageModerationRequest
+   * @return ImageModerationResponse
+   */
   async imageModeration(request: ImageModerationRequest): Promise<ImageModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.imageModerationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文本审核
+   *
+   * @param request TextModerationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TextModerationResponse
+   */
   async textModerationWithOptions(request: TextModerationRequest, runtime: $Util.RuntimeOptions): Promise<TextModerationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2715,11 +2878,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TextModerationResponse>(await this.callApi(params, req, runtime), new TextModerationResponse({}));
   }
 
+  /**
+   * @summary 文本审核
+   *
+   * @param request TextModerationRequest
+   * @return TextModerationResponse
+   */
   async textModeration(request: TextModerationRequest): Promise<TextModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.textModerationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文本检测Plus版
+   *
+   * @param request TextModerationPlusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TextModerationPlusResponse
+   */
   async textModerationPlusWithOptions(request: TextModerationPlusRequest, runtime: $Util.RuntimeOptions): Promise<TextModerationPlusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2748,11 +2924,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TextModerationPlusResponse>(await this.callApi(params, req, runtime), new TextModerationPlusResponse({}));
   }
 
+  /**
+   * @summary 文本检测Plus版
+   *
+   * @param request TextModerationPlusRequest
+   * @return TextModerationPlusResponse
+   */
   async textModerationPlus(request: TextModerationPlusRequest): Promise<TextModerationPlusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.textModerationPlusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary url异步检测
+   *
+   * @param request UrlAsyncModerationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UrlAsyncModerationResponse
+   */
   async urlAsyncModerationWithOptions(request: UrlAsyncModerationRequest, runtime: $Util.RuntimeOptions): Promise<UrlAsyncModerationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2781,11 +2970,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UrlAsyncModerationResponse>(await this.callApi(params, req, runtime), new UrlAsyncModerationResponse({}));
   }
 
+  /**
+   * @summary url异步检测
+   *
+   * @param request UrlAsyncModerationRequest
+   * @return UrlAsyncModerationResponse
+   */
   async urlAsyncModeration(request: UrlAsyncModerationRequest): Promise<UrlAsyncModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.urlAsyncModerationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视频检测任务提交
+   *
+   * @param request VideoModerationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VideoModerationResponse
+   */
   async videoModerationWithOptions(request: VideoModerationRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2814,11 +3016,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VideoModerationResponse>(await this.callApi(params, req, runtime), new VideoModerationResponse({}));
   }
 
+  /**
+   * @summary 视频检测任务提交
+   *
+   * @param request VideoModerationRequest
+   * @return VideoModerationResponse
+   */
   async videoModeration(request: VideoModerationRequest): Promise<VideoModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.videoModerationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消视频直播流检测
+   *
+   * @param request VideoModerationCancelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VideoModerationCancelResponse
+   */
   async videoModerationCancelWithOptions(request: VideoModerationCancelRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationCancelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2847,11 +3062,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VideoModerationCancelResponse>(await this.callApi(params, req, runtime), new VideoModerationCancelResponse({}));
   }
 
+  /**
+   * @summary 取消视频直播流检测
+   *
+   * @param request VideoModerationCancelRequest
+   * @return VideoModerationCancelResponse
+   */
   async videoModerationCancel(request: VideoModerationCancelRequest): Promise<VideoModerationCancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.videoModerationCancelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取视频检测结果
+   *
+   * @param request VideoModerationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VideoModerationResultResponse
+   */
   async videoModerationResultWithOptions(request: VideoModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2880,11 +3108,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VideoModerationResultResponse>(await this.callApi(params, req, runtime), new VideoModerationResultResponse({}));
   }
 
+  /**
+   * @summary 获取视频检测结果
+   *
+   * @param request VideoModerationResultRequest
+   * @return VideoModerationResultResponse
+   */
   async videoModerationResult(request: VideoModerationResultRequest): Promise<VideoModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.videoModerationResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 语音审核
+   *
+   * @param request VoiceModerationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VoiceModerationResponse
+   */
   async voiceModerationWithOptions(request: VoiceModerationRequest, runtime: $Util.RuntimeOptions): Promise<VoiceModerationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2913,11 +3154,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VoiceModerationResponse>(await this.callApi(params, req, runtime), new VoiceModerationResponse({}));
   }
 
+  /**
+   * @summary 语音审核
+   *
+   * @param request VoiceModerationRequest
+   * @return VoiceModerationResponse
+   */
   async voiceModeration(request: VoiceModerationRequest): Promise<VoiceModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.voiceModerationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消检测
+   *
+   * @param request VoiceModerationCancelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VoiceModerationCancelResponse
+   */
   async voiceModerationCancelWithOptions(request: VoiceModerationCancelRequest, runtime: $Util.RuntimeOptions): Promise<VoiceModerationCancelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2946,11 +3200,24 @@ export default class Client extends OpenApi {
     return $tea.cast<VoiceModerationCancelResponse>(await this.callApi(params, req, runtime), new VoiceModerationCancelResponse({}));
   }
 
+  /**
+   * @summary 取消检测
+   *
+   * @param request VoiceModerationCancelRequest
+   * @return VoiceModerationCancelResponse
+   */
   async voiceModerationCancel(request: VoiceModerationCancelRequest): Promise<VoiceModerationCancelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.voiceModerationCancelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 语音检测结果获取接口
+   *
+   * @param request VoiceModerationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VoiceModerationResultResponse
+   */
   async voiceModerationResultWithOptions(request: VoiceModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<VoiceModerationResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2979,6 +3246,12 @@ export default class Client extends OpenApi {
     return $tea.cast<VoiceModerationResultResponse>(await this.callApi(params, req, runtime), new VoiceModerationResultResponse({}));
   }
 
+  /**
+   * @summary 语音检测结果获取接口
+   *
+   * @param request VoiceModerationResultRequest
+   * @return VoiceModerationResultResponse
+   */
   async voiceModerationResult(request: VoiceModerationResultRequest): Promise<VoiceModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.voiceModerationResultWithOptions(request, runtime);
