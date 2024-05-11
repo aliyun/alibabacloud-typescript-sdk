@@ -279,9 +279,9 @@ export class AudioStream extends $tea.Model {
 export class Binding extends $tea.Model {
   createTime?: string;
   datasetName?: string;
-  detail?: string;
   phase?: string;
   projectName?: string;
+  reason?: string;
   state?: string;
   URI?: string;
   updateTime?: string;
@@ -289,9 +289,9 @@ export class Binding extends $tea.Model {
     return {
       createTime: 'CreateTime',
       datasetName: 'DatasetName',
-      detail: 'Detail',
       phase: 'Phase',
       projectName: 'ProjectName',
+      reason: 'Reason',
       state: 'State',
       URI: 'URI',
       updateTime: 'UpdateTime',
@@ -302,9 +302,9 @@ export class Binding extends $tea.Model {
     return {
       createTime: 'string',
       datasetName: 'string',
-      detail: 'string',
       phase: 'string',
       projectName: 'string',
+      reason: 'string',
       state: 'string',
       URI: 'string',
       updateTime: 'string',
@@ -1308,42 +1308,66 @@ export class Input extends $tea.Model {
 }
 
 export class InputFile extends $tea.Model {
+  addresses?: Address[];
+  album?: string;
+  albumArtist?: string;
+  artist?: string;
+  composer?: string;
   contentType?: string;
   customId?: string;
   customLabels?: { [key: string]: any };
   figures?: InputFileFigures[];
   fileHash?: string;
+  labels?: Label[];
   latLong?: string;
   mediaType?: string;
   OSSURI?: string;
+  performer?: string;
   produceTime?: string;
+  title?: string;
   URI?: string;
   static names(): { [key: string]: string } {
     return {
+      addresses: 'Addresses',
+      album: 'Album',
+      albumArtist: 'AlbumArtist',
+      artist: 'Artist',
+      composer: 'Composer',
       contentType: 'ContentType',
       customId: 'CustomId',
       customLabels: 'CustomLabels',
       figures: 'Figures',
       fileHash: 'FileHash',
+      labels: 'Labels',
       latLong: 'LatLong',
       mediaType: 'MediaType',
       OSSURI: 'OSSURI',
+      performer: 'Performer',
       produceTime: 'ProduceTime',
+      title: 'Title',
       URI: 'URI',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addresses: { 'type': 'array', 'itemType': Address },
+      album: 'string',
+      albumArtist: 'string',
+      artist: 'string',
+      composer: 'string',
       contentType: 'string',
       customId: 'string',
       customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       figures: { 'type': 'array', 'itemType': InputFileFigures },
       fileHash: 'string',
+      labels: { 'type': 'array', 'itemType': Label },
       latLong: 'string',
       mediaType: 'string',
       OSSURI: 'string',
+      performer: 'string',
       produceTime: 'string',
+      title: 'string',
       URI: 'string',
     };
   }
@@ -1541,6 +1565,58 @@ export class MNS extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       topicName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Message extends $tea.Model {
+  assistantType?: string;
+  content?: string;
+  createTime?: string;
+  datasetName?: string;
+  language?: string;
+  regenerate?: boolean;
+  reply?: string;
+  score?: number;
+  sourceURI?: string;
+  suggestion?: string;
+  tone?: string;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistantType: 'AssistantType',
+      content: 'Content',
+      createTime: 'CreateTime',
+      datasetName: 'DatasetName',
+      language: 'Language',
+      regenerate: 'Regenerate',
+      reply: 'Reply',
+      score: 'Score',
+      sourceURI: 'SourceURI',
+      suggestion: 'Suggestion',
+      tone: 'Tone',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistantType: 'string',
+      content: 'string',
+      createTime: 'string',
+      datasetName: 'string',
+      language: 'string',
+      regenerate: 'boolean',
+      reply: 'string',
+      score: 'number',
+      sourceURI: 'string',
+      suggestion: 'string',
+      tone: 'string',
+      topic: 'string',
     };
   }
 
@@ -1758,6 +1834,7 @@ export class Project extends $tea.Model {
   projectName?: string;
   projectQueriesPerSecond?: number;
   serviceRole?: string;
+  tags?: ProjectTags[];
   templateId?: string;
   totalFileSize?: number;
   updateTime?: string;
@@ -1777,6 +1854,7 @@ export class Project extends $tea.Model {
       projectName: 'ProjectName',
       projectQueriesPerSecond: 'ProjectQueriesPerSecond',
       serviceRole: 'ServiceRole',
+      tags: 'Tags',
       templateId: 'TemplateId',
       totalFileSize: 'TotalFileSize',
       updateTime: 'UpdateTime',
@@ -1799,6 +1877,7 @@ export class Project extends $tea.Model {
       projectName: 'string',
       projectQueriesPerSecond: 'number',
       serviceRole: 'string',
+      tags: { 'type': 'array', 'itemType': ProjectTags },
       templateId: 'string',
       totalFileSize: 'number',
       updateTime: 'string',
@@ -3258,12 +3337,14 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
   files?: InputFile[];
   notification?: Notification;
   projectName?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       files: 'Files',
       notification: 'Notification',
       projectName: 'ProjectName',
+      userData: 'UserData',
     };
   }
 
@@ -3273,6 +3354,7 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
       files: { 'type': 'array', 'itemType': InputFile },
       notification: Notification,
       projectName: 'string',
+      userData: 'string',
     };
   }
 
@@ -3286,12 +3368,14 @@ export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
   filesShrink?: string;
   notificationShrink?: string;
   projectName?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       filesShrink: 'Files',
       notificationShrink: 'Notification',
       projectName: 'ProjectName',
+      userData: 'UserData',
     };
   }
 
@@ -3301,6 +3385,7 @@ export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
       filesShrink: 'string',
       notificationShrink: 'string',
       projectName: 'string',
+      userData: 'string',
     };
   }
 
@@ -4218,6 +4303,142 @@ export class CreateDatasetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
+  imageQuality?: number;
+  model?: string;
+  notification?: Notification;
+  originalImageURI?: string;
+  projectName?: string;
+  sourceURI?: string;
+  strengthLevel?: string;
+  targetURI?: string;
+  watermarkType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageQuality: 'ImageQuality',
+      model: 'Model',
+      notification: 'Notification',
+      originalImageURI: 'OriginalImageURI',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      strengthLevel: 'StrengthLevel',
+      targetURI: 'TargetURI',
+      watermarkType: 'WatermarkType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageQuality: 'number',
+      model: 'string',
+      notification: Notification,
+      originalImageURI: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+      strengthLevel: 'string',
+      targetURI: 'string',
+      watermarkType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
+  imageQuality?: number;
+  model?: string;
+  notificationShrink?: string;
+  originalImageURI?: string;
+  projectName?: string;
+  sourceURI?: string;
+  strengthLevel?: string;
+  targetURI?: string;
+  watermarkType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageQuality: 'ImageQuality',
+      model: 'Model',
+      notificationShrink: 'Notification',
+      originalImageURI: 'OriginalImageURI',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      strengthLevel: 'StrengthLevel',
+      targetURI: 'TargetURI',
+      watermarkType: 'WatermarkType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageQuality: 'number',
+      model: 'string',
+      notificationShrink: 'string',
+      originalImageURI: 'string',
+      projectName: 'string',
+      sourceURI: 'string',
+      strengthLevel: 'string',
+      targetURI: 'string',
+      watermarkType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDecodeBlindWatermarkTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDecodeBlindWatermarkTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDecodeBlindWatermarkTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDecodeBlindWatermarkTaskResponseBody,
     };
   }
 
@@ -8187,6 +8408,84 @@ export class DetectTextAnomalyResponse extends $tea.Model {
   }
 }
 
+export class EncodeBlindWatermarkRequest extends $tea.Model {
+  content?: string;
+  imageQuality?: number;
+  projectName?: string;
+  sourceURI?: string;
+  strengthLevel?: string;
+  targetURI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      imageQuality: 'ImageQuality',
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      strengthLevel: 'StrengthLevel',
+      targetURI: 'TargetURI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      imageQuality: 'number',
+      projectName: 'string',
+      sourceURI: 'string',
+      strengthLevel: 'string',
+      targetURI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncodeBlindWatermarkResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncodeBlindWatermarkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EncodeBlindWatermarkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EncodeBlindWatermarkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExtractDocumentTextRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   projectName?: string;
@@ -8534,7 +8833,6 @@ export class GenerateVideoPlaylistResponseBody extends $tea.Model {
   requestId?: string;
   subtitlePlaylist?: GenerateVideoPlaylistResponseBodySubtitlePlaylist[];
   token?: string;
-  URI?: string;
   videoPlaylist?: GenerateVideoPlaylistResponseBodyVideoPlaylist[];
   static names(): { [key: string]: string } {
     return {
@@ -8544,7 +8842,6 @@ export class GenerateVideoPlaylistResponseBody extends $tea.Model {
       requestId: 'RequestId',
       subtitlePlaylist: 'SubtitlePlaylist',
       token: 'Token',
-      URI: 'URI',
       videoPlaylist: 'VideoPlaylist',
     };
   }
@@ -8557,7 +8854,6 @@ export class GenerateVideoPlaylistResponseBody extends $tea.Model {
       requestId: 'string',
       subtitlePlaylist: { 'type': 'array', 'itemType': GenerateVideoPlaylistResponseBodySubtitlePlaylist },
       token: 'string',
-      URI: 'string',
       videoPlaylist: { 'type': 'array', 'itemType': GenerateVideoPlaylistResponseBodyVideoPlaylist },
     };
   }
@@ -8920,6 +9216,90 @@ export class GetBindingResponse extends $tea.Model {
   }
 }
 
+export class GetDRMLicenseRequest extends $tea.Model {
+  keyId?: string;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  protectionSystem?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyId: 'KeyId',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      protectionSystem: 'ProtectionSystem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyId: 'string',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      protectionSystem: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDRMLicenseResponseBody extends $tea.Model {
+  deviceInfo?: string;
+  license?: string;
+  requestId?: string;
+  states?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfo: 'DeviceInfo',
+      license: 'License',
+      requestId: 'RequestId',
+      states: 'States',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfo: 'string',
+      license: 'string',
+      requestId: 'string',
+      states: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDRMLicenseResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDRMLicenseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDRMLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDatasetRequest extends $tea.Model {
   datasetName?: string;
   projectName?: string;
@@ -8984,6 +9364,108 @@ export class GetDatasetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDecodeBlindWatermarkResultRequest extends $tea.Model {
+  projectName?: string;
+  taskId?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      taskId: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDecodeBlindWatermarkResultResponseBody extends $tea.Model {
+  code?: string;
+  content?: string;
+  endTime?: string;
+  eventId?: string;
+  message?: string;
+  projectName?: string;
+  requestId?: string;
+  startTime?: string;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      content: 'Content',
+      endTime: 'EndTime',
+      eventId: 'EventId',
+      message: 'Message',
+      projectName: 'ProjectName',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      content: 'string',
+      endTime: 'string',
+      eventId: 'string',
+      message: 'string',
+      projectName: 'string',
+      requestId: 'string',
+      startTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDecodeBlindWatermarkResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDecodeBlindWatermarkResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDecodeBlindWatermarkResultResponseBody,
     };
   }
 
@@ -9843,12 +10325,14 @@ export class IndexFileMetaRequest extends $tea.Model {
   file?: InputFile;
   notification?: Notification;
   projectName?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       file: 'File',
       notification: 'Notification',
       projectName: 'ProjectName',
+      userData: 'UserData',
     };
   }
 
@@ -9858,6 +10342,7 @@ export class IndexFileMetaRequest extends $tea.Model {
       file: InputFile,
       notification: Notification,
       projectName: 'string',
+      userData: 'string',
     };
   }
 
@@ -9871,12 +10356,14 @@ export class IndexFileMetaShrinkRequest extends $tea.Model {
   fileShrink?: string;
   notificationShrink?: string;
   projectName?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       fileShrink: 'File',
       notificationShrink: 'Notification',
       projectName: 'ProjectName',
+      userData: 'UserData',
     };
   }
 
@@ -9886,6 +10373,7 @@ export class IndexFileMetaShrinkRequest extends $tea.Model {
       fileShrink: 'string',
       notificationShrink: 'string',
       projectName: 'string',
+      userData: 'string',
     };
   }
 
@@ -13013,6 +13501,28 @@ export class InputFileFigures extends $tea.Model {
   }
 }
 
+export class ProjectTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TargetAudioFilterAudio extends $tea.Model {
   mixing?: boolean;
   static names(): { [key: string]: string } {
@@ -14471,6 +14981,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 图片打马赛克算子
+   *
+   * @param tmpReq AddImageMosaicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddImageMosaicResponse
+   */
   async addImageMosaicWithOptions(tmpReq: AddImageMosaicRequest, runtime: $Util.RuntimeOptions): Promise<AddImageMosaicResponse> {
     Util.validateModel(tmpReq);
     let request = new AddImageMosaicShrinkRequest({ });
@@ -14529,11 +15046,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddImageMosaicResponse>(await this.callApi(params, req, runtime), new AddImageMosaicResponse({}));
   }
 
+  /**
+   * @summary 图片打马赛克算子
+   *
+   * @param request AddImageMosaicRequest
+   * @return AddImageMosaicResponse
+   */
   async addImageMosaic(request: AddImageMosaicRequest): Promise<AddImageMosaicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addImageMosaicWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 为故事新增文件
+   *
+   * @param tmpReq AddStoryFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddStoryFilesResponse
+   */
   async addStoryFilesWithOptions(tmpReq: AddStoryFilesRequest, runtime: $Util.RuntimeOptions): Promise<AddStoryFilesResponse> {
     Util.validateModel(tmpReq);
     let request = new AddStoryFilesShrinkRequest({ });
@@ -14576,11 +15106,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddStoryFilesResponse>(await this.callApi(params, req, runtime), new AddStoryFilesResponse({}));
   }
 
+  /**
+   * @summary 为故事新增文件
+   *
+   * @param request AddStoryFilesRequest
+   * @return AddStoryFilesResponse
+   */
   async addStoryFiles(request: AddStoryFilesRequest): Promise<AddStoryFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addStoryFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 绑定ossbucket
+   *
+   * @param request AttachOSSBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachOSSBucketResponse
+   */
   async attachOSSBucketWithOptions(request: AttachOSSBucketRequest, runtime: $Util.RuntimeOptions): Promise<AttachOSSBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14613,11 +15156,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachOSSBucketResponse>(await this.callApi(params, req, runtime), new AttachOSSBucketResponse({}));
   }
 
+  /**
+   * @summary 绑定ossbucket
+   *
+   * @param request AttachOSSBucketRequest
+   * @return AttachOSSBucketResponse
+   */
   async attachOSSBucket(request: AttachOSSBucketRequest): Promise<AttachOSSBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachOSSBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量删除文件元信息
+   *
+   * @param tmpReq BatchDeleteFileMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchDeleteFileMetaResponse
+   */
   async batchDeleteFileMetaWithOptions(tmpReq: BatchDeleteFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchDeleteFileMetaShrinkRequest({ });
@@ -14656,11 +15212,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchDeleteFileMetaResponse>(await this.callApi(params, req, runtime), new BatchDeleteFileMetaResponse({}));
   }
 
+  /**
+   * @summary 批量删除文件元信息
+   *
+   * @param request BatchDeleteFileMetaRequest
+   * @return BatchDeleteFileMetaResponse
+   */
   async batchDeleteFileMeta(request: BatchDeleteFileMetaRequest): Promise<BatchDeleteFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteFileMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量获取分组信息
+   *
+   * @param tmpReq BatchGetFigureClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchGetFigureClusterResponse
+   */
   async batchGetFigureClusterWithOptions(tmpReq: BatchGetFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetFigureClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchGetFigureClusterShrinkRequest({ });
@@ -14699,11 +15268,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchGetFigureClusterResponse>(await this.callApi(params, req, runtime), new BatchGetFigureClusterResponse({}));
   }
 
+  /**
+   * @summary 批量获取分组信息
+   *
+   * @param request BatchGetFigureClusterRequest
+   * @return BatchGetFigureClusterResponse
+   */
   async batchGetFigureCluster(request: BatchGetFigureClusterRequest): Promise<BatchGetFigureClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchGetFigureClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量获取文件元信息
+   *
+   * @param tmpReq BatchGetFileMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchGetFileMetaResponse
+   */
   async batchGetFileMetaWithOptions(tmpReq: BatchGetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchGetFileMetaShrinkRequest({ });
@@ -14742,11 +15324,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchGetFileMetaResponse>(await this.callApi(params, req, runtime), new BatchGetFileMetaResponse({}));
   }
 
+  /**
+   * @summary 批量获取文件元信息
+   *
+   * @param request BatchGetFileMetaRequest
+   * @return BatchGetFileMetaResponse
+   */
   async batchGetFileMeta(request: BatchGetFileMetaRequest): Promise<BatchGetFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchGetFileMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量索引文件元信息
+   *
+   * @param tmpReq BatchIndexFileMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchIndexFileMetaResponse
+   */
   async batchIndexFileMetaWithOptions(tmpReq: BatchIndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchIndexFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchIndexFileMetaShrinkRequest({ });
@@ -14776,6 +15371,10 @@ export default class Client extends OpenApi {
       query["ProjectName"] = request.projectName;
     }
 
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -14793,11 +15392,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchIndexFileMetaResponse>(await this.callApi(params, req, runtime), new BatchIndexFileMetaResponse({}));
   }
 
+  /**
+   * @summary 批量索引文件元信息
+   *
+   * @param request BatchIndexFileMetaRequest
+   * @return BatchIndexFileMetaResponse
+   */
   async batchIndexFileMeta(request: BatchIndexFileMetaRequest): Promise<BatchIndexFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchIndexFileMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量更新文件元信息
+   *
+   * @param tmpReq BatchUpdateFileMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchUpdateFileMetaResponse
+   */
   async batchUpdateFileMetaWithOptions(tmpReq: BatchUpdateFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchUpdateFileMetaShrinkRequest({ });
@@ -14836,11 +15448,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchUpdateFileMetaResponse>(await this.callApi(params, req, runtime), new BatchUpdateFileMetaResponse({}));
   }
 
+  /**
+   * @summary 批量更新文件元信息
+   *
+   * @param request BatchUpdateFileMetaRequest
+   * @return BatchUpdateFileMetaResponse
+   */
   async batchUpdateFileMeta(request: BatchUpdateFileMetaRequest): Promise<BatchUpdateFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchUpdateFileMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 以脸搜分组
+   *
+   * @param tmpReq CompareImageFacesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CompareImageFacesResponse
+   */
   async compareImageFacesWithOptions(tmpReq: CompareImageFacesRequest, runtime: $Util.RuntimeOptions): Promise<CompareImageFacesResponse> {
     Util.validateModel(tmpReq);
     let request = new CompareImageFacesShrinkRequest({ });
@@ -14883,11 +15508,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CompareImageFacesResponse>(await this.callApi(params, req, runtime), new CompareImageFacesResponse({}));
   }
 
+  /**
+   * @summary 以脸搜分组
+   *
+   * @param request CompareImageFacesRequest
+   * @return CompareImageFacesResponse
+   */
   async compareImageFaces(request: CompareImageFacesRequest): Promise<CompareImageFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.compareImageFacesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建查看压缩包内文件列表任务
+   *
+   * @param tmpReq CreateArchiveFileInspectionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateArchiveFileInspectionTaskResponse
+   */
   async createArchiveFileInspectionTaskWithOptions(tmpReq: CreateArchiveFileInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateArchiveFileInspectionTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateArchiveFileInspectionTaskShrinkRequest({ });
@@ -14942,11 +15580,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateArchiveFileInspectionTaskResponse>(await this.callApi(params, req, runtime), new CreateArchiveFileInspectionTaskResponse({}));
   }
 
+  /**
+   * @summary 创建查看压缩包内文件列表任务
+   *
+   * @param request CreateArchiveFileInspectionTaskRequest
+   * @return CreateArchiveFileInspectionTaskResponse
+   */
   async createArchiveFileInspectionTask(request: CreateArchiveFileInspectionTaskRequest): Promise<CreateArchiveFileInspectionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createArchiveFileInspectionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建数据接入
+   *
+   * @param tmpReq CreateBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBatchResponse
+   */
   async createBatchWithOptions(tmpReq: CreateBatchRequest, runtime: $Util.RuntimeOptions): Promise<CreateBatchResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateBatchShrinkRequest({ });
@@ -15009,11 +15660,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBatchResponse>(await this.callApi(params, req, runtime), new CreateBatchResponse({}));
   }
 
+  /**
+   * @summary 创建数据接入
+   *
+   * @param request CreateBatchRequest
+   * @return CreateBatchResponse
+   */
   async createBatch(request: CreateBatchRequest): Promise<CreateBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBatchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建绑定
+   *
+   * @param request CreateBindingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBindingResponse
+   */
   async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15046,11 +15710,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBindingResponse>(await this.callApi(params, req, runtime), new CreateBindingResponse({}));
   }
 
+  /**
+   * @summary 创建绑定
+   *
+   * @param request CreateBindingRequest
+   * @return CreateBindingResponse
+   */
   async createBinding(request: CreateBindingRequest): Promise<CreateBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBindingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建点云压缩任务
+   *
+   * @param tmpReq CreateCompressPointCloudTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCompressPointCloudTaskResponse
+   */
   async createCompressPointCloudTaskWithOptions(tmpReq: CreateCompressPointCloudTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCompressPointCloudTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateCompressPointCloudTaskShrinkRequest({ });
@@ -15145,11 +15822,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCompressPointCloudTaskResponse>(await this.callApi(params, req, runtime), new CreateCompressPointCloudTaskResponse({}));
   }
 
+  /**
+   * @summary 创建点云压缩任务
+   *
+   * @param request CreateCompressPointCloudTaskRequest
+   * @return CreateCompressPointCloudTaskResponse
+   */
   async createCompressPointCloudTask(request: CreateCompressPointCloudTaskRequest): Promise<CreateCompressPointCloudTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCompressPointCloudTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建自定义故事
+   *
+   * @param tmpReq CreateCustomizedStoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomizedStoryResponse
+   */
   async createCustomizedStoryWithOptions(tmpReq: CreateCustomizedStoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomizedStoryResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateCustomizedStoryShrinkRequest({ });
@@ -15216,11 +15906,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCustomizedStoryResponse>(await this.callApi(params, req, runtime), new CreateCustomizedStoryResponse({}));
   }
 
+  /**
+   * @summary 创建自定义故事
+   *
+   * @param request CreateCustomizedStoryRequest
+   * @return CreateCustomizedStoryResponse
+   */
   async createCustomizedStory(request: CreateCustomizedStoryRequest): Promise<CreateCustomizedStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomizedStoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建数据集
+   *
+   * @param request CreateDatasetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatasetResponse
+   */
   async createDatasetWithOptions(request: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15277,11 +15980,104 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatasetResponse>(await this.callApi(params, req, runtime), new CreateDatasetResponse({}));
   }
 
+  /**
+   * @summary 创建数据集
+   *
+   * @param request CreateDatasetRequest
+   * @return CreateDatasetResponse
+   */
   async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatasetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 提取盲水印
+   *
+   * @param tmpReq CreateDecodeBlindWatermarkTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDecodeBlindWatermarkTaskResponse
+   */
+  async createDecodeBlindWatermarkTaskWithOptions(tmpReq: CreateDecodeBlindWatermarkTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDecodeBlindWatermarkTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDecodeBlindWatermarkTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.imageQuality)) {
+      query["ImageQuality"] = request.imageQuality;
+    }
+
+    if (!Util.isUnset(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
+    }
+
+    if (!Util.isUnset(request.originalImageURI)) {
+      query["OriginalImageURI"] = request.originalImageURI;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.strengthLevel)) {
+      query["StrengthLevel"] = request.strengthLevel;
+    }
+
+    if (!Util.isUnset(request.targetURI)) {
+      query["TargetURI"] = request.targetURI;
+    }
+
+    if (!Util.isUnset(request.watermarkType)) {
+      query["WatermarkType"] = request.watermarkType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDecodeBlindWatermarkTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDecodeBlindWatermarkTaskResponse>(await this.callApi(params, req, runtime), new CreateDecodeBlindWatermarkTaskResponse({}));
+  }
+
+  /**
+   * @summary 提取盲水印
+   *
+   * @param request CreateDecodeBlindWatermarkTaskRequest
+   * @return CreateDecodeBlindWatermarkTaskResponse
+   */
+  async createDecodeBlindWatermarkTask(request: CreateDecodeBlindWatermarkTaskRequest): Promise<CreateDecodeBlindWatermarkTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDecodeBlindWatermarkTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 以脸搜图
+   *
+   * @param tmpReq CreateFacesSearchingTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFacesSearchingTaskResponse
+   */
   async createFacesSearchingTaskWithOptions(tmpReq: CreateFacesSearchingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFacesSearchingTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFacesSearchingTaskShrinkRequest({ });
@@ -15336,11 +16132,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFacesSearchingTaskResponse>(await this.callApi(params, req, runtime), new CreateFacesSearchingTaskResponse({}));
   }
 
+  /**
+   * @summary 以脸搜图
+   *
+   * @param request CreateFacesSearchingTaskRequest
+   * @return CreateFacesSearchingTaskResponse
+   */
   async createFacesSearchingTask(request: CreateFacesSearchingTaskRequest): Promise<CreateFacesSearchingTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFacesSearchingTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 聚类
+   *
+   * @param tmpReq CreateFigureClusteringTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFigureClusteringTaskResponse
+   */
   async createFigureClusteringTaskWithOptions(tmpReq: CreateFigureClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClusteringTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFigureClusteringTaskShrinkRequest({ });
@@ -15391,11 +16200,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFigureClusteringTaskResponse>(await this.callApi(params, req, runtime), new CreateFigureClusteringTaskResponse({}));
   }
 
+  /**
+   * @summary 聚类
+   *
+   * @param request CreateFigureClusteringTaskRequest
+   * @return CreateFigureClusteringTaskResponse
+   */
   async createFigureClusteringTask(request: CreateFigureClusteringTaskRequest): Promise<CreateFigureClusteringTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFigureClusteringTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 合并聚类
+   *
+   * @param tmpReq CreateFigureClustersMergingTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFigureClustersMergingTaskResponse
+   */
   async createFigureClustersMergingTaskWithOptions(tmpReq: CreateFigureClustersMergingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClustersMergingTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFigureClustersMergingTaskShrinkRequest({ });
@@ -15462,11 +16284,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFigureClustersMergingTaskResponse>(await this.callApi(params, req, runtime), new CreateFigureClustersMergingTaskResponse({}));
   }
 
+  /**
+   * @summary 合并聚类
+   *
+   * @param request CreateFigureClustersMergingTaskRequest
+   * @return CreateFigureClustersMergingTaskResponse
+   */
   async createFigureClustersMergingTask(request: CreateFigureClustersMergingTaskRequest): Promise<CreateFigureClustersMergingTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFigureClustersMergingTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 压缩/打包下载API
+   *
+   * @param tmpReq CreateFileCompressionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileCompressionTaskResponse
+   */
   async createFileCompressionTaskWithOptions(tmpReq: CreateFileCompressionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileCompressionTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFileCompressionTaskShrinkRequest({ });
@@ -15533,11 +16368,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFileCompressionTaskResponse>(await this.callApi(params, req, runtime), new CreateFileCompressionTaskResponse({}));
   }
 
+  /**
+   * @summary 压缩/打包下载API
+   *
+   * @param request CreateFileCompressionTaskRequest
+   * @return CreateFileCompressionTaskResponse
+   */
   async createFileCompressionTask(request: CreateFileCompressionTaskRequest): Promise<CreateFileCompressionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileCompressionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 在线解压API
+   *
+   * @param tmpReq CreateFileUncompressionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileUncompressionTaskResponse
+   */
   async createFileUncompressionTaskWithOptions(tmpReq: CreateFileUncompressionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileUncompressionTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFileUncompressionTaskShrinkRequest({ });
@@ -15604,11 +16452,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFileUncompressionTaskResponse>(await this.callApi(params, req, runtime), new CreateFileUncompressionTaskResponse({}));
   }
 
+  /**
+   * @summary 在线解压API
+   *
+   * @param request CreateFileUncompressionTaskRequest
+   * @return CreateFileUncompressionTaskResponse
+   */
   async createFileUncompressionTask(request: CreateFileUncompressionTaskRequest): Promise<CreateFileUncompressionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileUncompressionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建图片检测
+   *
+   * @param tmpReq CreateImageModerationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageModerationTaskResponse
+   */
   async createImageModerationTaskWithOptions(tmpReq: CreateImageModerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageModerationTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateImageModerationTaskShrinkRequest({ });
@@ -15683,11 +16544,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageModerationTaskResponse>(await this.callApi(params, req, runtime), new CreateImageModerationTaskResponse({}));
   }
 
+  /**
+   * @summary 创建图片检测
+   *
+   * @param request CreateImageModerationTaskRequest
+   * @return CreateImageModerationTaskResponse
+   */
   async createImageModerationTask(request: CreateImageModerationTaskRequest): Promise<CreateImageModerationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageModerationTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 图片拼接
+   *
+   * @param tmpReq CreateImageSplicingTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageSplicingTaskResponse
+   */
   async createImageSplicingTaskWithOptions(tmpReq: CreateImageSplicingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageSplicingTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateImageSplicingTaskShrinkRequest({ });
@@ -15786,11 +16660,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageSplicingTaskResponse>(await this.callApi(params, req, runtime), new CreateImageSplicingTaskResponse({}));
   }
 
+  /**
+   * @summary 图片拼接
+   *
+   * @param request CreateImageSplicingTaskRequest
+   * @return CreateImageSplicingTaskResponse
+   */
   async createImageSplicingTask(request: CreateImageSplicingTaskRequest): Promise<CreateImageSplicingTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageSplicingTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 图片转PDF
+   *
+   * @param tmpReq CreateImageToPDFTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageToPDFTaskResponse
+   */
   async createImageToPDFTaskWithOptions(tmpReq: CreateImageToPDFTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageToPDFTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateImageToPDFTaskShrinkRequest({ });
@@ -15857,11 +16744,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageToPDFTaskResponse>(await this.callApi(params, req, runtime), new CreateImageToPDFTaskResponse({}));
   }
 
+  /**
+   * @summary 图片转PDF
+   *
+   * @param request CreateImageToPDFTaskRequest
+   * @return CreateImageToPDFTaskResponse
+   */
   async createImageToPDFTask(request: CreateImageToPDFTaskRequest): Promise<CreateImageToPDFTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageToPDFTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建时空聚类任务
+   *
+   * @param tmpReq CreateLocationDateClusteringTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLocationDateClusteringTaskResponse
+   */
   async createLocationDateClusteringTaskWithOptions(tmpReq: CreateLocationDateClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateLocationDateClusteringTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateLocationDateClusteringTaskShrinkRequest({ });
@@ -15928,11 +16828,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLocationDateClusteringTaskResponse>(await this.callApi(params, req, runtime), new CreateLocationDateClusteringTaskResponse({}));
   }
 
+  /**
+   * @summary 创建时空聚类任务
+   *
+   * @param request CreateLocationDateClusteringTaskRequest
+   * @return CreateLocationDateClusteringTaskResponse
+   */
   async createLocationDateClusteringTask(request: CreateLocationDateClusteringTaskRequest): Promise<CreateLocationDateClusteringTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLocationDateClusteringTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建转码服务
+   *
+   * @param tmpReq CreateMediaConvertTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMediaConvertTaskResponse
+   */
   async createMediaConvertTaskWithOptions(tmpReq: CreateMediaConvertTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMediaConvertTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateMediaConvertTaskShrinkRequest({ });
@@ -16007,11 +16920,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMediaConvertTaskResponse>(await this.callApi(params, req, runtime), new CreateMediaConvertTaskResponse({}));
   }
 
+  /**
+   * @summary 创建转码服务
+   *
+   * @param request CreateMediaConvertTaskRequest
+   * @return CreateMediaConvertTaskResponse
+   */
   async createMediaConvertTask(request: CreateMediaConvertTaskRequest): Promise<CreateMediaConvertTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMediaConvertTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建文档转换任务
+   *
+   * @param tmpReq CreateOfficeConversionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOfficeConversionTaskResponse
+   */
   async createOfficeConversionTaskWithOptions(tmpReq: CreateOfficeConversionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOfficeConversionTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateOfficeConversionTaskShrinkRequest({ });
@@ -16174,11 +17100,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOfficeConversionTaskResponse>(await this.callApi(params, req, runtime), new CreateOfficeConversionTaskResponse({}));
   }
 
+  /**
+   * @summary 创建文档转换任务
+   *
+   * @param request CreateOfficeConversionTaskRequest
+   * @return CreateOfficeConversionTaskResponse
+   */
   async createOfficeConversionTask(request: CreateOfficeConversionTaskRequest): Promise<CreateOfficeConversionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOfficeConversionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建项目
+   *
+   * @param request CreateProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProjectResponse
+   */
   async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16239,11 +17178,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
+  /**
+   * @summary 创建项目
+   *
+   * @param request CreateProjectRequest
+   * @return CreateProjectResponse
+   */
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建相似图片聚类任务
+   *
+   * @param tmpReq CreateSimilarImageClusteringTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSimilarImageClusteringTaskResponse
+   */
   async createSimilarImageClusteringTaskWithOptions(tmpReq: CreateSimilarImageClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimilarImageClusteringTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateSimilarImageClusteringTaskShrinkRequest({ });
@@ -16294,11 +17246,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSimilarImageClusteringTaskResponse>(await this.callApi(params, req, runtime), new CreateSimilarImageClusteringTaskResponse({}));
   }
 
+  /**
+   * @summary 创建相似图片聚类任务
+   *
+   * @param request CreateSimilarImageClusteringTaskRequest
+   * @return CreateSimilarImageClusteringTaskResponse
+   */
   async createSimilarImageClusteringTask(request: CreateSimilarImageClusteringTaskRequest): Promise<CreateSimilarImageClusteringTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSimilarImageClusteringTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建一个 Story
+   *
+   * @param tmpReq CreateStoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateStoryResponse
+   */
   async createStoryWithOptions(tmpReq: CreateStoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateStoryResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateStoryShrinkRequest({ });
@@ -16407,11 +17372,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStoryResponse>(await this.callApi(params, req, runtime), new CreateStoryResponse({}));
   }
 
+  /**
+   * @summary 创建一个 Story
+   *
+   * @param request CreateStoryRequest
+   * @return CreateStoryResponse
+   */
   async createStory(request: CreateStoryRequest): Promise<CreateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建数据接入
+   *
+   * @param tmpReq CreateTriggerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTriggerResponse
+   */
   async createTriggerWithOptions(tmpReq: CreateTriggerRequest, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateTriggerShrinkRequest({ });
@@ -16474,11 +17452,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
+  /**
+   * @summary 创建数据接入
+   *
+   * @param request CreateTriggerRequest
+   * @return CreateTriggerResponse
+   */
   async createTrigger(request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTriggerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 检测视频中的内容
+   *
+   * @param tmpReq CreateVideoLabelClassificationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVideoLabelClassificationTaskResponse
+   */
   async createVideoLabelClassificationTaskWithOptions(tmpReq: CreateVideoLabelClassificationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoLabelClassificationTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateVideoLabelClassificationTaskShrinkRequest({ });
@@ -16537,11 +17528,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVideoLabelClassificationTaskResponse>(await this.callApi(params, req, runtime), new CreateVideoLabelClassificationTaskResponse({}));
   }
 
+  /**
+   * @summary 检测视频中的内容
+   *
+   * @param request CreateVideoLabelClassificationTaskRequest
+   * @return CreateVideoLabelClassificationTaskResponse
+   */
   async createVideoLabelClassificationTask(request: CreateVideoLabelClassificationTaskRequest): Promise<CreateVideoLabelClassificationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVideoLabelClassificationTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建视频检测
+   *
+   * @param tmpReq CreateVideoModerationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVideoModerationTaskResponse
+   */
   async createVideoModerationTaskWithOptions(tmpReq: CreateVideoModerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoModerationTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateVideoModerationTaskShrinkRequest({ });
@@ -16616,11 +17620,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVideoModerationTaskResponse>(await this.callApi(params, req, runtime), new CreateVideoModerationTaskResponse({}));
   }
 
+  /**
+   * @summary 创建视频检测
+   *
+   * @param request CreateVideoModerationTaskRequest
+   * @return CreateVideoModerationTaskResponse
+   */
   async createVideoModerationTask(request: CreateVideoModerationTaskRequest): Promise<CreateVideoModerationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVideoModerationTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除数据接入实例
+   *
+   * @param request DeleteBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBatchResponse
+   */
   async deleteBatchWithOptions(request: DeleteBatchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBatchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16649,11 +17666,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBatchResponse>(await this.callApi(params, req, runtime), new DeleteBatchResponse({}));
   }
 
+  /**
+   * @summary 删除数据接入实例
+   *
+   * @param request DeleteBatchRequest
+   * @return DeleteBatchResponse
+   */
   async deleteBatch(request: DeleteBatchRequest): Promise<DeleteBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBatchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除绑定
+   *
+   * @param request DeleteBindingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBindingResponse
+   */
   async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16686,11 +17716,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBindingResponse>(await this.callApi(params, req, runtime), new DeleteBindingResponse({}));
   }
 
+  /**
+   * @summary 删除绑定
+   *
+   * @param request DeleteBindingRequest
+   * @return DeleteBindingResponse
+   */
   async deleteBinding(request: DeleteBindingRequest): Promise<DeleteBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBindingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除媒体集
+   *
+   * @param request DeleteDatasetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatasetResponse
+   */
   async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16719,11 +17762,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDatasetResponse>(await this.callApi(params, req, runtime), new DeleteDatasetResponse({}));
   }
 
+  /**
+   * @summary 删除媒体集
+   *
+   * @param request DeleteDatasetRequest
+   * @return DeleteDatasetResponse
+   */
   async deleteDataset(request: DeleteDatasetRequest): Promise<DeleteDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDatasetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除文件元信息
+   *
+   * @param request DeleteFileMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFileMetaResponse
+   */
   async deleteFileMetaWithOptions(request: DeleteFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16756,11 +17812,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFileMetaResponse>(await this.callApi(params, req, runtime), new DeleteFileMetaResponse({}));
   }
 
+  /**
+   * @summary 删除文件元信息
+   *
+   * @param request DeleteFileMetaRequest
+   * @return DeleteFileMetaResponse
+   */
   async deleteFileMeta(request: DeleteFileMetaRequest): Promise<DeleteFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFileMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除时空聚类
+   *
+   * @param request DeleteLocationDateClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLocationDateClusterResponse
+   */
   async deleteLocationDateClusterWithOptions(request: DeleteLocationDateClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLocationDateClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16795,11 +17864,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLocationDateClusterResponse>(await this.callApi(params, req, runtime), new DeleteLocationDateClusterResponse({}));
   }
 
+  /**
+   * @summary 删除时空聚类
+   *
+   * @param request DeleteLocationDateClusterRequest
+   * @return DeleteLocationDateClusterResponse
+   */
   async deleteLocationDateCluster(request: DeleteLocationDateClusterRequest): Promise<DeleteLocationDateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLocationDateClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除项目
+   *
+   * @param request DeleteProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProjectResponse
+   */
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16824,11 +17906,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
   }
 
+  /**
+   * @summary 删除项目
+   *
+   * @param request DeleteProjectRequest
+   * @return DeleteProjectResponse
+   */
   async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除一个 Story
+   *
+   * @param request DeleteStoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteStoryResponse
+   */
   async deleteStoryWithOptions(request: DeleteStoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16861,11 +17956,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteStoryResponse>(await this.callApi(params, req, runtime), new DeleteStoryResponse({}));
   }
 
+  /**
+   * @summary 删除一个 Story
+   *
+   * @param request DeleteStoryRequest
+   * @return DeleteStoryResponse
+   */
   async deleteStory(request: DeleteStoryRequest): Promise<DeleteStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteStoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除数据接入实例
+   *
+   * @param request DeleteTriggerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTriggerResponse
+   */
   async deleteTriggerWithOptions(request: DeleteTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16894,11 +18002,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
   }
 
+  /**
+   * @summary 删除数据接入实例
+   *
+   * @param request DeleteTriggerRequest
+   * @return DeleteTriggerResponse
+   */
   async deleteTrigger(request: DeleteTriggerRequest): Promise<DeleteTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTriggerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 解绑ossbucket
+   *
+   * @param request DetachOSSBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachOSSBucketResponse
+   */
   async detachOSSBucketWithOptions(request: DetachOSSBucketRequest, runtime: $Util.RuntimeOptions): Promise<DetachOSSBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16923,11 +18044,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachOSSBucketResponse>(await this.callApi(params, req, runtime), new DetachOSSBucketResponse({}));
   }
 
+  /**
+   * @summary 解绑ossbucket
+   *
+   * @param request DetachOSSBucketRequest
+   * @return DetachOSSBucketResponse
+   */
   async detachOSSBucket(request: DetachOSSBucketRequest): Promise<DetachOSSBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachOSSBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 人体检测算子
+   *
+   * @param tmpReq DetectImageBodiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectImageBodiesResponse
+   */
   async detectImageBodiesWithOptions(tmpReq: DetectImageBodiesRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageBodiesResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectImageBodiesShrinkRequest({ });
@@ -16970,11 +18104,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectImageBodiesResponse>(await this.callApi(params, req, runtime), new DetectImageBodiesResponse({}));
   }
 
+  /**
+   * @summary 人体检测算子
+   *
+   * @param request DetectImageBodiesRequest
+   * @return DetectImageBodiesResponse
+   */
   async detectImageBodies(request: DetectImageBodiesRequest): Promise<DetectImageBodiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageBodiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 检测图片中车辆信息
+   *
+   * @param tmpReq DetectImageCarsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectImageCarsResponse
+   */
   async detectImageCarsWithOptions(tmpReq: DetectImageCarsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageCarsResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectImageCarsShrinkRequest({ });
@@ -17013,11 +18160,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectImageCarsResponse>(await this.callApi(params, req, runtime), new DetectImageCarsResponse({}));
   }
 
+  /**
+   * @summary 检测图片中车辆信息
+   *
+   * @param request DetectImageCarsRequest
+   * @return DetectImageCarsResponse
+   */
   async detectImageCars(request: DetectImageCarsRequest): Promise<DetectImageCarsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageCarsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取图片二维码检测
+   *
+   * @param tmpReq DetectImageCodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectImageCodesResponse
+   */
   async detectImageCodesWithOptions(tmpReq: DetectImageCodesRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageCodesResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectImageCodesShrinkRequest({ });
@@ -17056,11 +18216,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectImageCodesResponse>(await this.callApi(params, req, runtime), new DetectImageCodesResponse({}));
   }
 
+  /**
+   * @summary 获取图片二维码检测
+   *
+   * @param request DetectImageCodesRequest
+   * @return DetectImageCodesResponse
+   */
   async detectImageCodes(request: DetectImageCodesRequest): Promise<DetectImageCodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageCodesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取图片裁剪信息
+   *
+   * @param tmpReq DetectImageCroppingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectImageCroppingResponse
+   */
   async detectImageCroppingWithOptions(tmpReq: DetectImageCroppingRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageCroppingResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectImageCroppingShrinkRequest({ });
@@ -17103,11 +18276,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectImageCroppingResponse>(await this.callApi(params, req, runtime), new DetectImageCroppingResponse({}));
   }
 
+  /**
+   * @summary 获取图片裁剪信息
+   *
+   * @param request DetectImageCroppingRequest
+   * @return DetectImageCroppingResponse
+   */
   async detectImageCropping(request: DetectImageCroppingRequest): Promise<DetectImageCroppingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageCroppingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取图片人脸信息
+   *
+   * @param tmpReq DetectImageFacesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectImageFacesResponse
+   */
   async detectImageFacesWithOptions(tmpReq: DetectImageFacesRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageFacesResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectImageFacesShrinkRequest({ });
@@ -17146,11 +18332,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectImageFacesResponse>(await this.callApi(params, req, runtime), new DetectImageFacesResponse({}));
   }
 
+  /**
+   * @summary 获取图片人脸信息
+   *
+   * @param request DetectImageFacesRequest
+   * @return DetectImageFacesResponse
+   */
   async detectImageFaces(request: DetectImageFacesRequest): Promise<DetectImageFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageFacesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 检测图像中的内容
+   *
+   * @param tmpReq DetectImageLabelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectImageLabelsResponse
+   */
   async detectImageLabelsWithOptions(tmpReq: DetectImageLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageLabelsResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectImageLabelsShrinkRequest({ });
@@ -17193,11 +18392,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectImageLabelsResponse>(await this.callApi(params, req, runtime), new DetectImageLabelsResponse({}));
   }
 
+  /**
+   * @summary 检测图像中的内容
+   *
+   * @param request DetectImageLabelsRequest
+   * @return DetectImageLabelsResponse
+   */
   async detectImageLabels(request: DetectImageLabelsRequest): Promise<DetectImageLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageLabelsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取图片打分
+   *
+   * @param tmpReq DetectImageScoreRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectImageScoreResponse
+   */
   async detectImageScoreWithOptions(tmpReq: DetectImageScoreRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageScoreResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectImageScoreShrinkRequest({ });
@@ -17236,11 +18448,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectImageScoreResponse>(await this.callApi(params, req, runtime), new DetectImageScoreResponse({}));
   }
 
+  /**
+   * @summary 获取图片打分
+   *
+   * @param request DetectImageScoreRequest
+   * @return DetectImageScoreResponse
+   */
   async detectImageScore(request: DetectImageScoreRequest): Promise<DetectImageScoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageScoreWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 进行图片光学字符检测
+   *
+   * @param tmpReq DetectImageTextsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectImageTextsResponse
+   */
   async detectImageTextsWithOptions(tmpReq: DetectImageTextsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageTextsResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectImageTextsShrinkRequest({ });
@@ -17279,11 +18504,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectImageTextsResponse>(await this.callApi(params, req, runtime), new DetectImageTextsResponse({}));
   }
 
+  /**
+   * @summary 进行图片光学字符检测
+   *
+   * @param request DetectImageTextsRequest
+   * @return DetectImageTextsResponse
+   */
   async detectImageTexts(request: DetectImageTextsRequest): Promise<DetectImageTextsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectImageTextsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取媒体文件信息
+   *
+   * @param tmpReq DetectMediaMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectMediaMetaResponse
+   */
   async detectMediaMetaWithOptions(tmpReq: DetectMediaMetaRequest, runtime: $Util.RuntimeOptions): Promise<DetectMediaMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectMediaMetaShrinkRequest({ });
@@ -17322,11 +18560,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectMediaMetaResponse>(await this.callApi(params, req, runtime), new DetectMediaMetaResponse({}));
   }
 
+  /**
+   * @summary 获取媒体文件信息
+   *
+   * @param request DetectMediaMetaRequest
+   * @return DetectMediaMetaResponse
+   */
   async detectMediaMeta(request: DetectMediaMetaRequest): Promise<DetectMediaMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectMediaMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 检测文本
+   *
+   * @param request DetectTextAnomalyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectTextAnomalyResponse
+   */
   async detectTextAnomalyWithOptions(request: DetectTextAnomalyRequest, runtime: $Util.RuntimeOptions): Promise<DetectTextAnomalyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17355,11 +18606,86 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectTextAnomalyResponse>(await this.callApi(params, req, runtime), new DetectTextAnomalyResponse({}));
   }
 
+  /**
+   * @summary 检测文本
+   *
+   * @param request DetectTextAnomalyRequest
+   * @return DetectTextAnomalyResponse
+   */
   async detectTextAnomaly(request: DetectTextAnomalyRequest): Promise<DetectTextAnomalyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectTextAnomalyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 嵌入图片盲水印算子
+   *
+   * @param request EncodeBlindWatermarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EncodeBlindWatermarkResponse
+   */
+  async encodeBlindWatermarkWithOptions(request: EncodeBlindWatermarkRequest, runtime: $Util.RuntimeOptions): Promise<EncodeBlindWatermarkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.imageQuality)) {
+      query["ImageQuality"] = request.imageQuality;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.strengthLevel)) {
+      query["StrengthLevel"] = request.strengthLevel;
+    }
+
+    if (!Util.isUnset(request.targetURI)) {
+      query["TargetURI"] = request.targetURI;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EncodeBlindWatermark",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EncodeBlindWatermarkResponse>(await this.callApi(params, req, runtime), new EncodeBlindWatermarkResponse({}));
+  }
+
+  /**
+   * @summary 嵌入图片盲水印算子
+   *
+   * @param request EncodeBlindWatermarkRequest
+   * @return EncodeBlindWatermarkResponse
+   */
+  async encodeBlindWatermark(request: EncodeBlindWatermarkRequest): Promise<EncodeBlindWatermarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.encodeBlindWatermarkWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 提取文档中的文本
+   *
+   * @param tmpReq ExtractDocumentTextRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExtractDocumentTextResponse
+   */
   async extractDocumentTextWithOptions(tmpReq: ExtractDocumentTextRequest, runtime: $Util.RuntimeOptions): Promise<ExtractDocumentTextResponse> {
     Util.validateModel(tmpReq);
     let request = new ExtractDocumentTextShrinkRequest({ });
@@ -17402,11 +18728,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExtractDocumentTextResponse>(await this.callApi(params, req, runtime), new ExtractDocumentTextResponse({}));
   }
 
+  /**
+   * @summary 提取文档中的文本
+   *
+   * @param request ExtractDocumentTextRequest
+   * @return ExtractDocumentTextResponse
+   */
   async extractDocumentText(request: ExtractDocumentTextRequest): Promise<ExtractDocumentTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.extractDocumentTextWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 对 Dataset 内的元数据进行模糊搜索。
+   *
+   * @param tmpReq FuzzyQueryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FuzzyQueryResponse
+   */
   async fuzzyQueryWithOptions(tmpReq: FuzzyQueryRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyQueryResponse> {
     Util.validateModel(tmpReq);
     let request = new FuzzyQueryShrinkRequest({ });
@@ -17465,11 +18804,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FuzzyQueryResponse>(await this.callApi(params, req, runtime), new FuzzyQueryResponse({}));
   }
 
+  /**
+   * @summary 对 Dataset 内的元数据进行模糊搜索。
+   *
+   * @param request FuzzyQueryRequest
+   * @return FuzzyQueryResponse
+   */
   async fuzzyQuery(request: FuzzyQueryRequest): Promise<FuzzyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fuzzyQueryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建实时转码任务
+   *
+   * @param tmpReq GenerateVideoPlaylistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateVideoPlaylistResponse
+   */
   async generateVideoPlaylistWithOptions(tmpReq: GenerateVideoPlaylistRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoPlaylistResponse> {
     Util.validateModel(tmpReq);
     let request = new GenerateVideoPlaylistShrinkRequest({ });
@@ -17560,11 +18912,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateVideoPlaylistResponse>(await this.callApi(params, req, runtime), new GenerateVideoPlaylistResponse({}));
   }
 
+  /**
+   * @summary 创建实时转码任务
+   *
+   * @param request GenerateVideoPlaylistRequest
+   * @return GenerateVideoPlaylistResponse
+   */
   async generateVideoPlaylist(request: GenerateVideoPlaylistRequest): Promise<GenerateVideoPlaylistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateVideoPlaylistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取文档预览编辑凭证
+   *
+   * @param tmpReq GenerateWebofficeTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateWebofficeTokenResponse
+   */
   async generateWebofficeTokenWithOptions(tmpReq: GenerateWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateWebofficeTokenResponse> {
     Util.validateModel(tmpReq);
     let request = new GenerateWebofficeTokenShrinkRequest({ });
@@ -17671,11 +19036,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateWebofficeTokenResponse>(await this.callApi(params, req, runtime), new GenerateWebofficeTokenResponse({}));
   }
 
+  /**
+   * @summary 获取文档预览编辑凭证
+   *
+   * @param request GenerateWebofficeTokenRequest
+   * @return GenerateWebofficeTokenResponse
+   */
   async generateWebofficeToken(request: GenerateWebofficeTokenRequest): Promise<GenerateWebofficeTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateWebofficeTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取数据接入实例
+   *
+   * @param request GetBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBatchResponse
+   */
   async getBatchWithOptions(request: GetBatchRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17704,11 +19082,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBatchResponse>(await this.callApi(params, req, runtime), new GetBatchResponse({}));
   }
 
+  /**
+   * @summary 获取数据接入实例
+   *
+   * @param request GetBatchRequest
+   * @return GetBatchResponse
+   */
   async getBatch(request: GetBatchRequest): Promise<GetBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBatchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取绑定
+   *
+   * @param request GetBindingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBindingResponse
+   */
   async getBindingWithOptions(request: GetBindingRequest, runtime: $Util.RuntimeOptions): Promise<GetBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17741,11 +19132,88 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBindingResponse>(await this.callApi(params, req, runtime), new GetBindingResponse({}));
   }
 
+  /**
+   * @summary 获取绑定
+   *
+   * @param request GetBindingRequest
+   * @return GetBindingResponse
+   */
   async getBinding(request: GetBindingRequest): Promise<GetBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBindingWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI GetDRMLicense is deprecated
+   *
+   * @summary drmlicense获取
+   *
+   * @param request GetDRMLicenseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDRMLicenseResponse
+   */
+  // Deprecated
+  async getDRMLicenseWithOptions(request: GetDRMLicenseRequest, runtime: $Util.RuntimeOptions): Promise<GetDRMLicenseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.protectionSystem)) {
+      query["ProtectionSystem"] = request.protectionSystem;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDRMLicense",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDRMLicenseResponse>(await this.callApi(params, req, runtime), new GetDRMLicenseResponse({}));
+  }
+
+  /**
+   * @deprecated OpenAPI GetDRMLicense is deprecated
+   *
+   * @summary drmlicense获取
+   *
+   * @param request GetDRMLicenseRequest
+   * @return GetDRMLicenseResponse
+   */
+  // Deprecated
+  async getDRMLicense(request: GetDRMLicenseRequest): Promise<GetDRMLicenseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDRMLicenseWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取媒体集信息
+   *
+   * @param request GetDatasetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDatasetResponse
+   */
   async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17778,11 +19246,74 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatasetResponse>(await this.callApi(params, req, runtime), new GetDatasetResponse({}));
   }
 
+  /**
+   * @summary 获取媒体集信息
+   *
+   * @param request GetDatasetRequest
+   * @return GetDatasetResponse
+   */
   async getDataset(request: GetDatasetRequest): Promise<GetDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDatasetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取提取水印的结果
+   *
+   * @param request GetDecodeBlindWatermarkResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDecodeBlindWatermarkResultResponse
+   */
+  async getDecodeBlindWatermarkResultWithOptions(request: GetDecodeBlindWatermarkResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDecodeBlindWatermarkResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDecodeBlindWatermarkResult",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDecodeBlindWatermarkResultResponse>(await this.callApi(params, req, runtime), new GetDecodeBlindWatermarkResultResponse({}));
+  }
+
+  /**
+   * @summary 获取提取水印的结果
+   *
+   * @param request GetDecodeBlindWatermarkResultRequest
+   * @return GetDecodeBlindWatermarkResultResponse
+   */
+  async getDecodeBlindWatermarkResult(request: GetDecodeBlindWatermarkResultRequest): Promise<GetDecodeBlindWatermarkResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDecodeBlindWatermarkResultWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取聚类
+   *
+   * @param request GetFigureClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFigureClusterResponse
+   */
   async getFigureClusterWithOptions(request: GetFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetFigureClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17815,11 +19346,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFigureClusterResponse>(await this.callApi(params, req, runtime), new GetFigureClusterResponse({}));
   }
 
+  /**
+   * @summary 获取聚类
+   *
+   * @param request GetFigureClusterRequest
+   * @return GetFigureClusterResponse
+   */
   async getFigureCluster(request: GetFigureClusterRequest): Promise<GetFigureClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFigureClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取文件元信息
+   *
+   * @param request GetFileMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileMetaResponse
+   */
   async getFileMetaWithOptions(request: GetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17852,11 +19396,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileMetaResponse>(await this.callApi(params, req, runtime), new GetFileMetaResponse({}));
   }
 
+  /**
+   * @summary 获取文件元信息
+   *
+   * @param request GetFileMetaRequest
+   * @return GetFileMetaResponse
+   */
   async getFileMeta(request: GetFileMetaRequest): Promise<GetFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取图片审核任务结果
+   *
+   * @param request GetImageModerationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageModerationResultResponse
+   */
   async getImageModerationResultWithOptions(request: GetImageModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetImageModerationResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17889,11 +19446,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageModerationResultResponse>(await this.callApi(params, req, runtime), new GetImageModerationResultResponse({}));
   }
 
+  /**
+   * @summary 获取图片审核任务结果
+   *
+   * @param request GetImageModerationResultRequest
+   * @return GetImageModerationResultResponse
+   */
   async getImageModerationResult(request: GetImageModerationResultRequest): Promise<GetImageModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageModerationResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取绑定的ossbucket
+   *
+   * @param request GetOSSBucketAttachmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOSSBucketAttachmentResponse
+   */
   async getOSSBucketAttachmentWithOptions(request: GetOSSBucketAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<GetOSSBucketAttachmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17918,11 +19488,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOSSBucketAttachmentResponse>(await this.callApi(params, req, runtime), new GetOSSBucketAttachmentResponse({}));
   }
 
+  /**
+   * @summary 获取绑定的ossbucket
+   *
+   * @param request GetOSSBucketAttachmentRequest
+   * @return GetOSSBucketAttachmentResponse
+   */
   async getOSSBucketAttachment(request: GetOSSBucketAttachmentRequest): Promise<GetOSSBucketAttachmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOSSBucketAttachmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取项目信息
+   *
+   * @param request GetProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectResponse
+   */
   async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17951,11 +19534,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
   }
 
+  /**
+   * @summary 获取项目信息
+   *
+   * @param request GetProjectRequest
+   * @return GetProjectResponse
+   */
   async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 返回一个 Story 的详细信息
+   *
+   * @param request GetStoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStoryResponse
+   */
   async getStoryWithOptions(request: GetStoryRequest, runtime: $Util.RuntimeOptions): Promise<GetStoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17988,11 +19584,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStoryResponse>(await this.callApi(params, req, runtime), new GetStoryResponse({}));
   }
 
+  /**
+   * @summary 返回一个 Story 的详细信息
+   *
+   * @param request GetStoryRequest
+   * @return GetStoryResponse
+   */
   async getStory(request: GetStoryRequest): Promise<GetStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取任务信息
+   *
+   * @param request GetTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskResponse
+   */
   async getTaskWithOptions(request: GetTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18029,11 +19638,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
   }
 
+  /**
+   * @summary 获取任务信息
+   *
+   * @param request GetTaskRequest
+   * @return GetTaskResponse
+   */
   async getTask(request: GetTaskRequest): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取数据接入实例
+   *
+   * @param request GetTriggerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTriggerResponse
+   */
   async getTriggerWithOptions(request: GetTriggerRequest, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18062,11 +19684,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
   }
 
+  /**
+   * @summary 获取数据接入实例
+   *
+   * @param request GetTriggerRequest
+   * @return GetTriggerResponse
+   */
   async getTrigger(request: GetTriggerRequest): Promise<GetTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTriggerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取视频标签检测任务结果
+   *
+   * @param request GetVideoLabelClassificationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVideoLabelClassificationResultResponse
+   */
   async getVideoLabelClassificationResultWithOptions(request: GetVideoLabelClassificationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoLabelClassificationResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18099,11 +19734,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVideoLabelClassificationResultResponse>(await this.callApi(params, req, runtime), new GetVideoLabelClassificationResultResponse({}));
   }
 
+  /**
+   * @summary 获取视频标签检测任务结果
+   *
+   * @param request GetVideoLabelClassificationResultRequest
+   * @return GetVideoLabelClassificationResultResponse
+   */
   async getVideoLabelClassificationResult(request: GetVideoLabelClassificationResultRequest): Promise<GetVideoLabelClassificationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVideoLabelClassificationResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取视频审核任务结果
+   *
+   * @param request GetVideoModerationResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetVideoModerationResultResponse
+   */
   async getVideoModerationResultWithOptions(request: GetVideoModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoModerationResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18136,11 +19784,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVideoModerationResultResponse>(await this.callApi(params, req, runtime), new GetVideoModerationResultResponse({}));
   }
 
+  /**
+   * @summary 获取视频审核任务结果
+   *
+   * @param request GetVideoModerationResultRequest
+   * @return GetVideoModerationResultResponse
+   */
   async getVideoModerationResult(request: GetVideoModerationResultRequest): Promise<GetVideoModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVideoModerationResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加文件元信息
+   *
+   * @param tmpReq IndexFileMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return IndexFileMetaResponse
+   */
   async indexFileMetaWithOptions(tmpReq: IndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<IndexFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new IndexFileMetaShrinkRequest({ });
@@ -18170,6 +19831,10 @@ export default class Client extends OpenApi {
       query["ProjectName"] = request.projectName;
     }
 
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18187,11 +19852,24 @@ export default class Client extends OpenApi {
     return $tea.cast<IndexFileMetaResponse>(await this.callApi(params, req, runtime), new IndexFileMetaResponse({}));
   }
 
+  /**
+   * @summary 添加文件元信息
+   *
+   * @param request IndexFileMetaRequest
+   * @return IndexFileMetaResponse
+   */
   async indexFileMeta(request: IndexFileMetaRequest): Promise<IndexFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.indexFileMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列出数据接入实例
+   *
+   * @param request ListBatchesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBatchesResponse
+   */
   async listBatchesWithOptions(request: ListBatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListBatchesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18240,11 +19918,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBatchesResponse>(await this.callApi(params, req, runtime), new ListBatchesResponse({}));
   }
 
+  /**
+   * @summary 列出数据接入实例
+   *
+   * @param request ListBatchesRequest
+   * @return ListBatchesResponse
+   */
   async listBatches(request: ListBatchesRequest): Promise<ListBatchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBatchesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列出绑定
+   *
+   * @param request ListBindingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBindingsResponse
+   */
   async listBindingsWithOptions(request: ListBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18281,11 +19972,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBindingsResponse>(await this.callApi(params, req, runtime), new ListBindingsResponse({}));
   }
 
+  /**
+   * @summary 列出绑定
+   *
+   * @param request ListBindingsRequest
+   * @return ListBindingsResponse
+   */
   async listBindings(request: ListBindingsRequest): Promise<ListBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBindingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列出媒体集列表
+   *
+   * @param request ListDatasetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDatasetsResponse
+   */
   async listDatasetsWithOptions(request: ListDatasetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatasetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18322,11 +20026,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatasetsResponse>(await this.callApi(params, req, runtime), new ListDatasetsResponse({}));
   }
 
+  /**
+   * @summary 列出媒体集列表
+   *
+   * @param request ListDatasetsRequest
+   * @return ListDatasetsResponse
+   */
   async listDatasets(request: ListDatasetsRequest): Promise<ListDatasetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatasetsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取项目列表
+   *
+   * @param request ListProjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectsResponse
+   */
   async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18359,11 +20076,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
   }
 
+  /**
+   * @summary 获取项目列表
+   *
+   * @param request ListProjectsRequest
+   * @return ListProjectsResponse
+   */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取地区列表
+   *
+   * @param request ListRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRegionsResponse
+   */
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18388,11 +20118,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
   }
 
+  /**
+   * @summary 获取地区列表
+   *
+   * @param request ListRegionsRequest
+   * @return ListRegionsResponse
+   */
   async listRegions(request: ListRegionsRequest): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取任务信息列表
+   *
+   * @param tmpReq ListTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTasksResponse
+   */
   async listTasksWithOptions(tmpReq: ListTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTasksShrinkRequest({ });
@@ -18471,11 +20214,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
   }
 
+  /**
+   * @summary 获取任务信息列表
+   *
+   * @param request ListTasksRequest
+   * @return ListTasksResponse
+   */
   async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列出数据接入实例
+   *
+   * @param request ListTriggersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTriggersResponse
+   */
   async listTriggersWithOptions(request: ListTriggersRequest, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18524,11 +20280,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
   }
 
+  /**
+   * @summary 列出数据接入实例
+   *
+   * @param request ListTriggersRequest
+   * @return ListTriggersResponse
+   */
   async listTriggers(request: ListTriggersRequest): Promise<ListTriggersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTriggersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询聚类分组
+   *
+   * @param tmpReq QueryFigureClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryFigureClustersResponse
+   */
   async queryFigureClustersWithOptions(tmpReq: QueryFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryFigureClustersResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryFigureClustersShrinkRequest({ });
@@ -18599,11 +20368,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryFigureClustersResponse>(await this.callApi(params, req, runtime), new QueryFigureClustersResponse({}));
   }
 
+  /**
+   * @summary 查询聚类分组
+   *
+   * @param request QueryFigureClustersRequest
+   * @return QueryFigureClustersResponse
+   */
   async queryFigureClusters(request: QueryFigureClustersRequest): Promise<QueryFigureClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryFigureClustersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查找时空分组
+   *
+   * @param tmpReq QueryLocationDateClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryLocationDateClustersResponse
+   */
   async queryLocationDateClustersWithOptions(tmpReq: QueryLocationDateClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryLocationDateClustersResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryLocationDateClustersShrinkRequest({ });
@@ -18710,11 +20492,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryLocationDateClustersResponse>(await this.callApi(params, req, runtime), new QueryLocationDateClustersResponse({}));
   }
 
+  /**
+   * @summary 查找时空分组
+   *
+   * @param request QueryLocationDateClustersRequest
+   * @return QueryLocationDateClustersResponse
+   */
   async queryLocationDateClusters(request: QueryLocationDateClustersRequest): Promise<QueryLocationDateClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryLocationDateClustersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查找相似图片分组
+   *
+   * @param request QuerySimilarImageClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySimilarImageClustersResponse
+   */
   async querySimilarImageClustersWithOptions(request: QuerySimilarImageClustersRequest, runtime: $Util.RuntimeOptions): Promise<QuerySimilarImageClustersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18763,11 +20558,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySimilarImageClustersResponse>(await this.callApi(params, req, runtime), new QuerySimilarImageClustersResponse({}));
   }
 
+  /**
+   * @summary 查找相似图片分组
+   *
+   * @param request QuerySimilarImageClustersRequest
+   * @return QuerySimilarImageClustersResponse
+   */
   async querySimilarImageClusters(request: QuerySimilarImageClustersRequest): Promise<QuerySimilarImageClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySimilarImageClustersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查找 Story
+   *
+   * @param tmpReq QueryStoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryStoriesResponse
+   */
   async queryStoriesWithOptions(tmpReq: QueryStoriesRequest, runtime: $Util.RuntimeOptions): Promise<QueryStoriesResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryStoriesShrinkRequest({ });
@@ -18870,11 +20678,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryStoriesResponse>(await this.callApi(params, req, runtime), new QueryStoriesResponse({}));
   }
 
+  /**
+   * @summary 查找 Story
+   *
+   * @param request QueryStoriesRequest
+   * @return QueryStoriesResponse
+   */
   async queryStories(request: QueryStoriesRequest): Promise<QueryStoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryStoriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 刷新文档预览编辑凭证
+   *
+   * @param tmpReq RefreshWebofficeTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefreshWebofficeTokenResponse
+   */
   async refreshWebofficeTokenWithOptions(tmpReq: RefreshWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshWebofficeTokenResponse> {
     Util.validateModel(tmpReq);
     let request = new RefreshWebofficeTokenShrinkRequest({ });
@@ -18917,11 +20738,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshWebofficeTokenResponse>(await this.callApi(params, req, runtime), new RefreshWebofficeTokenResponse({}));
   }
 
+  /**
+   * @summary 刷新文档预览编辑凭证
+   *
+   * @param request RefreshWebofficeTokenRequest
+   * @return RefreshWebofficeTokenResponse
+   */
   async refreshWebofficeToken(request: RefreshWebofficeTokenRequest): Promise<RefreshWebofficeTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshWebofficeTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 为故事移除文件
+   *
+   * @param tmpReq RemoveStoryFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveStoryFilesResponse
+   */
   async removeStoryFilesWithOptions(tmpReq: RemoveStoryFilesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveStoryFilesResponse> {
     Util.validateModel(tmpReq);
     let request = new RemoveStoryFilesShrinkRequest({ });
@@ -18964,11 +20798,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveStoryFilesResponse>(await this.callApi(params, req, runtime), new RemoveStoryFilesResponse({}));
   }
 
+  /**
+   * @summary 为故事移除文件
+   *
+   * @param request RemoveStoryFilesRequest
+   * @return RemoveStoryFilesResponse
+   */
   async removeStoryFiles(request: RemoveStoryFilesRequest): Promise<RemoveStoryFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeStoryFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 恢复一个挂起的数据接入任务
+   *
+   * @param request ResumeBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeBatchResponse
+   */
   async resumeBatchWithOptions(request: ResumeBatchRequest, runtime: $Util.RuntimeOptions): Promise<ResumeBatchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18997,11 +20844,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeBatchResponse>(await this.callApi(params, req, runtime), new ResumeBatchResponse({}));
   }
 
+  /**
+   * @summary 恢复一个挂起的数据接入任务
+   *
+   * @param request ResumeBatchRequest
+   * @return ResumeBatchResponse
+   */
   async resumeBatch(request: ResumeBatchRequest): Promise<ResumeBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeBatchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 恢复一个挂起的数据接入任务
+   *
+   * @param request ResumeTriggerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeTriggerResponse
+   */
   async resumeTriggerWithOptions(request: ResumeTriggerRequest, runtime: $Util.RuntimeOptions): Promise<ResumeTriggerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19030,11 +20890,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeTriggerResponse>(await this.callApi(params, req, runtime), new ResumeTriggerResponse({}));
   }
 
+  /**
+   * @summary 恢复一个挂起的数据接入任务
+   *
+   * @param request ResumeTriggerRequest
+   * @return ResumeTriggerResponse
+   */
   async resumeTrigger(request: ResumeTriggerRequest): Promise<ResumeTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeTriggerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 以脸搜分组
+   *
+   * @param tmpReq SearchImageFigureClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchImageFigureClusterResponse
+   */
   async searchImageFigureClusterWithOptions(tmpReq: SearchImageFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<SearchImageFigureClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchImageFigureClusterShrinkRequest({ });
@@ -19077,11 +20950,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchImageFigureClusterResponse>(await this.callApi(params, req, runtime), new SearchImageFigureClusterResponse({}));
   }
 
+  /**
+   * @summary 以脸搜分组
+   *
+   * @param request SearchImageFigureClusterRequest
+   * @return SearchImageFigureClusterResponse
+   */
   async searchImageFigureCluster(request: SearchImageFigureClusterRequest): Promise<SearchImageFigureClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchImageFigureClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
+   *
+   * @param tmpReq SemanticQueryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SemanticQueryResponse
+   */
   async semanticQueryWithOptions(tmpReq: SemanticQueryRequest, runtime: $Util.RuntimeOptions): Promise<SemanticQueryResponse> {
     Util.validateModel(tmpReq);
     let request = new SemanticQueryShrinkRequest({ });
@@ -19140,11 +21026,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SemanticQueryResponse>(await this.callApi(params, req, runtime), new SemanticQueryResponse({}));
   }
 
+  /**
+   * @summary 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
+   *
+   * @param request SemanticQueryRequest
+   * @return SemanticQueryResponse
+   */
   async semanticQuery(request: SemanticQueryRequest): Promise<SemanticQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.semanticQueryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
+   *
+   * @param tmpReq SimpleQueryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SimpleQueryResponse
+   */
   async simpleQueryWithOptions(tmpReq: SimpleQueryRequest, runtime: $Util.RuntimeOptions): Promise<SimpleQueryResponse> {
     Util.validateModel(tmpReq);
     let request = new SimpleQueryShrinkRequest({ });
@@ -19219,11 +21118,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SimpleQueryResponse>(await this.callApi(params, req, runtime), new SimpleQueryResponse({}));
   }
 
+  /**
+   * @summary 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
+   *
+   * @param request SimpleQueryRequest
+   * @return SimpleQueryResponse
+   */
   async simpleQuery(request: SimpleQueryRequest): Promise<SimpleQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.simpleQueryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 挂起一个数据接入任务
+   *
+   * @param request SuspendBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SuspendBatchResponse
+   */
   async suspendBatchWithOptions(request: SuspendBatchRequest, runtime: $Util.RuntimeOptions): Promise<SuspendBatchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19252,11 +21164,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SuspendBatchResponse>(await this.callApi(params, req, runtime), new SuspendBatchResponse({}));
   }
 
+  /**
+   * @summary 挂起一个数据接入任务
+   *
+   * @param request SuspendBatchRequest
+   * @return SuspendBatchResponse
+   */
   async suspendBatch(request: SuspendBatchRequest): Promise<SuspendBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.suspendBatchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 挂起一个数据接入任务
+   *
+   * @param request SuspendTriggerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SuspendTriggerResponse
+   */
   async suspendTriggerWithOptions(request: SuspendTriggerRequest, runtime: $Util.RuntimeOptions): Promise<SuspendTriggerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19285,11 +21210,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SuspendTriggerResponse>(await this.callApi(params, req, runtime), new SuspendTriggerResponse({}));
   }
 
+  /**
+   * @summary 挂起一个数据接入任务
+   *
+   * @param request SuspendTriggerRequest
+   * @return SuspendTriggerResponse
+   */
   async suspendTrigger(request: SuspendTriggerRequest): Promise<SuspendTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.suspendTriggerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新数据接入实例
+   *
+   * @param tmpReq UpdateBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBatchResponse
+   */
   async updateBatchWithOptions(tmpReq: UpdateBatchRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBatchResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateBatchShrinkRequest({ });
@@ -19344,11 +21282,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBatchResponse>(await this.callApi(params, req, runtime), new UpdateBatchResponse({}));
   }
 
+  /**
+   * @summary 更新数据接入实例
+   *
+   * @param request UpdateBatchRequest
+   * @return UpdateBatchResponse
+   */
   async updateBatch(request: UpdateBatchRequest): Promise<UpdateBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBatchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新媒体集
+   *
+   * @param request UpdateDatasetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDatasetResponse
+   */
   async updateDatasetWithOptions(request: UpdateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19405,11 +21356,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDatasetResponse>(await this.callApi(params, req, runtime), new UpdateDatasetResponse({}));
   }
 
+  /**
+   * @summary 更新媒体集
+   *
+   * @param request UpdateDatasetRequest
+   * @return UpdateDatasetResponse
+   */
   async updateDataset(request: UpdateDatasetRequest): Promise<UpdateDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDatasetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新聚类
+   *
+   * @param tmpReq UpdateFigureClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFigureClusterResponse
+   */
   async updateFigureClusterWithOptions(tmpReq: UpdateFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFigureClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateFigureClusterShrinkRequest({ });
@@ -19448,11 +21412,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFigureClusterResponse>(await this.callApi(params, req, runtime), new UpdateFigureClusterResponse({}));
   }
 
+  /**
+   * @summary 更新聚类
+   *
+   * @param request UpdateFigureClusterRequest
+   * @return UpdateFigureClusterResponse
+   */
   async updateFigureCluster(request: UpdateFigureClusterRequest): Promise<UpdateFigureClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFigureClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新文件元信息
+   *
+   * @param tmpReq UpdateFileMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFileMetaResponse
+   */
   async updateFileMetaWithOptions(tmpReq: UpdateFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateFileMetaShrinkRequest({ });
@@ -19491,11 +21468,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFileMetaResponse>(await this.callApi(params, req, runtime), new UpdateFileMetaResponse({}));
   }
 
+  /**
+   * @summary 更新文件元信息
+   *
+   * @param request UpdateFileMetaRequest
+   * @return UpdateFileMetaResponse
+   */
   async updateFileMeta(request: UpdateFileMetaRequest): Promise<UpdateFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新时空聚类
+   *
+   * @param tmpReq UpdateLocationDateClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLocationDateClusterResponse
+   */
   async updateLocationDateClusterWithOptions(tmpReq: UpdateLocationDateClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLocationDateClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateLocationDateClusterShrinkRequest({ });
@@ -19546,11 +21536,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLocationDateClusterResponse>(await this.callApi(params, req, runtime), new UpdateLocationDateClusterResponse({}));
   }
 
+  /**
+   * @summary 更新时空聚类
+   *
+   * @param request UpdateLocationDateClusterRequest
+   * @return UpdateLocationDateClusterResponse
+   */
   async updateLocationDateCluster(request: UpdateLocationDateClusterRequest): Promise<UpdateLocationDateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLocationDateClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新项目
+   *
+   * @param request UpdateProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateProjectResponse
+   */
   async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19611,11 +21614,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateProjectResponse>(await this.callApi(params, req, runtime), new UpdateProjectResponse({}));
   }
 
+  /**
+   * @summary 更新项目
+   *
+   * @param request UpdateProjectRequest
+   * @return UpdateProjectResponse
+   */
   async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新故事
+   *
+   * @param tmpReq UpdateStoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateStoryResponse
+   */
   async updateStoryWithOptions(tmpReq: UpdateStoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStoryResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateStoryShrinkRequest({ });
@@ -19674,11 +21690,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateStoryResponse>(await this.callApi(params, req, runtime), new UpdateStoryResponse({}));
   }
 
+  /**
+   * @summary 更新故事
+   *
+   * @param request UpdateStoryRequest
+   * @return UpdateStoryResponse
+   */
   async updateStory(request: UpdateStoryRequest): Promise<UpdateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateStoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新数据接入实例
+   *
+   * @param tmpReq UpdateTriggerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTriggerResponse
+   */
   async updateTriggerWithOptions(tmpReq: UpdateTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateTriggerShrinkRequest({ });
@@ -19733,6 +21762,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
   }
 
+  /**
+   * @summary 更新数据接入实例
+   *
+   * @param request UpdateTriggerRequest
+   * @return UpdateTriggerResponse
+   */
   async updateTrigger(request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTriggerWithOptions(request, runtime);
