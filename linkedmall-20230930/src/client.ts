@@ -922,6 +922,7 @@ export class Product extends $tea.Model {
   categoryLeafId?: number;
   descPath?: string;
   divisionCode?: string;
+  extendProperties?: ProductExtendProperty[];
   fuzzyQuantity?: string;
   images?: string[];
   picUrl?: string;
@@ -946,6 +947,7 @@ export class Product extends $tea.Model {
       categoryLeafId: 'categoryLeafId',
       descPath: 'descPath',
       divisionCode: 'divisionCode',
+      extendProperties: 'extendProperties',
       fuzzyQuantity: 'fuzzyQuantity',
       images: 'images',
       picUrl: 'picUrl',
@@ -973,6 +975,7 @@ export class Product extends $tea.Model {
       categoryLeafId: 'number',
       descPath: 'string',
       divisionCode: 'string',
+      extendProperties: { 'type': 'array', 'itemType': ProductExtendProperty },
       fuzzyQuantity: 'string',
       images: { 'type': 'array', 'itemType': 'string' },
       picUrl: 'string',
@@ -1020,6 +1023,28 @@ export class ProductDTO extends $tea.Model {
       purchaserId: 'string',
       quantity: 'number',
       skuId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProductExtendProperty extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
