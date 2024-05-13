@@ -390,6 +390,90 @@ export class CreateTokenResponse extends $tea.Model {
   }
 }
 
+export class DeleteCustomTextRequest extends $tea.Model {
+  agentKey?: string;
+  commodityCode?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      commodityCode: 'CommodityCode',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      commodityCode: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomTextResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteGeneratedContentRequest extends $tea.Model {
   agentKey?: string;
   id?: number;
@@ -1421,6 +1505,90 @@ export class GenerateViewPointResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GenerateViewPointResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTextRequest extends $tea.Model {
+  agentKey?: string;
+  commodityCode?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      commodityCode: 'CommodityCode',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      commodityCode: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTextResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCustomTextResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetCustomTextResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCustomTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCustomTextResponseBody,
     };
   }
 
@@ -2695,6 +2863,87 @@ export class ListBuildConfigsResponse extends $tea.Model {
   }
 }
 
+export class ListCustomTextRequest extends $tea.Model {
+  agentKey?: string;
+  commodityCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      commodityCode: 'CommodityCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      commodityCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomTextResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCustomTextResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListCustomTextResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCustomTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCustomTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDialoguesRequest extends $tea.Model {
   agentKey?: string;
   current?: number;
@@ -3726,6 +3975,93 @@ export class QueryAsyncTaskResponse extends $tea.Model {
   }
 }
 
+export class SaveCustomTextRequest extends $tea.Model {
+  agentKey?: string;
+  commodityCode?: string;
+  content?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      commodityCode: 'CommodityCode',
+      content: 'Content',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      commodityCode: 'string',
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveCustomTextResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveCustomTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveCustomTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveCustomTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveDataSourceOrderConfigRequest extends $tea.Model {
   agentKey?: string;
   productCode?: string;
@@ -4234,6 +4570,96 @@ export class SubmitAsyncTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitAsyncTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomTextRequest extends $tea.Model {
+  agentKey?: string;
+  commodityCode?: string;
+  content?: string;
+  id?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      commodityCode: 'CommodityCode',
+      content: 'Content',
+      id: 'Id',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      commodityCode: 'string',
+      content: 'string',
+      id: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomTextResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCustomTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomTextResponseBody,
     };
   }
 
@@ -4837,6 +5263,43 @@ export class GenerateViewPointResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       point: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomTextResponseBodyData extends $tea.Model {
+  content?: string;
+  createTime?: string;
+  createUser?: string;
+  id?: number;
+  title?: string;
+  updateTime?: string;
+  updateUser?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      id: 'Id',
+      title: 'Title',
+      updateTime: 'UpdateTime',
+      updateUser: 'UpdateUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'string',
+      createUser: 'string',
+      id: 'number',
+      title: 'string',
+      updateTime: 'string',
+      updateUser: 'string',
     };
   }
 
@@ -5870,6 +6333,43 @@ export class ListBuildConfigsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListCustomTextResponseBodyData extends $tea.Model {
+  content?: string;
+  createTime?: string;
+  createUser?: string;
+  id?: number;
+  title?: string;
+  updateTime?: string;
+  updateUser?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      id: 'Id',
+      title: 'Title',
+      updateTime: 'UpdateTime',
+      updateUser: 'UpdateUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'string',
+      createUser: 'string',
+      id: 'number',
+      title: 'string',
+      updateTime: 'string',
+      updateUser: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDialoguesResponseBodyData extends $tea.Model {
   bot?: string;
   createTime?: string;
@@ -6595,6 +7095,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 取消异步任务
+   *
+   * @param request CancelAsyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelAsyncTaskResponse
+   */
   async cancelAsyncTaskWithOptions(request: CancelAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelAsyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6625,11 +7132,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelAsyncTaskResponse>(await this.callApi(params, req, runtime), new CancelAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary 取消异步任务
+   *
+   * @param request CancelAsyncTaskRequest
+   * @return CancelAsyncTaskResponse
+   */
   async cancelAsyncTask(request: CancelAsyncTaskRequest): Promise<CancelAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelAsyncTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 清除所有干预内容
+   *
+   * @param request ClearIntervenesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ClearIntervenesResponse
+   */
   async clearIntervenesWithOptions(request: ClearIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ClearIntervenesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6654,11 +7174,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ClearIntervenesResponse>(await this.callApi(params, req, runtime), new ClearIntervenesResponse({}));
   }
 
+  /**
+   * @summary 清除所有干预内容
+   *
+   * @param request ClearIntervenesRequest
+   * @return ClearIntervenesResponse
+   */
   async clearIntervenes(request: ClearIntervenesRequest): Promise<ClearIntervenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clearIntervenesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档管理-创建
+   *
+   * @param tmpReq CreateGeneratedContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGeneratedContentResponse
+   */
   async createGeneratedContentWithOptions(tmpReq: CreateGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<CreateGeneratedContentResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateGeneratedContentShrinkRequest({ });
@@ -6723,11 +7256,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGeneratedContentResponse>(await this.callApi(params, req, runtime), new CreateGeneratedContentResponse({}));
   }
 
+  /**
+   * @summary 文档管理-创建
+   *
+   * @param request CreateGeneratedContentRequest
+   * @return CreateGeneratedContentResponse
+   */
   async createGeneratedContent(request: CreateGeneratedContentRequest): Promise<CreateGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGeneratedContentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取授权token
+   *
+   * @param request CreateTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTokenResponse
+   */
   async createTokenWithOptions(request: CreateTokenRequest, runtime: $Util.RuntimeOptions): Promise<CreateTokenResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6752,11 +7298,76 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTokenResponse>(await this.callApi(params, req, runtime), new CreateTokenResponse({}));
   }
 
+  /**
+   * @summary 获取授权token
+   *
+   * @param request CreateTokenRequest
+   * @return CreateTokenResponse
+   */
   async createToken(request: CreateTokenRequest): Promise<CreateTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除自定义文本
+   *
+   * @param request DeleteCustomTextRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomTextResponse
+   */
+  async deleteCustomTextWithOptions(request: DeleteCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomTextResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      body["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomText",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomTextResponse>(await this.callApi(params, req, runtime), new DeleteCustomTextResponse({}));
+  }
+
+  /**
+   * @summary 删除自定义文本
+   *
+   * @param request DeleteCustomTextRequest
+   * @return DeleteCustomTextResponse
+   */
+  async deleteCustomText(request: DeleteCustomTextRequest): Promise<DeleteCustomTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomTextWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 文档管理-删除。
+   *
+   * @param request DeleteGeneratedContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGeneratedContentResponse
+   */
   async deleteGeneratedContentWithOptions(request: DeleteGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGeneratedContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6787,11 +7398,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGeneratedContentResponse>(await this.callApi(params, req, runtime), new DeleteGeneratedContentResponse({}));
   }
 
+  /**
+   * @summary 文档管理-删除。
+   *
+   * @param request DeleteGeneratedContentRequest
+   * @return DeleteGeneratedContentResponse
+   */
   async deleteGeneratedContent(request: DeleteGeneratedContentRequest): Promise<DeleteGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGeneratedContentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除干预规则
+   *
+   * @param request DeleteInterveneRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInterveneRuleResponse
+   */
   async deleteInterveneRuleWithOptions(request: DeleteInterveneRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInterveneRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6822,11 +7446,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInterveneRuleResponse>(await this.callApi(params, req, runtime), new DeleteInterveneRuleResponse({}));
   }
 
+  /**
+   * @summary 删除干预规则
+   *
+   * @param request DeleteInterveneRuleRequest
+   * @return DeleteInterveneRuleResponse
+   */
   async deleteInterveneRule(request: DeleteInterveneRuleRequest): Promise<DeleteInterveneRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInterveneRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据ID删除素材
+   *
+   * @param request DeleteMaterialByIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMaterialByIdResponse
+   */
   async deleteMaterialByIdWithOptions(request: DeleteMaterialByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaterialByIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6857,11 +7494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMaterialByIdResponse>(await this.callApi(params, req, runtime), new DeleteMaterialByIdResponse({}));
   }
 
+  /**
+   * @summary 根据ID删除素材
+   *
+   * @param request DeleteMaterialByIdRequest
+   * @return DeleteMaterialByIdResponse
+   */
   async deleteMaterialById(request: DeleteMaterialByIdRequest): Promise<DeleteMaterialByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMaterialByIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档管理-导出。
+   *
+   * @param request ExportGeneratedContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportGeneratedContentResponse
+   */
   async exportGeneratedContentWithOptions(request: ExportGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<ExportGeneratedContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6892,11 +7542,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportGeneratedContentResponse>(await this.callApi(params, req, runtime), new ExportGeneratedContentResponse({}));
   }
 
+  /**
+   * @summary 文档管理-导出。
+   *
+   * @param request ExportGeneratedContentRequest
+   * @return ExportGeneratedContentResponse
+   */
   async exportGeneratedContent(request: ExportGeneratedContentRequest): Promise<ExportGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportGeneratedContentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 导出所有干预内容
+   *
+   * @param request ExportIntervenesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportIntervenesResponse
+   */
   async exportIntervenesWithOptions(request: ExportIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ExportIntervenesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6921,11 +7584,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportIntervenesResponse>(await this.callApi(params, req, runtime), new ExportIntervenesResponse({}));
   }
 
+  /**
+   * @summary 导出所有干预内容
+   *
+   * @param request ExportIntervenesRequest
+   * @return ExportIntervenesResponse
+   */
   async exportIntervenes(request: ExportIntervenesRequest): Promise<ExportIntervenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportIntervenesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 反馈某次生成的结果
+   *
+   * @param tmpReq FeedbackDialogueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FeedbackDialogueResponse
+   */
   async feedbackDialogueWithOptions(tmpReq: FeedbackDialogueRequest, runtime: $Util.RuntimeOptions): Promise<FeedbackDialogueResponse> {
     Util.validateModel(tmpReq);
     let request = new FeedbackDialogueShrinkRequest({ });
@@ -6986,11 +7662,22 @@ export default class Client extends OpenApi {
     return $tea.cast<FeedbackDialogueResponse>(await this.callApi(params, req, runtime), new FeedbackDialogueResponse({}));
   }
 
+  /**
+   * @summary 反馈某次生成的结果
+   *
+   * @param request FeedbackDialogueRequest
+   * @return FeedbackDialogueResponse
+   */
   async feedbackDialogue(request: FeedbackDialogueRequest): Promise<FeedbackDialogueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.feedbackDialogueWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq FetchImageTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FetchImageTaskResponse
+   */
   async fetchImageTaskWithOptions(tmpReq: FetchImageTaskRequest, runtime: $Util.RuntimeOptions): Promise<FetchImageTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new FetchImageTaskShrinkRequest({ });
@@ -7031,11 +7718,22 @@ export default class Client extends OpenApi {
     return $tea.cast<FetchImageTaskResponse>(await this.callApi(params, req, runtime), new FetchImageTaskResponse({}));
   }
 
+  /**
+   * @param request FetchImageTaskRequest
+   * @return FetchImageTaskResponse
+   */
   async fetchImageTask(request: FetchImageTaskRequest): Promise<FetchImageTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fetchImageTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 生成临时可访问的公开url
+   *
+   * @param request GenerateFileUrlByKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateFileUrlByKeyResponse
+   */
   async generateFileUrlByKeyWithOptions(request: GenerateFileUrlByKeyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateFileUrlByKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7070,11 +7768,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateFileUrlByKeyResponse>(await this.callApi(params, req, runtime), new GenerateFileUrlByKeyResponse({}));
   }
 
+  /**
+   * @summary 生成临时可访问的公开url
+   *
+   * @param request GenerateFileUrlByKeyRequest
+   * @return GenerateFileUrlByKeyResponse
+   */
   async generateFileUrlByKey(request: GenerateFileUrlByKeyRequest): Promise<GenerateFileUrlByKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateFileUrlByKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 智能配图，图片生成任务
+   *
+   * @param tmpReq GenerateImageTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateImageTaskResponse
+   */
   async generateImageTaskWithOptions(tmpReq: GenerateImageTaskRequest, runtime: $Util.RuntimeOptions): Promise<GenerateImageTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new GenerateImageTaskShrinkRequest({ });
@@ -7123,11 +7834,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateImageTaskResponse>(await this.callApi(params, req, runtime), new GenerateImageTaskResponse({}));
   }
 
+  /**
+   * @summary 智能配图，图片生成任务
+   *
+   * @param request GenerateImageTaskRequest
+   * @return GenerateImageTaskResponse
+   */
   async generateImageTask(request: GenerateImageTaskRequest): Promise<GenerateImageTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateImageTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 生成上传配置
+   *
+   * @param request GenerateUploadConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateUploadConfigResponse
+   */
   async generateUploadConfigWithOptions(request: GenerateUploadConfigRequest, runtime: $Util.RuntimeOptions): Promise<GenerateUploadConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7162,11 +7886,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateUploadConfigResponse>(await this.callApi(params, req, runtime), new GenerateUploadConfigResponse({}));
   }
 
+  /**
+   * @summary 生成上传配置
+   *
+   * @param request GenerateUploadConfigRequest
+   * @return GenerateUploadConfigResponse
+   */
   async generateUploadConfig(request: GenerateUploadConfigRequest): Promise<GenerateUploadConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateUploadConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 视角生成
+   *
+   * @param tmpReq GenerateViewPointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateViewPointResponse
+   */
   async generateViewPointWithOptions(tmpReq: GenerateViewPointRequest, runtime: $Util.RuntimeOptions): Promise<GenerateViewPointResponse> {
     Util.validateModel(tmpReq);
     let request = new GenerateViewPointShrinkRequest({ });
@@ -7203,11 +7940,76 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateViewPointResponse>(await this.callApi(params, req, runtime), new GenerateViewPointResponse({}));
   }
 
+  /**
+   * @summary 视角生成
+   *
+   * @param request GenerateViewPointRequest
+   * @return GenerateViewPointResponse
+   */
   async generateViewPoint(request: GenerateViewPointRequest): Promise<GenerateViewPointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateViewPointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取自定义文本
+   *
+   * @param request GetCustomTextRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCustomTextResponse
+   */
+  async getCustomTextWithOptions(request: GetCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomTextResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      body["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCustomText",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomTextResponse>(await this.callApi(params, req, runtime), new GetCustomTextResponse({}));
+  }
+
+  /**
+   * @summary 获取自定义文本
+   *
+   * @param request GetCustomTextRequest
+   * @return GetCustomTextResponse
+   */
+  async getCustomText(request: GetCustomTextRequest): Promise<GetCustomTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCustomTextWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取系统数据源配置和个人配置
+   *
+   * @param request GetDataSourceOrderConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataSourceOrderConfigResponse
+   */
   async getDataSourceOrderConfigWithOptions(request: GetDataSourceOrderConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetDataSourceOrderConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7238,11 +8040,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new GetDataSourceOrderConfigResponse({}));
   }
 
+  /**
+   * @summary 获取系统数据源配置和个人配置
+   *
+   * @param request GetDataSourceOrderConfigRequest
+   * @return GetDataSourceOrderConfigResponse
+   */
   async getDataSourceOrderConfig(request: GetDataSourceOrderConfigRequest): Promise<GetDataSourceOrderConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataSourceOrderConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档管理-查询详情。
+   *
+   * @param request GetGeneratedContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetGeneratedContentResponse
+   */
   async getGeneratedContentWithOptions(request: GetGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<GetGeneratedContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7273,11 +8088,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGeneratedContentResponse>(await this.callApi(params, req, runtime), new GetGeneratedContentResponse({}));
   }
 
+  /**
+   * @summary 文档管理-查询详情。
+   *
+   * @param request GetGeneratedContentRequest
+   * @return GetGeneratedContentResponse
+   */
   async getGeneratedContent(request: GetGeneratedContentRequest): Promise<GetGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGeneratedContentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获得干预全局回复
+   *
+   * @param request GetInterveneGlobalReplyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInterveneGlobalReplyResponse
+   */
   async getInterveneGlobalReplyWithOptions(request: GetInterveneGlobalReplyRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneGlobalReplyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7302,11 +8130,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new GetInterveneGlobalReplyResponse({}));
   }
 
+  /**
+   * @summary 获得干预全局回复
+   *
+   * @param request GetInterveneGlobalReplyRequest
+   * @return GetInterveneGlobalReplyResponse
+   */
   async getInterveneGlobalReply(request: GetInterveneGlobalReplyRequest): Promise<GetInterveneGlobalReplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInterveneGlobalReplyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获得导入任务信息
+   *
+   * @param request GetInterveneImportTaskInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInterveneImportTaskInfoResponse
+   */
   async getInterveneImportTaskInfoWithOptions(request: GetInterveneImportTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneImportTaskInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7337,11 +8178,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInterveneImportTaskInfoResponse>(await this.callApi(params, req, runtime), new GetInterveneImportTaskInfoResponse({}));
   }
 
+  /**
+   * @summary 获得导入任务信息
+   *
+   * @param request GetInterveneImportTaskInfoRequest
+   * @return GetInterveneImportTaskInfoResponse
+   */
   async getInterveneImportTaskInfo(request: GetInterveneImportTaskInfoRequest): Promise<GetInterveneImportTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInterveneImportTaskInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获得干预项规则详情
+   *
+   * @param request GetInterveneRuleDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInterveneRuleDetailResponse
+   */
   async getInterveneRuleDetailWithOptions(request: GetInterveneRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneRuleDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7372,11 +8226,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInterveneRuleDetailResponse>(await this.callApi(params, req, runtime), new GetInterveneRuleDetailResponse({}));
   }
 
+  /**
+   * @summary 获得干预项规则详情
+   *
+   * @param request GetInterveneRuleDetailRequest
+   * @return GetInterveneRuleDetailResponse
+   */
   async getInterveneRuleDetail(request: GetInterveneRuleDetailRequest): Promise<GetInterveneRuleDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInterveneRuleDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获得干预导入模版文件下载地址
+   *
+   * @param request GetInterveneTemplateFileUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInterveneTemplateFileUrlResponse
+   */
   async getInterveneTemplateFileUrlWithOptions(request: GetInterveneTemplateFileUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetInterveneTemplateFileUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7401,11 +8268,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInterveneTemplateFileUrlResponse>(await this.callApi(params, req, runtime), new GetInterveneTemplateFileUrlResponse({}));
   }
 
+  /**
+   * @summary 获得干预导入模版文件下载地址
+   *
+   * @param request GetInterveneTemplateFileUrlRequest
+   * @return GetInterveneTemplateFileUrlResponse
+   */
   async getInterveneTemplateFileUrl(request: GetInterveneTemplateFileUrlRequest): Promise<GetInterveneTemplateFileUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInterveneTemplateFileUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据ID获取素材内容
+   *
+   * @param request GetMaterialByIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMaterialByIdResponse
+   */
   async getMaterialByIdWithOptions(request: GetMaterialByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetMaterialByIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7436,11 +8316,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMaterialByIdResponse>(await this.callApi(params, req, runtime), new GetMaterialByIdResponse({}));
   }
 
+  /**
+   * @summary 根据ID获取素材内容
+   *
+   * @param request GetMaterialByIdRequest
+   * @return GetMaterialByIdResponse
+   */
   async getMaterialById(request: GetMaterialByIdRequest): Promise<GetMaterialByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMaterialByIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取当前用户的配置
+   *
+   * @param request GetPropertiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPropertiesResponse
+   */
   async getPropertiesWithOptions(request: GetPropertiesRequest, runtime: $Util.RuntimeOptions): Promise<GetPropertiesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7465,11 +8358,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPropertiesResponse>(await this.callApi(params, req, runtime), new GetPropertiesResponse({}));
   }
 
+  /**
+   * @summary 获取当前用户的配置
+   *
+   * @param request GetPropertiesRequest
+   * @return GetPropertiesResponse
+   */
   async getProperties(request: GetPropertiesRequest): Promise<GetPropertiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPropertiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 导入干预文件
+   *
+   * @param request ImportInterveneFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportInterveneFileResponse
+   */
   async importInterveneFileWithOptions(request: ImportInterveneFileRequest, runtime: $Util.RuntimeOptions): Promise<ImportInterveneFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7508,11 +8414,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportInterveneFileResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileResponse({}));
   }
 
+  /**
+   * @summary 导入干预文件
+   *
+   * @param request ImportInterveneFileRequest
+   * @return ImportInterveneFileResponse
+   */
   async importInterveneFile(request: ImportInterveneFileRequest): Promise<ImportInterveneFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importInterveneFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 异步导入干预文件
+   *
+   * @param request ImportInterveneFileAsyncRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportInterveneFileAsyncResponse
+   */
   async importInterveneFileAsyncWithOptions(request: ImportInterveneFileAsyncRequest, runtime: $Util.RuntimeOptions): Promise<ImportInterveneFileAsyncResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7551,11 +8470,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ImportInterveneFileAsyncResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileAsyncResponse({}));
   }
 
+  /**
+   * @summary 异步导入干预文件
+   *
+   * @param request ImportInterveneFileAsyncRequest
+   * @return ImportInterveneFileAsyncResponse
+   */
   async importInterveneFileAsync(request: ImportInterveneFileAsyncRequest): Promise<ImportInterveneFileAsyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importInterveneFileAsyncWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 设置干预全局回复
+   *
+   * @param tmpReq InsertInterveneGlobalReplyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsertInterveneGlobalReplyResponse
+   */
   async insertInterveneGlobalReplyWithOptions(tmpReq: InsertInterveneGlobalReplyRequest, runtime: $Util.RuntimeOptions): Promise<InsertInterveneGlobalReplyResponse> {
     Util.validateModel(tmpReq);
     let request = new InsertInterveneGlobalReplyShrinkRequest({ });
@@ -7592,11 +8524,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new InsertInterveneGlobalReplyResponse({}));
   }
 
+  /**
+   * @summary 设置干预全局回复
+   *
+   * @param request InsertInterveneGlobalReplyRequest
+   * @return InsertInterveneGlobalReplyResponse
+   */
   async insertInterveneGlobalReply(request: InsertInterveneGlobalReplyRequest): Promise<InsertInterveneGlobalReplyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.insertInterveneGlobalReplyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 插入干预规则
+   *
+   * @param tmpReq InsertInterveneRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsertInterveneRuleResponse
+   */
   async insertInterveneRuleWithOptions(tmpReq: InsertInterveneRuleRequest, runtime: $Util.RuntimeOptions): Promise<InsertInterveneRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new InsertInterveneRuleShrinkRequest({ });
@@ -7633,11 +8578,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertInterveneRuleResponse>(await this.callApi(params, req, runtime), new InsertInterveneRuleResponse({}));
   }
 
+  /**
+   * @summary 插入干预规则
+   *
+   * @param request InsertInterveneRuleRequest
+   * @return InsertInterveneRuleResponse
+   */
   async insertInterveneRule(request: InsertInterveneRuleRequest): Promise<InsertInterveneRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.insertInterveneRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询任务列表
+   *
+   * @param tmpReq ListAsyncTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAsyncTasksResponse
+   */
   async listAsyncTasksWithOptions(tmpReq: ListAsyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListAsyncTasksResponse> {
     Util.validateModel(tmpReq);
     let request = new ListAsyncTasksShrinkRequest({ });
@@ -7714,11 +8672,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
   }
 
+  /**
+   * @summary 查询任务列表
+   *
+   * @param request ListAsyncTasksRequest
+   * @return ListAsyncTasksResponse
+   */
   async listAsyncTasks(request: ListAsyncTasksRequest): Promise<ListAsyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAsyncTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取系统自定义预设
+   *
+   * @param request ListBuildConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBuildConfigsResponse
+   */
   async listBuildConfigsWithOptions(request: ListBuildConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListBuildConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7749,11 +8720,72 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBuildConfigsResponse>(await this.callApi(params, req, runtime), new ListBuildConfigsResponse({}));
   }
 
+  /**
+   * @summary 获取系统自定义预设
+   *
+   * @param request ListBuildConfigsRequest
+   * @return ListBuildConfigsResponse
+   */
   async listBuildConfigs(request: ListBuildConfigsRequest): Promise<ListBuildConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBuildConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 自定义文本列表
+   *
+   * @param request ListCustomTextRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomTextResponse
+   */
+  async listCustomTextWithOptions(request: ListCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomTextResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      body["CommodityCode"] = request.commodityCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomText",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomTextResponse>(await this.callApi(params, req, runtime), new ListCustomTextResponse({}));
+  }
+
+  /**
+   * @summary 自定义文本列表
+   *
+   * @param request ListCustomTextRequest
+   * @return ListCustomTextResponse
+   */
+  async listCustomText(request: ListCustomTextRequest): Promise<ListCustomTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomTextWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 生成历史列表
+   *
+   * @param request ListDialoguesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDialoguesResponse
+   */
   async listDialoguesWithOptions(request: ListDialoguesRequest, runtime: $Util.RuntimeOptions): Promise<ListDialoguesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7804,11 +8836,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDialoguesResponse>(await this.callApi(params, req, runtime), new ListDialoguesResponse({}));
   }
 
+  /**
+   * @summary 生成历史列表
+   *
+   * @param request ListDialoguesRequest
+   * @return ListDialoguesResponse
+   */
   async listDialogues(request: ListDialoguesRequest): Promise<ListDialoguesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDialoguesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 文档管理-列表。
+   *
+   * @param request ListGeneratedContentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGeneratedContentsResponse
+   */
   async listGeneratedContentsWithOptions(request: ListGeneratedContentsRequest, runtime: $Util.RuntimeOptions): Promise<ListGeneratedContentsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7859,11 +8904,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGeneratedContentsResponse>(await this.callApi(params, req, runtime), new ListGeneratedContentsResponse({}));
   }
 
+  /**
+   * @summary 文档管理-列表。
+   *
+   * @param request ListGeneratedContentsRequest
+   * @return ListGeneratedContentsResponse
+   */
   async listGeneratedContents(request: ListGeneratedContentsRequest): Promise<ListGeneratedContentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGeneratedContentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取分类的热点新闻
+   *
+   * @param tmpReq ListHotNewsWithTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListHotNewsWithTypeResponse
+   */
   async listHotNewsWithTypeWithOptions(tmpReq: ListHotNewsWithTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListHotNewsWithTypeResponse> {
     Util.validateModel(tmpReq);
     let request = new ListHotNewsWithTypeShrinkRequest({ });
@@ -7912,11 +8970,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHotNewsWithTypeResponse>(await this.callApi(params, req, runtime), new ListHotNewsWithTypeResponse({}));
   }
 
+  /**
+   * @summary 获取分类的热点新闻
+   *
+   * @param request ListHotNewsWithTypeRequest
+   * @return ListHotNewsWithTypeResponse
+   */
   async listHotNewsWithType(request: ListHotNewsWithTypeRequest): Promise<ListHotNewsWithTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHotNewsWithTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获得干预项目数量列表
+   *
+   * @param request ListInterveneCntRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInterveneCntResponse
+   */
   async listInterveneCntWithOptions(request: ListInterveneCntRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneCntResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7951,11 +9022,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInterveneCntResponse>(await this.callApi(params, req, runtime), new ListInterveneCntResponse({}));
   }
 
+  /**
+   * @summary 获得干预项目数量列表
+   *
+   * @param request ListInterveneCntRequest
+   * @return ListInterveneCntResponse
+   */
   async listInterveneCnt(request: ListInterveneCntRequest): Promise<ListInterveneCntResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInterveneCntWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获得导入任务列表
+   *
+   * @param request ListInterveneImportTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInterveneImportTasksResponse
+   */
   async listInterveneImportTasksWithOptions(request: ListInterveneImportTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneImportTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7990,11 +9074,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInterveneImportTasksResponse>(await this.callApi(params, req, runtime), new ListInterveneImportTasksResponse({}));
   }
 
+  /**
+   * @summary 获得导入任务列表
+   *
+   * @param request ListInterveneImportTasksRequest
+   * @return ListInterveneImportTasksResponse
+   */
   async listInterveneImportTasks(request: ListInterveneImportTasksRequest): Promise<ListInterveneImportTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInterveneImportTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获得干预规则列表
+   *
+   * @param request ListInterveneRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInterveneRulesResponse
+   */
   async listInterveneRulesWithOptions(request: ListInterveneRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListInterveneRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8029,11 +9126,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInterveneRulesResponse>(await this.callApi(params, req, runtime), new ListInterveneRulesResponse({}));
   }
 
+  /**
+   * @summary 获得干预规则列表
+   *
+   * @param request ListInterveneRulesRequest
+   * @return ListInterveneRulesResponse
+   */
   async listInterveneRules(request: ListInterveneRulesRequest): Promise<ListInterveneRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInterveneRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获得干预项列表
+   *
+   * @param request ListIntervenesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIntervenesResponse
+   */
   async listIntervenesWithOptions(request: ListIntervenesRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervenesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8080,11 +9190,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIntervenesResponse>(await this.callApi(params, req, runtime), new ListIntervenesResponse({}));
   }
 
+  /**
+   * @summary 获得干预项列表
+   *
+   * @param request ListIntervenesRequest
+   * @return ListIntervenesResponse
+   */
   async listIntervenes(request: ListIntervenesRequest): Promise<ListIntervenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIntervenesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询素材列表
+   *
+   * @param tmpReq ListMaterialDocumentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMaterialDocumentsResponse
+   */
   async listMaterialDocumentsWithOptions(tmpReq: ListMaterialDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ListMaterialDocumentsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListMaterialDocumentsShrinkRequest({ });
@@ -8181,11 +9304,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMaterialDocumentsResponse>(await this.callApi(params, req, runtime), new ListMaterialDocumentsResponse({}));
   }
 
+  /**
+   * @summary 查询素材列表
+   *
+   * @param request ListMaterialDocumentsRequest
+   * @return ListMaterialDocumentsResponse
+   */
   async listMaterialDocuments(request: ListMaterialDocumentsRequest): Promise<ListMaterialDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMaterialDocumentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取系统所有实例信息
+   *
+   * @param request ListVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListVersionsResponse
+   */
   async listVersionsWithOptions(request: ListVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8210,11 +9346,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListVersionsResponse>(await this.callApi(params, req, runtime), new ListVersionsResponse({}));
   }
 
+  /**
+   * @summary 获取系统所有实例信息
+   *
+   * @param request ListVersionsRequest
+   * @return ListVersionsResponse
+   */
   async listVersions(request: ListVersionsRequest): Promise<ListVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listVersionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据taskId查询异步任务状态
+   *
+   * @param request QueryAsyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryAsyncTaskResponse
+   */
   async queryAsyncTaskWithOptions(request: QueryAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<QueryAsyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8245,11 +9394,80 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryAsyncTaskResponse>(await this.callApi(params, req, runtime), new QueryAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary 根据taskId查询异步任务状态
+   *
+   * @param request QueryAsyncTaskRequest
+   * @return QueryAsyncTaskResponse
+   */
   async queryAsyncTask(request: QueryAsyncTaskRequest): Promise<QueryAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryAsyncTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 保存自定义文本
+   *
+   * @param request SaveCustomTextRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveCustomTextResponse
+   */
+  async saveCustomTextWithOptions(request: SaveCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<SaveCustomTextResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      body["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveCustomText",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveCustomTextResponse>(await this.callApi(params, req, runtime), new SaveCustomTextResponse({}));
+  }
+
+  /**
+   * @summary 保存自定义文本
+   *
+   * @param request SaveCustomTextRequest
+   * @return SaveCustomTextResponse
+   */
+  async saveCustomText(request: SaveCustomTextRequest): Promise<SaveCustomTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveCustomTextWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 保存用户的信源配置
+   *
+   * @param tmpReq SaveDataSourceOrderConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveDataSourceOrderConfigResponse
+   */
   async saveDataSourceOrderConfigWithOptions(tmpReq: SaveDataSourceOrderConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveDataSourceOrderConfigResponse> {
     Util.validateModel(tmpReq);
     let request = new SaveDataSourceOrderConfigShrinkRequest({ });
@@ -8290,11 +9508,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new SaveDataSourceOrderConfigResponse({}));
   }
 
+  /**
+   * @summary 保存用户的信源配置
+   *
+   * @param request SaveDataSourceOrderConfigRequest
+   * @return SaveDataSourceOrderConfigResponse
+   */
   async saveDataSourceOrderConfig(request: SaveDataSourceOrderConfigRequest): Promise<SaveDataSourceOrderConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveDataSourceOrderConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 保存素材
+   *
+   * @param tmpReq SaveMaterialDocumentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveMaterialDocumentResponse
+   */
   async saveMaterialDocumentWithOptions(tmpReq: SaveMaterialDocumentRequest, runtime: $Util.RuntimeOptions): Promise<SaveMaterialDocumentResponse> {
     Util.validateModel(tmpReq);
     let request = new SaveMaterialDocumentShrinkRequest({ });
@@ -8379,11 +9610,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveMaterialDocumentResponse>(await this.callApi(params, req, runtime), new SaveMaterialDocumentResponse({}));
   }
 
+  /**
+   * @summary 保存素材
+   *
+   * @param request SaveMaterialDocumentRequest
+   * @return SaveMaterialDocumentResponse
+   */
   async saveMaterialDocument(request: SaveMaterialDocumentRequest): Promise<SaveMaterialDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveMaterialDocumentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新闻检索
+   *
+   * @param tmpReq SearchNewsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchNewsResponse
+   */
   async searchNewsWithOptions(tmpReq: SearchNewsRequest, runtime: $Util.RuntimeOptions): Promise<SearchNewsResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchNewsShrinkRequest({ });
@@ -8440,11 +9684,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchNewsResponse>(await this.callApi(params, req, runtime), new SearchNewsResponse({}));
   }
 
+  /**
+   * @summary 新闻检索
+   *
+   * @param request SearchNewsRequest
+   * @return SearchNewsResponse
+   */
   async searchNews(request: SearchNewsRequest): Promise<SearchNewsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchNewsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 提交异步任务
+   *
+   * @param request SubmitAsyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitAsyncTaskResponse
+   */
   async submitAsyncTaskWithOptions(request: SubmitAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAsyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8487,11 +9744,84 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitAsyncTaskResponse>(await this.callApi(params, req, runtime), new SubmitAsyncTaskResponse({}));
   }
 
+  /**
+   * @summary 提交异步任务
+   *
+   * @param request SubmitAsyncTaskRequest
+   * @return SubmitAsyncTaskResponse
+   */
   async submitAsyncTask(request: SubmitAsyncTaskRequest): Promise<SubmitAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitAsyncTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新自定义文本
+   *
+   * @param request UpdateCustomTextRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCustomTextResponse
+   */
+  async updateCustomTextWithOptions(request: UpdateCustomTextRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomTextResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.commodityCode)) {
+      body["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomText",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomTextResponse>(await this.callApi(params, req, runtime), new UpdateCustomTextResponse({}));
+  }
+
+  /**
+   * @summary 更新自定义文本
+   *
+   * @param request UpdateCustomTextRequest
+   * @return UpdateCustomTextResponse
+   */
+  async updateCustomText(request: UpdateCustomTextRequest): Promise<UpdateCustomTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCustomTextWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 文档管理-更新。
+   *
+   * @param tmpReq UpdateGeneratedContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGeneratedContentResponse
+   */
   async updateGeneratedContentWithOptions(tmpReq: UpdateGeneratedContentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGeneratedContentResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateGeneratedContentShrinkRequest({ });
@@ -8548,11 +9878,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGeneratedContentResponse>(await this.callApi(params, req, runtime), new UpdateGeneratedContentResponse({}));
   }
 
+  /**
+   * @summary 文档管理-更新。
+   *
+   * @param request UpdateGeneratedContentRequest
+   * @return UpdateGeneratedContentResponse
+   */
   async updateGeneratedContent(request: UpdateGeneratedContentRequest): Promise<UpdateGeneratedContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGeneratedContentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据ID更新素材
+   *
+   * @param tmpReq UpdateMaterialDocumentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMaterialDocumentResponse
+   */
   async updateMaterialDocumentWithOptions(tmpReq: UpdateMaterialDocumentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMaterialDocumentResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateMaterialDocumentShrinkRequest({ });
@@ -8637,6 +9980,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMaterialDocumentResponse>(await this.callApi(params, req, runtime), new UpdateMaterialDocumentResponse({}));
   }
 
+  /**
+   * @summary 根据ID更新素材
+   *
+   * @param request UpdateMaterialDocumentRequest
+   * @return UpdateMaterialDocumentResponse
+   */
   async updateMaterialDocument(request: UpdateMaterialDocumentRequest): Promise<UpdateMaterialDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMaterialDocumentWithOptions(request, runtime);
