@@ -20489,6 +20489,7 @@ export class CreateDataArchiveOrderRequestParamVariables extends $tea.Model {
 export class CreateDataArchiveOrderRequestParam extends $tea.Model {
   archiveMethod?: string;
   cronStr?: string;
+  databaseId?: string;
   logic?: boolean;
   orderAfter?: string[];
   runMethod?: string;
@@ -20503,6 +20504,7 @@ export class CreateDataArchiveOrderRequestParam extends $tea.Model {
     return {
       archiveMethod: 'ArchiveMethod',
       cronStr: 'CronStr',
+      databaseId: 'DatabaseId',
       logic: 'Logic',
       orderAfter: 'OrderAfter',
       runMethod: 'RunMethod',
@@ -20520,6 +20522,7 @@ export class CreateDataArchiveOrderRequestParam extends $tea.Model {
     return {
       archiveMethod: 'string',
       cronStr: 'string',
+      databaseId: 'string',
       logic: 'boolean',
       orderAfter: { 'type': 'array', 'itemType': 'string' },
       runMethod: 'string',
@@ -30322,6 +30325,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Adds a masking rule.
+   *
+   * @param request AddDesensitizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDesensitizationRuleResponse
+   */
   async addDesensitizationRuleWithOptions(request: AddDesensitizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddDesensitizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30373,11 +30383,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDesensitizationRuleResponse>(await this.callApi(params, req, runtime), new AddDesensitizationRuleResponse({}));
   }
 
+  /**
+   * @summary Adds a masking rule.
+   *
+   * @param request AddDesensitizationRuleRequest
+   * @return AddDesensitizationRuleResponse
+   */
   async addDesensitizationRule(request: AddDesensitizationRuleRequest): Promise<AddDesensitizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDesensitizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加实例
+   *
+   * @param request AddInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddInstanceResponse
+   */
   async addInstanceWithOptions(request: AddInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AddInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30514,21 +30537,29 @@ export default class Client extends OpenApi {
     return $tea.cast<AddInstanceResponse>(await this.callApi(params, req, runtime), new AddInstanceResponse({}));
   }
 
+  /**
+   * @summary 添加实例
+   *
+   * @param request AddInstanceRequest
+   * @return AddInstanceResponse
+   */
   async addInstance(request: AddInstanceRequest): Promise<AddInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addInstanceWithOptions(request, runtime);
   }
 
   /**
-    * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
-    * Usage notes:
-    * *   Before you call this operation to add a user as a task flow developer, make sure that you have added the user as a workspace member.
-    * *   You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](~~424761~~) operation.
-    * *   For more information about workspace roles and permissions, see [Manage permissions on a workspace](~~410893~~).
-    *
-    * @param tmpReq AddLhMembersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddLhMembersResponse
+   * @summary Adds a workspace administrator, a workspace member, or a task flow developer in Data Management (DMS).
+   *
+   * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+   * Usage notes:
+   * *   Before you call this operation to add a user as a task flow developer, make sure that you have added the user as a workspace member.
+   * *   You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
+   * *   For more information about workspace roles and permissions, see [Manage permissions on a workspace](https://help.aliyun.com/document_detail/410893.html).
+   *
+   * @param tmpReq AddLhMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddLhMembersResponse
    */
   async addLhMembersWithOptions(tmpReq: AddLhMembersRequest, runtime: $Util.RuntimeOptions): Promise<AddLhMembersResponse> {
     Util.validateModel(tmpReq);
@@ -30573,20 +30604,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
-    * Usage notes:
-    * *   Before you call this operation to add a user as a task flow developer, make sure that you have added the user as a workspace member.
-    * *   You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](~~424761~~) operation.
-    * *   For more information about workspace roles and permissions, see [Manage permissions on a workspace](~~410893~~).
-    *
-    * @param request AddLhMembersRequest
-    * @return AddLhMembersResponse
+   * @summary Adds a workspace administrator, a workspace member, or a task flow developer in Data Management (DMS).
+   *
+   * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+   * Usage notes:
+   * *   Before you call this operation to add a user as a task flow developer, make sure that you have added the user as a workspace member.
+   * *   You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
+   * *   For more information about workspace roles and permissions, see [Manage permissions on a workspace](https://help.aliyun.com/document_detail/410893.html).
+   *
+   * @param request AddLhMembersRequest
+   * @return AddLhMembersResponse
    */
   async addLhMembers(request: AddLhMembersRequest): Promise<AddLhMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addLhMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a routing algorithm to a logical table.
+   *
+   * @param request AddLogicTableRouteConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddLogicTableRouteConfigResponse
+   */
   async addLogicTableRouteConfigWithOptions(request: AddLogicTableRouteConfigRequest, runtime: $Util.RuntimeOptions): Promise<AddLogicTableRouteConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30623,19 +30663,27 @@ export default class Client extends OpenApi {
     return $tea.cast<AddLogicTableRouteConfigResponse>(await this.callApi(params, req, runtime), new AddLogicTableRouteConfigResponse({}));
   }
 
+  /**
+   * @summary Adds a routing algorithm to a logical table.
+   *
+   * @param request AddLogicTableRouteConfigRequest
+   * @return AddLogicTableRouteConfigResponse
+   */
   async addLogicTableRouteConfig(request: AddLogicTableRouteConfigRequest): Promise<AddLogicTableRouteConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addLogicTableRouteConfigWithOptions(request, runtime);
   }
 
   /**
-    * When you add directed edges for a task node, take note of the following limits:
-    * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
-    * 2. After a backward edge is added, the DAG does not contain loops.
-    *
-    * @param tmpReq AddTaskFlowEdgesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddTaskFlowEdgesResponse
+   * @summary Adds directed edges for an existing task node.
+   *
+   * @description When you add directed edges for a task node, take note of the following limits:
+   * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
+   * 2. After a backward edge is added, the DAG does not contain loops.
+   *
+   * @param tmpReq AddTaskFlowEdgesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddTaskFlowEdgesResponse
    */
   async addTaskFlowEdgesWithOptions(tmpReq: AddTaskFlowEdgesRequest, runtime: $Util.RuntimeOptions): Promise<AddTaskFlowEdgesResponse> {
     Util.validateModel(tmpReq);
@@ -30676,12 +30724,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you add directed edges for a task node, take note of the following limits:
-    * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
-    * 2. After a backward edge is added, the DAG does not contain loops.
-    *
-    * @param request AddTaskFlowEdgesRequest
-    * @return AddTaskFlowEdgesResponse
+   * @summary Adds directed edges for an existing task node.
+   *
+   * @description When you add directed edges for a task node, take note of the following limits:
+   * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
+   * 2. After a backward edge is added, the DAG does not contain loops.
+   *
+   * @param request AddTaskFlowEdgesRequest
+   * @return AddTaskFlowEdgesResponse
    */
   async addTaskFlowEdges(request: AddTaskFlowEdgesRequest): Promise<AddTaskFlowEdgesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30689,13 +30739,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The following conditions must be met before you call this API operation.
-    * *   The database instance is of one of the following types: ApsaraDB RDS for MySQL, PolarDB for MySQL, AnalyticDB for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for PostgreSQL, AnalyticDB for PostgreSQL, Oracle, and openGauss.
-    * *   A database instance is managed in Security Collaboration mode. For more information about control modes, see [Control modes](~~151629~~).
-    *
-    * @param request AnalyzeSQLLineageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AnalyzeSQLLineageResponse
+   * @summary Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
+   *
+   * @description The following conditions must be met before you call this API operation.
+   * *   The database instance is of one of the following types: ApsaraDB RDS for MySQL, PolarDB for MySQL, AnalyticDB for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for PostgreSQL, AnalyticDB for PostgreSQL, Oracle, and openGauss.
+   * *   A database instance is managed in Security Collaboration mode. For more information about control modes, see [Control modes](https://help.aliyun.com/document_detail/151629.html).
+   *
+   * @param request AnalyzeSQLLineageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AnalyzeSQLLineageResponse
    */
   async analyzeSQLLineageWithOptions(request: AnalyzeSQLLineageRequest, runtime: $Util.RuntimeOptions): Promise<AnalyzeSQLLineageResponse> {
     Util.validateModel(request);
@@ -30730,18 +30782,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The following conditions must be met before you call this API operation.
-    * *   The database instance is of one of the following types: ApsaraDB RDS for MySQL, PolarDB for MySQL, AnalyticDB for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for PostgreSQL, AnalyticDB for PostgreSQL, Oracle, and openGauss.
-    * *   A database instance is managed in Security Collaboration mode. For more information about control modes, see [Control modes](~~151629~~).
-    *
-    * @param request AnalyzeSQLLineageRequest
-    * @return AnalyzeSQLLineageResponse
+   * @summary Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
+   *
+   * @description The following conditions must be met before you call this API operation.
+   * *   The database instance is of one of the following types: ApsaraDB RDS for MySQL, PolarDB for MySQL, AnalyticDB for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for PostgreSQL, AnalyticDB for PostgreSQL, Oracle, and openGauss.
+   * *   A database instance is managed in Security Collaboration mode. For more information about control modes, see [Control modes](https://help.aliyun.com/document_detail/151629.html).
+   *
+   * @param request AnalyzeSQLLineageRequest
+   * @return AnalyzeSQLLineageResponse
    */
   async analyzeSQLLineage(request: AnalyzeSQLLineageRequest): Promise<AnalyzeSQLLineageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.analyzeSQLLineageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reviews a ticket.
+   *
+   * @param request ApproveOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApproveOrderResponse
+   */
   async approveOrderWithOptions(request: ApproveOrderRequest, runtime: $Util.RuntimeOptions): Promise<ApproveOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30798,17 +30859,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ApproveOrderResponse>(await this.callApi(params, req, runtime), new ApproveOrderResponse({}));
   }
 
+  /**
+   * @summary Reviews a ticket.
+   *
+   * @param request ApproveOrderRequest
+   * @return ApproveOrderResponse
+   */
   async approveOrder(request: ApproveOrderRequest): Promise<ApproveOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.approveOrderWithOptions(request, runtime);
   }
 
   /**
-    * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
-    *
-    * @param tmpReq BackFillRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return BackFillResponse
+   * @summary Backfills data for task orchestration.
+   *
+   * @description During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
+   *
+   * @param tmpReq BackFillRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BackFillResponse
    */
   async backFillWithOptions(tmpReq: BackFillRequest, runtime: $Util.RuntimeOptions): Promise<BackFillResponse> {
     Util.validateModel(tmpReq);
@@ -30885,16 +30954,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
-    *
-    * @param request BackFillRequest
-    * @return BackFillResponse
+   * @summary Backfills data for task orchestration.
+   *
+   * @description During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
+   *
+   * @param request BackFillRequest
+   * @return BackFillResponse
    */
   async backFill(request: BackFillRequest): Promise<BackFillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.backFillWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Purchases a pay-as-you-go Data Management (DMS) resource.
+   *
+   * @param request BuyPayAsYouGoOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BuyPayAsYouGoOrderResponse
+   */
   async buyPayAsYouGoOrderWithOptions(request: BuyPayAsYouGoOrderRequest, runtime: $Util.RuntimeOptions): Promise<BuyPayAsYouGoOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30931,11 +31009,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BuyPayAsYouGoOrderResponse>(await this.callApi(params, req, runtime), new BuyPayAsYouGoOrderResponse({}));
   }
 
+  /**
+   * @summary Purchases a pay-as-you-go Data Management (DMS) resource.
+   *
+   * @param request BuyPayAsYouGoOrderRequest
+   * @return BuyPayAsYouGoOrderResponse
+   */
   async buyPayAsYouGoOrder(request: BuyPayAsYouGoOrderRequest): Promise<BuyPayAsYouGoOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.buyPayAsYouGoOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adjusts the sensitivity level of one or more fields.
+   *
+   * @param request ChangeColumnSecLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeColumnSecLevelResponse
+   */
   async changeColumnSecLevelWithOptions(request: ChangeColumnSecLevelRequest, runtime: $Util.RuntimeOptions): Promise<ChangeColumnSecLevelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30984,11 +31075,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeColumnSecLevelResponse>(await this.callApi(params, req, runtime), new ChangeColumnSecLevelResponse({}));
   }
 
+  /**
+   * @summary Adjusts the sensitivity level of one or more fields.
+   *
+   * @param request ChangeColumnSecLevelRequest
+   * @return ChangeColumnSecLevelResponse
+   */
   async changeColumnSecLevel(request: ChangeColumnSecLevelRequest): Promise<ChangeColumnSecLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeColumnSecLevelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改字段敏感序列
+   *
+   * @param request ChangeColumnSecurityLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeColumnSecurityLevelResponse
+   */
   async changeColumnSecurityLevelWithOptions(request: ChangeColumnSecurityLevelRequest, runtime: $Util.RuntimeOptions): Promise<ChangeColumnSecurityLevelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31037,19 +31141,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeColumnSecurityLevelResponse>(await this.callApi(params, req, runtime), new ChangeColumnSecurityLevelResponse({}));
   }
 
+  /**
+   * @summary 修改字段敏感序列
+   *
+   * @param request ChangeColumnSecurityLevelRequest
+   * @return ChangeColumnSecurityLevelResponse
+   */
   async changeColumnSecurityLevel(request: ChangeColumnSecurityLevelRequest): Promise<ChangeColumnSecurityLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeColumnSecurityLevelWithOptions(request, runtime);
   }
 
   /**
-    * Usage notes:
-    * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
-    * *   You can call the [ReDeployLhDagVersion](~~424712~~) operation to redeploy a published version of a task flow.
-    *
-    * @param request ChangeLhDagOwnerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ChangeLhDagOwnerResponse
+   * @summary 移交数仓开发任务流
+   *
+   * @description Usage notes:
+   * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
+   * *   You can call the [ReDeployLhDagVersion](https://help.aliyun.com/document_detail/424712.html) operation to redeploy a published version of a task flow.
+   *
+   * @param request ChangeLhDagOwnerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeLhDagOwnerResponse
    */
   async changeLhDagOwnerWithOptions(request: ChangeLhDagOwnerRequest, runtime: $Util.RuntimeOptions): Promise<ChangeLhDagOwnerResponse> {
     Util.validateModel(request);
@@ -31084,18 +31196,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Usage notes:
-    * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
-    * *   You can call the [ReDeployLhDagVersion](~~424712~~) operation to redeploy a published version of a task flow.
-    *
-    * @param request ChangeLhDagOwnerRequest
-    * @return ChangeLhDagOwnerResponse
+   * @summary 移交数仓开发任务流
+   *
+   * @description Usage notes:
+   * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
+   * *   You can call the [ReDeployLhDagVersion](https://help.aliyun.com/document_detail/424712.html) operation to redeploy a published version of a task flow.
+   *
+   * @param request ChangeLhDagOwnerRequest
+   * @return ChangeLhDagOwnerResponse
    */
   async changeLhDagOwner(request: ChangeLhDagOwnerRequest): Promise<ChangeLhDagOwnerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeLhDagOwnerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Closes a ticket.
+   *
+   * @param request CloseOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseOrderResponse
+   */
   async closeOrderWithOptions(request: CloseOrderRequest, runtime: $Util.RuntimeOptions): Promise<CloseOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31128,17 +31249,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseOrderResponse>(await this.callApi(params, req, runtime), new CloseOrderResponse({}));
   }
 
+  /**
+   * @summary Closes a ticket.
+   *
+   * @param request CloseOrderRequest
+   * @return CloseOrderResponse
+   */
   async closeOrder(request: CloseOrderRequest): Promise<CloseOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeOrderWithOptions(request, runtime);
   }
 
   /**
-    * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request CreateAuthorityTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAuthorityTemplateResponse
+   * @summary Creates a permission template
+   *
+   * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request CreateAuthorityTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAuthorityTemplateResponse
    */
   async createAuthorityTemplateWithOptions(request: CreateAuthorityTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthorityTemplateResponse> {
     Util.validateModel(request);
@@ -31173,16 +31302,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request CreateAuthorityTemplateRequest
-    * @return CreateAuthorityTemplateResponse
+   * @summary Creates a permission template
+   *
+   * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request CreateAuthorityTemplateRequest
+   * @return CreateAuthorityTemplateResponse
    */
   async createAuthorityTemplate(request: CreateAuthorityTemplateRequest): Promise<CreateAuthorityTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAuthorityTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates data archiving tickets.
+   *
+   * @param tmpReq CreateDataArchiveOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataArchiveOrderResponse
+   */
   async createDataArchiveOrderWithOptions(tmpReq: CreateDataArchiveOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataArchiveOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDataArchiveOrderShrinkRequest({ });
@@ -31237,17 +31375,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataArchiveOrderResponse>(await this.callApi(params, req, runtime), new CreateDataArchiveOrderResponse({}));
   }
 
+  /**
+   * @summary Creates data archiving tickets.
+   *
+   * @param request CreateDataArchiveOrderRequest
+   * @return CreateDataArchiveOrderResponse
+   */
   async createDataArchiveOrder(request: CreateDataArchiveOrderRequest): Promise<CreateDataArchiveOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataArchiveOrderWithOptions(request, runtime);
   }
 
   /**
-    * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
-    *
-    * @param tmpReq CreateDataCorrectOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataCorrectOrderResponse
+   * @summary Creates a ticket for changing data in Data Management (DMS).
+   *
+   * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+   *
+   * @param tmpReq CreateDataCorrectOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataCorrectOrderResponse
    */
   async createDataCorrectOrderWithOptions(tmpReq: CreateDataCorrectOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataCorrectOrderResponse> {
     Util.validateModel(tmpReq);
@@ -31300,10 +31446,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
-    *
-    * @param request CreateDataCorrectOrderRequest
-    * @return CreateDataCorrectOrderResponse
+   * @summary Creates a ticket for changing data in Data Management (DMS).
+   *
+   * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+   *
+   * @param request CreateDataCorrectOrderRequest
+   * @return CreateDataCorrectOrderResponse
    */
   async createDataCorrectOrder(request: CreateDataCorrectOrderRequest): Promise<CreateDataCorrectOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31311,12 +31459,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the historical data cleaning, see [Clear historical data](~~162507~~).
-    * This operation can be used only for MySQL databases.
-    *
-    * @param tmpReq CreateDataCronClearOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataCronClearOrderResponse
+   * @summary Creates a ticket for clearing historical data.
+   *
+   * @description For more information about the historical data cleaning, see [Clear historical data](https://help.aliyun.com/document_detail/162507.html).
+   * This operation can be used only for MySQL databases.
+   *
+   * @param tmpReq CreateDataCronClearOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataCronClearOrderResponse
    */
   async createDataCronClearOrderWithOptions(tmpReq: CreateDataCronClearOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataCronClearOrderResponse> {
     Util.validateModel(tmpReq);
@@ -31369,17 +31519,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the historical data cleaning, see [Clear historical data](~~162507~~).
-    * This operation can be used only for MySQL databases.
-    *
-    * @param request CreateDataCronClearOrderRequest
-    * @return CreateDataCronClearOrderResponse
+   * @summary Creates a ticket for clearing historical data.
+   *
+   * @description For more information about the historical data cleaning, see [Clear historical data](https://help.aliyun.com/document_detail/162507.html).
+   * This operation can be used only for MySQL databases.
+   *
+   * @param request CreateDataCronClearOrderRequest
+   * @return CreateDataCronClearOrderResponse
    */
   async createDataCronClearOrder(request: CreateDataCronClearOrderRequest): Promise<CreateDataCronClearOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataCronClearOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a ticket to export an SQL result set.
+   *
+   * @param tmpReq CreateDataExportOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataExportOrderResponse
+   */
   async createDataExportOrderWithOptions(tmpReq: CreateDataExportOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataExportOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDataExportOrderShrinkRequest({ });
@@ -31434,17 +31593,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataExportOrderResponse>(await this.callApi(params, req, runtime), new CreateDataExportOrderResponse({}));
   }
 
+  /**
+   * @summary Creates a ticket to export an SQL result set.
+   *
+   * @param request CreateDataExportOrderRequest
+   * @return CreateDataExportOrderResponse
+   */
   async createDataExportOrder(request: CreateDataExportOrderRequest): Promise<CreateDataExportOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataExportOrderWithOptions(request, runtime);
   }
 
   /**
-    * For more information about the Large Data Import feature, see [Import data](~~161439~~).
-    *
-    * @param tmpReq CreateDataImportOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataImportOrderResponse
+   * @summary Creates a ticket for importing data to Data Management (DMS).
+   *
+   * @description For more information about the Large Data Import feature, see [Import data](https://help.aliyun.com/document_detail/161439.html).
+   *
+   * @param tmpReq CreateDataImportOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataImportOrderResponse
    */
   async createDataImportOrderWithOptions(tmpReq: CreateDataImportOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataImportOrderResponse> {
     Util.validateModel(tmpReq);
@@ -31497,10 +31664,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the Large Data Import feature, see [Import data](~~161439~~).
-    *
-    * @param request CreateDataImportOrderRequest
-    * @return CreateDataImportOrderResponse
+   * @summary Creates a ticket for importing data to Data Management (DMS).
+   *
+   * @description For more information about the Large Data Import feature, see [Import data](https://help.aliyun.com/document_detail/161439.html).
+   *
+   * @param request CreateDataImportOrderRequest
+   * @return CreateDataImportOrderResponse
    */
   async createDataImportOrder(request: CreateDataImportOrderRequest): Promise<CreateDataImportOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31508,11 +31677,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for instances that are managed in Security Collaboration mode.
-    *
-    * @param tmpReq CreateDataTrackOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDataTrackOrderResponse
+   * @summary Creates a data tracking ticket.
+   *
+   * @description This operation is available only for instances that are managed in Security Collaboration mode.
+   *
+   * @param tmpReq CreateDataTrackOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataTrackOrderResponse
    */
   async createDataTrackOrderWithOptions(tmpReq: CreateDataTrackOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataTrackOrderResponse> {
     Util.validateModel(tmpReq);
@@ -31561,16 +31732,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for instances that are managed in Security Collaboration mode.
-    *
-    * @param request CreateDataTrackOrderRequest
-    * @return CreateDataTrackOrderResponse
+   * @summary Creates a data tracking ticket.
+   *
+   * @description This operation is available only for instances that are managed in Security Collaboration mode.
+   *
+   * @param request CreateDataTrackOrderRequest
+   * @return CreateDataTrackOrderResponse
    */
   async createDataTrackOrder(request: CreateDataTrackOrderRequest): Promise<CreateDataTrackOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataTrackOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a database export ticket.
+   *
+   * @param tmpReq CreateDatabaseExportOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatabaseExportOrderResponse
+   */
   async createDatabaseExportOrderWithOptions(tmpReq: CreateDatabaseExportOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseExportOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDatabaseExportOrderShrinkRequest({ });
@@ -31625,18 +31805,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDatabaseExportOrderResponse>(await this.callApi(params, req, runtime), new CreateDatabaseExportOrderResponse({}));
   }
 
+  /**
+   * @summary Creates a database export ticket.
+   *
+   * @param request CreateDatabaseExportOrderRequest
+   * @return CreateDatabaseExportOrderResponse
+   */
   async createDatabaseExportOrder(request: CreateDatabaseExportOrderRequest): Promise<CreateDatabaseExportOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDatabaseExportOrderWithOptions(request, runtime);
   }
 
   /**
-    * For more information about the lock-free change feature, see [Overview](~~207847~~).
-    * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](~~96145~~) and [Change schemas without locking tables](~~98373~~).
-    *
-    * @param tmpReq CreateFreeLockCorrectOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateFreeLockCorrectOrderResponse
+   * @summary 创建无锁变更工单
+   *
+   * @description For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
+   * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
+   *
+   * @param tmpReq CreateFreeLockCorrectOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFreeLockCorrectOrderResponse
    */
   async createFreeLockCorrectOrderWithOptions(tmpReq: CreateFreeLockCorrectOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFreeLockCorrectOrderResponse> {
     Util.validateModel(tmpReq);
@@ -31689,11 +31877,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the lock-free change feature, see [Overview](~~207847~~).
-    * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](~~96145~~) and [Change schemas without locking tables](~~98373~~).
-    *
-    * @param request CreateFreeLockCorrectOrderRequest
-    * @return CreateFreeLockCorrectOrderResponse
+   * @summary 创建无锁变更工单
+   *
+   * @description For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
+   * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
+   *
+   * @param request CreateFreeLockCorrectOrderRequest
+   * @return CreateFreeLockCorrectOrderResponse
    */
   async createFreeLockCorrectOrder(request: CreateFreeLockCorrectOrderRequest): Promise<CreateFreeLockCorrectOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31701,12 +31891,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The workspace name must be unique within a tenant. If a workspace with the same name already exists within the tenant, the call may fail.
-    * *   You can call the [GetLhSpaceByName](~~424379~~) operation to query whether a workspace with a specific name already exists as a DMS administrator or database administrator (DBA).
-    *
-    * @param request CreateLakeHouseSpaceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLakeHouseSpaceResponse
+   * @summary Creates a workspace for data warehouse development in Data Management (DMS).
+   *
+   * @description *   The workspace name must be unique within a tenant. If a workspace with the same name already exists within the tenant, the call may fail.
+   * *   You can call the [GetLhSpaceByName](https://help.aliyun.com/document_detail/424379.html) operation to query whether a workspace with a specific name already exists as a DMS administrator or database administrator (DBA).
+   *
+   * @param request CreateLakeHouseSpaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLakeHouseSpaceResponse
    */
   async createLakeHouseSpaceWithOptions(request: CreateLakeHouseSpaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLakeHouseSpaceResponse> {
     Util.validateModel(request);
@@ -31761,17 +31953,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The workspace name must be unique within a tenant. If a workspace with the same name already exists within the tenant, the call may fail.
-    * *   You can call the [GetLhSpaceByName](~~424379~~) operation to query whether a workspace with a specific name already exists as a DMS administrator or database administrator (DBA).
-    *
-    * @param request CreateLakeHouseSpaceRequest
-    * @return CreateLakeHouseSpaceResponse
+   * @summary Creates a workspace for data warehouse development in Data Management (DMS).
+   *
+   * @description *   The workspace name must be unique within a tenant. If a workspace with the same name already exists within the tenant, the call may fail.
+   * *   You can call the [GetLhSpaceByName](https://help.aliyun.com/document_detail/424379.html) operation to query whether a workspace with a specific name already exists as a DMS administrator or database administrator (DBA).
+   *
+   * @param request CreateLakeHouseSpaceRequest
+   * @return CreateLakeHouseSpaceResponse
    */
   async createLakeHouseSpace(request: CreateLakeHouseSpaceRequest): Promise<CreateLakeHouseSpaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLakeHouseSpaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a logical database in Database Management (DMS).
+   *
+   * @param tmpReq CreateLogicDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLogicDatabaseResponse
+   */
   async createLogicDatabaseWithOptions(tmpReq: CreateLogicDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateLogicDatabaseResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateLogicDatabaseShrinkRequest({ });
@@ -31810,21 +32011,29 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLogicDatabaseResponse>(await this.callApi(params, req, runtime), new CreateLogicDatabaseResponse({}));
   }
 
+  /**
+   * @summary Creates a logical database in Database Management (DMS).
+   *
+   * @param request CreateLogicDatabaseRequest
+   * @return CreateLogicDatabaseResponse
+   */
   async createLogicDatabase(request: CreateLogicDatabaseRequest): Promise<CreateLogicDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLogicDatabaseWithOptions(request, runtime);
   }
 
   /**
-    * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
-    * *   [CreateDataCorrectOrder](~~208388~~): creates a regular data change ticket.
-    * *   [CreateDataCronClearOrder](~~208385~~): creates a ticket to clear historical data.
-    * *   [CreateDataImportOrder](~~208387~~): creates a data import ticket.
-    * *   [CreateFreeLockCorrectOrder](~~208386~~): creates a lock-free change ticket.
-    *
-    * @param tmpReq CreateOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateOrderResponse
+   * @summary Creates a ticket in Data Management (DMS).
+   *
+   * @description To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
+   * *   [CreateDataCorrectOrder](https://help.aliyun.com/document_detail/208388.html): creates a regular data change ticket.
+   * *   [CreateDataCronClearOrder](https://help.aliyun.com/document_detail/208385.html): creates a ticket to clear historical data.
+   * *   [CreateDataImportOrder](https://help.aliyun.com/document_detail/208387.html): creates a data import ticket.
+   * *   [CreateFreeLockCorrectOrder](https://help.aliyun.com/document_detail/208386.html): creates a lock-free change ticket.
+   *
+   * @param tmpReq CreateOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOrderResponse
    */
   async createOrderWithOptions(tmpReq: CreateOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
     Util.validateModel(tmpReq);
@@ -31879,20 +32088,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
-    * *   [CreateDataCorrectOrder](~~208388~~): creates a regular data change ticket.
-    * *   [CreateDataCronClearOrder](~~208385~~): creates a ticket to clear historical data.
-    * *   [CreateDataImportOrder](~~208387~~): creates a data import ticket.
-    * *   [CreateFreeLockCorrectOrder](~~208386~~): creates a lock-free change ticket.
-    *
-    * @param request CreateOrderRequest
-    * @return CreateOrderResponse
+   * @summary Creates a ticket in Data Management (DMS).
+   *
+   * @description To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
+   * *   [CreateDataCorrectOrder](https://help.aliyun.com/document_detail/208388.html): creates a regular data change ticket.
+   * *   [CreateDataCronClearOrder](https://help.aliyun.com/document_detail/208385.html): creates a ticket to clear historical data.
+   * *   [CreateDataImportOrder](https://help.aliyun.com/document_detail/208387.html): creates a data import ticket.
+   * *   [CreateFreeLockCorrectOrder](https://help.aliyun.com/document_detail/208386.html): creates a lock-free change ticket.
+   *
+   * @param request CreateOrderRequest
+   * @return CreateOrderResponse
    */
   async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建可编程对象变更工单
+   *
+   * @param tmpReq CreateProcCorrectOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProcCorrectOrderResponse
+   */
   async createProcCorrectOrderWithOptions(tmpReq: CreateProcCorrectOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateProcCorrectOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateProcCorrectOrderShrinkRequest({ });
@@ -31943,19 +32161,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProcCorrectOrderResponse>(await this.callApi(params, req, runtime), new CreateProcCorrectOrderResponse({}));
   }
 
+  /**
+   * @summary 创建可编程对象变更工单
+   *
+   * @param request CreateProcCorrectOrderRequest
+   * @return CreateProcCorrectOrderResponse
+   */
   async createProcCorrectOrder(request: CreateProcCorrectOrderRequest): Promise<CreateProcCorrectOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProcCorrectOrderWithOptions(request, runtime);
   }
 
   /**
-    * - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
-    * - The database instance resides in the China (Hangzhou) or China (Beijing) region.
-    * - You are a Data Management (DMS) administrator, a database administrator (DBA), or the owner of the database instance.
-    *
-    * @param request CreateProxyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateProxyResponse
+   * @summary Enables the secure access proxy feature for a database instance.
+   *
+   * @description - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
+   * - The database instance resides in the China (Hangzhou) or China (Beijing) region.
+   * - You are a Data Management (DMS) administrator, a database administrator (DBA), or the owner of the database instance.
+   *
+   * @param request CreateProxyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProxyResponse
    */
   async createProxyWithOptions(request: CreateProxyRequest, runtime: $Util.RuntimeOptions): Promise<CreateProxyResponse> {
     Util.validateModel(request);
@@ -31994,12 +32220,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
-    * - The database instance resides in the China (Hangzhou) or China (Beijing) region.
-    * - You are a Data Management (DMS) administrator, a database administrator (DBA), or the owner of the database instance.
-    *
-    * @param request CreateProxyRequest
-    * @return CreateProxyResponse
+   * @summary Enables the secure access proxy feature for a database instance.
+   *
+   * @description - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
+   * - The database instance resides in the China (Hangzhou) or China (Beijing) region.
+   * - You are a Data Management (DMS) administrator, a database administrator (DBA), or the owner of the database instance.
+   *
+   * @param request CreateProxyRequest
+   * @return CreateProxyResponse
    */
   async createProxy(request: CreateProxyRequest): Promise<CreateProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32007,12 +32235,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - The data security protection feature is enabled for the instance.
-    * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
-    *
-    * @param request CreateProxyAccessRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateProxyAccessResponse
+   * @summary You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+   *
+   * @description - The data security protection feature is enabled for the instance.
+   * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
+   *
+   * @param request CreateProxyAccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProxyAccessResponse
    */
   async createProxyAccessWithOptions(request: CreateProxyAccessRequest, runtime: $Util.RuntimeOptions): Promise<CreateProxyAccessResponse> {
     Util.validateModel(request);
@@ -32055,17 +32285,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - The data security protection feature is enabled for the instance.
-    * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
-    *
-    * @param request CreateProxyAccessRequest
-    * @return CreateProxyAccessResponse
+   * @summary You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+   *
+   * @description - The data security protection feature is enabled for the instance.
+   * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
+   *
+   * @param request CreateProxyAccessRequest
+   * @return CreateProxyAccessResponse
    */
   async createProxyAccess(request: CreateProxyAccessRequest): Promise<CreateProxyAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProxyAccessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Executes a schema design ticket.
+   *
+   * @param request CreatePublishGroupTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePublishGroupTaskResponse
+   */
   async createPublishGroupTaskWithOptions(request: CreatePublishGroupTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublishGroupTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32110,18 +32349,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePublishGroupTaskResponse>(await this.callApi(params, req, runtime), new CreatePublishGroupTaskResponse({}));
   }
 
+  /**
+   * @summary Executes a schema design ticket.
+   *
+   * @param request CreatePublishGroupTaskRequest
+   * @return CreatePublishGroupTaskResponse
+   */
   async createPublishGroupTask(request: CreatePublishGroupTaskRequest): Promise<CreatePublishGroupTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPublishGroupTaskWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for database instances that are managed in Security Collaboration mode.
-    * For more information about the SQL review feature, see [SQL review](~~60374~~).
-    *
-    * @param tmpReq CreateSQLReviewOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSQLReviewOrderResponse
+   * @summary Creates a SQL review ticket.
+   *
+   * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
+   * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+   *
+   * @param tmpReq CreateSQLReviewOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSQLReviewOrderResponse
    */
   async createSQLReviewOrderWithOptions(tmpReq: CreateSQLReviewOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateSQLReviewOrderResponse> {
     Util.validateModel(tmpReq);
@@ -32170,17 +32417,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances that are managed in Security Collaboration mode.
-    * For more information about the SQL review feature, see [SQL review](~~60374~~).
-    *
-    * @param request CreateSQLReviewOrderRequest
-    * @return CreateSQLReviewOrderResponse
+   * @summary Creates a SQL review ticket.
+   *
+   * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
+   * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+   *
+   * @param request CreateSQLReviewOrderRequest
+   * @return CreateSQLReviewOrderResponse
    */
   async createSQLReviewOrder(request: CreateSQLReviewOrderRequest): Promise<CreateSQLReviewOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSQLReviewOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a business scenario to group task flows by business scenario.
+   *
+   * @param request CreateScenarioRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateScenarioResponse
+   */
   async createScenarioWithOptions(request: CreateScenarioRequest, runtime: $Util.RuntimeOptions): Promise<CreateScenarioResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32213,11 +32469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateScenarioResponse>(await this.callApi(params, req, runtime), new CreateScenarioResponse({}));
   }
 
+  /**
+   * @summary Creates a business scenario to group task flows by business scenario.
+   *
+   * @param request CreateScenarioRequest
+   * @return CreateScenarioResponse
+   */
   async createScenario(request: CreateScenarioRequest): Promise<CreateScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createScenarioWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a security rule set.
+   *
+   * @param request CreateStandardGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateStandardGroupResponse
+   */
   async createStandardGroupWithOptions(request: CreateStandardGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateStandardGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32254,11 +32523,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStandardGroupResponse>(await this.callApi(params, req, runtime), new CreateStandardGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a security rule set.
+   *
+   * @param request CreateStandardGroupRequest
+   * @return CreateStandardGroupResponse
+   */
   async createStandardGroup(request: CreateStandardGroupRequest): Promise<CreateStandardGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStandardGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a schema synchronization ticket.
+   *
+   * @param tmpReq CreateStructSyncOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateStructSyncOrderResponse
+   */
   async createStructSyncOrderWithOptions(tmpReq: CreateStructSyncOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateStructSyncOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateStructSyncOrderShrinkRequest({ });
@@ -32309,11 +32591,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStructSyncOrderResponse>(await this.callApi(params, req, runtime), new CreateStructSyncOrderResponse({}));
   }
 
+  /**
+   * @summary Creates a schema synchronization ticket.
+   *
+   * @param request CreateStructSyncOrderRequest
+   * @return CreateStructSyncOrderResponse
+   */
   async createStructSyncOrder(request: CreateStructSyncOrderRequest): Promise<CreateStructSyncOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStructSyncOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a task node for a task flow.
+   *
+   * @param request CreateTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTaskResponse
+   */
   async createTaskWithOptions(request: CreateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32366,11 +32661,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
   }
 
+  /**
+   * @summary Creates a task node for a task flow.
+   *
+   * @param request CreateTaskRequest
+   * @return CreateTaskResponse
+   */
   async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a task flow.
+   *
+   * @param request CreateTaskFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTaskFlowResponse
+   */
   async createTaskFlowWithOptions(request: CreateTaskFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32407,11 +32715,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTaskFlowResponse>(await this.callApi(params, req, runtime), new CreateTaskFlowResponse({}));
   }
 
+  /**
+   * @summary Creates a task flow.
+   *
+   * @param request CreateTaskFlowRequest
+   * @return CreateTaskFlowResponse
+   */
   async createTaskFlow(request: CreateTaskFlowRequest): Promise<CreateTaskFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTaskFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建上传附件任务
+   *
+   * @param request CreateUploadFileJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUploadFileJobResponse
+   */
   async createUploadFileJobWithOptions(request: CreateUploadFileJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadFileJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32448,11 +32769,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUploadFileJobResponse>(await this.callApi(params, req, runtime), new CreateUploadFileJobResponse({}));
   }
 
+  /**
+   * @summary 创建上传附件任务
+   *
+   * @param request CreateUploadFileJobRequest
+   * @return CreateUploadFileJobResponse
+   */
   async createUploadFileJob(request: CreateUploadFileJobRequest): Promise<CreateUploadFileJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUploadFileJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a task to upload an Object Storage Service (OSS) file and obtain the key of the task.
+   *
+   * @param tmpReq CreateUploadOSSFileJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUploadOSSFileJobResponse
+   */
   async createUploadOSSFileJobWithOptions(tmpReq: CreateUploadOSSFileJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadOSSFileJobResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateUploadOSSFileJobShrinkRequest({ });
@@ -32495,11 +32829,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUploadOSSFileJobResponse>(await this.callApi(params, req, runtime), new CreateUploadOSSFileJobResponse({}));
   }
 
+  /**
+   * @summary Creates a task to upload an Object Storage Service (OSS) file and obtain the key of the task.
+   *
+   * @param request CreateUploadOSSFileJobRequest
+   * @return CreateUploadOSSFileJobResponse
+   */
   async createUploadOSSFileJob(request: CreateUploadOSSFileJobRequest): Promise<CreateUploadOSSFileJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUploadOSSFileJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除权限模版
+   *
+   * @param request DeleteAuthorityTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAuthorityTemplateResponse
+   */
   async deleteAuthorityTemplateWithOptions(request: DeleteAuthorityTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAuthorityTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32528,17 +32875,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAuthorityTemplateResponse>(await this.callApi(params, req, runtime), new DeleteAuthorityTemplateResponse({}));
   }
 
+  /**
+   * @summary 删除权限模版
+   *
+   * @param request DeleteAuthorityTemplateRequest
+   * @return DeleteAuthorityTemplateResponse
+   */
   async deleteAuthorityTemplate(request: DeleteAuthorityTemplateRequest): Promise<DeleteAuthorityTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAuthorityTemplateWithOptions(request, runtime);
   }
 
   /**
-    * Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
-    *
-    * @param request DeleteInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteInstanceResponse
+   * @summary Removes a database instance from Data Management (DMS).
+   *
+   * @description Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
+   *
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
@@ -32577,16 +32932,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
-    *
-    * @param request DeleteInstanceRequest
-    * @return DeleteInstanceResponse
+   * @summary Removes a database instance from Data Management (DMS).
+   *
+   * @description Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
+   *
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a workspace.
+   *
+   * @param request DeleteLakeHouseSpaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLakeHouseSpaceResponse
+   */
   async deleteLakeHouseSpaceWithOptions(request: DeleteLakeHouseSpaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLakeHouseSpaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32615,18 +32979,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLakeHouseSpaceResponse>(await this.callApi(params, req, runtime), new DeleteLakeHouseSpaceResponse({}));
   }
 
+  /**
+   * @summary Deletes a workspace.
+   *
+   * @param request DeleteLakeHouseSpaceRequest
+   * @return DeleteLakeHouseSpaceResponse
+   */
   async deleteLakeHouseSpace(request: DeleteLakeHouseSpaceRequest): Promise<DeleteLakeHouseSpaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLakeHouseSpaceWithOptions(request, runtime);
   }
 
   /**
-    * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
-    * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](~~424761~~) operation.
-    *
-    * @param tmpReq DeleteLhMembersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteLhMembersResponse
+   * @summary 删除数仓空间成员
+   *
+   * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+   * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
+   *
+   * @param tmpReq DeleteLhMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLhMembersResponse
    */
   async deleteLhMembersWithOptions(tmpReq: DeleteLhMembersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLhMembersResponse> {
     Util.validateModel(tmpReq);
@@ -32671,17 +33043,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
-    * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](~~424761~~) operation.
-    *
-    * @param request DeleteLhMembersRequest
-    * @return DeleteLhMembersResponse
+   * @summary 删除数仓空间成员
+   *
+   * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+   * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
+   *
+   * @param request DeleteLhMembersRequest
+   * @return DeleteLhMembersResponse
    */
   async deleteLhMembers(request: DeleteLhMembersRequest): Promise<DeleteLhMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLhMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+   *
+   * @param request DeleteLogicDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLogicDatabaseResponse
+   */
   async deleteLogicDatabaseWithOptions(request: DeleteLogicDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLogicDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32710,11 +33091,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogicDatabaseResponse>(await this.callApi(params, req, runtime), new DeleteLogicDatabaseResponse({}));
   }
 
+  /**
+   * @summary Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+   *
+   * @param request DeleteLogicDatabaseRequest
+   * @return DeleteLogicDatabaseResponse
+   */
   async deleteLogicDatabase(request: DeleteLogicDatabaseRequest): Promise<DeleteLogicDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLogicDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the routing algorithm of a logical table.
+   *
+   * @param request DeleteLogicTableRouteConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLogicTableRouteConfigResponse
+   */
   async deleteLogicTableRouteConfigWithOptions(request: DeleteLogicTableRouteConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLogicTableRouteConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32747,17 +33141,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLogicTableRouteConfigResponse>(await this.callApi(params, req, runtime), new DeleteLogicTableRouteConfigResponse({}));
   }
 
+  /**
+   * @summary Deletes the routing algorithm of a logical table.
+   *
+   * @param request DeleteLogicTableRouteConfigRequest
+   * @return DeleteLogicTableRouteConfigResponse
+   */
   async deleteLogicTableRouteConfig(request: DeleteLogicTableRouteConfigRequest): Promise<DeleteLogicTableRouteConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLogicTableRouteConfigWithOptions(request, runtime);
   }
 
   /**
-    * After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
-    *
-    * @param request DeleteProxyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteProxyResponse
+   * @summary You can call this operation to disable the data security protection proxy of a DB instance.
+   *
+   * @description After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
+   *
+   * @param request DeleteProxyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProxyResponse
    */
   async deleteProxyWithOptions(request: DeleteProxyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProxyResponse> {
     Util.validateModel(request);
@@ -32788,16 +33190,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
-    *
-    * @param request DeleteProxyRequest
-    * @return DeleteProxyResponse
+   * @summary You can call this operation to disable the data security protection proxy of a DB instance.
+   *
+   * @description After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
+   *
+   * @param request DeleteProxyRequest
+   * @return DeleteProxyResponse
    */
   async deleteProxy(request: DeleteProxyRequest): Promise<DeleteProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProxyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+   *
+   * @param request DeleteProxyAccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProxyAccessResponse
+   */
   async deleteProxyAccessWithOptions(request: DeleteProxyAccessRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProxyAccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32826,17 +33237,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProxyAccessResponse>(await this.callApi(params, req, runtime), new DeleteProxyAccessResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+   *
+   * @param request DeleteProxyAccessRequest
+   * @return DeleteProxyAccessResponse
+   */
   async deleteProxyAccess(request: DeleteProxyAccessRequest): Promise<DeleteProxyAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProxyAccessWithOptions(request, runtime);
   }
 
   /**
-    * When you call this operation, make sure that no task flow is specified in the business scenario.
-    *
-    * @param request DeleteScenarioRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteScenarioResponse
+   * @summary Deletes a business scenario.
+   *
+   * @description When you call this operation, make sure that no task flow is specified in the business scenario.
+   *
+   * @param request DeleteScenarioRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteScenarioResponse
    */
   async deleteScenarioWithOptions(request: DeleteScenarioRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScenarioResponse> {
     Util.validateModel(request);
@@ -32867,16 +33286,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, make sure that no task flow is specified in the business scenario.
-    *
-    * @param request DeleteScenarioRequest
-    * @return DeleteScenarioResponse
+   * @summary Deletes a business scenario.
+   *
+   * @description When you call this operation, make sure that no task flow is specified in the business scenario.
+   *
+   * @param request DeleteScenarioRequest
+   * @return DeleteScenarioResponse
    */
   async deleteScenario(request: DeleteScenarioRequest): Promise<DeleteScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteScenarioWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除安全规则
+   *
+   * @param request DeleteStandardGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteStandardGroupResponse
+   */
   async deleteStandardGroupWithOptions(request: DeleteStandardGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStandardGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32905,11 +33333,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteStandardGroupResponse>(await this.callApi(params, req, runtime), new DeleteStandardGroupResponse({}));
   }
 
+  /**
+   * @summary 删除安全规则
+   *
+   * @param request DeleteStandardGroupRequest
+   * @return DeleteStandardGroupResponse
+   */
   async deleteStandardGroup(request: DeleteStandardGroupRequest): Promise<DeleteStandardGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteStandardGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a task in a specified task flow.
+   *
+   * @param request DeleteTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTaskResponse
+   */
   async deleteTaskWithOptions(request: DeleteTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32938,11 +33379,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTaskResponse>(await this.callApi(params, req, runtime), new DeleteTaskResponse({}));
   }
 
+  /**
+   * @summary Deletes a task in a specified task flow.
+   *
+   * @param request DeleteTaskRequest
+   * @return DeleteTaskResponse
+   */
   async deleteTask(request: DeleteTaskRequest): Promise<DeleteTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a task flow.
+   *
+   * @param request DeleteTaskFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTaskFlowResponse
+   */
   async deleteTaskFlowWithOptions(request: DeleteTaskFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTaskFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32971,17 +33425,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTaskFlowResponse>(await this.callApi(params, req, runtime), new DeleteTaskFlowResponse({}));
   }
 
+  /**
+   * @summary Deletes a task flow.
+   *
+   * @param request DeleteTaskFlowRequest
+   * @return DeleteTaskFlowResponse
+   */
   async deleteTaskFlow(request: DeleteTaskFlowRequest): Promise<DeleteTaskFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTaskFlowWithOptions(request, runtime);
   }
 
   /**
-    * This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
-    *
-    * @param request DeleteTaskFlowEdgesByConditionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTaskFlowEdgesByConditionResponse
+   * @summary Deletes task flow edges based on multiple conditions.
+   *
+   * @description This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
+   *
+   * @param request DeleteTaskFlowEdgesByConditionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTaskFlowEdgesByConditionResponse
    */
   async deleteTaskFlowEdgesByConditionWithOptions(request: DeleteTaskFlowEdgesByConditionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTaskFlowEdgesByConditionResponse> {
     Util.validateModel(request);
@@ -33024,10 +33486,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
-    *
-    * @param request DeleteTaskFlowEdgesByConditionRequest
-    * @return DeleteTaskFlowEdgesByConditionResponse
+   * @summary Deletes task flow edges based on multiple conditions.
+   *
+   * @description This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
+   *
+   * @param request DeleteTaskFlowEdgesByConditionRequest
+   * @return DeleteTaskFlowEdgesByConditionResponse
    */
   async deleteTaskFlowEdgesByCondition(request: DeleteTaskFlowEdgesByConditionRequest): Promise<DeleteTaskFlowEdgesByConditionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33035,12 +33499,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The effect of deleting a user by calling this operation is the same as that of deleting a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to delete a user that is no longer used from DMS Enterprise. After the user is deleted, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
-    * >  This operation only removes the association of the Alibaba Cloud account or RAM user with DMS Enterprise of the enterprise, rather than actually deleting the Alibaba Cloud account or RAM user. After the user is deleted, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is added to DMS Enterprise again.
-    *
-    * @param request DeleteUserRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteUserResponse
+   * @summary Deletes an Alibaba Cloud account that is no longer used.
+   *
+   * @description The effect of deleting a user by calling this operation is the same as that of deleting a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to delete a user that is no longer used from DMS Enterprise. After the user is deleted, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+   * >  This operation only removes the association of the Alibaba Cloud account or RAM user with DMS Enterprise of the enterprise, rather than actually deleting the Alibaba Cloud account or RAM user. After the user is deleted, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is added to DMS Enterprise again.
+   *
+   * @param request DeleteUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserResponse
    */
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
@@ -33071,11 +33537,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The effect of deleting a user by calling this operation is the same as that of deleting a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to delete a user that is no longer used from DMS Enterprise. After the user is deleted, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
-    * >  This operation only removes the association of the Alibaba Cloud account or RAM user with DMS Enterprise of the enterprise, rather than actually deleting the Alibaba Cloud account or RAM user. After the user is deleted, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is added to DMS Enterprise again.
-    *
-    * @param request DeleteUserRequest
-    * @return DeleteUserResponse
+   * @summary Deletes an Alibaba Cloud account that is no longer used.
+   *
+   * @description The effect of deleting a user by calling this operation is the same as that of deleting a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to delete a user that is no longer used from DMS Enterprise. After the user is deleted, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+   * >  This operation only removes the association of the Alibaba Cloud account or RAM user with DMS Enterprise of the enterprise, rather than actually deleting the Alibaba Cloud account or RAM user. After the user is deleted, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is added to DMS Enterprise again.
+   *
+   * @param request DeleteUserRequest
+   * @return DeleteUserResponse
    */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33083,12 +33551,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
-    * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
-    *
-    * @param request DisableUserRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DisableUserResponse
+   * @summary You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+   *
+   * @description The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+   * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
+   *
+   * @param request DisableUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableUserResponse
    */
   async disableUserWithOptions(request: DisableUserRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserResponse> {
     Util.validateModel(request);
@@ -33119,17 +33589,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
-    * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
-    *
-    * @param request DisableUserRequest
-    * @return DisableUserResponse
+   * @summary You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+   *
+   * @description The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+   * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
+   *
+   * @param request DisableUserRequest
+   * @return DisableUserResponse
    */
   async disableUser(request: DisableUserRequest): Promise<DisableUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Downloads the parsing result of a data tracking task.
+   *
+   * @param tmpReq DownloadDataTrackResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DownloadDataTrackResultResponse
+   */
   async downloadDataTrackResultWithOptions(tmpReq: DownloadDataTrackResultRequest, runtime: $Util.RuntimeOptions): Promise<DownloadDataTrackResultResponse> {
     Util.validateModel(tmpReq);
     let request = new DownloadDataTrackResultShrinkRequest({ });
@@ -33204,11 +33683,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DownloadDataTrackResultResponse>(await this.callApi(params, req, runtime), new DownloadDataTrackResultResponse({}));
   }
 
+  /**
+   * @summary Downloads the parsing result of a data tracking task.
+   *
+   * @param request DownloadDataTrackResultRequest
+   * @return DownloadDataTrackResultResponse
+   */
   async downloadDataTrackResult(request: DownloadDataTrackResultRequest): Promise<DownloadDataTrackResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.downloadDataTrackResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about a logical database.
+   *
+   * @param tmpReq EditLogicDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EditLogicDatabaseResponse
+   */
   async editLogicDatabaseWithOptions(tmpReq: EditLogicDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<EditLogicDatabaseResponse> {
     Util.validateModel(tmpReq);
     let request = new EditLogicDatabaseShrinkRequest({ });
@@ -33251,18 +33743,26 @@ export default class Client extends OpenApi {
     return $tea.cast<EditLogicDatabaseResponse>(await this.callApi(params, req, runtime), new EditLogicDatabaseResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about a logical database.
+   *
+   * @param request EditLogicDatabaseRequest
+   * @return EditLogicDatabaseResponse
+   */
   async editLogicDatabase(request: EditLogicDatabaseRequest): Promise<EditLogicDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editLogicDatabaseWithOptions(request, runtime);
   }
 
   /**
-    * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
-    * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
-    *
-    * @param request EnableUserRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnableUserResponse
+   * @summary You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+   *
+   * @description The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
+   * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
+   *
+   * @param request EnableUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableUserResponse
    */
   async enableUserWithOptions(request: EnableUserRequest, runtime: $Util.RuntimeOptions): Promise<EnableUserResponse> {
     Util.validateModel(request);
@@ -33293,17 +33793,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
-    * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
-    *
-    * @param request EnableUserRequest
-    * @return EnableUserResponse
+   * @summary You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+   *
+   * @description The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
+   * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
+   *
+   * @param request EnableUserRequest
+   * @return EnableUserResponse
    */
   async enableUser(request: EnableUserRequest): Promise<EnableUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a ticket for data change.
+   *
+   * @param tmpReq ExecuteDataCorrectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecuteDataCorrectResponse
+   */
   async executeDataCorrectWithOptions(tmpReq: ExecuteDataCorrectRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteDataCorrectResponse> {
     Util.validateModel(tmpReq);
     let request = new ExecuteDataCorrectShrinkRequest({ });
@@ -33342,11 +33851,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecuteDataCorrectResponse>(await this.callApi(params, req, runtime), new ExecuteDataCorrectResponse({}));
   }
 
+  /**
+   * @summary Submits a ticket for data change.
+   *
+   * @param request ExecuteDataCorrectRequest
+   * @return ExecuteDataCorrectResponse
+   */
   async executeDataCorrect(request: ExecuteDataCorrectRequest): Promise<ExecuteDataCorrectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeDataCorrectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Executes a data export ticket.
+   *
+   * @param tmpReq ExecuteDataExportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecuteDataExportResponse
+   */
   async executeDataExportWithOptions(tmpReq: ExecuteDataExportRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteDataExportResponse> {
     Util.validateModel(tmpReq);
     let request = new ExecuteDataExportShrinkRequest({ });
@@ -33385,17 +33907,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecuteDataExportResponse>(await this.callApi(params, req, runtime), new ExecuteDataExportResponse({}));
   }
 
+  /**
+   * @summary Executes a data export ticket.
+   *
+   * @param request ExecuteDataExportRequest
+   * @return ExecuteDataExportResponse
+   */
   async executeDataExport(request: ExecuteDataExportRequest): Promise<ExecuteDataExportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeDataExportWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for instances that are managed in Security Collaboration mode.
-    *
-    * @param request ExecuteScriptRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExecuteScriptResponse
+   * @summary Executes SQL statements.
+   *
+   * @description You can call this operation only for instances that are managed in Security Collaboration mode.
+   *
+   * @param request ExecuteScriptRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecuteScriptResponse
    */
   async executeScriptWithOptions(request: ExecuteScriptRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteScriptResponse> {
     Util.validateModel(request);
@@ -33434,10 +33964,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for instances that are managed in Security Collaboration mode.
-    *
-    * @param request ExecuteScriptRequest
-    * @return ExecuteScriptResponse
+   * @summary Executes SQL statements.
+   *
+   * @description You can call this operation only for instances that are managed in Security Collaboration mode.
+   *
+   * @param request ExecuteScriptRequest
+   * @return ExecuteScriptResponse
    */
   async executeScript(request: ExecuteScriptRequest): Promise<ExecuteScriptResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33445,12 +33977,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
-    * >  You can call the [GetStructSyncJobDetail](~~206160~~) operation to query whether you need to submit a ticket for approval.
-    *
-    * @param request ExecuteStructSyncRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExecuteStructSyncResponse
+   * @summary Executes a schema synchronization task.
+   *
+   * @description If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](https://help.aliyun.com/document_detail/206166.html) operation to submit the ticket for approval.
+   * >  You can call the [GetStructSyncJobDetail](https://help.aliyun.com/document_detail/206160.html) operation to query whether you need to submit a ticket for approval.
+   *
+   * @param request ExecuteStructSyncRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecuteStructSyncResponse
    */
   async executeStructSyncWithOptions(request: ExecuteStructSyncRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteStructSyncResponse> {
     Util.validateModel(request);
@@ -33481,17 +34015,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
-    * >  You can call the [GetStructSyncJobDetail](~~206160~~) operation to query whether you need to submit a ticket for approval.
-    *
-    * @param request ExecuteStructSyncRequest
-    * @return ExecuteStructSyncResponse
+   * @summary Executes a schema synchronization task.
+   *
+   * @description If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](https://help.aliyun.com/document_detail/206166.html) operation to submit the ticket for approval.
+   * >  You can call the [GetStructSyncJobDetail](https://help.aliyun.com/document_detail/206160.html) operation to query whether you need to submit a ticket for approval.
+   *
+   * @param request ExecuteStructSyncRequest
+   * @return ExecuteStructSyncResponse
    */
   async executeStructSync(request: ExecuteStructSyncRequest): Promise<ExecuteStructSyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeStructSyncWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the approval details of a ticket.
+   *
+   * @param request GetApprovalDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApprovalDetailResponse
+   */
   async getApprovalDetailWithOptions(request: GetApprovalDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetApprovalDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33520,17 +34063,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApprovalDetailResponse>(await this.callApi(params, req, runtime), new GetApprovalDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the approval details of a ticket.
+   *
+   * @param request GetApprovalDetailRequest
+   * @return GetApprovalDetailResponse
+   */
   async getApprovalDetail(request: GetApprovalDetailRequest): Promise<GetApprovalDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApprovalDetailWithOptions(request, runtime);
   }
 
   /**
-    * You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request GetAuthorityTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAuthorityTemplateResponse
+   * @summary Queries the information about a permission template.
+   *
+   * @description You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request GetAuthorityTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAuthorityTemplateResponse
    */
   async getAuthorityTemplateWithOptions(request: GetAuthorityTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorityTemplateResponse> {
     Util.validateModel(request);
@@ -33561,10 +34112,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request GetAuthorityTemplateRequest
-    * @return GetAuthorityTemplateResponse
+   * @summary Queries the information about a permission template.
+   *
+   * @description You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request GetAuthorityTemplateRequest
+   * @return GetAuthorityTemplateResponse
    */
   async getAuthorityTemplate(request: GetAuthorityTemplateRequest): Promise<GetAuthorityTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33572,11 +34125,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request GetAuthorityTemplateItemRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAuthorityTemplateItemResponse
+   * @summary Queries the resources in a permission template.
+   *
+   * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request GetAuthorityTemplateItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAuthorityTemplateItemResponse
    */
   async getAuthorityTemplateItemWithOptions(request: GetAuthorityTemplateItemRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorityTemplateItemResponse> {
     Util.validateModel(request);
@@ -33607,16 +34162,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request GetAuthorityTemplateItemRequest
-    * @return GetAuthorityTemplateItemResponse
+   * @summary Queries the resources in a permission template.
+   *
+   * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request GetAuthorityTemplateItemRequest
+   * @return GetAuthorityTemplateItemResponse
    */
   async getAuthorityTemplateItem(request: GetAuthorityTemplateItemRequest): Promise<GetAuthorityTemplateItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAuthorityTemplateItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取实例绑定的分类分级模板
+   *
+   * @param request GetClassificationTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClassificationTemplateResponse
+   */
   async getClassificationTemplateWithOptions(request: GetClassificationTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetClassificationTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33645,11 +34209,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClassificationTemplateResponse>(await this.callApi(params, req, runtime), new GetClassificationTemplateResponse({}));
   }
 
+  /**
+   * @summary 获取实例绑定的分类分级模板
+   *
+   * @param request GetClassificationTemplateRequest
+   * @return GetClassificationTemplateResponse
+   */
   async getClassificationTemplate(request: GetClassificationTemplateRequest): Promise<GetClassificationTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClassificationTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the log that records the scheduling details of an SQL task.
+   *
+   * @param request GetDBTaskSQLJobLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDBTaskSQLJobLogResponse
+   */
   async getDBTaskSQLJobLogWithOptions(request: GetDBTaskSQLJobLogRequest, runtime: $Util.RuntimeOptions): Promise<GetDBTaskSQLJobLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33678,11 +34255,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDBTaskSQLJobLogResponse>(await this.callApi(params, req, runtime), new GetDBTaskSQLJobLogResponse({}));
   }
 
+  /**
+   * @summary Queries the log that records the scheduling details of an SQL task.
+   *
+   * @param request GetDBTaskSQLJobLogRequest
+   * @return GetDBTaskSQLJobLogResponse
+   */
   async getDBTaskSQLJobLog(request: GetDBTaskSQLJobLogRequest): Promise<GetDBTaskSQLJobLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDBTaskSQLJobLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the topologies of a logical database and its physical database shards.
+   *
+   * @param request GetDBTopologyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDBTopologyResponse
+   */
   async getDBTopologyWithOptions(request: GetDBTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetDBTopologyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33711,11 +34301,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDBTopologyResponse>(await this.callApi(params, req, runtime), new GetDBTopologyResponse({}));
   }
 
+  /**
+   * @summary Queries the topologies of a logical database and its physical database shards.
+   *
+   * @param request GetDBTopologyRequest
+   * @return GetDBTopologyResponse
+   */
   async getDBTopology(request: GetDBTopologyRequest): Promise<GetDBTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDBTopologyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the statistics of data archiving orders, including the number of successful archiving tickets, the number of failed archiving tickets, the number of in-progress archiving tickets, and the total number of archiving tickets.
+   *
+   * @param request GetDataArchiveCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataArchiveCountResponse
+   */
   async getDataArchiveCountWithOptions(request: GetDataArchiveCountRequest, runtime: $Util.RuntimeOptions): Promise<GetDataArchiveCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33752,11 +34355,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataArchiveCountResponse>(await this.callApi(params, req, runtime), new GetDataArchiveCountResponse({}));
   }
 
+  /**
+   * @summary Queries the statistics of data archiving orders, including the number of successful archiving tickets, the number of failed archiving tickets, the number of in-progress archiving tickets, and the total number of archiving tickets.
+   *
+   * @param request GetDataArchiveCountRequest
+   * @return GetDataArchiveCountResponse
+   */
   async getDataArchiveCount(request: GetDataArchiveCountRequest): Promise<GetDataArchiveCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataArchiveCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a data archiving ticket.
+   *
+   * @param request GetDataArchiveOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataArchiveOrderDetailResponse
+   */
   async getDataArchiveOrderDetailWithOptions(request: GetDataArchiveOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDataArchiveOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33785,11 +34401,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataArchiveOrderDetailResponse>(await this.callApi(params, req, runtime), new GetDataArchiveOrderDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a data archiving ticket.
+   *
+   * @param request GetDataArchiveOrderDetailRequest
+   * @return GetDataArchiveOrderDetailResponse
+   */
   async getDataArchiveOrderDetail(request: GetDataArchiveOrderDetailRequest): Promise<GetDataArchiveOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataArchiveOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+   *
+   * @param tmpReq GetDataCorrectBackupFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataCorrectBackupFilesResponse
+   */
   async getDataCorrectBackupFilesWithOptions(tmpReq: GetDataCorrectBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCorrectBackupFilesResponse> {
     Util.validateModel(tmpReq);
     let request = new GetDataCorrectBackupFilesShrinkRequest({ });
@@ -33828,11 +34457,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataCorrectBackupFilesResponse>(await this.callApi(params, req, runtime), new GetDataCorrectBackupFilesResponse({}));
   }
 
+  /**
+   * @summary Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+   *
+   * @param request GetDataCorrectBackupFilesRequest
+   * @return GetDataCorrectBackupFilesResponse
+   */
   async getDataCorrectBackupFiles(request: GetDataCorrectBackupFilesRequest): Promise<GetDataCorrectBackupFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataCorrectBackupFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a data change ticket in Data Management (DMS).
+   *
+   * @param request GetDataCorrectOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataCorrectOrderDetailResponse
+   */
   async getDataCorrectOrderDetailWithOptions(request: GetDataCorrectOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCorrectOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33861,11 +34503,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataCorrectOrderDetailResponse>(await this.callApi(params, req, runtime), new GetDataCorrectOrderDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a data change ticket in Data Management (DMS).
+   *
+   * @param request GetDataCorrectOrderDetailRequest
+   * @return GetDataCorrectOrderDetailResponse
+   */
   async getDataCorrectOrderDetail(request: GetDataCorrectOrderDetailRequest): Promise<GetDataCorrectOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataCorrectOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the download URL of the rollback attachment submitted along with a data change ticket.
+   *
+   * @param request GetDataCorrectRollbackFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataCorrectRollbackFileResponse
+   */
   async getDataCorrectRollbackFileWithOptions(request: GetDataCorrectRollbackFileRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCorrectRollbackFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33894,17 +34549,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataCorrectRollbackFileResponse>(await this.callApi(params, req, runtime), new GetDataCorrectRollbackFileResponse({}));
   }
 
+  /**
+   * @summary Queries the download URL of the rollback attachment submitted along with a data change ticket.
+   *
+   * @param request GetDataCorrectRollbackFileRequest
+   * @return GetDataCorrectRollbackFileResponse
+   */
   async getDataCorrectRollbackFile(request: GetDataCorrectRollbackFileRequest): Promise<GetDataCorrectRollbackFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataCorrectRollbackFileWithOptions(request, runtime);
   }
 
   /**
-    * This operation applies to [regular data change](~~58419~~) and [batch data import](~~144643~~).
-    *
-    * @param request GetDataCorrectSQLFileRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDataCorrectSQLFileResponse
+   * @summary Queries the download URL of the SQL script for a data change task.
+   *
+   * @description This operation applies to [regular data change](https://help.aliyun.com/document_detail/58419.html) and [batch data import](https://help.aliyun.com/document_detail/144643.html).
+   *
+   * @param request GetDataCorrectSQLFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataCorrectSQLFileResponse
    */
   async getDataCorrectSQLFileWithOptions(request: GetDataCorrectSQLFileRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCorrectSQLFileResponse> {
     Util.validateModel(request);
@@ -33935,16 +34598,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation applies to [regular data change](~~58419~~) and [batch data import](~~144643~~).
-    *
-    * @param request GetDataCorrectSQLFileRequest
-    * @return GetDataCorrectSQLFileResponse
+   * @summary Queries the download URL of the SQL script for a data change task.
+   *
+   * @description This operation applies to [regular data change](https://help.aliyun.com/document_detail/58419.html) and [batch data import](https://help.aliyun.com/document_detail/144643.html).
+   *
+   * @param request GetDataCorrectSQLFileRequest
+   * @return GetDataCorrectSQLFileResponse
    */
   async getDataCorrectSQLFile(request: GetDataCorrectSQLFileRequest): Promise<GetDataCorrectSQLFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataCorrectSQLFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a data change, lock-free data change, or data import task.
+   *
+   * @param request GetDataCorrectTaskDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataCorrectTaskDetailResponse
+   */
   async getDataCorrectTaskDetailWithOptions(request: GetDataCorrectTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCorrectTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33973,11 +34645,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataCorrectTaskDetailResponse>(await this.callApi(params, req, runtime), new GetDataCorrectTaskDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a data change, lock-free data change, or data import task.
+   *
+   * @param request GetDataCorrectTaskDetailRequest
+   * @return GetDataCorrectTaskDetailResponse
+   */
   async getDataCorrectTaskDetail(request: GetDataCorrectTaskDetailRequest): Promise<GetDataCorrectTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataCorrectTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the scheduling configuration of a ticket for cleaning up historical data.
+   *
+   * @param request GetDataCronClearConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataCronClearConfigResponse
+   */
   async getDataCronClearConfigWithOptions(request: GetDataCronClearConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCronClearConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34006,11 +34691,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataCronClearConfigResponse>(await this.callApi(params, req, runtime), new GetDataCronClearConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the scheduling configuration of a ticket for cleaning up historical data.
+   *
+   * @param request GetDataCronClearConfigRequest
+   * @return GetDataCronClearConfigResponse
+   */
   async getDataCronClearConfig(request: GetDataCronClearConfigRequest): Promise<GetDataCronClearConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataCronClearConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a historical data cleansing ticket.
+   *
+   * @param request GetDataCronClearTaskDetailListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataCronClearTaskDetailListResponse
+   */
   async getDataCronClearTaskDetailListWithOptions(request: GetDataCronClearTaskDetailListRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCronClearTaskDetailListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34047,11 +34745,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataCronClearTaskDetailListResponse>(await this.callApi(params, req, runtime), new GetDataCronClearTaskDetailListResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a historical data cleansing ticket.
+   *
+   * @param request GetDataCronClearTaskDetailListRequest
+   * @return GetDataCronClearTaskDetailListResponse
+   */
   async getDataCronClearTaskDetailList(request: GetDataCronClearTaskDetailListRequest): Promise<GetDataCronClearTaskDetailListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataCronClearTaskDetailListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the download URL of the file that records the export results for a data export ticket in Data Management (DMS).
+   *
+   * @param request GetDataExportDownloadURLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataExportDownloadURLResponse
+   */
   async getDataExportDownloadURLWithOptions(request: GetDataExportDownloadURLRequest, runtime: $Util.RuntimeOptions): Promise<GetDataExportDownloadURLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34080,11 +34791,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataExportDownloadURLResponse>(await this.callApi(params, req, runtime), new GetDataExportDownloadURLResponse({}));
   }
 
+  /**
+   * @summary Queries the download URL of the file that records the export results for a data export ticket in Data Management (DMS).
+   *
+   * @param request GetDataExportDownloadURLRequest
+   * @return GetDataExportDownloadURLResponse
+   */
   async getDataExportDownloadURL(request: GetDataExportDownloadURLRequest): Promise<GetDataExportDownloadURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataExportDownloadURLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a data export ticket.
+   *
+   * @param request GetDataExportOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataExportOrderDetailResponse
+   */
   async getDataExportOrderDetailWithOptions(request: GetDataExportOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDataExportOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34115,11 +34839,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataExportOrderDetailResponse>(await this.callApi(params, req, runtime), new GetDataExportOrderDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a data export ticket.
+   *
+   * @param request GetDataExportOrderDetailRequest
+   * @return GetDataExportOrderDetailResponse
+   */
   async getDataExportOrderDetail(request: GetDataExportOrderDetailRequest): Promise<GetDataExportOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataExportOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the precheck details of an SQL result set export ticket.
+   *
+   * @param request GetDataExportPreCheckDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataExportPreCheckDetailResponse
+   */
   async getDataExportPreCheckDetailWithOptions(request: GetDataExportPreCheckDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDataExportPreCheckDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34148,17 +34885,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataExportPreCheckDetailResponse>(await this.callApi(params, req, runtime), new GetDataExportPreCheckDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the precheck details of an SQL result set export ticket.
+   *
+   * @param request GetDataExportPreCheckDetailRequest
+   * @return GetDataExportPreCheckDetailResponse
+   */
   async getDataExportPreCheckDetail(request: GetDataExportPreCheckDetailRequest): Promise<GetDataExportPreCheckDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataExportPreCheckDetailWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only if the data is imported in security mode in your data import ticket.
-    *
-    * @param request GetDataImportSQLRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDataImportSQLResponse
+   * @summary Queries the SQL statements used for data import in a ticket.
+   *
+   * @description You can call this operation only if the data is imported in security mode in your data import ticket.
+   *
+   * @param request GetDataImportSQLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataImportSQLResponse
    */
   async getDataImportSQLWithOptions(request: GetDataImportSQLRequest, runtime: $Util.RuntimeOptions): Promise<GetDataImportSQLResponse> {
     Util.validateModel(request);
@@ -34193,16 +34938,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only if the data is imported in security mode in your data import ticket.
-    *
-    * @param request GetDataImportSQLRequest
-    * @return GetDataImportSQLResponse
+   * @summary Queries the SQL statements used for data import in a ticket.
+   *
+   * @description You can call this operation only if the data is imported in security mode in your data import ticket.
+   *
+   * @param request GetDataImportSQLRequest
+   * @return GetDataImportSQLResponse
    */
   async getDataImportSQL(request: GetDataImportSQLRequest): Promise<GetDataImportSQLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataImportSQLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the progress of a data tracking task.
+   *
+   * @param request GetDataTrackJobDegreeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataTrackJobDegreeResponse
+   */
   async getDataTrackJobDegreeWithOptions(request: GetDataTrackJobDegreeRequest, runtime: $Util.RuntimeOptions): Promise<GetDataTrackJobDegreeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34231,11 +34985,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataTrackJobDegreeResponse>(await this.callApi(params, req, runtime), new GetDataTrackJobDegreeResponse({}));
   }
 
+  /**
+   * @summary Queries the progress of a data tracking task.
+   *
+   * @param request GetDataTrackJobDegreeRequest
+   * @return GetDataTrackJobDegreeResponse
+   */
   async getDataTrackJobDegree(request: GetDataTrackJobDegreeRequest): Promise<GetDataTrackJobDegreeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataTrackJobDegreeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the metadata of tables involved in a data tracking task.
+   *
+   * @param request GetDataTrackJobTableMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataTrackJobTableMetaResponse
+   */
   async getDataTrackJobTableMetaWithOptions(request: GetDataTrackJobTableMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetDataTrackJobTableMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34264,11 +35031,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataTrackJobTableMetaResponse>(await this.callApi(params, req, runtime), new GetDataTrackJobTableMetaResponse({}));
   }
 
+  /**
+   * @summary Queries the metadata of tables involved in a data tracking task.
+   *
+   * @param request GetDataTrackJobTableMetaRequest
+   * @return GetDataTrackJobTableMetaResponse
+   */
   async getDataTrackJobTableMeta(request: GetDataTrackJobTableMetaRequest): Promise<GetDataTrackJobTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataTrackJobTableMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a data tracking ticket.
+   *
+   * @param request GetDataTrackOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataTrackOrderDetailResponse
+   */
   async getDataTrackOrderDetailWithOptions(request: GetDataTrackOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDataTrackOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34297,11 +35077,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataTrackOrderDetailResponse>(await this.callApi(params, req, runtime), new GetDataTrackOrderDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a data tracking ticket.
+   *
+   * @param request GetDataTrackOrderDetailRequest
+   * @return GetDataTrackOrderDetailResponse
+   */
   async getDataTrackOrderDetail(request: GetDataTrackOrderDetailRequest): Promise<GetDataTrackOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataTrackOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries details of a specific database.
+   *
+   * @param request GetDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDatabaseResponse
+   */
   async getDatabaseWithOptions(request: GetDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34342,11 +35135,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatabaseResponse>(await this.callApi(params, req, runtime), new GetDatabaseResponse({}));
   }
 
+  /**
+   * @summary Queries details of a specific database.
+   *
+   * @param request GetDatabaseRequest
+   * @return GetDatabaseResponse
+   */
   async getDatabase(request: GetDatabaseRequest): Promise<GetDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a database export ticket.
+   *
+   * @param request GetDatabaseExportOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDatabaseExportOrderDetailResponse
+   */
   async getDatabaseExportOrderDetailWithOptions(request: GetDatabaseExportOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDatabaseExportOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34377,11 +35183,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDatabaseExportOrderDetailResponse>(await this.callApi(params, req, runtime), new GetDatabaseExportOrderDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a database export ticket.
+   *
+   * @param request GetDatabaseExportOrderDetailRequest
+   * @return GetDatabaseExportOrderDetailResponse
+   */
   async getDatabaseExportOrderDetail(request: GetDatabaseExportOrderDetailRequest): Promise<GetDatabaseExportOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDatabaseExportOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取数据库导出下载地址
+   *
+   * @param request GetDbExportDownloadURLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDbExportDownloadURLResponse
+   */
   async getDbExportDownloadURLWithOptions(request: GetDbExportDownloadURLRequest, runtime: $Util.RuntimeOptions): Promise<GetDbExportDownloadURLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34410,11 +35229,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDbExportDownloadURLResponse>(await this.callApi(params, req, runtime), new GetDbExportDownloadURLResponse({}));
   }
 
+  /**
+   * @summary 获取数据库导出下载地址
+   *
+   * @param request GetDbExportDownloadURLRequest
+   * @return GetDbExportDownloadURLResponse
+   */
   async getDbExportDownloadURL(request: GetDbExportDownloadURLRequest): Promise<GetDbExportDownloadURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDbExportDownloadURLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a database instance.
+   *
+   * @param request GetInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResponse
+   */
   async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34451,17 +35283,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a database instance.
+   *
+   * @param request GetInstanceRequest
+   * @return GetInstanceResponse
+   */
   async getInstance(request: GetInstanceRequest): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceWithOptions(request, runtime);
   }
 
   /**
-    * The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
-    *
-    * @param request GetIntervalLimitOfSLARequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetIntervalLimitOfSLAResponse
+   * @summary Queries the minimum scheduling cycle of a task flow when a service level agreement (SLA) timeout rule is configured for the task flow.
+   *
+   * @description The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
+   *
+   * @param request GetIntervalLimitOfSLARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIntervalLimitOfSLAResponse
    */
   async getIntervalLimitOfSLAWithOptions(request: GetIntervalLimitOfSLARequest, runtime: $Util.RuntimeOptions): Promise<GetIntervalLimitOfSLAResponse> {
     Util.validateModel(request);
@@ -34492,10 +35332,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
-    *
-    * @param request GetIntervalLimitOfSLARequest
-    * @return GetIntervalLimitOfSLAResponse
+   * @summary Queries the minimum scheduling cycle of a task flow when a service level agreement (SLA) timeout rule is configured for the task flow.
+   *
+   * @description The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
+   *
+   * @param request GetIntervalLimitOfSLARequest
+   * @return GetIntervalLimitOfSLAResponse
    */
   async getIntervalLimitOfSLA(request: GetIntervalLimitOfSLARequest): Promise<GetIntervalLimitOfSLAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34503,11 +35345,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You are a DMS administrator or a database administrator (DBA).
-    *
-    * @param request GetLhSpaceByNameRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetLhSpaceByNameResponse
+   * @summary Queries the information about a workspace based on the workspace name in Data Management (DMS).
+   *
+   * @description You are a DMS administrator or a database administrator (DBA).
+   *
+   * @param request GetLhSpaceByNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLhSpaceByNameResponse
    */
   async getLhSpaceByNameWithOptions(request: GetLhSpaceByNameRequest, runtime: $Util.RuntimeOptions): Promise<GetLhSpaceByNameResponse> {
     Util.validateModel(request);
@@ -34538,16 +35382,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You are a DMS administrator or a database administrator (DBA).
-    *
-    * @param request GetLhSpaceByNameRequest
-    * @return GetLhSpaceByNameResponse
+   * @summary Queries the information about a workspace based on the workspace name in Data Management (DMS).
+   *
+   * @description You are a DMS administrator or a database administrator (DBA).
+   *
+   * @param request GetLhSpaceByNameRequest
+   * @return GetLhSpaceByNameResponse
    */
   async getLhSpaceByName(request: GetLhSpaceByNameRequest): Promise<GetLhSpaceByNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLhSpaceByNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a logical database.
+   *
+   * @param request GetLogicDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLogicDatabaseResponse
+   */
   async getLogicDatabaseWithOptions(request: GetLogicDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetLogicDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34576,17 +35429,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogicDatabaseResponse>(await this.callApi(params, req, runtime), new GetLogicDatabaseResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a logical database.
+   *
+   * @param request GetLogicDatabaseRequest
+   * @return GetLogicDatabaseResponse
+   */
   async getLogicDatabase(request: GetLogicDatabaseRequest): Promise<GetLogicDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLogicDatabaseWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request GetMetaTableColumnRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetMetaTableColumnResponse
+   * @summary Queries the details of columns in a table.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request GetMetaTableColumnRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableColumnResponse
    */
   async getMetaTableColumnWithOptions(request: GetMetaTableColumnRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableColumnResponse> {
     Util.validateModel(request);
@@ -34617,10 +35478,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request GetMetaTableColumnRequest
-    * @return GetMetaTableColumnResponse
+   * @summary Queries the details of columns in a table.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request GetMetaTableColumnRequest
+   * @return GetMetaTableColumnResponse
    */
   async getMetaTableColumn(request: GetMetaTableColumnRequest): Promise<GetMetaTableColumnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34628,11 +35491,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request GetMetaTableDetailInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetMetaTableDetailInfoResponse
+   * @summary Queries the details of columns and indexes in a table.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request GetMetaTableDetailInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableDetailInfoResponse
    */
   async getMetaTableDetailInfoWithOptions(request: GetMetaTableDetailInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableDetailInfoResponse> {
     Util.validateModel(request);
@@ -34663,16 +35528,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request GetMetaTableDetailInfoRequest
-    * @return GetMetaTableDetailInfoResponse
+   * @summary Queries the details of columns and indexes in a table.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request GetMetaTableDetailInfoRequest
+   * @return GetMetaTableDetailInfoResponse
    */
   async getMetaTableDetailInfo(request: GetMetaTableDetailInfoRequest): Promise<GetMetaTableDetailInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableDetailInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details and progress of an OnlineDDL task.
+   *
+   * @param request GetOnlineDDLProgressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOnlineDDLProgressResponse
+   */
   async getOnlineDDLProgressWithOptions(request: GetOnlineDDLProgressRequest, runtime: $Util.RuntimeOptions): Promise<GetOnlineDDLProgressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34701,17 +35575,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOnlineDDLProgressResponse>(await this.callApi(params, req, runtime), new GetOnlineDDLProgressResponse({}));
   }
 
+  /**
+   * @summary Queries the details and progress of an OnlineDDL task.
+   *
+   * @param request GetOnlineDDLProgressRequest
+   * @return GetOnlineDDLProgressResponse
+   */
   async getOnlineDDLProgress(request: GetOnlineDDLProgressRequest): Promise<GetOnlineDDLProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOnlineDDLProgressWithOptions(request, runtime);
   }
 
   /**
-    * Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain your user role from the RoleIdList parameter that is returned.
-    *
-    * @param request GetOpLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetOpLogResponse
+   * @summary Queries the details of operation logs that are generated in a specified period of time.
+   *
+   * @description Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain your user role from the RoleIdList parameter that is returned.
+   *
+   * @param request GetOpLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpLogResponse
    */
   async getOpLogWithOptions(request: GetOpLogRequest, runtime: $Util.RuntimeOptions): Promise<GetOpLogResponse> {
     Util.validateModel(request);
@@ -34766,16 +35648,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain your user role from the RoleIdList parameter that is returned.
-    *
-    * @param request GetOpLogRequest
-    * @return GetOpLogResponse
+   * @summary Queries the details of operation logs that are generated in a specified period of time.
+   *
+   * @description Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain your user role from the RoleIdList parameter that is returned.
+   *
+   * @param request GetOpLogRequest
+   * @return GetOpLogResponse
    */
   async getOpLog(request: GetOpLogRequest): Promise<GetOpLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the download URL of the attachment of a ticket.
+   *
+   * @param request GetOrderAttachmentFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOrderAttachmentFileResponse
+   */
   async getOrderAttachmentFileWithOptions(request: GetOrderAttachmentFileRequest, runtime: $Util.RuntimeOptions): Promise<GetOrderAttachmentFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34804,11 +35695,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrderAttachmentFileResponse>(await this.callApi(params, req, runtime), new GetOrderAttachmentFileResponse({}));
   }
 
+  /**
+   * @summary Queries the download URL of the attachment of a ticket.
+   *
+   * @param request GetOrderAttachmentFileRequest
+   * @return GetOrderAttachmentFileResponse
+   */
   async getOrderAttachmentFile(request: GetOrderAttachmentFileRequest): Promise<GetOrderAttachmentFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOrderAttachmentFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the basic information about a ticket.
+   *
+   * @param request GetOrderBaseInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOrderBaseInfoResponse
+   */
   async getOrderBaseInfoWithOptions(request: GetOrderBaseInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetOrderBaseInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34837,11 +35741,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrderBaseInfoResponse>(await this.callApi(params, req, runtime), new GetOrderBaseInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the basic information about a ticket.
+   *
+   * @param request GetOrderBaseInfoRequest
+   * @return GetOrderBaseInfoResponse
+   */
   async getOrderBaseInfo(request: GetOrderBaseInfoRequest): Promise<GetOrderBaseInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOrderBaseInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of the Database-OWNER, Table-OWNER, and Instance-OWNER tickets.
+   *
+   * @param request GetOwnerApplyOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOwnerApplyOrderDetailResponse
+   */
   async getOwnerApplyOrderDetailWithOptions(request: GetOwnerApplyOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetOwnerApplyOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34870,11 +35787,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOwnerApplyOrderDetailResponse>(await this.callApi(params, req, runtime), new GetOwnerApplyOrderDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of the Database-OWNER, Table-OWNER, and Instance-OWNER tickets.
+   *
+   * @param request GetOwnerApplyOrderDetailRequest
+   * @return GetOwnerApplyOrderDetailResponse
+   */
   async getOwnerApplyOrderDetail(request: GetOwnerApplyOrderDetailRequest): Promise<GetOwnerApplyOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOwnerApplyOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取数据归档工单任务实例
+   *
+   * @param request GetPagedInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPagedInstanceResponse
+   */
   async getPagedInstanceWithOptions(request: GetPagedInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetPagedInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34895,17 +35825,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPagedInstanceResponse>(await this.callApi(params, req, runtime), new GetPagedInstanceResponse({}));
   }
 
+  /**
+   * @summary 获取数据归档工单任务实例
+   *
+   * @param request GetPagedInstanceRequest
+   * @return GetPagedInstanceResponse
+   */
   async getPagedInstance(request: GetPagedInstanceRequest): Promise<GetPagedInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPagedInstanceWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
-    *
-    * @param request GetPermApplyOrderDetailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetPermApplyOrderDetailResponse
+   * @summary Queries the details of a ticket that applies for permissions.
+   *
+   * @description You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
+   *
+   * @param request GetPermApplyOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPermApplyOrderDetailResponse
    */
   async getPermApplyOrderDetailWithOptions(request: GetPermApplyOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetPermApplyOrderDetailResponse> {
     Util.validateModel(request);
@@ -34936,16 +35874,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
-    *
-    * @param request GetPermApplyOrderDetailRequest
-    * @return GetPermApplyOrderDetailResponse
+   * @summary Queries the details of a ticket that applies for permissions.
+   *
+   * @description You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
+   *
+   * @param request GetPermApplyOrderDetailRequest
+   * @return GetPermApplyOrderDetailResponse
    */
   async getPermApplyOrderDetail(request: GetPermApplyOrderDetailRequest): Promise<GetPermApplyOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPermApplyOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a physical database.
+   *
+   * @param request GetPhysicalDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPhysicalDatabaseResponse
+   */
   async getPhysicalDatabaseWithOptions(request: GetPhysicalDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetPhysicalDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34974,11 +35921,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPhysicalDatabaseResponse>(await this.callApi(params, req, runtime), new GetPhysicalDatabaseResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a physical database.
+   *
+   * @param request GetPhysicalDatabaseRequest
+   * @return GetPhysicalDatabaseResponse
+   */
   async getPhysicalDatabase(request: GetPhysicalDatabaseRequest): Promise<GetPhysicalDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPhysicalDatabaseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a secure access proxy.
+   *
+   * @param request GetProxyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProxyResponse
+   */
   async getProxyWithOptions(request: GetProxyRequest, runtime: $Util.RuntimeOptions): Promise<GetProxyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35007,11 +35967,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProxyResponse>(await this.callApi(params, req, runtime), new GetProxyResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a secure access proxy.
+   *
+   * @param request GetProxyRequest
+   * @return GetProxyResponse
+   */
   async getProxy(request: GetProxyRequest): Promise<GetProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getProxyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the authorization information about the secure access proxy feature.
+   *
+   * @param request GetProxyAccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProxyAccessResponse
+   */
   async getProxyAccessWithOptions(request: GetProxyAccessRequest, runtime: $Util.RuntimeOptions): Promise<GetProxyAccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35040,11 +36013,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProxyAccessResponse>(await this.callApi(params, req, runtime), new GetProxyAccessResponse({}));
   }
 
+  /**
+   * @summary Queries the authorization information about the secure access proxy feature.
+   *
+   * @param request GetProxyAccessRequest
+   * @return GetProxyAccessResponse
+   */
   async getProxyAccess(request: GetProxyAccessRequest): Promise<GetProxyAccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getProxyAccessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the maximum number of custom service-level agreement (SLA) rules for task orchestration.
+   *
+   * @param request GetRuleNumLimitOfSLARequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRuleNumLimitOfSLAResponse
+   */
   async getRuleNumLimitOfSLAWithOptions(request: GetRuleNumLimitOfSLARequest, runtime: $Util.RuntimeOptions): Promise<GetRuleNumLimitOfSLAResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35073,17 +36059,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleNumLimitOfSLAResponse>(await this.callApi(params, req, runtime), new GetRuleNumLimitOfSLAResponse({}));
   }
 
+  /**
+   * @summary Queries the maximum number of custom service-level agreement (SLA) rules for task orchestration.
+   *
+   * @param request GetRuleNumLimitOfSLARequest
+   * @return GetRuleNumLimitOfSLAResponse
+   */
   async getRuleNumLimitOfSLA(request: GetRuleNumLimitOfSLARequest): Promise<GetRuleNumLimitOfSLAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleNumLimitOfSLAWithOptions(request, runtime);
   }
 
   /**
-    * For more information about the SQL review feature, see [SQL review](~~60374~~).
-    *
-    * @param request GetSQLReviewCheckResultStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetSQLReviewCheckResultStatusResponse
+   * @summary Queries the result of an SQL review.
+   *
+   * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+   *
+   * @param request GetSQLReviewCheckResultStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSQLReviewCheckResultStatusResponse
    */
   async getSQLReviewCheckResultStatusWithOptions(request: GetSQLReviewCheckResultStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSQLReviewCheckResultStatusResponse> {
     Util.validateModel(request);
@@ -35114,10 +36108,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the SQL review feature, see [SQL review](~~60374~~).
-    *
-    * @param request GetSQLReviewCheckResultStatusRequest
-    * @return GetSQLReviewCheckResultStatusResponse
+   * @summary Queries the result of an SQL review.
+   *
+   * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+   *
+   * @param request GetSQLReviewCheckResultStatusRequest
+   * @return GetSQLReviewCheckResultStatusResponse
    */
   async getSQLReviewCheckResultStatus(request: GetSQLReviewCheckResultStatusRequest): Promise<GetSQLReviewCheckResultStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35125,11 +36121,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the SQL review feature, see [SQL review](~~60374~~).
-    *
-    * @param request GetSQLReviewOptimizeDetailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetSQLReviewOptimizeDetailResponse
+   * @summary Queries the details of optimization suggestions. The operation applies only to the tickets for the data changes and SQL review.
+   *
+   * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+   *
+   * @param request GetSQLReviewOptimizeDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSQLReviewOptimizeDetailResponse
    */
   async getSQLReviewOptimizeDetailWithOptions(request: GetSQLReviewOptimizeDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSQLReviewOptimizeDetailResponse> {
     Util.validateModel(request);
@@ -35160,16 +36158,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the SQL review feature, see [SQL review](~~60374~~).
-    *
-    * @param request GetSQLReviewOptimizeDetailRequest
-    * @return GetSQLReviewOptimizeDetailResponse
+   * @summary Queries the details of optimization suggestions. The operation applies only to the tickets for the data changes and SQL review.
+   *
+   * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+   *
+   * @param request GetSQLReviewOptimizeDetailRequest
+   * @return GetSQLReviewOptimizeDetailResponse
    */
   async getSQLReviewOptimizeDetail(request: GetSQLReviewOptimizeDetailRequest): Promise<GetSQLReviewOptimizeDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSQLReviewOptimizeDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取安全规则
+   *
+   * @param request GetStandardGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStandardGroupResponse
+   */
   async getStandardGroupWithOptions(request: GetStandardGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetStandardGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35198,11 +36205,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStandardGroupResponse>(await this.callApi(params, req, runtime), new GetStandardGroupResponse({}));
   }
 
+  /**
+   * @summary 获取安全规则
+   *
+   * @param request GetStandardGroupRequest
+   * @return GetStandardGroupResponse
+   */
   async getStandardGroup(request: GetStandardGroupRequest): Promise<GetStandardGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStandardGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the SQL statements that are involved in a schema synchronization ticket.
+   *
+   * @param request GetStructSyncExecSqlDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStructSyncExecSqlDetailResponse
+   */
   async getStructSyncExecSqlDetailWithOptions(request: GetStructSyncExecSqlDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetStructSyncExecSqlDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35239,11 +36259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStructSyncExecSqlDetailResponse>(await this.callApi(params, req, runtime), new GetStructSyncExecSqlDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the SQL statements that are involved in a schema synchronization ticket.
+   *
+   * @param request GetStructSyncExecSqlDetailRequest
+   * @return GetStructSyncExecSqlDetailResponse
+   */
   async getStructSyncExecSqlDetail(request: GetStructSyncExecSqlDetailRequest): Promise<GetStructSyncExecSqlDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStructSyncExecSqlDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the analysis result of a schema synchronization task.
+   *
+   * @param request GetStructSyncJobAnalyzeResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStructSyncJobAnalyzeResultResponse
+   */
   async getStructSyncJobAnalyzeResultWithOptions(request: GetStructSyncJobAnalyzeResultRequest, runtime: $Util.RuntimeOptions): Promise<GetStructSyncJobAnalyzeResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35284,11 +36317,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStructSyncJobAnalyzeResultResponse>(await this.callApi(params, req, runtime), new GetStructSyncJobAnalyzeResultResponse({}));
   }
 
+  /**
+   * @summary Queries the analysis result of a schema synchronization task.
+   *
+   * @param request GetStructSyncJobAnalyzeResultRequest
+   * @return GetStructSyncJobAnalyzeResultResponse
+   */
   async getStructSyncJobAnalyzeResult(request: GetStructSyncJobAnalyzeResultRequest): Promise<GetStructSyncJobAnalyzeResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStructSyncJobAnalyzeResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of a schema synchronization task.
+   *
+   * @param request GetStructSyncJobDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStructSyncJobDetailResponse
+   */
   async getStructSyncJobDetailWithOptions(request: GetStructSyncJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetStructSyncJobDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35317,11 +36363,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStructSyncJobDetailResponse>(await this.callApi(params, req, runtime), new GetStructSyncJobDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the information of a schema synchronization task.
+   *
+   * @param request GetStructSyncJobDetailRequest
+   * @return GetStructSyncJobDetailResponse
+   */
   async getStructSyncJobDetail(request: GetStructSyncJobDetailRequest): Promise<GetStructSyncJobDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStructSyncJobDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a schema synchronization ticket.
+   *
+   * @param request GetStructSyncOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStructSyncOrderDetailResponse
+   */
   async getStructSyncOrderDetailWithOptions(request: GetStructSyncOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetStructSyncOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35350,11 +36409,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStructSyncOrderDetailResponse>(await this.callApi(params, req, runtime), new GetStructSyncOrderDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a schema synchronization ticket.
+   *
+   * @param request GetStructSyncOrderDetailRequest
+   * @return GetStructSyncOrderDetailResponse
+   */
   async getStructSyncOrderDetail(request: GetStructSyncOrderDetailRequest): Promise<GetStructSyncOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getStructSyncOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the topology of a data table.
+   *
+   * @param request GetTableDBTopologyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableDBTopologyResponse
+   */
   async getTableDBTopologyWithOptions(request: GetTableDBTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetTableDBTopologyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35383,11 +36455,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableDBTopologyResponse>(await this.callApi(params, req, runtime), new GetTableDBTopologyResponse({}));
   }
 
+  /**
+   * @summary Queries the topology of a data table.
+   *
+   * @param request GetTableDBTopologyRequest
+   * @return GetTableDBTopologyResponse
+   */
   async getTableDBTopology(request: GetTableDBTopologyRequest): Promise<GetTableDBTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTableDBTopologyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取结构设计项目的流程信息
+   *
+   * @param request GetTableDesignProjectFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableDesignProjectFlowResponse
+   */
   async getTableDesignProjectFlowWithOptions(request: GetTableDesignProjectFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetTableDesignProjectFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35416,11 +36501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableDesignProjectFlowResponse>(await this.callApi(params, req, runtime), new GetTableDesignProjectFlowResponse({}));
   }
 
+  /**
+   * @summary 获取结构设计项目的流程信息
+   *
+   * @param request GetTableDesignProjectFlowRequest
+   * @return GetTableDesignProjectFlowResponse
+   */
   async getTableDesignProjectFlow(request: GetTableDesignProjectFlowRequest): Promise<GetTableDesignProjectFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTableDesignProjectFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取结构设计项目的详细信息
+   *
+   * @param request GetTableDesignProjectInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableDesignProjectInfoResponse
+   */
   async getTableDesignProjectInfoWithOptions(request: GetTableDesignProjectInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetTableDesignProjectInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35449,11 +36547,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableDesignProjectInfoResponse>(await this.callApi(params, req, runtime), new GetTableDesignProjectInfoResponse({}));
   }
 
+  /**
+   * @summary 获取结构设计项目的详细信息
+   *
+   * @param request GetTableDesignProjectInfoRequest
+   * @return GetTableDesignProjectInfoResponse
+   */
   async getTableDesignProjectInfo(request: GetTableDesignProjectInfoRequest): Promise<GetTableDesignProjectInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTableDesignProjectInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the topology of a table.
+   *
+   * @param request GetTableTopologyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTableTopologyResponse
+   */
   async getTableTopologyWithOptions(request: GetTableTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetTableTopologyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35482,11 +36593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTableTopologyResponse>(await this.callApi(params, req, runtime), new GetTableTopologyResponse({}));
   }
 
+  /**
+   * @summary Queries the topology of a table.
+   *
+   * @param request GetTableTopologyRequest
+   * @return GetTableTopologyResponse
+   */
   async getTableTopology(request: GetTableTopologyRequest): Promise<GetTableTopologyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTableTopologyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations, including time variables, of a specified task node based on the task node ID.
+   *
+   * @param request GetTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskResponse
+   */
   async getTaskWithOptions(request: GetTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35515,11 +36639,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations, including time variables, of a specified task node based on the task node ID.
+   *
+   * @param request GetTaskRequest
+   * @return GetTaskResponse
+   */
   async getTask(request: GetTaskRequest): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Directed Acyclic Graph (DAG) of a task flow.
+   *
+   * @param request GetTaskFlowGraphRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskFlowGraphResponse
+   */
   async getTaskFlowGraphWithOptions(request: GetTaskFlowGraphRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskFlowGraphResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35548,11 +36685,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskFlowGraphResponse>(await this.callApi(params, req, runtime), new GetTaskFlowGraphResponse({}));
   }
 
+  /**
+   * @summary Queries the Directed Acyclic Graph (DAG) of a task flow.
+   *
+   * @param request GetTaskFlowGraphRequest
+   * @return GetTaskFlowGraphResponse
+   */
   async getTaskFlowGraph(request: GetTaskFlowGraphRequest): Promise<GetTaskFlowGraphResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTaskFlowGraphWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the notification settings for task flows.
+   *
+   * @param request GetTaskFlowNotificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskFlowNotificationResponse
+   */
   async getTaskFlowNotificationWithOptions(request: GetTaskFlowNotificationRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskFlowNotificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35581,11 +36731,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskFlowNotificationResponse>(await this.callApi(params, req, runtime), new GetTaskFlowNotificationResponse({}));
   }
 
+  /**
+   * @summary Queries the notification settings for task flows.
+   *
+   * @param request GetTaskFlowNotificationRequest
+   * @return GetTaskFlowNotificationResponse
+   */
   async getTaskFlowNotification(request: GetTaskFlowNotificationRequest): Promise<GetTaskFlowNotificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTaskFlowNotificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the nodes in an execution record of a task flow.
+   *
+   * @param request GetTaskInstanceRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskInstanceRelationResponse
+   */
   async getTaskInstanceRelationWithOptions(request: GetTaskInstanceRelationRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskInstanceRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35618,11 +36781,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskInstanceRelationResponse>(await this.callApi(params, req, runtime), new GetTaskInstanceRelationResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the nodes in an execution record of a task flow.
+   *
+   * @param request GetTaskInstanceRelationRequest
+   * @return GetTaskInstanceRelationResponse
+   */
   async getTaskInstanceRelation(request: GetTaskInstanceRelationRequest): Promise<GetTaskInstanceRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTaskInstanceRelationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a user.
+   *
+   * @param request GetUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserResponse
+   */
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35655,11 +36831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a user.
+   *
+   * @param request GetUserRequest
+   * @return GetUserResponse
+   */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries details of the active tenant.
+   *
+   * @param request GetUserActiveTenantRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserActiveTenantResponse
+   */
   async getUserActiveTenantWithOptions(request: GetUserActiveTenantRequest, runtime: $Util.RuntimeOptions): Promise<GetUserActiveTenantResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35684,11 +36873,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserActiveTenantResponse>(await this.callApi(params, req, runtime), new GetUserActiveTenantResponse({}));
   }
 
+  /**
+   * @summary Queries details of the active tenant.
+   *
+   * @param request GetUserActiveTenantRequest
+   * @return GetUserActiveTenantResponse
+   */
   async getUserActiveTenant(request: GetUserActiveTenantRequest): Promise<GetUserActiveTenantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserActiveTenantWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the information of a file upload task.
+   *
+   * @param request GetUserUploadFileJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserUploadFileJobResponse
+   */
   async getUserUploadFileJobWithOptions(request: GetUserUploadFileJobRequest, runtime: $Util.RuntimeOptions): Promise<GetUserUploadFileJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35717,17 +36919,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserUploadFileJobResponse>(await this.callApi(params, req, runtime), new GetUserUploadFileJobResponse({}));
   }
 
+  /**
+   * @summary Obtains the information of a file upload task.
+   *
+   * @param request GetUserUploadFileJobRequest
+   * @return GetUserUploadFileJobResponse
+   */
   async getUserUploadFileJob(request: GetUserUploadFileJobRequest): Promise<GetUserUploadFileJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserUploadFileJobWithOptions(request, runtime);
   }
 
   /**
-    * You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request GrantTemplateAuthorityRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantTemplateAuthorityResponse
+   * @summary Grants permissions on resources to users by using a permission template.
+   *
+   * @description You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request GrantTemplateAuthorityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantTemplateAuthorityResponse
    */
   async grantTemplateAuthorityWithOptions(request: GrantTemplateAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<GrantTemplateAuthorityResponse> {
     Util.validateModel(request);
@@ -35770,16 +36980,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request GrantTemplateAuthorityRequest
-    * @return GrantTemplateAuthorityResponse
+   * @summary Grants permissions on resources to users by using a permission template.
+   *
+   * @description You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request GrantTemplateAuthorityRequest
+   * @return GrantTemplateAuthorityResponse
    */
   async grantTemplateAuthority(request: GrantTemplateAuthorityRequest): Promise<GrantTemplateAuthorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantTemplateAuthorityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Grants permissions on an instance, a database, or a table to a user.
+   *
+   * @param request GrantUserPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantUserPermissionResponse
+   */
   async grantUserPermissionWithOptions(request: GrantUserPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantUserPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35840,11 +37059,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantUserPermissionResponse>(await this.callApi(params, req, runtime), new GrantUserPermissionResponse({}));
   }
 
+  /**
+   * @summary Grants permissions on an instance, a database, or a table to a user.
+   *
+   * @param request GrantUserPermissionRequest
+   * @return GrantUserPermissionResponse
+   */
   async grantUserPermission(request: GrantUserPermissionRequest): Promise<GrantUserPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantUserPermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to obtain the authorization password of the security protection agent InspectProxyAccessSecret.
+   *
+   * @param request InspectProxyAccessSecretRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InspectProxyAccessSecretResponse
+   */
   async inspectProxyAccessSecretWithOptions(request: InspectProxyAccessSecretRequest, runtime: $Util.RuntimeOptions): Promise<InspectProxyAccessSecretResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35873,11 +37105,24 @@ export default class Client extends OpenApi {
     return $tea.cast<InspectProxyAccessSecretResponse>(await this.callApi(params, req, runtime), new InspectProxyAccessSecretResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to obtain the authorization password of the security protection agent InspectProxyAccessSecret.
+   *
+   * @param request InspectProxyAccessSecretRequest
+   * @return InspectProxyAccessSecretResponse
+   */
   async inspectProxyAccessSecret(request: InspectProxyAccessSecretRequest): Promise<InspectProxyAccessSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.inspectProxyAccessSecretWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取权限模版列表
+   *
+   * @param request ListAuthorityTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAuthorityTemplateResponse
+   */
   async listAuthorityTemplateWithOptions(request: ListAuthorityTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthorityTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35914,11 +37159,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAuthorityTemplateResponse>(await this.callApi(params, req, runtime), new ListAuthorityTemplateResponse({}));
   }
 
+  /**
+   * @summary 获取权限模版列表
+   *
+   * @param request ListAuthorityTemplateRequest
+   * @return ListAuthorityTemplateResponse
+   */
   async listAuthorityTemplate(request: ListAuthorityTemplateRequest): Promise<ListAuthorityTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAuthorityTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the classification templates.
+   *
+   * @param request ListClassificationTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClassificationTemplatesResponse
+   */
   async listClassificationTemplatesWithOptions(request: ListClassificationTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListClassificationTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35943,17 +37201,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClassificationTemplatesResponse>(await this.callApi(params, req, runtime), new ListClassificationTemplatesResponse({}));
   }
 
+  /**
+   * @summary Queries the classification templates.
+   *
+   * @param request ListClassificationTemplatesRequest
+   * @return ListClassificationTemplatesResponse
+   */
   async listClassificationTemplates(request: ListClassificationTemplatesRequest): Promise<ListClassificationTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClassificationTemplatesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request ListColumnsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListColumnsResponse
+   * @summary Returns the column information of a table.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request ListColumnsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListColumnsResponse
    */
   async listColumnsWithOptions(request: ListColumnsRequest, runtime: $Util.RuntimeOptions): Promise<ListColumnsResponse> {
     Util.validateModel(request);
@@ -35988,16 +37254,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request ListColumnsRequest
-    * @return ListColumnsResponse
+   * @summary Returns the column information of a table.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request ListColumnsRequest
+   * @return ListColumnsResponse
    */
   async listColumns(request: ListColumnsRequest): Promise<ListColumnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listColumnsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the published versions of a task flow.
+   *
+   * @param request ListDAGVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDAGVersionsResponse
+   */
   async listDAGVersionsWithOptions(request: ListDAGVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListDAGVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36034,11 +37309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDAGVersionsResponse>(await this.callApi(params, req, runtime), new ListDAGVersionsResponse({}));
   }
 
+  /**
+   * @summary Queries the published versions of a task flow.
+   *
+   * @param request ListDAGVersionsRequest
+   * @return ListDAGVersionsResponse
+   */
   async listDAGVersions(request: ListDAGVersionsRequest): Promise<ListDAGVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDAGVersionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of SQL tasks.
+   *
+   * @param request ListDBTaskSQLJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDBTaskSQLJobResponse
+   */
   async listDBTaskSQLJobWithOptions(request: ListDBTaskSQLJobRequest, runtime: $Util.RuntimeOptions): Promise<ListDBTaskSQLJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36075,11 +37363,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDBTaskSQLJobResponse>(await this.callApi(params, req, runtime), new ListDBTaskSQLJobResponse({}));
   }
 
+  /**
+   * @summary Queries a list of SQL tasks.
+   *
+   * @param request ListDBTaskSQLJobRequest
+   * @return ListDBTaskSQLJobResponse
+   */
   async listDBTaskSQLJob(request: ListDBTaskSQLJobRequest): Promise<ListDBTaskSQLJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDBTaskSQLJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an SQL task.
+   *
+   * @param request ListDBTaskSQLJobDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDBTaskSQLJobDetailResponse
+   */
   async listDBTaskSQLJobDetailWithOptions(request: ListDBTaskSQLJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListDBTaskSQLJobDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36116,11 +37417,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDBTaskSQLJobDetailResponse>(await this.callApi(params, req, runtime), new ListDBTaskSQLJobDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an SQL task.
+   *
+   * @param request ListDBTaskSQLJobDetailRequest
+   * @return ListDBTaskSQLJobDetailResponse
+   */
   async listDBTaskSQLJobDetail(request: ListDBTaskSQLJobDetailRequest): Promise<ListDBTaskSQLJobDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDBTaskSQLJobDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the publishing details of a schema design ticket.
+   *
+   * @param request ListDDLPublishRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDDLPublishRecordsResponse
+   */
   async listDDLPublishRecordsWithOptions(request: ListDDLPublishRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListDDLPublishRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36149,17 +37463,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDDLPublishRecordsResponse>(await this.callApi(params, req, runtime), new ListDDLPublishRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries the publishing details of a schema design ticket.
+   *
+   * @param request ListDDLPublishRecordsRequest
+   * @return ListDDLPublishRecordsResponse
+   */
   async listDDLPublishRecords(request: ListDDLPublishRecordsRequest): Promise<ListDDLPublishRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDDLPublishRecordsWithOptions(request, runtime);
   }
 
   /**
-    * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
-    *
-    * @param request ListDataCorrectPreCheckDBRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDataCorrectPreCheckDBResponse
+   * @summary Queries the databases that are involved in the precheck of a data change ticket.
+   *
+   * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+   *
+   * @param request ListDataCorrectPreCheckDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataCorrectPreCheckDBResponse
    */
   async listDataCorrectPreCheckDBWithOptions(request: ListDataCorrectPreCheckDBRequest, runtime: $Util.RuntimeOptions): Promise<ListDataCorrectPreCheckDBResponse> {
     Util.validateModel(request);
@@ -36198,10 +37520,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
-    *
-    * @param request ListDataCorrectPreCheckDBRequest
-    * @return ListDataCorrectPreCheckDBResponse
+   * @summary Queries the databases that are involved in the precheck of a data change ticket.
+   *
+   * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+   *
+   * @param request ListDataCorrectPreCheckDBRequest
+   * @return ListDataCorrectPreCheckDBResponse
    */
   async listDataCorrectPreCheckDB(request: ListDataCorrectPreCheckDBRequest): Promise<ListDataCorrectPreCheckDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36209,11 +37533,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
-    *
-    * @param request ListDataCorrectPreCheckSQLRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDataCorrectPreCheckSQLResponse
+   * @summary Queries the precheck information about an SQL statement that is specified in a data change ticket.
+   *
+   * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+   *
+   * @param request ListDataCorrectPreCheckSQLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataCorrectPreCheckSQLResponse
    */
   async listDataCorrectPreCheckSQLWithOptions(request: ListDataCorrectPreCheckSQLRequest, runtime: $Util.RuntimeOptions): Promise<ListDataCorrectPreCheckSQLResponse> {
     Util.validateModel(request);
@@ -36256,10 +37582,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
-    *
-    * @param request ListDataCorrectPreCheckSQLRequest
-    * @return ListDataCorrectPreCheckSQLResponse
+   * @summary Queries the precheck information about an SQL statement that is specified in a data change ticket.
+   *
+   * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+   *
+   * @param request ListDataCorrectPreCheckSQLRequest
+   * @return ListDataCorrectPreCheckSQLResponse
    */
   async listDataCorrectPreCheckSQL(request: ListDataCorrectPreCheckSQLRequest): Promise<ListDataCorrectPreCheckSQLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36267,11 +37595,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only if the data is imported in security mode in your data import ticket.
-    *
-    * @param request ListDataImportSQLPreCheckDetailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDataImportSQLPreCheckDetailResponse
+   * @summary Queries the precheck information of SQL statements used for data import in a ticket.
+   *
+   * @description You can call this operation only if the data is imported in security mode in your data import ticket.
+   *
+   * @param request ListDataImportSQLPreCheckDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataImportSQLPreCheckDetailResponse
    */
   async listDataImportSQLPreCheckDetailWithOptions(request: ListDataImportSQLPreCheckDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListDataImportSQLPreCheckDetailResponse> {
     Util.validateModel(request);
@@ -36318,10 +37648,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only if the data is imported in security mode in your data import ticket.
-    *
-    * @param request ListDataImportSQLPreCheckDetailRequest
-    * @return ListDataImportSQLPreCheckDetailResponse
+   * @summary Queries the precheck information of SQL statements used for data import in a ticket.
+   *
+   * @description You can call this operation only if the data is imported in security mode in your data import ticket.
+   *
+   * @param request ListDataImportSQLPreCheckDetailRequest
+   * @return ListDataImportSQLPreCheckDetailResponse
    */
   async listDataImportSQLPreCheckDetail(request: ListDataImportSQLPreCheckDetailRequest): Promise<ListDataImportSQLPreCheckDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36329,11 +37661,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only if the data is imported in security mode in your data import ticket.
-    *
-    * @param request ListDataImportSQLTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDataImportSQLTypeResponse
+   * @summary Queries the types of SQL statements used for data import in a ticket.
+   *
+   * @description You can call this operation only if the data is imported in security mode in your data import ticket.
+   *
+   * @param request ListDataImportSQLTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataImportSQLTypeResponse
    */
   async listDataImportSQLTypeWithOptions(request: ListDataImportSQLTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListDataImportSQLTypeResponse> {
     Util.validateModel(request);
@@ -36364,16 +37698,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only if the data is imported in security mode in your data import ticket.
-    *
-    * @param request ListDataImportSQLTypeRequest
-    * @return ListDataImportSQLTypeResponse
+   * @summary Queries the types of SQL statements used for data import in a ticket.
+   *
+   * @description You can call this operation only if the data is imported in security mode in your data import ticket.
+   *
+   * @param request ListDataImportSQLTypeRequest
+   * @return ListDataImportSQLTypeResponse
    */
   async listDataImportSQLType(request: ListDataImportSQLTypeRequest): Promise<ListDataImportSQLTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataImportSQLTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the permissions of users on a database.
+   *
+   * @param request ListDatabaseUserPermssionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDatabaseUserPermssionsResponse
+   */
   async listDatabaseUserPermssionsWithOptions(request: ListDatabaseUserPermssionsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatabaseUserPermssionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36422,11 +37765,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatabaseUserPermssionsResponse>(await this.callApi(params, req, runtime), new ListDatabaseUserPermssionsResponse({}));
   }
 
+  /**
+   * @summary Queries the permissions of users on a database.
+   *
+   * @param request ListDatabaseUserPermssionsRequest
+   * @return ListDatabaseUserPermssionsResponse
+   */
   async listDatabaseUserPermssions(request: ListDatabaseUserPermssionsRequest): Promise<ListDatabaseUserPermssionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatabaseUserPermssionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the databases in a database instance.
+   *
+   * @param request ListDatabasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDatabasesResponse
+   */
   async listDatabasesWithOptions(request: ListDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<ListDatabasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36463,11 +37819,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDatabasesResponse>(await this.callApi(params, req, runtime), new ListDatabasesResponse({}));
   }
 
+  /**
+   * @summary Queries the databases in a database instance.
+   *
+   * @param request ListDatabasesRequest
+   * @return ListDatabasesResponse
+   */
   async listDatabases(request: ListDatabasesRequest): Promise<ListDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDatabasesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the default service level agreement (SLA) timeout rules.
+   *
+   * @param request ListDefaultSLARulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDefaultSLARulesResponse
+   */
   async listDefaultSLARulesWithOptions(request: ListDefaultSLARulesRequest, runtime: $Util.RuntimeOptions): Promise<ListDefaultSLARulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36496,11 +37865,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDefaultSLARulesResponse>(await this.callApi(params, req, runtime), new ListDefaultSLARulesResponse({}));
   }
 
+  /**
+   * @summary Queries the default service level agreement (SLA) timeout rules.
+   *
+   * @param request ListDefaultSLARulesRequest
+   * @return ListDefaultSLARulesResponse
+   */
   async listDefaultSLARules(request: ListDefaultSLARulesRequest): Promise<ListDefaultSLARulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDefaultSLARulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries masking rules.
+   *
+   * @param request ListDesensitizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDesensitizationRuleResponse
+   */
   async listDesensitizationRuleWithOptions(request: ListDesensitizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListDesensitizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36549,11 +37931,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDesensitizationRuleResponse>(await this.callApi(params, req, runtime), new ListDesensitizationRuleResponse({}));
   }
 
+  /**
+   * @summary Queries masking rules.
+   *
+   * @param request ListDesensitizationRuleRequest
+   * @return ListDesensitizationRuleResponse
+   */
   async listDesensitizationRule(request: ListDesensitizationRuleRequest): Promise<ListDesensitizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDesensitizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries valid orders.
+   *
+   * @param request ListEffectiveOrdersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEffectiveOrdersResponse
+   */
   async listEffectiveOrdersWithOptions(request: ListEffectiveOrdersRequest, runtime: $Util.RuntimeOptions): Promise<ListEffectiveOrdersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36578,11 +37973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEffectiveOrdersResponse>(await this.callApi(params, req, runtime), new ListEffectiveOrdersResponse({}));
   }
 
+  /**
+   * @summary Queries valid orders.
+   *
+   * @param request ListEffectiveOrdersRequest
+   * @return ListEffectiveOrdersResponse
+   */
   async listEffectiveOrders(request: ListEffectiveOrdersRequest): Promise<ListEffectiveOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEffectiveOrdersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the indexes of a table.
+   *
+   * @param request ListIndexesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIndexesResponse
+   */
   async listIndexesWithOptions(request: ListIndexesRequest, runtime: $Util.RuntimeOptions): Promise<ListIndexesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36615,11 +38023,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIndexesResponse>(await this.callApi(params, req, runtime), new ListIndexesResponse({}));
   }
 
+  /**
+   * @summary Queries the indexes of a table.
+   *
+   * @param request ListIndexesRequest
+   * @return ListIndexesResponse
+   */
   async listIndexes(request: ListIndexesRequest): Promise<ListIndexesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIndexesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the logon records of an instance.
+   *
+   * @param request ListInstanceLoginAuditLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceLoginAuditLogResponse
+   */
   async listInstanceLoginAuditLogWithOptions(request: ListInstanceLoginAuditLogRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceLoginAuditLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36668,11 +38089,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceLoginAuditLogResponse>(await this.callApi(params, req, runtime), new ListInstanceLoginAuditLogResponse({}));
   }
 
+  /**
+   * @summary Queries the logon records of an instance.
+   *
+   * @param request ListInstanceLoginAuditLogRequest
+   * @return ListInstanceLoginAuditLogResponse
+   */
   async listInstanceLoginAuditLog(request: ListInstanceLoginAuditLogRequest): Promise<ListInstanceLoginAuditLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceLoginAuditLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the permissions of a user on a specific instance.
+   *
+   * @param request ListInstanceUserPermissionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceUserPermissionsResponse
+   */
   async listInstanceUserPermissionsWithOptions(request: ListInstanceUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceUserPermissionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36713,11 +38147,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceUserPermissionsResponse>(await this.callApi(params, req, runtime), new ListInstanceUserPermissionsResponse({}));
   }
 
+  /**
+   * @summary Queries the permissions of a user on a specific instance.
+   *
+   * @param request ListInstanceUserPermissionsRequest
+   * @return ListInstanceUserPermissionsResponse
+   */
   async listInstanceUserPermissions(request: ListInstanceUserPermissionsRequest): Promise<ListInstanceUserPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceUserPermissionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about database instances.
+   *
+   * @param request ListInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36774,18 +38221,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about database instances.
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
   }
 
   /**
-    * *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](~~424759~~) operation can be called to add a workspace member.
-    * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
-    *
-    * @param request ListLhTaskFlowAndScenarioRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListLhTaskFlowAndScenarioResponse
+   * @summary Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+   *
+   * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
+   * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
+   *
+   * @param request ListLhTaskFlowAndScenarioRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLhTaskFlowAndScenarioResponse
    */
   async listLhTaskFlowAndScenarioWithOptions(request: ListLhTaskFlowAndScenarioRequest, runtime: $Util.RuntimeOptions): Promise<ListLhTaskFlowAndScenarioResponse> {
     Util.validateModel(request);
@@ -36820,17 +38275,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](~~424759~~) operation can be called to add a workspace member.
-    * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
-    *
-    * @param request ListLhTaskFlowAndScenarioRequest
-    * @return ListLhTaskFlowAndScenarioResponse
+   * @summary Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+   *
+   * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
+   * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
+   *
+   * @param request ListLhTaskFlowAndScenarioRequest
+   * @return ListLhTaskFlowAndScenarioResponse
    */
   async listLhTaskFlowAndScenario(request: ListLhTaskFlowAndScenarioRequest): Promise<ListLhTaskFlowAndScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLhTaskFlowAndScenarioWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of logical databases.
+   *
+   * @param request ListLogicDatabasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLogicDatabasesResponse
+   */
   async listLogicDatabasesWithOptions(request: ListLogicDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<ListLogicDatabasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36863,11 +38327,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogicDatabasesResponse>(await this.callApi(params, req, runtime), new ListLogicDatabasesResponse({}));
   }
 
+  /**
+   * @summary Queries the details of logical databases.
+   *
+   * @param request ListLogicDatabasesRequest
+   * @return ListLogicDatabasesResponse
+   */
   async listLogicDatabases(request: ListLogicDatabasesRequest): Promise<ListLogicDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLogicDatabasesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the routing algorithms of a logical table.
+   *
+   * @param request ListLogicTableRouteConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLogicTableRouteConfigResponse
+   */
   async listLogicTableRouteConfigWithOptions(request: ListLogicTableRouteConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListLogicTableRouteConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36896,11 +38373,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogicTableRouteConfigResponse>(await this.callApi(params, req, runtime), new ListLogicTableRouteConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the routing algorithms of a logical table.
+   *
+   * @param request ListLogicTableRouteConfigRequest
+   * @return ListLogicTableRouteConfigResponse
+   */
   async listLogicTableRouteConfig(request: ListLogicTableRouteConfigRequest): Promise<ListLogicTableRouteConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLogicTableRouteConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of the logical tables in a logical database.
+   *
+   * @param request ListLogicTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLogicTablesResponse
+   */
   async listLogicTablesWithOptions(request: ListLogicTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListLogicTablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36945,11 +38435,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLogicTablesResponse>(await this.callApi(params, req, runtime), new ListLogicTablesResponse({}));
   }
 
+  /**
+   * @summary Queries the details of the logical tables in a logical database.
+   *
+   * @param request ListLogicTablesRequest
+   * @return ListLogicTablesResponse
+   */
   async listLogicTables(request: ListLogicTablesRequest): Promise<ListLogicTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLogicTablesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries tickets in Data Management (DMS).
+   *
+   * @param request ListOrdersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOrdersResponse
+   */
   async listOrdersWithOptions(request: ListOrdersRequest, runtime: $Util.RuntimeOptions): Promise<ListOrdersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37010,11 +38513,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrdersResponse>(await this.callApi(params, req, runtime), new ListOrdersResponse({}));
   }
 
+  /**
+   * @summary Queries tickets in Data Management (DMS).
+   *
+   * @param request ListOrdersRequest
+   * @return ListOrdersResponse
+   */
   async listOrders(request: ListOrdersRequest): Promise<ListOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOrdersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the proxies that are generated by the secure access proxy feature.
+   *
+   * @param request ListProxiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProxiesResponse
+   */
   async listProxiesWithOptions(request: ListProxiesRequest, runtime: $Util.RuntimeOptions): Promise<ListProxiesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37039,11 +38555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProxiesResponse>(await this.callApi(params, req, runtime), new ListProxiesResponse({}));
   }
 
+  /**
+   * @summary Queries the proxies that are generated by the secure access proxy feature.
+   *
+   * @param request ListProxiesRequest
+   * @return ListProxiesResponse
+   */
   async listProxies(request: ListProxiesRequest): Promise<ListProxiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProxiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about users that are authorized to access a database instance by using the secure access proxy feature.
+   *
+   * @param request ListProxyAccessesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProxyAccessesResponse
+   */
   async listProxyAccessesWithOptions(request: ListProxyAccessesRequest, runtime: $Util.RuntimeOptions): Promise<ListProxyAccessesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37072,11 +38601,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProxyAccessesResponse>(await this.callApi(params, req, runtime), new ListProxyAccessesResponse({}));
   }
 
+  /**
+   * @summary Queries information about users that are authorized to access a database instance by using the secure access proxy feature.
+   *
+   * @param request ListProxyAccessesRequest
+   * @return ListProxyAccessesResponse
+   */
   async listProxyAccesses(request: ListProxyAccessesRequest): Promise<ListProxyAccessesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProxyAccessesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 操作审计-数据安全代理SQL执行列表
+   *
+   * @param request ListProxySQLExecAuditLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProxySQLExecAuditLogResponse
+   */
   async listProxySQLExecAuditLogWithOptions(request: ListProxySQLExecAuditLogRequest, runtime: $Util.RuntimeOptions): Promise<ListProxySQLExecAuditLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37133,11 +38675,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProxySQLExecAuditLogResponse>(await this.callApi(params, req, runtime), new ListProxySQLExecAuditLogResponse({}));
   }
 
+  /**
+   * @summary 操作审计-数据安全代理SQL执行列表
+   *
+   * @param request ListProxySQLExecAuditLogRequest
+   * @return ListProxySQLExecAuditLogResponse
+   */
   async listProxySQLExecAuditLog(request: ListProxySQLExecAuditLogRequest): Promise<ListProxySQLExecAuditLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProxySQLExecAuditLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the custom service level agreement (SLA) rules.
+   *
+   * @param request ListSLARulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSLARulesResponse
+   */
   async listSLARulesWithOptions(request: ListSLARulesRequest, runtime: $Util.RuntimeOptions): Promise<ListSLARulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37166,11 +38721,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSLARulesResponse>(await this.callApi(params, req, runtime), new ListSLARulesResponse({}));
   }
 
+  /**
+   * @summary Queries the custom service level agreement (SLA) rules.
+   *
+   * @param request ListSLARulesRequest
+   * @return ListSLARulesResponse
+   */
   async listSLARules(request: ListSLARulesRequest): Promise<ListSLARulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSLARulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries SQL statements that were written on the SQLConsole tab.
+   *
+   * @param request ListSQLExecAuditLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSQLExecAuditLogResponse
+   */
   async listSQLExecAuditLogWithOptions(request: ListSQLExecAuditLogRequest, runtime: $Util.RuntimeOptions): Promise<ListSQLExecAuditLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37227,17 +38795,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSQLExecAuditLogResponse>(await this.callApi(params, req, runtime), new ListSQLExecAuditLogResponse({}));
   }
 
+  /**
+   * @summary Queries SQL statements that were written on the SQLConsole tab.
+   *
+   * @param request ListSQLExecAuditLogRequest
+   * @return ListSQLExecAuditLogResponse
+   */
   async listSQLExecAuditLog(request: ListSQLExecAuditLogRequest): Promise<ListSQLExecAuditLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSQLExecAuditLogWithOptions(request, runtime);
   }
 
   /**
-    * For more information about the SQL review feature, see [SQL review](~~60374~~).
-    *
-    * @param tmpReq ListSQLReviewOriginSQLRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListSQLReviewOriginSQLResponse
+   * @summary Queries the details of the SQL statements that are involved in an SQL review ticket.
+   *
+   * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+   *
+   * @param tmpReq ListSQLReviewOriginSQLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSQLReviewOriginSQLResponse
    */
   async listSQLReviewOriginSQLWithOptions(tmpReq: ListSQLReviewOriginSQLRequest, runtime: $Util.RuntimeOptions): Promise<ListSQLReviewOriginSQLResponse> {
     Util.validateModel(tmpReq);
@@ -37278,16 +38854,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the SQL review feature, see [SQL review](~~60374~~).
-    *
-    * @param request ListSQLReviewOriginSQLRequest
-    * @return ListSQLReviewOriginSQLResponse
+   * @summary Queries the details of the SQL statements that are involved in an SQL review ticket.
+   *
+   * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+   *
+   * @param request ListSQLReviewOriginSQLRequest
+   * @return ListSQLReviewOriginSQLResponse
    */
   async listSQLReviewOriginSQL(request: ListSQLReviewOriginSQLRequest): Promise<ListSQLReviewOriginSQLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSQLReviewOriginSQLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries business scenarios.
+   *
+   * @param request ListScenariosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListScenariosResponse
+   */
   async listScenariosWithOptions(request: ListScenariosRequest, runtime: $Util.RuntimeOptions): Promise<ListScenariosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37312,11 +38897,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListScenariosResponse>(await this.callApi(params, req, runtime), new ListScenariosResponse({}));
   }
 
+  /**
+   * @summary Queries business scenarios.
+   *
+   * @param request ListScenariosRequest
+   * @return ListScenariosResponse
+   */
   async listScenarios(request: ListScenariosRequest): Promise<ListScenariosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listScenariosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取敏感字段信息
+   *
+   * @param request ListSensitiveColumnInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSensitiveColumnInfoResponse
+   */
   async listSensitiveColumnInfoWithOptions(request: ListSensitiveColumnInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitiveColumnInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37365,11 +38963,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSensitiveColumnInfoResponse>(await this.callApi(params, req, runtime), new ListSensitiveColumnInfoResponse({}));
   }
 
+  /**
+   * @summary 获取敏感字段信息
+   *
+   * @param request ListSensitiveColumnInfoRequest
+   * @return ListSensitiveColumnInfoResponse
+   */
   async listSensitiveColumnInfo(request: ListSensitiveColumnInfoRequest): Promise<ListSensitiveColumnInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSensitiveColumnInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries sensitive fields in a table of a database.
+   *
+   * @param request ListSensitiveColumnsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSensitiveColumnsResponse
+   */
   async listSensitiveColumnsWithOptions(request: ListSensitiveColumnsRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitiveColumnsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37426,11 +39037,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSensitiveColumnsResponse>(await this.callApi(params, req, runtime), new ListSensitiveColumnsResponse({}));
   }
 
+  /**
+   * @summary Queries sensitive fields in a table of a database.
+   *
+   * @param request ListSensitiveColumnsRequest
+   * @return ListSensitiveColumnsResponse
+   */
   async listSensitiveColumns(request: ListSensitiveColumnsRequest): Promise<ListSensitiveColumnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSensitiveColumnsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a sensitive field.
+   *
+   * @param request ListSensitiveColumnsDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSensitiveColumnsDetailResponse
+   */
   async listSensitiveColumnsDetailWithOptions(request: ListSensitiveColumnsDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitiveColumnsDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37475,11 +39099,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSensitiveColumnsDetailResponse>(await this.callApi(params, req, runtime), new ListSensitiveColumnsDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a sensitive field.
+   *
+   * @param request ListSensitiveColumnsDetailRequest
+   * @return ListSensitiveColumnsDetailResponse
+   */
   async listSensitiveColumnsDetail(request: ListSensitiveColumnsDetailRequest): Promise<ListSensitiveColumnsDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSensitiveColumnsDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the audit logs for sensitive information.
+   *
+   * @param request ListSensitiveDataAuditLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSensitiveDataAuditLogResponse
+   */
   async listSensitiveDataAuditLogWithOptions(request: ListSensitiveDataAuditLogRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitiveDataAuditLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37540,11 +39177,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSensitiveDataAuditLogResponse>(await this.callApi(params, req, runtime), new ListSensitiveDataAuditLogResponse({}));
   }
 
+  /**
+   * @summary Queries the audit logs for sensitive information.
+   *
+   * @param request ListSensitiveDataAuditLogRequest
+   * @return ListSensitiveDataAuditLogResponse
+   */
   async listSensitiveDataAuditLog(request: ListSensitiveDataAuditLogRequest): Promise<ListSensitiveDataAuditLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSensitiveDataAuditLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the sensitivity levels of a classification template.
+   *
+   * @param request ListSensitivityLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSensitivityLevelResponse
+   */
   async listSensitivityLevelWithOptions(request: ListSensitivityLevelRequest, runtime: $Util.RuntimeOptions): Promise<ListSensitivityLevelResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -37565,11 +39215,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSensitivityLevelResponse>(await this.callApi(params, req, runtime), new ListSensitivityLevelResponse({}));
   }
 
+  /**
+   * @summary Queries the sensitivity levels of a classification template.
+   *
+   * @param request ListSensitivityLevelRequest
+   * @return ListSensitivityLevelResponse
+   */
   async listSensitivityLevel(request: ListSensitivityLevelRequest): Promise<ListSensitivityLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSensitivityLevelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries security rule sets.
+   *
+   * @param request ListStandardGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListStandardGroupsResponse
+   */
   async listStandardGroupsWithOptions(request: ListStandardGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListStandardGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37594,17 +39257,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListStandardGroupsResponse>(await this.callApi(params, req, runtime), new ListStandardGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries security rule sets.
+   *
+   * @param request ListStandardGroupsRequest
+   * @return ListStandardGroupsResponse
+   */
   async listStandardGroups(request: ListStandardGroupsRequest): Promise<ListStandardGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listStandardGroupsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request ListTablesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTablesResponse
+   * @summary Queries the tables in a database.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request ListTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTablesResponse
    */
   async listTablesWithOptions(request: ListTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListTablesResponse> {
     Util.validateModel(request);
@@ -37651,16 +39322,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request ListTablesRequest
-    * @return ListTablesResponse
+   * @summary Queries the tables in a database.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request ListTablesRequest
+   * @return ListTablesResponse
    */
   async listTables(request: ListTablesRequest): Promise<ListTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTablesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 任务编排获取任务流列表
+   *
+   * @param request ListTaskFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskFlowResponse
+   */
   async listTaskFlowWithOptions(request: ListTaskFlowRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37685,11 +39365,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskFlowResponse>(await this.callApi(params, req, runtime), new ListTaskFlowResponse({}));
   }
 
+  /**
+   * @summary 任务编排获取任务流列表
+   *
+   * @param request ListTaskFlowRequest
+   * @return ListTaskFlowResponse
+   */
   async listTaskFlow(request: ListTaskFlowRequest): Promise<ListTaskFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the constants for a task flow.
+   *
+   * @param request ListTaskFlowConstantsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskFlowConstantsResponse
+   */
   async listTaskFlowConstantsWithOptions(request: ListTaskFlowConstantsRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskFlowConstantsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37718,11 +39411,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskFlowConstantsResponse>(await this.callApi(params, req, runtime), new ListTaskFlowConstantsResponse({}));
   }
 
+  /**
+   * @summary Queries the constants for a task flow.
+   *
+   * @param request ListTaskFlowConstantsRequest
+   * @return ListTaskFlowConstantsResponse
+   */
   async listTaskFlowConstants(request: ListTaskFlowConstantsRequest): Promise<ListTaskFlowConstantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskFlowConstantsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the users that are involved in a specified task flow.
+   *
+   * @param request ListTaskFlowCooperatorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskFlowCooperatorsResponse
+   */
   async listTaskFlowCooperatorsWithOptions(request: ListTaskFlowCooperatorsRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskFlowCooperatorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37751,17 +39457,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskFlowCooperatorsResponse>(await this.callApi(params, req, runtime), new ListTaskFlowCooperatorsResponse({}));
   }
 
+  /**
+   * @summary Queries the users that are involved in a specified task flow.
+   *
+   * @param request ListTaskFlowCooperatorsRequest
+   * @return ListTaskFlowCooperatorsResponse
+   */
   async listTaskFlowCooperators(request: ListTaskFlowCooperatorsRequest): Promise<ListTaskFlowCooperatorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskFlowCooperatorsWithOptions(request, runtime);
   }
 
   /**
-    * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
-    *
-    * @param request ListTaskFlowEdgesByConditionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTaskFlowEdgesByConditionResponse
+   * @summary Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+   *
+   * @description This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
+   *
+   * @param request ListTaskFlowEdgesByConditionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskFlowEdgesByConditionResponse
    */
   async listTaskFlowEdgesByConditionWithOptions(request: ListTaskFlowEdgesByConditionRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskFlowEdgesByConditionResponse> {
     Util.validateModel(request);
@@ -37804,16 +39518,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
-    *
-    * @param request ListTaskFlowEdgesByConditionRequest
-    * @return ListTaskFlowEdgesByConditionResponse
+   * @summary Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+   *
+   * @description This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
+   *
+   * @param request ListTaskFlowEdgesByConditionRequest
+   * @return ListTaskFlowEdgesByConditionResponse
    */
   async listTaskFlowEdgesByCondition(request: ListTaskFlowEdgesByConditionRequest): Promise<ListTaskFlowEdgesByConditionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskFlowEdgesByConditionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the execution records of a task flow.
+   *
+   * @param request ListTaskFlowInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskFlowInstanceResponse
+   */
   async listTaskFlowInstanceWithOptions(request: ListTaskFlowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskFlowInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37870,11 +39593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskFlowInstanceResponse>(await this.callApi(params, req, runtime), new ListTaskFlowInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the execution records of a task flow.
+   *
+   * @param request ListTaskFlowInstanceRequest
+   * @return ListTaskFlowInstanceResponse
+   */
   async listTaskFlowInstance(request: ListTaskFlowInstanceRequest): Promise<ListTaskFlowInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskFlowInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the time variables for a task flow.
+   *
+   * @param request ListTaskFlowTimeVariablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskFlowTimeVariablesResponse
+   */
   async listTaskFlowTimeVariablesWithOptions(request: ListTaskFlowTimeVariablesRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskFlowTimeVariablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37903,11 +39639,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskFlowTimeVariablesResponse>(await this.callApi(params, req, runtime), new ListTaskFlowTimeVariablesResponse({}));
   }
 
+  /**
+   * @summary Queries the time variables for a task flow.
+   *
+   * @param request ListTaskFlowTimeVariablesRequest
+   * @return ListTaskFlowTimeVariablesResponse
+   */
   async listTaskFlowTimeVariables(request: ListTaskFlowTimeVariablesRequest): Promise<ListTaskFlowTimeVariablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskFlowTimeVariablesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries task flows by page.
+   *
+   * @param tmpReq ListTaskFlowsByPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskFlowsByPageResponse
+   */
   async listTaskFlowsByPageWithOptions(tmpReq: ListTaskFlowsByPageRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskFlowsByPageResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTaskFlowsByPageShrinkRequest({ });
@@ -37958,11 +39707,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskFlowsByPageResponse>(await this.callApi(params, req, runtime), new ListTaskFlowsByPageResponse({}));
   }
 
+  /**
+   * @summary Queries task flows by page.
+   *
+   * @param request ListTaskFlowsByPageRequest
+   * @return ListTaskFlowsByPageResponse
+   */
   async listTaskFlowsByPage(request: ListTaskFlowsByPageRequest): Promise<ListTaskFlowsByPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskFlowsByPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tasks in a specified task flow.
+   *
+   * @param request ListTasksInTaskFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTasksInTaskFlowResponse
+   */
   async listTasksInTaskFlowWithOptions(request: ListTasksInTaskFlowRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksInTaskFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37991,11 +39753,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTasksInTaskFlowResponse>(await this.callApi(params, req, runtime), new ListTasksInTaskFlowResponse({}));
   }
 
+  /**
+   * @summary Queries the tasks in a specified task flow.
+   *
+   * @param request ListTasksInTaskFlowRequest
+   * @return ListTasksInTaskFlowResponse
+   */
   async listTasksInTaskFlow(request: ListTasksInTaskFlowRequest): Promise<ListTasksInTaskFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTasksInTaskFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the permissions of a specific user on a database or a table.
+   *
+   * @param request ListUserPermissionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserPermissionsResponse
+   */
   async listUserPermissionsWithOptions(request: ListUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserPermissionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38056,11 +39831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserPermissionsResponse>(await this.callApi(params, req, runtime), new ListUserPermissionsResponse({}));
   }
 
+  /**
+   * @summary Queries the permissions of a specific user on a database or a table.
+   *
+   * @param request ListUserPermissionsRequest
+   * @return ListUserPermissionsResponse
+   */
   async listUserPermissions(request: ListUserPermissionsRequest): Promise<ListUserPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserPermissionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取用户租户列表
+   *
+   * @param request ListUserTenantsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserTenantsResponse
+   */
   async listUserTenantsWithOptions(request: ListUserTenantsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserTenantsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38085,11 +39873,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserTenantsResponse>(await this.callApi(params, req, runtime), new ListUserTenantsResponse({}));
   }
 
+  /**
+   * @summary 获取用户租户列表
+   *
+   * @param request ListUserTenantsRequest
+   * @return ListUserTenantsResponse
+   */
   async listUserTenants(request: ListUserTenantsRequest): Promise<ListUserTenantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserTenantsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of users.
+   *
+   * @param request ListUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38134,11 +39935,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * @summary Queries the details of users.
+   *
+   * @param request ListUsersRequest
+   * @return ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries approval nodes.
+   *
+   * @param request ListWorkFlowNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkFlowNodesResponse
+   */
   async listWorkFlowNodesWithOptions(request: ListWorkFlowNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkFlowNodesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38167,11 +39981,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkFlowNodesResponse>(await this.callApi(params, req, runtime), new ListWorkFlowNodesResponse({}));
   }
 
+  /**
+   * @summary Queries approval nodes.
+   *
+   * @param request ListWorkFlowNodesRequest
+   * @return ListWorkFlowNodesResponse
+   */
   async listWorkFlowNodes(request: ListWorkFlowNodesRequest): Promise<ListWorkFlowNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWorkFlowNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries approval templates.
+   *
+   * @param request ListWorkFlowTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkFlowTemplatesResponse
+   */
   async listWorkFlowTemplatesWithOptions(request: ListWorkFlowTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkFlowTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38200,11 +40027,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkFlowTemplatesResponse>(await this.callApi(params, req, runtime), new ListWorkFlowTemplatesResponse({}));
   }
 
+  /**
+   * @summary Queries approval templates.
+   *
+   * @param request ListWorkFlowTemplatesRequest
+   * @return ListWorkFlowTemplatesResponse
+   */
   async listWorkFlowTemplates(request: ListWorkFlowTemplatesRequest): Promise<ListWorkFlowTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWorkFlowTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets the status of a task flow to "Successful".
+   *
+   * @param request MakeTaskFlowInstanceSuccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MakeTaskFlowInstanceSuccessResponse
+   */
   async makeTaskFlowInstanceSuccessWithOptions(request: MakeTaskFlowInstanceSuccessRequest, runtime: $Util.RuntimeOptions): Promise<MakeTaskFlowInstanceSuccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38237,11 +40077,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MakeTaskFlowInstanceSuccessResponse>(await this.callApi(params, req, runtime), new MakeTaskFlowInstanceSuccessResponse({}));
   }
 
+  /**
+   * @summary Sets the status of a task flow to "Successful".
+   *
+   * @param request MakeTaskFlowInstanceSuccessRequest
+   * @return MakeTaskFlowInstanceSuccessResponse
+   */
   async makeTaskFlowInstanceSuccess(request: MakeTaskFlowInstanceSuccessRequest): Promise<MakeTaskFlowInstanceSuccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.makeTaskFlowInstanceSuccessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the SQL script that is submitted by using a data change ticket.
+   *
+   * @param request ModifyDataCorrectExecSQLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDataCorrectExecSQLResponse
+   */
   async modifyDataCorrectExecSQLWithOptions(request: ModifyDataCorrectExecSQLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataCorrectExecSQLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38274,11 +40127,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDataCorrectExecSQLResponse>(await this.callApi(params, req, runtime), new ModifyDataCorrectExecSQLResponse({}));
   }
 
+  /**
+   * @summary Modifies the SQL script that is submitted by using a data change ticket.
+   *
+   * @param request ModifyDataCorrectExecSQLRequest
+   * @return ModifyDataCorrectExecSQLResponse
+   */
   async modifyDataCorrectExecSQL(request: ModifyDataCorrectExecSQLRequest): Promise<ModifyDataCorrectExecSQLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDataCorrectExecSQLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the masking rule bound to a specified field.
+   *
+   * @param request ModifyDesensitizationStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDesensitizationStrategyResponse
+   */
   async modifyDesensitizationStrategyWithOptions(request: ModifyDesensitizationStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDesensitizationStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38335,11 +40201,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDesensitizationStrategyResponse>(await this.callApi(params, req, runtime), new ModifyDesensitizationStrategyResponse({}));
   }
 
+  /**
+   * @summary Modifies the masking rule bound to a specified field.
+   *
+   * @param request ModifyDesensitizationStrategyRequest
+   * @return ModifyDesensitizationStrategyResponse
+   */
   async modifyDesensitizationStrategy(request: ModifyDesensitizationStrategyRequest): Promise<ModifyDesensitizationStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDesensitizationStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改实例信息，同时检查该实例连通性
+   *
+   * @param request ModifyInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceResponse
+   */
   async modifyInstanceWithOptions(request: ModifyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38480,11 +40359,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyInstanceResponse({}));
   }
 
+  /**
+   * @summary 修改实例信息，同时检查该实例连通性
+   *
+   * @param request ModifyInstanceRequest
+   * @return ModifyInstanceResponse
+   */
   async modifyInstance(request: ModifyInstanceRequest): Promise<ModifyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Migrates a task flow to a specified business scenario.
+   *
+   * @param request MoveTaskFlowToScenarioRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveTaskFlowToScenarioResponse
+   */
   async moveTaskFlowToScenarioWithOptions(request: MoveTaskFlowToScenarioRequest, runtime: $Util.RuntimeOptions): Promise<MoveTaskFlowToScenarioResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38517,11 +40409,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveTaskFlowToScenarioResponse>(await this.callApi(params, req, runtime), new MoveTaskFlowToScenarioResponse({}));
   }
 
+  /**
+   * @summary Migrates a task flow to a specified business scenario.
+   *
+   * @param request MoveTaskFlowToScenarioRequest
+   * @return MoveTaskFlowToScenarioResponse
+   */
   async moveTaskFlowToScenario(request: MoveTaskFlowToScenarioRequest): Promise<MoveTaskFlowToScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveTaskFlowToScenarioWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unpublishes a published task flow.
+   *
+   * @param request OfflineTaskFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OfflineTaskFlowResponse
+   */
   async offlineTaskFlowWithOptions(request: OfflineTaskFlowRequest, runtime: $Util.RuntimeOptions): Promise<OfflineTaskFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38550,17 +40455,25 @@ export default class Client extends OpenApi {
     return $tea.cast<OfflineTaskFlowResponse>(await this.callApi(params, req, runtime), new OfflineTaskFlowResponse({}));
   }
 
+  /**
+   * @summary Unpublishes a published task flow.
+   *
+   * @param request OfflineTaskFlowRequest
+   * @return OfflineTaskFlowResponse
+   */
   async offlineTaskFlow(request: OfflineTaskFlowRequest): Promise<OfflineTaskFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.offlineTaskFlowWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for database instances that are managed in Security Collaboration mode.
-    *
-    * @param request PauseDataCorrectSQLJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PauseDataCorrectSQLJobResponse
+   * @summary Pauses a SQL task for data change.
+   *
+   * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
+   *
+   * @param request PauseDataCorrectSQLJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PauseDataCorrectSQLJobResponse
    */
   async pauseDataCorrectSQLJobWithOptions(request: PauseDataCorrectSQLJobRequest, runtime: $Util.RuntimeOptions): Promise<PauseDataCorrectSQLJobResponse> {
     Util.validateModel(request);
@@ -38599,16 +40512,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances that are managed in Security Collaboration mode.
-    *
-    * @param request PauseDataCorrectSQLJobRequest
-    * @return PauseDataCorrectSQLJobResponse
+   * @summary Pauses a SQL task for data change.
+   *
+   * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
+   *
+   * @param request PauseDataCorrectSQLJobRequest
+   * @return PauseDataCorrectSQLJobResponse
    */
   async pauseDataCorrectSQLJob(request: PauseDataCorrectSQLJobRequest): Promise<PauseDataCorrectSQLJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pauseDataCorrectSQLJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建工单审批流
+   *
+   * @param request PreviewWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PreviewWorkflowResponse
+   */
   async previewWorkflowWithOptions(request: PreviewWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<PreviewWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38637,11 +40559,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PreviewWorkflowResponse>(await this.callApi(params, req, runtime), new PreviewWorkflowResponse({}));
   }
 
+  /**
+   * @summary 创建工单审批流
+   *
+   * @param request PreviewWorkflowRequest
+   * @return PreviewWorkflowResponse
+   */
   async previewWorkflow(request: PreviewWorkflowRequest): Promise<PreviewWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.previewWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Publishes and deploys a task flow.
+   *
+   * @param request PublishAndDeployTaskFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishAndDeployTaskFlowResponse
+   */
   async publishAndDeployTaskFlowWithOptions(request: PublishAndDeployTaskFlowRequest, runtime: $Util.RuntimeOptions): Promise<PublishAndDeployTaskFlowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38674,11 +40609,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishAndDeployTaskFlowResponse>(await this.callApi(params, req, runtime), new PublishAndDeployTaskFlowResponse({}));
   }
 
+  /**
+   * @summary Publishes and deploys a task flow.
+   *
+   * @param request PublishAndDeployTaskFlowRequest
+   * @return PublishAndDeployTaskFlowResponse
+   */
   async publishAndDeployTaskFlow(request: PublishAndDeployTaskFlowRequest): Promise<PublishAndDeployTaskFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishAndDeployTaskFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the download and parsing progress of data tracking logs.
+   *
+   * @param request QueryDataTrackResultDownloadStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDataTrackResultDownloadStatusResponse
+   */
   async queryDataTrackResultDownloadStatusWithOptions(request: QueryDataTrackResultDownloadStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDataTrackResultDownloadStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38711,11 +40659,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDataTrackResultDownloadStatusResponse>(await this.callApi(params, req, runtime), new QueryDataTrackResultDownloadStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the download and parsing progress of data tracking logs.
+   *
+   * @param request QueryDataTrackResultDownloadStatusRequest
+   * @return QueryDataTrackResultDownloadStatusResponse
+   */
   async queryDataTrackResultDownloadStatus(request: QueryDataTrackResultDownloadStatusRequest): Promise<QueryDataTrackResultDownloadStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDataTrackResultDownloadStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 部署任务流的历史版本
+   *
+   * @param request ReDeployLhDagVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReDeployLhDagVersionResponse
+   */
   async reDeployLhDagVersionWithOptions(request: ReDeployLhDagVersionRequest, runtime: $Util.RuntimeOptions): Promise<ReDeployLhDagVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38748,11 +40709,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReDeployLhDagVersionResponse>(await this.callApi(params, req, runtime), new ReDeployLhDagVersionResponse({}));
   }
 
+  /**
+   * @summary 部署任务流的历史版本
+   *
+   * @param request ReDeployLhDagVersionRequest
+   * @return ReDeployLhDagVersionResponse
+   */
   async reDeployLhDagVersion(request: ReDeployLhDagVersionRequest): Promise<ReDeployLhDagVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reDeployLhDagVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reruns a task flow instance.
+   *
+   * @param request ReRunTaskFlowInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReRunTaskFlowInstanceResponse
+   */
   async reRunTaskFlowInstanceWithOptions(request: ReRunTaskFlowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReRunTaskFlowInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38789,11 +40763,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReRunTaskFlowInstanceResponse>(await this.callApi(params, req, runtime), new ReRunTaskFlowInstanceResponse({}));
   }
 
+  /**
+   * @summary Reruns a task flow instance.
+   *
+   * @param request ReRunTaskFlowInstanceRequest
+   * @return ReRunTaskFlowInstanceResponse
+   */
   async reRunTaskFlowInstance(request: ReRunTaskFlowInstanceRequest): Promise<ReRunTaskFlowInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reRunTaskFlowInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unsubscribes from a pay-as-you-go Data Management (DMS) resource.
+   *
+   * @param request RefundPayAsYouGoOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefundPayAsYouGoOrderResponse
+   */
   async refundPayAsYouGoOrderWithOptions(request: RefundPayAsYouGoOrderRequest, runtime: $Util.RuntimeOptions): Promise<RefundPayAsYouGoOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38826,17 +40813,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RefundPayAsYouGoOrderResponse>(await this.callApi(params, req, runtime), new RefundPayAsYouGoOrderResponse({}));
   }
 
+  /**
+   * @summary Unsubscribes from a pay-as-you-go Data Management (DMS) resource.
+   *
+   * @param request RefundPayAsYouGoOrderRequest
+   * @return RefundPayAsYouGoOrderResponse
+   */
   async refundPayAsYouGoOrder(request: RefundPayAsYouGoOrderRequest): Promise<RefundPayAsYouGoOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refundPayAsYouGoOrderWithOptions(request, runtime);
   }
 
   /**
-    * Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to query your user role from the RoleIdList parameter that is returned.
-    *
-    * @param request RegisterInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RegisterInstanceResponse
+   * @summary Registers a database instance in Data Management (DMS).
+   *
+   * @description Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query your user role from the RoleIdList parameter that is returned.
+   *
+   * @param request RegisterInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegisterInstanceResponse
    */
   async registerInstanceWithOptions(request: RegisterInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterInstanceResponse> {
     Util.validateModel(request);
@@ -38963,10 +40958,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to query your user role from the RoleIdList parameter that is returned.
-    *
-    * @param request RegisterInstanceRequest
-    * @return RegisterInstanceResponse
+   * @summary Registers a database instance in Data Management (DMS).
+   *
+   * @description Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query your user role from the RoleIdList parameter that is returned.
+   *
+   * @param request RegisterInstanceRequest
+   * @return RegisterInstanceResponse
    */
   async registerInstance(request: RegisterInstanceRequest): Promise<RegisterInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38974,11 +40971,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
-    *
-    * @param request RegisterUserRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RegisterUserResponse
+   * @summary Registers a user for your enterprise.
+   *
+   * @description If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
+   *
+   * @param request RegisterUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegisterUserResponse
    */
   async registerUserWithOptions(request: RegisterUserRequest, runtime: $Util.RuntimeOptions): Promise<RegisterUserResponse> {
     Util.validateModel(request);
@@ -39021,16 +41020,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
-    *
-    * @param request RegisterUserRequest
-    * @return RegisterUserResponse
+   * @summary Registers a user for your enterprise.
+   *
+   * @description If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
+   *
+   * @param request RegisterUserRequest
+   * @return RegisterUserResponse
    */
   async registerUser(request: RegisterUserRequest): Promise<RegisterUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reruns a failed SQL task for data change.
+   *
+   * @param request RestartDataCorrectSQLJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartDataCorrectSQLJobResponse
+   */
   async restartDataCorrectSQLJobWithOptions(request: RestartDataCorrectSQLJobRequest, runtime: $Util.RuntimeOptions): Promise<RestartDataCorrectSQLJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39067,17 +41075,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartDataCorrectSQLJobResponse>(await this.callApi(params, req, runtime), new RestartDataCorrectSQLJobResponse({}));
   }
 
+  /**
+   * @summary Reruns a failed SQL task for data change.
+   *
+   * @param request RestartDataCorrectSQLJobRequest
+   * @return RestartDataCorrectSQLJobResponse
+   */
   async restartDataCorrectSQLJob(request: RestartDataCorrectSQLJobRequest): Promise<RestartDataCorrectSQLJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDataCorrectSQLJobWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for task flows that are suspended.
-    *
-    * @param request ResumeTaskFlowInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResumeTaskFlowInstanceResponse
+   * @summary Resumes a suspended task flow.
+   *
+   * @description You can call this operation only for task flows that are suspended.
+   *
+   * @param request ResumeTaskFlowInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeTaskFlowInstanceResponse
    */
   async resumeTaskFlowInstanceWithOptions(request: ResumeTaskFlowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResumeTaskFlowInstanceResponse> {
     Util.validateModel(request);
@@ -39116,16 +41132,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for task flows that are suspended.
-    *
-    * @param request ResumeTaskFlowInstanceRequest
-    * @return ResumeTaskFlowInstanceResponse
+   * @summary Resumes a suspended task flow.
+   *
+   * @description You can call this operation only for task flows that are suspended.
+   *
+   * @param request ResumeTaskFlowInstanceRequest
+   * @return ResumeTaskFlowInstanceResponse
    */
   async resumeTaskFlowInstance(request: ResumeTaskFlowInstanceRequest): Promise<ResumeTaskFlowInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeTaskFlowInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reruns the precheck for a data change ticket.
+   *
+   * @param request RetryDataCorrectPreCheckRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryDataCorrectPreCheckResponse
+   */
   async retryDataCorrectPreCheckWithOptions(request: RetryDataCorrectPreCheckRequest, runtime: $Util.RuntimeOptions): Promise<RetryDataCorrectPreCheckResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39154,17 +41179,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryDataCorrectPreCheckResponse>(await this.callApi(params, req, runtime), new RetryDataCorrectPreCheckResponse({}));
   }
 
+  /**
+   * @summary Reruns the precheck for a data change ticket.
+   *
+   * @param request RetryDataCorrectPreCheckRequest
+   * @return RetryDataCorrectPreCheckResponse
+   */
   async retryDataCorrectPreCheck(request: RetryDataCorrectPreCheckRequest): Promise<RetryDataCorrectPreCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryDataCorrectPreCheckWithOptions(request, runtime);
   }
 
   /**
-    * You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request RevokeTemplateAuthorityRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RevokeTemplateAuthorityResponse
+   * @summary Revokes permissions on resources from Data Management (DMS) users by using a permission template.
+   *
+   * @description You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request RevokeTemplateAuthorityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeTemplateAuthorityResponse
    */
   async revokeTemplateAuthorityWithOptions(request: RevokeTemplateAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<RevokeTemplateAuthorityResponse> {
     Util.validateModel(request);
@@ -39199,16 +41232,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request RevokeTemplateAuthorityRequest
-    * @return RevokeTemplateAuthorityResponse
+   * @summary Revokes permissions on resources from Data Management (DMS) users by using a permission template.
+   *
+   * @description You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request RevokeTemplateAuthorityRequest
+   * @return RevokeTemplateAuthorityResponse
    */
   async revokeTemplateAuthority(request: RevokeTemplateAuthorityRequest): Promise<RevokeTemplateAuthorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeTemplateAuthorityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes a permission on a resource from a user.
+   *
+   * @param request RevokeUserPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeUserPermissionResponse
+   */
   async revokeUserPermissionWithOptions(request: RevokeUserPermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeUserPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39269,11 +41311,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeUserPermissionResponse>(await this.callApi(params, req, runtime), new RevokeUserPermissionResponse({}));
   }
 
+  /**
+   * @summary Revokes a permission on a resource from a user.
+   *
+   * @param request RevokeUserPermissionRequest
+   * @return RevokeUserPermissionResponse
+   */
   async revokeUserPermission(request: RevokeUserPermissionRequest): Promise<RevokeUserPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeUserPermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Searches for the parsing result of a data tracking task.
+   *
+   * @param tmpReq SearchDataTrackResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchDataTrackResultResponse
+   */
   async searchDataTrackResultWithOptions(tmpReq: SearchDataTrackResultRequest, runtime: $Util.RuntimeOptions): Promise<SearchDataTrackResultResponse> {
     Util.validateModel(tmpReq);
     let request = new SearchDataTrackResultShrinkRequest({ });
@@ -39336,11 +41391,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchDataTrackResultResponse>(await this.callApi(params, req, runtime), new SearchDataTrackResultResponse({}));
   }
 
+  /**
+   * @summary Searches for the parsing result of a data tracking task.
+   *
+   * @param request SearchDataTrackResultRequest
+   * @return SearchDataTrackResultResponse
+   */
   async searchDataTrackResult(request: SearchDataTrackResultRequest): Promise<SearchDataTrackResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchDataTrackResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of the databases.
+   *
+   * @param request SearchDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchDatabaseResponse
+   */
   async searchDatabaseWithOptions(request: SearchDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<SearchDatabaseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39393,17 +41461,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchDatabaseResponse>(await this.callApi(params, req, runtime), new SearchDatabaseResponse({}));
   }
 
+  /**
+   * @summary Queries the details of the databases.
+   *
+   * @param request SearchDatabaseRequest
+   * @return SearchDatabaseResponse
+   */
   async searchDatabase(request: SearchDatabaseRequest): Promise<SearchDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchDatabaseWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for database instances that are managed in Security Collaboration mode.
-    *
-    * @param request SearchTableRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchTableResponse
+   * @summary Queries detailed information about tables.
+   *
+   * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
+   *
+   * @param request SearchTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchTableResponse
    */
   async searchTableWithOptions(request: SearchTableRequest, runtime: $Util.RuntimeOptions): Promise<SearchTableResponse> {
     Util.validateModel(request);
@@ -39462,16 +41538,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances that are managed in Security Collaboration mode.
-    *
-    * @param request SearchTableRequest
-    * @return SearchTableResponse
+   * @summary Queries detailed information about tables.
+   *
+   * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
+   *
+   * @param request SearchTableRequest
+   * @return SearchTableResponse
    */
   async searchTable(request: SearchTableRequest): Promise<SearchTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures the owner of an instance, a database, or a table.
+   *
+   * @param request SetOwnersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetOwnersResponse
+   */
   async setOwnersWithOptions(request: SetOwnersRequest, runtime: $Util.RuntimeOptions): Promise<SetOwnersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39508,11 +41593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetOwnersResponse>(await this.callApi(params, req, runtime), new SetOwnersResponse({}));
   }
 
+  /**
+   * @summary Configures the owner of an instance, a database, or a table.
+   *
+   * @param request SetOwnersRequest
+   * @return SetOwnersResponse
+   */
   async setOwners(request: SetOwnersRequest): Promise<SetOwnersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setOwnersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Skips the verification on the number of rows in the precheck for data change.
+   *
+   * @param request SkipDataCorrectRowCheckRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SkipDataCorrectRowCheckResponse
+   */
   async skipDataCorrectRowCheckWithOptions(request: SkipDataCorrectRowCheckRequest, runtime: $Util.RuntimeOptions): Promise<SkipDataCorrectRowCheckResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39545,11 +41643,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SkipDataCorrectRowCheckResponse>(await this.callApi(params, req, runtime), new SkipDataCorrectRowCheckResponse({}));
   }
 
+  /**
+   * @summary Skips the verification on the number of rows in the precheck for data change.
+   *
+   * @param request SkipDataCorrectRowCheckRequest
+   * @return SkipDataCorrectRowCheckResponse
+   */
   async skipDataCorrectRowCheck(request: SkipDataCorrectRowCheckRequest): Promise<SkipDataCorrectRowCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.skipDataCorrectRowCheckWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Stops a task flow instance.
+   *
+   * @param request StopTaskFlowInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopTaskFlowInstanceResponse
+   */
   async stopTaskFlowInstanceWithOptions(request: StopTaskFlowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopTaskFlowInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39582,11 +41693,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopTaskFlowInstanceResponse>(await this.callApi(params, req, runtime), new StopTaskFlowInstanceResponse({}));
   }
 
+  /**
+   * @summary Stops a task flow instance.
+   *
+   * @param request StopTaskFlowInstanceRequest
+   * @return StopTaskFlowInstanceResponse
+   */
   async stopTaskFlowInstance(request: StopTaskFlowInstanceRequest): Promise<StopTaskFlowInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopTaskFlowInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a ticket for approval.
+   *
+   * @param request SubmitOrderApprovalRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitOrderApprovalResponse
+   */
   async submitOrderApprovalWithOptions(request: SubmitOrderApprovalRequest, runtime: $Util.RuntimeOptions): Promise<SubmitOrderApprovalResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39615,11 +41739,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitOrderApprovalResponse>(await this.callApi(params, req, runtime), new SubmitOrderApprovalResponse({}));
   }
 
+  /**
+   * @summary Submits a ticket for approval.
+   *
+   * @param request SubmitOrderApprovalRequest
+   * @return SubmitOrderApprovalResponse
+   */
   async submitOrderApproval(request: SubmitOrderApprovalRequest): Promise<SubmitOrderApprovalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitOrderApprovalWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Submits a schema synchronization ticket for approval.
+   *
+   * @param request SubmitStructSyncOrderApprovalRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitStructSyncOrderApprovalResponse
+   */
   async submitStructSyncOrderApprovalWithOptions(request: SubmitStructSyncOrderApprovalRequest, runtime: $Util.RuntimeOptions): Promise<SubmitStructSyncOrderApprovalResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39648,11 +41785,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitStructSyncOrderApprovalResponse>(await this.callApi(params, req, runtime), new SubmitStructSyncOrderApprovalResponse({}));
   }
 
+  /**
+   * @summary Submits a schema synchronization ticket for approval.
+   *
+   * @param request SubmitStructSyncOrderApprovalRequest
+   * @return SubmitStructSyncOrderApprovalResponse
+   */
   async submitStructSyncOrderApproval(request: SubmitStructSyncOrderApprovalRequest): Promise<SubmitStructSyncOrderApprovalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitStructSyncOrderApprovalWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Suspends a task flow instance.
+   *
+   * @param request SuspendTaskFlowInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SuspendTaskFlowInstanceResponse
+   */
   async suspendTaskFlowInstanceWithOptions(request: SuspendTaskFlowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SuspendTaskFlowInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39685,11 +41835,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SuspendTaskFlowInstanceResponse>(await this.callApi(params, req, runtime), new SuspendTaskFlowInstanceResponse({}));
   }
 
+  /**
+   * @summary Suspends a task flow instance.
+   *
+   * @param request SuspendTaskFlowInstanceRequest
+   * @return SuspendTaskFlowInstanceResponse
+   */
   async suspendTaskFlowInstance(request: SuspendTaskFlowInstanceRequest): Promise<SuspendTaskFlowInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.suspendTaskFlowInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Synchronizes the metadata of a database.
+   *
+   * @param request SyncDatabaseMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncDatabaseMetaResponse
+   */
   async syncDatabaseMetaWithOptions(request: SyncDatabaseMetaRequest, runtime: $Util.RuntimeOptions): Promise<SyncDatabaseMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39722,17 +41885,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncDatabaseMetaResponse>(await this.callApi(params, req, runtime), new SyncDatabaseMetaResponse({}));
   }
 
+  /**
+   * @summary Synchronizes the metadata of a database.
+   *
+   * @param request SyncDatabaseMetaRequest
+   * @return SyncDatabaseMetaResponse
+   */
   async syncDatabaseMeta(request: SyncDatabaseMetaRequest): Promise<SyncDatabaseMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.syncDatabaseMetaWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request SyncInstanceMetaRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SyncInstanceMetaResponse
+   * @summary Synchronizes the metadata of all databases in a database instance.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request SyncInstanceMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncInstanceMetaResponse
    */
   async syncInstanceMetaWithOptions(request: SyncInstanceMetaRequest, runtime: $Util.RuntimeOptions): Promise<SyncInstanceMetaResponse> {
     Util.validateModel(request);
@@ -39767,10 +41938,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only for database instances whose control mode is Security Collaboration.
-    *
-    * @param request SyncInstanceMetaRequest
-    * @return SyncInstanceMetaResponse
+   * @summary Synchronizes the metadata of all databases in a database instance.
+   *
+   * @description You can call this operation only for database instances whose control mode is Security Collaboration.
+   *
+   * @param request SyncInstanceMetaRequest
+   * @return SyncInstanceMetaResponse
    */
   async syncInstanceMeta(request: SyncInstanceMetaRequest): Promise<SyncInstanceMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39778,11 +41951,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request UpdateAuthorityTemplateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAuthorityTemplateResponse
+   * @summary Modifies a permission template.
+   *
+   * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request UpdateAuthorityTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAuthorityTemplateResponse
    */
   async updateAuthorityTemplateWithOptions(request: UpdateAuthorityTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthorityTemplateResponse> {
     Util.validateModel(request);
@@ -39821,10 +41996,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](~~324212~~).
-    *
-    * @param request UpdateAuthorityTemplateRequest
-    * @return UpdateAuthorityTemplateResponse
+   * @summary Modifies a permission template.
+   *
+   * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+   *
+   * @param request UpdateAuthorityTemplateRequest
+   * @return UpdateAuthorityTemplateResponse
    */
   async updateAuthorityTemplate(request: UpdateAuthorityTemplateRequest): Promise<UpdateAuthorityTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39832,11 +42009,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call the UpdateInstance operation, call the [GetInstance](~~141567~~) or [ListInstances](~~141936~~) operation to obtain the complete information about the instance.
-    *
-    * @param request UpdateInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateInstanceResponse
+   * @summary Updates the information about a database instance and checks the connectivity of the database instance.
+   *
+   * @description Before you call the UpdateInstance operation, call the [GetInstance](https://help.aliyun.com/document_detail/141567.html) or [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the complete information about the instance.
+   *
+   * @param request UpdateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceResponse
    */
   async updateInstanceWithOptions(request: UpdateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
@@ -39959,10 +42138,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call the UpdateInstance operation, call the [GetInstance](~~141567~~) or [ListInstances](~~141936~~) operation to obtain the complete information about the instance.
-    *
-    * @param request UpdateInstanceRequest
-    * @return UpdateInstanceResponse
+   * @summary Updates the information about a database instance and checks the connectivity of the database instance.
+   *
+   * @description Before you call the UpdateInstance operation, call the [GetInstance](https://help.aliyun.com/document_detail/141567.html) or [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the complete information about the instance.
+   *
+   * @param request UpdateInstanceRequest
+   * @return UpdateInstanceResponse
    */
   async updateInstance(request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39970,11 +42151,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * SLA rules take effect after task flows are deployed and published.
-    *
-    * @param tmpReq UpdateSLARulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateSLARulesResponse
+   * @summary Updates the service level agreement (SLA) timeout reminder for a task flow.
+   *
+   * @description SLA rules take effect after task flows are deployed and published.
+   *
+   * @param tmpReq UpdateSLARulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSLARulesResponse
    */
   async updateSLARulesWithOptions(tmpReq: UpdateSLARulesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSLARulesResponse> {
     Util.validateModel(tmpReq);
@@ -40015,16 +42198,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * SLA rules take effect after task flows are deployed and published.
-    *
-    * @param request UpdateSLARulesRequest
-    * @return UpdateSLARulesResponse
+   * @summary Updates the service level agreement (SLA) timeout reminder for a task flow.
+   *
+   * @description SLA rules take effect after task flows are deployed and published.
+   *
+   * @param request UpdateSLARulesRequest
+   * @return UpdateSLARulesResponse
    */
   async updateSLARules(request: UpdateSLARulesRequest): Promise<UpdateSLARulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSLARulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the name and description of the business scenario for a specified task flow.
+   *
+   * @param request UpdateScenarioRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateScenarioResponse
+   */
   async updateScenarioWithOptions(request: UpdateScenarioRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScenarioResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40061,11 +42253,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateScenarioResponse>(await this.callApi(params, req, runtime), new UpdateScenarioResponse({}));
   }
 
+  /**
+   * @summary Updates the name and description of the business scenario for a specified task flow.
+   *
+   * @param request UpdateScenarioRequest
+   * @return UpdateScenarioResponse
+   */
   async updateScenario(request: UpdateScenarioRequest): Promise<UpdateScenarioResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateScenarioWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of a specific security rule set.
+   *
+   * @param request UpdateStandardGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateStandardGroupResponse
+   */
   async updateStandardGroupWithOptions(request: UpdateStandardGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStandardGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40102,17 +42307,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateStandardGroupResponse>(await this.callApi(params, req, runtime), new UpdateStandardGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of a specific security rule set.
+   *
+   * @param request UpdateStandardGroupRequest
+   * @return UpdateStandardGroupResponse
+   */
   async updateStandardGroup(request: UpdateStandardGroupRequest): Promise<UpdateStandardGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateStandardGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to configure a failed task or rerun a task.
-    *
-    * @param request UpdateTaskConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTaskConfigResponse
+   * @summary Updates the advanced configuration of a task node.
+   *
+   * @description You can call this operation to configure a failed task or rerun a task.
+   *
+   * @param request UpdateTaskConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskConfigResponse
    */
   async updateTaskConfigWithOptions(request: UpdateTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskConfigResponse> {
     Util.validateModel(request);
@@ -40147,10 +42360,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to configure a failed task or rerun a task.
-    *
-    * @param request UpdateTaskConfigRequest
-    * @return UpdateTaskConfigResponse
+   * @summary Updates the advanced configuration of a task node.
+   *
+   * @description You can call this operation to configure a failed task or rerun a task.
+   *
+   * @param request UpdateTaskConfigRequest
+   * @return UpdateTaskConfigResponse
    */
   async updateTaskConfig(request: UpdateTaskConfigRequest): Promise<UpdateTaskConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40158,11 +42373,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to modify node configurations.
-    *
-    * @param request UpdateTaskContentRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTaskContentResponse
+   * @summary Updates tasks in a task flow.
+   *
+   * @description You can call this operation to modify node configurations.
+   *
+   * @param request UpdateTaskContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskContentResponse
    */
   async updateTaskContentWithOptions(request: UpdateTaskContentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskContentResponse> {
     Util.validateModel(request);
@@ -40197,16 +42414,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to modify node configurations.
-    *
-    * @param request UpdateTaskContentRequest
-    * @return UpdateTaskContentResponse
+   * @summary Updates tasks in a task flow.
+   *
+   * @description You can call this operation to modify node configurations.
+   *
+   * @param request UpdateTaskContentRequest
+   * @return UpdateTaskContentResponse
    */
   async updateTaskContent(request: UpdateTaskContentRequest): Promise<UpdateTaskContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskContentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the constants for a specified task flow.
+   *
+   * @param tmpReq UpdateTaskFlowConstantsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowConstantsResponse
+   */
   async updateTaskFlowConstantsWithOptions(tmpReq: UpdateTaskFlowConstantsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowConstantsResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateTaskFlowConstantsShrinkRequest({ });
@@ -40245,11 +42471,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskFlowConstantsResponse>(await this.callApi(params, req, runtime), new UpdateTaskFlowConstantsResponse({}));
   }
 
+  /**
+   * @summary Updates the constants for a specified task flow.
+   *
+   * @param request UpdateTaskFlowConstantsRequest
+   * @return UpdateTaskFlowConstantsResponse
+   */
   async updateTaskFlowConstants(request: UpdateTaskFlowConstantsRequest): Promise<UpdateTaskFlowConstantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskFlowConstantsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the IDs of the users who are involved in the task flow.
+   *
+   * @param tmpReq UpdateTaskFlowCooperatorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowCooperatorsResponse
+   */
   async updateTaskFlowCooperatorsWithOptions(tmpReq: UpdateTaskFlowCooperatorsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowCooperatorsResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateTaskFlowCooperatorsShrinkRequest({ });
@@ -40288,21 +42527,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskFlowCooperatorsResponse>(await this.callApi(params, req, runtime), new UpdateTaskFlowCooperatorsResponse({}));
   }
 
+  /**
+   * @summary Updates the IDs of the users who are involved in the task flow.
+   *
+   * @param request UpdateTaskFlowCooperatorsRequest
+   * @return UpdateTaskFlowCooperatorsResponse
+   */
   async updateTaskFlowCooperators(request: UpdateTaskFlowCooperatorsRequest): Promise<UpdateTaskFlowCooperatorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskFlowCooperatorsWithOptions(request, runtime);
   }
 
   /**
-    * ###
-    * The edges can be updated only when the following conditions are met:
-    * 1.  The specified edge exists in the directed acyclic graph (DAG) of the task flow specified by DagId.
-    * 2.  The specified edge nodes exist in the DAG of the task flow specified by DagId.
-    * 3.  After the update, rings do not exist in the DAG.
-    *
-    * @param tmpReq UpdateTaskFlowEdgesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTaskFlowEdgesResponse
+   * @summary Updates the start node and end node of multiple edges at a time for a task flow.
+   *
+   * @description ###
+   * The edges can be updated only when the following conditions are met:
+   * 1.  The specified edge exists in the directed acyclic graph (DAG) of the task flow specified by DagId.
+   * 2.  The specified edge nodes exist in the DAG of the task flow specified by DagId.
+   * 3.  After the update, rings do not exist in the DAG.
+   *
+   * @param tmpReq UpdateTaskFlowEdgesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowEdgesResponse
    */
   async updateTaskFlowEdgesWithOptions(tmpReq: UpdateTaskFlowEdgesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowEdgesResponse> {
     Util.validateModel(tmpReq);
@@ -40343,20 +42590,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ###
-    * The edges can be updated only when the following conditions are met:
-    * 1.  The specified edge exists in the directed acyclic graph (DAG) of the task flow specified by DagId.
-    * 2.  The specified edge nodes exist in the DAG of the task flow specified by DagId.
-    * 3.  After the update, rings do not exist in the DAG.
-    *
-    * @param request UpdateTaskFlowEdgesRequest
-    * @return UpdateTaskFlowEdgesResponse
+   * @summary Updates the start node and end node of multiple edges at a time for a task flow.
+   *
+   * @description ###
+   * The edges can be updated only when the following conditions are met:
+   * 1.  The specified edge exists in the directed acyclic graph (DAG) of the task flow specified by DagId.
+   * 2.  The specified edge nodes exist in the DAG of the task flow specified by DagId.
+   * 3.  After the update, rings do not exist in the DAG.
+   *
+   * @param request UpdateTaskFlowEdgesRequest
+   * @return UpdateTaskFlowEdgesResponse
    */
   async updateTaskFlowEdges(request: UpdateTaskFlowEdgesRequest): Promise<UpdateTaskFlowEdgesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskFlowEdgesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the name and description of a task flow.
+   *
+   * @param request UpdateTaskFlowNameAndDescRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowNameAndDescResponse
+   */
   async updateTaskFlowNameAndDescWithOptions(request: UpdateTaskFlowNameAndDescRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowNameAndDescResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40393,11 +42649,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskFlowNameAndDescResponse>(await this.callApi(params, req, runtime), new UpdateTaskFlowNameAndDescResponse({}));
   }
 
+  /**
+   * @summary Updates the name and description of a task flow.
+   *
+   * @param request UpdateTaskFlowNameAndDescRequest
+   * @return UpdateTaskFlowNameAndDescResponse
+   */
   async updateTaskFlowNameAndDesc(request: UpdateTaskFlowNameAndDescRequest): Promise<UpdateTaskFlowNameAndDescResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskFlowNameAndDescWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the notification settings for task flows.
+   *
+   * @param request UpdateTaskFlowNotificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowNotificationResponse
+   */
   async updateTaskFlowNotificationWithOptions(request: UpdateTaskFlowNotificationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowNotificationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40438,17 +42707,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskFlowNotificationResponse>(await this.callApi(params, req, runtime), new UpdateTaskFlowNotificationResponse({}));
   }
 
+  /**
+   * @summary Updates the notification settings for task flows.
+   *
+   * @param request UpdateTaskFlowNotificationRequest
+   * @return UpdateTaskFlowNotificationResponse
+   */
   async updateTaskFlowNotification(request: UpdateTaskFlowNotificationRequest): Promise<UpdateTaskFlowNotificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskFlowNotificationWithOptions(request, runtime);
   }
 
   /**
-    * Note: The new owner of the task flow must belong to the same tenant as the previous owner.
-    *
-    * @param request UpdateTaskFlowOwnerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTaskFlowOwnerResponse
+   * @summary Changes the owner of a task flow.
+   *
+   * @description Note: The new owner of the task flow must belong to the same tenant as the previous owner.
+   *
+   * @param request UpdateTaskFlowOwnerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowOwnerResponse
    */
   async updateTaskFlowOwnerWithOptions(request: UpdateTaskFlowOwnerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowOwnerResponse> {
     Util.validateModel(request);
@@ -40483,10 +42760,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Note: The new owner of the task flow must belong to the same tenant as the previous owner.
-    *
-    * @param request UpdateTaskFlowOwnerRequest
-    * @return UpdateTaskFlowOwnerResponse
+   * @summary Changes the owner of a task flow.
+   *
+   * @description Note: The new owner of the task flow must belong to the same tenant as the previous owner.
+   *
+   * @param request UpdateTaskFlowOwnerRequest
+   * @return UpdateTaskFlowOwnerResponse
    */
   async updateTaskFlowOwner(request: UpdateTaskFlowOwnerRequest): Promise<UpdateTaskFlowOwnerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40494,11 +42773,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
-    *
-    * @param tmpReq UpdateTaskFlowRelationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTaskFlowRelationsResponse
+   * @summary Fully updates the edges of a task flow.
+   *
+   * @description You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
+   *
+   * @param tmpReq UpdateTaskFlowRelationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowRelationsResponse
    */
   async updateTaskFlowRelationsWithOptions(tmpReq: UpdateTaskFlowRelationsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowRelationsResponse> {
     Util.validateModel(tmpReq);
@@ -40539,10 +42820,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
-    *
-    * @param request UpdateTaskFlowRelationsRequest
-    * @return UpdateTaskFlowRelationsResponse
+   * @summary Fully updates the edges of a task flow.
+   *
+   * @description You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
+   *
+   * @param request UpdateTaskFlowRelationsRequest
+   * @return UpdateTaskFlowRelationsResponse
    */
   async updateTaskFlowRelations(request: UpdateTaskFlowRelationsRequest): Promise<UpdateTaskFlowRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40550,12 +42833,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
-    * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
-    *
-    * @param request UpdateTaskFlowScheduleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTaskFlowScheduleResponse
+   * @summary Updates the scheduling properties for a task flow.
+   *
+   * @description You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
+   * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
+   *
+   * @param request UpdateTaskFlowScheduleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowScheduleResponse
    */
   async updateTaskFlowScheduleWithOptions(request: UpdateTaskFlowScheduleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowScheduleResponse> {
     Util.validateModel(request);
@@ -40618,17 +42903,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
-    * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
-    *
-    * @param request UpdateTaskFlowScheduleRequest
-    * @return UpdateTaskFlowScheduleResponse
+   * @summary Updates the scheduling properties for a task flow.
+   *
+   * @description You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
+   * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
+   *
+   * @param request UpdateTaskFlowScheduleRequest
+   * @return UpdateTaskFlowScheduleResponse
    */
   async updateTaskFlowSchedule(request: UpdateTaskFlowScheduleRequest): Promise<UpdateTaskFlowScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskFlowScheduleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the time variables for a task flow.
+   *
+   * @param request UpdateTaskFlowTimeVariablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskFlowTimeVariablesResponse
+   */
   async updateTaskFlowTimeVariablesWithOptions(request: UpdateTaskFlowTimeVariablesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskFlowTimeVariablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40661,11 +42955,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskFlowTimeVariablesResponse>(await this.callApi(params, req, runtime), new UpdateTaskFlowTimeVariablesResponse({}));
   }
 
+  /**
+   * @summary Updates the time variables for a task flow.
+   *
+   * @param request UpdateTaskFlowTimeVariablesRequest
+   * @return UpdateTaskFlowTimeVariablesResponse
+   */
   async updateTaskFlowTimeVariables(request: UpdateTaskFlowTimeVariablesRequest): Promise<UpdateTaskFlowTimeVariablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskFlowTimeVariablesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the name of a specified task.
+   *
+   * @param request UpdateTaskNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskNameResponse
+   */
   async updateTaskNameWithOptions(request: UpdateTaskNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40698,17 +43005,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskNameResponse>(await this.callApi(params, req, runtime), new UpdateTaskNameResponse({}));
   }
 
+  /**
+   * @summary Updates the name of a specified task.
+   *
+   * @param request UpdateTaskNameRequest
+   * @return UpdateTaskNameResponse
+   */
   async updateTaskName(request: UpdateTaskNameRequest): Promise<UpdateTaskNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskNameWithOptions(request, runtime);
   }
 
   /**
-    * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
-    *
-    * @param request UpdateTaskOutputRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTaskOutputResponse
+   * @summary Updates the output variables for a specified task node.
+   *
+   * @description Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
+   *
+   * @param request UpdateTaskOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskOutputResponse
    */
   async updateTaskOutputWithOptions(request: UpdateTaskOutputRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskOutputResponse> {
     Util.validateModel(request);
@@ -40743,16 +43058,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
-    *
-    * @param request UpdateTaskOutputRequest
-    * @return UpdateTaskOutputResponse
+   * @summary Updates the output variables for a specified task node.
+   *
+   * @description Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
+   *
+   * @param request UpdateTaskOutputRequest
+   * @return UpdateTaskOutputResponse
    */
   async updateTaskOutput(request: UpdateTaskOutputRequest): Promise<UpdateTaskOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskOutputWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates time variables for a task.
+   *
+   * @param request UpdateTaskTimeVariablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskTimeVariablesResponse
+   */
   async updateTaskTimeVariablesWithOptions(request: UpdateTaskTimeVariablesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskTimeVariablesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40785,11 +43109,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskTimeVariablesResponse>(await this.callApi(params, req, runtime), new UpdateTaskTimeVariablesResponse({}));
   }
 
+  /**
+   * @summary Updates time variables for a task.
+   *
+   * @param request UpdateTaskTimeVariablesRequest
+   * @return UpdateTaskTimeVariablesResponse
+   */
   async updateTaskTimeVariables(request: UpdateTaskTimeVariablesRequest): Promise<UpdateTaskTimeVariablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskTimeVariablesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates user information.
+   *
+   * @param request UpdateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserResponse
+   */
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40838,6 +43175,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
+  /**
+   * @summary Updates user information.
+   *
+   * @param request UpdateUserRequest
+   * @return UpdateUserResponse
+   */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
