@@ -53501,7 +53501,7 @@ export class TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo extends $te
   invoiceId?: string;
   invoiceTitle?: string;
   projectCode?: string;
-  projectName?: string;
+  projectTitle?: string;
   static names(): { [key: string]: string } {
     return {
       cascadeDeptName: 'cascade_dept_name',
@@ -53513,7 +53513,7 @@ export class TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo extends $te
       invoiceId: 'invoice_id',
       invoiceTitle: 'invoice_title',
       projectCode: 'project_code',
-      projectName: 'project_name',
+      projectTitle: 'project_title',
     };
   }
 
@@ -53528,7 +53528,7 @@ export class TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo extends $te
       invoiceId: 'string',
       invoiceTitle: 'string',
       projectCode: 'string',
-      projectName: 'string',
+      projectTitle: 'string',
     };
   }
 
