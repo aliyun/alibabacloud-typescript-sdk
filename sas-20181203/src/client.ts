@@ -23296,6 +23296,7 @@ export class DescribeSuspEventsRequest extends $tea.Model {
   source?: string;
   sourceIp?: string;
   status?: string;
+  strictMode?: string;
   tacticId?: string;
   targetType?: string;
   timeEnd?: string;
@@ -23330,6 +23331,7 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       source: 'Source',
       sourceIp: 'SourceIp',
       status: 'Status',
+      strictMode: 'StrictMode',
       tacticId: 'TacticId',
       targetType: 'TargetType',
       timeEnd: 'TimeEnd',
@@ -23367,6 +23369,7 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       source: 'string',
       sourceIp: 'string',
       status: 'string',
+      strictMode: 'string',
       tacticId: 'string',
       targetType: 'string',
       timeEnd: 'string',
@@ -95621,6 +95624,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.strictMode)) {
+      query["StrictMode"] = request.strictMode;
     }
 
     if (!Util.isUnset(request.targetType)) {
