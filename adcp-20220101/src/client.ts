@@ -8,6 +8,28 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class Tag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachClusterToHubRequest extends $tea.Model {
   attachToMesh?: boolean;
   clusterId?: string;
@@ -86,6 +108,75 @@ export class AttachClusterToHubResponse extends $tea.Model {
   }
 }
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newResourceGroupId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHubClusterRequest extends $tea.Model {
   apiServerPublicEip?: boolean;
   argoServerEnabled?: boolean;
@@ -96,6 +187,7 @@ export class CreateHubClusterRequest extends $tea.Model {
   profile?: string;
   regionId?: string;
   resourceGroupID?: string;
+  tag?: Tag[];
   vSwitches?: string;
   vpcId?: string;
   workflowScheduleMode?: string;
@@ -110,6 +202,7 @@ export class CreateHubClusterRequest extends $tea.Model {
       profile: 'Profile',
       regionId: 'RegionId',
       resourceGroupID: 'ResourceGroupID',
+      tag: 'Tag',
       vSwitches: 'VSwitches',
       vpcId: 'VpcId',
       workflowScheduleMode: 'WorkflowScheduleMode',
@@ -127,6 +220,62 @@ export class CreateHubClusterRequest extends $tea.Model {
       profile: 'string',
       regionId: 'string',
       resourceGroupID: 'string',
+      tag: { 'type': 'array', 'itemType': Tag },
+      vSwitches: 'string',
+      vpcId: 'string',
+      workflowScheduleMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHubClusterShrinkRequest extends $tea.Model {
+  apiServerPublicEip?: boolean;
+  argoServerEnabled?: boolean;
+  auditLogEnabled?: boolean;
+  isEnterpriseSecurityGroup?: boolean;
+  name?: string;
+  priceLimit?: string;
+  profile?: string;
+  regionId?: string;
+  resourceGroupID?: string;
+  tagShrink?: string;
+  vSwitches?: string;
+  vpcId?: string;
+  workflowScheduleMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiServerPublicEip: 'ApiServerPublicEip',
+      argoServerEnabled: 'ArgoServerEnabled',
+      auditLogEnabled: 'AuditLogEnabled',
+      isEnterpriseSecurityGroup: 'IsEnterpriseSecurityGroup',
+      name: 'Name',
+      priceLimit: 'PriceLimit',
+      profile: 'Profile',
+      regionId: 'RegionId',
+      resourceGroupID: 'ResourceGroupID',
+      tagShrink: 'Tag',
+      vSwitches: 'VSwitches',
+      vpcId: 'VpcId',
+      workflowScheduleMode: 'WorkflowScheduleMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiServerPublicEip: 'boolean',
+      argoServerEnabled: 'boolean',
+      auditLogEnabled: 'boolean',
+      isEnterpriseSecurityGroup: 'boolean',
+      name: 'string',
+      priceLimit: 'string',
+      profile: 'string',
+      regionId: 'string',
+      resourceGroupID: 'string',
+      tagShrink: 'string',
       vSwitches: 'string',
       vpcId: 'string',
       workflowScheduleMode: 'string',
@@ -758,10 +907,12 @@ export class DescribeHubClusterLogsResponse extends $tea.Model {
 export class DescribeHubClustersRequest extends $tea.Model {
   profile?: string;
   resourceGroupId?: string;
+  tag?: Tag[];
   static names(): { [key: string]: string } {
     return {
       profile: 'Profile',
       resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -769,6 +920,32 @@ export class DescribeHubClustersRequest extends $tea.Model {
     return {
       profile: 'string',
       resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': Tag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHubClustersShrinkRequest extends $tea.Model {
+  profile?: string;
+  resourceGroupId?: string;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      profile: 'Profile',
+      resourceGroupId: 'ResourceGroupId',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      profile: 'string',
+      resourceGroupId: 'string',
+      tagShrink: 'string',
     };
   }
 
@@ -1980,6 +2157,28 @@ export class DescribeHubClusterDetailsResponseBodyClusterClusterInfoMetaData ext
   }
 }
 
+export class DescribeHubClusterDetailsResponseBodyClusterClusterInfoTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHubClusterDetailsResponseBodyClusterClusterInfo extends $tea.Model {
   clusterId?: string;
   clusterSpec?: string;
@@ -1991,6 +2190,7 @@ export class DescribeHubClusterDetailsResponseBodyClusterClusterInfo extends $te
   regionId?: string;
   resourceGroupID?: string;
   state?: string;
+  tags?: DescribeHubClusterDetailsResponseBodyClusterClusterInfoTags[];
   updateTime?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -2005,6 +2205,7 @@ export class DescribeHubClusterDetailsResponseBodyClusterClusterInfo extends $te
       regionId: 'RegionId',
       resourceGroupID: 'ResourceGroupID',
       state: 'State',
+      tags: 'Tags',
       updateTime: 'UpdateTime',
       version: 'Version',
     };
@@ -2022,6 +2223,7 @@ export class DescribeHubClusterDetailsResponseBodyClusterClusterInfo extends $te
       regionId: 'string',
       resourceGroupID: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeHubClusterDetailsResponseBodyClusterClusterInfoTags },
       updateTime: 'string',
       version: 'string',
     };
@@ -2328,6 +2530,28 @@ export class DescribeHubClustersResponseBodyClustersApiServer extends $tea.Model
   }
 }
 
+export class DescribeHubClustersResponseBodyClustersClusterInfoTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHubClustersResponseBodyClustersClusterInfo extends $tea.Model {
   clusterId?: string;
   clusterSpec?: string;
@@ -2338,6 +2562,7 @@ export class DescribeHubClustersResponseBodyClustersClusterInfo extends $tea.Mod
   regionId?: string;
   resourceGroupID?: string;
   state?: string;
+  tags?: DescribeHubClustersResponseBodyClustersClusterInfoTags[];
   updateTime?: string;
   version?: string;
   static names(): { [key: string]: string } {
@@ -2351,6 +2576,7 @@ export class DescribeHubClustersResponseBodyClustersClusterInfo extends $tea.Mod
       regionId: 'RegionId',
       resourceGroupID: 'ResourceGroupID',
       state: 'State',
+      tags: 'Tags',
       updateTime: 'UpdateTime',
       version: 'Version',
     };
@@ -2367,6 +2593,7 @@ export class DescribeHubClustersResponseBodyClustersClusterInfo extends $tea.Mod
       regionId: 'string',
       resourceGroupID: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeHubClustersResponseBodyClustersClusterInfoTags },
       updateTime: 'string',
       version: 'string',
     };
@@ -3309,6 +3536,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary You can search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+   *
+   * @param request AttachClusterToHubRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachClusterToHubResponse
+   */
   async attachClusterToHubWithOptions(request: AttachClusterToHubRequest, runtime: $Util.RuntimeOptions): Promise<AttachClusterToHubResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3343,13 +3577,87 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachClusterToHubResponse>(await this.callApi(params, req, runtime), new AttachClusterToHubResponse({}));
   }
 
+  /**
+   * @summary You can search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+   *
+   * @param request AttachClusterToHubRequest
+   * @return AttachClusterToHubResponse
+   */
   async attachClusterToHub(request: AttachClusterToHubRequest): Promise<AttachClusterToHubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachClusterToHubWithOptions(request, runtime);
   }
 
-  async createHubClusterWithOptions(request: CreateHubClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateHubClusterResponse> {
+  /**
+   * @summary 更新资源组
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * @summary 更新资源组
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Creates a master instance in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+   *
+   * @param tmpReq CreateHubClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateHubClusterResponse
+   */
+  async createHubClusterWithOptions(tmpReq: CreateHubClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateHubClusterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateHubClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.apiServerPublicEip)) {
       body["ApiServerPublicEip"] = request.apiServerPublicEip;
@@ -3400,6 +3708,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -3416,11 +3725,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateHubClusterResponse>(await this.callApi(params, req, runtime), new CreateHubClusterResponse({}));
   }
 
+  /**
+   * @summary Creates a master instance in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+   *
+   * @param request CreateHubClusterRequest
+   * @return CreateHubClusterResponse
+   */
   async createHubCluster(request: CreateHubClusterRequest): Promise<CreateHubClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createHubClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a master cluster in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+   *
+   * @param tmpReq DeleteHubClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteHubClusterResponse
+   */
   async deleteHubClusterWithOptions(tmpReq: DeleteHubClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHubClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteHubClusterShrinkRequest({ });
@@ -3459,11 +3781,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHubClusterResponse>(await this.callApi(params, req, runtime), new DeleteHubClusterResponse({}));
   }
 
+  /**
+   * @summary Deletes a master cluster in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+   *
+   * @param request DeleteHubClusterRequest
+   * @return DeleteHubClusterResponse
+   */
   async deleteHubCluster(request: DeleteHubClusterRequest): Promise<DeleteHubClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHubClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a policy for associated clusters.
+   *
+   * @param tmpReq DeletePolicyInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePolicyInstanceResponse
+   */
   async deletePolicyInstanceWithOptions(tmpReq: DeletePolicyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new DeletePolicyInstanceShrinkRequest({ });
@@ -3502,11 +3837,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeletePolicyInstanceResponse({}));
   }
 
+  /**
+   * @summary Deletes a policy for associated clusters.
+   *
+   * @param request DeletePolicyInstanceRequest
+   * @return DeletePolicyInstanceResponse
+   */
   async deletePolicyInstance(request: DeletePolicyInstanceRequest): Promise<DeletePolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePolicyInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the role-based access control (RBAC) permissions of a RAM user.
+   *
+   * @param request DeleteUserPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserPermissionResponse
+   */
   async deleteUserPermissionWithOptions(request: DeleteUserPermissionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3535,11 +3883,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserPermissionResponse>(await this.callApi(params, req, runtime), new DeleteUserPermissionResponse({}));
   }
 
+  /**
+   * @summary Deletes the role-based access control (RBAC) permissions of a RAM user.
+   *
+   * @param request DeleteUserPermissionRequest
+   * @return DeleteUserPermissionResponse
+   */
   async deleteUserPermission(request: DeleteUserPermissionRequest): Promise<DeleteUserPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserPermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deploys a policy instance in the clusters that are associated with a master instance.
+   *
+   * @param tmpReq DeployPolicyInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployPolicyInstanceResponse
+   */
   async deployPolicyInstanceWithOptions(tmpReq: DeployPolicyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeployPolicyInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new DeployPolicyInstanceShrinkRequest({ });
@@ -3590,11 +3951,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployPolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeployPolicyInstanceResponse({}));
   }
 
+  /**
+   * @summary Deploys a policy instance in the clusters that are associated with a master instance.
+   *
+   * @param request DeployPolicyInstanceRequest
+   * @return DeployPolicyInstanceResponse
+   */
   async deployPolicyInstance(request: DeployPolicyInstanceRequest): Promise<DeployPolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deployPolicyInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a master instance in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+   *
+   * @param request DescribeHubClusterDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHubClusterDetailsResponse
+   */
   async describeHubClusterDetailsWithOptions(request: DescribeHubClusterDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHubClusterDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3619,11 +3993,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHubClusterDetailsResponse>(await this.callApi(params, req, runtime), new DescribeHubClusterDetailsResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a master instance in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+   *
+   * @param request DescribeHubClusterDetailsRequest
+   * @return DescribeHubClusterDetailsResponse
+   */
   async describeHubClusterDetails(request: DescribeHubClusterDetailsRequest): Promise<DescribeHubClusterDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHubClusterDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the kubeconfig file of a master instance.
+   *
+   * @param request DescribeHubClusterKubeconfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHubClusterKubeconfigResponse
+   */
   async describeHubClusterKubeconfigWithOptions(request: DescribeHubClusterKubeconfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHubClusterKubeconfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3652,11 +4039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHubClusterKubeconfigResponse>(await this.callApi(params, req, runtime), new DescribeHubClusterKubeconfigResponse({}));
   }
 
+  /**
+   * @summary Queries the kubeconfig file of a master instance.
+   *
+   * @param request DescribeHubClusterKubeconfigRequest
+   * @return DescribeHubClusterKubeconfigResponse
+   */
   async describeHubClusterKubeconfig(request: DescribeHubClusterKubeconfigRequest): Promise<DescribeHubClusterKubeconfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHubClusterKubeconfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查查HUB集群日志
+   *
+   * @param request DescribeHubClusterLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHubClusterLogsResponse
+   */
   async describeHubClusterLogsWithOptions(request: DescribeHubClusterLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHubClusterLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3681,13 +4081,32 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHubClusterLogsResponse>(await this.callApi(params, req, runtime), new DescribeHubClusterLogsResponse({}));
   }
 
+  /**
+   * @summary 查查HUB集群日志
+   *
+   * @param request DescribeHubClusterLogsRequest
+   * @return DescribeHubClusterLogsResponse
+   */
   async describeHubClusterLogs(request: DescribeHubClusterLogsRequest): Promise<DescribeHubClusterLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHubClusterLogsWithOptions(request, runtime);
   }
 
-  async describeHubClustersWithOptions(request: DescribeHubClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHubClustersResponse> {
-    Util.validateModel(request);
+  /**
+   * @summary Queries the Distributed Cloud Container Platform for Kubernetes (ACK One) clusters that are created by the current user.
+   *
+   * @param tmpReq DescribeHubClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeHubClustersResponse
+   */
+  async describeHubClustersWithOptions(tmpReq: DescribeHubClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHubClustersResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeHubClustersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.profile)) {
       query["Profile"] = request.profile;
@@ -3695,6 +4114,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3714,11 +4137,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeHubClustersResponse>(await this.callApi(params, req, runtime), new DescribeHubClustersResponse({}));
   }
 
+  /**
+   * @summary Queries the Distributed Cloud Container Platform for Kubernetes (ACK One) clusters that are created by the current user.
+   *
+   * @param request DescribeHubClustersRequest
+   * @return DescribeHubClustersResponse
+   */
   async describeHubClusters(request: DescribeHubClustersRequest): Promise<DescribeHubClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeHubClustersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+   *
+   * @param request DescribeManagedClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeManagedClustersResponse
+   */
   async describeManagedClustersWithOptions(request: DescribeManagedClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeManagedClustersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3743,11 +4179,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeManagedClustersResponse>(await this.callApi(params, req, runtime), new DescribeManagedClustersResponse({}));
   }
 
+  /**
+   * @summary Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+   *
+   * @param request DescribeManagedClustersRequest
+   * @return DescribeManagedClustersResponse
+   */
   async describeManagedClusters(request: DescribeManagedClustersRequest): Promise<DescribeManagedClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeManagedClustersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of policies.
+   *
+   * @param request DescribePoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePoliciesResponse
+   */
   async describePoliciesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribePoliciesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -3764,11 +4213,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePoliciesResponse>(await this.callApi(params, req, runtime), new DescribePoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of policies.
+   *
+   * @return DescribePoliciesResponse
+   */
   async describePolicies(): Promise<DescribePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePoliciesWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries detailed information about a policy.
+   *
+   * @param request DescribePolicyDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyDetailsResponse
+   */
   async describePolicyDetailsWithOptions(request: DescribePolicyDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3793,11 +4254,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyDetailsResponse>(await this.callApi(params, req, runtime), new DescribePolicyDetailsResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about a policy.
+   *
+   * @param request DescribePolicyDetailsRequest
+   * @return DescribePolicyDetailsResponse
+   */
   async describePolicyDetails(request: DescribePolicyDetailsRequest): Promise<DescribePolicyDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolicyDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about the policies used by the clusters that are associated with a master instance.
+   *
+   * @param request DescribePolicyGovernanceInClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyGovernanceInClusterResponse
+   */
   async describePolicyGovernanceInClusterWithOptions(request: DescribePolicyGovernanceInClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyGovernanceInClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3822,11 +4296,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyGovernanceInClusterResponse>(await this.callApi(params, req, runtime), new DescribePolicyGovernanceInClusterResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about the policies used by the clusters that are associated with a master instance.
+   *
+   * @param request DescribePolicyGovernanceInClusterRequest
+   * @return DescribePolicyGovernanceInClusterResponse
+   */
   async describePolicyGovernanceInCluster(request: DescribePolicyGovernanceInClusterRequest): Promise<DescribePolicyGovernanceInClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolicyGovernanceInClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries policy instances that are deployed in the clusters associated with a master instance.
+   *
+   * @param request DescribePolicyInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyInstancesResponse
+   */
   async describePolicyInstancesWithOptions(request: DescribePolicyInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3855,11 +4342,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyInstancesResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries policy instances that are deployed in the clusters associated with a master instance.
+   *
+   * @param request DescribePolicyInstancesRequest
+   * @return DescribePolicyInstancesResponse
+   */
   async describePolicyInstances(request: DescribePolicyInstancesRequest): Promise<DescribePolicyInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolicyInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about policy instances that are deployed in the clusters associated with a master instance.
+   *
+   * @param request DescribePolicyInstancesStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyInstancesStatusResponse
+   */
   async describePolicyInstancesStatusWithOptions(request: DescribePolicyInstancesStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3884,11 +4384,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyInstancesStatusResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesStatusResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about policy instances that are deployed in the clusters associated with a master instance.
+   *
+   * @param request DescribePolicyInstancesStatusRequest
+   * @return DescribePolicyInstancesStatusResponse
+   */
   async describePolicyInstancesStatus(request: DescribePolicyInstancesStatusRequest): Promise<DescribePolicyInstancesStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolicyInstancesStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询地域列表
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3909,11 +4422,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary 查询地域列表
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Query the permissions of a Resource Access Management (RAM) user.
+   *
+   * @param request DescribeUserPermissionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserPermissionsResponse
+   */
   async describeUserPermissionsWithOptions(request: DescribeUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserPermissionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3938,11 +4464,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserPermissionsResponse>(await this.callApi(params, req, runtime), new DescribeUserPermissionsResponse({}));
   }
 
+  /**
+   * @summary Query the permissions of a Resource Access Management (RAM) user.
+   *
+   * @param request DescribeUserPermissionsRequest
+   * @return DescribeUserPermissionsResponse
+   */
   async describeUserPermissions(request: DescribeUserPermissionsRequest): Promise<DescribeUserPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserPermissionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+   *
+   * @param request DetachClusterFromHubRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachClusterFromHubResponse
+   */
   async detachClusterFromHubWithOptions(request: DetachClusterFromHubRequest, runtime: $Util.RuntimeOptions): Promise<DetachClusterFromHubResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3977,11 +4516,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachClusterFromHubResponse>(await this.callApi(params, req, runtime), new DetachClusterFromHubResponse({}));
   }
 
+  /**
+   * @summary Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+   *
+   * @param request DetachClusterFromHubRequest
+   * @return DetachClusterFromHubResponse
+   */
   async detachClusterFromHub(request: DetachClusterFromHubRequest): Promise<DetachClusterFromHubResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachClusterFromHubWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Schema of Response
+   *
+   * @param request GrantUserPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantUserPermissionResponse
+   */
   async grantUserPermissionWithOptions(request: GrantUserPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantUserPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4026,17 +4578,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantUserPermissionResponse>(await this.callApi(params, req, runtime), new GrantUserPermissionResponse({}));
   }
 
+  /**
+   * @summary Schema of Response
+   *
+   * @param request GrantUserPermissionRequest
+   * @return GrantUserPermissionResponse
+   */
   async grantUserPermission(request: GrantUserPermissionRequest): Promise<GrantUserPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantUserPermissionWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead.
-    *
-    * @param tmpReq GrantUserPermissionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantUserPermissionsResponse
+   * @deprecated OpenAPI GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead.
+   *
+   * @summary Grant permissions to a Resource Access Management (RAM) user.
+   *
+   * @param tmpReq GrantUserPermissionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantUserPermissionsResponse
    */
   // Deprecated
   async grantUserPermissionsWithOptions(tmpReq: GrantUserPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<GrantUserPermissionsResponse> {
@@ -4074,10 +4634,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead.
-    *
-    * @param request GrantUserPermissionsRequest
-    * @return GrantUserPermissionsResponse
+   * @deprecated OpenAPI GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead.
+   *
+   * @summary Grant permissions to a Resource Access Management (RAM) user.
+   *
+   * @param request GrantUserPermissionsRequest
+   * @return GrantUserPermissionsResponse
    */
   // Deprecated
   async grantUserPermissions(request: GrantUserPermissionsRequest): Promise<GrantUserPermissionsResponse> {
@@ -4085,6 +4647,13 @@ export default class Client extends OpenApi {
     return await this.grantUserPermissionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the configurations of a Container Service for Kubernetes (ACK) cluster that serves as a master instance.
+   *
+   * @param tmpReq UpdateHubClusterFeatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateHubClusterFeatureResponse
+   */
   async updateHubClusterFeatureWithOptions(tmpReq: UpdateHubClusterFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHubClusterFeatureResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateHubClusterFeatureShrinkRequest({ });
@@ -4187,11 +4756,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateHubClusterFeatureResponse>(await this.callApi(params, req, runtime), new UpdateHubClusterFeatureResponse({}));
   }
 
+  /**
+   * @summary Updates the configurations of a Container Service for Kubernetes (ACK) cluster that serves as a master instance.
+   *
+   * @param request UpdateHubClusterFeatureRequest
+   * @return UpdateHubClusterFeatureResponse
+   */
   async updateHubClusterFeature(request: UpdateHubClusterFeatureRequest): Promise<UpdateHubClusterFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateHubClusterFeatureWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the role-based access control (RBAC) permissions of a RAM user.
+   *
+   * @param request UpdateUserPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserPermissionResponse
+   */
   async updateUserPermissionWithOptions(request: UpdateUserPermissionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4232,6 +4814,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserPermissionResponse>(await this.callApi(params, req, runtime), new UpdateUserPermissionResponse({}));
   }
 
+  /**
+   * @summary Updates the role-based access control (RBAC) permissions of a RAM user.
+   *
+   * @param request UpdateUserPermissionRequest
+   * @return UpdateUserPermissionResponse
+   */
   async updateUserPermission(request: UpdateUserPermissionRequest): Promise<UpdateUserPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserPermissionWithOptions(request, runtime);
