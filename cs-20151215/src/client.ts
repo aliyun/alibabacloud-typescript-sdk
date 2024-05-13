@@ -13364,6 +13364,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary You can call the AttachInstances operation to add existing Elastic Compute Service (ECS) instances to a cluster.
+   *
+   * @param request AttachInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachInstancesResponse
+   */
   async attachInstancesWithOptions(ClusterId: string, request: AttachInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AttachInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13437,12 +13445,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachInstancesResponse>(await this.callApi(params, req, runtime), new AttachInstancesResponse({}));
   }
 
+  /**
+   * @summary You can call the AttachInstances operation to add existing Elastic Compute Service (ECS) instances to a cluster.
+   *
+   * @param request AttachInstancesRequest
+   * @return AttachInstancesResponse
+   */
   async attachInstances(ClusterId: string, request: AttachInstancesRequest): Promise<AttachInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.attachInstancesWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the AttachInstancesToNodePool operation to add existing nodes to a node pool.
+   *
+   * @param request AttachInstancesToNodePoolRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachInstancesToNodePoolResponse
+   */
   async attachInstancesToNodePoolWithOptions(ClusterId: string, NodepoolId: string, request: AttachInstancesToNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AttachInstancesToNodePoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13480,6 +13502,12 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachInstancesToNodePoolResponse>(await this.callApi(params, req, runtime), new AttachInstancesToNodePoolResponse({}));
   }
 
+  /**
+   * @summary You can call the AttachInstancesToNodePool operation to add existing nodes to a node pool.
+   *
+   * @param request AttachInstancesToNodePoolRequest
+   * @return AttachInstancesToNodePoolResponse
+   */
   async attachInstancesToNodePool(ClusterId: string, NodepoolId: string, request: AttachInstancesToNodePoolRequest): Promise<AttachInstancesToNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13487,11 +13515,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CancelClusterUpgradeResponse
+   * @deprecated OpenAPI CancelClusterUpgrade is deprecated
+   *
+   * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelClusterUpgradeResponse
    */
   // Deprecated
   async cancelClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelClusterUpgradeResponse> {
@@ -13513,9 +13543,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @return CancelClusterUpgradeResponse
+   * @deprecated OpenAPI CancelClusterUpgrade is deprecated
+   *
+   * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+   *
+   * @return CancelClusterUpgradeResponse
    */
   // Deprecated
   async cancelClusterUpgrade(ClusterId: string): Promise<CancelClusterUpgradeResponse> {
@@ -13524,6 +13556,13 @@ export default class Client extends OpenApi {
     return await this.cancelClusterUpgradeWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelComponentUpgradeResponse
+   */
   async cancelComponentUpgradeWithOptions(clusterId: string, componentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelComponentUpgradeResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -13542,12 +13581,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelComponentUpgradeResponse>(await this.callApi(params, req, runtime), new CancelComponentUpgradeResponse({}));
   }
 
+  /**
+   * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+   *
+   * @return CancelComponentUpgradeResponse
+   */
   async cancelComponentUpgrade(clusterId: string, componentId: string): Promise<CancelComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelComponentUpgradeWithOptions(clusterId, componentId, headers, runtime);
   }
 
+  /**
+   * @summary 取消自动运维执行计划
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelOperationPlanResponse
+   */
   async cancelOperationPlanWithOptions(planId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelOperationPlanResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -13566,12 +13617,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelOperationPlanResponse>(await this.callApi(params, req, runtime), new CancelOperationPlanResponse({}));
   }
 
+  /**
+   * @summary 取消自动运维执行计划
+   *
+   * @return CancelOperationPlanResponse
+   */
   async cancelOperationPlan(planId: string): Promise<CancelOperationPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelOperationPlanWithOptions(planId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the CancelTask operation to cancel a task.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelTaskResponse
+   */
   async cancelTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -13590,12 +13653,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
+  /**
+   * @summary You can call the CancelTask operation to cancel a task.
+   *
+   * @return CancelTaskResponse
+   */
   async cancelTask(taskId: string): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelTaskWithOptions(taskId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the CancelWorkflow operation to cancel an ongoing workflow.
+   *
+   * @param request CancelWorkflowRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelWorkflowResponse
+   */
   async cancelWorkflowWithOptions(workflowName: string, request: CancelWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelWorkflowResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13621,12 +13697,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelWorkflowResponse>(await this.callApi(params, req, runtime), new CancelWorkflowResponse({}));
   }
 
+  /**
+   * @summary You can call the CancelWorkflow operation to cancel an ongoing workflow.
+   *
+   * @param request CancelWorkflowRequest
+   * @return CancelWorkflowResponse
+   */
   async cancelWorkflow(workflowName: string, request: CancelWorkflowRequest): Promise<CancelWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelWorkflowWithOptions(workflowName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckControlPlaneLogEnableResponse
+   */
   async checkControlPlaneLogEnableWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckControlPlaneLogEnableResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -13645,12 +13734,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckControlPlaneLogEnableResponse>(await this.callApi(params, req, runtime), new CheckControlPlaneLogEnableResponse({}));
   }
 
+  /**
+   * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+   *
+   * @return CheckControlPlaneLogEnableResponse
+   */
   async checkControlPlaneLogEnable(ClusterId: string): Promise<CheckControlPlaneLogEnableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkControlPlaneLogEnableWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
+   *
+   * @param request CreateAutoscalingConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAutoscalingConfigResponse
+   */
   async createAutoscalingConfigWithOptions(ClusterId: string, request: CreateAutoscalingConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAutoscalingConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -13728,6 +13830,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAutoscalingConfigResponse>(await this.callApi(params, req, runtime), new CreateAutoscalingConfigResponse({}));
   }
 
+  /**
+   * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
+   *
+   * @param request CreateAutoscalingConfigRequest
+   * @return CreateAutoscalingConfigResponse
+   */
   async createAutoscalingConfig(ClusterId: string, request: CreateAutoscalingConfigRequest): Promise<CreateAutoscalingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -13735,18 +13843,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
-    * *   [Create an ACK managed cluster](~~90776~~)
-    * *   [Create an ACK dedicated cluster](~~197620~~)
-    * *   [Create an ACK Serverless cluster](~~144246~~)
-    * *   [Create an ACK Edge cluster](~~128204~~)
-    * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
-    * *   [Create an ACK Pro cluster that supports sandboxed containers](~~140623~~)
-    *
-    * @param request CreateClusterRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateClusterResponse
+   * @summary You can call the CreateCluster operation to create a Container Service for Kubernetes (ACK) cluster. ACK clusters include ACK managed clusters, ACK dedicated clusters, ACK Serverless clusters, ACK Edge clusters, ACK clusters that support sandboxed containers, and registered clusters. For more information about how to create different types of ACK clusters, see the following usage notes.
+   *
+   * @description This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
+   * *   [Create an ACK managed cluster](https://help.aliyun.com/document_detail/90776.html)
+   * *   [Create an ACK dedicated cluster](https://help.aliyun.com/document_detail/197620.html)
+   * *   [Create an ACK Serverless cluster](https://help.aliyun.com/document_detail/144246.html)
+   * *   [Create an ACK Edge cluster](https://help.aliyun.com/document_detail/128204.html)
+   * *   [Create an ACK Basic cluster that supports sandboxed containers](https://help.aliyun.com/document_detail/196321.html)
+   * *   [Create an ACK Pro cluster that supports sandboxed containers](https://help.aliyun.com/document_detail/140623.html)
+   *
+   * @param request CreateClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClusterResponse
    */
   async createClusterWithOptions(request: CreateClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
@@ -14134,16 +14244,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
-    * *   [Create an ACK managed cluster](~~90776~~)
-    * *   [Create an ACK dedicated cluster](~~197620~~)
-    * *   [Create an ACK Serverless cluster](~~144246~~)
-    * *   [Create an ACK Edge cluster](~~128204~~)
-    * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
-    * *   [Create an ACK Pro cluster that supports sandboxed containers](~~140623~~)
-    *
-    * @param request CreateClusterRequest
-    * @return CreateClusterResponse
+   * @summary You can call the CreateCluster operation to create a Container Service for Kubernetes (ACK) cluster. ACK clusters include ACK managed clusters, ACK dedicated clusters, ACK Serverless clusters, ACK Edge clusters, ACK clusters that support sandboxed containers, and registered clusters. For more information about how to create different types of ACK clusters, see the following usage notes.
+   *
+   * @description This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
+   * *   [Create an ACK managed cluster](https://help.aliyun.com/document_detail/90776.html)
+   * *   [Create an ACK dedicated cluster](https://help.aliyun.com/document_detail/197620.html)
+   * *   [Create an ACK Serverless cluster](https://help.aliyun.com/document_detail/144246.html)
+   * *   [Create an ACK Edge cluster](https://help.aliyun.com/document_detail/128204.html)
+   * *   [Create an ACK Basic cluster that supports sandboxed containers](https://help.aliyun.com/document_detail/196321.html)
+   * *   [Create an ACK Pro cluster that supports sandboxed containers](https://help.aliyun.com/document_detail/140623.html)
+   *
+   * @param request CreateClusterRequest
+   * @return CreateClusterResponse
    */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14151,6 +14263,14 @@ export default class Client extends OpenApi {
     return await this.createClusterWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the CreateClusterNodePool operation to create a node pool for a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request CreateClusterNodePoolRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClusterNodePoolResponse
+   */
   async createClusterNodePoolWithOptions(ClusterId: string, request: CreateClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterNodePoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14216,12 +14336,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClusterNodePoolResponse>(await this.callApi(params, req, runtime), new CreateClusterNodePoolResponse({}));
   }
 
+  /**
+   * @summary You can call the CreateClusterNodePool operation to create a node pool for a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request CreateClusterNodePoolRequest
+   * @return CreateClusterNodePoolResponse
+   */
   async createClusterNodePool(ClusterId: string, request: CreateClusterNodePoolRequest): Promise<CreateClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createClusterNodePoolWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the CreateEdgeMachine operation to activate a cloud-native box.
+   *
+   * @param request CreateEdgeMachineRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEdgeMachineResponse
+   */
   async createEdgeMachineWithOptions(request: CreateEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateEdgeMachineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14255,12 +14389,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEdgeMachineResponse>(await this.callApi(params, req, runtime), new CreateEdgeMachineResponse({}));
   }
 
+  /**
+   * @summary You can call the CreateEdgeMachine operation to activate a cloud-native box.
+   *
+   * @param request CreateEdgeMachineRequest
+   * @return CreateEdgeMachineResponse
+   */
   async createEdgeMachine(request: CreateEdgeMachineRequest): Promise<CreateEdgeMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createEdgeMachineWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+   *
+   * @param request CreateKubernetesTriggerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateKubernetesTriggerResponse
+   */
   async createKubernetesTriggerWithOptions(request: CreateKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateKubernetesTriggerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14298,12 +14446,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new CreateKubernetesTriggerResponse({}));
   }
 
+  /**
+   * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+   *
+   * @param request CreateKubernetesTriggerRequest
+   * @return CreateKubernetesTriggerResponse
+   */
   async createKubernetesTrigger(request: CreateKubernetesTriggerRequest): Promise<CreateKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createKubernetesTriggerWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+   *
+   * @param request CreateTemplateRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTemplateResponse
+   */
   async createTemplateWithOptions(request: CreateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14345,12 +14507,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+   *
+   * @param request CreateTemplateRequest
+   * @return CreateTemplateResponse
+   */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTemplateWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the CreateTrigger operation to create a trigger for an application.
+   *
+   * @param request CreateTriggerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTriggerResponse
+   */
   async createTriggerWithOptions(clusterId: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14388,12 +14564,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
+  /**
+   * @summary You can call the CreateTrigger operation to create a trigger for an application.
+   *
+   * @param request CreateTriggerRequest
+   * @return CreateTriggerResponse
+   */
   async createTrigger(clusterId: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTriggerWithOptions(clusterId, request, headers, runtime);
   }
 
+  /**
+   * @param tmpReq DeleteAlertContactRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAlertContactResponse
+   */
   async deleteAlertContactWithOptions(tmpReq: DeleteAlertContactRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteAlertContactShrinkRequest({ });
@@ -14425,12 +14613,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertContactResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactResponse({}));
   }
 
+  /**
+   * @param request DeleteAlertContactRequest
+   * @return DeleteAlertContactResponse
+   */
   async deleteAlertContact(request: DeleteAlertContactRequest): Promise<DeleteAlertContactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAlertContactWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param tmpReq DeleteAlertContactGroupRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAlertContactGroupResponse
+   */
   async deleteAlertContactGroupWithOptions(tmpReq: DeleteAlertContactGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteAlertContactGroupShrinkRequest({ });
@@ -14462,12 +14660,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAlertContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactGroupResponse({}));
   }
 
+  /**
+   * @param request DeleteAlertContactGroupRequest
+   * @return DeleteAlertContactGroupResponse
+   */
   async deleteAlertContactGroup(request: DeleteAlertContactGroupRequest): Promise<DeleteAlertContactGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAlertContactGroupWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DeleteCluster operation to delete a cluster by cluster ID and release all nodes in the cluster.
+   *
+   * @param tmpReq DeleteClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteClusterResponse
+   */
   async deleteClusterWithOptions(ClusterId: string, tmpReq: DeleteClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteClusterShrinkRequest({ });
@@ -14515,12 +14725,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
+  /**
+   * @summary You can call the DeleteCluster operation to delete a cluster by cluster ID and release all nodes in the cluster.
+   *
+   * @param request DeleteClusterRequest
+   * @return DeleteClusterResponse
+   */
   async deleteCluster(ClusterId: string, request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteClusterWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DeleteClusterNodepool operation to delete a node pool by node pool ID.
+   *
+   * @param request DeleteClusterNodepoolRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteClusterNodepoolResponse
+   */
   async deleteClusterNodepoolWithOptions(ClusterId: string, NodepoolId: string, request: DeleteClusterNodepoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterNodepoolResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -14546,6 +14770,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterNodepoolResponse>(await this.callApi(params, req, runtime), new DeleteClusterNodepoolResponse({}));
   }
 
+  /**
+   * @summary You can call the DeleteClusterNodepool operation to delete a node pool by node pool ID.
+   *
+   * @param request DeleteClusterNodepoolRequest
+   * @return DeleteClusterNodepoolResponse
+   */
   async deleteClusterNodepool(ClusterId: string, NodepoolId: string, request: DeleteClusterNodepoolRequest): Promise<DeleteClusterNodepoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14553,13 +14783,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
-    *
-    * @param request DeleteClusterNodesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteClusterNodesResponse
+   * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster. When you remove nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes. When you remove nodes, pods on the nodes are migrated. This may adversely affect your businesses. We recommend that you back up data and perform this operation during off-peak hours.
+   *
+   * @description > 
+   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+   *
+   * @param request DeleteClusterNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteClusterNodesResponse
    */
   async deleteClusterNodesWithOptions(ClusterId: string, request: DeleteClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteClusterNodesResponse> {
     Util.validateModel(request);
@@ -14595,11 +14827,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
-    *
-    * @param request DeleteClusterNodesRequest
-    * @return DeleteClusterNodesResponse
+   * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster. When you remove nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes. When you remove nodes, pods on the nodes are migrated. This may adversely affect your businesses. We recommend that you back up data and perform this operation during off-peak hours.
+   *
+   * @description > 
+   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+   *
+   * @param request DeleteClusterNodesRequest
+   * @return DeleteClusterNodesResponse
    */
   async deleteClusterNodes(ClusterId: string, request: DeleteClusterNodesRequest): Promise<DeleteClusterNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14607,6 +14841,14 @@ export default class Client extends OpenApi {
     return await this.deleteClusterNodesWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DeleteEdgeMachine operation to delete a cloud-native box.
+   *
+   * @param request DeleteEdgeMachineRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEdgeMachineResponse
+   */
   async deleteEdgeMachineWithOptions(edgeMachineid: string, request: DeleteEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeMachineResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -14632,12 +14874,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEdgeMachineResponse>(await this.callApi(params, req, runtime), new DeleteEdgeMachineResponse({}));
   }
 
+  /**
+   * @summary You can call the DeleteEdgeMachine operation to delete a cloud-native box.
+   *
+   * @param request DeleteEdgeMachineRequest
+   * @return DeleteEdgeMachineResponse
+   */
   async deleteEdgeMachine(edgeMachineid: string, request: DeleteEdgeMachineRequest): Promise<DeleteEdgeMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteEdgeMachineWithOptions(edgeMachineid, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteKubernetesTriggerResponse
+   */
   async deleteKubernetesTriggerWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteKubernetesTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14656,12 +14911,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new DeleteKubernetesTriggerResponse({}));
   }
 
+  /**
+   * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+   *
+   * @return DeleteKubernetesTriggerResponse
+   */
   async deleteKubernetesTrigger(Id: string): Promise<DeleteKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteKubernetesTriggerWithOptions(Id, headers, runtime);
   }
 
+  /**
+   * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request DeletePolicyInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePolicyInstanceResponse
+   */
   async deletePolicyInstanceWithOptions(clusterId: string, policyName: string, request: DeletePolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePolicyInstanceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -14687,12 +14955,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeletePolicyInstanceResponse({}));
   }
 
+  /**
+   * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request DeletePolicyInstanceRequest
+   * @return DeletePolicyInstanceResponse
+   */
   async deletePolicyInstance(clusterId: string, policyName: string, request: DeletePolicyInstanceRequest): Promise<DeletePolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deletePolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DeleteTemplate operation to delete an orchestration template by template ID.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTemplateResponse
+   */
   async deleteTemplateWithOptions(TemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14711,12 +14992,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
+  /**
+   * @summary You can call the DeleteTemplate operation to delete an orchestration template by template ID.
+   *
+   * @return DeleteTemplateResponse
+   */
   async deleteTemplate(TemplateId: string): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTemplateWithOptions(TemplateId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DeleteTrigger operation to delete an application trigger.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTriggerResponse
+   */
   async deleteTriggerWithOptions(clusterId: string, Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14735,12 +15028,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
   }
 
+  /**
+   * @summary You can call the DeleteTrigger operation to delete an application trigger.
+   *
+   * @return DeleteTriggerResponse
+   */
   async deleteTrigger(clusterId: string, Id: string): Promise<DeleteTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTriggerWithOptions(clusterId, Id, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DeployPolicyInstance operation to deploy a policy instance in a cluster.
+   *
+   * @param request DeployPolicyInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployPolicyInstanceResponse
+   */
   async deployPolicyInstanceWithOptions(clusterId: string, policyName: string, request: DeployPolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployPolicyInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -14774,12 +15080,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployPolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeployPolicyInstanceResponse({}));
   }
 
+  /**
+   * @summary You can call the DeployPolicyInstance operation to deploy a policy instance in a cluster.
+   *
+   * @param request DeployPolicyInstanceRequest
+   * @return DeployPolicyInstanceResponse
+   */
   async deployPolicyInstance(clusterId: string, policyName: string, request: DeployPolicyInstanceRequest): Promise<DeployPolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deployPolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescirbeWorkflow operation to query detailed information about a workflow.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescirbeWorkflowResponse
+   */
   async descirbeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescirbeWorkflowResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -14798,12 +15117,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescirbeWorkflowResponse>(await this.callApi(params, req, runtime), new DescirbeWorkflowResponse({}));
   }
 
+  /**
+   * @summary You can call the DescirbeWorkflow operation to query detailed information about a workflow.
+   *
+   * @return DescirbeWorkflowResponse
+   */
   async descirbeWorkflow(workflowName: string): Promise<DescirbeWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.descirbeWorkflowWithOptions(workflowName, headers, runtime);
   }
 
+  /**
+   * @summary 查询指定集群组件
+   *
+   * @param request DescribeAddonRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAddonResponse
+   */
   async describeAddonWithOptions(addonName: string, request: DescribeAddonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAddonResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -14853,6 +15185,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAddonResponse>(await this.callApi(params, req, runtime), new DescribeAddonResponse({}));
   }
 
+  /**
+   * @summary 查询指定集群组件
+   *
+   * @param request DescribeAddonRequest
+   * @return DescribeAddonResponse
+   */
   async describeAddon(addonName: string, request: DescribeAddonRequest): Promise<DescribeAddonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -14860,12 +15198,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeAddonsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeAddonsResponse
+   * @deprecated OpenAPI DescribeAddons is deprecated
+   *
+   * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+   *
+   * @param request DescribeAddonsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAddonsResponse
    */
   // Deprecated
   async describeAddonsWithOptions(request: DescribeAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAddonsResponse> {
@@ -14910,10 +15250,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeAddonsRequest
-    * @return DescribeAddonsResponse
+   * @deprecated OpenAPI DescribeAddons is deprecated
+   *
+   * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+   *
+   * @param request DescribeAddonsRequest
+   * @return DescribeAddonsResponse
    */
   // Deprecated
   async describeAddons(request: DescribeAddonsRequest): Promise<DescribeAddonsResponse> {
@@ -14923,11 +15265,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClusterAddonInstanceResponse
+   * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterAddonInstanceResponse
    */
   // Deprecated
   async describeClusterAddonInstanceWithOptions(ClusterID: string, AddonName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonInstanceResponse> {
@@ -14949,9 +15293,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @return DescribeClusterAddonInstanceResponse
+   * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+   *
+   * @return DescribeClusterAddonInstanceResponse
    */
   // Deprecated
   async describeClusterAddonInstance(ClusterID: string, AddonName: string): Promise<DescribeClusterAddonInstanceResponse> {
@@ -14961,12 +15307,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeClusterAddonMetadataRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClusterAddonMetadataResponse
+   * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+   *
+   * @param request DescribeClusterAddonMetadataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterAddonMetadataResponse
    */
   // Deprecated
   async describeClusterAddonMetadataWithOptions(clusterId: string, componentId: string, request: DescribeClusterAddonMetadataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonMetadataResponse> {
@@ -14995,10 +15343,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeClusterAddonMetadataRequest
-    * @return DescribeClusterAddonMetadataResponse
+   * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+   *
+   * @param request DescribeClusterAddonMetadataRequest
+   * @return DescribeClusterAddonMetadataResponse
    */
   // Deprecated
   async describeClusterAddonMetadata(clusterId: string, componentId: string, request: DescribeClusterAddonMetadataRequest): Promise<DescribeClusterAddonMetadataResponse> {
@@ -15008,11 +15358,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClusterAddonUpgradeStatusResponse
+   * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterAddonUpgradeStatusResponse
    */
   // Deprecated
   async describeClusterAddonUpgradeStatusWithOptions(ClusterId: string, ComponentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonUpgradeStatusResponse> {
@@ -15034,9 +15386,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @return DescribeClusterAddonUpgradeStatusResponse
+   * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+   *
+   * @return DescribeClusterAddonUpgradeStatusResponse
    */
   // Deprecated
   async describeClusterAddonUpgradeStatus(ClusterId: string, ComponentId: string): Promise<DescribeClusterAddonUpgradeStatusResponse> {
@@ -15046,12 +15400,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param tmpReq DescribeClusterAddonsUpgradeStatusRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClusterAddonsUpgradeStatusResponse
+   * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+   *
+   * @param tmpReq DescribeClusterAddonsUpgradeStatusRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterAddonsUpgradeStatusResponse
    */
   // Deprecated
   async describeClusterAddonsUpgradeStatusWithOptions(ClusterId: string, tmpReq: DescribeClusterAddonsUpgradeStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
@@ -15086,10 +15442,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeClusterAddonsUpgradeStatusRequest
-    * @return DescribeClusterAddonsUpgradeStatusResponse
+   * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+   *
+   * @param request DescribeClusterAddonsUpgradeStatusRequest
+   * @return DescribeClusterAddonsUpgradeStatusResponse
    */
   // Deprecated
   async describeClusterAddonsUpgradeStatus(ClusterId: string, request: DescribeClusterAddonsUpgradeStatusRequest): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
@@ -15099,11 +15457,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClusterAddonsVersionResponse
+   * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterAddonsVersionResponse
    */
   // Deprecated
   async describeClusterAddonsVersionWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonsVersionResponse> {
@@ -15125,9 +15485,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @return DescribeClusterAddonsVersionResponse
+   * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
+   *
+   * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+   *
+   * @return DescribeClusterAddonsVersionResponse
    */
   // Deprecated
   async describeClusterAddonsVersion(ClusterId: string): Promise<DescribeClusterAddonsVersionResponse> {
@@ -15136,6 +15498,14 @@ export default class Client extends OpenApi {
     return await this.describeClusterAddonsVersionWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the script that is used to add existing nodes to a Container Service for Kubernetes (ACK) cluster. You can manually add existing Elastic Compute Service (ECS) instances to an ACK cluster as worker nodes or re-add the worker nodes that you have removed to a node pool.
+   *
+   * @param request DescribeClusterAttachScriptsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterAttachScriptsResponse
+   */
   async describeClusterAttachScriptsWithOptions(ClusterId: string, request: DescribeClusterAttachScriptsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAttachScriptsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -15181,12 +15551,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAttachScriptsResponse>(await this.callApi(params, req, runtime), new DescribeClusterAttachScriptsResponse({}));
   }
 
+  /**
+   * @summary Queries the script that is used to add existing nodes to a Container Service for Kubernetes (ACK) cluster. You can manually add existing Elastic Compute Service (ECS) instances to an ACK cluster as worker nodes or re-add the worker nodes that you have removed to a node pool.
+   *
+   * @param request DescribeClusterAttachScriptsRequest
+   * @return DescribeClusterAttachScriptsResponse
+   */
   async describeClusterAttachScripts(ClusterId: string, request: DescribeClusterAttachScriptsRequest): Promise<DescribeClusterAttachScriptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterAttachScriptsWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeClusterDetail operation to query the details of a Container Service for Kubernetes (ACK) cluster by cluster ID.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterDetailResponse
+   */
   async describeClusterDetailWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterDetailResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15205,12 +15588,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterDetailResponse>(await this.callApi(params, req, runtime), new DescribeClusterDetailResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeClusterDetail operation to query the details of a Container Service for Kubernetes (ACK) cluster by cluster ID.
+   *
+   * @return DescribeClusterDetailResponse
+   */
   async describeClusterDetail(ClusterId: string): Promise<DescribeClusterDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterDetailWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary Queries events and event details in a Container Service for Kubernetes (ACK) cluster, including the severity level, status, and start time of each event. Events are generated when clusters created, modified, and updated, node pools are created and scaled out, and components are installed.
+   *
+   * @param request DescribeClusterEventsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterEventsResponse
+   */
   async describeClusterEventsWithOptions(ClusterId: string, request: DescribeClusterEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterEventsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15244,12 +15640,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterEventsResponse>(await this.callApi(params, req, runtime), new DescribeClusterEventsResponse({}));
   }
 
+  /**
+   * @summary Queries events and event details in a Container Service for Kubernetes (ACK) cluster, including the severity level, status, and start time of each event. Events are generated when clusters created, modified, and updated, node pools are created and scaled out, and components are installed.
+   *
+   * @param request DescribeClusterEventsRequest
+   * @return DescribeClusterEventsResponse
+   */
   async describeClusterEvents(ClusterId: string, request: DescribeClusterEventsRequest): Promise<DescribeClusterEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterEventsWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterLogsResponse
+   */
   async describeClusterLogsWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterLogsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15268,12 +15677,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterLogsResponse>(await this.callApi(params, req, runtime), new DescribeClusterLogsResponse({}));
   }
 
+  /**
+   * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+   *
+   * @return DescribeClusterLogsResponse
+   */
   async describeClusterLogs(ClusterId: string): Promise<DescribeClusterLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterLogsWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeClusterNodePoolDetail.html operation to query the details about a node pool in a cluster by node pool ID.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterNodePoolDetailResponse
+   */
   async describeClusterNodePoolDetailWithOptions(ClusterId: string, NodepoolId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodePoolDetailResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15292,12 +15713,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNodePoolDetailResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodePoolDetailResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeClusterNodePoolDetail.html operation to query the details about a node pool in a cluster by node pool ID.
+   *
+   * @return DescribeClusterNodePoolDetailResponse
+   */
   async describeClusterNodePoolDetail(ClusterId: string, NodepoolId: string): Promise<DescribeClusterNodePoolDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterNodePoolDetailWithOptions(ClusterId, NodepoolId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeClusterNodePools operation to query node pools in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request DescribeClusterNodePoolsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterNodePoolsResponse
+   */
   async describeClusterNodePoolsWithOptions(ClusterId: string, request: DescribeClusterNodePoolsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodePoolsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15323,12 +15757,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNodePoolsResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodePoolsResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeClusterNodePools operation to query node pools in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request DescribeClusterNodePoolsRequest
+   * @return DescribeClusterNodePoolsResponse
+   */
   async describeClusterNodePools(ClusterId: string, request: DescribeClusterNodePoolsRequest): Promise<DescribeClusterNodePoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterNodePoolsWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeClusterNodes operation to query the details about all nodes in a cluster by cluster ID.
+   *
+   * @param request DescribeClusterNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterNodesResponse
+   */
   async describeClusterNodesWithOptions(ClusterId: string, request: DescribeClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNodesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15370,12 +15818,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterNodesResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodesResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeClusterNodes operation to query the details about all nodes in a cluster by cluster ID.
+   *
+   * @param request DescribeClusterNodesRequest
+   * @return DescribeClusterNodesResponse
+   */
   async describeClusterNodes(ClusterId: string, request: DescribeClusterNodesRequest): Promise<DescribeClusterNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterNodesWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeClusterResources operation to query all resources in a cluster by cluster ID.
+   *
+   * @param request DescribeClusterResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterResourcesResponse
+   */
   async describeClusterResourcesWithOptions(ClusterId: string, request: DescribeClusterResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15401,12 +15863,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterResourcesResponse>(await this.callApi(params, req, runtime), new DescribeClusterResourcesResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeClusterResources operation to query all resources in a cluster by cluster ID.
+   *
+   * @param request DescribeClusterResourcesRequest
+   * @return DescribeClusterResourcesResponse
+   */
   async describeClusterResources(ClusterId: string, request: DescribeClusterResourcesRequest): Promise<DescribeClusterResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClusterResourcesWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries tasks in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request DescribeClusterTasksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterTasksResponse
+   */
   async describeClusterTasksWithOptions(clusterId: string, request: DescribeClusterTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterTasksResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15436,6 +15912,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterTasksResponse>(await this.callApi(params, req, runtime), new DescribeClusterTasksResponse({}));
   }
 
+  /**
+   * @summary Queries tasks in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request DescribeClusterTasksRequest
+   * @return DescribeClusterTasksResponse
+   */
   async describeClusterTasks(clusterId: string, request: DescribeClusterTasksRequest): Promise<DescribeClusterTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15443,13 +15925,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
-    *
-    * @param request DescribeClusterUserKubeconfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClusterUserKubeconfigResponse
+   * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+   *
+   * @description **
+   * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+   *
+   * @param request DescribeClusterUserKubeconfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterUserKubeconfigResponse
    */
   async describeClusterUserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterUserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterUserKubeconfigResponse> {
     Util.validateModel(request);
@@ -15481,11 +15965,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
-    *
-    * @param request DescribeClusterUserKubeconfigRequest
-    * @return DescribeClusterUserKubeconfigResponse
+   * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+   *
+   * @description **
+   * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+   *
+   * @param request DescribeClusterUserKubeconfigRequest
+   * @return DescribeClusterUserKubeconfigResponse
    */
   async describeClusterUserKubeconfig(ClusterId: string, request: DescribeClusterUserKubeconfigRequest): Promise<DescribeClusterUserKubeconfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15494,12 +15980,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeClusterV2UserKubeconfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClusterV2UserKubeconfigResponse
+   * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
+   *
+   * @summary 获取集群kubeconfig接口
+   *
+   * @param request DescribeClusterV2UserKubeconfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterV2UserKubeconfigResponse
    */
   // Deprecated
   async describeClusterV2UserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterV2UserKubeconfigResponse> {
@@ -15528,10 +16016,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeClusterV2UserKubeconfigRequest
-    * @return DescribeClusterV2UserKubeconfigResponse
+   * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
+   *
+   * @summary 获取集群kubeconfig接口
+   *
+   * @param request DescribeClusterV2UserKubeconfigRequest
+   * @return DescribeClusterV2UserKubeconfigResponse
    */
   // Deprecated
   async describeClusterV2UserKubeconfig(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest): Promise<DescribeClusterV2UserKubeconfigResponse> {
@@ -15540,6 +16030,13 @@ export default class Client extends OpenApi {
     return await this.describeClusterV2UserKubeconfigWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeClusterVuls operation to query the vulnerability information of a cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClusterVulsResponse
+   */
   async describeClusterVulsWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterVulsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15558,6 +16055,11 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterVulsResponse>(await this.callApi(params, req, runtime), new DescribeClusterVulsResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeClusterVuls operation to query the vulnerability information of a cluster.
+   *
+   * @return DescribeClusterVulsResponse
+   */
   async describeClusterVuls(clusterId: string): Promise<DescribeClusterVulsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15565,12 +16067,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeClustersRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeClustersResponse
+   * @deprecated OpenAPI DescribeClusters is deprecated
+   *
+   * @summary You can call the DescribeClusters operation to query all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+   *
+   * @param request DescribeClustersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClustersResponse
    */
   // Deprecated
   async describeClustersWithOptions(request: DescribeClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClustersResponse> {
@@ -15603,10 +16107,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DescribeClustersRequest
-    * @return DescribeClustersResponse
+   * @deprecated OpenAPI DescribeClusters is deprecated
+   *
+   * @summary You can call the DescribeClusters operation to query all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+   *
+   * @param request DescribeClustersRequest
+   * @return DescribeClustersResponse
    */
   // Deprecated
   async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
@@ -15615,6 +16121,14 @@ export default class Client extends OpenApi {
     return await this.describeClustersWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeClustersV1 operation to query the details about all Container Service for Kubernetes (ACK) clusters.
+   *
+   * @param request DescribeClustersV1Request
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClustersV1Response
+   */
   async describeClustersV1WithOptions(request: DescribeClustersV1Request, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClustersV1Response> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15668,12 +16182,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClustersV1Response>(await this.callApi(params, req, runtime), new DescribeClustersV1Response({}));
   }
 
+  /**
+   * @summary You can call the DescribeClustersV1 operation to query the details about all Container Service for Kubernetes (ACK) clusters.
+   *
+   * @param request DescribeClustersV1Request
+   * @return DescribeClustersV1Response
+   */
   async describeClustersV1(request: DescribeClustersV1Request): Promise<DescribeClustersV1Response> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeClustersV1WithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEdgeMachineActiveProcessResponse
+   */
   async describeEdgeMachineActiveProcessWithOptions(edgeMachineid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineActiveProcessResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15692,12 +16219,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEdgeMachineActiveProcessResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineActiveProcessResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
+   *
+   * @return DescribeEdgeMachineActiveProcessResponse
+   */
   async describeEdgeMachineActiveProcess(edgeMachineid: string): Promise<DescribeEdgeMachineActiveProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeEdgeMachineActiveProcessWithOptions(edgeMachineid, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEdgeMachineModelsResponse
+   */
   async describeEdgeMachineModelsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineModelsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15716,12 +16255,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEdgeMachineModelsResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineModelsResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
+   *
+   * @return DescribeEdgeMachineModelsResponse
+   */
   async describeEdgeMachineModels(): Promise<DescribeEdgeMachineModelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeEdgeMachineModelsWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEdgeMachineTunnelConfigDetailResponse
+   */
   async describeEdgeMachineTunnelConfigDetailWithOptions(edgeMachineid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineTunnelConfigDetailResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15740,12 +16291,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEdgeMachineTunnelConfigDetailResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineTunnelConfigDetailResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
+   *
+   * @return DescribeEdgeMachineTunnelConfigDetailResponse
+   */
   async describeEdgeMachineTunnelConfigDetail(edgeMachineid: string): Promise<DescribeEdgeMachineTunnelConfigDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeEdgeMachineTunnelConfigDetailWithOptions(edgeMachineid, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
+   *
+   * @param request DescribeEdgeMachinesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEdgeMachinesResponse
+   */
   async describeEdgeMachinesWithOptions(request: DescribeEdgeMachinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachinesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15791,12 +16355,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEdgeMachinesResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachinesResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
+   *
+   * @param request DescribeEdgeMachinesRequest
+   * @return DescribeEdgeMachinesResponse
+   */
   async describeEdgeMachines(request: DescribeEdgeMachinesRequest): Promise<DescribeEdgeMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeEdgeMachinesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about a type of events, including the severity level, status, and start time of each event. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+   *
+   * @param request DescribeEventsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEventsResponse
+   */
   async describeEventsWithOptions(request: DescribeEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15834,6 +16412,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about a type of events, including the severity level, status, and start time of each event. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+   *
+   * @param request DescribeEventsRequest
+   * @return DescribeEventsResponse
+   */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -15841,12 +16425,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information, see [Register an external Kubernetes cluster](~~121053~~).
-    *
-    * @param request DescribeExternalAgentRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeExternalAgentResponse
+   * @summary You can call the DescribeExternalAgent operation to query the agent configurations of a registered cluster by cluster ID.
+   *
+   * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+   *
+   * @param request DescribeExternalAgentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExternalAgentResponse
    */
   async describeExternalAgentWithOptions(ClusterId: string, request: DescribeExternalAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeExternalAgentResponse> {
     Util.validateModel(request);
@@ -15878,10 +16464,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information, see [Register an external Kubernetes cluster](~~121053~~).
-    *
-    * @param request DescribeExternalAgentRequest
-    * @return DescribeExternalAgentResponse
+   * @summary You can call the DescribeExternalAgent operation to query the agent configurations of a registered cluster by cluster ID.
+   *
+   * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+   *
+   * @param request DescribeExternalAgentRequest
+   * @return DescribeExternalAgentResponse
    */
   async describeExternalAgent(ClusterId: string, request: DescribeExternalAgentRequest): Promise<DescribeExternalAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15889,6 +16477,14 @@ export default class Client extends OpenApi {
     return await this.describeExternalAgentWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+   *
+   * @param request DescribeKubernetesVersionMetadataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeKubernetesVersionMetadataResponse
+   */
   async describeKubernetesVersionMetadataWithOptions(request: DescribeKubernetesVersionMetadataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeKubernetesVersionMetadataResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15934,12 +16530,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKubernetesVersionMetadataResponse>(await this.callApi(params, req, runtime), new DescribeKubernetesVersionMetadataResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+   *
+   * @param request DescribeKubernetesVersionMetadataRequest
+   * @return DescribeKubernetesVersionMetadataResponse
+   */
   async describeKubernetesVersionMetadata(request: DescribeKubernetesVersionMetadataRequest): Promise<DescribeKubernetesVersionMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeKubernetesVersionMetadataWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+   *
+   * @param request DescribeNodePoolVulsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNodePoolVulsResponse
+   */
   async describeNodePoolVulsWithOptions(clusterId: string, nodepoolId: string, request: DescribeNodePoolVulsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeNodePoolVulsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -15965,12 +16575,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNodePoolVulsResponse>(await this.callApi(params, req, runtime), new DescribeNodePoolVulsResponse({}));
   }
 
+  /**
+   * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+   *
+   * @param request DescribeNodePoolVulsRequest
+   * @return DescribeNodePoolVulsResponse
+   */
   async describeNodePoolVuls(clusterId: string, nodepoolId: string, request: DescribeNodePoolVulsRequest): Promise<DescribeNodePoolVulsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribePolicies operation to query a list of policies.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePoliciesResponse
+   */
   async describePoliciesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePoliciesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -15989,12 +16612,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePoliciesResponse>(await this.callApi(params, req, runtime), new DescribePoliciesResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribePolicies operation to query a list of policies.
+   *
+   * @return DescribePoliciesResponse
+   */
   async describePolicies(): Promise<DescribePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describePoliciesWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary Container security policies for Container Service for Kubernetes (ACK) clusters offer a variety of built-in policies, including cis-k8s, infra, k8s-general, and PodSecurityPolicy. You can use these policies to ensure the security of containers running in a production environment. You can call the DescribePolicyDetails operation to query information about a policy, such as the content, action, and severity level of the policy.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyDetailsResponse
+   */
   async describePolicyDetailsWithOptions(policyName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyDetailsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16013,12 +16648,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyDetailsResponse>(await this.callApi(params, req, runtime), new DescribePolicyDetailsResponse({}));
   }
 
+  /**
+   * @summary Container security policies for Container Service for Kubernetes (ACK) clusters offer a variety of built-in policies, including cis-k8s, infra, k8s-general, and PodSecurityPolicy. You can use these policies to ensure the security of containers running in a production environment. You can call the DescribePolicyDetails operation to query information about a policy, such as the content, action, and severity level of the policy.
+   *
+   * @return DescribePolicyDetailsResponse
+   */
   async describePolicyDetails(policyName: string): Promise<DescribePolicyDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describePolicyDetailsWithOptions(policyName, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribePolicyGovernanceInCluster operation to query information about policies in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyGovernanceInClusterResponse
+   */
   async describePolicyGovernanceInClusterWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyGovernanceInClusterResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16037,12 +16684,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyGovernanceInClusterResponse>(await this.callApi(params, req, runtime), new DescribePolicyGovernanceInClusterResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribePolicyGovernanceInCluster operation to query information about policies in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @return DescribePolicyGovernanceInClusterResponse
+   */
   async describePolicyGovernanceInCluster(clusterId: string): Promise<DescribePolicyGovernanceInClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describePolicyGovernanceInClusterWithOptions(clusterId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+   *
+   * @param request DescribePolicyInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyInstancesResponse
+   */
   async describePolicyInstancesWithOptions(clusterId: string, request: DescribePolicyInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -16072,12 +16732,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyInstancesResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+   *
+   * @param request DescribePolicyInstancesRequest
+   * @return DescribePolicyInstancesResponse
+   */
   async describePolicyInstances(clusterId: string, request: DescribePolicyInstancesRequest): Promise<DescribePolicyInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describePolicyInstancesWithOptions(clusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolicyInstancesStatusResponse
+   */
   async describePolicyInstancesStatusWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribePolicyInstancesStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16096,6 +16769,11 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolicyInstancesStatusResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+   *
+   * @return DescribePolicyInstancesStatusResponse
+   */
   async describePolicyInstancesStatus(clusterId: string): Promise<DescribePolicyInstancesStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16103,13 +16781,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****Only Alibaba Cloud accounts can call this API operation.
-    *
-    * @param request DescribeSubaccountK8sClusterUserConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSubaccountK8sClusterUserConfigResponse
+   * @summary You can use an Alibaba Cloud account to call the DescribeSubaccountK8sClusterUserConfig operation to obtain the cluster kubeconfig file of a RAM user or RAM role.
+   *
+   * @description **
+   * ****Only Alibaba Cloud accounts can call this API operation.
+   *
+   * @param request DescribeSubaccountK8sClusterUserConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSubaccountK8sClusterUserConfigResponse
    */
   async describeSubaccountK8sClusterUserConfigWithOptions(ClusterId: string, Uid: string, request: DescribeSubaccountK8sClusterUserConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSubaccountK8sClusterUserConfigResponse> {
     Util.validateModel(request);
@@ -16141,11 +16821,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****Only Alibaba Cloud accounts can call this API operation.
-    *
-    * @param request DescribeSubaccountK8sClusterUserConfigRequest
-    * @return DescribeSubaccountK8sClusterUserConfigResponse
+   * @summary You can use an Alibaba Cloud account to call the DescribeSubaccountK8sClusterUserConfig operation to obtain the cluster kubeconfig file of a RAM user or RAM role.
+   *
+   * @description **
+   * ****Only Alibaba Cloud accounts can call this API operation.
+   *
+   * @param request DescribeSubaccountK8sClusterUserConfigRequest
+   * @return DescribeSubaccountK8sClusterUserConfigResponse
    */
   async describeSubaccountK8sClusterUserConfig(ClusterId: string, Uid: string, request: DescribeSubaccountK8sClusterUserConfigRequest): Promise<DescribeSubaccountK8sClusterUserConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16153,6 +16835,13 @@ export default class Client extends OpenApi {
     return await this.describeSubaccountK8sClusterUserConfigWithOptions(ClusterId, Uid, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about a task, such as the task type, status, and progress.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTaskInfoResponse
+   */
   async describeTaskInfoWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTaskInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16171,12 +16860,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTaskInfoResponse>(await this.callApi(params, req, runtime), new DescribeTaskInfoResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about a task, such as the task type, status, and progress.
+   *
+   * @return DescribeTaskInfoResponse
+   */
   async describeTaskInfo(taskId: string): Promise<DescribeTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTaskInfoWithOptions(taskId, headers, runtime);
   }
 
+  /**
+   * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+   *
+   * @param request DescribeTemplateAttributeRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTemplateAttributeResponse
+   */
   async describeTemplateAttributeWithOptions(TemplateId: string, request: DescribeTemplateAttributeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateAttributeResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -16202,12 +16904,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplateAttributeResponse>(await this.callApi(params, req, runtime), new DescribeTemplateAttributeResponse({}));
   }
 
+  /**
+   * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+   *
+   * @param request DescribeTemplateAttributeRequest
+   * @return DescribeTemplateAttributeResponse
+   */
   async describeTemplateAttribute(TemplateId: string, request: DescribeTemplateAttributeRequest): Promise<DescribeTemplateAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTemplateAttributeWithOptions(TemplateId, request, headers, runtime);
   }
 
+  /**
+   * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+   *
+   * @param request DescribeTemplatesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTemplatesResponse
+   */
   async describeTemplatesWithOptions(request: DescribeTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTemplatesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -16241,12 +16957,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeTemplatesResponse({}));
   }
 
+  /**
+   * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+   *
+   * @param request DescribeTemplatesRequest
+   * @return DescribeTemplatesResponse
+   */
   async describeTemplates(request: DescribeTemplatesRequest): Promise<DescribeTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTemplatesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeTrigger operation to query triggers.
+   *
+   * @param request DescribeTriggerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTriggerResponse
+   */
   async describeTriggerWithOptions(clusterId: string, request: DescribeTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTriggerResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -16284,12 +17014,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTriggerResponse>(await this.callApi(params, req, runtime), new DescribeTriggerResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeTrigger operation to query triggers.
+   *
+   * @param request DescribeTriggerRequest
+   * @return DescribeTriggerResponse
+   */
   async describeTrigger(clusterId: string, request: DescribeTriggerRequest): Promise<DescribeTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTriggerWithOptions(clusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the Role-Based Access Control (RBAC) permissions that are granted to the current Resource Access Management (RAM) user or RAM role on a Container Service for Kubernetes (ACK) cluster. You can use Kubernetes namespaces to limit users from accessing resources in an ACK cluster. Users that are granted RBAC permissions only on one namespace cannot access resources in other namespaces.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserClusterNamespacesResponse
+   */
   async describeUserClusterNamespacesWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeUserClusterNamespacesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16308,12 +17051,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserClusterNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeUserClusterNamespacesResponse({}));
   }
 
+  /**
+   * @summary Queries the Role-Based Access Control (RBAC) permissions that are granted to the current Resource Access Management (RAM) user or RAM role on a Container Service for Kubernetes (ACK) cluster. You can use Kubernetes namespaces to limit users from accessing resources in an ACK cluster. Users that are granted RBAC permissions only on one namespace cannot access resources in other namespaces.
+   *
+   * @return DescribeUserClusterNamespacesResponse
+   */
   async describeUserClusterNamespaces(ClusterId: string): Promise<DescribeUserClusterNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeUserClusterNamespacesWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserPermissionResponse
+   */
   async describeUserPermissionWithOptions(uid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeUserPermissionResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16332,12 +17087,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserPermissionResponse>(await this.callApi(params, req, runtime), new DescribeUserPermissionResponse({}));
   }
 
+  /**
+   * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+   *
+   * @return DescribeUserPermissionResponse
+   */
   async describeUserPermission(uid: string): Promise<DescribeUserPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeUserPermissionWithOptions(uid, headers, runtime);
   }
 
+  /**
+   * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserQuotaResponse
+   */
   async describeUserQuotaWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeUserQuotaResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16356,12 +17123,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserQuotaResponse>(await this.callApi(params, req, runtime), new DescribeUserQuotaResponse({}));
   }
 
+  /**
+   * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+   *
+   * @return DescribeUserQuotaResponse
+   */
   async describeUserQuota(): Promise<DescribeUserQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeUserQuotaWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeWorkflows operation to query all workflows.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWorkflowsResponse
+   */
   async describeWorkflowsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16380,12 +17159,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWorkflowsResponse>(await this.callApi(params, req, runtime), new DescribeWorkflowsResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeWorkflows operation to query all workflows.
+   *
+   * @return DescribeWorkflowsResponse
+   */
   async describeWorkflows(): Promise<DescribeWorkflowsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeWorkflowsWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
+   *
+   * @param request EdgeClusterAddEdgeMachineRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EdgeClusterAddEdgeMachineResponse
+   */
   async edgeClusterAddEdgeMachineWithOptions(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EdgeClusterAddEdgeMachineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16419,6 +17211,12 @@ export default class Client extends OpenApi {
     return $tea.cast<EdgeClusterAddEdgeMachineResponse>(await this.callApi(params, req, runtime), new EdgeClusterAddEdgeMachineResponse({}));
   }
 
+  /**
+   * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
+   *
+   * @param request EdgeClusterAddEdgeMachineRequest
+   * @return EdgeClusterAddEdgeMachineResponse
+   */
   async edgeClusterAddEdgeMachine(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest): Promise<EdgeClusterAddEdgeMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16426,15 +17224,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
-    * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
-    * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
-    * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
-    *
-    * @param request FixNodePoolVulsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return FixNodePoolVulsResponse
+   * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+   *
+   * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+   * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
+   * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
+   * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+   *
+   * @param request FixNodePoolVulsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FixNodePoolVulsResponse
    */
   async fixNodePoolVulsWithOptions(clusterId: string, nodepoolId: string, request: FixNodePoolVulsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FixNodePoolVulsResponse> {
     Util.validateModel(request);
@@ -16474,13 +17274,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
-    * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
-    * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
-    * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
-    *
-    * @param request FixNodePoolVulsRequest
-    * @return FixNodePoolVulsResponse
+   * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+   *
+   * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+   * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
+   * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
+   * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+   *
+   * @param request FixNodePoolVulsRequest
+   * @return FixNodePoolVulsResponse
    */
   async fixNodePoolVuls(clusterId: string, nodepoolId: string, request: FixNodePoolVulsRequest): Promise<FixNodePoolVulsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16488,6 +17290,13 @@ export default class Client extends OpenApi {
     return await this.fixNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterAddonInstanceResponse
+   */
   async getClusterAddonInstanceWithOptions(clusterId: string, instanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterAddonInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16506,12 +17315,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterAddonInstanceResponse>(await this.callApi(params, req, runtime), new GetClusterAddonInstanceResponse({}));
   }
 
+  /**
+   * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+   *
+   * @return GetClusterAddonInstanceResponse
+   */
   async getClusterAddonInstance(clusterId: string, instanceName: string): Promise<GetClusterAddonInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getClusterAddonInstanceWithOptions(clusterId, instanceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterCheckResponse
+   */
   async getClusterCheckWithOptions(clusterId: string, checkId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterCheckResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16530,12 +17351,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClusterCheckResponse>(await this.callApi(params, req, runtime), new GetClusterCheckResponse({}));
   }
 
+  /**
+   * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+   *
+   * @return GetClusterCheckResponse
+   */
   async getClusterCheck(clusterId: string, checkId: string): Promise<GetClusterCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getClusterCheckWithOptions(clusterId, checkId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+   *
+   * @param request GetKubernetesTriggerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetKubernetesTriggerResponse
+   */
   async getKubernetesTriggerWithOptions(ClusterId: string, request: GetKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetKubernetesTriggerResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -16573,12 +17407,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new GetKubernetesTriggerResponse({}));
   }
 
+  /**
+   * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+   *
+   * @param request GetKubernetesTriggerRequest
+   * @return GetKubernetesTriggerResponse
+   */
   async getKubernetesTrigger(ClusterId: string, request: GetKubernetesTriggerRequest): Promise<GetKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getKubernetesTriggerWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUpgradeStatusResponse
+   */
   async getUpgradeStatusWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUpgradeStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16597,6 +17444,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUpgradeStatusResponse>(await this.callApi(params, req, runtime), new GetUpgradeStatusResponse({}));
   }
 
+  /**
+   * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+   *
+   * @return GetUpgradeStatusResponse
+   */
   async getUpgradeStatus(ClusterId: string): Promise<GetUpgradeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16604,15 +17456,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    * *   Make sure that you have granted the RAM user at least read-only permissions on the desired ACK clusters in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](~~86485~~).
-    * *   If you use a RAM user to call this API operation, make sure that the RAM user is authorized to modify the permissions of other RAM users on the desired ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](~~119035~~).
-    * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
-    *
-    * @param request GrantPermissionsRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantPermissionsResponse
+   * @summary You can call the GrantPermissions operation to grant a Resource Access Management (RAM) user the permissions to manage Container Service for Kubernetes (ACK) clusters.
+   *
+   * @description ****
+   * *   Make sure that you have granted the RAM user at least read-only permissions on the desired ACK clusters in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](https://help.aliyun.com/document_detail/86485.html).
+   * *   If you use a RAM user to call this API operation, make sure that the RAM user is authorized to modify the permissions of other RAM users on the desired ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+   * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
+   *
+   * @param request GrantPermissionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantPermissionsResponse
    */
   async grantPermissionsWithOptions(uid: string, request: GrantPermissionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GrantPermissionsResponse> {
     Util.validateModel(request);
@@ -16635,13 +17489,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    * *   Make sure that you have granted the RAM user at least read-only permissions on the desired ACK clusters in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](~~86485~~).
-    * *   If you use a RAM user to call this API operation, make sure that the RAM user is authorized to modify the permissions of other RAM users on the desired ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](~~119035~~).
-    * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
-    *
-    * @param request GrantPermissionsRequest
-    * @return GrantPermissionsResponse
+   * @summary You can call the GrantPermissions operation to grant a Resource Access Management (RAM) user the permissions to manage Container Service for Kubernetes (ACK) clusters.
+   *
+   * @description ****
+   * *   Make sure that you have granted the RAM user at least read-only permissions on the desired ACK clusters in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](https://help.aliyun.com/document_detail/86485.html).
+   * *   If you use a RAM user to call this API operation, make sure that the RAM user is authorized to modify the permissions of other RAM users on the desired ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+   * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
+   *
+   * @param request GrantPermissionsRequest
+   * @return GrantPermissionsResponse
    */
   async grantPermissions(uid: string, request: GrantPermissionsRequest): Promise<GrantPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16649,6 +17505,14 @@ export default class Client extends OpenApi {
     return await this.grantPermissionsWithOptions(uid, request, headers, runtime);
   }
 
+  /**
+   * @summary Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+   *
+   * @param request InstallClusterAddonsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InstallClusterAddonsResponse
+   */
   async installClusterAddonsWithOptions(ClusterId: string, request: InstallClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InstallClusterAddonsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -16669,12 +17533,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new InstallClusterAddonsResponse({}));
   }
 
+  /**
+   * @summary Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+   *
+   * @param request InstallClusterAddonsRequest
+   * @return InstallClusterAddonsResponse
+   */
   async installClusterAddons(ClusterId: string, request: InstallClusterAddonsRequest): Promise<InstallClusterAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.installClusterAddonsWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ListAddons operation to query all available components in a cluster. You can query all available components in a cluster by specifying the ID of the cluster. You can also specify parameters such as the region, cluster type, cluster subtype (profile), cluster specification, and cluster version to get a list of available components in clusters that meet the conditions.
+   *
+   * @param request ListAddonsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAddonsResponse
+   */
   async listAddonsWithOptions(request: ListAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAddonsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -16720,12 +17598,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAddonsResponse>(await this.callApi(params, req, runtime), new ListAddonsResponse({}));
   }
 
+  /**
+   * @summary You can call the ListAddons operation to query all available components in a cluster. You can query all available components in a cluster by specifying the ID of the cluster. You can also specify parameters such as the region, cluster type, cluster subtype (profile), cluster specification, and cluster version to get a list of available components in clusters that meet the conditions.
+   *
+   * @param request ListAddonsRequest
+   * @return ListAddonsResponse
+   */
   async listAddons(request: ListAddonsRequest): Promise<ListAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAddonsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ListClusterAddonInstances operation to query information about the components that are installed in a cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterAddonInstancesResponse
+   */
   async listClusterAddonInstancesWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterAddonInstancesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -16744,12 +17635,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterAddonInstancesResponse>(await this.callApi(params, req, runtime), new ListClusterAddonInstancesResponse({}));
   }
 
+  /**
+   * @summary You can call the ListClusterAddonInstances operation to query information about the components that are installed in a cluster.
+   *
+   * @return ListClusterAddonInstancesResponse
+   */
   async listClusterAddonInstances(clusterId: string): Promise<ListClusterAddonInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listClusterAddonInstancesWithOptions(clusterId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+   *
+   * @param request ListClusterChecksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterChecksResponse
+   */
   async listClusterChecksWithOptions(clusterId: string, request: ListClusterChecksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterChecksResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -16779,12 +17683,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClusterChecksResponse>(await this.callApi(params, req, runtime), new ListClusterChecksResponse({}));
   }
 
+  /**
+   * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+   *
+   * @param request ListClusterChecksRequest
+   * @return ListClusterChecksResponse
+   */
   async listClusterChecks(clusterId: string, request: ListClusterChecksRequest): Promise<ListClusterChecksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listClusterChecksWithOptions(clusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取自动运维执行计划列表
+   *
+   * @param request ListOperationPlansRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOperationPlansResponse
+   */
   async listOperationPlansWithOptions(request: ListOperationPlansRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOperationPlansResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -16814,12 +17732,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOperationPlansResponse>(await this.callApi(params, req, runtime), new ListOperationPlansResponse({}));
   }
 
+  /**
+   * @summary 获取自动运维执行计划列表
+   *
+   * @param request ListOperationPlansRequest
+   * @return ListOperationPlansResponse
+   */
   async listOperationPlans(request: ListOperationPlansRequest): Promise<ListOperationPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listOperationPlansWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+   *
+   * @param tmpReq ListTagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTagResourcesShrinkRequest({ });
@@ -16871,12 +17803,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Container Service for Kubernetes (ACK) Pro clusters are developed based on ACK Basic clusters. ACK Pro clusters provide all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. In addition, ACK Pro clusters provide you with enhanced reliability, security, and schedulability. ACK Pro clusters are covered by the SLA that supports compensation clauses. ACK Pro clusters are suitable for large-scale businesses that require high stability and security in production environments. We recommend that you migrate from ACK Basic clusters to ACK Pro clusters.
+   *
+   * @param request MigrateClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateClusterResponse
+   */
   async migrateClusterWithOptions(clusterId: string, request: MigrateClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MigrateClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16906,12 +17852,26 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateClusterResponse>(await this.callApi(params, req, runtime), new MigrateClusterResponse({}));
   }
 
+  /**
+   * @summary Container Service for Kubernetes (ACK) Pro clusters are developed based on ACK Basic clusters. ACK Pro clusters provide all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. In addition, ACK Pro clusters provide you with enhanced reliability, security, and schedulability. ACK Pro clusters are covered by the SLA that supports compensation clauses. ACK Pro clusters are suitable for large-scale businesses that require high stability and security in production environments. We recommend that you migrate from ACK Basic clusters to ACK Pro clusters.
+   *
+   * @param request MigrateClusterRequest
+   * @return MigrateClusterResponse
+   */
   async migrateCluster(clusterId: string, request: MigrateClusterRequest): Promise<MigrateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.migrateClusterWithOptions(clusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.
+   *
+   * @param request ModifyClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterResponse
+   */
   async modifyClusterWithOptions(ClusterId: string, request: ModifyClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -16989,6 +17949,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterResponse>(await this.callApi(params, req, runtime), new ModifyClusterResponse({}));
   }
 
+  /**
+   * @summary You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.
+   *
+   * @param request ModifyClusterRequest
+   * @return ModifyClusterResponse
+   */
   async modifyCluster(ClusterId: string, request: ModifyClusterRequest): Promise<ModifyClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -16996,15 +17962,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
-    * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
-    * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
-    * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
-    *
-    * @param request ModifyClusterAddonRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyClusterAddonResponse
+   * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+   *
+   * @description You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
+   * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
+   * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
+   * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
+   *
+   * @param request ModifyClusterAddonRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterAddonResponse
    */
   async modifyClusterAddonWithOptions(clusterId: string, componentId: string, request: ModifyClusterAddonRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterAddonResponse> {
     Util.validateModel(request);
@@ -17032,13 +18000,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
-    * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
-    * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
-    * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
-    *
-    * @param request ModifyClusterAddonRequest
-    * @return ModifyClusterAddonResponse
+   * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+   *
+   * @description You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
+   * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
+   * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
+   * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
+   *
+   * @param request ModifyClusterAddonRequest
+   * @return ModifyClusterAddonResponse
    */
   async modifyClusterAddon(clusterId: string, componentId: string, request: ModifyClusterAddonRequest): Promise<ModifyClusterAddonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17046,6 +18016,14 @@ export default class Client extends OpenApi {
     return await this.modifyClusterAddonWithOptions(clusterId, componentId, request, headers, runtime);
   }
 
+  /**
+   * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
+   *
+   * @param request ModifyClusterConfigurationRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterConfigurationResponse
+   */
   async modifyClusterConfigurationWithOptions(ClusterId: string, request: ModifyClusterConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterConfigurationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17071,12 +18049,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyClusterConfigurationResponse({}));
   }
 
+  /**
+   * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
+   *
+   * @param request ModifyClusterConfigurationRequest
+   * @return ModifyClusterConfigurationResponse
+   */
   async modifyClusterConfiguration(ClusterId: string, request: ModifyClusterConfigurationRequest): Promise<ModifyClusterConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modifyClusterConfigurationWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
+   *
+   * @param request ModifyClusterNodePoolRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterNodePoolResponse
+   */
   async modifyClusterNodePoolWithOptions(ClusterId: string, NodepoolId: string, request: ModifyClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterNodePoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17130,12 +18122,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterNodePoolResponse>(await this.callApi(params, req, runtime), new ModifyClusterNodePoolResponse({}));
   }
 
+  /**
+   * @summary You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
+   *
+   * @param request ModifyClusterNodePoolRequest
+   * @return ModifyClusterNodePoolResponse
+   */
   async modifyClusterNodePool(ClusterId: string, NodepoolId: string, request: ModifyClusterNodePoolRequest): Promise<ModifyClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modifyClusterNodePoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
+  /**
+   * @summary Modifies the labels of a Container Service for Kubernetes (ACK) cluster. You can use labels (key-value pairs) to classify and manage ACK clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+   *
+   * @param request ModifyClusterTagsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyClusterTagsResponse
+   */
   async modifyClusterTagsWithOptions(ClusterId: string, request: ModifyClusterTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterTagsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -17156,6 +18162,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyClusterTagsResponse>(await this.callApi(params, req, runtime), new ModifyClusterTagsResponse({}));
   }
 
+  /**
+   * @summary Modifies the labels of a Container Service for Kubernetes (ACK) cluster. You can use labels (key-value pairs) to classify and manage ACK clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+   *
+   * @param request ModifyClusterTagsRequest
+   * @return ModifyClusterTagsResponse
+   */
   async modifyClusterTags(ClusterId: string, request: ModifyClusterTagsRequest): Promise<ModifyClusterTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -17163,12 +18175,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
-    *
-    * @param request ModifyNodePoolNodeConfigRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyNodePoolNodeConfigResponse
+   * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+   *
+   * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+   *
+   * @param request ModifyNodePoolNodeConfigRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNodePoolNodeConfigResponse
    */
   async modifyNodePoolNodeConfigWithOptions(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyNodePoolNodeConfigResponse> {
     Util.validateModel(request);
@@ -17204,10 +18218,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
-    *
-    * @param request ModifyNodePoolNodeConfigRequest
-    * @return ModifyNodePoolNodeConfigResponse
+   * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+   *
+   * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+   *
+   * @param request ModifyNodePoolNodeConfigRequest
+   * @return ModifyNodePoolNodeConfigResponse
    */
   async modifyNodePoolNodeConfig(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest): Promise<ModifyNodePoolNodeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17215,6 +18231,14 @@ export default class Client extends OpenApi {
     return await this.modifyNodePoolNodeConfigWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ModifyPolicyInstance operation to update policy instances in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request ModifyPolicyInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPolicyInstanceResponse
+   */
   async modifyPolicyInstanceWithOptions(clusterId: string, policyName: string, request: ModifyPolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17252,6 +18276,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPolicyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyPolicyInstanceResponse({}));
   }
 
+  /**
+   * @summary You can call the ModifyPolicyInstance operation to update policy instances in a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request ModifyPolicyInstanceRequest
+   * @return ModifyPolicyInstanceResponse
+   */
   async modifyPolicyInstance(clusterId: string, policyName: string, request: ModifyPolicyInstanceRequest): Promise<ModifyPolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -17259,13 +18289,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can activate ACK by using Alibaba Cloud accounts.
-    * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
-    *
-    * @param request OpenAckServiceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return OpenAckServiceResponse
+   * @summary You can call the OpenAckService operation to activate Container Service for Kubernetes (ACK).
+   *
+   * @description *   You can activate ACK by using Alibaba Cloud accounts.
+   * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+   *
+   * @param request OpenAckServiceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenAckServiceResponse
    */
   async openAckServiceWithOptions(request: OpenAckServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenAckServiceResponse> {
     Util.validateModel(request);
@@ -17293,11 +18325,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can activate ACK by using Alibaba Cloud accounts.
-    * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
-    *
-    * @param request OpenAckServiceRequest
-    * @return OpenAckServiceResponse
+   * @summary You can call the OpenAckService operation to activate Container Service for Kubernetes (ACK).
+   *
+   * @description *   You can activate ACK by using Alibaba Cloud accounts.
+   * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+   *
+   * @param request OpenAckServiceRequest
+   * @return OpenAckServiceResponse
    */
   async openAckService(request: OpenAckServiceRequest): Promise<OpenAckServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17306,11 +18340,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PauseClusterUpgradeResponse
+   * @deprecated OpenAPI PauseClusterUpgrade is deprecated
+   *
+   * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PauseClusterUpgradeResponse
    */
   // Deprecated
   async pauseClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseClusterUpgradeResponse> {
@@ -17332,9 +18368,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @return PauseClusterUpgradeResponse
+   * @deprecated OpenAPI PauseClusterUpgrade is deprecated
+   *
+   * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @return PauseClusterUpgradeResponse
    */
   // Deprecated
   async pauseClusterUpgrade(ClusterId: string): Promise<PauseClusterUpgradeResponse> {
@@ -17343,6 +18381,13 @@ export default class Client extends OpenApi {
     return await this.pauseClusterUpgradeWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PauseComponentUpgradeResponse
+   */
   async pauseComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseComponentUpgradeResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -17361,12 +18406,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseComponentUpgradeResponse>(await this.callApi(params, req, runtime), new PauseComponentUpgradeResponse({}));
   }
 
+  /**
+   * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+   *
+   * @return PauseComponentUpgradeResponse
+   */
   async pauseComponentUpgrade(clusterid: string, componentid: string): Promise<PauseComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.pauseComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
   }
 
+  /**
+   * @summary Pauses an on-going task.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PauseTaskResponse
+   */
   async pauseTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -17385,6 +18442,11 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseTaskResponse>(await this.callApi(params, req, runtime), new PauseTaskResponse({}));
   }
 
+  /**
+   * @summary Pauses an on-going task.
+   *
+   * @return PauseTaskResponse
+   */
   async pauseTask(taskId: string): Promise<PauseTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -17392,17 +18454,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * ****
-    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-    * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
-    * *   Nodes remain in the Unschedulable state when they are being removed.
-    * *   You can remove only worker nodes. You cannot remove master nodes.
-    *
-    * @param request RemoveClusterNodesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveClusterNodesResponse
+   * @deprecated OpenAPI RemoveClusterNodes is deprecated
+   *
+   * @summary You can call the RemoveClusterNodes operation to remove nodes from a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description ****
+   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+   * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+   * *   Nodes remain in the Unschedulable state when they are being removed.
+   * *   You can remove only worker nodes. You cannot remove master nodes.
+   *
+   * @param request RemoveClusterNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveClusterNodesResponse
    */
   // Deprecated
   async removeClusterNodesWithOptions(ClusterId: string, request: RemoveClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveClusterNodesResponse> {
@@ -17439,15 +18504,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    * ****
-    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-    * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
-    * *   Nodes remain in the Unschedulable state when they are being removed.
-    * *   You can remove only worker nodes. You cannot remove master nodes.
-    *
-    * @param request RemoveClusterNodesRequest
-    * @return RemoveClusterNodesResponse
+   * @deprecated OpenAPI RemoveClusterNodes is deprecated
+   *
+   * @summary You can call the RemoveClusterNodes operation to remove nodes from a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @description ****
+   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+   * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+   * *   Nodes remain in the Unschedulable state when they are being removed.
+   * *   You can remove only worker nodes. You cannot remove master nodes.
+   *
+   * @param request RemoveClusterNodesRequest
+   * @return RemoveClusterNodesResponse
    */
   // Deprecated
   async removeClusterNodes(ClusterId: string, request: RemoveClusterNodesRequest): Promise<RemoveClusterNodesResponse> {
@@ -17457,14 +18525,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****
-    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
-    *
-    * @param tmpReq RemoveNodePoolNodesRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveNodePoolNodesResponse
+   * @summary Removes nodes from a node pool.
+   *
+   * @description **
+   * ****
+   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+   *
+   * @param tmpReq RemoveNodePoolNodesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveNodePoolNodesResponse
    */
   async removeNodePoolNodesWithOptions(ClusterId: string, NodepoolId: string, tmpReq: RemoveNodePoolNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveNodePoolNodesResponse> {
     Util.validateModel(tmpReq);
@@ -17518,12 +18588,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****
-    * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
-    *
-    * @param request RemoveNodePoolNodesRequest
-    * @return RemoveNodePoolNodesResponse
+   * @summary Removes nodes from a node pool.
+   *
+   * @description **
+   * ****
+   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+   *
+   * @param request RemoveNodePoolNodesRequest
+   * @return RemoveNodePoolNodesResponse
    */
   async removeNodePoolNodes(ClusterId: string, NodepoolId: string, request: RemoveNodePoolNodesRequest): Promise<RemoveNodePoolNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17531,6 +18603,13 @@ export default class Client extends OpenApi {
     return await this.removeNodePoolNodesWithOptions(ClusterId, NodepoolId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the RemoveWorkflow operation to delete a workflow.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveWorkflowResponse
+   */
   async removeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveWorkflowResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -17549,12 +18628,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveWorkflowResponse>(await this.callApi(params, req, runtime), new RemoveWorkflowResponse({}));
   }
 
+  /**
+   * @summary You can call the RemoveWorkflow operation to delete a workflow.
+   *
+   * @return RemoveWorkflowResponse
+   */
   async removeWorkflow(workflowName: string): Promise<RemoveWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeWorkflowWithOptions(workflowName, headers, runtime);
   }
 
+  /**
+   * @summary You can call the RepairClusterNodePool operation to fix issues on specified nodes in a managed node pool.
+   *
+   * @param request RepairClusterNodePoolRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RepairClusterNodePoolResponse
+   */
   async repairClusterNodePoolWithOptions(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RepairClusterNodePoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17584,12 +18676,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RepairClusterNodePoolResponse>(await this.callApi(params, req, runtime), new RepairClusterNodePoolResponse({}));
   }
 
+  /**
+   * @summary You can call the RepairClusterNodePool operation to fix issues on specified nodes in a managed node pool.
+   *
+   * @param request RepairClusterNodePoolRequest
+   * @return RepairClusterNodePoolResponse
+   */
   async repairClusterNodePool(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest): Promise<RepairClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.repairClusterNodePoolWithOptions(clusterId, nodepoolId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeComponentUpgradeResponse
+   */
   async resumeComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeComponentUpgradeResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -17608,12 +18713,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeComponentUpgradeResponse>(await this.callApi(params, req, runtime), new ResumeComponentUpgradeResponse({}));
   }
 
+  /**
+   * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+   *
+   * @return ResumeComponentUpgradeResponse
+   */
   async resumeComponentUpgrade(clusterid: string, componentid: string): Promise<ResumeComponentUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resumeComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ResumeTask operation to resume a task.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeTaskResponse
+   */
   async resumeTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -17632,6 +18749,11 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeTaskResponse>(await this.callApi(params, req, runtime), new ResumeTaskResponse({}));
   }
 
+  /**
+   * @summary You can call the ResumeTask operation to resume a task.
+   *
+   * @return ResumeTaskResponse
+   */
   async resumeTask(taskId: string): Promise<ResumeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -17639,11 +18761,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResumeUpgradeClusterResponse
+   * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
+   *
+   * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeUpgradeClusterResponse
    */
   // Deprecated
   async resumeUpgradeClusterWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeUpgradeClusterResponse> {
@@ -17665,9 +18789,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @return ResumeUpgradeClusterResponse
+   * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
+   *
+   * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+   *
+   * @return ResumeUpgradeClusterResponse
    */
   // Deprecated
   async resumeUpgradeCluster(ClusterId: string): Promise<ResumeUpgradeClusterResponse> {
@@ -17676,6 +18802,14 @@ export default class Client extends OpenApi {
     return await this.resumeUpgradeClusterWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the RunClusterCheck operation to initiate cluster checks, such as cluster update prechecks.
+   *
+   * @param request RunClusterCheckRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunClusterCheckResponse
+   */
   async runClusterCheckWithOptions(clusterId: string, request: RunClusterCheckRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunClusterCheckResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17709,6 +18843,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RunClusterCheckResponse>(await this.callApi(params, req, runtime), new RunClusterCheckResponse({}));
   }
 
+  /**
+   * @summary You can call the RunClusterCheck operation to initiate cluster checks, such as cluster update prechecks.
+   *
+   * @param request RunClusterCheckRequest
+   * @return RunClusterCheckResponse
+   */
   async runClusterCheck(clusterId: string, request: RunClusterCheckRequest): Promise<RunClusterCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -17716,12 +18856,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ScaleClusterRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ScaleClusterResponse
+   * @deprecated OpenAPI ScaleCluster is deprecated
+   *
+   * @summary 扩容Kubernetes集群
+   *
+   * @param request ScaleClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ScaleClusterResponse
    */
   // Deprecated
   async scaleClusterWithOptions(ClusterId: string, request: ScaleClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleClusterResponse> {
@@ -17822,10 +18964,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ScaleClusterRequest
-    * @return ScaleClusterResponse
+   * @deprecated OpenAPI ScaleCluster is deprecated
+   *
+   * @summary 扩容Kubernetes集群
+   *
+   * @param request ScaleClusterRequest
+   * @return ScaleClusterResponse
    */
   // Deprecated
   async scaleCluster(ClusterId: string, request: ScaleClusterRequest): Promise<ScaleClusterResponse> {
@@ -17834,6 +18978,14 @@ export default class Client extends OpenApi {
     return await this.scaleClusterWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the ScaleClusterNodePool operation to scale out a node pool by node pool ID.
+   *
+   * @param request ScaleClusterNodePoolRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ScaleClusterNodePoolResponse
+   */
   async scaleClusterNodePoolWithOptions(ClusterId: string, NodepoolId: string, request: ScaleClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleClusterNodePoolResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17859,6 +19011,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleClusterNodePoolResponse>(await this.callApi(params, req, runtime), new ScaleClusterNodePoolResponse({}));
   }
 
+  /**
+   * @summary You can call the ScaleClusterNodePool operation to scale out a node pool by node pool ID.
+   *
+   * @param request ScaleClusterNodePoolRequest
+   * @return ScaleClusterNodePoolResponse
+   */
   async scaleClusterNodePool(ClusterId: string, NodepoolId: string, request: ScaleClusterNodePoolRequest): Promise<ScaleClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -17866,13 +19024,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](~~184928~~).
-    *
-    * @param request ScaleOutClusterRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ScaleOutClusterResponse
+   * @summary You can call the ScaleOutCluster operation to scale out a cluster by cluster ID.
+   *
+   * @description **
+   * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](https://help.aliyun.com/document_detail/184928.html).
+   *
+   * @param request ScaleOutClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ScaleOutClusterResponse
    */
   async scaleOutClusterWithOptions(ClusterId: string, request: ScaleOutClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleOutClusterResponse> {
     Util.validateModel(request);
@@ -17980,11 +19140,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](~~184928~~).
-    *
-    * @param request ScaleOutClusterRequest
-    * @return ScaleOutClusterResponse
+   * @summary You can call the ScaleOutCluster operation to scale out a cluster by cluster ID.
+   *
+   * @description **
+   * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](https://help.aliyun.com/document_detail/184928.html).
+   *
+   * @param request ScaleOutClusterRequest
+   * @return ScaleOutClusterResponse
    */
   async scaleOutCluster(ClusterId: string, request: ScaleOutClusterRequest): Promise<ScaleOutClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17992,6 +19154,13 @@ export default class Client extends OpenApi {
     return await this.scaleOutClusterWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary The cluster ID.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ScanClusterVulsResponse
+   */
   async scanClusterVulsWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScanClusterVulsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -18010,12 +19179,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ScanClusterVulsResponse>(await this.callApi(params, req, runtime), new ScanClusterVulsResponse({}));
   }
 
+  /**
+   * @summary The cluster ID.
+   *
+   * @return ScanClusterVulsResponse
+   */
   async scanClusterVuls(clusterId: string): Promise<ScanClusterVulsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.scanClusterVulsWithOptions(clusterId, headers, runtime);
   }
 
+  /**
+   * @param request StartAlertRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartAlertResponse
+   */
   async startAlertWithOptions(ClusterId: string, request: StartAlertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartAlertResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18045,12 +19225,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartAlertResponse>(await this.callApi(params, req, runtime), new StartAlertResponse({}));
   }
 
+  /**
+   * @param request StartAlertRequest
+   * @return StartAlertResponse
+   */
   async startAlert(ClusterId: string, request: StartAlertRequest): Promise<StartAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startAlertWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the StartWorkflow operation to create a workflow.
+   *
+   * @param request StartWorkflowRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartWorkflowResponse
+   */
   async startWorkflowWithOptions(request: StartWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartWorkflowResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18148,12 +19340,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StartWorkflowResponse>(await this.callApi(params, req, runtime), new StartWorkflowResponse({}));
   }
 
+  /**
+   * @summary You can call the StartWorkflow operation to create a workflow.
+   *
+   * @param request StartWorkflowRequest
+   * @return StartWorkflowResponse
+   */
   async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startWorkflowWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+   *
+   * @param request StopAlertRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopAlertResponse
+   */
   async stopAlertWithOptions(ClusterId: string, request: StopAlertRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAlertResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18183,12 +19389,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StopAlertResponse>(await this.callApi(params, req, runtime), new StopAlertResponse({}));
   }
 
+  /**
+   * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+   *
+   * @param request StopAlertRequest
+   * @return StopAlertResponse
+   */
   async stopAlert(ClusterId: string, request: StopAlertRequest): Promise<StopAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopAlertWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncClusterNodePoolResponse
+   */
   async syncClusterNodePoolWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SyncClusterNodePoolResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -18207,12 +19426,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncClusterNodePoolResponse>(await this.callApi(params, req, runtime), new SyncClusterNodePoolResponse({}));
   }
 
+  /**
+   * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+   *
+   * @return SyncClusterNodePoolResponse
+   */
   async syncClusterNodePool(ClusterId: string): Promise<SyncClusterNodePoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.syncClusterNodePoolWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary Adds labels to a Container Service for Kubernetes (ACK) cluster. You can use labels to classify and manage ACK clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+   *
+   * @param request TagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18250,12 +19482,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds labels to a Container Service for Kubernetes (ACK) cluster. You can use labels to classify and manage ACK clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the UnInstallClusterAddons operation to uninstall the components in a cluster by component names.
+   *
+   * @param request UnInstallClusterAddonsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnInstallClusterAddonsResponse
+   */
   async unInstallClusterAddonsWithOptions(ClusterId: string, request: UnInstallClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnInstallClusterAddonsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -18276,12 +19522,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UnInstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new UnInstallClusterAddonsResponse({}));
   }
 
+  /**
+   * @summary You can call the UnInstallClusterAddons operation to uninstall the components in a cluster by component names.
+   *
+   * @param request UnInstallClusterAddonsRequest
+   * @return UnInstallClusterAddonsResponse
+   */
   async unInstallClusterAddons(ClusterId: string, request: UnInstallClusterAddonsRequest): Promise<UnInstallClusterAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.unInstallClusterAddonsWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Removes labels from a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param tmpReq UntagResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new UntagResourcesShrinkRequest({ });
@@ -18333,12 +19593,23 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes labels from a Container Service for Kubernetes (ACK) cluster.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateContactGroupForAlertResponse
+   */
   async updateContactGroupForAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContactGroupForAlertResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -18357,12 +19628,23 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateContactGroupForAlertResponse>(await this.callApi(params, req, runtime), new UpdateContactGroupForAlertResponse({}));
   }
 
+  /**
+   * @return UpdateContactGroupForAlertResponse
+   */
   async updateContactGroupForAlert(ClusterId: string): Promise<UpdateContactGroupForAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
   }
 
+  /**
+   * @summary You can call the UpdateControlPlaneLog operation to modify the log collection configurations for control plane components in a Container Service for Kubernetes (ACK) managed cluster.
+   *
+   * @param request UpdateControlPlaneLogRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateControlPlaneLogResponse
+   */
   async updateControlPlaneLogWithOptions(ClusterId: string, request: UpdateControlPlaneLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateControlPlaneLogResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18400,6 +19682,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateControlPlaneLogResponse>(await this.callApi(params, req, runtime), new UpdateControlPlaneLogResponse({}));
   }
 
+  /**
+   * @summary You can call the UpdateControlPlaneLog operation to modify the log collection configurations for control plane components in a Container Service for Kubernetes (ACK) managed cluster.
+   *
+   * @param request UpdateControlPlaneLogRequest
+   * @return UpdateControlPlaneLogResponse
+   */
   async updateControlPlaneLog(ClusterId: string, request: UpdateControlPlaneLogRequest): Promise<UpdateControlPlaneLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -18407,14 +19695,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****
-    * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
-    *
-    * @param request UpdateK8sClusterUserConfigExpireRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateK8sClusterUserConfigExpireResponse
+   * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+   *
+   * @description **
+   * ****
+   * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+   *
+   * @param request UpdateK8sClusterUserConfigExpireRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateK8sClusterUserConfigExpireResponse
    */
   async updateK8sClusterUserConfigExpireWithOptions(ClusterId: string, request: UpdateK8sClusterUserConfigExpireRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sClusterUserConfigExpireResponse> {
     Util.validateModel(request);
@@ -18446,12 +19736,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * ****
-    * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
-    *
-    * @param request UpdateK8sClusterUserConfigExpireRequest
-    * @return UpdateK8sClusterUserConfigExpireResponse
+   * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+   *
+   * @description **
+   * ****
+   * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+   *
+   * @param request UpdateK8sClusterUserConfigExpireRequest
+   * @return UpdateK8sClusterUserConfigExpireResponse
    */
   async updateK8sClusterUserConfigExpire(ClusterId: string, request: UpdateK8sClusterUserConfigExpireRequest): Promise<UpdateK8sClusterUserConfigExpireResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18459,6 +19751,14 @@ export default class Client extends OpenApi {
     return await this.updateK8sClusterUserConfigExpireWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the UpdateTemplate operation to update an orchestration template by template ID.
+   *
+   * @param request UpdateTemplateRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTemplateResponse
+   */
   async updateTemplateWithOptions(TemplateId: string, request: UpdateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18500,12 +19800,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
+  /**
+   * @summary You can call the UpdateTemplate operation to update an orchestration template by template ID.
+   *
+   * @param request UpdateTemplateRequest
+   * @return UpdateTemplateResponse
+   */
   async updateTemplate(TemplateId: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTemplateWithOptions(TemplateId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新指定RAM用户/角色的RBAC权限
+   *
+   * @param request UpdateUserPermissionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserPermissionsResponse
+   */
   async updateUserPermissionsWithOptions(uid: string, request: UpdateUserPermissionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserPermissionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -18532,12 +19846,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserPermissionsResponse>(await this.callApi(params, req, runtime), new UpdateUserPermissionsResponse({}));
   }
 
+  /**
+   * @summary 更新指定RAM用户/角色的RBAC权限
+   *
+   * @param request UpdateUserPermissionsRequest
+   * @return UpdateUserPermissionsResponse
+   */
   async updateUserPermissions(uid: string, request: UpdateUserPermissionsRequest): Promise<UpdateUserPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateUserPermissionsWithOptions(uid, request, headers, runtime);
   }
 
+  /**
+   * @summary You can call the UpgradeCluster operation to upgrade a cluster by cluster ID.
+   *
+   * @param request UpgradeClusterRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeClusterResponse
+   */
   async upgradeClusterWithOptions(ClusterId: string, request: UpgradeClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18575,12 +19903,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeClusterResponse>(await this.callApi(params, req, runtime), new UpgradeClusterResponse({}));
   }
 
+  /**
+   * @summary You can call the UpgradeCluster operation to upgrade a cluster by cluster ID.
+   *
+   * @param request UpgradeClusterRequest
+   * @return UpgradeClusterResponse
+   */
   async upgradeCluster(ClusterId: string, request: UpgradeClusterRequest): Promise<UpgradeClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.upgradeClusterWithOptions(ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+   *
+   * @param request UpgradeClusterAddonsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeClusterAddonsResponse
+   */
   async upgradeClusterAddonsWithOptions(ClusterId: string, request: UpgradeClusterAddonsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterAddonsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -18601,6 +19943,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeClusterAddonsResponse>(await this.callApi(params, req, runtime), new UpgradeClusterAddonsResponse({}));
   }
 
+  /**
+   * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+   *
+   * @param request UpgradeClusterAddonsRequest
+   * @return UpgradeClusterAddonsResponse
+   */
   async upgradeClusterAddons(ClusterId: string, request: UpgradeClusterAddonsRequest): Promise<UpgradeClusterAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -18608,12 +19956,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
-    *
-    * @param request UpgradeClusterNodepoolRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeClusterNodepoolResponse
+   * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+   *
+   * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+   *
+   * @param request UpgradeClusterNodepoolRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeClusterNodepoolResponse
    */
   async upgradeClusterNodepoolWithOptions(ClusterId: string, NodepoolId: string, request: UpgradeClusterNodepoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpgradeClusterNodepoolResponse> {
     Util.validateModel(request);
@@ -18665,10 +20015,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
-    *
-    * @param request UpgradeClusterNodepoolRequest
-    * @return UpgradeClusterNodepoolResponse
+   * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+   *
+   * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+   *
+   * @param request UpgradeClusterNodepoolRequest
+   * @return UpgradeClusterNodepoolResponse
    */
   async upgradeClusterNodepool(ClusterId: string, NodepoolId: string, request: UpgradeClusterNodepoolRequest): Promise<UpgradeClusterNodepoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
