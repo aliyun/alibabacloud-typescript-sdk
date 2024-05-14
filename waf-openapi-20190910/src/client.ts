@@ -68,9 +68,9 @@ export class CreateCertificateResponseBody extends $tea.Model {
 }
 
 export class CreateCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCertificateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCertificateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -146,9 +146,9 @@ export class CreateCertificateByCertificateIdResponseBody extends $tea.Model {
 }
 
 export class CreateCertificateByCertificateIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCertificateByCertificateIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCertificateByCertificateIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -293,9 +293,9 @@ export class CreateDomainResponseBody extends $tea.Model {
 }
 
 export class CreateDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -371,9 +371,9 @@ export class CreateProtectionModuleRuleResponseBody extends $tea.Model {
 }
 
 export class CreateProtectionModuleRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProtectionModuleRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProtectionModuleRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -443,9 +443,9 @@ export class DeleteDomainResponseBody extends $tea.Model {
 }
 
 export class DeleteDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -512,9 +512,9 @@ export class DeleteInstanceResponseBody extends $tea.Model {
 }
 
 export class DeleteInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -590,9 +590,9 @@ export class DeleteProtectionModuleRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteProtectionModuleRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteProtectionModuleRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProtectionModuleRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -671,9 +671,9 @@ export class DescribeCertMatchStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeCertMatchStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCertMatchStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCertMatchStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -746,9 +746,9 @@ export class DescribeCertificatesResponseBody extends $tea.Model {
 }
 
 export class DescribeCertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCertificatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCertificatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -821,9 +821,9 @@ export class DescribeDomainResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -896,9 +896,9 @@ export class DescribeDomainAdvanceConfigsResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainAdvanceConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainAdvanceConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainAdvanceConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -986,9 +986,9 @@ export class DescribeDomainBasicConfigsResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainBasicConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainBasicConfigsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainBasicConfigsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1076,9 +1076,9 @@ export class DescribeDomainListResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1148,9 +1148,9 @@ export class DescribeDomainNamesResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainNamesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainNamesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainNamesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1226,9 +1226,9 @@ export class DescribeDomainRuleGroupResponseBody extends $tea.Model {
 }
 
 export class DescribeDomainRuleGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDomainRuleGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDomainRuleGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1298,9 +1298,9 @@ export class DescribeInstanceInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1379,9 +1379,9 @@ export class DescribeInstanceSpecInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceSpecInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceSpecInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceSpecInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1466,9 +1466,9 @@ export class DescribeLogServiceStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeLogServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLogServiceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLogServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1544,9 +1544,9 @@ export class DescribeProtectionModuleCodeConfigResponseBody extends $tea.Model {
 }
 
 export class DescribeProtectionModuleCodeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProtectionModuleCodeConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProtectionModuleCodeConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1622,9 +1622,9 @@ export class DescribeProtectionModuleModeResponseBody extends $tea.Model {
 }
 
 export class DescribeProtectionModuleModeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProtectionModuleModeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProtectionModuleModeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1715,9 +1715,9 @@ export class DescribeProtectionModuleRulesResponseBody extends $tea.Model {
 }
 
 export class DescribeProtectionModuleRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProtectionModuleRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProtectionModuleRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1793,9 +1793,9 @@ export class DescribeProtectionModuleStatusResponseBody extends $tea.Model {
 }
 
 export class DescribeProtectionModuleStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProtectionModuleStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProtectionModuleStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1809,6 +1809,231 @@ export class DescribeProtectionModuleStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeProtectionModuleStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRuleGroupsRequest extends $tea.Model {
+  currentPage?: number;
+  instanceId?: string;
+  lang?: string;
+  pageSize?: number;
+  policyId?: number;
+  region?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  sourceIp?: string;
+  type?: number;
+  wafLang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      sourceIp: 'SourceIp',
+      type: 'Type',
+      wafLang: 'WafLang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      instanceId: 'string',
+      lang: 'string',
+      pageSize: 'number',
+      policyId: 'number',
+      region: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sourceIp: 'string',
+      type: 'number',
+      wafLang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRuleGroupsResponseBody extends $tea.Model {
+  requestId?: string;
+  ruleGroups?: DescribeRuleGroupsResponseBodyRuleGroups[];
+  taskStatus?: number;
+  total?: number;
+  wafTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      ruleGroups: 'RuleGroups',
+      taskStatus: 'TaskStatus',
+      total: 'Total',
+      wafTaskId: 'WafTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      ruleGroups: { 'type': 'array', 'itemType': DescribeRuleGroupsResponseBodyRuleGroups },
+      taskStatus: 'number',
+      total: 'number',
+      wafTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRuleGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRuleGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRuleGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRulesRequest extends $tea.Model {
+  applicationType?: number;
+  cveIdKey?: string;
+  instanceId?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  protectionType?: number;
+  region?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  riskLevel?: number;
+  ruleGroupId?: number;
+  ruleIdKey?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationType: 'ApplicationType',
+      cveIdKey: 'CveIdKey',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      protectionType: 'ProtectionType',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      riskLevel: 'RiskLevel',
+      ruleGroupId: 'RuleGroupId',
+      ruleIdKey: 'RuleIdKey',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationType: 'number',
+      cveIdKey: 'string',
+      instanceId: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      protectionType: 'number',
+      region: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      riskLevel: 'number',
+      ruleGroupId: 'number',
+      ruleIdKey: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRulesResponseBody extends $tea.Model {
+  isSubscribe?: number;
+  requestId?: string;
+  ruleGroupName?: string;
+  ruleGroupTemplateId?: string;
+  ruleGroupTemplateName?: string;
+  rules?: DescribeRulesResponseBodyRules[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isSubscribe: 'IsSubscribe',
+      requestId: 'RequestId',
+      ruleGroupName: 'RuleGroupName',
+      ruleGroupTemplateId: 'RuleGroupTemplateId',
+      ruleGroupTemplateName: 'RuleGroupTemplateName',
+      rules: 'Rules',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isSubscribe: 'number',
+      requestId: 'string',
+      ruleGroupName: 'string',
+      ruleGroupTemplateId: 'string',
+      ruleGroupTemplateName: 'string',
+      rules: { 'type': 'array', 'itemType': DescribeRulesResponseBodyRules },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRulesResponseBody,
     };
   }
 
@@ -1868,9 +2093,9 @@ export class DescribeWafSourceIpSegmentResponseBody extends $tea.Model {
 }
 
 export class DescribeWafSourceIpSegmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeWafSourceIpSegmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeWafSourceIpSegmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2012,9 +2237,9 @@ export class ModifyDomainResponseBody extends $tea.Model {
 }
 
 export class ModifyDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDomainResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2087,9 +2312,9 @@ export class ModifyDomainIpv6StatusResponseBody extends $tea.Model {
 }
 
 export class ModifyDomainIpv6StatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyDomainIpv6StatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDomainIpv6StatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2162,9 +2387,9 @@ export class ModifyLogRetrievalStatusResponseBody extends $tea.Model {
 }
 
 export class ModifyLogRetrievalStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyLogRetrievalStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLogRetrievalStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2237,9 +2462,9 @@ export class ModifyLogServiceStatusResponseBody extends $tea.Model {
 }
 
 export class ModifyLogServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyLogServiceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLogServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2315,9 +2540,9 @@ export class ModifyProtectionModuleModeResponseBody extends $tea.Model {
 }
 
 export class ModifyProtectionModuleModeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyProtectionModuleModeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyProtectionModuleModeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2399,9 +2624,9 @@ export class ModifyProtectionModuleRuleResponseBody extends $tea.Model {
 }
 
 export class ModifyProtectionModuleRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyProtectionModuleRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyProtectionModuleRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2477,9 +2702,9 @@ export class ModifyProtectionModuleStatusResponseBody extends $tea.Model {
 }
 
 export class ModifyProtectionModuleStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyProtectionModuleStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyProtectionModuleStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2555,9 +2780,9 @@ export class ModifyProtectionRuleCacheStatusResponseBody extends $tea.Model {
 }
 
 export class ModifyProtectionRuleCacheStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyProtectionRuleCacheStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyProtectionRuleCacheStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2639,9 +2864,9 @@ export class ModifyProtectionRuleStatusResponseBody extends $tea.Model {
 }
 
 export class ModifyProtectionRuleStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyProtectionRuleStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyProtectionRuleStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2711,9 +2936,9 @@ export class MoveResourceGroupResponseBody extends $tea.Model {
 }
 
 export class MoveResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MoveResourceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2792,9 +3017,9 @@ export class SetDomainRuleGroupResponseBody extends $tea.Model {
 }
 
 export class SetDomainRuleGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetDomainRuleGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDomainRuleGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3263,6 +3488,95 @@ export class DescribeProtectionModuleRulesResponseBodyRules extends $tea.Model {
   }
 }
 
+export class DescribeRuleGroupsResponseBodyRuleGroups extends $tea.Model {
+  desc?: string;
+  domainList?: string[];
+  name?: string;
+  policyId?: number;
+  ruleCnt?: number;
+  ruleGroupTemplateName?: string;
+  ruleGroupUpdateTime?: number;
+  templatePolicyId?: number;
+  type?: number;
+  wafVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      domainList: 'DomainList',
+      name: 'Name',
+      policyId: 'PolicyId',
+      ruleCnt: 'RuleCnt',
+      ruleGroupTemplateName: 'RuleGroupTemplateName',
+      ruleGroupUpdateTime: 'RuleGroupUpdateTime',
+      templatePolicyId: 'TemplatePolicyId',
+      type: 'Type',
+      wafVersion: 'WafVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      domainList: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      policyId: 'number',
+      ruleCnt: 'number',
+      ruleGroupTemplateName: 'string',
+      ruleGroupUpdateTime: 'number',
+      templatePolicyId: 'number',
+      type: 'number',
+      wafVersion: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRulesResponseBodyRules extends $tea.Model {
+  applicationType?: number;
+  cveId?: string;
+  cveUrl?: string;
+  description?: string;
+  protectionType?: number;
+  riskLevel?: number;
+  ruleId?: number;
+  ruleName?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationType: 'ApplicationType',
+      cveId: 'CveId',
+      cveUrl: 'CveUrl',
+      description: 'Description',
+      protectionType: 'ProtectionType',
+      riskLevel: 'RiskLevel',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationType: 'number',
+      cveId: 'string',
+      cveUrl: 'string',
+      description: 'string',
+      protectionType: 'number',
+      riskLevel: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -3312,6 +3626,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request CreateCertificateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCertificateResponse
+   */
   async createCertificateWithOptions(request: CreateCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3360,11 +3679,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCertificateResponse>(await this.callApi(params, req, runtime), new CreateCertificateResponse({}));
   }
 
+  /**
+   * @param request CreateCertificateRequest
+   * @return CreateCertificateResponse
+   */
   async createCertificate(request: CreateCertificateRequest): Promise<CreateCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCertificateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateCertificateByCertificateIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCertificateByCertificateIdResponse
+   */
   async createCertificateByCertificateIdWithOptions(request: CreateCertificateByCertificateIdRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateByCertificateIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3405,11 +3733,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCertificateByCertificateIdResponse>(await this.callApi(params, req, runtime), new CreateCertificateByCertificateIdResponse({}));
   }
 
+  /**
+   * @param request CreateCertificateByCertificateIdRequest
+   * @return CreateCertificateByCertificateIdResponse
+   */
   async createCertificateByCertificateId(request: CreateCertificateByCertificateIdRequest): Promise<CreateCertificateByCertificateIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCertificateByCertificateIdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDomainResponse
+   */
   async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3542,11 +3879,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDomainResponse>(await this.callApi(params, req, runtime), new CreateDomainResponse({}));
   }
 
+  /**
+   * @param request CreateDomainRequest
+   * @return CreateDomainResponse
+   */
   async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateProtectionModuleRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProtectionModuleRuleResponse
+   */
   async createProtectionModuleRuleWithOptions(request: CreateProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateProtectionModuleRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3591,11 +3937,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProtectionModuleRuleResponse>(await this.callApi(params, req, runtime), new CreateProtectionModuleRuleResponse({}));
   }
 
+  /**
+   * @param request CreateProtectionModuleRuleRequest
+   * @return CreateProtectionModuleRuleResponse
+   */
   async createProtectionModuleRule(request: CreateProtectionModuleRuleRequest): Promise<CreateProtectionModuleRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProtectionModuleRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainResponse
+   */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3632,11 +3987,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
   }
 
+  /**
+   * @param request DeleteDomainRequest
+   * @return DeleteDomainResponse
+   */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3669,11 +4033,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
+   */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteProtectionModuleRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProtectionModuleRuleResponse
+   */
   async deleteProtectionModuleRuleWithOptions(request: DeleteProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProtectionModuleRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3718,11 +4091,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProtectionModuleRuleResponse>(await this.callApi(params, req, runtime), new DeleteProtectionModuleRuleResponse({}));
   }
 
+  /**
+   * @param request DeleteProtectionModuleRuleRequest
+   * @return DeleteProtectionModuleRuleResponse
+   */
   async deleteProtectionModuleRule(request: DeleteProtectionModuleRuleRequest): Promise<DeleteProtectionModuleRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProtectionModuleRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeCertMatchStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCertMatchStatusResponse
+   */
   async describeCertMatchStatusWithOptions(request: DescribeCertMatchStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertMatchStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3767,11 +4149,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCertMatchStatusResponse>(await this.callApi(params, req, runtime), new DescribeCertMatchStatusResponse({}));
   }
 
+  /**
+   * @param request DescribeCertMatchStatusRequest
+   * @return DescribeCertMatchStatusResponse
+   */
   async describeCertMatchStatus(request: DescribeCertMatchStatusRequest): Promise<DescribeCertMatchStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCertMatchStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeCertificatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCertificatesResponse
+   */
   async describeCertificatesWithOptions(request: DescribeCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3808,11 +4199,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCertificatesResponse>(await this.callApi(params, req, runtime), new DescribeCertificatesResponse({}));
   }
 
+  /**
+   * @param request DescribeCertificatesRequest
+   * @return DescribeCertificatesResponse
+   */
   async describeCertificates(request: DescribeCertificatesRequest): Promise<DescribeCertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCertificatesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainResponse
+   */
   async describeDomainWithOptions(request: DescribeDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3849,11 +4249,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainResponse>(await this.callApi(params, req, runtime), new DescribeDomainResponse({}));
   }
 
+  /**
+   * @param request DescribeDomainRequest
+   * @return DescribeDomainResponse
+   */
   async describeDomain(request: DescribeDomainRequest): Promise<DescribeDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDomainAdvanceConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainAdvanceConfigsResponse
+   */
   async describeDomainAdvanceConfigsWithOptions(request: DescribeDomainAdvanceConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainAdvanceConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3890,11 +4299,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainAdvanceConfigsResponse>(await this.callApi(params, req, runtime), new DescribeDomainAdvanceConfigsResponse({}));
   }
 
+  /**
+   * @param request DescribeDomainAdvanceConfigsRequest
+   * @return DescribeDomainAdvanceConfigsResponse
+   */
   async describeDomainAdvanceConfigs(request: DescribeDomainAdvanceConfigsRequest): Promise<DescribeDomainAdvanceConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainAdvanceConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDomainBasicConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainBasicConfigsResponse
+   */
   async describeDomainBasicConfigsWithOptions(request: DescribeDomainBasicConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBasicConfigsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3947,11 +4365,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainBasicConfigsResponse>(await this.callApi(params, req, runtime), new DescribeDomainBasicConfigsResponse({}));
   }
 
+  /**
+   * @param request DescribeDomainBasicConfigsRequest
+   * @return DescribeDomainBasicConfigsResponse
+   */
   async describeDomainBasicConfigs(request: DescribeDomainBasicConfigsRequest): Promise<DescribeDomainBasicConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainBasicConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDomainListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainListResponse
+   */
   async describeDomainListWithOptions(request: DescribeDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4004,11 +4431,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainListResponse>(await this.callApi(params, req, runtime), new DescribeDomainListResponse({}));
   }
 
+  /**
+   * @param request DescribeDomainListRequest
+   * @return DescribeDomainListResponse
+   */
   async describeDomainList(request: DescribeDomainListRequest): Promise<DescribeDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDomainNamesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainNamesResponse
+   */
   async describeDomainNamesWithOptions(request: DescribeDomainNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNamesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4041,11 +4477,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainNamesResponse>(await this.callApi(params, req, runtime), new DescribeDomainNamesResponse({}));
   }
 
+  /**
+   * @param request DescribeDomainNamesRequest
+   * @return DescribeDomainNamesResponse
+   */
   async describeDomainNames(request: DescribeDomainNamesRequest): Promise<DescribeDomainNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainNamesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDomainRuleGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainRuleGroupResponse
+   */
   async describeDomainRuleGroupWithOptions(request: DescribeDomainRuleGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRuleGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4082,11 +4527,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainRuleGroupResponse>(await this.callApi(params, req, runtime), new DescribeDomainRuleGroupResponse({}));
   }
 
+  /**
+   * @param request DescribeDomainRuleGroupRequest
+   * @return DescribeDomainRuleGroupResponse
+   */
   async describeDomainRuleGroup(request: DescribeDomainRuleGroupRequest): Promise<DescribeDomainRuleGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainRuleGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInstanceInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceInfoResponse
+   */
   async describeInstanceInfoWithOptions(request: DescribeInstanceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4119,11 +4573,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceInfoResponse>(await this.callApi(params, req, runtime), new DescribeInstanceInfoResponse({}));
   }
 
+  /**
+   * @param request DescribeInstanceInfoRequest
+   * @return DescribeInstanceInfoResponse
+   */
   async describeInstanceInfo(request: DescribeInstanceInfoRequest): Promise<DescribeInstanceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInstanceSpecInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSpecInfoResponse
+   */
   async describeInstanceSpecInfoWithOptions(request: DescribeInstanceSpecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4156,11 +4619,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSpecInfoResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecInfoResponse({}));
   }
 
+  /**
+   * @param request DescribeInstanceSpecInfoRequest
+   * @return DescribeInstanceSpecInfoResponse
+   */
   async describeInstanceSpecInfo(request: DescribeInstanceSpecInfoRequest): Promise<DescribeInstanceSpecInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSpecInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeLogServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogServiceStatusResponse
+   */
   async describeLogServiceStatusWithOptions(request: DescribeLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4209,11 +4681,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogServiceStatusResponse>(await this.callApi(params, req, runtime), new DescribeLogServiceStatusResponse({}));
   }
 
+  /**
+   * @param request DescribeLogServiceStatusRequest
+   * @return DescribeLogServiceStatusResponse
+   */
   async describeLogServiceStatus(request: DescribeLogServiceStatusRequest): Promise<DescribeLogServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeProtectionModuleCodeConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProtectionModuleCodeConfigResponse
+   */
   async describeProtectionModuleCodeConfigWithOptions(request: DescribeProtectionModuleCodeConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleCodeConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4254,11 +4735,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProtectionModuleCodeConfigResponse>(await this.callApi(params, req, runtime), new DescribeProtectionModuleCodeConfigResponse({}));
   }
 
+  /**
+   * @param request DescribeProtectionModuleCodeConfigRequest
+   * @return DescribeProtectionModuleCodeConfigResponse
+   */
   async describeProtectionModuleCodeConfig(request: DescribeProtectionModuleCodeConfigRequest): Promise<DescribeProtectionModuleCodeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProtectionModuleCodeConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeProtectionModuleModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProtectionModuleModeResponse
+   */
   async describeProtectionModuleModeWithOptions(request: DescribeProtectionModuleModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4299,11 +4789,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProtectionModuleModeResponse>(await this.callApi(params, req, runtime), new DescribeProtectionModuleModeResponse({}));
   }
 
+  /**
+   * @param request DescribeProtectionModuleModeRequest
+   * @return DescribeProtectionModuleModeResponse
+   */
   async describeProtectionModuleMode(request: DescribeProtectionModuleModeRequest): Promise<DescribeProtectionModuleModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProtectionModuleModeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeProtectionModuleRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProtectionModuleRulesResponse
+   */
   async describeProtectionModuleRulesWithOptions(request: DescribeProtectionModuleRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4360,11 +4859,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProtectionModuleRulesResponse>(await this.callApi(params, req, runtime), new DescribeProtectionModuleRulesResponse({}));
   }
 
+  /**
+   * @param request DescribeProtectionModuleRulesRequest
+   * @return DescribeProtectionModuleRulesResponse
+   */
   async describeProtectionModuleRules(request: DescribeProtectionModuleRulesRequest): Promise<DescribeProtectionModuleRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProtectionModuleRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeProtectionModuleStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeProtectionModuleStatusResponse
+   */
   async describeProtectionModuleStatusWithOptions(request: DescribeProtectionModuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4405,11 +4913,188 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProtectionModuleStatusResponse>(await this.callApi(params, req, runtime), new DescribeProtectionModuleStatusResponse({}));
   }
 
+  /**
+   * @param request DescribeProtectionModuleStatusRequest
+   * @return DescribeProtectionModuleStatusResponse
+   */
   async describeProtectionModuleStatus(request: DescribeProtectionModuleStatusRequest): Promise<DescribeProtectionModuleStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProtectionModuleStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRuleGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRuleGroupsResponse
+   */
+  async describeRuleGroupsWithOptions(request: DescribeRuleGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.wafLang)) {
+      query["WafLang"] = request.wafLang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRuleGroups",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRuleGroupsResponse>(await this.callApi(params, req, runtime), new DescribeRuleGroupsResponse({}));
+  }
+
+  /**
+   * @param request DescribeRuleGroupsRequest
+   * @return DescribeRuleGroupsResponse
+   */
+  async describeRuleGroups(request: DescribeRuleGroupsRequest): Promise<DescribeRuleGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRuleGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRulesResponse
+   */
+  async describeRulesWithOptions(request: DescribeRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
+    if (!Util.isUnset(request.cveIdKey)) {
+      query["CveIdKey"] = request.cveIdKey;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.protectionType)) {
+      query["ProtectionType"] = request.protectionType;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!Util.isUnset(request.ruleGroupId)) {
+      query["RuleGroupId"] = request.ruleGroupId;
+    }
+
+    if (!Util.isUnset(request.ruleIdKey)) {
+      query["RuleIdKey"] = request.ruleIdKey;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRules",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRulesResponse>(await this.callApi(params, req, runtime), new DescribeRulesResponse({}));
+  }
+
+  /**
+   * @param request DescribeRulesRequest
+   * @return DescribeRulesResponse
+   */
+  async describeRules(request: DescribeRulesRequest): Promise<DescribeRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeWafSourceIpSegmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeWafSourceIpSegmentResponse
+   */
   async describeWafSourceIpSegmentWithOptions(request: DescribeWafSourceIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWafSourceIpSegmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4442,11 +5127,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeWafSourceIpSegmentResponse>(await this.callApi(params, req, runtime), new DescribeWafSourceIpSegmentResponse({}));
   }
 
+  /**
+   * @param request DescribeWafSourceIpSegmentRequest
+   * @return DescribeWafSourceIpSegmentResponse
+   */
   async describeWafSourceIpSegment(request: DescribeWafSourceIpSegmentRequest): Promise<DescribeWafSourceIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWafSourceIpSegmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a domain name.
+   *
+   * @param request ModifyDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDomainResponse
+   */
   async modifyDomainWithOptions(request: ModifyDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4583,11 +5279,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDomainResponse>(await this.callApi(params, req, runtime), new ModifyDomainResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a domain name.
+   *
+   * @param request ModifyDomainRequest
+   * @return ModifyDomainResponse
+   */
   async modifyDomain(request: ModifyDomainRequest): Promise<ModifyDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyDomainIpv6StatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDomainIpv6StatusResponse
+   */
   async modifyDomainIpv6StatusWithOptions(request: ModifyDomainIpv6StatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainIpv6StatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4628,11 +5335,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDomainIpv6StatusResponse>(await this.callApi(params, req, runtime), new ModifyDomainIpv6StatusResponse({}));
   }
 
+  /**
+   * @param request ModifyDomainIpv6StatusRequest
+   * @return ModifyDomainIpv6StatusResponse
+   */
   async modifyDomainIpv6Status(request: ModifyDomainIpv6StatusRequest): Promise<ModifyDomainIpv6StatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDomainIpv6StatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyLogRetrievalStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLogRetrievalStatusResponse
+   */
   async modifyLogRetrievalStatusWithOptions(request: ModifyLogRetrievalStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogRetrievalStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4673,11 +5389,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLogRetrievalStatusResponse>(await this.callApi(params, req, runtime), new ModifyLogRetrievalStatusResponse({}));
   }
 
+  /**
+   * @param request ModifyLogRetrievalStatusRequest
+   * @return ModifyLogRetrievalStatusResponse
+   */
   async modifyLogRetrievalStatus(request: ModifyLogRetrievalStatusRequest): Promise<ModifyLogRetrievalStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLogRetrievalStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyLogServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLogServiceStatusResponse
+   */
   async modifyLogServiceStatusWithOptions(request: ModifyLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4718,11 +5443,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLogServiceStatusResponse>(await this.callApi(params, req, runtime), new ModifyLogServiceStatusResponse({}));
   }
 
+  /**
+   * @param request ModifyLogServiceStatusRequest
+   * @return ModifyLogServiceStatusResponse
+   */
   async modifyLogServiceStatus(request: ModifyLogServiceStatusRequest): Promise<ModifyLogServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLogServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyProtectionModuleModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyProtectionModuleModeResponse
+   */
   async modifyProtectionModuleModeWithOptions(request: ModifyProtectionModuleModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4767,11 +5501,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyProtectionModuleModeResponse>(await this.callApi(params, req, runtime), new ModifyProtectionModuleModeResponse({}));
   }
 
+  /**
+   * @param request ModifyProtectionModuleModeRequest
+   * @return ModifyProtectionModuleModeResponse
+   */
   async modifyProtectionModuleMode(request: ModifyProtectionModuleModeRequest): Promise<ModifyProtectionModuleModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyProtectionModuleModeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyProtectionModuleRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyProtectionModuleRuleResponse
+   */
   async modifyProtectionModuleRuleWithOptions(request: ModifyProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4824,11 +5567,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyProtectionModuleRuleResponse>(await this.callApi(params, req, runtime), new ModifyProtectionModuleRuleResponse({}));
   }
 
+  /**
+   * @param request ModifyProtectionModuleRuleRequest
+   * @return ModifyProtectionModuleRuleResponse
+   */
   async modifyProtectionModuleRule(request: ModifyProtectionModuleRuleRequest): Promise<ModifyProtectionModuleRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyProtectionModuleRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyProtectionModuleStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyProtectionModuleStatusResponse
+   */
   async modifyProtectionModuleStatusWithOptions(request: ModifyProtectionModuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4873,11 +5625,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyProtectionModuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyProtectionModuleStatusResponse({}));
   }
 
+  /**
+   * @param request ModifyProtectionModuleStatusRequest
+   * @return ModifyProtectionModuleStatusResponse
+   */
   async modifyProtectionModuleStatus(request: ModifyProtectionModuleStatusRequest): Promise<ModifyProtectionModuleStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyProtectionModuleStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyProtectionRuleCacheStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyProtectionRuleCacheStatusResponse
+   */
   async modifyProtectionRuleCacheStatusWithOptions(request: ModifyProtectionRuleCacheStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionRuleCacheStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4922,11 +5683,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyProtectionRuleCacheStatusResponse>(await this.callApi(params, req, runtime), new ModifyProtectionRuleCacheStatusResponse({}));
   }
 
+  /**
+   * @param request ModifyProtectionRuleCacheStatusRequest
+   * @return ModifyProtectionRuleCacheStatusResponse
+   */
   async modifyProtectionRuleCacheStatus(request: ModifyProtectionRuleCacheStatusRequest): Promise<ModifyProtectionRuleCacheStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyProtectionRuleCacheStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyProtectionRuleStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyProtectionRuleStatusResponse
+   */
   async modifyProtectionRuleStatusWithOptions(request: ModifyProtectionRuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionRuleStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4979,11 +5749,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyProtectionRuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyProtectionRuleStatusResponse({}));
   }
 
+  /**
+   * @param request ModifyProtectionRuleStatusRequest
+   * @return ModifyProtectionRuleStatusResponse
+   */
   async modifyProtectionRuleStatus(request: ModifyProtectionRuleStatusRequest): Promise<ModifyProtectionRuleStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyProtectionRuleStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request MoveResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5020,11 +5799,20 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
+  /**
+   * @param request MoveResourceGroupRequest
+   * @return MoveResourceGroupResponse
+   */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetDomainRuleGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDomainRuleGroupResponse
+   */
   async setDomainRuleGroupWithOptions(request: SetDomainRuleGroupRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainRuleGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5073,6 +5861,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDomainRuleGroupResponse>(await this.callApi(params, req, runtime), new SetDomainRuleGroupResponse({}));
   }
 
+  /**
+   * @param request SetDomainRuleGroupRequest
+   * @return SetDomainRuleGroupResponse
+   */
   async setDomainRuleGroup(request: SetDomainRuleGroupRequest): Promise<SetDomainRuleGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainRuleGroupWithOptions(request, runtime);
