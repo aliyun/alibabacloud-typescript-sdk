@@ -201,6 +201,168 @@ export class AddAttendeeResponse extends $tea.Model {
   }
 }
 
+export class AddDriveSpaceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: AddDriveSpaceHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: AddDriveSpaceHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDriveSpaceShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDriveSpaceRequest extends $tea.Model {
+  name?: string;
+  tenantContext?: AddDriveSpaceRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      tenantContext: AddDriveSpaceRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDriveSpaceShrinkRequest extends $tea.Model {
+  name?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDriveSpaceResponseBody extends $tea.Model {
+  createTime?: string;
+  modifyTime?: string;
+  permissionMode?: string;
+  quota?: number;
+  requestId?: string;
+  spaceId?: string;
+  spaceName?: string;
+  spaceType?: string;
+  usedQuota?: number;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      modifyTime: 'modifyTime',
+      permissionMode: 'permissionMode',
+      quota: 'quota',
+      requestId: 'requestId',
+      spaceId: 'spaceId',
+      spaceName: 'spaceName',
+      spaceType: 'spaceType',
+      usedQuota: 'usedQuota',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      modifyTime: 'string',
+      permissionMode: 'string',
+      quota: 'number',
+      requestId: 'string',
+      spaceId: 'string',
+      spaceName: 'string',
+      spaceType: 'string',
+      usedQuota: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDriveSpaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDriveSpaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDriveSpaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddMeetingRoomsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: AddMeetingRoomsHeadersAccountContext;
@@ -2591,6 +2753,186 @@ export class CreateDeliveryPlanResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDeliveryPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CreateDingtalkPersonalTodoTaskHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CreateDingtalkPersonalTodoTaskHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskRequest extends $tea.Model {
+  description?: string;
+  dueTime?: number;
+  executorIds?: string[];
+  notifyConfigs?: CreateDingtalkPersonalTodoTaskRequestNotifyConfigs;
+  participantIds?: string[];
+  subject?: string;
+  tenantContext?: CreateDingtalkPersonalTodoTaskRequestTenantContext;
+  userToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      dueTime: 'DueTime',
+      executorIds: 'ExecutorIds',
+      notifyConfigs: 'NotifyConfigs',
+      participantIds: 'ParticipantIds',
+      subject: 'Subject',
+      tenantContext: 'TenantContext',
+      userToken: 'UserToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      dueTime: 'number',
+      executorIds: { 'type': 'array', 'itemType': 'string' },
+      notifyConfigs: CreateDingtalkPersonalTodoTaskRequestNotifyConfigs,
+      participantIds: { 'type': 'array', 'itemType': 'string' },
+      subject: 'string',
+      tenantContext: CreateDingtalkPersonalTodoTaskRequestTenantContext,
+      userToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskShrinkRequest extends $tea.Model {
+  description?: string;
+  dueTime?: number;
+  executorIdsShrink?: string;
+  notifyConfigsShrink?: string;
+  participantIdsShrink?: string;
+  subject?: string;
+  tenantContextShrink?: string;
+  userToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      dueTime: 'DueTime',
+      executorIdsShrink: 'ExecutorIds',
+      notifyConfigsShrink: 'NotifyConfigs',
+      participantIdsShrink: 'ParticipantIds',
+      subject: 'Subject',
+      tenantContextShrink: 'TenantContext',
+      userToken: 'UserToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      dueTime: 'number',
+      executorIdsShrink: 'string',
+      notifyConfigsShrink: 'string',
+      participantIdsShrink: 'string',
+      subject: 'string',
+      tenantContextShrink: 'string',
+      userToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskResponseBody extends $tea.Model {
+  createdTime?: number;
+  requestId?: string;
+  taskId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'createdTime',
+      requestId: 'requestId',
+      taskId: 'taskId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'number',
+      requestId: 'string',
+      taskId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDingtalkPersonalTodoTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDingtalkPersonalTodoTaskResponseBody,
     };
   }
 
@@ -5841,6 +6183,144 @@ export class DeleteColumnsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteColumnsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDriveSpaceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: DeleteDriveSpaceHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: DeleteDriveSpaceHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDriveSpaceShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDriveSpaceRequest extends $tea.Model {
+  spaceId?: string;
+  tenantContext?: DeleteDriveSpaceRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+      tenantContext: DeleteDriveSpaceRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDriveSpaceShrinkRequest extends $tea.Model {
+  spaceId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDriveSpaceResponseBody extends $tea.Model {
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDriveSpaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDriveSpaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDriveSpaceResponseBody,
     };
   }
 
@@ -15624,6 +16104,162 @@ export class ListDentriesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDentriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: ListDriveSpacesHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: ListDriveSpacesHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  spaceType?: string;
+  tenantContext?: ListDriveSpacesRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      spaceType: 'SpaceType',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      spaceType: 'string',
+      tenantContext: ListDriveSpacesRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesShrinkRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  spaceType?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      spaceType: 'SpaceType',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      spaceType: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  spaces?: ListDriveSpacesResponseBodySpaces[];
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      spaces: 'spaces',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      spaces: { 'type': 'array', 'itemType': ListDriveSpacesResponseBodySpaces },
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDriveSpacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDriveSpacesResponseBody,
     };
   }
 
@@ -26624,6 +27260,44 @@ export class AddAttendeeResponseBodyContent extends $tea.Model {
   }
 }
 
+export class AddDriveSpaceHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDriveSpaceRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddMeetingRoomsHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -27410,6 +28084,63 @@ export class CreateDeliveryPlanHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateDeliveryPlanRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskRequestNotifyConfigs extends $tea.Model {
+  dingNotify?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingNotify: 'DingNotify',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingNotify: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskRequestTenantContext extends $tea.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28843,6 +29574,44 @@ export class DeleteColumnsHeadersAccountContext extends $tea.Model {
 }
 
 export class DeleteColumnsRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDriveSpaceHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDriveSpaceRequestTenantContext extends $tea.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34500,6 +35269,84 @@ export class ListDentriesResponseBodyDentries extends $tea.Model {
       type: 'string',
       uuid: 'string',
       version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDriveSpacesResponseBodySpaces extends $tea.Model {
+  createTime?: string;
+  modifyTime?: string;
+  permissionMode?: string;
+  quota?: number;
+  spaceId?: string;
+  spaceName?: string;
+  spaceType?: string;
+  usedQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      modifyTime: 'ModifyTime',
+      permissionMode: 'PermissionMode',
+      quota: 'Quota',
+      spaceId: 'SpaceId',
+      spaceName: 'SpaceName',
+      spaceType: 'SpaceType',
+      usedQuota: 'UsedQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      modifyTime: 'string',
+      permissionMode: 'string',
+      quota: 'number',
+      spaceId: 'string',
+      spaceName: 'string',
+      spaceType: 'string',
+      usedQuota: 'number',
     };
   }
 
@@ -40686,6 +41533,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 新建钉盘空间
+   *
+   * @param tmpReq AddDriveSpaceRequest
+   * @param tmpHeader AddDriveSpaceHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDriveSpaceResponse
+   */
+  async addDriveSpaceWithOptions(tmpReq: AddDriveSpaceRequest, tmpHeader: AddDriveSpaceHeaders, runtime: $Util.RuntimeOptions): Promise<AddDriveSpaceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddDriveSpaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new AddDriveSpaceShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddDriveSpace",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/addDriveSpace`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDriveSpaceResponse>(await this.callApi(params, req, runtime), new AddDriveSpaceResponse({}));
+  }
+
+  /**
+   * @summary 新建钉盘空间
+   *
+   * @param request AddDriveSpaceRequest
+   * @return AddDriveSpaceResponse
+   */
+  async addDriveSpace(request: AddDriveSpaceRequest): Promise<AddDriveSpaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AddDriveSpaceHeaders({ });
+    return await this.addDriveSpaceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary 预定会议室
    *
    * @param tmpReq AddMeetingRoomsRequest
@@ -41967,6 +42884,112 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateDeliveryPlanHeaders({ });
     return await this.createDeliveryPlanWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 委托权限创建钉钉个人待办
+   *
+   * @param tmpReq CreateDingtalkPersonalTodoTaskRequest
+   * @param tmpHeader CreateDingtalkPersonalTodoTaskHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDingtalkPersonalTodoTaskResponse
+   */
+  async createDingtalkPersonalTodoTaskWithOptions(tmpReq: CreateDingtalkPersonalTodoTaskRequest, tmpHeader: CreateDingtalkPersonalTodoTaskHeaders, runtime: $Util.RuntimeOptions): Promise<CreateDingtalkPersonalTodoTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDingtalkPersonalTodoTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new CreateDingtalkPersonalTodoTaskShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.executorIds)) {
+      request.executorIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executorIds, "ExecutorIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notifyConfigs)) {
+      request.notifyConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notifyConfigs, "NotifyConfigs", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.participantIds)) {
+      request.participantIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.participantIds, "ParticipantIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dueTime)) {
+      body["DueTime"] = request.dueTime;
+    }
+
+    if (!Util.isUnset(request.executorIdsShrink)) {
+      body["ExecutorIds"] = request.executorIdsShrink;
+    }
+
+    if (!Util.isUnset(request.notifyConfigsShrink)) {
+      body["NotifyConfigs"] = request.notifyConfigsShrink;
+    }
+
+    if (!Util.isUnset(request.participantIdsShrink)) {
+      body["ParticipantIds"] = request.participantIdsShrink;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      body["Subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.userToken)) {
+      body["UserToken"] = request.userToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDingtalkPersonalTodoTask",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/task/createDingtalkPersonalTodoTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDingtalkPersonalTodoTaskResponse>(await this.callApi(params, req, runtime), new CreateDingtalkPersonalTodoTaskResponse({}));
+  }
+
+  /**
+   * @summary 委托权限创建钉钉个人待办
+   *
+   * @param request CreateDingtalkPersonalTodoTaskRequest
+   * @return CreateDingtalkPersonalTodoTaskResponse
+   */
+  async createDingtalkPersonalTodoTask(request: CreateDingtalkPersonalTodoTaskRequest): Promise<CreateDingtalkPersonalTodoTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateDingtalkPersonalTodoTaskHeaders({ });
+    return await this.createDingtalkPersonalTodoTaskWithOptions(request, headers, runtime);
   }
 
   /**
@@ -43795,6 +44818,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new DeleteColumnsHeaders({ });
     return await this.deleteColumnsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除钉盘空间
+   *
+   * @param tmpReq DeleteDriveSpaceRequest
+   * @param tmpHeader DeleteDriveSpaceHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDriveSpaceResponse
+   */
+  async deleteDriveSpaceWithOptions(tmpReq: DeleteDriveSpaceRequest, tmpHeader: DeleteDriveSpaceHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteDriveSpaceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteDriveSpaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new DeleteDriveSpaceShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDriveSpace",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/deleteDriveSpace`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDriveSpaceResponse>(await this.callApi(params, req, runtime), new DeleteDriveSpaceResponse({}));
+  }
+
+  /**
+   * @summary 删除钉盘空间
+   *
+   * @param request DeleteDriveSpaceRequest
+   * @return DeleteDriveSpaceResponse
+   */
+  async deleteDriveSpace(request: DeleteDriveSpaceRequest): Promise<DeleteDriveSpaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteDriveSpaceHeaders({ });
+    return await this.deleteDriveSpaceWithOptions(request, headers, runtime);
   }
 
   /**
@@ -49113,6 +50206,84 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new ListDentriesHeaders({ });
     return await this.listDentriesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取钉盘空间列表
+   *
+   * @param tmpReq ListDriveSpacesRequest
+   * @param tmpHeader ListDriveSpacesHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDriveSpacesResponse
+   */
+  async listDriveSpacesWithOptions(tmpReq: ListDriveSpacesRequest, tmpHeader: ListDriveSpacesHeaders, runtime: $Util.RuntimeOptions): Promise<ListDriveSpacesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDriveSpacesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new ListDriveSpacesShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.spaceType)) {
+      body["SpaceType"] = request.spaceType;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDriveSpaces",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/listDriveSpaces`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDriveSpacesResponse>(await this.callApi(params, req, runtime), new ListDriveSpacesResponse({}));
+  }
+
+  /**
+   * @summary 获取钉盘空间列表
+   *
+   * @param request ListDriveSpacesRequest
+   * @return ListDriveSpacesResponse
+   */
+  async listDriveSpaces(request: ListDriveSpacesRequest): Promise<ListDriveSpacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ListDriveSpacesHeaders({ });
+    return await this.listDriveSpacesWithOptions(request, headers, runtime);
   }
 
   /**
