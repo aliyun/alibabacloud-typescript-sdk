@@ -704,6 +704,180 @@ export class DeleteDBInstanceResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBClusterConfigRequest extends $tea.Model {
+  configKey?: string;
+  DBClusterId?: string;
+  DBInstanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configKey: 'ConfigKey',
+      DBClusterId: 'DBClusterId',
+      DBInstanceId: 'DBInstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configKey: 'string',
+      DBClusterId: 'string',
+      DBInstanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConfigResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  data?: DescribeDBClusterConfigResponseBodyData;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      data: DescribeDBClusterConfigResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBClusterConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBClusterConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConfigChangeLogsRequest extends $tea.Model {
+  configKey?: string;
+  DBClusterId?: string;
+  DBInstanceId?: string;
+  endTime?: string;
+  regionId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configKey: 'ConfigKey',
+      DBClusterId: 'DBClusterId',
+      DBInstanceId: 'DBInstanceId',
+      endTime: 'EndTime',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configKey: 'string',
+      DBClusterId: 'string',
+      DBInstanceId: 'string',
+      endTime: 'string',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConfigChangeLogsResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  data?: DescribeDBClusterConfigChangeLogsResponseBodyData;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      data: DescribeDBClusterConfigChangeLogsResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConfigChangeLogsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBClusterConfigChangeLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBClusterConfigChangeLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeRequest extends $tea.Model {
   DBInstanceId?: string;
   regionId?: string;
@@ -1082,6 +1256,201 @@ export class DescribeSecurityIPListResponse extends $tea.Model {
   }
 }
 
+export class GetCreateBEClusterInquiryRequest extends $tea.Model {
+  cacheSize?: number;
+  chargeType?: string;
+  commodityCode?: string;
+  computeSize?: number;
+  dbInstanceId?: string;
+  preCacheSize?: number;
+  preComputeSize?: number;
+  pricingCycle?: string;
+  quantity?: number;
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cacheSize: 'CacheSize',
+      chargeType: 'ChargeType',
+      commodityCode: 'CommodityCode',
+      computeSize: 'ComputeSize',
+      dbInstanceId: 'DbInstanceId',
+      preCacheSize: 'PreCacheSize',
+      preComputeSize: 'PreComputeSize',
+      pricingCycle: 'PricingCycle',
+      quantity: 'Quantity',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheSize: 'number',
+      chargeType: 'string',
+      commodityCode: 'string',
+      computeSize: 'number',
+      dbInstanceId: 'string',
+      preCacheSize: 'number',
+      preComputeSize: 'number',
+      pricingCycle: 'string',
+      quantity: 'number',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateBEClusterInquiryResponseBody extends $tea.Model {
+  data?: GetCreateBEClusterInquiryResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetCreateBEClusterInquiryResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateBEClusterInquiryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCreateBEClusterInquiryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCreateBEClusterInquiryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModifyBEClusterInquiryRequest extends $tea.Model {
+  cacheSize?: number;
+  chargeType?: string;
+  clusterId?: string;
+  commodityCode?: string;
+  computeSize?: number;
+  dbInstanceId?: string;
+  preCacheSize?: number;
+  preComputeSize?: number;
+  pricingCycle?: string;
+  quantity?: number;
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cacheSize: 'CacheSize',
+      chargeType: 'ChargeType',
+      clusterId: 'ClusterId',
+      commodityCode: 'CommodityCode',
+      computeSize: 'ComputeSize',
+      dbInstanceId: 'DbInstanceId',
+      preCacheSize: 'PreCacheSize',
+      preComputeSize: 'PreComputeSize',
+      pricingCycle: 'PricingCycle',
+      quantity: 'Quantity',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheSize: 'number',
+      chargeType: 'string',
+      clusterId: 'string',
+      commodityCode: 'string',
+      computeSize: 'number',
+      dbInstanceId: 'string',
+      preCacheSize: 'number',
+      preComputeSize: 'number',
+      pricingCycle: 'string',
+      quantity: 'number',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModifyBEClusterInquiryResponseBody extends $tea.Model {
+  data?: GetModifyBEClusterInquiryResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetModifyBEClusterInquiryResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModifyBEClusterInquiryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetModifyBEClusterInquiryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetModifyBEClusterInquiryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyBEClusterAttributeRequest extends $tea.Model {
   DBClusterId?: string;
   DBInstanceId?: string;
@@ -1236,6 +1605,96 @@ export class ModifyDBClusterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDBClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterConfigRequest extends $tea.Model {
+  configKey?: string;
+  DBClusterId?: string;
+  DBInstanceId?: string;
+  parameters?: string;
+  regionId?: string;
+  switchTimeMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configKey: 'ConfigKey',
+      DBClusterId: 'DBClusterId',
+      DBInstanceId: 'DBInstanceId',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      switchTimeMode: 'SwitchTimeMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configKey: 'string',
+      DBClusterId: 'string',
+      DBInstanceId: 'string',
+      parameters: 'string',
+      regionId: 'string',
+      switchTimeMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterConfigResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  data?: ModifyDBClusterConfigResponseBodyData;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      data: ModifyDBClusterConfigResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBClusterConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBClusterConfigResponseBody,
     };
   }
 
@@ -1928,6 +2387,145 @@ export class DeleteDBClusterResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeDBClusterConfigResponseBodyDataParams extends $tea.Model {
+  comment?: string;
+  defaultValue?: string;
+  isDynamic?: number;
+  isUserModifiable?: number;
+  name?: string;
+  optional?: string;
+  paramCategory?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      defaultValue: 'DefaultValue',
+      isDynamic: 'IsDynamic',
+      isUserModifiable: 'IsUserModifiable',
+      name: 'Name',
+      optional: 'Optional',
+      paramCategory: 'ParamCategory',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      defaultValue: 'string',
+      isDynamic: 'number',
+      isUserModifiable: 'number',
+      name: 'string',
+      optional: 'string',
+      paramCategory: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConfigResponseBodyData extends $tea.Model {
+  dbClusterId?: string;
+  dbInstanceId?: string;
+  dbInstanceName?: string;
+  params?: DescribeDBClusterConfigResponseBodyDataParams[];
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbClusterId: 'DbClusterId',
+      dbInstanceId: 'DbInstanceId',
+      dbInstanceName: 'DbInstanceName',
+      params: 'Params',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbClusterId: 'string',
+      dbInstanceId: 'string',
+      dbInstanceName: 'string',
+      params: { 'type': 'array', 'itemType': DescribeDBClusterConfigResponseBodyDataParams },
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs extends $tea.Model {
+  gmtCreated?: string;
+  gmtModified?: string;
+  id?: number;
+  isApplied?: boolean;
+  name?: string;
+  newValue?: string;
+  oldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      isApplied: 'IsApplied',
+      name: 'Name',
+      newValue: 'NewValue',
+      oldValue: 'OldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      isApplied: 'boolean',
+      name: 'string',
+      newValue: 'string',
+      oldValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterConfigChangeLogsResponseBodyData extends $tea.Model {
+  dbClusterId?: string;
+  dbInstanceId?: string;
+  dbInstanceName?: string;
+  paramChangeLogs?: DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs[];
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbClusterId: 'DbClusterId',
+      dbInstanceId: 'DbInstanceId',
+      dbInstanceName: 'DbInstanceName',
+      paramChangeLogs: 'ParamChangeLogs',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbClusterId: 'string',
+      dbInstanceId: 'string',
+      dbInstanceName: 'string',
+      paramChangeLogs: { 'type': 'array', 'itemType': DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs },
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.Model {
   cacheStorageSizeGB?: string;
   cacheStorageType?: string;
@@ -2296,6 +2894,50 @@ export class DescribeSecurityIPListResponseBodyGroupItems extends $tea.Model {
   }
 }
 
+export class GetCreateBEClusterInquiryResponseBodyData extends $tea.Model {
+  currency?: string;
+  tradeAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      tradeAmount: 'TradeAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      tradeAmount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModifyBEClusterInquiryResponseBodyData extends $tea.Model {
+  currency?: string;
+  tradeAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      tradeAmount: 'TradeAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      tradeAmount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBClusterResponseBodyData extends $tea.Model {
   DBClusterId?: string;
   DBInstanceId?: string;
@@ -2313,6 +2955,34 @@ export class ModifyDBClusterResponseBodyData extends $tea.Model {
       DBClusterId: 'string',
       DBInstanceId: 'string',
       orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterConfigResponseBodyData extends $tea.Model {
+  dbClusterId?: string;
+  dbInstanceId?: string;
+  dbInstanceName?: string;
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbClusterId: 'DbClusterId',
+      dbInstanceId: 'DbInstanceId',
+      dbInstanceName: 'DbInstanceName',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbClusterId: 'string',
+      dbInstanceId: 'string',
+      dbInstanceName: 'string',
+      taskId: 'number',
     };
   }
 
@@ -2366,6 +3036,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 申请公网地址
+   *
+   * @param request AllocateInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2406,11 +3083,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
   }
 
+  /**
+   * @summary 申请公网地址
+   *
+   * @param request AllocateInstancePublicConnectionRequest
+   * @return AllocateInstancePublicConnectionResponse
+   */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary SelectDB实例创建前检查
+   *
+   * @param request CheckCreateDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckCreateDBInstanceResponse
+   */
   async checkCreateDBInstanceWithOptions(request: CheckCreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CheckCreateDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2499,11 +3189,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckCreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CheckCreateDBInstanceResponse({}));
   }
 
+  /**
+   * @summary SelectDB实例创建前检查
+   *
+   * @param request CheckCreateDBInstanceRequest
+   * @return CheckCreateDBInstanceResponse
+   */
   async checkCreateDBInstance(request: CheckCreateDBInstanceRequest): Promise<CheckCreateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkCreateDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 检查服务关联角色
+   *
+   * @param request CheckServiceLinkedRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckServiceLinkedRoleResponse
+   */
   async checkServiceLinkedRoleWithOptions(request: CheckServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2532,11 +3235,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CheckServiceLinkedRoleResponse({}));
   }
 
+  /**
+   * @summary 检查服务关联角色
+   *
+   * @param request CheckServiceLinkedRoleRequest
+   * @return CheckServiceLinkedRoleResponse
+   */
   async checkServiceLinkedRole(request: CheckServiceLinkedRoleRequest): Promise<CheckServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary SelectDB实例下创建集群
+   *
+   * @param request CreateDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBClusterResponse
+   */
   async createDBClusterWithOptions(request: CreateDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2619,11 +3335,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBClusterResponse>(await this.callApi(params, req, runtime), new CreateDBClusterResponse({}));
   }
 
+  /**
+   * @summary SelectDB实例下创建集群
+   *
+   * @param request CreateDBClusterRequest
+   * @return CreateDBClusterResponse
+   */
   async createDBCluster(request: CreateDBClusterRequest): Promise<CreateDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建SelectDB实例
+   *
+   * @param request CreateDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBInstanceResponse
+   */
   async createDBInstanceWithOptions(request: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2714,11 +3443,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
   }
 
+  /**
+   * @summary 创建SelectDB实例
+   *
+   * @param request CreateDBInstanceRequest
+   * @return CreateDBInstanceResponse
+   */
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建服务关联角色
+   *
+   * @param request CreateServiceLinkedRoleForSelectDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceLinkedRoleForSelectDBResponse
+   */
   async createServiceLinkedRoleForSelectDBWithOptions(request: CreateServiceLinkedRoleForSelectDBRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleForSelectDBResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2747,11 +3489,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceLinkedRoleForSelectDBResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleForSelectDBResponse({}));
   }
 
+  /**
+   * @summary 创建服务关联角色
+   *
+   * @param request CreateServiceLinkedRoleForSelectDBRequest
+   * @return CreateServiceLinkedRoleForSelectDBResponse
+   */
   async createServiceLinkedRoleForSelectDB(request: CreateServiceLinkedRoleForSelectDBRequest): Promise<CreateServiceLinkedRoleForSelectDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceLinkedRoleForSelectDBWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 释放实例下集群
+   *
+   * @param request DeleteDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBClusterResponse
+   */
   async deleteDBClusterWithOptions(request: DeleteDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2794,11 +3549,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBClusterResponse>(await this.callApi(params, req, runtime), new DeleteDBClusterResponse({}));
   }
 
+  /**
+   * @summary 释放实例下集群
+   *
+   * @param request DeleteDBClusterRequest
+   * @return DeleteDBClusterResponse
+   */
   async deleteDBCluster(request: DeleteDBClusterRequest): Promise<DeleteDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除DB实例
+   *
+   * @param request DeleteDBInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBInstanceResponse
+   */
   async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2833,11 +3601,140 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
   }
 
+  /**
+   * @summary 删除DB实例
+   *
+   * @param request DeleteDBInstanceRequest
+   * @return DeleteDBInstanceResponse
+   */
   async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看集群配置
+   *
+   * @param request DescribeDBClusterConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterConfigResponse
+   */
+  async describeDBClusterConfigWithOptions(request: DescribeDBClusterConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configKey)) {
+      query["ConfigKey"] = request.configKey;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBClusterConfig",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBClusterConfigResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterConfigResponse({}));
+  }
+
+  /**
+   * @summary 查看集群配置
+   *
+   * @param request DescribeDBClusterConfigRequest
+   * @return DescribeDBClusterConfigResponse
+   */
+  async describeDBClusterConfig(request: DescribeDBClusterConfigRequest): Promise<DescribeDBClusterConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBClusterConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查看集群配置变更记录
+   *
+   * @param request DescribeDBClusterConfigChangeLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterConfigChangeLogsResponse
+   */
+  async describeDBClusterConfigChangeLogsWithOptions(request: DescribeDBClusterConfigChangeLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterConfigChangeLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configKey)) {
+      query["ConfigKey"] = request.configKey;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBClusterConfigChangeLogs",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBClusterConfigChangeLogsResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterConfigChangeLogsResponse({}));
+  }
+
+  /**
+   * @summary 查看集群配置变更记录
+   *
+   * @param request DescribeDBClusterConfigChangeLogsRequest
+   * @return DescribeDBClusterConfigChangeLogsResponse
+   */
+  async describeDBClusterConfigChangeLogs(request: DescribeDBClusterConfigChangeLogsRequest): Promise<DescribeDBClusterConfigChangeLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBClusterConfigChangeLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询实例详情
+   *
+   * @param request DescribeDBInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceAttributeResponse
+   */
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2870,11 +3767,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
   }
 
+  /**
+   * @summary 查询实例详情
+   *
+   * @param request DescribeDBInstanceAttributeRequest
+   * @return DescribeDBInstanceAttributeResponse
+   */
   async describeDBInstanceAttribute(request: DescribeDBInstanceAttributeRequest): Promise<DescribeDBInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询实例网络链接
+   *
+   * @param request DescribeDBInstanceNetInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstanceNetInfoResponse
+   */
   async describeDBInstanceNetInfoWithOptions(request: DescribeDBInstanceNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2907,11 +3817,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstanceNetInfoResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceNetInfoResponse({}));
   }
 
+  /**
+   * @summary 查询实例网络链接
+   *
+   * @param request DescribeDBInstanceNetInfoRequest
+   * @return DescribeDBInstanceNetInfoResponse
+   */
   async describeDBInstanceNetInfo(request: DescribeDBInstanceNetInfoRequest): Promise<DescribeDBInstanceNetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceNetInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询实例列表
+   *
+   * @param request DescribeDBInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInstancesResponse
+   */
   async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2964,11 +3887,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
   }
 
+  /**
+   * @summary 查询实例列表
+   *
+   * @param request DescribeDBInstancesRequest
+   * @return DescribeDBInstancesResponse
+   */
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看白名单
+   *
+   * @param request DescribeSecurityIPListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityIPListResponse
+   */
   async describeSecurityIPListWithOptions(request: DescribeSecurityIPListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityIPListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3001,11 +3937,100 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityIPListResponse>(await this.callApi(params, req, runtime), new DescribeSecurityIPListResponse({}));
   }
 
+  /**
+   * @summary 查看白名单
+   *
+   * @param request DescribeSecurityIPListRequest
+   * @return DescribeSecurityIPListResponse
+   */
   async describeSecurityIPList(request: DescribeSecurityIPListRequest): Promise<DescribeSecurityIPListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityIPListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新建集群询价
+   *
+   * @param request GetCreateBEClusterInquiryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCreateBEClusterInquiryResponse
+   */
+  async getCreateBEClusterInquiryWithOptions(request: GetCreateBEClusterInquiryRequest, runtime: $Util.RuntimeOptions): Promise<GetCreateBEClusterInquiryResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCreateBEClusterInquiry",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCreateBEClusterInquiryResponse>(await this.callApi(params, req, runtime), new GetCreateBEClusterInquiryResponse({}));
+  }
+
+  /**
+   * @summary 新建集群询价
+   *
+   * @param request GetCreateBEClusterInquiryRequest
+   * @return GetCreateBEClusterInquiryResponse
+   */
+  async getCreateBEClusterInquiry(request: GetCreateBEClusterInquiryRequest): Promise<GetCreateBEClusterInquiryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCreateBEClusterInquiryWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 集群变配询价
+   *
+   * @param request GetModifyBEClusterInquiryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetModifyBEClusterInquiryResponse
+   */
+  async getModifyBEClusterInquiryWithOptions(request: GetModifyBEClusterInquiryRequest, runtime: $Util.RuntimeOptions): Promise<GetModifyBEClusterInquiryResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetModifyBEClusterInquiry",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetModifyBEClusterInquiryResponse>(await this.callApi(params, req, runtime), new GetModifyBEClusterInquiryResponse({}));
+  }
+
+  /**
+   * @summary 集群变配询价
+   *
+   * @param request GetModifyBEClusterInquiryRequest
+   * @return GetModifyBEClusterInquiryResponse
+   */
+  async getModifyBEClusterInquiry(request: GetModifyBEClusterInquiryRequest): Promise<GetModifyBEClusterInquiryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getModifyBEClusterInquiryWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改BE集群名称、属性、设置
+   *
+   * @param request ModifyBEClusterAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBEClusterAttributeResponse
+   */
   async modifyBEClusterAttributeWithOptions(request: ModifyBEClusterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBEClusterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3050,11 +4075,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyBEClusterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyBEClusterAttributeResponse({}));
   }
 
+  /**
+   * @summary 修改BE集群名称、属性、设置
+   *
+   * @param request ModifyBEClusterAttributeRequest
+   * @return ModifyBEClusterAttributeResponse
+   */
   async modifyBEClusterAttribute(request: ModifyBEClusterAttributeRequest): Promise<ModifyBEClusterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBEClusterAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 集群变配
+   *
+   * @param request ModifyDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterResponse
+   */
   async modifyDBClusterWithOptions(request: ModifyDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3099,11 +4137,86 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterResponse({}));
   }
 
+  /**
+   * @summary 集群变配
+   *
+   * @param request ModifyDBClusterRequest
+   * @return ModifyDBClusterResponse
+   */
   async modifyDBCluster(request: ModifyDBClusterRequest): Promise<ModifyDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改集群配置
+   *
+   * @param request ModifyDBClusterConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterConfigResponse
+   */
+  async modifyDBClusterConfigWithOptions(request: ModifyDBClusterConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configKey)) {
+      query["ConfigKey"] = request.configKey;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.switchTimeMode)) {
+      query["SwitchTimeMode"] = request.switchTimeMode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBClusterConfig",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBClusterConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterConfigResponse({}));
+  }
+
+  /**
+   * @summary 修改集群配置
+   *
+   * @param request ModifyDBClusterConfigRequest
+   * @return ModifyDBClusterConfigResponse
+   */
+  async modifyDBClusterConfig(request: ModifyDBClusterConfigRequest): Promise<ModifyDBClusterConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBClusterConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改实例属性
+   *
+   * @param request ModifyDBInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBInstanceAttributeResponse
+   */
   async modifyDBInstanceAttributeWithOptions(request: ModifyDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3144,11 +4257,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceAttributeResponse({}));
   }
 
+  /**
+   * @summary 修改实例属性
+   *
+   * @param request ModifyDBInstanceAttributeRequest
+   * @return ModifyDBInstanceAttributeResponse
+   */
   async modifyDBInstanceAttribute(request: ModifyDBInstanceAttributeRequest): Promise<ModifyDBInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 变更白名单
+   *
+   * @param request ModifySecurityIPListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityIPListResponse
+   */
   async modifySecurityIPListWithOptions(request: ModifySecurityIPListRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIPListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3169,11 +4295,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySecurityIPListResponse>(await this.callApi(params, req, runtime), new ModifySecurityIPListResponse({}));
   }
 
+  /**
+   * @summary 变更白名单
+   *
+   * @param request ModifySecurityIPListRequest
+   * @return ModifySecurityIPListResponse
+   */
   async modifySecurityIPList(request: ModifySecurityIPListRequest): Promise<ModifySecurityIPListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityIPListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 释放公网地址
+   *
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3210,11 +4349,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
   }
 
+  /**
+   * @summary 释放公网地址
+   *
+   * @param request ReleaseInstancePublicConnectionRequest
+   * @return ReleaseInstancePublicConnectionResponse
+   */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改 Admin 账号的密码。
+   *
+   * @param request ResetAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAccountPasswordResponse
+   */
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3235,11 +4387,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
   }
 
+  /**
+   * @summary 修改 Admin 账号的密码。
+   *
+   * @param request ResetAccountPasswordRequest
+   * @return ResetAccountPasswordResponse
+   */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 重启BE集群
+   *
+   * @param request RestartDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartDBClusterResponse
+   */
   async restartDBClusterWithOptions(request: RestartDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3282,11 +4447,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartDBClusterResponse>(await this.callApi(params, req, runtime), new RestartDBClusterResponse({}));
   }
 
+  /**
+   * @summary 重启BE集群
+   *
+   * @param request RestartDBClusterRequest
+   * @return RestartDBClusterResponse
+   */
   async restartDBCluster(request: RestartDBClusterRequest): Promise<RestartDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDBClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 暂停后恢复集群
+   *
+   * @param request StartBEClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartBEClusterResponse
+   */
   async startBEClusterWithOptions(request: StartBEClusterRequest, runtime: $Util.RuntimeOptions): Promise<StartBEClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3323,11 +4501,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartBEClusterResponse>(await this.callApi(params, req, runtime), new StartBEClusterResponse({}));
   }
 
+  /**
+   * @summary 暂停后恢复集群
+   *
+   * @param request StartBEClusterRequest
+   * @return StartBEClusterResponse
+   */
   async startBECluster(request: StartBEClusterRequest): Promise<StartBEClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startBEClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 暂停BE集群
+   *
+   * @param request StopBEClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopBEClusterResponse
+   */
   async stopBEClusterWithOptions(request: StopBEClusterRequest, runtime: $Util.RuntimeOptions): Promise<StopBEClusterResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3348,11 +4539,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopBEClusterResponse>(await this.callApi(params, req, runtime), new StopBEClusterResponse({}));
   }
 
+  /**
+   * @summary 暂停BE集群
+   *
+   * @param request StopBEClusterRequest
+   * @return StopBEClusterResponse
+   */
   async stopBECluster(request: StopBEClusterRequest): Promise<StopBEClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopBEClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实例内核版本升级
+   *
+   * @param request UpgradeDBInstanceEngineVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBInstanceEngineVersionResponse
+   */
   async upgradeDBInstanceEngineVersionWithOptions(request: UpgradeDBInstanceEngineVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceEngineVersionResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3373,6 +4577,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeDBInstanceEngineVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceEngineVersionResponse({}));
   }
 
+  /**
+   * @summary 实例内核版本升级
+   *
+   * @param request UpgradeDBInstanceEngineVersionRequest
+   * @return UpgradeDBInstanceEngineVersionResponse
+   */
   async upgradeDBInstanceEngineVersion(request: UpgradeDBInstanceEngineVersionRequest): Promise<UpgradeDBInstanceEngineVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeDBInstanceEngineVersionWithOptions(request, runtime);
