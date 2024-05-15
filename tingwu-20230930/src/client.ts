@@ -497,6 +497,53 @@ export class CreateTaskRequestInput extends $tea.Model {
   }
 }
 
+export class CreateTaskRequestParametersCustomPromptContents extends $tea.Model {
+  model?: string;
+  name?: string;
+  prompt?: string;
+  transType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      model: 'Model',
+      name: 'Name',
+      prompt: 'Prompt',
+      transType: 'TransType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      model: 'string',
+      name: 'string',
+      prompt: 'string',
+      transType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestParametersCustomPrompt extends $tea.Model {
+  contents?: CreateTaskRequestParametersCustomPromptContents[];
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': CreateTaskRequestParametersCustomPromptContents },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTaskRequestParametersExtraParams extends $tea.Model {
   nfixEnabled?: boolean;
   static names(): { [key: string]: string } {
@@ -662,6 +709,8 @@ export class CreateTaskRequestParametersTranslation extends $tea.Model {
 
 export class CreateTaskRequestParameters extends $tea.Model {
   autoChaptersEnabled?: boolean;
+  customPrompt?: CreateTaskRequestParametersCustomPrompt;
+  customPromptEnabled?: boolean;
   extraParams?: CreateTaskRequestParametersExtraParams;
   meetingAssistance?: CreateTaskRequestParametersMeetingAssistance;
   meetingAssistanceEnabled?: boolean;
@@ -676,6 +725,8 @@ export class CreateTaskRequestParameters extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoChaptersEnabled: 'AutoChaptersEnabled',
+      customPrompt: 'CustomPrompt',
+      customPromptEnabled: 'CustomPromptEnabled',
       extraParams: 'ExtraParams',
       meetingAssistance: 'MeetingAssistance',
       meetingAssistanceEnabled: 'MeetingAssistanceEnabled',
@@ -693,6 +744,8 @@ export class CreateTaskRequestParameters extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoChaptersEnabled: 'boolean',
+      customPrompt: CreateTaskRequestParametersCustomPrompt,
+      customPromptEnabled: 'boolean',
       extraParams: CreateTaskRequestParametersExtraParams,
       meetingAssistance: CreateTaskRequestParametersMeetingAssistance,
       meetingAssistanceEnabled: 'boolean',
@@ -1008,6 +1061,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 创建听悟任务
+   *
+   * @param request CreateTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTaskResponse
+   */
   async createTaskWithOptions(request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1051,12 +1112,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
   }
 
+  /**
+   * @summary 创建听悟任务
+   *
+   * @param request CreateTaskRequest
+   * @return CreateTaskResponse
+   */
   async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTaskWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建热词词表
+   *
+   * @param request CreateTranscriptionPhrasesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTranscriptionPhrasesResponse
+   */
   async createTranscriptionPhrasesWithOptions(request: CreateTranscriptionPhrasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTranscriptionPhrasesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1090,12 +1165,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTranscriptionPhrasesResponse>(await this.callApi(params, req, runtime), new CreateTranscriptionPhrasesResponse({}));
   }
 
+  /**
+   * @summary 创建热词词表
+   *
+   * @param request CreateTranscriptionPhrasesRequest
+   * @return CreateTranscriptionPhrasesResponse
+   */
   async createTranscriptionPhrases(request: CreateTranscriptionPhrasesRequest): Promise<CreateTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTranscriptionPhrasesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 删除词表
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTranscriptionPhrasesResponse
+   */
   async deleteTranscriptionPhrasesWithOptions(PhraseId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTranscriptionPhrasesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -1114,12 +1202,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTranscriptionPhrasesResponse>(await this.callApi(params, req, runtime), new DeleteTranscriptionPhrasesResponse({}));
   }
 
+  /**
+   * @summary 删除词表
+   *
+   * @return DeleteTranscriptionPhrasesResponse
+   */
   async deleteTranscriptionPhrases(PhraseId: string): Promise<DeleteTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTranscriptionPhrasesWithOptions(PhraseId, headers, runtime);
   }
 
+  /**
+   * @summary 查询听悟任务信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskInfoResponse
+   */
   async getTaskInfoWithOptions(TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -1138,12 +1238,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskInfoResponse>(await this.callApi(params, req, runtime), new GetTaskInfoResponse({}));
   }
 
+  /**
+   * @summary 查询听悟任务信息
+   *
+   * @return GetTaskInfoResponse
+   */
   async getTaskInfo(TaskId: string): Promise<GetTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTaskInfoWithOptions(TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 查询热词词表信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTranscriptionPhrasesResponse
+   */
   async getTranscriptionPhrasesWithOptions(PhraseId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTranscriptionPhrasesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -1162,12 +1274,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTranscriptionPhrasesResponse>(await this.callApi(params, req, runtime), new GetTranscriptionPhrasesResponse({}));
   }
 
+  /**
+   * @summary 查询热词词表信息
+   *
+   * @return GetTranscriptionPhrasesResponse
+   */
   async getTranscriptionPhrases(PhraseId: string): Promise<GetTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTranscriptionPhrasesWithOptions(PhraseId, headers, runtime);
   }
 
+  /**
+   * @summary 列举用户所有热词词表信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTranscriptionPhrasesResponse
+   */
   async listTranscriptionPhrasesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTranscriptionPhrasesResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -1186,12 +1310,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTranscriptionPhrasesResponse>(await this.callApi(params, req, runtime), new ListTranscriptionPhrasesResponse({}));
   }
 
+  /**
+   * @summary 列举用户所有热词词表信息
+   *
+   * @return ListTranscriptionPhrasesResponse
+   */
   async listTranscriptionPhrases(): Promise<ListTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTranscriptionPhrasesWithOptions(headers, runtime);
   }
 
+  /**
+   * @summary 更新热词词表
+   *
+   * @param request UpdateTranscriptionPhrasesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTranscriptionPhrasesResponse
+   */
   async updateTranscriptionPhrasesWithOptions(PhraseId: string, request: UpdateTranscriptionPhrasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTranscriptionPhrasesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1225,6 +1362,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTranscriptionPhrasesResponse>(await this.callApi(params, req, runtime), new UpdateTranscriptionPhrasesResponse({}));
   }
 
+  /**
+   * @summary 更新热词词表
+   *
+   * @param request UpdateTranscriptionPhrasesRequest
+   * @return UpdateTranscriptionPhrasesResponse
+   */
   async updateTranscriptionPhrases(PhraseId: string, request: UpdateTranscriptionPhrasesRequest): Promise<UpdateTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
