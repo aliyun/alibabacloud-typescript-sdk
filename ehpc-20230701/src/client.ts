@@ -222,16 +222,16 @@ export class SharedStorageTemplate extends $tea.Model {
 export class AddImageRequest extends $tea.Model {
   containerImageSpec?: AddImageRequestContainerImageSpec;
   description?: string;
+  imageVersion?: string;
   name?: string;
   VMImageSpec?: AddImageRequestVMImageSpec;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       containerImageSpec: 'ContainerImageSpec',
       description: 'Description',
+      imageVersion: 'ImageVersion',
       name: 'Name',
       VMImageSpec: 'VMImageSpec',
-      version: 'Version',
     };
   }
 
@@ -239,9 +239,9 @@ export class AddImageRequest extends $tea.Model {
     return {
       containerImageSpec: AddImageRequestContainerImageSpec,
       description: 'string',
+      imageVersion: 'string',
       name: 'string',
       VMImageSpec: AddImageRequestVMImageSpec,
-      version: 'string',
     };
   }
 
@@ -253,16 +253,16 @@ export class AddImageRequest extends $tea.Model {
 export class AddImageShrinkRequest extends $tea.Model {
   containerImageSpecShrink?: string;
   description?: string;
+  imageVersion?: string;
   name?: string;
   VMImageSpecShrink?: string;
-  version?: string;
   static names(): { [key: string]: string } {
     return {
       containerImageSpecShrink: 'ContainerImageSpec',
       description: 'Description',
+      imageVersion: 'ImageVersion',
       name: 'Name',
       VMImageSpecShrink: 'VMImageSpec',
-      version: 'Version',
     };
   }
 
@@ -270,9 +270,9 @@ export class AddImageShrinkRequest extends $tea.Model {
     return {
       containerImageSpecShrink: 'string',
       description: 'string',
+      imageVersion: 'string',
       name: 'string',
       VMImageSpecShrink: 'string',
-      version: 'string',
     };
   }
 
@@ -2618,6 +2618,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 添加托管侧用户自定义镜像
+   *
+   * @param tmpReq AddImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddImageResponse
+   */
   async addImageWithOptions(tmpReq: AddImageRequest, runtime: $Util.RuntimeOptions): Promise<AddImageResponse> {
     Util.validateModel(tmpReq);
     let request = new AddImageShrinkRequest({ });
@@ -2639,16 +2646,16 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.imageVersion)) {
+      query["ImageVersion"] = request.imageVersion;
+    }
+
     if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
 
     if (!Util.isUnset(request.VMImageSpecShrink)) {
       query["VMImageSpec"] = request.VMImageSpecShrink;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2668,11 +2675,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddImageResponse>(await this.callApi(params, req, runtime), new AddImageResponse({}));
   }
 
+  /**
+   * @summary 添加托管侧用户自定义镜像
+   *
+   * @param request AddImageRequest
+   * @return AddImageResponse
+   */
   async addImage(request: AddImageRequest): Promise<AddImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 提交任务
+   *
+   * @param tmpReq CreateJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateJobResponse
+   */
   async createJobWithOptions(tmpReq: CreateJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateJobShrinkRequest({ });
@@ -2719,11 +2739,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
   }
 
+  /**
+   * @summary 提交任务
+   *
+   * @param request CreateJobRequest
+   * @return CreateJobResponse
+   */
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除作业
+   *
+   * @param tmpReq DeleteJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteJobsResponse
+   */
   async deleteJobsWithOptions(tmpReq: DeleteJobsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteJobsResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteJobsShrinkRequest({ });
@@ -2762,11 +2795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteJobsResponse>(await this.callApi(params, req, runtime), new DeleteJobsResponse({}));
   }
 
+  /**
+   * @summary 删除作业
+   *
+   * @param request DeleteJobsRequest
+   * @return DeleteJobsResponse
+   */
   async deleteJobs(request: DeleteJobsRequest): Promise<DeleteJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询作业性能数据
+   *
+   * @param tmpReq DescribeJobMetricDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeJobMetricDataResponse
+   */
   async describeJobMetricDataWithOptions(tmpReq: DescribeJobMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeJobMetricDataResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeJobMetricDataShrinkRequest({ });
@@ -2809,11 +2855,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeJobMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeJobMetricDataResponse({}));
   }
 
+  /**
+   * @summary 查询作业性能数据
+   *
+   * @param request DescribeJobMetricDataRequest
+   * @return DescribeJobMetricDataResponse
+   */
   async describeJobMetricData(request: DescribeJobMetricDataRequest): Promise<DescribeJobMetricDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeJobMetricDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询作业即时监控项
+   *
+   * @param tmpReq DescribeJobMetricLastRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeJobMetricLastResponse
+   */
   async describeJobMetricLastWithOptions(tmpReq: DescribeJobMetricLastRequest, runtime: $Util.RuntimeOptions): Promise<DescribeJobMetricLastResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeJobMetricLastShrinkRequest({ });
@@ -2852,11 +2911,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeJobMetricLastResponse>(await this.callApi(params, req, runtime), new DescribeJobMetricLastResponse({}));
   }
 
+  /**
+   * @summary 查询作业即时监控项
+   *
+   * @param request DescribeJobMetricLastRequest
+   * @return DescribeJobMetricLastResponse
+   */
   async describeJobMetricLast(request: DescribeJobMetricLastRequest): Promise<DescribeJobMetricLastResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeJobMetricLastWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询托管侧镜像详情。
+   *
+   * @param request GetImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetImageResponse
+   */
   async getImageWithOptions(request: GetImageRequest, runtime: $Util.RuntimeOptions): Promise<GetImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2881,11 +2953,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetImageResponse>(await this.callApi(params, req, runtime), new GetImageResponse({}));
   }
 
+  /**
+   * @summary 查询托管侧镜像详情。
+   *
+   * @param request GetImageRequest
+   * @return GetImageResponse
+   */
   async getImage(request: GetImageRequest): Promise<GetImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询作业详情
+   *
+   * @param request GetJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobResponse
+   */
   async getJobWithOptions(request: GetJobRequest, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2910,11 +2995,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
   }
 
+  /**
+   * @summary 查询作业详情
+   *
+   * @param request GetJobRequest
+   * @return GetJobResponse
+   */
   async getJob(request: GetJobRequest): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询全局Executor信息
+   *
+   * @param tmpReq ListExecutorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExecutorsResponse
+   */
   async listExecutorsWithOptions(tmpReq: ListExecutorsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutorsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListExecutorsShrinkRequest({ });
@@ -2953,11 +3051,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExecutorsResponse>(await this.callApi(params, req, runtime), new ListExecutorsResponse({}));
   }
 
+  /**
+   * @summary 查询全局Executor信息
+   *
+   * @param request ListExecutorsRequest
+   * @return ListExecutorsResponse
+   */
   async listExecutors(request: ListExecutorsRequest): Promise<ListExecutorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExecutorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看托管侧镜像列表
+   *
+   * @param tmpReq ListImagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListImagesResponse
+   */
   async listImagesWithOptions(tmpReq: ListImagesRequest, runtime: $Util.RuntimeOptions): Promise<ListImagesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListImagesShrinkRequest({ });
@@ -3004,11 +3115,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListImagesResponse>(await this.callApi(params, req, runtime), new ListImagesResponse({}));
   }
 
+  /**
+   * @summary 查看托管侧镜像列表
+   *
+   * @param request ListImagesRequest
+   * @return ListImagesResponse
+   */
   async listImages(request: ListImagesRequest): Promise<ListImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listImagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询作业Executor信息
+   *
+   * @param request ListJobExecutorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobExecutorsResponse
+   */
   async listJobExecutorsWithOptions(request: ListJobExecutorsRequest, runtime: $Util.RuntimeOptions): Promise<ListJobExecutorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3045,11 +3169,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobExecutorsResponse>(await this.callApi(params, req, runtime), new ListJobExecutorsResponse({}));
   }
 
+  /**
+   * @summary 查询作业Executor信息
+   *
+   * @param request ListJobExecutorsRequest
+   * @return ListJobExecutorsResponse
+   */
   async listJobExecutors(request: ListJobExecutorsRequest): Promise<ListJobExecutorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listJobExecutorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询作业列表
+   *
+   * @param tmpReq ListJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobsResponse
+   */
   async listJobsWithOptions(tmpReq: ListJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListJobsShrinkRequest({ });
@@ -3096,11 +3233,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
   }
 
+  /**
+   * @summary 查询作业列表
+   *
+   * @param request ListJobsRequest
+   * @return ListJobsResponse
+   */
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 移除托管侧镜像信息。
+   *
+   * @param request RemoveImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveImageResponse
+   */
   async removeImageWithOptions(request: RemoveImageRequest, runtime: $Util.RuntimeOptions): Promise<RemoveImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3125,6 +3275,12 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveImageResponse>(await this.callApi(params, req, runtime), new RemoveImageResponse({}));
   }
 
+  /**
+   * @summary 移除托管侧镜像信息。
+   *
+   * @param request RemoveImageRequest
+   * @return RemoveImageResponse
+   */
   async removeImage(request: RemoveImageRequest): Promise<RemoveImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeImageWithOptions(request, runtime);
