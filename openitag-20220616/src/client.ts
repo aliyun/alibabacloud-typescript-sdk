@@ -20,6 +20,7 @@ export class CreateTaskDetail extends $tea.Model {
   taskWorkflow?: CreateTaskDetailTaskWorkflow[];
   templateId?: string;
   UUID?: string;
+  voteConfigs?: { [key: string]: CreateTaskDetailVoteInfo };
   static names(): { [key: string]: string } {
     return {
       admins: 'Admins',
@@ -33,6 +34,7 @@ export class CreateTaskDetail extends $tea.Model {
       taskWorkflow: 'TaskWorkflow',
       templateId: 'TemplateId',
       UUID: 'UUID',
+      voteConfigs: 'VoteConfigs',
     };
   }
 
@@ -49,6 +51,29 @@ export class CreateTaskDetail extends $tea.Model {
       taskWorkflow: { 'type': 'array', 'itemType': CreateTaskDetailTaskWorkflow },
       templateId: 'string',
       UUID: 'string',
+      voteConfigs: { 'type': 'map', 'keyType': 'string', 'valueType': CreateTaskDetailVoteInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskDetailVoteInfo extends $tea.Model {
+  minVote?: number;
+  voteNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      minVote: 'MinVote',
+      voteNum: 'VoteNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      minVote: 'number',
+      voteNum: 'number',
     };
   }
 
@@ -191,6 +216,34 @@ export class MarkResult extends $tea.Model {
       resultType: 'string',
       userMarkResultId: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenDatasetProxyAppendDataRequest extends $tea.Model {
+  dataMeta?: { [key: string]: string }[];
+  taskId?: string;
+  traceId?: string;
+  UUID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataMeta: 'DataMeta',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+      UUID: 'UUID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataMeta: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      taskId: 'string',
+      traceId: 'string',
+      UUID: 'string',
     };
   }
 
@@ -1318,9 +1371,9 @@ export class AddWorkNodeWorkforceResponseBody extends $tea.Model {
 }
 
 export class AddWorkNodeWorkforceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddWorkNodeWorkforceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddWorkNodeWorkforceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1334,6 +1387,84 @@ export class AddWorkNodeWorkforceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddWorkNodeWorkforceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppendAllDataToTaskRequest extends $tea.Model {
+  body?: OpenDatasetProxyAppendDataRequest;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: OpenDatasetProxyAppendDataRequest,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppendAllDataToTaskResponseBody extends $tea.Model {
+  code?: number;
+  details?: string;
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      details: 'Details',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      details: 'string',
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AppendAllDataToTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AppendAllDataToTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AppendAllDataToTaskResponseBody,
     };
   }
 
@@ -1399,9 +1530,9 @@ export class CreateTaskResponseBody extends $tea.Model {
 }
 
 export class CreateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1480,9 +1611,9 @@ export class CreateTemplateResponseBody extends $tea.Model {
 }
 
 export class CreateTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1570,9 +1701,9 @@ export class CreateUserResponseBody extends $tea.Model {
 }
 
 export class CreateUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1629,9 +1760,9 @@ export class DeleteTaskResponseBody extends $tea.Model {
 }
 
 export class DeleteTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1691,9 +1822,9 @@ export class DeleteTemplateResponseBody extends $tea.Model {
 }
 
 export class DeleteTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1750,9 +1881,9 @@ export class DeleteUserResponseBody extends $tea.Model {
 }
 
 export class DeleteUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1837,9 +1968,9 @@ export class ExportAnnotationsResponseBody extends $tea.Model {
 }
 
 export class ExportAnnotationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExportAnnotationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportAnnotationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1918,9 +2049,9 @@ export class GetJobResponseBody extends $tea.Model {
 }
 
 export class GetJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1980,9 +2111,9 @@ export class GetSubtaskResponseBody extends $tea.Model {
 }
 
 export class GetSubtaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSubtaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSubtaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2042,9 +2173,9 @@ export class GetSubtaskItemResponseBody extends $tea.Model {
 }
 
 export class GetSubtaskItemResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSubtaskItemResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSubtaskItemResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2104,9 +2235,9 @@ export class GetTaskResponseBody extends $tea.Model {
 }
 
 export class GetTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2185,9 +2316,9 @@ export class GetTaskStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetTaskStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2247,9 +2378,9 @@ export class GetTaskStatusResponseBody extends $tea.Model {
 }
 
 export class GetTaskStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2309,9 +2440,9 @@ export class GetTaskTemplateResponseBody extends $tea.Model {
 }
 
 export class GetTaskTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2371,9 +2502,9 @@ export class GetTaskTemplateQuestionsResponseBody extends $tea.Model {
 }
 
 export class GetTaskTemplateQuestionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskTemplateQuestionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskTemplateQuestionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2433,9 +2564,9 @@ export class GetTaskTemplateViewsResponseBody extends $tea.Model {
 }
 
 export class GetTaskTemplateViewsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskTemplateViewsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskTemplateViewsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2495,9 +2626,9 @@ export class GetTaskWorkforceResponseBody extends $tea.Model {
 }
 
 export class GetTaskWorkforceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskWorkforceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskWorkforceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2594,9 +2725,9 @@ export class GetTaskWorkforceStatisticResponseBody extends $tea.Model {
 }
 
 export class GetTaskWorkforceStatisticResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTaskWorkforceStatisticResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTaskWorkforceStatisticResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2656,9 +2787,9 @@ export class GetTemplateResponseBody extends $tea.Model {
 }
 
 export class GetTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2718,9 +2849,9 @@ export class GetTemplateQuestionsResponseBody extends $tea.Model {
 }
 
 export class GetTemplateQuestionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTemplateQuestionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTemplateQuestionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2780,9 +2911,9 @@ export class GetTemplateViewResponseBody extends $tea.Model {
 }
 
 export class GetTemplateViewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTemplateViewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTemplateViewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2842,9 +2973,9 @@ export class GetTenantResponseBody extends $tea.Model {
 }
 
 export class GetTenantResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTenantResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTenantResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2904,9 +3035,9 @@ export class GetUserResponseBody extends $tea.Model {
 }
 
 export class GetUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3003,9 +3134,9 @@ export class ListJobsResponseBody extends $tea.Model {
 }
 
 export class ListJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3099,9 +3230,9 @@ export class ListSubtaskItemsResponseBody extends $tea.Model {
 }
 
 export class ListSubtaskItemsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSubtaskItemsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubtaskItemsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3195,9 +3326,9 @@ export class ListSubtasksResponseBody extends $tea.Model {
 }
 
 export class ListSubtasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSubtasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSubtasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3291,9 +3422,9 @@ export class ListTasksResponseBody extends $tea.Model {
 }
 
 export class ListTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3421,9 +3552,9 @@ export class ListTemplatesResponseBody extends $tea.Model {
 }
 
 export class ListTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3517,9 +3648,9 @@ export class ListTenantsResponseBody extends $tea.Model {
 }
 
 export class ListTenantsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTenantsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTenantsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3613,9 +3744,9 @@ export class ListUsersResponseBody extends $tea.Model {
 }
 
 export class ListUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUsersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUsersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3691,9 +3822,9 @@ export class RemoveWorkNodeWorkforceResponseBody extends $tea.Model {
 }
 
 export class RemoveWorkNodeWorkforceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveWorkNodeWorkforceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveWorkNodeWorkforceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3769,9 +3900,9 @@ export class UpdateTaskResponseBody extends $tea.Model {
 }
 
 export class UpdateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3847,9 +3978,9 @@ export class UpdateTaskWorkforceResponseBody extends $tea.Model {
 }
 
 export class UpdateTaskWorkforceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTaskWorkforceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTaskWorkforceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3928,9 +4059,9 @@ export class UpdateTemplateResponseBody extends $tea.Model {
 }
 
 export class UpdateTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4009,9 +4140,9 @@ export class UpdateTenantResponseBody extends $tea.Model {
 }
 
 export class UpdateTenantResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTenantResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTenantResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4093,9 +4224,9 @@ export class UpdateUserResponseBody extends $tea.Model {
 }
 
 export class UpdateUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4582,12 +4713,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addWorkNodeWorkforce(TenantId: string, TaskId: string, WorkNodeId: string, request: AddWorkNodeWorkforceRequest): Promise<AddWorkNodeWorkforceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.addWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
-  }
-
+  /**
+   * @summary 增加结点任务人力
+   *
+   * @param request AddWorkNodeWorkforceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddWorkNodeWorkforceResponse
+   */
   async addWorkNodeWorkforceWithOptions(TenantId: string, TaskId: string, WorkNodeId: string, request: AddWorkNodeWorkforceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddWorkNodeWorkforceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4613,17 +4746,71 @@ export default class Client extends OpenApi {
     return $tea.cast<AddWorkNodeWorkforceResponse>(await this.callApi(params, req, runtime), new AddWorkNodeWorkforceResponse({}));
   }
 
-  async createTask(TenantId: string, request: CreateTaskRequest): Promise<CreateTaskResponse> {
+  /**
+   * @summary 增加结点任务人力
+   *
+   * @param request AddWorkNodeWorkforceRequest
+   * @return AddWorkNodeWorkforceResponse
+   */
+  async addWorkNodeWorkforce(TenantId: string, TaskId: string, WorkNodeId: string, request: AddWorkNodeWorkforceRequest): Promise<AddWorkNodeWorkforceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTaskWithOptions(TenantId, request, headers, runtime);
+    return await this.addWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
   }
 
+  /**
+   * @summary 数据追加
+   *
+   * @param request AppendAllDataToTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AppendAllDataToTaskResponse
+   */
+  async appendAllDataToTaskWithOptions(TenantId: string, TaskId: string, request: AppendAllDataToTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AppendAllDataToTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AppendAllDataToTask",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: `/openapi/api/v1/tenants/${OpenApiUtil.getEncodeParam(TenantId)}/tasks/${OpenApiUtil.getEncodeParam(TaskId)}/appendAllDataToTask`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AppendAllDataToTaskResponse>(await this.callApi(params, req, runtime), new AppendAllDataToTaskResponse({}));
+  }
+
+  /**
+   * @summary 数据追加
+   *
+   * @param request AppendAllDataToTaskRequest
+   * @return AppendAllDataToTaskResponse
+   */
+  async appendAllDataToTask(TenantId: string, TaskId: string, request: AppendAllDataToTaskRequest): Promise<AppendAllDataToTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.appendAllDataToTaskWithOptions(TenantId, TaskId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 创建标注任务
+   *
+   * @param request CreateTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTaskResponse
+   */
   async createTaskWithOptions(TenantId: string, request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateTask",
@@ -4639,17 +4826,31 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
   }
 
-  async createTemplate(TenantId: string, request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
+  /**
+   * @summary 创建标注任务
+   *
+   * @param request CreateTaskRequest
+   * @return CreateTaskResponse
+   */
+  async createTask(TenantId: string, request: CreateTaskRequest): Promise<CreateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createTemplateWithOptions(TenantId, request, headers, runtime);
+    return await this.createTaskWithOptions(TenantId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建标注模版
+   *
+   * @param request CreateTemplateRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTemplateResponse
+   */
   async createTemplateWithOptions(TenantId: string, request: CreateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "CreateTemplate",
@@ -4665,12 +4866,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
-  async createUser(TenantId: string, request: CreateUserRequest): Promise<CreateUserResponse> {
+  /**
+   * @summary 创建标注模版
+   *
+   * @param request CreateTemplateRequest
+   * @return CreateTemplateResponse
+   */
+  async createTemplate(TenantId: string, request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createUserWithOptions(TenantId, request, headers, runtime);
+    return await this.createTemplateWithOptions(TenantId, request, headers, runtime);
   }
 
+  /**
+   * @summary 创建租户内用户
+   *
+   * @param request CreateUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserResponse
+   */
   async createUserWithOptions(TenantId: string, request: CreateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4708,12 +4923,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
-  async deleteTask(TenantId: string, TaskId: string): Promise<DeleteTaskResponse> {
+  /**
+   * @summary 创建租户内用户
+   *
+   * @param request CreateUserRequest
+   * @return CreateUserResponse
+   */
+  async createUser(TenantId: string, request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTaskWithOptions(TenantId, TaskId, headers, runtime);
+    return await this.createUserWithOptions(TenantId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除任务
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTaskResponse
+   */
   async deleteTaskWithOptions(TenantId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4732,12 +4960,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTaskResponse>(await this.callApi(params, req, runtime), new DeleteTaskResponse({}));
   }
 
-  async deleteTemplate(TenantId: string, TemplateId: string): Promise<DeleteTemplateResponse> {
+  /**
+   * @summary 删除任务
+   *
+   * @return DeleteTaskResponse
+   */
+  async deleteTask(TenantId: string, TaskId: string): Promise<DeleteTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTemplateWithOptions(TenantId, TemplateId, headers, runtime);
+    return await this.deleteTaskWithOptions(TenantId, TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 删除租户下的单个模板
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTemplateResponse
+   */
   async deleteTemplateWithOptions(TenantId: string, TemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4756,12 +4996,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
-  async deleteUser(TenantId: string, UserId: string): Promise<DeleteUserResponse> {
+  /**
+   * @summary 删除租户下的单个模板
+   *
+   * @return DeleteTemplateResponse
+   */
+  async deleteTemplate(TenantId: string, TemplateId: string): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteUserWithOptions(TenantId, UserId, headers, runtime);
+    return await this.deleteTemplateWithOptions(TenantId, TemplateId, headers, runtime);
   }
 
+  /**
+   * @summary 删除用户
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserResponse
+   */
   async deleteUserWithOptions(TenantId: string, UserId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4780,12 +5032,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
-  async exportAnnotations(TenantId: string, TaskId: string, request: ExportAnnotationsRequest): Promise<ExportAnnotationsResponse> {
+  /**
+   * @summary 删除用户
+   *
+   * @return DeleteUserResponse
+   */
+  async deleteUser(TenantId: string, UserId: string): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.exportAnnotationsWithOptions(TenantId, TaskId, request, headers, runtime);
+    return await this.deleteUserWithOptions(TenantId, UserId, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务导出结果
+   *
+   * @param request ExportAnnotationsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportAnnotationsResponse
+   */
   async exportAnnotationsWithOptions(TenantId: string, TaskId: string, request: ExportAnnotationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExportAnnotationsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4819,12 +5084,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportAnnotationsResponse>(await this.callApi(params, req, runtime), new ExportAnnotationsResponse({}));
   }
 
-  async getJob(TenantId: string, JobId: string, request: GetJobRequest): Promise<GetJobResponse> {
+  /**
+   * @summary 获取任务导出结果
+   *
+   * @param request ExportAnnotationsRequest
+   * @return ExportAnnotationsResponse
+   */
+  async exportAnnotations(TenantId: string, TaskId: string, request: ExportAnnotationsRequest): Promise<ExportAnnotationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getJobWithOptions(TenantId, JobId, request, headers, runtime);
+    return await this.exportAnnotationsWithOptions(TenantId, TaskId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取异步任务Job
+   *
+   * @param request GetJobRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobResponse
+   */
   async getJobWithOptions(TenantId: string, JobId: string, request: GetJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4850,12 +5129,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
   }
 
-  async getSubtask(TenantId: string, TaskID: string, SubtaskId: string): Promise<GetSubtaskResponse> {
+  /**
+   * @summary 获取异步任务Job
+   *
+   * @param request GetJobRequest
+   * @return GetJobResponse
+   */
+  async getJob(TenantId: string, JobId: string, request: GetJobRequest): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSubtaskWithOptions(TenantId, TaskID, SubtaskId, headers, runtime);
+    return await this.getJobWithOptions(TenantId, JobId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取单个子任务信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSubtaskResponse
+   */
   async getSubtaskWithOptions(TenantId: string, TaskID: string, SubtaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSubtaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4874,12 +5166,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSubtaskResponse>(await this.callApi(params, req, runtime), new GetSubtaskResponse({}));
   }
 
-  async getSubtaskItem(TenantId: string, TaskId: string, SubtaskId: string, ItemId: string): Promise<GetSubtaskItemResponse> {
+  /**
+   * @summary 获取单个子任务信息
+   *
+   * @return GetSubtaskResponse
+   */
+  async getSubtask(TenantId: string, TaskID: string, SubtaskId: string): Promise<GetSubtaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSubtaskItemWithOptions(TenantId, TaskId, SubtaskId, ItemId, headers, runtime);
+    return await this.getSubtaskWithOptions(TenantId, TaskID, SubtaskId, headers, runtime);
   }
 
+  /**
+   * @summary 获取子任务单个ITEM信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSubtaskItemResponse
+   */
   async getSubtaskItemWithOptions(TenantId: string, TaskId: string, SubtaskId: string, ItemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSubtaskItemResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4898,12 +5202,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSubtaskItemResponse>(await this.callApi(params, req, runtime), new GetSubtaskItemResponse({}));
   }
 
-  async getTask(TenantId: string, TaskId: string): Promise<GetTaskResponse> {
+  /**
+   * @summary 获取子任务单个ITEM信息
+   *
+   * @return GetSubtaskItemResponse
+   */
+  async getSubtaskItem(TenantId: string, TaskId: string, SubtaskId: string, ItemId: string): Promise<GetSubtaskItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskWithOptions(TenantId, TaskId, headers, runtime);
+    return await this.getSubtaskItemWithOptions(TenantId, TaskId, SubtaskId, ItemId, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务状态信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskResponse
+   */
   async getTaskWithOptions(TenantId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4922,12 +5238,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
   }
 
-  async getTaskStatistics(TenantId: string, TaskId: string, request: GetTaskStatisticsRequest): Promise<GetTaskStatisticsResponse> {
+  /**
+   * @summary 获取任务状态信息
+   *
+   * @return GetTaskResponse
+   */
+  async getTask(TenantId: string, TaskId: string): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskStatisticsWithOptions(TenantId, TaskId, request, headers, runtime);
+    return await this.getTaskWithOptions(TenantId, TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务统计信息
+   *
+   * @param request GetTaskStatisticsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskStatisticsResponse
+   */
   async getTaskStatisticsWithOptions(TenantId: string, TaskId: string, request: GetTaskStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskStatisticsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -4953,12 +5282,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskStatisticsResponse>(await this.callApi(params, req, runtime), new GetTaskStatisticsResponse({}));
   }
 
-  async getTaskStatus(TenantId: string, TaskId: string): Promise<GetTaskStatusResponse> {
+  /**
+   * @summary 获取任务统计信息
+   *
+   * @param request GetTaskStatisticsRequest
+   * @return GetTaskStatisticsResponse
+   */
+  async getTaskStatistics(TenantId: string, TaskId: string, request: GetTaskStatisticsRequest): Promise<GetTaskStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskStatusWithOptions(TenantId, TaskId, headers, runtime);
+    return await this.getTaskStatisticsWithOptions(TenantId, TaskId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务状态信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskStatusResponse
+   */
   async getTaskStatusWithOptions(TenantId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -4977,12 +5319,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskStatusResponse>(await this.callApi(params, req, runtime), new GetTaskStatusResponse({}));
   }
 
-  async getTaskTemplate(TenantId: string, TaskId: string): Promise<GetTaskTemplateResponse> {
+  /**
+   * @summary 获取任务状态信息
+   *
+   * @return GetTaskStatusResponse
+   */
+  async getTaskStatus(TenantId: string, TaskId: string): Promise<GetTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskTemplateWithOptions(TenantId, TaskId, headers, runtime);
+    return await this.getTaskStatusWithOptions(TenantId, TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务模版信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskTemplateResponse
+   */
   async getTaskTemplateWithOptions(TenantId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5001,12 +5355,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskTemplateResponse>(await this.callApi(params, req, runtime), new GetTaskTemplateResponse({}));
   }
 
-  async getTaskTemplateQuestions(TenantId: string, TaskId: string): Promise<GetTaskTemplateQuestionsResponse> {
+  /**
+   * @summary 获取任务模版信息
+   *
+   * @return GetTaskTemplateResponse
+   */
+  async getTaskTemplate(TenantId: string, TaskId: string): Promise<GetTaskTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskTemplateQuestionsWithOptions(TenantId, TaskId, headers, runtime);
+    return await this.getTaskTemplateWithOptions(TenantId, TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务题目信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskTemplateQuestionsResponse
+   */
   async getTaskTemplateQuestionsWithOptions(TenantId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskTemplateQuestionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5025,12 +5391,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskTemplateQuestionsResponse>(await this.callApi(params, req, runtime), new GetTaskTemplateQuestionsResponse({}));
   }
 
-  async getTaskTemplateViews(TenantId: string, TaskId: string): Promise<GetTaskTemplateViewsResponse> {
+  /**
+   * @summary 获取任务题目信息
+   *
+   * @return GetTaskTemplateQuestionsResponse
+   */
+  async getTaskTemplateQuestions(TenantId: string, TaskId: string): Promise<GetTaskTemplateQuestionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskTemplateViewsWithOptions(TenantId, TaskId, headers, runtime);
+    return await this.getTaskTemplateQuestionsWithOptions(TenantId, TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务题目信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskTemplateViewsResponse
+   */
   async getTaskTemplateViewsWithOptions(TenantId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskTemplateViewsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5049,12 +5427,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskTemplateViewsResponse>(await this.callApi(params, req, runtime), new GetTaskTemplateViewsResponse({}));
   }
 
-  async getTaskWorkforce(TenantId: string, TaskId: string): Promise<GetTaskWorkforceResponse> {
+  /**
+   * @summary 获取任务题目信息
+   *
+   * @return GetTaskTemplateViewsResponse
+   */
+  async getTaskTemplateViews(TenantId: string, TaskId: string): Promise<GetTaskTemplateViewsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskWorkforceWithOptions(TenantId, TaskId, headers, runtime);
+    return await this.getTaskTemplateViewsWithOptions(TenantId, TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务人力
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskWorkforceResponse
+   */
   async getTaskWorkforceWithOptions(TenantId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskWorkforceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5073,12 +5463,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskWorkforceResponse>(await this.callApi(params, req, runtime), new GetTaskWorkforceResponse({}));
   }
 
-  async getTaskWorkforceStatistic(TenantId: string, TaskId: string, request: GetTaskWorkforceStatisticRequest): Promise<GetTaskWorkforceStatisticResponse> {
+  /**
+   * @summary 获取任务人力
+   *
+   * @return GetTaskWorkforceResponse
+   */
+  async getTaskWorkforce(TenantId: string, TaskId: string): Promise<GetTaskWorkforceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskWorkforceStatisticWithOptions(TenantId, TaskId, request, headers, runtime);
+    return await this.getTaskWorkforceWithOptions(TenantId, TaskId, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务人力统计信息
+   *
+   * @param request GetTaskWorkforceStatisticRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTaskWorkforceStatisticResponse
+   */
   async getTaskWorkforceStatisticWithOptions(TenantId: string, TaskId: string, request: GetTaskWorkforceStatisticRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskWorkforceStatisticResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5112,12 +5515,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTaskWorkforceStatisticResponse>(await this.callApi(params, req, runtime), new GetTaskWorkforceStatisticResponse({}));
   }
 
-  async getTemplate(TenantId: string, TemplateId: string): Promise<GetTemplateResponse> {
+  /**
+   * @summary 获取任务人力统计信息
+   *
+   * @param request GetTaskWorkforceStatisticRequest
+   * @return GetTaskWorkforceStatisticResponse
+   */
+  async getTaskWorkforceStatistic(TenantId: string, TaskId: string, request: GetTaskWorkforceStatisticRequest): Promise<GetTaskWorkforceStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTemplateWithOptions(TenantId, TemplateId, headers, runtime);
+    return await this.getTaskWorkforceStatisticWithOptions(TenantId, TaskId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取租户下单个模板
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTemplateResponse
+   */
   async getTemplateWithOptions(TenantId: string, TemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5136,12 +5552,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
-  async getTemplateQuestions(TenantId: string, TemplateId: string): Promise<GetTemplateQuestionsResponse> {
+  /**
+   * @summary 获取租户下单个模板
+   *
+   * @return GetTemplateResponse
+   */
+  async getTemplate(TenantId: string, TemplateId: string): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTemplateQuestionsWithOptions(TenantId, TemplateId, headers, runtime);
+    return await this.getTemplateWithOptions(TenantId, TemplateId, headers, runtime);
   }
 
+  /**
+   * @summary 获取租户下单个模板问题
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTemplateQuestionsResponse
+   */
   async getTemplateQuestionsWithOptions(TenantId: string, TemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateQuestionsResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5160,12 +5588,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateQuestionsResponse>(await this.callApi(params, req, runtime), new GetTemplateQuestionsResponse({}));
   }
 
-  async getTemplateView(TenantId: string, TemplateId: string): Promise<GetTemplateViewResponse> {
+  /**
+   * @summary 获取租户下单个模板问题
+   *
+   * @return GetTemplateQuestionsResponse
+   */
+  async getTemplateQuestions(TenantId: string, TemplateId: string): Promise<GetTemplateQuestionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTemplateViewWithOptions(TenantId, TemplateId, headers, runtime);
+    return await this.getTemplateQuestionsWithOptions(TenantId, TemplateId, headers, runtime);
   }
 
+  /**
+   * @summary 获取租户下模板视图
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTemplateViewResponse
+   */
   async getTemplateViewWithOptions(TenantId: string, TemplateId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateViewResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5184,12 +5624,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateViewResponse>(await this.callApi(params, req, runtime), new GetTemplateViewResponse({}));
   }
 
-  async getTenant(TenantId: string): Promise<GetTenantResponse> {
+  /**
+   * @summary 获取租户下模板视图
+   *
+   * @return GetTemplateViewResponse
+   */
+  async getTemplateView(TenantId: string, TemplateId: string): Promise<GetTemplateViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTenantWithOptions(TenantId, headers, runtime);
+    return await this.getTemplateViewWithOptions(TenantId, TemplateId, headers, runtime);
   }
 
+  /**
+   * @summary 获取租户信息
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTenantResponse
+   */
   async getTenantWithOptions(TenantId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTenantResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5208,12 +5660,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTenantResponse>(await this.callApi(params, req, runtime), new GetTenantResponse({}));
   }
 
-  async getUser(TenantId: string, UserId: string): Promise<GetUserResponse> {
+  /**
+   * @summary 获取租户信息
+   *
+   * @return GetTenantResponse
+   */
+  async getTenant(TenantId: string): Promise<GetTenantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getUserWithOptions(TenantId, UserId, headers, runtime);
+    return await this.getTenantWithOptions(TenantId, headers, runtime);
   }
 
+  /**
+   * @summary 获取用户
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserResponse
+   */
   async getUserWithOptions(TenantId: string, UserId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -5232,12 +5696,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
-  async listJobs(TenantId: string, request: ListJobsRequest): Promise<ListJobsResponse> {
+  /**
+   * @summary 获取用户
+   *
+   * @return GetUserResponse
+   */
+  async getUser(TenantId: string, UserId: string): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listJobsWithOptions(TenantId, request, headers, runtime);
+    return await this.getUserWithOptions(TenantId, UserId, headers, runtime);
   }
 
+  /**
+   * @summary 获取异步任务Job列表
+   *
+   * @param request ListJobsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobsResponse
+   */
   async listJobsWithOptions(TenantId: string, request: ListJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5271,12 +5748,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
   }
 
-  async listSubtaskItems(TenantId: string, TaskID: string, SubtaskId: string, request: ListSubtaskItemsRequest): Promise<ListSubtaskItemsResponse> {
+  /**
+   * @summary 获取异步任务Job列表
+   *
+   * @param request ListJobsRequest
+   * @return ListJobsResponse
+   */
+  async listJobs(TenantId: string, request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSubtaskItemsWithOptions(TenantId, TaskID, SubtaskId, request, headers, runtime);
+    return await this.listJobsWithOptions(TenantId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取子任务ITEM列表页信息
+   *
+   * @param request ListSubtaskItemsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSubtaskItemsResponse
+   */
   async listSubtaskItemsWithOptions(TenantId: string, TaskID: string, SubtaskId: string, request: ListSubtaskItemsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSubtaskItemsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5306,12 +5797,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubtaskItemsResponse>(await this.callApi(params, req, runtime), new ListSubtaskItemsResponse({}));
   }
 
-  async listSubtasks(TenantId: string, TaskID: string, request: ListSubtasksRequest): Promise<ListSubtasksResponse> {
+  /**
+   * @summary 获取子任务ITEM列表页信息
+   *
+   * @param request ListSubtaskItemsRequest
+   * @return ListSubtaskItemsResponse
+   */
+  async listSubtaskItems(TenantId: string, TaskID: string, SubtaskId: string, request: ListSubtaskItemsRequest): Promise<ListSubtaskItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listSubtasksWithOptions(TenantId, TaskID, request, headers, runtime);
+    return await this.listSubtaskItemsWithOptions(TenantId, TaskID, SubtaskId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取子任务列表页信息
+   *
+   * @param request ListSubtasksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSubtasksResponse
+   */
   async listSubtasksWithOptions(TenantId: string, TaskID: string, request: ListSubtasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSubtasksResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5341,12 +5846,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSubtasksResponse>(await this.callApi(params, req, runtime), new ListSubtasksResponse({}));
   }
 
-  async listTasks(TenantId: string, request: ListTasksRequest): Promise<ListTasksResponse> {
+  /**
+   * @summary 获取子任务列表页信息
+   *
+   * @param request ListSubtasksRequest
+   * @return ListSubtasksResponse
+   */
+  async listSubtasks(TenantId: string, TaskID: string, request: ListSubtasksRequest): Promise<ListSubtasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTasksWithOptions(TenantId, request, headers, runtime);
+    return await this.listSubtasksWithOptions(TenantId, TaskID, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务列表页信息
+   *
+   * @param request ListTasksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTasksResponse
+   */
   async listTasksWithOptions(TenantId: string, request: ListTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5376,12 +5895,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
   }
 
-  async listTemplates(TenantId: string, request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
+  /**
+   * @summary 获取任务列表页信息
+   *
+   * @param request ListTasksRequest
+   * @return ListTasksResponse
+   */
+  async listTasks(TenantId: string, request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTemplatesWithOptions(TenantId, request, headers, runtime);
+    return await this.listTasksWithOptions(TenantId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取租户模板信息列表
+   *
+   * @param tmpReq ListTemplatesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTemplatesResponse
+   */
   async listTemplatesWithOptions(TenantId: string, tmpReq: ListTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTemplatesShrinkRequest({ });
@@ -5425,12 +5958,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
-  async listTenants(request: ListTenantsRequest): Promise<ListTenantsResponse> {
+  /**
+   * @summary 获取租户模板信息列表
+   *
+   * @param request ListTemplatesRequest
+   * @return ListTemplatesResponse
+   */
+  async listTemplates(TenantId: string, request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listTenantsWithOptions(request, headers, runtime);
+    return await this.listTemplatesWithOptions(TenantId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取租户列表
+   *
+   * @param request ListTenantsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTenantsResponse
+   */
   async listTenantsWithOptions(request: ListTenantsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTenantsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5460,12 +6007,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTenantsResponse>(await this.callApi(params, req, runtime), new ListTenantsResponse({}));
   }
 
-  async listUsers(TenantId: string, request: ListUsersRequest): Promise<ListUsersResponse> {
+  /**
+   * @summary 获取租户列表
+   *
+   * @param request ListTenantsRequest
+   * @return ListTenantsResponse
+   */
+  async listTenants(request: ListTenantsRequest): Promise<ListTenantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listUsersWithOptions(TenantId, request, headers, runtime);
+    return await this.listTenantsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取用户列表
+   *
+   * @param request ListUsersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersResponse
+   */
   async listUsersWithOptions(TenantId: string, request: ListUsersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -5495,12 +6056,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
-  async removeWorkNodeWorkforce(TenantId: string, TaskId: string, WorkNodeId: string, request: RemoveWorkNodeWorkforceRequest): Promise<RemoveWorkNodeWorkforceResponse> {
+  /**
+   * @summary 获取用户列表
+   *
+   * @param request ListUsersRequest
+   * @return ListUsersResponse
+   */
+  async listUsers(TenantId: string, request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
+    return await this.listUsersWithOptions(TenantId, request, headers, runtime);
   }
 
+  /**
+   * @summary 删除结点人力
+   *
+   * @param request RemoveWorkNodeWorkforceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveWorkNodeWorkforceResponse
+   */
   async removeWorkNodeWorkforceWithOptions(TenantId: string, TaskId: string, WorkNodeId: string, request: RemoveWorkNodeWorkforceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveWorkNodeWorkforceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5526,17 +6101,31 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveWorkNodeWorkforceResponse>(await this.callApi(params, req, runtime), new RemoveWorkNodeWorkforceResponse({}));
   }
 
-  async updateTask(TenantId: string, TaskId: string, request: UpdateTaskRequest): Promise<UpdateTaskResponse> {
+  /**
+   * @summary 删除结点人力
+   *
+   * @param request RemoveWorkNodeWorkforceRequest
+   * @return RemoveWorkNodeWorkforceResponse
+   */
+  async removeWorkNodeWorkforce(TenantId: string, TaskId: string, WorkNodeId: string, request: RemoveWorkNodeWorkforceRequest): Promise<RemoveWorkNodeWorkforceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateTaskWithOptions(TenantId, TaskId, request, headers, runtime);
+    return await this.removeWorkNodeWorkforceWithOptions(TenantId, TaskId, WorkNodeId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新标注任务基础信息
+   *
+   * @param request UpdateTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskResponse
+   */
   async updateTaskWithOptions(TenantId: string, TaskId: string, request: UpdateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTask",
@@ -5552,12 +6141,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskResponse>(await this.callApi(params, req, runtime), new UpdateTaskResponse({}));
   }
 
-  async updateTaskWorkforce(TenantId: string, TaskId: string, request: UpdateTaskWorkforceRequest): Promise<UpdateTaskWorkforceResponse> {
+  /**
+   * @summary 更新标注任务基础信息
+   *
+   * @param request UpdateTaskRequest
+   * @return UpdateTaskResponse
+   */
+  async updateTask(TenantId: string, TaskId: string, request: UpdateTaskRequest): Promise<UpdateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateTaskWorkforceWithOptions(TenantId, TaskId, request, headers, runtime);
+    return await this.updateTaskWithOptions(TenantId, TaskId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新任务人力
+   *
+   * @param request UpdateTaskWorkforceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskWorkforceResponse
+   */
   async updateTaskWorkforceWithOptions(TenantId: string, TaskId: string, request: UpdateTaskWorkforceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTaskWorkforceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5583,17 +6186,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskWorkforceResponse>(await this.callApi(params, req, runtime), new UpdateTaskWorkforceResponse({}));
   }
 
-  async updateTemplate(TenantId: string, TemplateId: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
+  /**
+   * @summary 更新任务人力
+   *
+   * @param request UpdateTaskWorkforceRequest
+   * @return UpdateTaskWorkforceResponse
+   */
+  async updateTaskWorkforce(TenantId: string, TaskId: string, request: UpdateTaskWorkforceRequest): Promise<UpdateTaskWorkforceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateTemplateWithOptions(TenantId, TemplateId, request, headers, runtime);
+    return await this.updateTaskWorkforceWithOptions(TenantId, TaskId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新标注模版
+   *
+   * @param request UpdateTemplateRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTemplateResponse
+   */
   async updateTemplateWithOptions(TenantId: string, TemplateId: string, request: UpdateTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap($tea.toMap(request.body)),
+      body: OpenApiUtil.parseToMap(request.body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTemplate",
@@ -5609,12 +6226,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
-  async updateTenant(TenantId: string, request: UpdateTenantRequest): Promise<UpdateTenantResponse> {
+  /**
+   * @summary 更新标注模版
+   *
+   * @param request UpdateTemplateRequest
+   * @return UpdateTemplateResponse
+   */
+  async updateTemplate(TenantId: string, TemplateId: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateTenantWithOptions(TenantId, request, headers, runtime);
+    return await this.updateTemplateWithOptions(TenantId, TemplateId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新租户信息
+   *
+   * @param request UpdateTenantRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTenantResponse
+   */
   async updateTenantWithOptions(TenantId: string, request: UpdateTenantRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTenantResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5644,12 +6275,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTenantResponse>(await this.callApi(params, req, runtime), new UpdateTenantResponse({}));
   }
 
-  async updateUser(TenantId: string, UserId: string, request: UpdateUserRequest): Promise<UpdateUserResponse> {
+  /**
+   * @summary 更新租户信息
+   *
+   * @param request UpdateTenantRequest
+   * @return UpdateTenantResponse
+   */
+  async updateTenant(TenantId: string, request: UpdateTenantRequest): Promise<UpdateTenantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateUserWithOptions(TenantId, UserId, request, headers, runtime);
+    return await this.updateTenantWithOptions(TenantId, request, headers, runtime);
   }
 
+  /**
+   * @summary 更新用户信息
+   *
+   * @param request UpdateUserRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserResponse
+   */
   async updateUserWithOptions(TenantId: string, UserId: string, request: UpdateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5677,6 +6322,18 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
+  }
+
+  /**
+   * @summary 更新用户信息
+   *
+   * @param request UpdateUserRequest
+   * @return UpdateUserResponse
+   */
+  async updateUser(TenantId: string, UserId: string, request: UpdateUserRequest): Promise<UpdateUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateUserWithOptions(TenantId, UserId, request, headers, runtime);
   }
 
 }
