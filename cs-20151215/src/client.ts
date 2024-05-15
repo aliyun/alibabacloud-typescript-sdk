@@ -4007,6 +4007,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
   kubernetesVersion?: string;
   mode?: string;
   profile?: string;
+  queryUpgradableVersion?: boolean;
   region?: string;
   runtime?: string;
   static names(): { [key: string]: string } {
@@ -4015,6 +4016,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
       kubernetesVersion: 'KubernetesVersion',
       mode: 'Mode',
       profile: 'Profile',
+      queryUpgradableVersion: 'QueryUpgradableVersion',
       region: 'Region',
       runtime: 'runtime',
     };
@@ -4026,6 +4028,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
       kubernetesVersion: 'string',
       mode: 'string',
       profile: 'string',
+      queryUpgradableVersion: 'boolean',
       region: 'string',
       runtime: 'string',
     };
@@ -11397,6 +11400,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $tea.Model {
   releaseDate?: string;
   expirationDate?: string;
   creatable?: boolean;
+  upgradableVersions?: string[];
   static names(): { [key: string]: string } {
     return {
       capabilities: 'capabilities',
@@ -11407,6 +11411,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $tea.Model {
       releaseDate: 'release_date',
       expirationDate: 'expiration_date',
       creatable: 'creatable',
+      upgradableVersions: 'upgradable_versions',
     };
   }
 
@@ -11420,6 +11425,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $tea.Model {
       releaseDate: 'string',
       expirationDate: 'string',
       creatable: 'boolean',
+      upgradableVersions: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -16502,6 +16508,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.profile)) {
       query["Profile"] = request.profile;
+    }
+
+    if (!Util.isUnset(request.queryUpgradableVersion)) {
+      query["QueryUpgradableVersion"] = request.queryUpgradableVersion;
     }
 
     if (!Util.isUnset(request.region)) {
