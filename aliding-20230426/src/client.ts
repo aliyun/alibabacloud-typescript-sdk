@@ -20241,6 +20241,165 @@ export class QueryScheduleConferenceResponse extends $tea.Model {
   }
 }
 
+export class QueryScheduleConferenceInfoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: QueryScheduleConferenceInfoHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: QueryScheduleConferenceInfoHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryScheduleConferenceInfoShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryScheduleConferenceInfoRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  scheduleConferenceId?: string;
+  tenantContext?: QueryScheduleConferenceInfoRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      scheduleConferenceId: 'ScheduleConferenceId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      scheduleConferenceId: 'string',
+      tenantContext: QueryScheduleConferenceInfoRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryScheduleConferenceInfoShrinkRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  scheduleConferenceId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      scheduleConferenceId: 'ScheduleConferenceId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      scheduleConferenceId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryScheduleConferenceInfoResponseBody extends $tea.Model {
+  conferenceList?: QueryScheduleConferenceInfoResponseBodyConferenceList[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceList: 'conferenceList',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceList: { 'type': 'array', 'itemType': QueryScheduleConferenceInfoResponseBodyConferenceList },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryScheduleConferenceInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryScheduleConferenceInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryScheduleConferenceInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryUserHonorsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: QueryUserHonorsHeadersAccountContext;
@@ -39087,6 +39246,78 @@ export class QueryScheduleConferenceRequestTenantContext extends $tea.Model {
   }
 }
 
+export class QueryScheduleConferenceInfoHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryScheduleConferenceInfoRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryScheduleConferenceInfoResponseBodyConferenceList extends $tea.Model {
+  conferenceId?: string;
+  endTime?: number;
+  roomCode?: string;
+  startTime?: number;
+  status?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceId: 'ConferenceId',
+      endTime: 'EndTime',
+      roomCode: 'RoomCode',
+      startTime: 'StartTime',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceId: 'string',
+      endTime: 'number',
+      roomCode: 'string',
+      startTime: 'number',
+      status: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryUserHonorsHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -52338,6 +52569,84 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryScheduleConferenceHeaders({ });
     return await this.queryScheduleConferenceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询预约会议历史会议信息
+   *
+   * @param tmpReq QueryScheduleConferenceInfoRequest
+   * @param tmpHeader QueryScheduleConferenceInfoHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryScheduleConferenceInfoResponse
+   */
+  async queryScheduleConferenceInfoWithOptions(tmpReq: QueryScheduleConferenceInfoRequest, tmpHeader: QueryScheduleConferenceInfoHeaders, runtime: $Util.RuntimeOptions): Promise<QueryScheduleConferenceInfoResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryScheduleConferenceInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new QueryScheduleConferenceInfoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.scheduleConferenceId)) {
+      body["ScheduleConferenceId"] = request.scheduleConferenceId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryScheduleConferenceInfo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/queryScheduleConferenceInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryScheduleConferenceInfoResponse>(await this.callApi(params, req, runtime), new QueryScheduleConferenceInfoResponse({}));
+  }
+
+  /**
+   * @summary 查询预约会议历史会议信息
+   *
+   * @param request QueryScheduleConferenceInfoRequest
+   * @return QueryScheduleConferenceInfoResponse
+   */
+  async queryScheduleConferenceInfo(request: QueryScheduleConferenceInfoRequest): Promise<QueryScheduleConferenceInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryScheduleConferenceInfoHeaders({ });
+    return await this.queryScheduleConferenceInfoWithOptions(request, headers, runtime);
   }
 
   /**
