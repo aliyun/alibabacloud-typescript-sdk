@@ -3544,6 +3544,8 @@ export class DescribeOpEntitiesResponseBodyOpEntities extends $tea.Model {
 export class DescribePackIpListResponseBodyIpList extends $tea.Model {
   ip?: string;
   memberUid?: string;
+  nsmExpireAt?: number;
+  nsmStartAt?: number;
   nsmStatus?: number;
   product?: string;
   region?: string;
@@ -3553,6 +3555,8 @@ export class DescribePackIpListResponseBodyIpList extends $tea.Model {
     return {
       ip: 'Ip',
       memberUid: 'MemberUid',
+      nsmExpireAt: 'NsmExpireAt',
+      nsmStartAt: 'NsmStartAt',
       nsmStatus: 'NsmStatus',
       product: 'Product',
       region: 'Region',
@@ -3565,6 +3569,8 @@ export class DescribePackIpListResponseBodyIpList extends $tea.Model {
     return {
       ip: 'string',
       memberUid: 'string',
+      nsmExpireAt: 'number',
+      nsmStartAt: 'number',
       nsmStatus: 'number',
       product: 'string',
       region: 'string',
@@ -3938,6 +3944,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Adds IP addresses to an Anti-DDoS Origin Enterprise instance.
+   *
+   * @param request AddIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddIpResponse
+   */
   async addIpWithOptions(request: AddIpRequest, runtime: $Util.RuntimeOptions): Promise<AddIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3974,11 +3987,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddIpResponse>(await this.callApi(params, req, runtime), new AddIpResponse({}));
   }
 
+  /**
+   * @summary Adds IP addresses to an Anti-DDoS Origin Enterprise instance.
+   *
+   * @param request AddIpRequest
+   * @return AddIpResponse
+   */
   async addIp(request: AddIpRequest): Promise<AddIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加资源目录成员账号列表
+   *
+   * @param tmpReq AddRdMemberListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddRdMemberListResponse
+   */
   async addRdMemberListWithOptions(tmpReq: AddRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<AddRdMemberListResponse> {
     Util.validateModel(tmpReq);
     let request = new AddRdMemberListShrinkRequest({ });
@@ -4009,11 +4035,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddRdMemberListResponse>(await this.callApi(params, req, runtime), new AddRdMemberListResponse({}));
   }
 
+  /**
+   * @summary 添加资源目录成员账号列表
+   *
+   * @param request AddRdMemberListRequest
+   * @return AddRdMemberListResponse
+   */
   async addRdMemberList(request: AddRdMemberListRequest): Promise<AddRdMemberListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addRdMemberListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates an asset with an Anti-DDoS Origin instance of a paid edition.
+   *
+   * @param tmpReq AttachAssetGroupToInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachAssetGroupToInstanceResponse
+   */
   async attachAssetGroupToInstanceWithOptions(tmpReq: AttachAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AttachAssetGroupToInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new AttachAssetGroupToInstanceShrinkRequest({ });
@@ -4056,11 +4095,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new AttachAssetGroupToInstanceResponse({}));
   }
 
+  /**
+   * @summary Associates an asset with an Anti-DDoS Origin instance of a paid edition.
+   *
+   * @param request AttachAssetGroupToInstanceRequest
+   * @return AttachAssetGroupToInstanceResponse
+   */
   async attachAssetGroupToInstance(request: AttachAssetGroupToInstanceRequest): Promise<AttachAssetGroupToInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachAssetGroupToInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether Anti-DDoS Origin is authorized to access Log Service.
+   *
+   * @param request CheckAccessLogAuthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckAccessLogAuthResponse
+   */
   async checkAccessLogAuthWithOptions(request: CheckAccessLogAuthRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccessLogAuthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4089,19 +4141,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckAccessLogAuthResponse>(await this.callApi(params, req, runtime), new CheckAccessLogAuthResponse({}));
   }
 
+  /**
+   * @summary Checks whether Anti-DDoS Origin is authorized to access Log Service.
+   *
+   * @param request CheckAccessLogAuthRequest
+   * @return CheckAccessLogAuthResponse
+   */
   async checkAccessLogAuth(request: CheckAccessLogAuthRequest): Promise<CheckAccessLogAuthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkAccessLogAuthWithOptions(request, runtime);
   }
 
   /**
-    * You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CheckGrantRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CheckGrantResponse
+   * @summary Queries whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+   *
+   * @description You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CheckGrantRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckGrantResponse
    */
   async checkGrantWithOptions(request: CheckGrantRequest, runtime: $Util.RuntimeOptions): Promise<CheckGrantResponse> {
     Util.validateModel(request);
@@ -4124,18 +4184,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request CheckGrantRequest
-    * @return CheckGrantResponse
+   * @summary Queries whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+   *
+   * @description You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request CheckGrantRequest
+   * @return CheckGrantResponse
    */
   async checkGrant(request: CheckGrantRequest): Promise<CheckGrantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkGrantWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ConfigSchedruleOnDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigSchedruleOnDemandResponse
+   */
   async configSchedruleOnDemandWithOptions(request: ConfigSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<ConfigSchedruleOnDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4204,11 +4271,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ConfigSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new ConfigSchedruleOnDemandResponse({}));
   }
 
+  /**
+   * @param request ConfigSchedruleOnDemandRequest
+   * @return ConfigSchedruleOnDemandResponse
+   */
   async configSchedruleOnDemand(request: ConfigSchedruleOnDemandRequest): Promise<ConfigSchedruleOnDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configSchedruleOnDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a scheduling rule for an on-demand instance.
+   *
+   * @param request CreateSchedruleOnDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSchedruleOnDemandResponse
+   */
   async createSchedruleOnDemandWithOptions(request: CreateSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchedruleOnDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4277,20 +4355,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new CreateSchedruleOnDemandResponse({}));
   }
 
+  /**
+   * @summary Creates a scheduling rule for an on-demand instance.
+   *
+   * @param request CreateSchedruleOnDemandRequest
+   * @return CreateSchedruleOnDemandResponse
+   */
   async createSchedruleOnDemand(request: CreateSchedruleOnDemandRequest): Promise<CreateSchedruleOnDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSchedruleOnDemandWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
-    * Before you call this operation, you can call the [DescribePackIpList](~~118701~~) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteBlackholeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBlackholeResponse
+   * @summary Deactivates blackhole filtering for a protected IP address.
+   *
+   * @description You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
+   * Before you call this operation, you can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteBlackholeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBlackholeResponse
    */
   async deleteBlackholeWithOptions(request: DeleteBlackholeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBlackholeResponse> {
     Util.validateModel(request);
@@ -4329,13 +4415,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
-    * Before you call this operation, you can call the [DescribePackIpList](~~118701~~) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
-    * ### Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DeleteBlackholeRequest
-    * @return DeleteBlackholeResponse
+   * @summary Deactivates blackhole filtering for a protected IP address.
+   *
+   * @description You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
+   * Before you call this operation, you can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
+   * ### Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DeleteBlackholeRequest
+   * @return DeleteBlackholeResponse
    */
   async deleteBlackhole(request: DeleteBlackholeRequest): Promise<DeleteBlackholeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4343,11 +4431,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
-    *
-    * @param request DeleteIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpResponse
+   * @summary Removes specific IP addresses from an Anti-DDoS Origin Enterprise instance.
+   *
+   * @description The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
+   *
+   * @param request DeleteIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpResponse
    */
   async deleteIpWithOptions(request: DeleteIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpResponse> {
     Util.validateModel(request);
@@ -4386,16 +4476,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
-    *
-    * @param request DeleteIpRequest
-    * @return DeleteIpResponse
+   * @summary Removes specific IP addresses from an Anti-DDoS Origin Enterprise instance.
+   *
+   * @description The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
+   *
+   * @param request DeleteIpRequest
+   * @return DeleteIpResponse
    */
   async deleteIp(request: DeleteIpRequest): Promise<DeleteIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除资源目录成员账号列表
+   *
+   * @param tmpReq DeleteRdMemberListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRdMemberListResponse
+   */
   async deleteRdMemberListWithOptions(tmpReq: DeleteRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRdMemberListResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteRdMemberListShrinkRequest({ });
@@ -4426,11 +4525,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRdMemberListResponse>(await this.callApi(params, req, runtime), new DeleteRdMemberListResponse({}));
   }
 
+  /**
+   * @summary 删除资源目录成员账号列表
+   *
+   * @param request DeleteRdMemberListRequest
+   * @return DeleteRdMemberListResponse
+   */
   async deleteRdMemberList(request: DeleteRdMemberListRequest): Promise<DeleteRdMemberListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRdMemberListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteSchedruleOnDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSchedruleOnDemandResponse
+   */
   async deleteSchedruleOnDemandWithOptions(request: DeleteSchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchedruleOnDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4463,11 +4573,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new DeleteSchedruleOnDemandResponse({}));
   }
 
+  /**
+   * @param request DeleteSchedruleOnDemandRequest
+   * @return DeleteSchedruleOnDemandResponse
+   */
   async deleteSchedruleOnDemand(request: DeleteSchedruleOnDemandRequest): Promise<DeleteSchedruleOnDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSchedruleOnDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
+   *
+   * @param request DescribeAssetGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAssetGroupResponse
+   */
   async describeAssetGroupWithOptions(request: DescribeAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4508,11 +4629,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAssetGroupResponse>(await this.callApi(params, req, runtime), new DescribeAssetGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
+   *
+   * @param request DescribeAssetGroupRequest
+   * @return DescribeAssetGroupResponse
+   */
   async describeAssetGroup(request: DescribeAssetGroupRequest): Promise<DescribeAssetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
+   *
+   * @param request DescribeAssetGroupToInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAssetGroupToInstanceResponse
+   */
   async describeAssetGroupToInstanceWithOptions(request: DescribeAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetGroupToInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4561,19 +4695,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new DescribeAssetGroupToInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
+   *
+   * @param request DescribeAssetGroupToInstanceRequest
+   * @return DescribeAssetGroupToInstanceResponse
+   */
   async describeAssetGroupToInstance(request: DescribeAssetGroupToInstanceRequest): Promise<DescribeAssetGroupToInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAssetGroupToInstanceWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDdosEventRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDdosEventResponse
+   * @summary Queries the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance.
+   *
+   * @description You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.  
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDdosEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDdosEventResponse
    */
   async describeDdosEventWithOptions(request: DescribeDdosEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosEventResponse> {
     Util.validateModel(request);
@@ -4628,18 +4770,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeDdosEventRequest
-    * @return DescribeDdosEventResponse
+   * @summary Queries the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance.
+   *
+   * @description You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on a specific Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.  
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeDdosEventRequest
+   * @return DescribeDdosEventResponse
    */
   async describeDdosEvent(request: DescribeDdosEventRequest): Promise<DescribeDdosEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDdosEventWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询账单
+   *
+   * @param request DescribeDdosOriginInstanceBillRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDdosOriginInstanceBillResponse
+   */
   async describeDdosOriginInstanceBillWithOptions(request: DescribeDdosOriginInstanceBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosOriginInstanceBillResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4676,18 +4827,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDdosOriginInstanceBillResponse>(await this.callApi(params, req, runtime), new DescribeDdosOriginInstanceBillResponse({}));
   }
 
+  /**
+   * @summary 查询账单
+   *
+   * @param request DescribeDdosOriginInstanceBillRequest
+   * @return DescribeDdosOriginInstanceBillResponse
+   */
   async describeDdosOriginInstanceBill(request: DescribeDdosOriginInstanceBillRequest): Promise<DescribeDdosOriginInstanceBillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDdosOriginInstanceBillWithOptions(request, runtime);
   }
 
   /**
-    * ## Usage notes
-    * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
-    *
-    * @param request DescribeExcpetionCountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeExcpetionCountResponse
+   * @summary Queries the number of assets that are in an abnormal state and the number of Anti-DDoS
+   *                   Origin instances that are about to expire in a specific region. The assets can be
+   *                   elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS)
+   *                   instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+   *
+   * @description ## Usage notes
+   * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
+   *
+   * @param request DescribeExcpetionCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExcpetionCountResponse
    */
   async describeExcpetionCountWithOptions(request: DescribeExcpetionCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExcpetionCountResponse> {
     Util.validateModel(request);
@@ -4718,11 +4880,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Usage notes
-    * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
-    *
-    * @param request DescribeExcpetionCountRequest
-    * @return DescribeExcpetionCountResponse
+   * @summary Queries the number of assets that are in an abnormal state and the number of Anti-DDoS
+   *                   Origin instances that are about to expire in a specific region. The assets can be
+   *                   elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS)
+   *                   instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
+   *
+   * @description ## Usage notes
+   * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
+   *
+   * @param request DescribeExcpetionCountRequest
+   * @return DescribeExcpetionCountResponse
    */
   async describeExcpetionCount(request: DescribeExcpetionCountRequest): Promise<DescribeExcpetionCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4730,13 +4897,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstanceListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstanceListResponse
+   * @summary Queries the details of all Anti-DDoS Origin instances.
+   *
+   * @description You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.  
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstanceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceListResponse
    */
   async describeInstanceListWithOptions(request: DescribeInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceListResponse> {
     Util.validateModel(request);
@@ -4811,18 +4980,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeInstanceListRequest
-    * @return DescribeInstanceListResponse
+   * @summary Queries the details of all Anti-DDoS Origin instances.
+   *
+   * @description You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.  
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeInstanceListRequest
+   * @return DescribeInstanceListResponse
    */
   async describeInstanceList(request: DescribeInstanceListRequest): Promise<DescribeInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInstanceSpecsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSpecsResponse
+   */
   async describeInstanceSpecsWithOptions(request: DescribeInstanceSpecsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4855,17 +5031,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSpecsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecsResponse({}));
   }
 
+  /**
+   * @param request DescribeInstanceSpecsRequest
+   * @return DescribeInstanceSpecsResponse
+   */
   async describeInstanceSpecs(request: DescribeInstanceSpecsRequest): Promise<DescribeInstanceSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSpecsWithOptions(request, runtime);
   }
 
   /**
-    * >  Anti-DDoS Origin API operations are available for only Anti-DDoS Origin Enterprise users.
-    *
-    * @param request DescribeOnDemandDdosEventRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeOnDemandDdosEventResponse
+   * @summary Call the DescribeOnDemandDdosEvent operation to query the DDoS events recorded for the IP address of the Anti-DDoS on-demand instance.
+   *
+   * @description >  Anti-DDoS Origin API operations are available for only Anti-DDoS Origin Enterprise users.
+   *
+   * @param request DescribeOnDemandDdosEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOnDemandDdosEventResponse
    */
   async describeOnDemandDdosEventWithOptions(request: DescribeOnDemandDdosEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnDemandDdosEventResponse> {
     Util.validateModel(request);
@@ -4920,16 +5102,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  Anti-DDoS Origin API operations are available for only Anti-DDoS Origin Enterprise users.
-    *
-    * @param request DescribeOnDemandDdosEventRequest
-    * @return DescribeOnDemandDdosEventResponse
+   * @summary Call the DescribeOnDemandDdosEvent operation to query the DDoS events recorded for the IP address of the Anti-DDoS on-demand instance.
+   *
+   * @description >  Anti-DDoS Origin API operations are available for only Anti-DDoS Origin Enterprise users.
+   *
+   * @param request DescribeOnDemandDdosEventRequest
+   * @return DescribeOnDemandDdosEventResponse
    */
   async describeOnDemandDdosEvent(request: DescribeOnDemandDdosEventRequest): Promise<DescribeOnDemandDdosEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOnDemandDdosEventWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeOnDemandInstanceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOnDemandInstanceStatusResponse
+   */
   async describeOnDemandInstanceStatusWithOptions(request: DescribeOnDemandInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOnDemandInstanceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4958,17 +5147,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOnDemandInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeOnDemandInstanceStatusResponse({}));
   }
 
+  /**
+   * @param request DescribeOnDemandInstanceStatusRequest
+   * @return DescribeOnDemandInstanceStatusResponse
+   */
   async describeOnDemandInstanceStatus(request: DescribeOnDemandInstanceStatusRequest): Promise<DescribeOnDemandInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOnDemandInstanceStatusWithOptions(request, runtime);
   }
 
   /**
-    * The start time. Operation logs that were generated after this time are queried.**** This value is a UNIX timestamp. Unit: milliseconds.
-    *
-    * @param request DescribeOpEntitiesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeOpEntitiesResponse
+   * @summary The number of entries to return on each page.
+   *
+   * @description The start time. Operation logs that were generated after this time are queried.**** This value is a UNIX timestamp. Unit: milliseconds.
+   *
+   * @param request DescribeOpEntitiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeOpEntitiesResponse
    */
   async describeOpEntitiesWithOptions(request: DescribeOpEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOpEntitiesResponse> {
     Util.validateModel(request);
@@ -5027,10 +5222,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The start time. Operation logs that were generated after this time are queried.**** This value is a UNIX timestamp. Unit: milliseconds.
-    *
-    * @param request DescribeOpEntitiesRequest
-    * @return DescribeOpEntitiesResponse
+   * @summary The number of entries to return on each page.
+   *
+   * @description The start time. Operation logs that were generated after this time are queried.**** This value is a UNIX timestamp. Unit: milliseconds.
+   *
+   * @param request DescribeOpEntitiesRequest
+   * @return DescribeOpEntitiesResponse
    */
   async describeOpEntities(request: DescribeOpEntitiesRequest): Promise<DescribeOpEntitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5038,13 +5235,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribePackIpListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribePackIpListResponse
+   * @summary Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
+   *
+   * @description You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.  
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribePackIpListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePackIpListResponse
    */
   async describePackIpListWithOptions(request: DescribePackIpListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackIpListResponse> {
     Util.validateModel(request);
@@ -5099,18 +5298,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribePackIpListRequest
-    * @return DescribePackIpListResponse
+   * @summary Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
+   *
+   * @description You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.  
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribePackIpListRequest
+   * @return DescribePackIpListResponse
    */
   async describePackIpList(request: DescribePackIpListRequest): Promise<DescribePackIpListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePackIpListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询资源目录成员账号列表
+   *
+   * @param request DescribeRdMemberListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRdMemberListResponse
+   */
   async describeRdMemberListWithOptions(request: DescribeRdMemberListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdMemberListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5143,11 +5351,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRdMemberListResponse>(await this.callApi(params, req, runtime), new DescribeRdMemberListResponse({}));
   }
 
+  /**
+   * @summary 查询资源目录成员账号列表
+   *
+   * @param request DescribeRdMemberListRequest
+   * @return DescribeRdMemberListResponse
+   */
   async describeRdMemberList(request: DescribeRdMemberListRequest): Promise<DescribeRdMemberListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRdMemberListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询RD状态
+   *
+   * @param request DescribeRdStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRdStatusResponse
+   */
   async describeRdStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRdStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -5164,11 +5385,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRdStatusResponse>(await this.callApi(params, req, runtime), new DescribeRdStatusResponse({}));
   }
 
+  /**
+   * @summary 查询RD状态
+   *
+   * @return DescribeRdStatusResponse
+   */
   async describeRdStatus(): Promise<DescribeRdStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRdStatusWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the regions of cloud assets that are supported by an Anti-DDoS Origin instance.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5197,20 +5430,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the regions of cloud assets that are supported by an Anti-DDoS Origin instance.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
-    * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.  
-    * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.  
-    * ## Limits
-    * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeTrafficRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTrafficResponse
+   * @summary Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+   *
+   * @description You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.  
+   * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.  
+   * ## Limits
+   * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeTrafficRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTrafficResponse
    */
   async describeTrafficWithOptions(request: DescribeTrafficRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficResponse> {
     Util.validateModel(request);
@@ -5269,19 +5510,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.  
-    * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.  
-    * ## Limits
-    * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request DescribeTrafficRequest
-    * @return DescribeTrafficResponse
+   * @summary Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+   *
+   * @description You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.  
+   * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.  
+   * ## Limits
+   * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request DescribeTrafficRequest
+   * @return DescribeTrafficResponse
    */
   async describeTraffic(request: DescribeTrafficRequest): Promise<DescribeTrafficResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTrafficWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Dissociates an asset from an Anti-DDoS Origin instance of a paid edition.
+   *
+   * @param tmpReq DettachAssetGroupToInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DettachAssetGroupToInstanceResponse
+   */
   async dettachAssetGroupToInstanceWithOptions(tmpReq: DettachAssetGroupToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DettachAssetGroupToInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new DettachAssetGroupToInstanceShrinkRequest({ });
@@ -5324,11 +5574,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DettachAssetGroupToInstanceResponse>(await this.callApi(params, req, runtime), new DettachAssetGroupToInstanceResponse({}));
   }
 
+  /**
+   * @summary Dissociates an asset from an Anti-DDoS Origin instance of a paid edition.
+   *
+   * @param request DettachAssetGroupToInstanceRequest
+   * @return DettachAssetGroupToInstanceResponse
+   */
   async dettachAssetGroupToInstance(request: DettachAssetGroupToInstanceRequest): Promise<DettachAssetGroupToInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dettachAssetGroupToInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether Log Service is activated.
+   *
+   * @param request GetSlsOpenStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSlsOpenStatusResponse
+   */
   async getSlsOpenStatusWithOptions(request: GetSlsOpenStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSlsOpenStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5357,11 +5620,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSlsOpenStatusResponse>(await this.callApi(params, req, runtime), new GetSlsOpenStatusResponse({}));
   }
 
+  /**
+   * @summary Checks whether Log Service is activated.
+   *
+   * @param request GetSlsOpenStatusRequest
+   * @return GetSlsOpenStatusResponse
+   */
   async getSlsOpenStatus(request: GetSlsOpenStatusRequest): Promise<GetSlsOpenStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSlsOpenStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Anti-DDoS Origin instances for which log analysis is enabled.
+   *
+   * @param request ListOpenedAccessLogInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOpenedAccessLogInstancesResponse
+   */
   async listOpenedAccessLogInstancesWithOptions(request: ListOpenedAccessLogInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListOpenedAccessLogInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5394,11 +5670,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOpenedAccessLogInstancesResponse>(await this.callApi(params, req, runtime), new ListOpenedAccessLogInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the Anti-DDoS Origin instances for which log analysis is enabled.
+   *
+   * @param request ListOpenedAccessLogInstancesRequest
+   * @return ListOpenedAccessLogInstancesResponse
+   */
   async listOpenedAccessLogInstances(request: ListOpenedAccessLogInstancesRequest): Promise<ListOpenedAccessLogInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOpenedAccessLogInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all tags.
+   *
+   * @param request ListTagKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagKeysResponse
+   */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5439,17 +5728,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
+  /**
+   * @summary Queries all tags.
+   *
+   * @param request ListTagKeysRequest
+   * @return ListTagKeysResponse
+   */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
   /**
-    * You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @description You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -5496,10 +5791,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @description You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5507,13 +5802,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyRemarkRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyRemarkResponse
+   * @summary Adds remarks for a specific Anti-DDoS Origin instance.
+   *
+   * @description You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.  
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyRemarkResponse
    */
   async modifyRemarkWithOptions(request: ModifyRemarkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRemarkResponse> {
     Util.validateModel(request);
@@ -5552,18 +5849,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.  
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request ModifyRemarkRequest
-    * @return ModifyRemarkResponse
+   * @summary Adds remarks for a specific Anti-DDoS Origin instance.
+   *
+   * @description You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.  
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request ModifyRemarkRequest
+   * @return ModifyRemarkResponse
    */
   async modifyRemark(request: ModifyRemarkRequest): Promise<ModifyRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the scheduling rule of an on-demand instance.
+   *
+   * @param request QuerySchedruleOnDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySchedruleOnDemandResponse
+   */
   async querySchedruleOnDemandWithOptions(request: QuerySchedruleOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<QuerySchedruleOnDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5592,11 +5898,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySchedruleOnDemandResponse>(await this.callApi(params, req, runtime), new QuerySchedruleOnDemandResponse({}));
   }
 
+  /**
+   * @summary Queries the scheduling rule of an on-demand instance.
+   *
+   * @param request QuerySchedruleOnDemandRequest
+   * @return QuerySchedruleOnDemandResponse
+   */
   async querySchedruleOnDemand(request: QuerySchedruleOnDemandRequest): Promise<QuerySchedruleOnDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySchedruleOnDemandWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 释放原生防护全局实例
+   *
+   * @param request ReleaseDdosOriginInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseDdosOriginInstanceResponse
+   */
   async releaseDdosOriginInstanceWithOptions(request: ReleaseDdosOriginInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseDdosOriginInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5621,11 +5940,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseDdosOriginInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseDdosOriginInstanceResponse({}));
   }
 
+  /**
+   * @summary 释放原生防护全局实例
+   *
+   * @param request ReleaseDdosOriginInstanceRequest
+   * @return ReleaseDdosOriginInstanceResponse
+   */
   async releaseDdosOriginInstance(request: ReleaseDdosOriginInstanceRequest): Promise<ReleaseDdosOriginInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseDdosOriginInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetInstanceModeOnDemandRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetInstanceModeOnDemandResponse
+   */
   async setInstanceModeOnDemandWithOptions(request: SetInstanceModeOnDemandRequest, runtime: $Util.RuntimeOptions): Promise<SetInstanceModeOnDemandResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5658,19 +5988,25 @@ export default class Client extends OpenApi {
     return $tea.cast<SetInstanceModeOnDemandResponse>(await this.callApi(params, req, runtime), new SetInstanceModeOnDemandResponse({}));
   }
 
+  /**
+   * @param request SetInstanceModeOnDemandRequest
+   * @return SetInstanceModeOnDemandResponse
+   */
   async setInstanceModeOnDemand(request: SetInstanceModeOnDemandRequest): Promise<SetInstanceModeOnDemandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setInstanceModeOnDemandWithOptions(request, runtime);
   }
 
   /**
-    * You can call the TagResources operation to add tags to Anti-DDoS Origin instances. 
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Adds tags to Anti-DDoS Origin instances.
+   *
+   * @description You can call the TagResources operation to add tags to Anti-DDoS Origin instances. 
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -5713,18 +6049,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the TagResources operation to add tags to Anti-DDoS Origin instances. 
-    * ## Limits
-    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Adds tags to Anti-DDoS Origin instances.
+   *
+   * @description You can call the TagResources operation to add tags to Anti-DDoS Origin instances. 
+   * ## Limits
+   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from Anti-DDoS Origin Enterprise instances.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5769,6 +6114,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from Anti-DDoS Origin Enterprise instances.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
