@@ -518,16 +518,22 @@ export class DescribeJobMetricLastResponse extends $tea.Model {
 }
 
 export class GetImageRequest extends $tea.Model {
+  imageCategory?: string;
   imageId?: string;
+  imageType?: string;
   static names(): { [key: string]: string } {
     return {
+      imageCategory: 'ImageCategory',
       imageId: 'ImageId',
+      imageType: 'ImageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      imageCategory: 'string',
       imageId: 'string',
+      imageType: 'string',
     };
   }
 
@@ -762,14 +768,18 @@ export class ListExecutorsResponse extends $tea.Model {
 }
 
 export class ListImagesRequest extends $tea.Model {
+  imageCategory?: string;
   imageIds?: string[];
   imageNames?: string[];
+  imageType?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      imageCategory: 'ImageCategory',
       imageIds: 'ImageIds',
       imageNames: 'ImageNames',
+      imageType: 'ImageType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -777,8 +787,10 @@ export class ListImagesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imageCategory: 'string',
       imageIds: { 'type': 'array', 'itemType': 'string' },
       imageNames: { 'type': 'array', 'itemType': 'string' },
+      imageType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -790,14 +802,18 @@ export class ListImagesRequest extends $tea.Model {
 }
 
 export class ListImagesShrinkRequest extends $tea.Model {
+  imageCategory?: string;
   imageIdsShrink?: string;
   imageNamesShrink?: string;
+  imageType?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      imageCategory: 'ImageCategory',
       imageIdsShrink: 'ImageIds',
       imageNamesShrink: 'ImageNames',
+      imageType: 'ImageType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -805,8 +821,10 @@ export class ListImagesShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imageCategory: 'string',
       imageIdsShrink: 'string',
       imageNamesShrink: 'string',
+      imageType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -1377,12 +1395,14 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars e
 }
 
 export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $tea.Model {
+  appId?: string;
   command?: string[];
   environmentVars?: CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars[];
   image?: string;
   workingDir?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       command: 'Command',
       environmentVars: 'EnvironmentVars',
       image: 'Image',
@@ -1392,6 +1412,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       command: { 'type': 'array', 'itemType': 'string' },
       environmentVars: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars },
       image: 'string',
@@ -1405,11 +1426,13 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $tea.Mod
 }
 
 export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $tea.Model {
+  appId?: string;
   image?: string;
   prologScript?: string;
   script?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       image: 'Image',
       prologScript: 'PrologScript',
       script: 'Script',
@@ -1418,6 +1441,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       image: 'string',
       prologScript: 'string',
       script: 'string',
@@ -1702,22 +1726,26 @@ export class GetImageResponseBodyImageVMImageSpec extends $tea.Model {
 }
 
 export class GetImageResponseBodyImage extends $tea.Model {
+  appId?: string;
   containerImageSpec?: GetImageResponseBodyImageContainerImageSpec;
   createTime?: string;
   description?: string;
   imageType?: string;
   name?: string;
   size?: string;
+  status?: string;
   VMImageSpec?: GetImageResponseBodyImageVMImageSpec;
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       containerImageSpec: 'ContainerImageSpec',
       createTime: 'CreateTime',
       description: 'Description',
       imageType: 'ImageType',
       name: 'Name',
       size: 'Size',
+      status: 'Status',
       VMImageSpec: 'VMImageSpec',
       version: 'Version',
     };
@@ -1725,12 +1753,14 @@ export class GetImageResponseBodyImage extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       containerImageSpec: GetImageResponseBodyImageContainerImageSpec,
       createTime: 'string',
       description: 'string',
       imageType: 'string',
       name: 'string',
       size: 'string',
+      status: 'string',
       VMImageSpec: GetImageResponseBodyImageVMImageSpec,
       version: 'string',
     };
@@ -2131,6 +2161,7 @@ export class ListExecutorsResponseBodyExecutors extends $tea.Model {
 }
 
 export class ListImagesResponseBodyImages extends $tea.Model {
+  appId?: string;
   createTime?: string;
   description?: string;
   imageId?: string;
@@ -2139,6 +2170,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       createTime: 'CreateTime',
       description: 'Description',
       imageId: 'ImageId',
@@ -2150,6 +2182,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       createTime: 'string',
       description: 'string',
       imageId: 'string',
@@ -2640,8 +2673,16 @@ export default class Client extends OpenApi {
   async getImageWithOptions(request: GetImageRequest, runtime: $Util.RuntimeOptions): Promise<GetImageResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.imageCategory)) {
+      query["ImageCategory"] = request.imageCategory;
+    }
+
     if (!Util.isUnset(request.imageId)) {
       query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageType)) {
+      query["ImageType"] = request.imageType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2790,12 +2831,20 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.imageCategory)) {
+      query["ImageCategory"] = request.imageCategory;
+    }
+
     if (!Util.isUnset(request.imageIdsShrink)) {
       query["ImageIds"] = request.imageIdsShrink;
     }
 
     if (!Util.isUnset(request.imageNamesShrink)) {
       query["ImageNames"] = request.imageNamesShrink;
+    }
+
+    if (!Util.isUnset(request.imageType)) {
+      query["ImageType"] = request.imageType;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
