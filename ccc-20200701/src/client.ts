@@ -87,6 +87,85 @@ export class DataPropertiesValue extends $tea.Model {
   }
 }
 
+export class DataSchemaPropertiesValue extends $tea.Model {
+  displayName?: string;
+  description?: string;
+  name?: string;
+  dataType?: string;
+  pattern?: string;
+  patternErrorMessage?: string;
+  minLength?: number;
+  maxLength?: number;
+  minimum?: number;
+  maximum?: number;
+  required?: boolean;
+  system?: boolean;
+  disabled?: boolean;
+  array?: boolean;
+  readOnly?: boolean;
+  editorType?: string;
+  attributes?: string;
+  displayOrder?: number;
+  createdTime?: number;
+  updatedTime?: number;
+  creator?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      description: 'Description',
+      name: 'Name',
+      dataType: 'DataType',
+      pattern: 'Pattern',
+      patternErrorMessage: 'PatternErrorMessage',
+      minLength: 'MinLength',
+      maxLength: 'MaxLength',
+      minimum: 'Minimum',
+      maximum: 'Maximum',
+      required: 'Required',
+      system: 'System',
+      disabled: 'Disabled',
+      array: 'Array',
+      readOnly: 'ReadOnly',
+      editorType: 'EditorType',
+      attributes: 'Attributes',
+      displayOrder: 'DisplayOrder',
+      createdTime: 'CreatedTime',
+      updatedTime: 'UpdatedTime',
+      creator: 'Creator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      description: 'string',
+      name: 'string',
+      dataType: 'string',
+      pattern: 'string',
+      patternErrorMessage: 'string',
+      minLength: 'number',
+      maxLength: 'number',
+      minimum: 'number',
+      maximum: 'number',
+      required: 'boolean',
+      system: 'boolean',
+      disabled: 'boolean',
+      array: 'boolean',
+      readOnly: 'boolean',
+      editorType: 'string',
+      attributes: 'string',
+      displayOrder: 'number',
+      createdTime: 'number',
+      updatedTime: 'number',
+      creator: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AbortCampaignRequest extends $tea.Model {
   campaignId?: string;
   instanceId?: string;
@@ -662,6 +741,118 @@ export class AddPhoneNumbersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddPhoneNumbersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSchemaPropertyRequest extends $tea.Model {
+  instanceId?: string;
+  property?: AddSchemaPropertyRequestProperty;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      property: 'Property',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      property: AddSchemaPropertyRequestProperty,
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSchemaPropertyShrinkRequest extends $tea.Model {
+  instanceId?: string;
+  propertyShrink?: string;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      propertyShrink: 'Property',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      propertyShrink: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSchemaPropertyResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSchemaPropertyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddSchemaPropertyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddSchemaPropertyResponseBody,
     };
   }
 
@@ -2637,6 +2828,127 @@ export class CreateInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateSchemaRequest extends $tea.Model {
+  description?: string;
+  id?: string;
+  instanceId?: string;
+  properties?: CreateSchemaRequestProperties[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      properties: 'Properties',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+      instanceId: 'string',
+      properties: { 'type': 'array', 'itemType': CreateSchemaRequestProperties },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSchemaShrinkRequest extends $tea.Model {
+  description?: string;
+  id?: string;
+  instanceId?: string;
+  propertiesShrink?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      propertiesShrink: 'Properties',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+      instanceId: 'string',
+      propertiesShrink: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSchemaResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSchemaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSchemaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSchemaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSkillGroupRequest extends $tea.Model {
   description?: string;
   displayName?: string;
@@ -3130,6 +3442,283 @@ export class DeleteCustomCallTaggingResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCustomCallTaggingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocumentRequest extends $tea.Model {
+  documentId?: string;
+  instanceId?: string;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentId: 'DocumentId',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentId: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocumentResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocumentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocumentsRequest extends $tea.Model {
+  documentIds?: string[];
+  instanceId?: string;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentIds: 'DocumentIds',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentIds: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocumentsShrinkRequest extends $tea.Model {
+  documentIdsShrink?: string;
+  instanceId?: string;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentIdsShrink: 'DocumentIds',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentIdsShrink: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocumentsResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocumentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDocumentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDocumentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSchemaRequest extends $tea.Model {
+  instanceId?: string;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSchemaResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSchemaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSchemaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSchemaResponseBody,
     };
   }
 
@@ -4642,6 +5231,90 @@ export class GetDoNotCallFileUploadParametersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDoNotCallFileUploadParametersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentUploadParametersRequest extends $tea.Model {
+  fileName?: string;
+  instanceId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentUploadParametersResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetDocumentUploadParametersResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDocumentUploadParametersResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentUploadParametersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocumentUploadParametersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocumentUploadParametersResponseBody,
     };
   }
 
@@ -6574,6 +7247,90 @@ export class ImportDoNotCallNumbersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ImportDoNotCallNumbersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDocumentsRequest extends $tea.Model {
+  instanceId?: string;
+  ossFileKey?: string;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ossFileKey: 'OssFileKey',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ossFileKey: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDocumentsResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDocumentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportDocumentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportDocumentsResponseBody,
     };
   }
 
@@ -8542,6 +9299,139 @@ export class ListDoNotCallNumbersResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDoNotCallNumbersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocumentsRequest extends $tea.Model {
+  instanceId?: string;
+  nextPageToken?: string;
+  pageSize?: number;
+  requestId?: string;
+  schemaId?: string;
+  searchPattern?: string;
+  sorts?: ListDocumentsRequestSorts[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nextPageToken: 'NextPageToken',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+      searchPattern: 'SearchPattern',
+      sorts: 'Sorts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nextPageToken: 'string',
+      pageSize: 'number',
+      requestId: 'string',
+      schemaId: 'string',
+      searchPattern: 'string',
+      sorts: { 'type': 'array', 'itemType': ListDocumentsRequestSorts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocumentsShrinkRequest extends $tea.Model {
+  instanceId?: string;
+  nextPageToken?: string;
+  pageSize?: number;
+  requestId?: string;
+  schemaId?: string;
+  searchPattern?: string;
+  sortsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nextPageToken: 'NextPageToken',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+      searchPattern: 'SearchPattern',
+      sortsShrink: 'Sorts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nextPageToken: 'string',
+      pageSize: 'number',
+      requestId: 'string',
+      schemaId: 'string',
+      searchPattern: 'string',
+      sortsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocumentsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDocumentsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListDocumentsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocumentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDocumentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDocumentsResponseBody,
     };
   }
 
@@ -14469,6 +15359,96 @@ export class RetrieveCallResponse extends $tea.Model {
   }
 }
 
+export class SaveDocumentRequest extends $tea.Model {
+  documentId?: string;
+  documentJson?: string;
+  instanceId?: string;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentId: 'DocumentId',
+      documentJson: 'DocumentJson',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentId: 'string',
+      documentJson: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveDocumentResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveDocumentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveRTCStatsV2Request extends $tea.Model {
   callId?: string;
   generalInfo?: string;
@@ -16170,6 +17150,118 @@ export class UpdateConfigItemsResponse extends $tea.Model {
   }
 }
 
+export class UpdateSchemaPropertyRequest extends $tea.Model {
+  instanceId?: string;
+  property?: UpdateSchemaPropertyRequestProperty;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      property: 'Property',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      property: UpdateSchemaPropertyRequestProperty,
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSchemaPropertyShrinkRequest extends $tea.Model {
+  instanceId?: string;
+  propertyShrink?: string;
+  requestId?: string;
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      propertyShrink: 'Property',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      propertyShrink: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSchemaPropertyResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSchemaPropertyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSchemaPropertyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSchemaPropertyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCasesRequestCaseList extends $tea.Model {
   caller?: string;
   customVariables?: string;
@@ -16193,6 +17285,73 @@ export class AddCasesRequestCaseList extends $tea.Model {
       maskedCallee: 'string',
       phoneNumber: 'string',
       referenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSchemaPropertyRequestProperty extends $tea.Model {
+  array?: boolean;
+  attributes?: string;
+  dataType?: string;
+  description?: string;
+  disabled?: boolean;
+  displayName?: string;
+  displayOrder?: number;
+  editorType?: string;
+  maxLength?: number;
+  maximum?: number;
+  minLength?: number;
+  minimum?: number;
+  name?: string;
+  pattern?: string;
+  patternErrorMessage?: string;
+  readOnly?: boolean;
+  required?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      array: 'Array',
+      attributes: 'Attributes',
+      dataType: 'DataType',
+      description: 'Description',
+      disabled: 'Disabled',
+      displayName: 'DisplayName',
+      displayOrder: 'DisplayOrder',
+      editorType: 'EditorType',
+      maxLength: 'MaxLength',
+      maximum: 'Maximum',
+      minLength: 'MinLength',
+      minimum: 'Minimum',
+      name: 'Name',
+      pattern: 'Pattern',
+      patternErrorMessage: 'PatternErrorMessage',
+      readOnly: 'ReadOnly',
+      required: 'Required',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      array: 'boolean',
+      attributes: 'string',
+      dataType: 'string',
+      description: 'string',
+      disabled: 'boolean',
+      displayName: 'string',
+      displayOrder: 'number',
+      editorType: 'string',
+      maxLength: 'number',
+      maximum: 'number',
+      minLength: 'number',
+      minimum: 'number',
+      name: 'string',
+      pattern: 'string',
+      patternErrorMessage: 'string',
+      readOnly: 'boolean',
+      required: 'boolean',
     };
   }
 
@@ -17405,6 +18564,73 @@ export class CreateCustomCallTaggingResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateSchemaRequestProperties extends $tea.Model {
+  array?: boolean;
+  attributes?: string;
+  dataType?: string;
+  description?: string;
+  disabled?: boolean;
+  displayName?: string;
+  displayOrder?: number;
+  editorType?: string;
+  maxLength?: number;
+  maximum?: number;
+  minLength?: number;
+  minimum?: number;
+  name?: string;
+  pattern?: string;
+  patternErrorMessage?: string;
+  readOnly?: boolean;
+  required?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      array: 'Array',
+      attributes: 'Attributes',
+      dataType: 'DataType',
+      description: 'Description',
+      disabled: 'Disabled',
+      displayName: 'DisplayName',
+      displayOrder: 'DisplayOrder',
+      editorType: 'EditorType',
+      maxLength: 'MaxLength',
+      maximum: 'Maximum',
+      minLength: 'MinLength',
+      minimum: 'Minimum',
+      name: 'Name',
+      pattern: 'Pattern',
+      patternErrorMessage: 'PatternErrorMessage',
+      readOnly: 'ReadOnly',
+      required: 'Required',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      array: 'boolean',
+      attributes: 'string',
+      dataType: 'string',
+      description: 'string',
+      disabled: 'boolean',
+      displayName: 'string',
+      displayOrder: 'number',
+      editorType: 'string',
+      maxLength: 'number',
+      maximum: 'number',
+      minLength: 'number',
+      minimum: 'number',
+      name: 'string',
+      pattern: 'string',
+      patternErrorMessage: 'string',
+      readOnly: 'boolean',
+      required: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSkillGroupResponseBodyData extends $tea.Model {
   description?: string;
   instanceId?: string;
@@ -18233,6 +19459,40 @@ export class GetDataChannelCredentialsResponseBodyData extends $tea.Model {
 }
 
 export class GetDoNotCallFileUploadParametersResponseBodyData extends $tea.Model {
+  accessKeyId?: string;
+  expireTime?: number;
+  filePath?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      expireTime: 'ExpireTime',
+      filePath: 'FilePath',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      expireTime: 'number',
+      filePath: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentUploadParametersResponseBodyData extends $tea.Model {
   accessKeyId?: string;
   expireTime?: number;
   filePath?: string;
@@ -21799,6 +23059,93 @@ export class ListDoNotCallNumbersResponseBodyData extends $tea.Model {
       list: { 'type': 'array', 'itemType': ListDoNotCallNumbersResponseBodyDataList },
       pageNumber: 'number',
       pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocumentsRequestSorts extends $tea.Model {
+  order?: string;
+  propertyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      order: 'Order',
+      propertyName: 'PropertyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      order: 'string',
+      propertyName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocumentsResponseBodyDataSchema extends $tea.Model {
+  createdTime?: string;
+  deleted?: boolean;
+  description?: string;
+  id?: string;
+  instanceId?: string;
+  properties?: { [key: string]: DataSchemaPropertiesValue };
+  updatedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      deleted: 'Deleted',
+      description: 'Description',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      properties: 'Properties',
+      updatedTime: 'UpdatedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      deleted: 'boolean',
+      description: 'string',
+      id: 'string',
+      instanceId: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': DataSchemaPropertiesValue },
+      updatedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocumentsResponseBodyData extends $tea.Model {
+  documents?: { [key: string]: any }[];
+  nextPageToken?: string;
+  schema?: ListDocumentsResponseBodyDataSchema;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      documents: 'Documents',
+      nextPageToken: 'NextPageToken',
+      schema: 'Schema',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documents: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      nextPageToken: 'string',
+      schema: ListDocumentsResponseBodyDataSchema,
       totalCount: 'number',
     };
   }
@@ -30350,6 +31697,73 @@ export class UnmuteCallResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpdateSchemaPropertyRequestProperty extends $tea.Model {
+  array?: boolean;
+  attributes?: string;
+  dataType?: string;
+  description?: string;
+  disabled?: boolean;
+  displayName?: string;
+  displayOrder?: number;
+  editorType?: string;
+  maxLength?: number;
+  maximum?: number;
+  minLength?: number;
+  minimum?: number;
+  name?: string;
+  pattern?: string;
+  patternErrorMessage?: string;
+  readOnly?: boolean;
+  required?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      array: 'Array',
+      attributes: 'Attributes',
+      dataType: 'DataType',
+      description: 'Description',
+      disabled: 'Disabled',
+      displayName: 'DisplayName',
+      displayOrder: 'DisplayOrder',
+      editorType: 'EditorType',
+      maxLength: 'MaxLength',
+      maximum: 'Maximum',
+      minLength: 'MinLength',
+      minimum: 'Minimum',
+      name: 'Name',
+      pattern: 'Pattern',
+      patternErrorMessage: 'PatternErrorMessage',
+      readOnly: 'ReadOnly',
+      required: 'Required',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      array: 'boolean',
+      attributes: 'string',
+      dataType: 'string',
+      description: 'string',
+      disabled: 'boolean',
+      displayName: 'string',
+      displayOrder: 'number',
+      editorType: 'string',
+      maxLength: 'number',
+      maximum: 'number',
+      minLength: 'number',
+      minimum: 'number',
+      name: 'string',
+      pattern: 'string',
+      patternErrorMessage: 'string',
+      readOnly: 'boolean',
+      required: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -30743,6 +32157,62 @@ export default class Client extends OpenApi {
   async addPhoneNumbers(request: AddPhoneNumbersRequest): Promise<AddPhoneNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addPhoneNumbersWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq AddSchemaPropertyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSchemaPropertyResponse
+   */
+  async addSchemaPropertyWithOptions(tmpReq: AddSchemaPropertyRequest, runtime: $Util.RuntimeOptions): Promise<AddSchemaPropertyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddSchemaPropertyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.property)) {
+      request.propertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.property, "Property", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.propertyShrink)) {
+      body["Property"] = request.propertyShrink;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.schemaId)) {
+      body["SchemaId"] = request.schemaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddSchemaProperty",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSchemaPropertyResponse>(await this.callApi(params, req, runtime), new AddSchemaPropertyResponse({}));
+  }
+
+  /**
+   * @param request AddSchemaPropertyRequest
+   * @return AddSchemaPropertyResponse
+   */
+  async addSchemaProperty(request: AddSchemaPropertyRequest): Promise<AddSchemaPropertyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addSchemaPropertyWithOptions(request, runtime);
   }
 
   /**
@@ -31960,6 +33430,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq CreateSchemaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSchemaResponse
+   */
+  async createSchemaWithOptions(tmpReq: CreateSchemaRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchemaResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSchemaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.properties)) {
+      request.propertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.properties, "Properties", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.propertiesShrink)) {
+      body["Properties"] = request.propertiesShrink;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSchema",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSchemaResponse>(await this.callApi(params, req, runtime), new CreateSchemaResponse({}));
+  }
+
+  /**
+   * @param request CreateSchemaRequest
+   * @return CreateSchemaResponse
+   */
+  async createSchema(request: CreateSchemaRequest): Promise<CreateSchemaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSchemaWithOptions(request, runtime);
+  }
+
+  /**
    * @param request CreateSkillGroupRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateSkillGroupResponse
@@ -32269,6 +33799,158 @@ export default class Client extends OpenApi {
   async deleteCustomCallTagging(request: DeleteCustomCallTaggingRequest): Promise<DeleteCustomCallTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomCallTaggingWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteDocumentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDocumentResponse
+   */
+  async deleteDocumentWithOptions(request: DeleteDocumentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocumentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentId)) {
+      body["DocumentId"] = request.documentId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.schemaId)) {
+      body["SchemaId"] = request.schemaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDocument",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDocumentResponse>(await this.callApi(params, req, runtime), new DeleteDocumentResponse({}));
+  }
+
+  /**
+   * @param request DeleteDocumentRequest
+   * @return DeleteDocumentResponse
+   */
+  async deleteDocument(request: DeleteDocumentRequest): Promise<DeleteDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq DeleteDocumentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDocumentsResponse
+   */
+  async deleteDocumentsWithOptions(tmpReq: DeleteDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocumentsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteDocumentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documentIds)) {
+      request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentIdsShrink)) {
+      body["DocumentIds"] = request.documentIdsShrink;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.schemaId)) {
+      body["SchemaId"] = request.schemaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDocuments",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDocumentsResponse>(await this.callApi(params, req, runtime), new DeleteDocumentsResponse({}));
+  }
+
+  /**
+   * @param request DeleteDocumentsRequest
+   * @return DeleteDocumentsResponse
+   */
+  async deleteDocuments(request: DeleteDocumentsRequest): Promise<DeleteDocumentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDocumentsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DeleteSchemaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSchemaResponse
+   */
+  async deleteSchemaWithOptions(request: DeleteSchemaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchemaResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.schemaId)) {
+      body["SchemaId"] = request.schemaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSchema",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSchemaResponse>(await this.callApi(params, req, runtime), new DeleteSchemaResponse({}));
+  }
+
+  /**
+   * @param request DeleteSchemaRequest
+   * @return DeleteSchemaResponse
+   */
+  async deleteSchema(request: DeleteSchemaRequest): Promise<DeleteSchemaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSchemaWithOptions(request, runtime);
   }
 
   /**
@@ -33133,6 +34815,52 @@ export default class Client extends OpenApi {
   async getDoNotCallFileUploadParameters(request: GetDoNotCallFileUploadParametersRequest): Promise<GetDoNotCallFileUploadParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDoNotCallFileUploadParametersWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request GetDocumentUploadParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDocumentUploadParametersResponse
+   */
+  async getDocumentUploadParametersWithOptions(request: GetDocumentUploadParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentUploadParametersResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDocumentUploadParameters",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDocumentUploadParametersResponse>(await this.callApi(params, req, runtime), new GetDocumentUploadParametersResponse({}));
+  }
+
+  /**
+   * @param request GetDocumentUploadParametersRequest
+   * @return GetDocumentUploadParametersResponse
+   */
+  async getDocumentUploadParameters(request: GetDocumentUploadParametersRequest): Promise<GetDocumentUploadParametersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDocumentUploadParametersWithOptions(request, runtime);
   }
 
   /**
@@ -34203,6 +35931,56 @@ export default class Client extends OpenApi {
   async importDoNotCallNumbers(request: ImportDoNotCallNumbersRequest): Promise<ImportDoNotCallNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importDoNotCallNumbersWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ImportDocumentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportDocumentsResponse
+   */
+  async importDocumentsWithOptions(request: ImportDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ImportDocumentsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ossFileKey)) {
+      body["OssFileKey"] = request.ossFileKey;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.schemaId)) {
+      body["SchemaId"] = request.schemaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportDocuments",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportDocumentsResponse>(await this.callApi(params, req, runtime), new ImportDocumentsResponse({}));
+  }
+
+  /**
+   * @param request ImportDocumentsRequest
+   * @return ImportDocumentsResponse
+   */
+  async importDocuments(request: ImportDocumentsRequest): Promise<ImportDocumentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importDocumentsWithOptions(request, runtime);
   }
 
   /**
@@ -35455,6 +37233,74 @@ export default class Client extends OpenApi {
   async listDoNotCallNumbers(request: ListDoNotCallNumbersRequest): Promise<ListDoNotCallNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDoNotCallNumbersWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq ListDocumentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDocumentsResponse
+   */
+  async listDocumentsWithOptions(tmpReq: ListDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ListDocumentsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDocumentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sorts)) {
+      request.sortsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sorts, "Sorts", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nextPageToken)) {
+      body["NextPageToken"] = request.nextPageToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.schemaId)) {
+      body["SchemaId"] = request.schemaId;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      body["SearchPattern"] = request.searchPattern;
+    }
+
+    if (!Util.isUnset(request.sortsShrink)) {
+      body["Sorts"] = request.sortsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDocuments",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDocumentsResponse>(await this.callApi(params, req, runtime), new ListDocumentsResponse({}));
+  }
+
+  /**
+   * @param request ListDocumentsRequest
+   * @return ListDocumentsResponse
+   */
+  async listDocuments(request: ListDocumentsRequest): Promise<ListDocumentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDocumentsWithOptions(request, runtime);
   }
 
   /**
@@ -39076,6 +40922,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request SaveDocumentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveDocumentResponse
+   */
+  async saveDocumentWithOptions(request: SaveDocumentRequest, runtime: $Util.RuntimeOptions): Promise<SaveDocumentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentId)) {
+      body["DocumentId"] = request.documentId;
+    }
+
+    if (!Util.isUnset(request.documentJson)) {
+      body["DocumentJson"] = request.documentJson;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.schemaId)) {
+      body["SchemaId"] = request.schemaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveDocument",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveDocumentResponse>(await this.callApi(params, req, runtime), new SaveDocumentResponse({}));
+  }
+
+  /**
+   * @param request SaveDocumentRequest
+   * @return SaveDocumentResponse
+   */
+  async saveDocument(request: SaveDocumentRequest): Promise<SaveDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveDocumentWithOptions(request, runtime);
+  }
+
+  /**
    * @param request SaveRTCStatsV2Request
    * @param runtime runtime options for this request RuntimeOptions
    * @return SaveRTCStatsV2Response
@@ -40123,6 +42023,62 @@ export default class Client extends OpenApi {
   async updateConfigItems(request: UpdateConfigItemsRequest): Promise<UpdateConfigItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConfigItemsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq UpdateSchemaPropertyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSchemaPropertyResponse
+   */
+  async updateSchemaPropertyWithOptions(tmpReq: UpdateSchemaPropertyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSchemaPropertyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateSchemaPropertyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.property)) {
+      request.propertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.property, "Property", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.propertyShrink)) {
+      body["Property"] = request.propertyShrink;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.schemaId)) {
+      body["SchemaId"] = request.schemaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSchemaProperty",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSchemaPropertyResponse>(await this.callApi(params, req, runtime), new UpdateSchemaPropertyResponse({}));
+  }
+
+  /**
+   * @param request UpdateSchemaPropertyRequest
+   * @return UpdateSchemaPropertyResponse
+   */
+  async updateSchemaProperty(request: UpdateSchemaPropertyRequest): Promise<UpdateSchemaPropertyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSchemaPropertyWithOptions(request, runtime);
   }
 
 }
