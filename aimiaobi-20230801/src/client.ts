@@ -717,6 +717,109 @@ export class DeleteMaterialByIdResponse extends $tea.Model {
   }
 }
 
+export class DocumentExtractionRequest extends $tea.Model {
+  agentKey?: string;
+  urls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      urls: 'Urls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      urls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocumentExtractionShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  urlsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      urlsShrink: 'Urls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      urlsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocumentExtractionResponseBody extends $tea.Model {
+  code?: string;
+  data?: DocumentExtractionResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': DocumentExtractionResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocumentExtractionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DocumentExtractionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DocumentExtractionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportGeneratedContentRequest extends $tea.Model {
   agentKey?: string;
   id?: number;
@@ -5042,6 +5145,52 @@ export class DeleteInterveneRuleResponseBodyData extends $tea.Model {
   }
 }
 
+export class DocumentExtractionResponseBodyData extends $tea.Model {
+  author?: string;
+  content?: string;
+  docId?: string;
+  docUuid?: string;
+  pubTime?: string;
+  source?: string;
+  summary?: string;
+  tag?: string;
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      tag: 'Tag',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      tag: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportIntervenesResponseBodyData extends $tea.Model {
   fileUrl?: string;
   static names(): { [key: string]: string } {
@@ -7503,6 +7652,60 @@ export default class Client extends OpenApi {
   async deleteMaterialById(request: DeleteMaterialByIdRequest): Promise<DeleteMaterialByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMaterialByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 从链接中提取文档内容
+   *
+   * @param tmpReq DocumentExtractionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DocumentExtractionResponse
+   */
+  async documentExtractionWithOptions(tmpReq: DocumentExtractionRequest, runtime: $Util.RuntimeOptions): Promise<DocumentExtractionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DocumentExtractionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.urls)) {
+      request.urlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.urls, "Urls", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.urlsShrink)) {
+      body["Urls"] = request.urlsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DocumentExtraction",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DocumentExtractionResponse>(await this.callApi(params, req, runtime), new DocumentExtractionResponse({}));
+  }
+
+  /**
+   * @summary 从链接中提取文档内容
+   *
+   * @param request DocumentExtractionRequest
+   * @return DocumentExtractionResponse
+   */
+  async documentExtraction(request: DocumentExtractionRequest): Promise<DocumentExtractionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.documentExtractionWithOptions(request, runtime);
   }
 
   /**
