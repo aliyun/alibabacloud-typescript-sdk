@@ -178,6 +178,31 @@ export class UserEntityTag extends $tea.Model {
   }
 }
 
+export class DataDesensPlanTemplateValue extends $tea.Model {
+  name?: string;
+  supportWaterMark?: boolean;
+  extParamTemplate?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      supportWaterMark: 'SupportWaterMark',
+      extParamTemplate: 'ExtParamTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      supportWaterMark: 'boolean',
+      extParamTemplate: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AbolishDataServiceApiRequest extends $tea.Model {
   apiId?: number;
   projectId?: number;
@@ -6798,6 +6823,467 @@ export class DesensitizeDataResponse extends $tea.Model {
   }
 }
 
+export class DsgDesensPlanDeleteRequest extends $tea.Model {
+  ids?: number[];
+  sceneCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      sceneCode: 'SceneCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+      sceneCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanDeleteShrinkRequest extends $tea.Model {
+  idsShrink?: string;
+  sceneCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idsShrink: 'Ids',
+      sceneCode: 'SceneCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idsShrink: 'string',
+      sceneCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanDeleteResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanDeleteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgDesensPlanDeleteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgDesensPlanDeleteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanQueryListRequest extends $tea.Model {
+  owner?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  ruleName?: string;
+  sceneId?: number;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      ruleName: 'RuleName',
+      sceneId: 'SceneId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      ruleName: 'string',
+      sceneId: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanQueryListResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  pageData?: DsgDesensPlanQueryListResponseBodyPageData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      pageData: 'PageData',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      pageData: DsgDesensPlanQueryListResponseBodyPageData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanQueryListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgDesensPlanQueryListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgDesensPlanQueryListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanUpdateStatusRequest extends $tea.Model {
+  ids?: number[];
+  sceneCode?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      sceneCode: 'SceneCode',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+      sceneCode: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanUpdateStatusShrinkRequest extends $tea.Model {
+  idsShrink?: string;
+  sceneCode?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      idsShrink: 'Ids',
+      sceneCode: 'SceneCode',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idsShrink: 'string',
+      sceneCode: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanUpdateStatusResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanUpdateStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgDesensPlanUpdateStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgDesensPlanUpdateStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgPlatformQueryProjectsAndSchemaFromMetaRequest extends $tea.Model {
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgPlatformQueryProjectsAndSchemaFromMetaResponseBody extends $tea.Model {
+  data?: DsgPlatformQueryProjectsAndSchemaFromMetaResponseBodyData[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DsgPlatformQueryProjectsAndSchemaFromMetaResponseBodyData },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgPlatformQueryProjectsAndSchemaFromMetaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgPlatformQueryProjectsAndSchemaFromMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgPlatformQueryProjectsAndSchemaFromMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgQueryDefaultTemplatesRequest extends $tea.Model {
+  sceneId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgQueryDefaultTemplatesResponseBody extends $tea.Model {
+  data?: DsgQueryDefaultTemplatesResponseBodyData[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DsgQueryDefaultTemplatesResponseBodyData },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgQueryDefaultTemplatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgQueryDefaultTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgQueryDefaultTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgQuerySensResultRequest extends $tea.Model {
   col?: string;
   dbType?: string;
@@ -7027,6 +7513,103 @@ export class DsgRunSensIdentifyResponse extends $tea.Model {
   }
 }
 
+export class DsgSceneAddOrUpdateSceneRequest extends $tea.Model {
+  scenes?: DsgSceneAddOrUpdateSceneRequestScenes[];
+  static names(): { [key: string]: string } {
+    return {
+      scenes: 'scenes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scenes: { 'type': 'array', 'itemType': DsgSceneAddOrUpdateSceneRequestScenes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgSceneAddOrUpdateSceneShrinkRequest extends $tea.Model {
+  scenesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scenesShrink: 'scenes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scenesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgSceneAddOrUpdateSceneResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgSceneAddOrUpdateSceneResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgSceneAddOrUpdateSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgSceneAddOrUpdateSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgStopSensIdentifyRequest extends $tea.Model {
   jobId?: number;
   tenantId?: string;
@@ -7100,6 +7683,514 @@ export class DsgStopSensIdentifyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DsgStopSensIdentifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupAddOrUpdateRequest extends $tea.Model {
+  userGroups?: DsgUserGroupAddOrUpdateRequestUserGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      userGroups: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userGroups: { 'type': 'array', 'itemType': DsgUserGroupAddOrUpdateRequestUserGroups },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupAddOrUpdateShrinkRequest extends $tea.Model {
+  userGroupsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userGroupsShrink: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userGroupsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupAddOrUpdateResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupAddOrUpdateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgUserGroupAddOrUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgUserGroupAddOrUpdateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupDeleteRequest extends $tea.Model {
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupDeleteShrinkRequest extends $tea.Model {
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupDeleteResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupDeleteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgUserGroupDeleteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgUserGroupDeleteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupGetOdpsRoleGroupsRequest extends $tea.Model {
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupGetOdpsRoleGroupsResponseBody extends $tea.Model {
+  data?: string[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': 'string' },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupGetOdpsRoleGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgUserGroupGetOdpsRoleGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgUserGroupGetOdpsRoleGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupQueryListRequest extends $tea.Model {
+  name?: string;
+  owner?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupQueryListResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  pageData?: DsgUserGroupQueryListResponseBodyPageData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      pageData: 'PageData',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      pageData: DsgUserGroupQueryListResponseBodyPageData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupQueryListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgUserGroupQueryListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgUserGroupQueryListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupQueryUserListResponseBody extends $tea.Model {
+  data?: DsgUserGroupQueryUserListResponseBodyData[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DsgUserGroupQueryUserListResponseBodyData },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupQueryUserListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgUserGroupQueryUserListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgUserGroupQueryUserListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListQueryListRequest extends $tea.Model {
+  dataType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  sceneId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sceneId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListQueryListResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  pageData?: DsgWhiteListQueryListResponseBodyPageData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      pageData: 'PageData',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      pageData: DsgWhiteListQueryListResponseBodyPageData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListQueryListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgWhiteListQueryListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgWhiteListQueryListResponseBody,
     };
   }
 
@@ -25959,6 +27050,158 @@ export class DeployDISyncTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class DsgDesensPlanQueryListResponseBodyPageDataDataDesensPlan extends $tea.Model {
+  desensPlanType?: string;
+  extParam?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      desensPlanType: 'DesensPlanType',
+      extParam: 'ExtParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desensPlanType: 'string',
+      extParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanQueryListResponseBodyPageDataData extends $tea.Model {
+  checkWatermark?: boolean;
+  dataType?: string;
+  desenMode?: string;
+  desensPlan?: DsgDesensPlanQueryListResponseBodyPageDataDataDesensPlan;
+  desensRule?: string;
+  desensWay?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  owner?: string;
+  ruleName?: string;
+  sceneCode?: string;
+  sceneName?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkWatermark: 'CheckWatermark',
+      dataType: 'DataType',
+      desenMode: 'DesenMode',
+      desensPlan: 'DesensPlan',
+      desensRule: 'DesensRule',
+      desensWay: 'DesensWay',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      owner: 'Owner',
+      ruleName: 'RuleName',
+      sceneCode: 'SceneCode',
+      sceneName: 'SceneName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkWatermark: 'boolean',
+      dataType: 'string',
+      desenMode: 'string',
+      desensPlan: DsgDesensPlanQueryListResponseBodyPageDataDataDesensPlan,
+      desensRule: 'string',
+      desensWay: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      owner: 'string',
+      ruleName: 'string',
+      sceneCode: 'string',
+      sceneName: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanQueryListResponseBodyPageData extends $tea.Model {
+  data?: DsgDesensPlanQueryListResponseBodyPageDataData[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DsgDesensPlanQueryListResponseBodyPageDataData },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgPlatformQueryProjectsAndSchemaFromMetaResponseBodyData extends $tea.Model {
+  clusterId?: string;
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      project: 'Project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      project: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgQueryDefaultTemplatesResponseBodyData extends $tea.Model {
+  dataType?: string;
+  desensPlanTemplate?: { [key: string]: DataDesensPlanTemplateValue[] };
+  static names(): { [key: string]: string } {
+    return {
+      dataType: 'DataType',
+      desensPlanTemplate: 'DesensPlanTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataType: 'string',
+      desensPlanTemplate: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': DataDesensPlanTemplateValue } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgRunSensIdentifyRequestEsMetaParams extends $tea.Model {
   clusterId?: string;
   dbType?: string;
@@ -25991,6 +27234,263 @@ export class DsgRunSensIdentifyRequestEsMetaParams extends $tea.Model {
       tableName: 'string',
       tableNameList: { 'type': 'array', 'itemType': 'string' },
       user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgSceneAddOrUpdateSceneRequestScenesProjects extends $tea.Model {
+  clusterId?: string;
+  dbType?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'clusterId',
+      dbType: 'dbType',
+      projectName: 'projectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbType: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgSceneAddOrUpdateSceneRequestScenes extends $tea.Model {
+  desc?: string;
+  id?: string;
+  projects?: DsgSceneAddOrUpdateSceneRequestScenesProjects[];
+  sceneCode?: string;
+  sceneName?: string;
+  userGroupIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      id: 'id',
+      projects: 'projects',
+      sceneCode: 'sceneCode',
+      sceneName: 'sceneName',
+      userGroupIds: 'userGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      id: 'string',
+      projects: { 'type': 'array', 'itemType': DsgSceneAddOrUpdateSceneRequestScenesProjects },
+      sceneCode: 'string',
+      sceneName: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupAddOrUpdateRequestUserGroups extends $tea.Model {
+  accounts?: string[];
+  id?: number;
+  name?: string;
+  owner?: string;
+  projectName?: string;
+  userGroupType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accounts: 'Accounts',
+      id: 'Id',
+      name: 'Name',
+      owner: 'Owner',
+      projectName: 'ProjectName',
+      userGroupType: 'UserGroupType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accounts: { 'type': 'array', 'itemType': 'string' },
+      id: 'number',
+      name: 'string',
+      owner: 'string',
+      projectName: 'string',
+      userGroupType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupQueryListResponseBodyPageDataData extends $tea.Model {
+  accounts?: string[];
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  name?: string;
+  owner?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accounts: 'Accounts',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      owner: 'Owner',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accounts: { 'type': 'array', 'itemType': 'string' },
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      name: 'string',
+      owner: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupQueryListResponseBodyPageData extends $tea.Model {
+  data?: DsgUserGroupQueryListResponseBodyPageDataData[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DsgUserGroupQueryListResponseBodyPageDataData },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgUserGroupQueryUserListResponseBodyData extends $tea.Model {
+  accountName?: string;
+  accountType?: number;
+  baseId?: string;
+  parentAccountId?: string;
+  yunAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountType: 'AccountType',
+      baseId: 'BaseId',
+      parentAccountId: 'ParentAccountId',
+      yunAccount: 'YunAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountType: 'number',
+      baseId: 'string',
+      parentAccountId: 'string',
+      yunAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListQueryListResponseBodyPageDataData extends $tea.Model {
+  endTime?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  ruleId?: number;
+  sceneId?: number;
+  startTime?: string;
+  type?: string;
+  userGroups?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      ruleId: 'RuleId',
+      sceneId: 'SceneId',
+      startTime: 'StartTime',
+      type: 'Type',
+      userGroups: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      ruleId: 'number',
+      sceneId: 'number',
+      startTime: 'string',
+      type: 'string',
+      userGroups: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListQueryListResponseBodyPageData extends $tea.Model {
+  data?: DsgWhiteListQueryListResponseBodyPageDataData[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DsgWhiteListQueryListResponseBodyPageDataData },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -39211,6 +40711,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Unpublishes a DataService Studio API.
+   *
+   * @param request AbolishDataServiceApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AbolishDataServiceApiResponse
+   */
   async abolishDataServiceApiWithOptions(request: AbolishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<AbolishDataServiceApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39243,11 +40750,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AbolishDataServiceApiResponse>(await this.callApi(params, req, runtime), new AbolishDataServiceApiResponse({}));
   }
 
+  /**
+   * @summary Unpublishes a DataService Studio API.
+   *
+   * @param request AbolishDataServiceApiRequest
+   * @return AbolishDataServiceApiResponse
+   */
   async abolishDataServiceApi(request: AbolishDataServiceApiRequest): Promise<AbolishDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.abolishDataServiceApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **AddMetaCollectionEntity**.
+   *
+   * @param request AddMetaCollectionEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMetaCollectionEntityResponse
+   */
   async addMetaCollectionEntityWithOptions(request: AddMetaCollectionEntityRequest, runtime: $Util.RuntimeOptions): Promise<AddMetaCollectionEntityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39280,17 +40800,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddMetaCollectionEntityResponse>(await this.callApi(params, req, runtime), new AddMetaCollectionEntityResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **AddMetaCollectionEntity**.
+   *
+   * @param request AddMetaCollectionEntityRequest
+   * @return AddMetaCollectionEntityResponse
+   */
   async addMetaCollectionEntity(request: AddMetaCollectionEntityRequest): Promise<AddMetaCollectionEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addMetaCollectionEntityWithOptions(request, runtime);
   }
 
   /**
-    * The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) operation to query the ID.
-    *
-    * @param request AddProjectMemberToRoleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddProjectMemberToRoleResponse
+   * @summary For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+   *
+   * @description The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
+   *
+   * @param request AddProjectMemberToRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddProjectMemberToRoleResponse
    */
   async addProjectMemberToRoleWithOptions(request: AddProjectMemberToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AddProjectMemberToRoleResponse> {
     Util.validateModel(request);
@@ -39329,16 +40857,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) operation to query the ID.
-    *
-    * @param request AddProjectMemberToRoleRequest
-    * @return AddProjectMemberToRoleResponse
+   * @summary For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+   *
+   * @description The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
+   *
+   * @param request AddProjectMemberToRoleRequest
+   * @return AddProjectMemberToRoleResponse
    */
   async addProjectMemberToRole(request: AddProjectMemberToRoleRequest): Promise<AddProjectMemberToRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addProjectMemberToRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加识别规则
+   *
+   * @param request AddRecognizeRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddRecognizeRuleResponse
+   */
   async addRecognizeRuleWithOptions(request: AddRecognizeRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddRecognizeRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39431,11 +40968,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddRecognizeRuleResponse>(await this.callApi(params, req, runtime), new AddRecognizeRuleResponse({}));
   }
 
+  /**
+   * @summary 添加识别规则
+   *
+   * @param request AddRecognizeRuleRequest
+   * @return AddRecognizeRuleResponse
+   */
   async addRecognizeRule(request: AddRecognizeRuleRequest): Promise<AddRecognizeRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addRecognizeRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a metatable to a specified category.
+   *
+   * @param request AddToMetaCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddToMetaCategoryResponse
+   */
   async addToMetaCategoryWithOptions(request: AddToMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddToMetaCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39464,11 +41014,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddToMetaCategoryResponse>(await this.callApi(params, req, runtime), new AddToMetaCategoryResponse({}));
   }
 
+  /**
+   * @summary Adds a metatable to a specified category.
+   *
+   * @param request AddToMetaCategoryRequest
+   * @return AddToMetaCategoryResponse
+   */
   async addToMetaCategory(request: AddToMetaCategoryRequest): Promise<AddToMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addToMetaCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ApprovePermissionApplyOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApprovePermissionApplyOrderResponse
+   */
   async approvePermissionApplyOrderWithOptions(request: ApprovePermissionApplyOrderRequest, runtime: $Util.RuntimeOptions): Promise<ApprovePermissionApplyOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39501,11 +41062,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ApprovePermissionApplyOrderResponse>(await this.callApi(params, req, runtime), new ApprovePermissionApplyOrderResponse({}));
   }
 
+  /**
+   * @param request ApprovePermissionApplyOrderRequest
+   * @return ApprovePermissionApplyOrderResponse
+   */
   async approvePermissionApplyOrder(request: ApprovePermissionApplyOrderRequest): Promise<ApprovePermissionApplyOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.approvePermissionApplyOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 扩展程序回调接口
+   *
+   * @param request CallbackExtensionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CallbackExtensionResponse
+   */
   async callbackExtensionWithOptions(request: CallbackExtensionRequest, runtime: $Util.RuntimeOptions): Promise<CallbackExtensionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39542,11 +41114,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CallbackExtensionResponse>(await this.callApi(params, req, runtime), new CallbackExtensionResponse({}));
   }
 
+  /**
+   * @summary 扩展程序回调接口
+   *
+   * @param request CallbackExtensionRequest
+   * @return CallbackExtensionResponse
+   */
   async callbackExtension(request: CallbackExtensionRequest): Promise<CallbackExtensionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.callbackExtensionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ChangeResourceManagerResourceGroup**.
+   *
+   * @param request ChangeResourceManagerResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceManagerResourceGroupResponse
+   */
   async changeResourceManagerResourceGroupWithOptions(request: ChangeResourceManagerResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceManagerResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39579,11 +41164,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceManagerResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceManagerResourceGroupResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ChangeResourceManagerResourceGroup**.
+   *
+   * @param request ChangeResourceManagerResourceGroupRequest
+   * @return ChangeResourceManagerResourceGroupResponse
+   */
   async changeResourceManagerResourceGroup(request: ChangeResourceManagerResourceGroupRequest): Promise<ChangeResourceManagerResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceManagerResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckFileDeploymentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckFileDeploymentResponse
+   */
   async checkFileDeploymentWithOptions(request: CheckFileDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CheckFileDeploymentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39616,11 +41212,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckFileDeploymentResponse>(await this.callApi(params, req, runtime), new CheckFileDeploymentResponse({}));
   }
 
+  /**
+   * @param request CheckFileDeploymentRequest
+   * @return CheckFileDeploymentResponse
+   */
   async checkFileDeployment(request: CheckFileDeploymentRequest): Promise<CheckFileDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkFileDeploymentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **CheckMetaPartition**.
+   *
+   * @param request CheckMetaPartitionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckMetaPartitionResponse
+   */
   async checkMetaPartitionWithOptions(request: CheckMetaPartitionRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaPartitionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39665,11 +41272,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckMetaPartitionResponse>(await this.callApi(params, req, runtime), new CheckMetaPartitionResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **CheckMetaPartition**.
+   *
+   * @param request CheckMetaPartitionRequest
+   * @return CheckMetaPartitionResponse
+   */
   async checkMetaPartition(request: CheckMetaPartitionRequest): Promise<CheckMetaPartitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkMetaPartitionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **CheckMetaTable**.
+   *
+   * @param request CheckMetaTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckMetaTableResponse
+   */
   async checkMetaTableWithOptions(request: CheckMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39710,11 +41330,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckMetaTableResponse>(await this.callApi(params, req, runtime), new CheckMetaTableResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **CheckMetaTable**.
+   *
+   * @param request CheckMetaTableRequest
+   * @return CheckMetaTableResponse
+   */
   async checkMetaTable(request: CheckMetaTableRequest): Promise<CheckMetaTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkMetaTableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建基线
+   *
+   * @param request CreateBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBaselineResponse
+   */
   async createBaselineWithOptions(request: CreateBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreateBaselineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39767,11 +41400,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBaselineResponse>(await this.callApi(params, req, runtime), new CreateBaselineResponse({}));
   }
 
+  /**
+   * @summary 创建基线
+   *
+   * @param request CreateBaselineRequest
+   * @return CreateBaselineResponse
+   */
   async createBaseline(request: CreateBaselineRequest): Promise<CreateBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateBusinessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBusinessResponse
+   */
   async createBusinessWithOptions(request: CreateBusinessRequest, runtime: $Util.RuntimeOptions): Promise<CreateBusinessResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -39816,17 +41460,23 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBusinessResponse>(await this.callApi(params, req, runtime), new CreateBusinessResponse({}));
   }
 
+  /**
+   * @param request CreateBusinessRequest
+   * @return CreateBusinessResponse
+   */
   async createBusiness(request: CreateBusinessRequest): Promise<CreateBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBusinessWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateConnectionResponse
+   * @deprecated OpenAPI CreateConnection is deprecated
+   *
+   * @summary 创建数据源
+   *
+   * @param request CreateConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConnectionResponse
    */
   // Deprecated
   async createConnectionWithOptions(request: CreateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionResponse> {
@@ -39878,10 +41528,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateConnectionRequest
-    * @return CreateConnectionResponse
+   * @deprecated OpenAPI CreateConnection is deprecated
+   *
+   * @summary 创建数据源
+   *
+   * @param request CreateConnectionRequest
+   * @return CreateConnectionResponse
    */
   // Deprecated
   async createConnection(request: CreateConnectionRequest): Promise<CreateConnectionResponse> {
@@ -39889,6 +41541,13 @@ export default class Client extends OpenApi {
     return await this.createConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建数据集成新版告警规则
+   *
+   * @param tmpReq CreateDIAlarmRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDIAlarmRuleResponse
+   */
   async createDIAlarmRuleWithOptions(tmpReq: CreateDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDIAlarmRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDIAlarmRuleShrinkRequest({ });
@@ -39943,11 +41602,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new CreateDIAlarmRuleResponse({}));
   }
 
+  /**
+   * @summary 创建数据集成新版告警规则
+   *
+   * @param request CreateDIAlarmRuleRequest
+   * @return CreateDIAlarmRuleResponse
+   */
   async createDIAlarmRule(request: CreateDIAlarmRuleRequest): Promise<CreateDIAlarmRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDIAlarmRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建数据集成新版解决方案任务
+   *
+   * @param tmpReq CreateDIJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDIJobResponse
+   */
   async createDIJobWithOptions(tmpReq: CreateDIJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDIJobResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateDIJobShrinkRequest({ });
@@ -40048,17 +41720,23 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDIJobResponse>(await this.callApi(params, req, runtime), new CreateDIJobResponse({}));
   }
 
+  /**
+   * @summary 创建数据集成新版解决方案任务
+   *
+   * @param request CreateDIJobRequest
+   * @return CreateDIJobResponse
+   */
   async createDIJob(request: CreateDIJobRequest): Promise<CreateDIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDIJobWithOptions(request, runtime);
   }
 
   /**
-    * DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
-    *
-    * @param request CreateDISyncTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDISyncTaskResponse
+   * @description DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+   *
+   * @param request CreateDISyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDISyncTaskResponse
    */
   async createDISyncTaskWithOptions(request: CreateDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDISyncTaskResponse> {
     Util.validateModel(request);
@@ -40105,10 +41783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
-    *
-    * @param request CreateDISyncTaskRequest
-    * @return CreateDISyncTaskResponse
+   * @description DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+   *
+   * @param request CreateDISyncTaskRequest
+   * @return CreateDISyncTaskResponse
    */
   async createDISyncTask(request: CreateDISyncTaskRequest): Promise<CreateDISyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40116,11 +41794,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateDagComplementRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDagComplementResponse
+   * @deprecated OpenAPI CreateDagComplement is deprecated
+   *
+   * @param request CreateDagComplementRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDagComplementResponse
    */
   // Deprecated
   async createDagComplementWithOptions(request: CreateDagComplementRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagComplementResponse> {
@@ -40188,10 +41866,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateDagComplementRequest
-    * @return CreateDagComplementResponse
+   * @deprecated OpenAPI CreateDagComplement is deprecated
+   *
+   * @param request CreateDagComplementRequest
+   * @return CreateDagComplementResponse
    */
   // Deprecated
   async createDagComplement(request: CreateDagComplementRequest): Promise<CreateDagComplementResponse> {
@@ -40200,11 +41878,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateDagTestRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDagTestResponse
+   * @deprecated OpenAPI CreateDagTest is deprecated
+   *
+   * @param request CreateDagTestRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDagTestResponse
    */
   // Deprecated
   async createDagTestWithOptions(request: CreateDagTestRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagTestResponse> {
@@ -40248,10 +41926,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateDagTestRequest
-    * @return CreateDagTestResponse
+   * @deprecated OpenAPI CreateDagTest is deprecated
+   *
+   * @param request CreateDagTestRequest
+   * @return CreateDagTestResponse
    */
   // Deprecated
   async createDagTest(request: CreateDagTestRequest): Promise<CreateDagTestResponse> {
@@ -40259,6 +41937,11 @@ export default class Client extends OpenApi {
     return await this.createDagTestWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateDataServiceApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataServiceApiResponse
+   */
   async createDataServiceApiWithOptions(request: CreateDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40355,11 +42038,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataServiceApiResponse>(await this.callApi(params, req, runtime), new CreateDataServiceApiResponse({}));
   }
 
+  /**
+   * @param request CreateDataServiceApiRequest
+   * @return CreateDataServiceApiResponse
+   */
   async createDataServiceApi(request: CreateDataServiceApiRequest): Promise<CreateDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataServiceApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Grants the access permissions on an API in DataService Studio.
+   *
+   * @param request CreateDataServiceApiAuthorityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataServiceApiAuthorityResponse
+   */
   async createDataServiceApiAuthorityWithOptions(request: CreateDataServiceApiAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceApiAuthorityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40400,11 +42094,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataServiceApiAuthorityResponse>(await this.callApi(params, req, runtime), new CreateDataServiceApiAuthorityResponse({}));
   }
 
+  /**
+   * @summary Grants the access permissions on an API in DataService Studio.
+   *
+   * @param request CreateDataServiceApiAuthorityRequest
+   * @return CreateDataServiceApiAuthorityResponse
+   */
   async createDataServiceApiAuthority(request: CreateDataServiceApiAuthorityRequest): Promise<CreateDataServiceApiAuthorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataServiceApiAuthorityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a folder in DataService Studio.
+   *
+   * @param request CreateDataServiceFolderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataServiceFolderResponse
+   */
   async createDataServiceFolderWithOptions(request: CreateDataServiceFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceFolderResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40445,11 +42152,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataServiceFolderResponse>(await this.callApi(params, req, runtime), new CreateDataServiceFolderResponse({}));
   }
 
+  /**
+   * @summary Creates a folder in DataService Studio.
+   *
+   * @param request CreateDataServiceFolderRequest
+   * @return CreateDataServiceFolderResponse
+   */
   async createDataServiceFolder(request: CreateDataServiceFolderRequest): Promise<CreateDataServiceFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataServiceFolderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a business process.
+   *
+   * @param request CreateDataServiceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataServiceGroupResponse
+   */
   async createDataServiceGroupWithOptions(request: CreateDataServiceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40490,11 +42210,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataServiceGroupResponse>(await this.callApi(params, req, runtime), new CreateDataServiceGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a business process.
+   *
+   * @param request CreateDataServiceGroupRequest
+   * @return CreateDataServiceGroupResponse
+   */
   async createDataServiceGroup(request: CreateDataServiceGroupRequest): Promise<CreateDataServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataServiceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建数据源
+   *
+   * @param request CreateDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDataSourceResponse
+   */
   async createDataSourceWithOptions(request: CreateDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -40543,11 +42276,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDataSourceResponse>(await this.callApi(params, req, runtime), new CreateDataSourceResponse({}));
   }
 
+  /**
+   * @summary 创建数据源
+   *
+   * @param request CreateDataSourceRequest
+   * @return CreateDataSourceResponse
+   */
   async createDataSource(request: CreateDataSourceRequest): Promise<CreateDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDataSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新建导出任务
+   *
+   * @param request CreateExportMigrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExportMigrationResponse
+   */
   async createExportMigrationWithOptions(request: CreateExportMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateExportMigrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40592,11 +42338,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExportMigrationResponse>(await this.callApi(params, req, runtime), new CreateExportMigrationResponse({}));
   }
 
+  /**
+   * @summary 新建导出任务
+   *
+   * @param request CreateExportMigrationRequest
+   * @return CreateExportMigrationResponse
+   */
   async createExportMigration(request: CreateExportMigrationRequest): Promise<CreateExportMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createExportMigrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
+   *
+   * @param request CreateFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileResponse
+   */
   async createFileWithOptions(request: CreateFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40741,11 +42500,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFileResponse>(await this.callApi(params, req, runtime), new CreateFileResponse({}));
   }
 
+  /**
+   * @summary Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
+   *
+   * @param request CreateFileRequest
+   * @return CreateFileResponse
+   */
   async createFile(request: CreateFileRequest): Promise<CreateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **CreateFolder**.
+   *
+   * @param request CreateFolderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFolderResponse
+   */
   async createFolderWithOptions(request: CreateFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -40778,31 +42550,37 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFolderResponse>(await this.callApi(params, req, runtime), new CreateFolderResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **CreateFolder**.
+   *
+   * @param request CreateFolderRequest
+   * @return CreateFolderResponse
+   */
   async createFolder(request: CreateFolderRequest): Promise<CreateFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFolderWithOptions(request, runtime);
   }
 
   /**
-    * The import package must be uploaded. Example of the upload method:
-    * Config config = new Config();
-    * config.setAccessKeyId(accessId);
-    * config.setAccessKeySecret(accessKey);
-    * config.setEndpoint(popEndpoint);
-    * config.setRegionId(regionId);
-    * Client client = new Client(config);
-    * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
-    * request.setName("test_migration_api\\_" + System.currentTimeMillis());
-    * request.setProjectId(123456L);
-    * request.setPackageType("DATAWORKS_MODEL");
-    * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
-    * RuntimeOptions runtime = new RuntimeOptions();
-    * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
-    * ...
-    *
-    * @param request CreateImportMigrationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateImportMigrationResponse
+   * @description The import package must be uploaded. Example of the upload method:
+   * Config config = new Config();
+   * config.setAccessKeyId(accessId);
+   * config.setAccessKeySecret(accessKey);
+   * config.setEndpoint(popEndpoint);
+   * config.setRegionId(regionId);
+   * Client client = new Client(config);
+   * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
+   * request.setName("test_migration_api_" + System.currentTimeMillis());
+   * request.setProjectId(123456L);
+   * request.setPackageType("DATAWORKS_MODEL");
+   * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
+   * RuntimeOptions runtime = new RuntimeOptions();
+   * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
+   * ...
+   *
+   * @param request CreateImportMigrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImportMigrationResponse
    */
   async createImportMigrationWithOptions(request: CreateImportMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateImportMigrationResponse> {
     Util.validateModel(request);
@@ -40861,24 +42639,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The import package must be uploaded. Example of the upload method:
-    * Config config = new Config();
-    * config.setAccessKeyId(accessId);
-    * config.setAccessKeySecret(accessKey);
-    * config.setEndpoint(popEndpoint);
-    * config.setRegionId(regionId);
-    * Client client = new Client(config);
-    * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
-    * request.setName("test_migration_api\\_" + System.currentTimeMillis());
-    * request.setProjectId(123456L);
-    * request.setPackageType("DATAWORKS_MODEL");
-    * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
-    * RuntimeOptions runtime = new RuntimeOptions();
-    * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
-    * ...
-    *
-    * @param request CreateImportMigrationRequest
-    * @return CreateImportMigrationResponse
+   * @description The import package must be uploaded. Example of the upload method:
+   * Config config = new Config();
+   * config.setAccessKeyId(accessId);
+   * config.setAccessKeySecret(accessKey);
+   * config.setEndpoint(popEndpoint);
+   * config.setRegionId(regionId);
+   * Client client = new Client(config);
+   * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
+   * request.setName("test_migration_api_" + System.currentTimeMillis());
+   * request.setProjectId(123456L);
+   * request.setPackageType("DATAWORKS_MODEL");
+   * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
+   * RuntimeOptions runtime = new RuntimeOptions();
+   * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
+   * ...
+   *
+   * @param request CreateImportMigrationRequest
+   * @return CreateImportMigrationResponse
    */
   async createImportMigration(request: CreateImportMigrationRequest): Promise<CreateImportMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40960,11 +42738,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateManualDagRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateManualDagResponse
+   * @deprecated OpenAPI CreateManualDag is deprecated
+   *
+   * @param request CreateManualDagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateManualDagResponse
    */
   // Deprecated
   async createManualDagWithOptions(request: CreateManualDagRequest, runtime: $Util.RuntimeOptions): Promise<CreateManualDagResponse> {
@@ -41020,10 +42798,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateManualDagRequest
-    * @return CreateManualDagResponse
+   * @deprecated OpenAPI CreateManualDag is deprecated
+   *
+   * @param request CreateManualDagRequest
+   * @return CreateManualDagResponse
    */
   // Deprecated
   async createManualDag(request: CreateManualDagRequest): Promise<CreateManualDagResponse> {
@@ -41031,6 +42809,13 @@ export default class Client extends OpenApi {
     return await this.createManualDagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a category.
+   *
+   * @param request CreateMetaCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMetaCategoryResponse
+   */
   async createMetaCategoryWithOptions(request: CreateMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateMetaCategoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -41063,18 +42848,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMetaCategoryResponse>(await this.callApi(params, req, runtime), new CreateMetaCategoryResponse({}));
   }
 
+  /**
+   * @summary Creates a category.
+   *
+   * @param request CreateMetaCategoryRequest
+   * @return CreateMetaCategoryResponse
+   */
   async createMetaCategory(request: CreateMetaCategoryRequest): Promise<CreateMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMetaCategoryWithOptions(request, runtime);
   }
 
   /**
-    * A category must belong to a data album.
-    * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
-    *
-    * @param request CreateMetaCollectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateMetaCollectionResponse
+   * @summary Collections are classified into various types. The names of collections of the same type must be different.
+   *
+   * @description A category must belong to a data album.
+   * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
+   *
+   * @param request CreateMetaCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMetaCollectionResponse
    */
   async createMetaCollectionWithOptions(request: CreateMetaCollectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateMetaCollectionResponse> {
     Util.validateModel(request);
@@ -41113,17 +42906,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A category must belong to a data album.
-    * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
-    *
-    * @param request CreateMetaCollectionRequest
-    * @return CreateMetaCollectionResponse
+   * @summary Collections are classified into various types. The names of collections of the same type must be different.
+   *
+   * @description A category must belong to a data album.
+   * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
+   *
+   * @param request CreateMetaCollectionRequest
+   * @return CreateMetaCollectionResponse
    */
   async createMetaCollection(request: CreateMetaCollectionRequest): Promise<CreateMetaCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMetaCollectionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreatePermissionApplyOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePermissionApplyOrderResponse
+   */
   async createPermissionApplyOrderWithOptions(request: CreatePermissionApplyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePermissionApplyOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41176,11 +42976,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePermissionApplyOrderResponse>(await this.callApi(params, req, runtime), new CreatePermissionApplyOrderResponse({}));
   }
 
+  /**
+   * @param request CreatePermissionApplyOrderRequest
+   * @return CreatePermissionApplyOrderResponse
+   */
   async createPermissionApplyOrder(request: CreatePermissionApplyOrderRequest): Promise<CreatePermissionApplyOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPermissionApplyOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建项目
+   *
+   * @param tmpReq CreateProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProjectResponse
+   */
   async createProjectWithOptions(tmpReq: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateProjectShrinkRequest({ });
@@ -41243,11 +43054,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
+  /**
+   * @summary 创建项目
+   *
+   * @param request CreateProjectRequest
+   * @return CreateProjectResponse
+   */
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateProjectMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProjectMemberResponse
+   */
   async createProjectMemberWithOptions(request: CreateProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41284,11 +43106,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectMemberResponse>(await this.callApi(params, req, runtime), new CreateProjectMemberResponse({}));
   }
 
+  /**
+   * @param request CreateProjectMemberRequest
+   * @return CreateProjectMemberResponse
+   */
   async createProjectMember(request: CreateProjectMemberRequest): Promise<CreateProjectMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProjectMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateQualityEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQualityEntityResponse
+   */
   async createQualityEntityWithOptions(request: CreateQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityEntityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -41333,11 +43164,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQualityEntityResponse>(await this.callApi(params, req, runtime), new CreateQualityEntityResponse({}));
   }
 
+  /**
+   * @param request CreateQualityEntityRequest
+   * @return CreateQualityEntityResponse
+   */
   async createQualityEntity(request: CreateQualityEntityRequest): Promise<CreateQualityEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQualityEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateQualityFollowerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQualityFollowerResponse
+   */
   async createQualityFollowerWithOptions(request: CreateQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityFollowerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -41378,11 +43218,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQualityFollowerResponse>(await this.callApi(params, req, runtime), new CreateQualityFollowerResponse({}));
   }
 
+  /**
+   * @param request CreateQualityFollowerRequest
+   * @return CreateQualityFollowerResponse
+   */
   async createQualityFollower(request: CreateQualityFollowerRequest): Promise<CreateQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQualityFollowerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateQualityRelativeNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQualityRelativeNodeResponse
+   */
   async createQualityRelativeNodeWithOptions(request: CreateQualityRelativeNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRelativeNodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -41435,11 +43284,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQualityRelativeNodeResponse>(await this.callApi(params, req, runtime), new CreateQualityRelativeNodeResponse({}));
   }
 
+  /**
+   * @param request CreateQualityRelativeNodeRequest
+   * @return CreateQualityRelativeNodeResponse
+   */
   async createQualityRelativeNode(request: CreateQualityRelativeNodeRequest): Promise<CreateQualityRelativeNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQualityRelativeNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateQualityRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQualityRuleResponse
+   */
   async createQualityRuleWithOptions(request: CreateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -41540,11 +43398,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQualityRuleResponse>(await this.callApi(params, req, runtime), new CreateQualityRuleResponse({}));
   }
 
+  /**
+   * @param request CreateQualityRuleRequest
+   * @return CreateQualityRuleResponse
+   */
   async createQualityRule(request: CreateQualityRuleRequest): Promise<CreateQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQualityRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateRemindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRemindResponse
+   */
   async createRemindWithOptions(request: CreateRemindRequest, runtime: $Util.RuntimeOptions): Promise<CreateRemindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -41629,11 +43496,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRemindResponse>(await this.callApi(params, req, runtime), new CreateRemindResponse({}));
   }
 
+  /**
+   * @param request CreateRemindRequest
+   * @return CreateRemindResponse
+   */
   async createRemind(request: CreateRemindRequest): Promise<CreateRemindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRemindWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件
+   *
+   * @param request CreateResourceFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateResourceFileResponse
+   */
   async createResourceFileWithOptions(request: CreateResourceFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -41702,6 +43580,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceFileResponse>(await this.callApi(params, req, runtime), new CreateResourceFileResponse({}));
   }
 
+  /**
+   * @summary 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件
+   *
+   * @param request CreateResourceFileRequest
+   * @return CreateResourceFileResponse
+   */
   async createResourceFile(request: CreateResourceFileRequest): Promise<CreateResourceFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createResourceFileWithOptions(request, runtime);
@@ -41781,6 +43665,13 @@ export default class Client extends OpenApi {
     return createResourceFileResp;
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **CreateTable**.
+   *
+   * @param request CreateTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTableResponse
+   */
   async createTableWithOptions(request: CreateTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41883,11 +43774,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTableResponse>(await this.callApi(params, req, runtime), new CreateTableResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **CreateTable**.
+   *
+   * @param request CreateTableRequest
+   * @return CreateTableResponse
+   */
   async createTable(request: CreateTableRequest): Promise<CreateTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the DataWorks workspace.
+   *
+   * @param request CreateTableLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTableLevelResponse
+   */
   async createTableLevelWithOptions(request: CreateTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableLevelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41924,11 +43828,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTableLevelResponse>(await this.callApi(params, req, runtime), new CreateTableLevelResponse({}));
   }
 
+  /**
+   * @summary The ID of the DataWorks workspace.
+   *
+   * @param request CreateTableLevelRequest
+   * @return CreateTableLevelResponse
+   */
   async createTableLevel(request: CreateTableLevelRequest): Promise<CreateTableLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTableLevelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateTableThemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTableThemeResponse
+   */
   async createTableThemeWithOptions(request: CreateTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableThemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41965,11 +43880,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTableThemeResponse>(await this.callApi(params, req, runtime), new CreateTableThemeResponse({}));
   }
 
+  /**
+   * @param request CreateTableThemeRequest
+   * @return CreateTableThemeResponse
+   */
   async createTableTheme(request: CreateTableThemeRequest): Promise<CreateTableThemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTableThemeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateUdfFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUdfFileResponse
+   */
   async createUdfFileWithOptions(request: CreateUdfFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateUdfFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42042,11 +43966,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUdfFileResponse>(await this.callApi(params, req, runtime), new CreateUdfFileResponse({}));
   }
 
+  /**
+   * @param request CreateUdfFileRequest
+   * @return CreateUdfFileResponse
+   */
   async createUdfFile(request: CreateUdfFileRequest): Promise<CreateUdfFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUdfFileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBaselineResponse
+   */
   async deleteBaselineWithOptions(request: DeleteBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBaselineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42075,11 +44008,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBaselineResponse>(await this.callApi(params, req, runtime), new DeleteBaselineResponse({}));
   }
 
+  /**
+   * @param request DeleteBaselineRequest
+   * @return DeleteBaselineResponse
+   */
   async deleteBaseline(request: DeleteBaselineRequest): Promise<DeleteBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteBusinessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBusinessResponse
+   */
   async deleteBusinessWithOptions(request: DeleteBusinessRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBusinessResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42112,17 +44054,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBusinessResponse>(await this.callApi(params, req, runtime), new DeleteBusinessResponse({}));
   }
 
+  /**
+   * @param request DeleteBusinessRequest
+   * @return DeleteBusinessResponse
+   */
   async deleteBusiness(request: DeleteBusinessRequest): Promise<DeleteBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBusinessWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DeleteConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteConnectionResponse
+   * @deprecated OpenAPI DeleteConnection is deprecated
+   *
+   * @summary 删除数据源
+   *
+   * @param request DeleteConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConnectionResponse
    */
   // Deprecated
   async deleteConnectionWithOptions(request: DeleteConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnectionResponse> {
@@ -42150,10 +44098,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DeleteConnectionRequest
-    * @return DeleteConnectionResponse
+   * @deprecated OpenAPI DeleteConnection is deprecated
+   *
+   * @summary 删除数据源
+   *
+   * @param request DeleteConnectionRequest
+   * @return DeleteConnectionResponse
    */
   // Deprecated
   async deleteConnection(request: DeleteConnectionRequest): Promise<DeleteConnectionResponse> {
@@ -42161,6 +44111,13 @@ export default class Client extends OpenApi {
     return await this.deleteConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除数据集成新版告警规则
+   *
+   * @param request DeleteDIAlarmRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDIAlarmRuleResponse
+   */
   async deleteDIAlarmRuleWithOptions(request: DeleteDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDIAlarmRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42185,11 +44142,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new DeleteDIAlarmRuleResponse({}));
   }
 
+  /**
+   * @summary 删除数据集成新版告警规则
+   *
+   * @param request DeleteDIAlarmRuleRequest
+   * @return DeleteDIAlarmRuleResponse
+   */
   async deleteDIAlarmRule(request: DeleteDIAlarmRuleRequest): Promise<DeleteDIAlarmRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDIAlarmRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除数据集成新版解决方案任务
+   *
+   * @param request DeleteDIJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDIJobResponse
+   */
   async deleteDIJobWithOptions(request: DeleteDIJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDIJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42214,11 +44184,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDIJobResponse>(await this.callApi(params, req, runtime), new DeleteDIJobResponse({}));
   }
 
+  /**
+   * @summary 删除数据集成新版解决方案任务
+   *
+   * @param request DeleteDIJobRequest
+   * @return DeleteDIJobResponse
+   */
   async deleteDIJob(request: DeleteDIJobRequest): Promise<DeleteDIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDIJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request DeleteDISyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDISyncTaskResponse
+   */
   async deleteDISyncTaskWithOptions(request: DeleteDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42251,11 +44234,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDISyncTaskResponse>(await this.callApi(params, req, runtime), new DeleteDISyncTaskResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request DeleteDISyncTaskRequest
+   * @return DeleteDISyncTaskResponse
+   */
   async deleteDISyncTask(request: DeleteDISyncTaskRequest): Promise<DeleteDISyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDISyncTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an API in DataService Studio.
+   *
+   * @param request DeleteDataServiceApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataServiceApiResponse
+   */
   async deleteDataServiceApiWithOptions(request: DeleteDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataServiceApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42288,11 +44284,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataServiceApiResponse>(await this.callApi(params, req, runtime), new DeleteDataServiceApiResponse({}));
   }
 
+  /**
+   * @summary Deletes an API in DataService Studio.
+   *
+   * @param request DeleteDataServiceApiRequest
+   * @return DeleteDataServiceApiResponse
+   */
   async deleteDataServiceApi(request: DeleteDataServiceApiRequest): Promise<DeleteDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataServiceApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes the access permissions on an API.
+   *
+   * @param request DeleteDataServiceApiAuthorityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataServiceApiAuthorityResponse
+   */
   async deleteDataServiceApiAuthorityWithOptions(request: DeleteDataServiceApiAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataServiceApiAuthorityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42329,11 +44338,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataServiceApiAuthorityResponse>(await this.callApi(params, req, runtime), new DeleteDataServiceApiAuthorityResponse({}));
   }
 
+  /**
+   * @summary Revokes the access permissions on an API.
+   *
+   * @param request DeleteDataServiceApiAuthorityRequest
+   * @return DeleteDataServiceApiAuthorityResponse
+   */
   async deleteDataServiceApiAuthority(request: DeleteDataServiceApiAuthorityRequest): Promise<DeleteDataServiceApiAuthorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataServiceApiAuthorityWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataSourceResponse
+   */
   async deleteDataSourceWithOptions(request: DeleteDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42358,11 +44378,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceResponse({}));
   }
 
+  /**
+   * @param request DeleteDataSourceRequest
+   * @return DeleteDataSourceResponse
+   */
   async deleteDataSource(request: DeleteDataSourceRequest): Promise<DeleteDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataSourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request DeleteFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFileResponse
+   */
   async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42395,11 +44426,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFileResponse>(await this.callApi(params, req, runtime), new DeleteFileResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request DeleteFileRequest
+   * @return DeleteFileResponse
+   */
   async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteFolderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFolderResponse
+   */
   async deleteFolderWithOptions(request: DeleteFolderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42432,11 +44474,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFolderResponse>(await this.callApi(params, req, runtime), new DeleteFolderResponse({}));
   }
 
+  /**
+   * @param request DeleteFolderRequest
+   * @return DeleteFolderResponse
+   */
   async deleteFolder(request: DeleteFolderRequest): Promise<DeleteFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFolderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes a metatable from a specified category.
+   *
+   * @param request DeleteFromMetaCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFromMetaCategoryResponse
+   */
   async deleteFromMetaCategoryWithOptions(request: DeleteFromMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFromMetaCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42465,11 +44518,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFromMetaCategoryResponse>(await this.callApi(params, req, runtime), new DeleteFromMetaCategoryResponse({}));
   }
 
+  /**
+   * @summary Removes a metatable from a specified category.
+   *
+   * @param request DeleteFromMetaCategoryRequest
+   * @return DeleteFromMetaCategoryResponse
+   */
   async deleteFromMetaCategory(request: DeleteFromMetaCategoryRequest): Promise<DeleteFromMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFromMetaCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除血缘, 支持删除用户自定义血缘关系
+   *
+   * @param request DeleteLineageRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLineageRelationResponse
+   */
   async deleteLineageRelationWithOptions(request: DeleteLineageRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLineageRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42502,11 +44568,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLineageRelationResponse>(await this.callApi(params, req, runtime), new DeleteLineageRelationResponse({}));
   }
 
+  /**
+   * @summary 删除血缘, 支持删除用户自定义血缘关系
+   *
+   * @param request DeleteLineageRelationRequest
+   * @return DeleteLineageRelationResponse
+   */
   async deleteLineageRelation(request: DeleteLineageRelationRequest): Promise<DeleteLineageRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLineageRelationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a category.
+   *
+   * @param request DeleteMetaCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMetaCategoryResponse
+   */
   async deleteMetaCategoryWithOptions(request: DeleteMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMetaCategoryResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -42527,11 +44606,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMetaCategoryResponse>(await this.callApi(params, req, runtime), new DeleteMetaCategoryResponse({}));
   }
 
+  /**
+   * @summary Deletes a category.
+   *
+   * @param request DeleteMetaCategoryRequest
+   * @return DeleteMetaCategoryResponse
+   */
   async deleteMetaCategory(request: DeleteMetaCategoryRequest): Promise<DeleteMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMetaCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **DeleteMetaCollection**.
+   *
+   * @param request DeleteMetaCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMetaCollectionResponse
+   */
   async deleteMetaCollectionWithOptions(request: DeleteMetaCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMetaCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42556,11 +44648,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMetaCollectionResponse>(await this.callApi(params, req, runtime), new DeleteMetaCollectionResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **DeleteMetaCollection**.
+   *
+   * @param request DeleteMetaCollectionRequest
+   * @return DeleteMetaCollectionResponse
+   */
   async deleteMetaCollection(request: DeleteMetaCollectionRequest): Promise<DeleteMetaCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMetaCollectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **DeleteMetaCollectionEntity**.
+   *
+   * @param request DeleteMetaCollectionEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMetaCollectionEntityResponse
+   */
   async deleteMetaCollectionEntityWithOptions(request: DeleteMetaCollectionEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMetaCollectionEntityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42589,11 +44694,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMetaCollectionEntityResponse>(await this.callApi(params, req, runtime), new DeleteMetaCollectionEntityResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **DeleteMetaCollectionEntity**.
+   *
+   * @param request DeleteMetaCollectionEntityRequest
+   * @return DeleteMetaCollectionEntityResponse
+   */
   async deleteMetaCollectionEntity(request: DeleteMetaCollectionEntityRequest): Promise<DeleteMetaCollectionEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMetaCollectionEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteProjectMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProjectMemberResponse
+   */
   async deleteProjectMemberWithOptions(request: DeleteProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42622,11 +44738,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectMemberResponse>(await this.callApi(params, req, runtime), new DeleteProjectMemberResponse({}));
   }
 
+  /**
+   * @param request DeleteProjectMemberRequest
+   * @return DeleteProjectMemberResponse
+   */
   async deleteProjectMember(request: DeleteProjectMemberRequest): Promise<DeleteProjectMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProjectMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteQualityEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQualityEntityResponse
+   */
   async deleteQualityEntityWithOptions(request: DeleteQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityEntityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42663,17 +44788,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQualityEntityResponse>(await this.callApi(params, req, runtime), new DeleteQualityEntityResponse({}));
   }
 
+  /**
+   * @param request DeleteQualityEntityRequest
+   * @return DeleteQualityEntityResponse
+   */
   async deleteQualityEntity(request: DeleteQualityEntityRequest): Promise<DeleteQualityEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQualityEntityWithOptions(request, runtime);
   }
 
   /**
-    * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](~~73690~~).
-    *
-    * @param request DeleteQualityFollowerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteQualityFollowerResponse
+   * @description In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](https://help.aliyun.com/document_detail/73690.html).
+   *
+   * @param request DeleteQualityFollowerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQualityFollowerResponse
    */
   async deleteQualityFollowerWithOptions(request: DeleteQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityFollowerResponse> {
     Util.validateModel(request);
@@ -42708,16 +44837,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](~~73690~~).
-    *
-    * @param request DeleteQualityFollowerRequest
-    * @return DeleteQualityFollowerResponse
+   * @description In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](https://help.aliyun.com/document_detail/73690.html).
+   *
+   * @param request DeleteQualityFollowerRequest
+   * @return DeleteQualityFollowerResponse
    */
   async deleteQualityFollower(request: DeleteQualityFollowerRequest): Promise<DeleteQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQualityFollowerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteQualityRelativeNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQualityRelativeNodeResponse
+   */
   async deleteQualityRelativeNodeWithOptions(request: DeleteQualityRelativeNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRelativeNodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42770,11 +44904,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQualityRelativeNodeResponse>(await this.callApi(params, req, runtime), new DeleteQualityRelativeNodeResponse({}));
   }
 
+  /**
+   * @param request DeleteQualityRelativeNodeRequest
+   * @return DeleteQualityRelativeNodeResponse
+   */
   async deleteQualityRelativeNode(request: DeleteQualityRelativeNodeRequest): Promise<DeleteQualityRelativeNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQualityRelativeNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteQualityRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQualityRuleResponse
+   */
   async deleteQualityRuleWithOptions(request: DeleteQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42807,11 +44950,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQualityRuleResponse>(await this.callApi(params, req, runtime), new DeleteQualityRuleResponse({}));
   }
 
+  /**
+   * @param request DeleteQualityRuleRequest
+   * @return DeleteQualityRuleResponse
+   */
   async deleteQualityRule(request: DeleteQualityRuleRequest): Promise<DeleteQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQualityRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除识别规则
+   *
+   * @param request DeleteRecognizeRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRecognizeRuleResponse
+   */
   async deleteRecognizeRuleWithOptions(request: DeleteRecognizeRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRecognizeRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42840,11 +44994,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRecognizeRuleResponse>(await this.callApi(params, req, runtime), new DeleteRecognizeRuleResponse({}));
   }
 
+  /**
+   * @summary 删除识别规则
+   *
+   * @param request DeleteRecognizeRuleRequest
+   * @return DeleteRecognizeRuleResponse
+   */
   async deleteRecognizeRule(request: DeleteRecognizeRuleRequest): Promise<DeleteRecognizeRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRecognizeRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom alert rule.
+   *
+   * @param request DeleteRemindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRemindResponse
+   */
   async deleteRemindWithOptions(request: DeleteRemindRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRemindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -42869,11 +45036,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRemindResponse>(await this.callApi(params, req, runtime), new DeleteRemindResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom alert rule.
+   *
+   * @param request DeleteRemindRequest
+   * @return DeleteRemindResponse
+   */
   async deleteRemind(request: DeleteRemindRequest): Promise<DeleteRemindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRemindWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTableResponse
+   */
   async deleteTableWithOptions(request: DeleteTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42914,11 +45092,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTableResponse>(await this.callApi(params, req, runtime), new DeleteTableResponse({}));
   }
 
+  /**
+   * @param request DeleteTableRequest
+   * @return DeleteTableResponse
+   */
   async deleteTable(request: DeleteTableRequest): Promise<DeleteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTableWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteTableLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTableLevelResponse
+   */
   async deleteTableLevelWithOptions(request: DeleteTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableLevelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42947,11 +45134,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTableLevelResponse>(await this.callApi(params, req, runtime), new DeleteTableLevelResponse({}));
   }
 
+  /**
+   * @param request DeleteTableLevelRequest
+   * @return DeleteTableLevelResponse
+   */
   async deleteTableLevel(request: DeleteTableLevelRequest): Promise<DeleteTableLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTableLevelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteTableThemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTableThemeResponse
+   */
   async deleteTableThemeWithOptions(request: DeleteTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableThemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -42980,11 +45176,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTableThemeResponse>(await this.callApi(params, req, runtime), new DeleteTableThemeResponse({}));
   }
 
+  /**
+   * @param request DeleteTableThemeRequest
+   * @return DeleteTableThemeResponse
+   */
   async deleteTableTheme(request: DeleteTableThemeRequest): Promise<DeleteTableThemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTableThemeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **DeployDISyncTask**.
+   *
+   * @param request DeployDISyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployDISyncTaskResponse
+   */
   async deployDISyncTaskWithOptions(request: DeployDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeployDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43017,11 +45224,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployDISyncTaskResponse>(await this.callApi(params, req, runtime), new DeployDISyncTaskResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **DeployDISyncTask**.
+   *
+   * @param request DeployDISyncTaskRequest
+   * @return DeployDISyncTaskResponse
+   */
   async deployDISyncTask(request: DeployDISyncTaskRequest): Promise<DeployDISyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deployDISyncTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeployFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployFileResponse
+   */
   async deployFileWithOptions(request: DeployFileRequest, runtime: $Util.RuntimeOptions): Promise<DeployFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43062,11 +45280,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployFileResponse>(await this.callApi(params, req, runtime), new DeployFileResponse({}));
   }
 
+  /**
+   * @param request DeployFileRequest
+   * @return DeployFileResponse
+   */
   async deployFile(request: DeployFileRequest): Promise<DeployFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deployFileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DesensitizeDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DesensitizeDataResponse
+   */
   async desensitizeDataWithOptions(request: DesensitizeDataRequest, runtime: $Util.RuntimeOptions): Promise<DesensitizeDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -43087,11 +45314,244 @@ export default class Client extends OpenApi {
     return $tea.cast<DesensitizeDataResponse>(await this.callApi(params, req, runtime), new DesensitizeDataResponse({}));
   }
 
+  /**
+   * @param request DesensitizeDataRequest
+   * @return DesensitizeDataResponse
+   */
   async desensitizeData(request: DesensitizeDataRequest): Promise<DesensitizeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.desensitizeDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除脱敏规则
+   *
+   * @param tmpReq DsgDesensPlanDeleteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgDesensPlanDeleteResponse
+   */
+  async dsgDesensPlanDeleteWithOptions(tmpReq: DsgDesensPlanDeleteRequest, runtime: $Util.RuntimeOptions): Promise<DsgDesensPlanDeleteResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgDesensPlanDeleteShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgDesensPlanDelete",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgDesensPlanDeleteResponse>(await this.callApi(params, req, runtime), new DsgDesensPlanDeleteResponse({}));
+  }
+
+  /**
+   * @summary 删除脱敏规则
+   *
+   * @param request DsgDesensPlanDeleteRequest
+   * @return DsgDesensPlanDeleteResponse
+   */
+  async dsgDesensPlanDelete(request: DsgDesensPlanDeleteRequest): Promise<DsgDesensPlanDeleteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgDesensPlanDeleteWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询脱敏规则列表
+   *
+   * @param request DsgDesensPlanQueryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgDesensPlanQueryListResponse
+   */
+  async dsgDesensPlanQueryListWithOptions(request: DsgDesensPlanQueryListRequest, runtime: $Util.RuntimeOptions): Promise<DsgDesensPlanQueryListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgDesensPlanQueryList",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgDesensPlanQueryListResponse>(await this.callApi(params, req, runtime), new DsgDesensPlanQueryListResponse({}));
+  }
+
+  /**
+   * @summary 查询脱敏规则列表
+   *
+   * @param request DsgDesensPlanQueryListRequest
+   * @return DsgDesensPlanQueryListResponse
+   */
+  async dsgDesensPlanQueryList(request: DsgDesensPlanQueryListRequest): Promise<DsgDesensPlanQueryListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgDesensPlanQueryListWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改脱敏规则生效状态
+   *
+   * @param tmpReq DsgDesensPlanUpdateStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgDesensPlanUpdateStatusResponse
+   */
+  async dsgDesensPlanUpdateStatusWithOptions(tmpReq: DsgDesensPlanUpdateStatusRequest, runtime: $Util.RuntimeOptions): Promise<DsgDesensPlanUpdateStatusResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgDesensPlanUpdateStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgDesensPlanUpdateStatus",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgDesensPlanUpdateStatusResponse>(await this.callApi(params, req, runtime), new DsgDesensPlanUpdateStatusResponse({}));
+  }
+
+  /**
+   * @summary 修改脱敏规则生效状态
+   *
+   * @param request DsgDesensPlanUpdateStatusRequest
+   * @return DsgDesensPlanUpdateStatusResponse
+   */
+  async dsgDesensPlanUpdateStatus(request: DsgDesensPlanUpdateStatusRequest): Promise<DsgDesensPlanUpdateStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgDesensPlanUpdateStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询引擎实例列表
+   *
+   * @param request DsgPlatformQueryProjectsAndSchemaFromMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgPlatformQueryProjectsAndSchemaFromMetaResponse
+   */
+  async dsgPlatformQueryProjectsAndSchemaFromMetaWithOptions(request: DsgPlatformQueryProjectsAndSchemaFromMetaRequest, runtime: $Util.RuntimeOptions): Promise<DsgPlatformQueryProjectsAndSchemaFromMetaResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgPlatformQueryProjectsAndSchemaFromMeta",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgPlatformQueryProjectsAndSchemaFromMetaResponse>(await this.callApi(params, req, runtime), new DsgPlatformQueryProjectsAndSchemaFromMetaResponse({}));
+  }
+
+  /**
+   * @summary 查询引擎实例列表
+   *
+   * @param request DsgPlatformQueryProjectsAndSchemaFromMetaRequest
+   * @return DsgPlatformQueryProjectsAndSchemaFromMetaResponse
+   */
+  async dsgPlatformQueryProjectsAndSchemaFromMeta(request: DsgPlatformQueryProjectsAndSchemaFromMetaRequest): Promise<DsgPlatformQueryProjectsAndSchemaFromMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgPlatformQueryProjectsAndSchemaFromMetaWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询能够选择的敏感类型模版列表
+   *
+   * @param request DsgQueryDefaultTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgQueryDefaultTemplatesResponse
+   */
+  async dsgQueryDefaultTemplatesWithOptions(request: DsgQueryDefaultTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DsgQueryDefaultTemplatesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgQueryDefaultTemplates",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgQueryDefaultTemplatesResponse>(await this.callApi(params, req, runtime), new DsgQueryDefaultTemplatesResponse({}));
+  }
+
+  /**
+   * @summary 查询能够选择的敏感类型模版列表
+   *
+   * @param request DsgQueryDefaultTemplatesRequest
+   * @return DsgQueryDefaultTemplatesResponse
+   */
+  async dsgQueryDefaultTemplates(request: DsgQueryDefaultTemplatesRequest): Promise<DsgQueryDefaultTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgQueryDefaultTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 识别结果查询
+   *
+   * @param request DsgQuerySensResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgQuerySensResultResponse
+   */
   async dsgQuerySensResultWithOptions(request: DsgQuerySensResultRequest, runtime: $Util.RuntimeOptions): Promise<DsgQuerySensResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43172,11 +45632,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DsgQuerySensResultResponse>(await this.callApi(params, req, runtime), new DsgQuerySensResultResponse({}));
   }
 
+  /**
+   * @summary 识别结果查询
+   *
+   * @param request DsgQuerySensResultRequest
+   * @return DsgQuerySensResultResponse
+   */
   async dsgQuerySensResult(request: DsgQuerySensResultRequest): Promise<DsgQuerySensResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dsgQuerySensResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq DsgRunSensIdentifyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgRunSensIdentifyResponse
+   */
   async dsgRunSensIdentifyWithOptions(tmpReq: DsgRunSensIdentifyRequest, runtime: $Util.RuntimeOptions): Promise<DsgRunSensIdentifyResponse> {
     Util.validateModel(tmpReq);
     let request = new DsgRunSensIdentifyShrinkRequest({ });
@@ -43211,11 +45682,70 @@ export default class Client extends OpenApi {
     return $tea.cast<DsgRunSensIdentifyResponse>(await this.callApi(params, req, runtime), new DsgRunSensIdentifyResponse({}));
   }
 
+  /**
+   * @param request DsgRunSensIdentifyRequest
+   * @return DsgRunSensIdentifyResponse
+   */
   async dsgRunSensIdentify(request: DsgRunSensIdentifyRequest): Promise<DsgRunSensIdentifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dsgRunSensIdentifyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新增或编辑二级场景
+   *
+   * @param tmpReq DsgSceneAddOrUpdateSceneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgSceneAddOrUpdateSceneResponse
+   */
+  async dsgSceneAddOrUpdateSceneWithOptions(tmpReq: DsgSceneAddOrUpdateSceneRequest, runtime: $Util.RuntimeOptions): Promise<DsgSceneAddOrUpdateSceneResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgSceneAddOrUpdateSceneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.scenes)) {
+      request.scenesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scenes, "scenes", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.scenesShrink)) {
+      query["scenes"] = request.scenesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgSceneAddOrUpdateScene",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgSceneAddOrUpdateSceneResponse>(await this.callApi(params, req, runtime), new DsgSceneAddOrUpdateSceneResponse({}));
+  }
+
+  /**
+   * @summary 新增或编辑二级场景
+   *
+   * @param request DsgSceneAddOrUpdateSceneRequest
+   * @return DsgSceneAddOrUpdateSceneResponse
+   */
+  async dsgSceneAddOrUpdateScene(request: DsgSceneAddOrUpdateSceneRequest): Promise<DsgSceneAddOrUpdateSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgSceneAddOrUpdateSceneWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 识别任务停止
+   *
+   * @param request DsgStopSensIdentifyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgStopSensIdentifyResponse
+   */
   async dsgStopSensIdentifyWithOptions(request: DsgStopSensIdentifyRequest, runtime: $Util.RuntimeOptions): Promise<DsgStopSensIdentifyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43244,11 +45774,263 @@ export default class Client extends OpenApi {
     return $tea.cast<DsgStopSensIdentifyResponse>(await this.callApi(params, req, runtime), new DsgStopSensIdentifyResponse({}));
   }
 
+  /**
+   * @summary 识别任务停止
+   *
+   * @param request DsgStopSensIdentifyRequest
+   * @return DsgStopSensIdentifyResponse
+   */
   async dsgStopSensIdentify(request: DsgStopSensIdentifyRequest): Promise<DsgStopSensIdentifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dsgStopSensIdentifyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新增或编辑用户组
+   *
+   * @param tmpReq DsgUserGroupAddOrUpdateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgUserGroupAddOrUpdateResponse
+   */
+  async dsgUserGroupAddOrUpdateWithOptions(tmpReq: DsgUserGroupAddOrUpdateRequest, runtime: $Util.RuntimeOptions): Promise<DsgUserGroupAddOrUpdateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgUserGroupAddOrUpdateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.userGroups)) {
+      request.userGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userGroups, "UserGroups", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.userGroupsShrink)) {
+      query["UserGroups"] = request.userGroupsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgUserGroupAddOrUpdate",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgUserGroupAddOrUpdateResponse>(await this.callApi(params, req, runtime), new DsgUserGroupAddOrUpdateResponse({}));
+  }
+
+  /**
+   * @summary 新增或编辑用户组
+   *
+   * @param request DsgUserGroupAddOrUpdateRequest
+   * @return DsgUserGroupAddOrUpdateResponse
+   */
+  async dsgUserGroupAddOrUpdate(request: DsgUserGroupAddOrUpdateRequest): Promise<DsgUserGroupAddOrUpdateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgUserGroupAddOrUpdateWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 删除用户组
+   *
+   * @param tmpReq DsgUserGroupDeleteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgUserGroupDeleteResponse
+   */
+  async dsgUserGroupDeleteWithOptions(tmpReq: DsgUserGroupDeleteRequest, runtime: $Util.RuntimeOptions): Promise<DsgUserGroupDeleteResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgUserGroupDeleteShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgUserGroupDelete",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgUserGroupDeleteResponse>(await this.callApi(params, req, runtime), new DsgUserGroupDeleteResponse({}));
+  }
+
+  /**
+   * @summary 删除用户组
+   *
+   * @param request DsgUserGroupDeleteRequest
+   * @return DsgUserGroupDeleteResponse
+   */
+  async dsgUserGroupDelete(request: DsgUserGroupDeleteRequest): Promise<DsgUserGroupDeleteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgUserGroupDeleteWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DsgUserGroupGetOdpsRoleGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgUserGroupGetOdpsRoleGroupsResponse
+   */
+  async dsgUserGroupGetOdpsRoleGroupsWithOptions(request: DsgUserGroupGetOdpsRoleGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DsgUserGroupGetOdpsRoleGroupsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgUserGroupGetOdpsRoleGroups",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgUserGroupGetOdpsRoleGroupsResponse>(await this.callApi(params, req, runtime), new DsgUserGroupGetOdpsRoleGroupsResponse({}));
+  }
+
+  /**
+   * @param request DsgUserGroupGetOdpsRoleGroupsRequest
+   * @return DsgUserGroupGetOdpsRoleGroupsResponse
+   */
+  async dsgUserGroupGetOdpsRoleGroups(request: DsgUserGroupGetOdpsRoleGroupsRequest): Promise<DsgUserGroupGetOdpsRoleGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgUserGroupGetOdpsRoleGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询用户组列表
+   *
+   * @param request DsgUserGroupQueryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgUserGroupQueryListResponse
+   */
+  async dsgUserGroupQueryListWithOptions(request: DsgUserGroupQueryListRequest, runtime: $Util.RuntimeOptions): Promise<DsgUserGroupQueryListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgUserGroupQueryList",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgUserGroupQueryListResponse>(await this.callApi(params, req, runtime), new DsgUserGroupQueryListResponse({}));
+  }
+
+  /**
+   * @summary 查询用户组列表
+   *
+   * @param request DsgUserGroupQueryListRequest
+   * @return DsgUserGroupQueryListResponse
+   */
+  async dsgUserGroupQueryList(request: DsgUserGroupQueryListRequest): Promise<DsgUserGroupQueryListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgUserGroupQueryListWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询当前用户列表
+   *
+   * @param request DsgUserGroupQueryUserListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgUserGroupQueryUserListResponse
+   */
+  async dsgUserGroupQueryUserListWithOptions(runtime: $Util.RuntimeOptions): Promise<DsgUserGroupQueryUserListResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DsgUserGroupQueryUserList",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgUserGroupQueryUserListResponse>(await this.callApi(params, req, runtime), new DsgUserGroupQueryUserListResponse({}));
+  }
+
+  /**
+   * @summary 查询当前用户列表
+   *
+   * @return DsgUserGroupQueryUserListResponse
+   */
+  async dsgUserGroupQueryUserList(): Promise<DsgUserGroupQueryUserListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgUserGroupQueryUserListWithOptions(runtime);
+  }
+
+  /**
+   * @summary 查询脱敏白名单
+   *
+   * @param request DsgWhiteListQueryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgWhiteListQueryListResponse
+   */
+  async dsgWhiteListQueryListWithOptions(request: DsgWhiteListQueryListRequest, runtime: $Util.RuntimeOptions): Promise<DsgWhiteListQueryListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgWhiteListQueryList",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgWhiteListQueryListResponse>(await this.callApi(params, req, runtime), new DsgWhiteListQueryListResponse({}));
+  }
+
+  /**
+   * @summary 查询脱敏白名单
+   *
+   * @param request DsgWhiteListQueryListRequest
+   * @return DsgWhiteListQueryListResponse
+   */
+  async dsgWhiteListQueryList(request: DsgWhiteListQueryListRequest): Promise<DsgWhiteListQueryListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgWhiteListQueryListWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改识别规则
+   *
+   * @param request EditRecognizeRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EditRecognizeRuleResponse
+   */
   async editRecognizeRuleWithOptions(request: EditRecognizeRuleRequest, runtime: $Util.RuntimeOptions): Promise<EditRecognizeRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43345,11 +46127,22 @@ export default class Client extends OpenApi {
     return $tea.cast<EditRecognizeRuleResponse>(await this.callApi(params, req, runtime), new EditRecognizeRuleResponse({}));
   }
 
+  /**
+   * @summary 修改识别规则
+   *
+   * @param request EditRecognizeRuleRequest
+   * @return EditRecognizeRuleResponse
+   */
   async editRecognizeRule(request: EditRecognizeRuleRequest): Promise<EditRecognizeRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editRecognizeRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EstablishRelationTableToBusinessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EstablishRelationTableToBusinessResponse
+   */
   async establishRelationTableToBusinessWithOptions(request: EstablishRelationTableToBusinessRequest, runtime: $Util.RuntimeOptions): Promise<EstablishRelationTableToBusinessResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43390,11 +46183,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EstablishRelationTableToBusinessResponse>(await this.callApi(params, req, runtime), new EstablishRelationTableToBusinessResponse({}));
   }
 
+  /**
+   * @param request EstablishRelationTableToBusinessRequest
+   * @return EstablishRelationTableToBusinessResponse
+   */
   async establishRelationTableToBusiness(request: EstablishRelationTableToBusinessRequest): Promise<EstablishRelationTableToBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.establishRelationTableToBusinessWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ExportDataSourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportDataSourcesResponse
+   */
   async exportDataSourcesWithOptions(request: ExportDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ExportDataSourcesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -43415,17 +46217,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportDataSourcesResponse>(await this.callApi(params, req, runtime), new ExportDataSourcesResponse({}));
   }
 
+  /**
+   * @param request ExportDataSourcesRequest
+   * @return ExportDataSourcesResponse
+   */
   async exportDataSources(request: ExportDataSourcesRequest): Promise<ExportDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportDataSourcesWithOptions(request, runtime);
   }
 
   /**
-    * The operation that you want to perform.
-    *
-    * @param request GenerateDISyncTaskConfigForCreatingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GenerateDISyncTaskConfigForCreatingResponse
+   * @summary DataWorks allows you to use only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+   * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+   *
+   * @description The operation that you want to perform.
+   *
+   * @param request GenerateDISyncTaskConfigForCreatingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateDISyncTaskConfigForCreatingResponse
    */
   async generateDISyncTaskConfigForCreatingWithOptions(request: GenerateDISyncTaskConfigForCreatingRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDISyncTaskConfigForCreatingResponse> {
     Util.validateModel(request);
@@ -43464,10 +46273,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform.
-    *
-    * @param request GenerateDISyncTaskConfigForCreatingRequest
-    * @return GenerateDISyncTaskConfigForCreatingResponse
+   * @summary DataWorks allows you to use only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+   * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+   *
+   * @description The operation that you want to perform.
+   *
+   * @param request GenerateDISyncTaskConfigForCreatingRequest
+   * @return GenerateDISyncTaskConfigForCreatingResponse
    */
   async generateDISyncTaskConfigForCreating(request: GenerateDISyncTaskConfigForCreatingRequest): Promise<GenerateDISyncTaskConfigForCreatingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43475,11 +46287,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform.
-    *
-    * @param request GenerateDISyncTaskConfigForUpdatingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GenerateDISyncTaskConfigForUpdatingResponse
+   * @summary DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+   *
+   * @description The operation that you want to perform.
+   *
+   * @param request GenerateDISyncTaskConfigForUpdatingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateDISyncTaskConfigForUpdatingResponse
    */
   async generateDISyncTaskConfigForUpdatingWithOptions(request: GenerateDISyncTaskConfigForUpdatingRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDISyncTaskConfigForUpdatingResponse> {
     Util.validateModel(request);
@@ -43522,16 +46336,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform.
-    *
-    * @param request GenerateDISyncTaskConfigForUpdatingRequest
-    * @return GenerateDISyncTaskConfigForUpdatingResponse
+   * @summary DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+   *
+   * @description The operation that you want to perform.
+   *
+   * @param request GenerateDISyncTaskConfigForUpdatingRequest
+   * @return GenerateDISyncTaskConfigForUpdatingResponse
    */
   async generateDISyncTaskConfigForUpdating(request: GenerateDISyncTaskConfigForUpdatingRequest): Promise<GenerateDISyncTaskConfigForUpdatingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateDISyncTaskConfigForUpdatingWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取告警信息
+   *
+   * @param request GetAlertMessageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAlertMessageResponse
+   */
   async getAlertMessageWithOptions(request: GetAlertMessageRequest, runtime: $Util.RuntimeOptions): Promise<GetAlertMessageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43556,11 +46379,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAlertMessageResponse>(await this.callApi(params, req, runtime), new GetAlertMessageResponse({}));
   }
 
+  /**
+   * @summary 获取告警信息
+   *
+   * @param request GetAlertMessageRequest
+   * @return GetAlertMessageResponse
+   */
   async getAlertMessage(request: GetAlertMessageRequest): Promise<GetAlertMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAlertMessageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据基线id查询基线
+   *
+   * @param request GetBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBaselineResponse
+   */
   async getBaselineWithOptions(request: GetBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43589,11 +46425,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBaselineResponse>(await this.callApi(params, req, runtime), new GetBaselineResponse({}));
   }
 
+  /**
+   * @summary 根据基线id查询基线
+   *
+   * @param request GetBaselineRequest
+   * @return GetBaselineResponse
+   */
   async getBaseline(request: GetBaselineRequest): Promise<GetBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetBaselineConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBaselineConfigResponse
+   */
   async getBaselineConfigWithOptions(request: GetBaselineConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43618,11 +46465,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBaselineConfigResponse>(await this.callApi(params, req, runtime), new GetBaselineConfigResponse({}));
   }
 
+  /**
+   * @param request GetBaselineConfigRequest
+   * @return GetBaselineConfigResponse
+   */
   async getBaselineConfig(request: GetBaselineConfigRequest): Promise<GetBaselineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBaselineConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The information about the events that are associated with the instance.
+   *
+   * @param request GetBaselineKeyPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBaselineKeyPathResponse
+   */
   async getBaselineKeyPathWithOptions(request: GetBaselineKeyPathRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineKeyPathResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43655,11 +46513,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBaselineKeyPathResponse>(await this.callApi(params, req, runtime), new GetBaselineKeyPathResponse({}));
   }
 
+  /**
+   * @summary The information about the events that are associated with the instance.
+   *
+   * @param request GetBaselineKeyPathRequest
+   * @return GetBaselineKeyPathResponse
+   */
   async getBaselineKeyPath(request: GetBaselineKeyPathRequest): Promise<GetBaselineKeyPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBaselineKeyPathWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a baseline instance.
+   *
+   * @param request GetBaselineStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBaselineStatusResponse
+   */
   async getBaselineStatusWithOptions(request: GetBaselineStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43692,11 +46563,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBaselineStatusResponse>(await this.callApi(params, req, runtime), new GetBaselineStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a baseline instance.
+   *
+   * @param request GetBaselineStatusRequest
+   * @return GetBaselineStatusResponse
+   */
   async getBaselineStatus(request: GetBaselineStatusRequest): Promise<GetBaselineStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBaselineStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetBusinessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBusinessResponse
+   */
   async getBusinessWithOptions(request: GetBusinessRequest, runtime: $Util.RuntimeOptions): Promise<GetBusinessResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43729,11 +46611,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBusinessResponse>(await this.callApi(params, req, runtime), new GetBusinessResponse({}));
   }
 
+  /**
+   * @param request GetBusinessRequest
+   * @return GetBusinessResponse
+   */
   async getBusiness(request: GetBusinessRequest): Promise<GetBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBusinessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a table creation, update, or deletion task.
+   *
+   * @param request GetDDLJobStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDDLJobStatusResponse
+   */
   async getDDLJobStatusWithOptions(request: GetDDLJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDDLJobStatusResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -43754,11 +46647,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDDLJobStatusResponse>(await this.callApi(params, req, runtime), new GetDDLJobStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a table creation, update, or deletion task.
+   *
+   * @param request GetDDLJobStatusRequest
+   * @return GetDDLJobStatusResponse
+   */
   async getDDLJobStatus(request: GetDDLJobStatusRequest): Promise<GetDDLJobStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDDLJobStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询数据集成新版告警规则
+   *
+   * @param request GetDIAlarmRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDIAlarmRuleResponse
+   */
   async getDIAlarmRuleWithOptions(request: GetDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetDIAlarmRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43783,11 +46689,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new GetDIAlarmRuleResponse({}));
   }
 
+  /**
+   * @summary 查询数据集成新版告警规则
+   *
+   * @param request GetDIAlarmRuleRequest
+   * @return GetDIAlarmRuleResponse
+   */
   async getDIAlarmRule(request: GetDIAlarmRuleRequest): Promise<GetDIAlarmRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDIAlarmRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询数据集成新版解决方案任务
+   *
+   * @param request GetDIJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDIJobResponse
+   */
   async getDIJobWithOptions(request: GetDIJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDIJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43816,11 +46735,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDIJobResponse>(await this.callApi(params, req, runtime), new GetDIJobResponse({}));
   }
 
+  /**
+   * @summary 查询数据集成新版解决方案任务
+   *
+   * @param request GetDIJobRequest
+   * @return GetDIJobResponse
+   */
   async getDIJob(request: GetDIJobRequest): Promise<GetDIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDIJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetDISyncInstanceInfo**.
+   *
+   * @param request GetDISyncInstanceInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDISyncInstanceInfoResponse
+   */
   async getDISyncInstanceInfoWithOptions(request: GetDISyncInstanceInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDISyncInstanceInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43853,11 +46785,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDISyncInstanceInfoResponse>(await this.callApi(params, req, runtime), new GetDISyncInstanceInfoResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetDISyncInstanceInfo**.
+   *
+   * @param request GetDISyncInstanceInfoRequest
+   * @return GetDISyncInstanceInfoResponse
+   */
   async getDISyncInstanceInfo(request: GetDISyncInstanceInfoRequest): Promise<GetDISyncInstanceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDISyncInstanceInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetDISyncTask**.
+   *
+   * @param request GetDISyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDISyncTaskResponse
+   */
   async getDISyncTaskWithOptions(request: GetDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43890,26 +46835,37 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDISyncTaskResponse>(await this.callApi(params, req, runtime), new GetDISyncTaskResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetDISyncTask**.
+   *
+   * @param request GetDISyncTaskRequest
+   * @return GetDISyncTaskResponse
+   */
   async getDISyncTask(request: GetDISyncTaskRequest): Promise<GetDISyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDISyncTaskWithOptions(request, runtime);
   }
 
   /**
-    * Supported DAG types:
-    * *   MANUAL: the DAG for a manually triggered workflow.
-    * *   SMOKE_TEST: the DAG for a smoke testing workflow.
-    * *   SUPPLY_DATA: the DAG for a data backfill instance.
-    * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
-    * Supported DAG states:
-    * *   CREATED: The DAG is created.
-    * *   RUNNING: The DAG is running.
-    * *   FAILURE: The DAG fails to run.
-    * *   SUCCESS: The DAG successfully runs.
-    *
-    * @param request GetDagRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDagResponse
+   * @summary Queries the details of a directed acyclic graph (DAG) based on the ID of the DAG.
+   *                   You can call the GetDag operation to query the details of the DAG for a manually triggered
+   *                   workflow, a manually triggered node, or a data backfill instance. However, you cannot
+   *                   query the details of the DAG for an auto triggered node or an auto triggered workflow.
+   *
+   * @description Supported DAG types:
+   * *   MANUAL: the DAG for a manually triggered workflow.
+   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+   * *   SUPPLY_DATA: the DAG for a data backfill instance.
+   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+   * Supported DAG states:
+   * *   CREATED: The DAG is created.
+   * *   RUNNING: The DAG is running.
+   * *   FAILURE: The DAG fails to run.
+   * *   SUCCESS: The DAG successfully runs.
+   *
+   * @param request GetDagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDagResponse
    */
   async getDagWithOptions(request: GetDagRequest, runtime: $Util.RuntimeOptions): Promise<GetDagResponse> {
     Util.validateModel(request);
@@ -43940,25 +46896,37 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Supported DAG types:
-    * *   MANUAL: the DAG for a manually triggered workflow.
-    * *   SMOKE_TEST: the DAG for a smoke testing workflow.
-    * *   SUPPLY_DATA: the DAG for a data backfill instance.
-    * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
-    * Supported DAG states:
-    * *   CREATED: The DAG is created.
-    * *   RUNNING: The DAG is running.
-    * *   FAILURE: The DAG fails to run.
-    * *   SUCCESS: The DAG successfully runs.
-    *
-    * @param request GetDagRequest
-    * @return GetDagResponse
+   * @summary Queries the details of a directed acyclic graph (DAG) based on the ID of the DAG.
+   *                   You can call the GetDag operation to query the details of the DAG for a manually triggered
+   *                   workflow, a manually triggered node, or a data backfill instance. However, you cannot
+   *                   query the details of the DAG for an auto triggered node or an auto triggered workflow.
+   *
+   * @description Supported DAG types:
+   * *   MANUAL: the DAG for a manually triggered workflow.
+   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+   * *   SUPPLY_DATA: the DAG for a data backfill instance.
+   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+   * Supported DAG states:
+   * *   CREATED: The DAG is created.
+   * *   RUNNING: The DAG is running.
+   * *   FAILURE: The DAG fails to run.
+   * *   SUCCESS: The DAG successfully runs.
+   *
+   * @param request GetDagRequest
+   * @return GetDagResponse
    */
   async getDag(request: GetDagRequest): Promise<GetDagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a DataService Studio API in the development state.
+   *
+   * @param request GetDataServiceApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataServiceApiResponse
+   */
   async getDataServiceApiWithOptions(request: GetDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -43991,11 +46959,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataServiceApiResponse>(await this.callApi(params, req, runtime), new GetDataServiceApiResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a DataService Studio API in the development state.
+   *
+   * @param request GetDataServiceApiRequest
+   * @return GetDataServiceApiResponse
+   */
   async getDataServiceApi(request: GetDataServiceApiRequest): Promise<GetDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataServiceApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetDataServiceApiTestRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataServiceApiTestResponse
+   */
   async getDataServiceApiTestWithOptions(request: GetDataServiceApiTestRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApiTestResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -44016,11 +46995,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataServiceApiTestResponse>(await this.callApi(params, req, runtime), new GetDataServiceApiTestResponse({}));
   }
 
+  /**
+   * @param request GetDataServiceApiTestRequest
+   * @return GetDataServiceApiTestResponse
+   */
   async getDataServiceApiTest(request: GetDataServiceApiTestRequest): Promise<GetDataServiceApiTestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataServiceApiTestWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an application.
+   *
+   * @param request GetDataServiceApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataServiceApplicationResponse
+   */
   async getDataServiceApplicationWithOptions(request: GetDataServiceApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44053,11 +47043,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataServiceApplicationResponse>(await this.callApi(params, req, runtime), new GetDataServiceApplicationResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an application.
+   *
+   * @param request GetDataServiceApplicationRequest
+   * @return GetDataServiceApplicationResponse
+   */
   async getDataServiceApplication(request: GetDataServiceApplicationRequest): Promise<GetDataServiceApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataServiceApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a folder.
+   *
+   * @param request GetDataServiceFolderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataServiceFolderResponse
+   */
   async getDataServiceFolderWithOptions(request: GetDataServiceFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceFolderResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44090,11 +47093,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataServiceFolderResponse>(await this.callApi(params, req, runtime), new GetDataServiceFolderResponse({}));
   }
 
+  /**
+   * @summary Queries a folder.
+   *
+   * @param request GetDataServiceFolderRequest
+   * @return GetDataServiceFolderResponse
+   */
   async getDataServiceFolder(request: GetDataServiceFolderRequest): Promise<GetDataServiceFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataServiceFolderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a business process.
+   *
+   * @param request GetDataServiceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataServiceGroupResponse
+   */
   async getDataServiceGroupWithOptions(request: GetDataServiceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44127,11 +47143,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataServiceGroupResponse>(await this.callApi(params, req, runtime), new GetDataServiceGroupResponse({}));
   }
 
+  /**
+   * @summary Queries a business process.
+   *
+   * @param request GetDataServiceGroupRequest
+   * @return GetDataServiceGroupResponse
+   */
   async getDataServiceGroup(request: GetDataServiceGroupRequest): Promise<GetDataServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataServiceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a DataService Studio API in the published state.
+   *
+   * @param request GetDataServicePublishedApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataServicePublishedApiResponse
+   */
   async getDataServicePublishedApiWithOptions(request: GetDataServicePublishedApiRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServicePublishedApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44164,11 +47193,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataServicePublishedApiResponse>(await this.callApi(params, req, runtime), new GetDataServicePublishedApiResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a DataService Studio API in the published state.
+   *
+   * @param request GetDataServicePublishedApiRequest
+   * @return GetDataServicePublishedApiResponse
+   */
   async getDataServicePublishedApi(request: GetDataServicePublishedApiRequest): Promise<GetDataServicePublishedApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataServicePublishedApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetDataSourceMeta**.
+   *
+   * @param request GetDataSourceMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDataSourceMetaResponse
+   */
   async getDataSourceMetaWithOptions(request: GetDataSourceMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetDataSourceMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44209,11 +47251,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDataSourceMetaResponse>(await this.callApi(params, req, runtime), new GetDataSourceMetaResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetDataSourceMeta**.
+   *
+   * @param request GetDataSourceMetaRequest
+   * @return GetDataSourceMetaResponse
+   */
   async getDataSourceMeta(request: GetDataSourceMetaRequest): Promise<GetDataSourceMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataSourceMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a deployment task.
+   *
+   * @param request GetDeploymentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDeploymentResponse
+   */
   async getDeploymentWithOptions(request: GetDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<GetDeploymentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44246,11 +47301,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeploymentResponse>(await this.callApi(params, req, runtime), new GetDeploymentResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a deployment task.
+   *
+   * @param request GetDeploymentRequest
+   * @return GetDeploymentResponse
+   */
   async getDeployment(request: GetDeploymentRequest): Promise<GetDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeploymentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取开放平台扩展程序详情
+   *
+   * @param request GetExtensionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetExtensionResponse
+   */
   async getExtensionWithOptions(request: GetExtensionRequest, runtime: $Util.RuntimeOptions): Promise<GetExtensionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44275,11 +47343,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetExtensionResponse>(await this.callApi(params, req, runtime), new GetExtensionResponse({}));
   }
 
+  /**
+   * @summary 获取开放平台扩展程序详情
+   *
+   * @param request GetExtensionRequest
+   * @return GetExtensionResponse
+   */
   async getExtension(request: GetExtensionRequest): Promise<GetExtensionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getExtensionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileResponse
+   */
   async getFileWithOptions(request: GetFileRequest, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44316,11 +47395,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileResponse>(await this.callApi(params, req, runtime), new GetFileResponse({}));
   }
 
+  /**
+   * @param request GetFileRequest
+   * @return GetFileResponse
+   */
   async getFile(request: GetFileRequest): Promise<GetFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetFileTypeStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileTypeStatisticResponse
+   */
   async getFileTypeStatisticWithOptions(request: GetFileTypeStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetFileTypeStatisticResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44349,11 +47437,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileTypeStatisticResponse>(await this.callApi(params, req, runtime), new GetFileTypeStatisticResponse({}));
   }
 
+  /**
+   * @param request GetFileTypeStatisticRequest
+   * @return GetFileTypeStatisticResponse
+   */
   async getFileTypeStatistic(request: GetFileTypeStatisticRequest): Promise<GetFileTypeStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileTypeStatisticWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetFileVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileVersionResponse
+   */
   async getFileVersionWithOptions(request: GetFileVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetFileVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44390,11 +47487,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileVersionResponse>(await this.callApi(params, req, runtime), new GetFileVersionResponse({}));
   }
 
+  /**
+   * @param request GetFileVersionRequest
+   * @return GetFileVersionResponse
+   */
   async getFileVersion(request: GetFileVersionRequest): Promise<GetFileVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetFolderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFolderResponse
+   */
   async getFolderWithOptions(request: GetFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetFolderResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44431,11 +47537,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFolderResponse>(await this.callApi(params, req, runtime), new GetFolderResponse({}));
   }
 
+  /**
+   * @param request GetFolderRequest
+   * @return GetFolderResponse
+   */
   async getFolder(request: GetFolderRequest): Promise<GetFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFolderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the data snapshot of an extension point based on the ID of an open message when the related extension point event is triggered.
+   *
+   * @param request GetIDEEventDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIDEEventDetailResponse
+   */
   async getIDEEventDetailWithOptions(request: GetIDEEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetIDEEventDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44464,11 +47581,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIDEEventDetailResponse>(await this.callApi(params, req, runtime), new GetIDEEventDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the data snapshot of an extension point based on the ID of an open message when the related extension point event is triggered.
+   *
+   * @param request GetIDEEventDetailRequest
+   * @return GetIDEEventDetailResponse
+   */
   async getIDEEventDetail(request: GetIDEEventDetailRequest): Promise<GetIDEEventDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIDEEventDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceResponse
+   */
   async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44497,17 +47625,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
+  /**
+   * @param request GetInstanceRequest
+   * @return GetInstanceResponse
+   */
   async getInstance(request: GetInstanceRequest): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetInstanceConsumeTimeRankRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceConsumeTimeRankResponse
+   * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
+   *
+   * @param request GetInstanceConsumeTimeRankRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceConsumeTimeRankResponse
    */
   // Deprecated
   async getInstanceConsumeTimeRankWithOptions(request: GetInstanceConsumeTimeRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceConsumeTimeRankResponse> {
@@ -44539,10 +47671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetInstanceConsumeTimeRankRequest
-    * @return GetInstanceConsumeTimeRankResponse
+   * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
+   *
+   * @param request GetInstanceConsumeTimeRankRequest
+   * @return GetInstanceConsumeTimeRankResponse
    */
   // Deprecated
   async getInstanceConsumeTimeRank(request: GetInstanceConsumeTimeRankRequest): Promise<GetInstanceConsumeTimeRankResponse> {
@@ -44551,11 +47683,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetInstanceCountTrendRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceCountTrendResponse
+   * @deprecated OpenAPI GetInstanceCountTrend is deprecated
+   *
+   * @param request GetInstanceCountTrendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceCountTrendResponse
    */
   // Deprecated
   async getInstanceCountTrendWithOptions(request: GetInstanceCountTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceCountTrendResponse> {
@@ -44591,10 +47723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetInstanceCountTrendRequest
-    * @return GetInstanceCountTrendResponse
+   * @deprecated OpenAPI GetInstanceCountTrend is deprecated
+   *
+   * @param request GetInstanceCountTrendRequest
+   * @return GetInstanceCountTrendResponse
    */
   // Deprecated
   async getInstanceCountTrend(request: GetInstanceCountTrendRequest): Promise<GetInstanceCountTrendResponse> {
@@ -44603,11 +47735,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetInstanceErrorRankRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceErrorRankResponse
+   * @deprecated OpenAPI GetInstanceErrorRank is deprecated
+   *
+   * @param request GetInstanceErrorRankRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceErrorRankResponse
    */
   // Deprecated
   async getInstanceErrorRankWithOptions(request: GetInstanceErrorRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceErrorRankResponse> {
@@ -44635,10 +47767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetInstanceErrorRankRequest
-    * @return GetInstanceErrorRankResponse
+   * @deprecated OpenAPI GetInstanceErrorRank is deprecated
+   *
+   * @param request GetInstanceErrorRankRequest
+   * @return GetInstanceErrorRankResponse
    */
   // Deprecated
   async getInstanceErrorRank(request: GetInstanceErrorRankRequest): Promise<GetInstanceErrorRankResponse> {
@@ -44647,11 +47779,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You may not obtain the instance logs that were generated more than seven days ago.
-    *
-    * @param request GetInstanceLogRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceLogResponse
+   * @summary Queries the logs of an instance.
+   *
+   * @description You may not obtain the instance logs that were generated more than seven days ago.
+   *
+   * @param request GetInstanceLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceLogResponse
    */
   async getInstanceLogWithOptions(request: GetInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceLogResponse> {
     Util.validateModel(request);
@@ -44686,10 +47820,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You may not obtain the instance logs that were generated more than seven days ago.
-    *
-    * @param request GetInstanceLogRequest
-    * @return GetInstanceLogResponse
+   * @summary Queries the logs of an instance.
+   *
+   * @description You may not obtain the instance logs that were generated more than seven days ago.
+   *
+   * @param request GetInstanceLogRequest
+   * @return GetInstanceLogResponse
    */
   async getInstanceLog(request: GetInstanceLogRequest): Promise<GetInstanceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44697,11 +47833,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetInstanceStatusCountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetInstanceStatusCountResponse
+   * @deprecated OpenAPI GetInstanceStatusCount is deprecated
+   *
+   * @param request GetInstanceStatusCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceStatusCountResponse
    */
   // Deprecated
   async getInstanceStatusCountWithOptions(request: GetInstanceStatusCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceStatusCountResponse> {
@@ -44737,10 +47873,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetInstanceStatusCountRequest
-    * @return GetInstanceStatusCountResponse
+   * @deprecated OpenAPI GetInstanceStatusCount is deprecated
+   *
+   * @param request GetInstanceStatusCountRequest
+   * @return GetInstanceStatusCountResponse
    */
   // Deprecated
   async getInstanceStatusCount(request: GetInstanceStatusCountRequest): Promise<GetInstanceStatusCountResponse> {
@@ -44748,6 +47884,11 @@ export default class Client extends OpenApi {
     return await this.getInstanceStatusCountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetInstanceStatusStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceStatusStatisticResponse
+   */
   async getInstanceStatusStatisticWithOptions(request: GetInstanceStatusStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceStatusStatisticResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -44792,17 +47933,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceStatusStatisticResponse>(await this.callApi(params, req, runtime), new GetInstanceStatusStatisticResponse({}));
   }
 
+  /**
+   * @param request GetInstanceStatusStatisticRequest
+   * @return GetInstanceStatusStatisticResponse
+   */
   async getInstanceStatusStatistic(request: GetInstanceStatusStatisticRequest): Promise<GetInstanceStatusStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceStatusStatisticWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetManualDagInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetManualDagInstancesResponse
+   * @deprecated OpenAPI GetManualDagInstances is deprecated
+   *
+   * @param request GetManualDagInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetManualDagInstancesResponse
    */
   // Deprecated
   async getManualDagInstancesWithOptions(request: GetManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<GetManualDagInstancesResponse> {
@@ -44838,10 +47983,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetManualDagInstancesRequest
-    * @return GetManualDagInstancesResponse
+   * @deprecated OpenAPI GetManualDagInstances is deprecated
+   *
+   * @param request GetManualDagInstancesRequest
+   * @return GetManualDagInstancesResponse
    */
   // Deprecated
   async getManualDagInstances(request: GetManualDagInstancesRequest): Promise<GetManualDagInstancesResponse> {
@@ -44849,6 +47994,13 @@ export default class Client extends OpenApi {
     return await this.getManualDagInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a category tree.
+   *
+   * @param request GetMetaCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaCategoryResponse
+   */
   async getMetaCategoryWithOptions(request: GetMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44881,11 +48033,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaCategoryResponse>(await this.callApi(params, req, runtime), new GetMetaCategoryResponse({}));
   }
 
+  /**
+   * @summary Queries a category tree.
+   *
+   * @param request GetMetaCategoryRequest
+   * @return GetMetaCategoryResponse
+   */
   async getMetaCategory(request: GetMetaCategoryRequest): Promise<GetMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a collection.
+   *
+   * @param request GetMetaCollectionDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaCollectionDetailResponse
+   */
   async getMetaCollectionDetailWithOptions(request: GetMetaCollectionDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaCollectionDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44910,11 +48075,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaCollectionDetailResponse>(await this.callApi(params, req, runtime), new GetMetaCollectionDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a collection.
+   *
+   * @param request GetMetaCollectionDetailRequest
+   * @return GetMetaCollectionDetailResponse
+   */
   async getMetaCollectionDetail(request: GetMetaCollectionDetailRequest): Promise<GetMetaCollectionDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaCollectionDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the lineage of a field in a metatable.
+   *
+   * @param request GetMetaColumnLineageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaColumnLineageResponse
+   */
   async getMetaColumnLineageWithOptions(request: GetMetaColumnLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaColumnLineageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -44971,18 +48149,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaColumnLineageResponse>(await this.callApi(params, req, runtime), new GetMetaColumnLineageResponse({}));
   }
 
+  /**
+   * @summary Queries the lineage of a field in a metatable.
+   *
+   * @param request GetMetaColumnLineageRequest
+   * @return GetMetaColumnLineageResponse
+   */
   async getMetaColumnLineage(request: GetMetaColumnLineageRequest): Promise<GetMetaColumnLineageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaColumnLineageWithOptions(request, runtime);
   }
 
   /**
-    * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
-    * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
-    *
-    * @param request GetMetaDBInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetMetaDBInfoResponse
+   * @summary The ID of the compute engine instance. Specify the ID in the Engine type.Engine name format.
+   *
+   * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+   * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
+   *
+   * @param request GetMetaDBInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaDBInfoResponse
    */
   async getMetaDBInfoWithOptions(request: GetMetaDBInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaDBInfoResponse> {
     Util.validateModel(request);
@@ -45005,17 +48191,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
-    * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
-    *
-    * @param request GetMetaDBInfoRequest
-    * @return GetMetaDBInfoResponse
+   * @summary The ID of the compute engine instance. Specify the ID in the Engine type.Engine name format.
+   *
+   * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+   * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
+   *
+   * @param request GetMetaDBInfoRequest
+   * @return GetMetaDBInfoResponse
    */
   async getMetaDBInfo(request: GetMetaDBInfoRequest): Promise<GetMetaDBInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaDBInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetMetaDBTableList**.
+   *
+   * @param request GetMetaDBTableListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaDBTableListResponse
+   */
   async getMetaDBTableListWithOptions(request: GetMetaDBTableListRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaDBTableListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45060,17 +48255,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaDBTableListResponse>(await this.callApi(params, req, runtime), new GetMetaDBTableListResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetMetaDBTableList**.
+   *
+   * @param request GetMetaDBTableListRequest
+   * @return GetMetaDBTableListResponse
+   */
   async getMetaDBTableList(request: GetMetaDBTableListRequest): Promise<GetMetaDBTableListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaDBTableListWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request GetMetaTableBasicInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetMetaTableBasicInfoResponse
+   * @summary The operation that you want to perform. Set the value to **GetMetaTableBasicInfo**.
+   *
+   * @description ****
+   *
+   * @param request GetMetaTableBasicInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableBasicInfoResponse
    */
   async getMetaTableBasicInfoWithOptions(request: GetMetaTableBasicInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableBasicInfoResponse> {
     Util.validateModel(request);
@@ -45093,16 +48296,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request GetMetaTableBasicInfoRequest
-    * @return GetMetaTableBasicInfoResponse
+   * @summary The operation that you want to perform. Set the value to **GetMetaTableBasicInfo**.
+   *
+   * @description ****
+   *
+   * @param request GetMetaTableBasicInfoRequest
+   * @return GetMetaTableBasicInfoResponse
    */
   async getMetaTableBasicInfo(request: GetMetaTableBasicInfoRequest): Promise<GetMetaTableBasicInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableBasicInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetMetaTableChangeLog**.
+   *
+   * @param request GetMetaTableChangeLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableChangeLogResponse
+   */
   async getMetaTableChangeLogWithOptions(request: GetMetaTableChangeLogRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableChangeLogResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45151,11 +48363,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableChangeLogResponse>(await this.callApi(params, req, runtime), new GetMetaTableChangeLogResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetMetaTableChangeLog**.
+   *
+   * @param request GetMetaTableChangeLogRequest
+   * @return GetMetaTableChangeLogResponse
+   */
   async getMetaTableChangeLog(request: GetMetaTableChangeLogRequest): Promise<GetMetaTableChangeLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableChangeLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetMetaTableColumn**.
+   *
+   * @param request GetMetaTableColumnRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableColumnResponse
+   */
   async getMetaTableColumnWithOptions(request: GetMetaTableColumnRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableColumnResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -45176,11 +48401,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableColumnResponse>(await this.callApi(params, req, runtime), new GetMetaTableColumnResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetMetaTableColumn**.
+   *
+   * @param request GetMetaTableColumnRequest
+   * @return GetMetaTableColumnResponse
+   */
   async getMetaTableColumn(request: GetMetaTableColumnRequest): Promise<GetMetaTableColumnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableColumnWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the complete information about a metatable, including information about fields in the metatable.
+   *
+   * @param request GetMetaTableFullInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableFullInfoResponse
+   */
   async getMetaTableFullInfoWithOptions(request: GetMetaTableFullInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableFullInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -45201,11 +48439,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableFullInfoResponse>(await this.callApi(params, req, runtime), new GetMetaTableFullInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the complete information about a metatable, including information about fields in the metatable.
+   *
+   * @param request GetMetaTableFullInfoRequest
+   * @return GetMetaTableFullInfoResponse
+   */
   async getMetaTableFullInfo(request: GetMetaTableFullInfoRequest): Promise<GetMetaTableFullInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableFullInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the instructions on how to use a metatable.
+   *
+   * @param request GetMetaTableIntroWikiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableIntroWikiResponse
+   */
   async getMetaTableIntroWikiWithOptions(request: GetMetaTableIntroWikiRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableIntroWikiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45234,11 +48485,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableIntroWikiResponse>(await this.callApi(params, req, runtime), new GetMetaTableIntroWikiResponse({}));
   }
 
+  /**
+   * @summary Queries the instructions on how to use a metatable.
+   *
+   * @param request GetMetaTableIntroWikiRequest
+   * @return GetMetaTableIntroWikiResponse
+   */
   async getMetaTableIntroWiki(request: GetMetaTableIntroWikiRequest): Promise<GetMetaTableIntroWikiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableIntroWikiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetMetaTableLineage**.
+   *
+   * @param request GetMetaTableLineageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableLineageResponse
+   */
   async getMetaTableLineageWithOptions(request: GetMetaTableLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableLineageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45291,11 +48555,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableLineageResponse>(await this.callApi(params, req, runtime), new GetMetaTableLineageResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetMetaTableLineage**.
+   *
+   * @param request GetMetaTableLineageRequest
+   * @return GetMetaTableLineageResponse
+   */
   async getMetaTableLineage(request: GetMetaTableLineageRequest): Promise<GetMetaTableLineageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableLineageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMetaTableListByCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableListByCategoryResponse
+   */
   async getMetaTableListByCategoryWithOptions(request: GetMetaTableListByCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableListByCategoryResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -45316,11 +48591,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableListByCategoryResponse>(await this.callApi(params, req, runtime), new GetMetaTableListByCategoryResponse({}));
   }
 
+  /**
+   * @param request GetMetaTableListByCategoryRequest
+   * @return GetMetaTableListByCategoryResponse
+   */
   async getMetaTableListByCategory(request: GetMetaTableListByCategoryRequest): Promise<GetMetaTableListByCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableListByCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMetaTableOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableOutputResponse
+   */
   async getMetaTableOutputWithOptions(request: GetMetaTableOutputRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableOutputResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45365,17 +48649,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableOutputResponse>(await this.callApi(params, req, runtime), new GetMetaTableOutputResponse({}));
   }
 
+  /**
+   * @param request GetMetaTableOutputRequest
+   * @return GetMetaTableOutputResponse
+   */
   async getMetaTableOutput(request: GetMetaTableOutputRequest): Promise<GetMetaTableOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableOutputWithOptions(request, runtime);
   }
 
   /**
-    * The operation that you want to perform. Set the value to **GetMetaTablePartition**.
-    *
-    * @param tmpReq GetMetaTablePartitionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetMetaTablePartitionResponse
+   * @summary For more information about the example on how to use the GetMetaTablePartition operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+   *
+   * @description The operation that you want to perform. Set the value to **GetMetaTablePartition**.
+   *
+   * @param tmpReq GetMetaTablePartitionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTablePartitionResponse
    */
   async getMetaTablePartitionWithOptions(tmpReq: GetMetaTablePartitionRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTablePartitionResponse> {
     Util.validateModel(tmpReq);
@@ -45436,16 +48726,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **GetMetaTablePartition**.
-    *
-    * @param request GetMetaTablePartitionRequest
-    * @return GetMetaTablePartitionResponse
+   * @summary For more information about the example on how to use the GetMetaTablePartition operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+   *
+   * @description The operation that you want to perform. Set the value to **GetMetaTablePartition**.
+   *
+   * @param request GetMetaTablePartitionRequest
+   * @return GetMetaTablePartitionResponse
    */
   async getMetaTablePartition(request: GetMetaTablePartitionRequest): Promise<GetMetaTablePartitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTablePartitionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取Table的产出任务列表
+   *
+   * @param request GetMetaTableProducingTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableProducingTasksResponse
+   */
   async getMetaTableProducingTasksWithOptions(request: GetMetaTableProducingTasksRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableProducingTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45490,11 +48789,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableProducingTasksResponse>(await this.callApi(params, req, runtime), new GetMetaTableProducingTasksResponse({}));
   }
 
+  /**
+   * @summary 获取Table的产出任务列表
+   *
+   * @param request GetMetaTableProducingTasksRequest
+   * @return GetMetaTableProducingTasksResponse
+   */
   async getMetaTableProducingTasks(request: GetMetaTableProducingTasksRequest): Promise<GetMetaTableProducingTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableProducingTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about table folders and table levels.
+   *
+   * @param request GetMetaTableThemeLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMetaTableThemeLevelResponse
+   */
   async getMetaTableThemeLevelWithOptions(request: GetMetaTableThemeLevelRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableThemeLevelResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -45515,11 +48827,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMetaTableThemeLevelResponse>(await this.callApi(params, req, runtime), new GetMetaTableThemeLevelResponse({}));
   }
 
+  /**
+   * @summary Queries information about table folders and table levels.
+   *
+   * @param request GetMetaTableThemeLevelRequest
+   * @return GetMetaTableThemeLevelResponse
+   */
   async getMetaTableThemeLevel(request: GetMetaTableThemeLevelRequest): Promise<GetMetaTableThemeLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMetaTableThemeLevelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMigrationProcessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMigrationProcessResponse
+   */
   async getMigrationProcessWithOptions(request: GetMigrationProcessRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationProcessResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45548,11 +48871,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMigrationProcessResponse>(await this.callApi(params, req, runtime), new GetMigrationProcessResponse({}));
   }
 
+  /**
+   * @param request GetMigrationProcessRequest
+   * @return GetMigrationProcessResponse
+   */
   async getMigrationProcess(request: GetMigrationProcessRequest): Promise<GetMigrationProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMigrationProcessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request GetMigrationSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMigrationSummaryResponse
+   */
   async getMigrationSummaryWithOptions(request: GetMigrationSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationSummaryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45581,11 +48915,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMigrationSummaryResponse>(await this.callApi(params, req, runtime), new GetMigrationSummaryResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request GetMigrationSummaryRequest
+   * @return GetMigrationSummaryResponse
+   */
   async getMigrationSummary(request: GetMigrationSummaryRequest): Promise<GetMigrationSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMigrationSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Indicates whether the request is successful.
+   *
+   * @param request GetNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNodeResponse
+   */
   async getNodeWithOptions(request: GetNodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45614,11 +48961,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNodeResponse>(await this.callApi(params, req, runtime), new GetNodeResponse({}));
   }
 
+  /**
+   * @summary Indicates whether the request is successful.
+   *
+   * @param request GetNodeRequest
+   * @return GetNodeResponse
+   */
   async getNode(request: GetNodeRequest): Promise<GetNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetNodeChildrenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNodeChildrenResponse
+   */
   async getNodeChildrenWithOptions(request: GetNodeChildrenRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeChildrenResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45647,11 +49005,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNodeChildrenResponse>(await this.callApi(params, req, runtime), new GetNodeChildrenResponse({}));
   }
 
+  /**
+   * @param request GetNodeChildrenRequest
+   * @return GetNodeChildrenResponse
+   */
   async getNodeChildren(request: GetNodeChildrenRequest): Promise<GetNodeChildrenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNodeChildrenWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the code of a node.
+   *
+   * @param request GetNodeCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNodeCodeResponse
+   */
   async getNodeCodeWithOptions(request: GetNodeCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45680,17 +49049,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNodeCodeResponse>(await this.callApi(params, req, runtime), new GetNodeCodeResponse({}));
   }
 
+  /**
+   * @summary Queries the code of a node.
+   *
+   * @param request GetNodeCodeRequest
+   * @return GetNodeCodeResponse
+   */
   async getNodeCode(request: GetNodeCodeRequest): Promise<GetNodeCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNodeCodeWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetNodeOnBaselineRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetNodeOnBaselineResponse
+   * @deprecated OpenAPI GetNodeOnBaseline is deprecated
+   *
+   * @param request GetNodeOnBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNodeOnBaselineResponse
    */
   // Deprecated
   async getNodeOnBaselineWithOptions(request: GetNodeOnBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeOnBaselineResponse> {
@@ -45718,10 +49093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetNodeOnBaselineRequest
-    * @return GetNodeOnBaselineResponse
+   * @deprecated OpenAPI GetNodeOnBaseline is deprecated
+   *
+   * @param request GetNodeOnBaselineRequest
+   * @return GetNodeOnBaselineResponse
    */
   // Deprecated
   async getNodeOnBaseline(request: GetNodeOnBaselineRequest): Promise<GetNodeOnBaselineResponse> {
@@ -45729,6 +49104,11 @@ export default class Client extends OpenApi {
     return await this.getNodeOnBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetNodeParentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNodeParentsResponse
+   */
   async getNodeParentsWithOptions(request: GetNodeParentsRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeParentsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45757,17 +49137,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNodeParentsResponse>(await this.callApi(params, req, runtime), new GetNodeParentsResponse({}));
   }
 
+  /**
+   * @param request GetNodeParentsRequest
+   * @return GetNodeParentsResponse
+   */
   async getNodeParents(request: GetNodeParentsRequest): Promise<GetNodeParentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNodeParentsWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetNodeTypeListInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetNodeTypeListInfoResponse
+   * @deprecated OpenAPI GetNodeTypeListInfo is deprecated
+   *
+   * @param request GetNodeTypeListInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNodeTypeListInfoResponse
    */
   // Deprecated
   async getNodeTypeListInfoWithOptions(request: GetNodeTypeListInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeTypeListInfoResponse> {
@@ -45815,10 +49199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetNodeTypeListInfoRequest
-    * @return GetNodeTypeListInfoResponse
+   * @deprecated OpenAPI GetNodeTypeListInfo is deprecated
+   *
+   * @param request GetNodeTypeListInfoRequest
+   * @return GetNodeTypeListInfoResponse
    */
   // Deprecated
   async getNodeTypeListInfo(request: GetNodeTypeListInfoRequest): Promise<GetNodeTypeListInfoResponse> {
@@ -45826,6 +49210,11 @@ export default class Client extends OpenApi {
     return await this.getNodeTypeListInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetOpRiskDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpRiskDataResponse
+   */
   async getOpRiskDataWithOptions(request: GetOpRiskDataRequest, runtime: $Util.RuntimeOptions): Promise<GetOpRiskDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -45846,11 +49235,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpRiskDataResponse>(await this.callApi(params, req, runtime), new GetOpRiskDataResponse({}));
   }
 
+  /**
+   * @param request GetOpRiskDataRequest
+   * @return GetOpRiskDataResponse
+   */
   async getOpRiskData(request: GetOpRiskDataRequest): Promise<GetOpRiskDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpRiskDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetOpSensitiveDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpSensitiveDataResponse
+   */
   async getOpSensitiveDataWithOptions(request: GetOpSensitiveDataRequest, runtime: $Util.RuntimeOptions): Promise<GetOpSensitiveDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -45871,11 +49269,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpSensitiveDataResponse>(await this.callApi(params, req, runtime), new GetOpSensitiveDataResponse({}));
   }
 
+  /**
+   * @param request GetOpSensitiveDataRequest
+   * @return GetOpSensitiveDataResponse
+   */
   async getOpSensitiveData(request: GetOpSensitiveDataRequest): Promise<GetOpSensitiveDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpSensitiveDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetOptionValueForProject**.
+   *
+   * @param request GetOptionValueForProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOptionValueForProjectResponse
+   */
   async getOptionValueForProjectWithOptions(request: GetOptionValueForProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetOptionValueForProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -45904,11 +49313,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOptionValueForProjectResponse>(await this.callApi(params, req, runtime), new GetOptionValueForProjectResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **GetOptionValueForProject**.
+   *
+   * @param request GetOptionValueForProjectRequest
+   * @return GetOptionValueForProjectResponse
+   */
   async getOptionValueForProject(request: GetOptionValueForProjectRequest): Promise<GetOptionValueForProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOptionValueForProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a permission request order.
+   *
+   * @param request GetPermissionApplyOrderDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPermissionApplyOrderDetailResponse
+   */
   async getPermissionApplyOrderDetailWithOptions(request: GetPermissionApplyOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetPermissionApplyOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45933,11 +49355,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPermissionApplyOrderDetailResponse>(await this.callApi(params, req, runtime), new GetPermissionApplyOrderDetailResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a permission request order.
+   *
+   * @param request GetPermissionApplyOrderDetailRequest
+   * @return GetPermissionApplyOrderDetailResponse
+   */
   async getPermissionApplyOrderDetail(request: GetPermissionApplyOrderDetailRequest): Promise<GetPermissionApplyOrderDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPermissionApplyOrderDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询工作空间详情
+   *
+   * @param request GetProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectResponse
+   */
   async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -45966,17 +49401,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
   }
 
+  /**
+   * @summary 查询工作空间详情
+   *
+   * @param request GetProjectRequest
+   * @return GetProjectResponse
+   */
   async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getProjectWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetProjectDetailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetProjectDetailResponse
+   * @deprecated OpenAPI GetProjectDetail is deprecated
+   *
+   * @summary 查询工作空间详情
+   *
+   * @param request GetProjectDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectDetailResponse
    */
   // Deprecated
   async getProjectDetailWithOptions(request: GetProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectDetailResponse> {
@@ -46004,10 +49447,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetProjectDetailRequest
-    * @return GetProjectDetailResponse
+   * @deprecated OpenAPI GetProjectDetail is deprecated
+   *
+   * @summary 查询工作空间详情
+   *
+   * @param request GetProjectDetailRequest
+   * @return GetProjectDetailResponse
    */
   // Deprecated
   async getProjectDetail(request: GetProjectDetailRequest): Promise<GetProjectDetailResponse> {
@@ -46015,6 +49460,11 @@ export default class Client extends OpenApi {
     return await this.getProjectDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetQualityEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQualityEntityResponse
+   */
   async getQualityEntityWithOptions(request: GetQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityEntityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46055,11 +49505,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityEntityResponse>(await this.callApi(params, req, runtime), new GetQualityEntityResponse({}));
   }
 
+  /**
+   * @param request GetQualityEntityRequest
+   * @return GetQualityEntityResponse
+   */
   async getQualityEntity(request: GetQualityEntityRequest): Promise<GetQualityEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetQualityFollowerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQualityFollowerResponse
+   */
   async getQualityFollowerWithOptions(request: GetQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityFollowerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46092,11 +49551,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityFollowerResponse>(await this.callApi(params, req, runtime), new GetQualityFollowerResponse({}));
   }
 
+  /**
+   * @param request GetQualityFollowerRequest
+   * @return GetQualityFollowerResponse
+   */
   async getQualityFollower(request: GetQualityFollowerRequest): Promise<GetQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityFollowerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetQualityRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQualityRuleResponse
+   */
   async getQualityRuleWithOptions(request: GetQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46129,11 +49597,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityRuleResponse>(await this.callApi(params, req, runtime), new GetQualityRuleResponse({}));
   }
 
+  /**
+   * @param request GetQualityRuleRequest
+   * @return GetQualityRuleResponse
+   */
   async getQualityRule(request: GetQualityRuleRequest): Promise<GetQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetRemindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRemindResponse
+   */
   async getRemindWithOptions(request: GetRemindRequest, runtime: $Util.RuntimeOptions): Promise<GetRemindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46158,11 +49635,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRemindResponse>(await this.callApi(params, req, runtime), new GetRemindResponse({}));
   }
 
+  /**
+   * @param request GetRemindRequest
+   * @return GetRemindResponse
+   */
   async getRemind(request: GetRemindRequest): Promise<GetRemindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRemindWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetSensitiveDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSensitiveDataResponse
+   */
   async getSensitiveDataWithOptions(request: GetSensitiveDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSensitiveDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -46183,17 +49669,21 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSensitiveDataResponse>(await this.callApi(params, req, runtime), new GetSensitiveDataResponse({}));
   }
 
+  /**
+   * @param request GetSensitiveDataRequest
+   * @return GetSensitiveDataResponse
+   */
   async getSensitiveData(request: GetSensitiveDataRequest): Promise<GetSensitiveDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSensitiveDataWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetSuccessInstanceTrendRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetSuccessInstanceTrendResponse
+   * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
+   *
+   * @param request GetSuccessInstanceTrendRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSuccessInstanceTrendResponse
    */
   // Deprecated
   async getSuccessInstanceTrendWithOptions(request: GetSuccessInstanceTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetSuccessInstanceTrendResponse> {
@@ -46221,10 +49711,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request GetSuccessInstanceTrendRequest
-    * @return GetSuccessInstanceTrendResponse
+   * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
+   *
+   * @param request GetSuccessInstanceTrendRequest
+   * @return GetSuccessInstanceTrendResponse
    */
   // Deprecated
   async getSuccessInstanceTrend(request: GetSuccessInstanceTrendRequest): Promise<GetSuccessInstanceTrendResponse> {
@@ -46233,11 +49723,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request GetTopicRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetTopicResponse
+   * @description ****
+   *
+   * @param request GetTopicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTopicResponse
    */
   async getTopicWithOptions(request: GetTopicRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
     Util.validateModel(request);
@@ -46264,16 +49754,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request GetTopicRequest
-    * @return GetTopicResponse
+   * @description ****
+   *
+   * @param request GetTopicRequest
+   * @return GetTopicResponse
    */
   async getTopic(request: GetTopicRequest): Promise<GetTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTopicWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetTopicInfluenceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTopicInfluenceResponse
+   */
   async getTopicInfluenceWithOptions(request: GetTopicInfluenceRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicInfluenceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46298,19 +49793,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTopicInfluenceResponse>(await this.callApi(params, req, runtime), new GetTopicInfluenceResponse({}));
   }
 
+  /**
+   * @param request GetTopicInfluenceRequest
+   * @return GetTopicInfluenceResponse
+   */
   async getTopicInfluence(request: GetTopicInfluenceRequest): Promise<GetTopicInfluenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTopicInfluenceWithOptions(request, runtime);
   }
 
   /**
-    * You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
-    * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](~~181656~~).
-    * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](~~279570~~).
-    *
-    * @param request ImportDataSourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportDataSourcesResponse
+   * @description You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
+   * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](https://help.aliyun.com/document_detail/181656.html).
+   * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](https://help.aliyun.com/document_detail/279570.html).
+   *
+   * @param request ImportDataSourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportDataSourcesResponse
    */
   async importDataSourcesWithOptions(request: ImportDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ImportDataSourcesResponse> {
     Util.validateModel(request);
@@ -46341,18 +49840,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
-    * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](~~181656~~).
-    * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](~~279570~~).
-    *
-    * @param request ImportDataSourcesRequest
-    * @return ImportDataSourcesResponse
+   * @description You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
+   * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](https://help.aliyun.com/document_detail/181656.html).
+   * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](https://help.aliyun.com/document_detail/279570.html).
+   *
+   * @param request ImportDataSourcesRequest
+   * @return ImportDataSourcesResponse
    */
   async importDataSources(request: ImportDataSourcesRequest): Promise<ImportDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importDataSourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListAlertMessagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAlertMessagesResponse
+   */
   async listAlertMessagesWithOptions(request: ListAlertMessagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertMessagesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46409,11 +49913,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlertMessagesResponse>(await this.callApi(params, req, runtime), new ListAlertMessagesResponse({}));
   }
 
+  /**
+   * @param request ListAlertMessagesRequest
+   * @return ListAlertMessagesResponse
+   */
   async listAlertMessages(request: ListAlertMessagesRequest): Promise<ListAlertMessagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAlertMessagesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListBaselineConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBaselineConfigsResponse
+   */
   async listBaselineConfigsWithOptions(request: ListBaselineConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselineConfigsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46466,11 +49979,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBaselineConfigsResponse>(await this.callApi(params, req, runtime), new ListBaselineConfigsResponse({}));
   }
 
+  /**
+   * @param request ListBaselineConfigsRequest
+   * @return ListBaselineConfigsResponse
+   */
   async listBaselineConfigs(request: ListBaselineConfigsRequest): Promise<ListBaselineConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBaselineConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries baseline instances.
+   *
+   * @param request ListBaselineStatusesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBaselineStatusesResponse
+   */
   async listBaselineStatusesWithOptions(request: ListBaselineStatusesRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselineStatusesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46531,11 +50055,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBaselineStatusesResponse>(await this.callApi(params, req, runtime), new ListBaselineStatusesResponse({}));
   }
 
+  /**
+   * @summary Queries baseline instances.
+   *
+   * @param request ListBaselineStatusesRequest
+   * @return ListBaselineStatusesResponse
+   */
   async listBaselineStatuses(request: ListBaselineStatusesRequest): Promise<ListBaselineStatusesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBaselineStatusesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询基线列表
+   *
+   * @param request ListBaselinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBaselinesResponse
+   */
   async listBaselinesWithOptions(request: ListBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselinesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46588,11 +50125,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBaselinesResponse>(await this.callApi(params, req, runtime), new ListBaselinesResponse({}));
   }
 
+  /**
+   * @summary 查询基线列表
+   *
+   * @param request ListBaselinesRequest
+   * @return ListBaselinesResponse
+   */
   async listBaselines(request: ListBaselinesRequest): Promise<ListBaselinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBaselinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries workflows.
+   *
+   * @param request ListBusinessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBusinessResponse
+   */
   async listBusinessWithOptions(request: ListBusinessRequest, runtime: $Util.RuntimeOptions): Promise<ListBusinessResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46633,11 +50183,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBusinessResponse>(await this.callApi(params, req, runtime), new ListBusinessResponse({}));
   }
 
+  /**
+   * @summary Queries workflows.
+   *
+   * @param request ListBusinessRequest
+   * @return ListBusinessResponse
+   */
   async listBusiness(request: ListBusinessRequest): Promise<ListBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBusinessWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListCalcEnginesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCalcEnginesResponse
+   */
   async listCalcEnginesWithOptions(request: ListCalcEnginesRequest, runtime: $Util.RuntimeOptions): Promise<ListCalcEnginesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46682,17 +50243,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCalcEnginesResponse>(await this.callApi(params, req, runtime), new ListCalcEnginesResponse({}));
   }
 
+  /**
+   * @param request ListCalcEnginesRequest
+   * @return ListCalcEnginesResponse
+   */
   async listCalcEngines(request: ListCalcEnginesRequest): Promise<ListCalcEnginesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCalcEnginesWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ListConnectionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListConnectionsResponse
+   * @deprecated OpenAPI ListConnections is deprecated
+   *
+   * @summary 查询数据源
+   *
+   * @param request ListConnectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConnectionsResponse
    */
   // Deprecated
   async listConnectionsWithOptions(request: ListConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionsResponse> {
@@ -46716,10 +50283,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ListConnectionsRequest
-    * @return ListConnectionsResponse
+   * @deprecated OpenAPI ListConnections is deprecated
+   *
+   * @summary 查询数据源
+   *
+   * @param request ListConnectionsRequest
+   * @return ListConnectionsResponse
    */
   // Deprecated
   async listConnections(request: ListConnectionsRequest): Promise<ListConnectionsResponse> {
@@ -46727,6 +50296,13 @@ export default class Client extends OpenApi {
     return await this.listConnectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询数据集成新版告警规则列表
+   *
+   * @param request ListDIAlarmRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDIAlarmRulesResponse
+   */
   async listDIAlarmRulesWithOptions(request: ListDIAlarmRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListDIAlarmRulesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46759,11 +50335,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDIAlarmRulesResponse>(await this.callApi(params, req, runtime), new ListDIAlarmRulesResponse({}));
   }
 
+  /**
+   * @summary 查询数据集成新版告警规则列表
+   *
+   * @param request ListDIAlarmRulesRequest
+   * @return ListDIAlarmRulesResponse
+   */
   async listDIAlarmRules(request: ListDIAlarmRulesRequest): Promise<ListDIAlarmRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDIAlarmRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询数据集成新版解决方案任务列表
+   *
+   * @param request ListDIJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDIJobsResponse
+   */
   async listDIJobsWithOptions(request: ListDIJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDIJobsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -46808,17 +50397,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDIJobsResponse>(await this.callApi(params, req, runtime), new ListDIJobsResponse({}));
   }
 
+  /**
+   * @summary 查询数据集成新版解决方案任务列表
+   *
+   * @param request ListDIJobsRequest
+   * @return ListDIJobsResponse
+   */
   async listDIJobs(request: ListDIJobsRequest): Promise<ListDIJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDIJobsWithOptions(request, runtime);
   }
 
   /**
-    * DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](~~199008~~).
-    *
-    * @param request ListDIProjectConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDIProjectConfigResponse
+   * @description DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](https://help.aliyun.com/document_detail/199008.html).
+   *
+   * @param request ListDIProjectConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDIProjectConfigResponse
    */
   async listDIProjectConfigWithOptions(request: ListDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListDIProjectConfigResponse> {
     Util.validateModel(request);
@@ -46853,10 +50448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](~~199008~~).
-    *
-    * @param request ListDIProjectConfigRequest
-    * @return ListDIProjectConfigResponse
+   * @description DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](https://help.aliyun.com/document_detail/199008.html).
+   *
+   * @param request ListDIProjectConfigRequest
+   * @return ListDIProjectConfigResponse
    */
   async listDIProjectConfig(request: ListDIProjectConfigRequest): Promise<ListDIProjectConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46864,11 +50459,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **ListDags**.
-    *
-    * @param request ListDagsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDagsResponse
+   * @summary Supported DAG types:
+   * *   MANUAL: the DAG for a manually triggered workflow.
+   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+   * *   SUPPLY_DATA: the DAG for a data backfill instance.
+   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+   * Supported DAG states:
+   * *   CREATED: The DAG is created.
+   * *   RUNNING: The DAG is running.
+   * *   FAILURE: The DAG fails to run.
+   * *   SUCCESS: The DAG successfully runs.
+   *
+   * @description The operation that you want to perform. Set the value to **ListDags**.
+   *
+   * @param request ListDagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDagsResponse
    */
   async listDagsWithOptions(request: ListDagsRequest, runtime: $Util.RuntimeOptions): Promise<ListDagsResponse> {
     Util.validateModel(request);
@@ -46899,16 +50505,34 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **ListDags**.
-    *
-    * @param request ListDagsRequest
-    * @return ListDagsResponse
+   * @summary Supported DAG types:
+   * *   MANUAL: the DAG for a manually triggered workflow.
+   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+   * *   SUPPLY_DATA: the DAG for a data backfill instance.
+   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+   * Supported DAG states:
+   * *   CREATED: The DAG is created.
+   * *   RUNNING: The DAG is running.
+   * *   FAILURE: The DAG fails to run.
+   * *   SUCCESS: The DAG successfully runs.
+   *
+   * @description The operation that you want to perform. Set the value to **ListDags**.
+   *
+   * @param request ListDagsRequest
+   * @return ListDagsResponse
    */
   async listDags(request: ListDagsRequest): Promise<ListDagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the APIs on which other users are granted the access permissions.
+   *
+   * @param request ListDataServiceApiAuthoritiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataServiceApiAuthoritiesResponse
+   */
   async listDataServiceApiAuthoritiesWithOptions(request: ListDataServiceApiAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApiAuthoritiesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -46951,11 +50575,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataServiceApiAuthoritiesResponse>(await this.callApi(params, req, runtime), new ListDataServiceApiAuthoritiesResponse({}));
   }
 
+  /**
+   * @summary Queries the APIs on which other users are granted the access permissions.
+   *
+   * @param request ListDataServiceApiAuthoritiesRequest
+   * @return ListDataServiceApiAuthoritiesResponse
+   */
   async listDataServiceApiAuthorities(request: ListDataServiceApiAuthoritiesRequest): Promise<ListDataServiceApiAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataServiceApiAuthoritiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the last month.
+   *
+   * @param request ListDataServiceApiTestRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataServiceApiTestResponse
+   */
   async listDataServiceApiTestWithOptions(request: ListDataServiceApiTestRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApiTestResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -46976,11 +50613,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataServiceApiTestResponse>(await this.callApi(params, req, runtime), new ListDataServiceApiTestResponse({}));
   }
 
+  /**
+   * @summary Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the last month.
+   *
+   * @param request ListDataServiceApiTestRequest
+   * @return ListDataServiceApiTestResponse
+   */
   async listDataServiceApiTest(request: ListDataServiceApiTestRequest): Promise<ListDataServiceApiTestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataServiceApiTestWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about APIs in the development state.
+   *
+   * @param request ListDataServiceApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataServiceApisResponse
+   */
   async listDataServiceApisWithOptions(request: ListDataServiceApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApisResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47029,11 +50679,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataServiceApisResponse>(await this.callApi(params, req, runtime), new ListDataServiceApisResponse({}));
   }
 
+  /**
+   * @summary Queries the information about APIs in the development state.
+   *
+   * @param request ListDataServiceApisRequest
+   * @return ListDataServiceApisResponse
+   */
   async listDataServiceApis(request: ListDataServiceApisRequest): Promise<ListDataServiceApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataServiceApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the basic information of applications.
+   *
+   * @param request ListDataServiceApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataServiceApplicationsResponse
+   */
   async listDataServiceApplicationsWithOptions(request: ListDataServiceApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApplicationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47070,11 +50733,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataServiceApplicationsResponse>(await this.callApi(params, req, runtime), new ListDataServiceApplicationsResponse({}));
   }
 
+  /**
+   * @summary Queries the basic information of applications.
+   *
+   * @param request ListDataServiceApplicationsRequest
+   * @return ListDataServiceApplicationsResponse
+   */
   async listDataServiceApplications(request: ListDataServiceApplicationsRequest): Promise<ListDataServiceApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataServiceApplicationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the APIs that you are authorized to access.
+   *
+   * @param request ListDataServiceAuthorizedApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataServiceAuthorizedApisResponse
+   */
   async listDataServiceAuthorizedApisWithOptions(request: ListDataServiceAuthorizedApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceAuthorizedApisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47117,11 +50793,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataServiceAuthorizedApisResponse>(await this.callApi(params, req, runtime), new ListDataServiceAuthorizedApisResponse({}));
   }
 
+  /**
+   * @summary Queries the APIs that you are authorized to access.
+   *
+   * @param request ListDataServiceAuthorizedApisRequest
+   * @return ListDataServiceAuthorizedApisResponse
+   */
   async listDataServiceAuthorizedApis(request: ListDataServiceAuthorizedApisRequest): Promise<ListDataServiceAuthorizedApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataServiceAuthorizedApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries folders.
+   *
+   * @param request ListDataServiceFoldersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataServiceFoldersResponse
+   */
   async listDataServiceFoldersWithOptions(request: ListDataServiceFoldersRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceFoldersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47166,11 +50855,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataServiceFoldersResponse>(await this.callApi(params, req, runtime), new ListDataServiceFoldersResponse({}));
   }
 
+  /**
+   * @summary Queries folders.
+   *
+   * @param request ListDataServiceFoldersRequest
+   * @return ListDataServiceFoldersResponse
+   */
   async listDataServiceFolders(request: ListDataServiceFoldersRequest): Promise<ListDataServiceFoldersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataServiceFoldersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries business processes.
+   *
+   * @param request ListDataServiceGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataServiceGroupsResponse
+   */
   async listDataServiceGroupsWithOptions(request: ListDataServiceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceGroupsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47211,11 +50913,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataServiceGroupsResponse>(await this.callApi(params, req, runtime), new ListDataServiceGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries business processes.
+   *
+   * @param request ListDataServiceGroupsRequest
+   * @return ListDataServiceGroupsResponse
+   */
   async listDataServiceGroups(request: ListDataServiceGroupsRequest): Promise<ListDataServiceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataServiceGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about APIs in the published state.
+   *
+   * @param request ListDataServicePublishedApisRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataServicePublishedApisResponse
+   */
   async listDataServicePublishedApisWithOptions(request: ListDataServicePublishedApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServicePublishedApisResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47264,11 +50979,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataServicePublishedApisResponse>(await this.callApi(params, req, runtime), new ListDataServicePublishedApisResponse({}));
   }
 
+  /**
+   * @summary Queries the information about APIs in the published state.
+   *
+   * @param request ListDataServicePublishedApisRequest
+   * @return ListDataServicePublishedApisResponse
+   */
   async listDataServicePublishedApis(request: ListDataServicePublishedApisRequest): Promise<ListDataServicePublishedApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataServicePublishedApisWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询数据源
+   *
+   * @param request ListDataSourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataSourcesResponse
+   */
   async listDataSourcesWithOptions(request: ListDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -47289,11 +51017,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
   }
 
+  /**
+   * @summary 查询数据源
+   *
+   * @param request ListDataSourcesRequest
+   * @return ListDataSourcesResponse
+   */
   async listDataSources(request: ListDataSourcesRequest): Promise<ListDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataSourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询发布包列表
+   *
+   * @param request ListDeploymentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDeploymentsResponse
+   */
   async listDeploymentsWithOptions(request: ListDeploymentsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeploymentsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47354,11 +51095,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeploymentsResponse>(await this.callApi(params, req, runtime), new ListDeploymentsResponse({}));
   }
 
+  /**
+   * @summary 查询发布包列表
+   *
+   * @param request ListDeploymentsRequest
+   * @return ListDeploymentsResponse
+   */
   async listDeployments(request: ListDeploymentsRequest): Promise<ListDeploymentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDeploymentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListEnabledExtensionsForProject**.
+   *
+   * @param request ListEnabledExtensionsForProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnabledExtensionsForProjectResponse
+   */
   async listEnabledExtensionsForProjectWithOptions(request: ListEnabledExtensionsForProjectRequest, runtime: $Util.RuntimeOptions): Promise<ListEnabledExtensionsForProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47391,11 +51145,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnabledExtensionsForProjectResponse>(await this.callApi(params, req, runtime), new ListEnabledExtensionsForProjectResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListEnabledExtensionsForProject**.
+   *
+   * @param request ListEnabledExtensionsForProjectRequest
+   * @return ListEnabledExtensionsForProjectResponse
+   */
   async listEnabledExtensionsForProject(request: ListEnabledExtensionsForProjectRequest): Promise<ListEnabledExtensionsForProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnabledExtensionsForProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary List entities by tags
+   *
+   * @param tmpReq ListEntitiesByTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEntitiesByTagsResponse
+   */
   async listEntitiesByTagsWithOptions(tmpReq: ListEntitiesByTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListEntitiesByTagsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListEntitiesByTagsShrinkRequest({ });
@@ -47422,11 +51189,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEntitiesByTagsResponse>(await this.callApi(params, req, runtime), new ListEntitiesByTagsResponse({}));
   }
 
+  /**
+   * @summary List entities by tags
+   *
+   * @param request ListEntitiesByTagsRequest
+   * @return ListEntitiesByTagsResponse
+   */
   async listEntitiesByTags(request: ListEntitiesByTagsRequest): Promise<ListEntitiesByTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEntitiesByTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary List entity tags by given qualified name
+   *
+   * @param request ListEntityTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEntityTagsResponse
+   */
   async listEntityTagsWithOptions(request: ListEntityTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListEntityTagsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -47447,11 +51227,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEntityTagsResponse>(await this.callApi(params, req, runtime), new ListEntityTagsResponse({}));
   }
 
+  /**
+   * @summary List entity tags by given qualified name
+   *
+   * @param request ListEntityTagsRequest
+   * @return ListEntityTagsResponse
+   */
   async listEntityTags(request: ListEntityTagsRequest): Promise<ListEntityTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEntityTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListExtensions**.
+   *
+   * @param request ListExtensionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExtensionsResponse
+   */
   async listExtensionsWithOptions(request: ListExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExtensionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47480,11 +51273,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExtensionsResponse>(await this.callApi(params, req, runtime), new ListExtensionsResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListExtensions**.
+   *
+   * @param request ListExtensionsRequest
+   * @return ListExtensionsResponse
+   */
   async listExtensions(request: ListExtensionsRequest): Promise<ListExtensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExtensionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListFileTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFileTypeResponse
+   */
   async listFileTypeWithOptions(request: ListFileTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListFileTypeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47529,11 +51333,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFileTypeResponse>(await this.callApi(params, req, runtime), new ListFileTypeResponse({}));
   }
 
+  /**
+   * @param request ListFileTypeRequest
+   * @return ListFileTypeResponse
+   */
   async listFileType(request: ListFileTypeRequest): Promise<ListFileTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFileTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListFileVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFileVersionsResponse
+   */
   async listFileVersionsWithOptions(request: ListFileVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListFileVersionsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47574,11 +51387,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFileVersionsResponse>(await this.callApi(params, req, runtime), new ListFileVersionsResponse({}));
   }
 
+  /**
+   * @param request ListFileVersionsRequest
+   * @return ListFileVersionsResponse
+   */
   async listFileVersions(request: ListFileVersionsRequest): Promise<ListFileVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFileVersionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFilesResponse
+   */
   async listFilesWithOptions(request: ListFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListFilesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47655,11 +51477,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFilesResponse>(await this.callApi(params, req, runtime), new ListFilesResponse({}));
   }
 
+  /**
+   * @param request ListFilesRequest
+   * @return ListFilesResponse
+   */
   async listFiles(request: ListFilesRequest): Promise<ListFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListFoldersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFoldersResponse
+   */
   async listFoldersWithOptions(request: ListFoldersRequest, runtime: $Util.RuntimeOptions): Promise<ListFoldersResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47700,11 +51531,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFoldersResponse>(await this.callApi(params, req, runtime), new ListFoldersResponse({}));
   }
 
+  /**
+   * @param request ListFoldersRequest
+   * @return ListFoldersResponse
+   */
   async listFolders(request: ListFoldersRequest): Promise<ListFoldersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFoldersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListInnerNodes**.
+   *
+   * @param request ListInnerNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInnerNodesResponse
+   */
   async listInnerNodesWithOptions(request: ListInnerNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListInnerNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47753,11 +51595,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInnerNodesResponse>(await this.callApi(params, req, runtime), new ListInnerNodesResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListInnerNodes**.
+   *
+   * @param request ListInnerNodesRequest
+   * @return ListInnerNodesResponse
+   */
   async listInnerNodes(request: ListInnerNodesRequest): Promise<ListInnerNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInnerNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListInstanceAmountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceAmountResponse
+   */
   async listInstanceAmountWithOptions(request: ListInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceAmountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47790,11 +51643,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceAmountResponse>(await this.callApi(params, req, runtime), new ListInstanceAmountResponse({}));
   }
 
+  /**
+   * @param request ListInstanceAmountRequest
+   * @return ListInstanceAmountResponse
+   */
   async listInstanceAmount(request: ListInstanceAmountRequest): Promise<ListInstanceAmountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceAmountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListInstanceHistory**.
+   *
+   * @param request ListInstanceHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstanceHistoryResponse
+   */
   async listInstanceHistoryWithOptions(request: ListInstanceHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceHistoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47823,11 +51687,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstanceHistoryResponse>(await this.callApi(params, req, runtime), new ListInstanceHistoryResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListInstanceHistory**.
+   *
+   * @param request ListInstanceHistoryRequest
+   * @return ListInstanceHistoryResponse
+   */
   async listInstanceHistory(request: ListInstanceHistoryRequest): Promise<ListInstanceHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstanceHistoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the directed acyclic graph (DAG). You can set this parameter to the value of the DagId parameter returned by the [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html), [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html), or [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) operation based on your business requirements. The RunManualDagNodes operation is used to backfill data, the RunSmokeTest operation is used to perform smoke testing, and the RunManualDagNodes operation is used to run nodes in a manually triggered workflow.
+   *
+   * @param request ListInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47908,11 +51785,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @summary The ID of the directed acyclic graph (DAG). You can set this parameter to the value of the DagId parameter returned by the [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html), [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html), or [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) operation based on your business requirements. The RunManualDagNodes operation is used to backfill data, the RunSmokeTest operation is used to perform smoke testing, and the RunManualDagNodes operation is used to run nodes in a manually triggered workflow.
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询血缘V2, 支持各种实体的血缘查询
+   *
+   * @param request ListLineageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLineageResponse
+   */
   async listLineageWithOptions(request: ListLineageRequest, runtime: $Util.RuntimeOptions): Promise<ListLineageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -47953,11 +51843,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLineageResponse>(await this.callApi(params, req, runtime), new ListLineageResponse({}));
   }
 
+  /**
+   * @summary 查询血缘V2, 支持各种实体的血缘查询
+   *
+   * @param request ListLineageRequest
+   * @return ListLineageResponse
+   */
   async listLineage(request: ListLineageRequest): Promise<ListLineageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLineageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListManualDagInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListManualDagInstancesResponse
+   */
   async listManualDagInstancesWithOptions(request: ListManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListManualDagInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -47990,11 +51891,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListManualDagInstancesResponse>(await this.callApi(params, req, runtime), new ListManualDagInstancesResponse({}));
   }
 
+  /**
+   * @param request ListManualDagInstancesRequest
+   * @return ListManualDagInstancesResponse
+   */
   async listManualDagInstances(request: ListManualDagInstancesRequest): Promise<ListManualDagInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listManualDagInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListMetaCollectionEntities**.
+   *
+   * @param request ListMetaCollectionEntitiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMetaCollectionEntitiesResponse
+   */
   async listMetaCollectionEntitiesWithOptions(request: ListMetaCollectionEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaCollectionEntitiesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48035,17 +51947,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMetaCollectionEntitiesResponse>(await this.callApi(params, req, runtime), new ListMetaCollectionEntitiesResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListMetaCollectionEntities**.
+   *
+   * @param request ListMetaCollectionEntitiesRequest
+   * @return ListMetaCollectionEntitiesResponse
+   */
   async listMetaCollectionEntities(request: ListMetaCollectionEntitiesRequest): Promise<ListMetaCollectionEntitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMetaCollectionEntitiesWithOptions(request, runtime);
   }
 
   /**
-    * You can configure only one of the Creator, Administrator, and Follower parameters.
-    *
-    * @param request ListMetaCollectionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListMetaCollectionsResponse
+   * @summary The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+   *
+   * @description You can configure only one of the Creator, Administrator, and Follower parameters.
+   *
+   * @param request ListMetaCollectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMetaCollectionsResponse
    */
   async listMetaCollectionsWithOptions(request: ListMetaCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaCollectionsResponse> {
     Util.validateModel(request);
@@ -48104,16 +52024,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can configure only one of the Creator, Administrator, and Follower parameters.
-    *
-    * @param request ListMetaCollectionsRequest
-    * @return ListMetaCollectionsResponse
+   * @summary The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+   *
+   * @description You can configure only one of the Creator, Administrator, and Follower parameters.
+   *
+   * @param request ListMetaCollectionsRequest
+   * @return ListMetaCollectionsResponse
    */
   async listMetaCollections(request: ListMetaCollectionsRequest): Promise<ListMetaCollectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMetaCollectionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMetaDBRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMetaDBResponse
+   */
   async listMetaDBWithOptions(request: ListMetaDBRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaDBResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -48134,11 +52061,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMetaDBResponse>(await this.callApi(params, req, runtime), new ListMetaDBResponse({}));
   }
 
+  /**
+   * @param request ListMetaDBRequest
+   * @return ListMetaDBResponse
+   */
   async listMetaDB(request: ListMetaDBRequest): Promise<ListMetaDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMetaDBWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListMigrations**.
+   *
+   * @param request ListMigrationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMigrationsResponse
+   */
   async listMigrationsWithOptions(request: ListMigrationsRequest, runtime: $Util.RuntimeOptions): Promise<ListMigrationsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -48179,17 +52117,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMigrationsResponse>(await this.callApi(params, req, runtime), new ListMigrationsResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListMigrations**.
+   *
+   * @param request ListMigrationsRequest
+   * @return ListMigrationsResponse
+   */
   async listMigrations(request: ListMigrationsRequest): Promise<ListMigrationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMigrationsWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ListNodeIORequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListNodeIOResponse
+   * @deprecated OpenAPI ListNodeIO is deprecated
+   *
+   * @param request ListNodeIORequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodeIOResponse
    */
   // Deprecated
   async listNodeIOWithOptions(request: ListNodeIORequest, runtime: $Util.RuntimeOptions): Promise<ListNodeIOResponse> {
@@ -48225,10 +52169,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ListNodeIORequest
-    * @return ListNodeIOResponse
+   * @deprecated OpenAPI ListNodeIO is deprecated
+   *
+   * @param request ListNodeIORequest
+   * @return ListNodeIOResponse
    */
   // Deprecated
   async listNodeIO(request: ListNodeIORequest): Promise<ListNodeIOResponse> {
@@ -48236,6 +52180,11 @@ export default class Client extends OpenApi {
     return await this.listNodeIOWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListNodeInputOrOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodeInputOrOutputResponse
+   */
   async listNodeInputOrOutputWithOptions(request: ListNodeInputOrOutputRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeInputOrOutputResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -48268,11 +52217,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodeInputOrOutputResponse>(await this.callApi(params, req, runtime), new ListNodeInputOrOutputResponse({}));
   }
 
+  /**
+   * @param request ListNodeInputOrOutputRequest
+   * @return ListNodeInputOrOutputResponse
+   */
   async listNodeInputOrOutput(request: ListNodeInputOrOutputRequest): Promise<ListNodeInputOrOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodeInputOrOutputWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the workspace.
+   *
+   * @param request ListNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodesResponse
+   */
   async listNodesWithOptions(request: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -48329,11 +52289,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
   }
 
+  /**
+   * @summary The ID of the workspace.
+   *
+   * @param request ListNodesRequest
+   * @return ListNodesResponse
+   */
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListNodesByBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodesByBaselineResponse
+   */
   async listNodesByBaselineWithOptions(request: ListNodesByBaselineRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesByBaselineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -48358,11 +52329,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodesByBaselineResponse>(await this.callApi(params, req, runtime), new ListNodesByBaselineResponse({}));
   }
 
+  /**
+   * @param request ListNodesByBaselineRequest
+   * @return ListNodesByBaselineResponse
+   */
   async listNodesByBaseline(request: ListNodesByBaselineRequest): Promise<ListNodesByBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodesByBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListNodesByOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodesByOutputResponse
+   */
   async listNodesByOutputWithOptions(request: ListNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesByOutputResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -48391,11 +52371,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodesByOutputResponse>(await this.callApi(params, req, runtime), new ListNodesByOutputResponse({}));
   }
 
+  /**
+   * @param request ListNodesByOutputRequest
+   * @return ListNodesByOutputResponse
+   */
   async listNodesByOutput(request: ListNodesByOutputRequest): Promise<ListNodesByOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodesByOutputWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListPermissionApplyOrdersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPermissionApplyOrdersResponse
+   */
   async listPermissionApplyOrdersWithOptions(request: ListPermissionApplyOrdersRequest, runtime: $Util.RuntimeOptions): Promise<ListPermissionApplyOrdersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48460,17 +52449,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPermissionApplyOrdersResponse>(await this.callApi(params, req, runtime), new ListPermissionApplyOrdersResponse({}));
   }
 
+  /**
+   * @param request ListPermissionApplyOrdersRequest
+   * @return ListPermissionApplyOrdersResponse
+   */
   async listPermissionApplyOrders(request: ListPermissionApplyOrdersRequest): Promise<ListPermissionApplyOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPermissionApplyOrdersWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ListProgramTypeCountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListProgramTypeCountResponse
+   * @deprecated OpenAPI ListProgramTypeCount is deprecated
+   *
+   * @param request ListProgramTypeCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProgramTypeCountResponse
    */
   // Deprecated
   async listProgramTypeCountWithOptions(request: ListProgramTypeCountRequest, runtime: $Util.RuntimeOptions): Promise<ListProgramTypeCountResponse> {
@@ -48502,10 +52495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ListProgramTypeCountRequest
-    * @return ListProgramTypeCountResponse
+   * @deprecated OpenAPI ListProgramTypeCount is deprecated
+   *
+   * @param request ListProgramTypeCountRequest
+   * @return ListProgramTypeCountResponse
    */
   // Deprecated
   async listProgramTypeCount(request: ListProgramTypeCountRequest): Promise<ListProgramTypeCountResponse> {
@@ -48514,11 +52507,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](~~136941~~).
-    *
-    * @param request ListProjectIdsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListProjectIdsResponse
+   * @description For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
+   *
+   * @param request ListProjectIdsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectIdsResponse
    */
   async listProjectIdsWithOptions(request: ListProjectIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectIdsResponse> {
     Util.validateModel(request);
@@ -48545,16 +52538,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](~~136941~~).
-    *
-    * @param request ListProjectIdsRequest
-    * @return ListProjectIdsResponse
+   * @description For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
+   *
+   * @param request ListProjectIdsRequest
+   * @return ListProjectIdsResponse
    */
   async listProjectIds(request: ListProjectIdsRequest): Promise<ListProjectIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectIdsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListProjectMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectMembersResponse
+   */
   async listProjectMembersWithOptions(request: ListProjectMembersRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectMembersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48587,11 +52585,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectMembersResponse>(await this.callApi(params, req, runtime), new ListProjectMembersResponse({}));
   }
 
+  /**
+   * @param request ListProjectMembersRequest
+   * @return ListProjectMembersResponse
+   */
   async listProjectMembers(request: ListProjectMembersRequest): Promise<ListProjectMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Dataworks ID of the workspace.
+   *
+   * @param request ListProjectRolesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectRolesResponse
+   */
   async listProjectRolesWithOptions(request: ListProjectRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectRolesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48616,11 +52625,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectRolesResponse>(await this.callApi(params, req, runtime), new ListProjectRolesResponse({}));
   }
 
+  /**
+   * @summary Dataworks ID of the workspace.
+   *
+   * @param request ListProjectRolesRequest
+   * @return ListProjectRolesResponse
+   */
   async listProjectRoles(request: ListProjectRolesRequest): Promise<ListProjectRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectRolesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询工作空间
+   *
+   * @param tmpReq ListProjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectsResponse
+   */
   async listProjectsWithOptions(tmpReq: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListProjectsShrinkRequest({ });
@@ -48663,17 +52685,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
   }
 
+  /**
+   * @summary 查询工作空间
+   *
+   * @param request ListProjectsRequest
+   * @return ListProjectsResponse
+   */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectsWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request ListQualityResultsByEntityRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListQualityResultsByEntityResponse
+   * @description ****
+   *
+   * @param request ListQualityResultsByEntityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQualityResultsByEntityResponse
    */
   async listQualityResultsByEntityWithOptions(request: ListQualityResultsByEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByEntityResponse> {
     Util.validateModel(request);
@@ -48724,16 +52752,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request ListQualityResultsByEntityRequest
-    * @return ListQualityResultsByEntityResponse
+   * @description ****
+   *
+   * @param request ListQualityResultsByEntityRequest
+   * @return ListQualityResultsByEntityResponse
    */
   async listQualityResultsByEntity(request: ListQualityResultsByEntityRequest): Promise<ListQualityResultsByEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQualityResultsByEntityWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListQualityResultsByRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQualityResultsByRuleResponse
+   */
   async listQualityResultsByRuleWithOptions(request: ListQualityResultsByRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -48782,11 +52815,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQualityResultsByRuleResponse>(await this.callApi(params, req, runtime), new ListQualityResultsByRuleResponse({}));
   }
 
+  /**
+   * @param request ListQualityResultsByRuleRequest
+   * @return ListQualityResultsByRuleResponse
+   */
   async listQualityResultsByRule(request: ListQualityResultsByRuleRequest): Promise<ListQualityResultsByRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQualityResultsByRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListQualityRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQualityRulesResponse
+   */
   async listQualityRulesWithOptions(request: ListQualityRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityRulesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -48827,11 +52869,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQualityRulesResponse>(await this.callApi(params, req, runtime), new ListQualityRulesResponse({}));
   }
 
+  /**
+   * @param request ListQualityRulesRequest
+   * @return ListQualityRulesResponse
+   */
   async listQualityRules(request: ListQualityRulesRequest): Promise<ListQualityRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQualityRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListRefDISyncTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRefDISyncTasksResponse
+   */
   async listRefDISyncTasksWithOptions(request: ListRefDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListRefDISyncTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -48876,11 +52927,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRefDISyncTasksResponse>(await this.callApi(params, req, runtime), new ListRefDISyncTasksResponse({}));
   }
 
+  /**
+   * @param request ListRefDISyncTasksRequest
+   * @return ListRefDISyncTasksResponse
+   */
   async listRefDISyncTasks(request: ListRefDISyncTasksRequest): Promise<ListRefDISyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRefDISyncTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries custom alert rules.
+   *
+   * @param request ListRemindsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRemindsResponse
+   */
   async listRemindsWithOptions(request: ListRemindsRequest, runtime: $Util.RuntimeOptions): Promise<ListRemindsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -48929,11 +52991,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRemindsResponse>(await this.callApi(params, req, runtime), new ListRemindsResponse({}));
   }
 
+  /**
+   * @summary Queries custom alert rules.
+   *
+   * @param request ListRemindsRequest
+   * @return ListRemindsResponse
+   */
   async listReminds(request: ListRemindsRequest): Promise<ListRemindsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRemindsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询资源组
+   *
+   * @param tmpReq ListResourceGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourceGroupsResponse
+   */
   async listResourceGroupsWithOptions(tmpReq: ListResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceGroupsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListResourceGroupsShrinkRequest({ });
@@ -48980,11 +53055,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupsResponse({}));
   }
 
+  /**
+   * @summary 查询资源组
+   *
+   * @param request ListResourceGroupsRequest
+   * @return ListResourceGroupsResponse
+   */
   async listResourceGroups(request: ListResourceGroupsRequest): Promise<ListResourceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListShiftPersonnels**.
+   *
+   * @param request ListShiftPersonnelsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListShiftPersonnelsResponse
+   */
   async listShiftPersonnelsWithOptions(request: ListShiftPersonnelsRequest, runtime: $Util.RuntimeOptions): Promise<ListShiftPersonnelsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49025,11 +53113,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListShiftPersonnelsResponse>(await this.callApi(params, req, runtime), new ListShiftPersonnelsResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListShiftPersonnels**.
+   *
+   * @param request ListShiftPersonnelsRequest
+   * @return ListShiftPersonnelsResponse
+   */
   async listShiftPersonnels(request: ListShiftPersonnelsRequest): Promise<ListShiftPersonnelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listShiftPersonnelsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListShiftSchedules**.
+   *
+   * @param request ListShiftSchedulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListShiftSchedulesResponse
+   */
   async listShiftSchedulesWithOptions(request: ListShiftSchedulesRequest, runtime: $Util.RuntimeOptions): Promise<ListShiftSchedulesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49066,11 +53167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListShiftSchedulesResponse>(await this.callApi(params, req, runtime), new ListShiftSchedulesResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **ListShiftSchedules**.
+   *
+   * @param request ListShiftSchedulesRequest
+   * @return ListShiftSchedulesResponse
+   */
   async listShiftSchedules(request: ListShiftSchedulesRequest): Promise<ListShiftSchedulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listShiftSchedulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+   *
+   * @param request ListSuccessInstanceAmountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSuccessInstanceAmountResponse
+   */
   async listSuccessInstanceAmountWithOptions(request: ListSuccessInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListSuccessInstanceAmountResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49095,11 +53209,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSuccessInstanceAmountResponse>(await this.callApi(params, req, runtime), new ListSuccessInstanceAmountResponse({}));
   }
 
+  /**
+   * @summary Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+   *
+   * @param request ListSuccessInstanceAmountRequest
+   * @return ListSuccessInstanceAmountResponse
+   */
   async listSuccessInstanceAmount(request: ListSuccessInstanceAmountRequest): Promise<ListSuccessInstanceAmountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSuccessInstanceAmountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListTableLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTableLevelResponse
+   */
   async listTableLevelWithOptions(request: ListTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<ListTableLevelResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -49120,11 +53245,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTableLevelResponse>(await this.callApi(params, req, runtime), new ListTableLevelResponse({}));
   }
 
+  /**
+   * @param request ListTableLevelRequest
+   * @return ListTableLevelResponse
+   */
   async listTableLevel(request: ListTableLevelRequest): Promise<ListTableLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTableLevelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListTableThemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTableThemeResponse
+   */
   async listTableThemeWithOptions(request: ListTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<ListTableThemeResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -49145,11 +53279,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTableThemeResponse>(await this.callApi(params, req, runtime), new ListTableThemeResponse({}));
   }
 
+  /**
+   * @param request ListTableThemeRequest
+   * @return ListTableThemeResponse
+   */
   async listTableTheme(request: ListTableThemeRequest): Promise<ListTableThemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTableThemeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries events.
+   *
+   * @param request ListTopicsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTopicsResponse
+   */
   async listTopicsWithOptions(request: ListTopicsRequest, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49206,11 +53351,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTopicsResponse>(await this.callApi(params, req, runtime), new ListTopicsResponse({}));
   }
 
+  /**
+   * @summary Queries events.
+   *
+   * @param request ListTopicsRequest
+   * @return ListTopicsResponse
+   */
   async listTopics(request: ListTopicsRequest): Promise<ListTopicsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTopicsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the directory that you want to add to the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter.
+   * For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the related data album. You can call the [ListMetaCollections](https://help.aliyun.com/document_detail/469938.html) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
+   *
+   * @param request MountDirectoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MountDirectoryResponse
+   */
   async mountDirectoryWithOptions(request: MountDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<MountDirectoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49243,11 +53402,25 @@ export default class Client extends OpenApi {
     return $tea.cast<MountDirectoryResponse>(await this.callApi(params, req, runtime), new MountDirectoryResponse({}));
   }
 
+  /**
+   * @summary The ID of the directory that you want to add to the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter.
+   * For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the related data album. You can call the [ListMetaCollections](https://help.aliyun.com/document_detail/469938.html) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
+   *
+   * @param request MountDirectoryRequest
+   * @return MountDirectoryResponse
+   */
   async mountDirectory(request: MountDirectoryRequest): Promise<MountDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.mountDirectoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **OfflineNode**.
+   *
+   * @param request OfflineNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OfflineNodeResponse
+   */
   async offlineNodeWithOptions(request: OfflineNodeRequest, runtime: $Util.RuntimeOptions): Promise<OfflineNodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49276,11 +53449,22 @@ export default class Client extends OpenApi {
     return $tea.cast<OfflineNodeResponse>(await this.callApi(params, req, runtime), new OfflineNodeResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **OfflineNode**.
+   *
+   * @param request OfflineNodeRequest
+   * @return OfflineNodeResponse
+   */
   async offlineNode(request: OfflineNodeRequest): Promise<OfflineNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.offlineNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PublishDataServiceApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PublishDataServiceApiResponse
+   */
   async publishDataServiceApiWithOptions(request: PublishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<PublishDataServiceApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49313,17 +53497,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PublishDataServiceApiResponse>(await this.callApi(params, req, runtime), new PublishDataServiceApiResponse({}));
   }
 
+  /**
+   * @param request PublishDataServiceApiRequest
+   * @return PublishDataServiceApiResponse
+   */
   async publishDataServiceApi(request: PublishDataServiceApiRequest): Promise<PublishDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishDataServiceApiWithOptions(request, runtime);
   }
 
   /**
-    * The operation that you want to perform.
-    *
-    * @param request QueryDISyncTaskConfigProcessResultRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryDISyncTaskConfigProcessResultResponse
+   * @summary DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) or [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
+   * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+   *
+   * @description The operation that you want to perform.
+   *
+   * @param request QueryDISyncTaskConfigProcessResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDISyncTaskConfigProcessResultResponse
    */
   async queryDISyncTaskConfigProcessResultWithOptions(request: QueryDISyncTaskConfigProcessResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryDISyncTaskConfigProcessResultResponse> {
     Util.validateModel(request);
@@ -49358,16 +53549,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform.
-    *
-    * @param request QueryDISyncTaskConfigProcessResultRequest
-    * @return QueryDISyncTaskConfigProcessResultResponse
+   * @summary DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) or [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
+   * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+   *
+   * @description The operation that you want to perform.
+   *
+   * @param request QueryDISyncTaskConfigProcessResultRequest
+   * @return QueryDISyncTaskConfigProcessResultResponse
    */
   async queryDISyncTaskConfigProcessResult(request: QueryDISyncTaskConfigProcessResultRequest): Promise<QueryDISyncTaskConfigProcessResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDISyncTaskConfigProcessResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取模版列表
+   *
+   * @param request QueryDefaultTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDefaultTemplateResponse
+   */
   async queryDefaultTemplateWithOptions(request: QueryDefaultTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryDefaultTemplateResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49392,11 +53593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDefaultTemplateResponse>(await this.callApi(params, req, runtime), new QueryDefaultTemplateResponse({}));
   }
 
+  /**
+   * @summary 获取模版列表
+   *
+   * @param request QueryDefaultTemplateRequest
+   * @return QueryDefaultTemplateResponse
+   */
   async queryDefaultTemplate(request: QueryDefaultTemplateRequest): Promise<QueryDefaultTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDefaultTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 建模平台弹外的公共处理
+   *
+   * @param request QueryPublicModelEngineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPublicModelEngineResponse
+   */
   async queryPublicModelEngineWithOptions(request: QueryPublicModelEngineRequest, runtime: $Util.RuntimeOptions): Promise<QueryPublicModelEngineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49425,11 +53639,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPublicModelEngineResponse>(await this.callApi(params, req, runtime), new QueryPublicModelEngineResponse({}));
   }
 
+  /**
+   * @summary 建模平台弹外的公共处理
+   *
+   * @param request QueryPublicModelEngineRequest
+   * @return QueryPublicModelEngineResponse
+   */
   async queryPublicModelEngine(request: QueryPublicModelEngineRequest): Promise<QueryPublicModelEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPublicModelEngineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取识别规则类型数据
+   *
+   * @param request QueryRecognizeDataByRuleTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryRecognizeDataByRuleTypeResponse
+   */
   async queryRecognizeDataByRuleTypeWithOptions(request: QueryRecognizeDataByRuleTypeRequest, runtime: $Util.RuntimeOptions): Promise<QueryRecognizeDataByRuleTypeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49458,11 +53685,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRecognizeDataByRuleTypeResponse>(await this.callApi(params, req, runtime), new QueryRecognizeDataByRuleTypeResponse({}));
   }
 
+  /**
+   * @summary 获取识别规则类型数据
+   *
+   * @param request QueryRecognizeDataByRuleTypeRequest
+   * @return QueryRecognizeDataByRuleTypeResponse
+   */
   async queryRecognizeDataByRuleType(request: QueryRecognizeDataByRuleTypeRequest): Promise<QueryRecognizeDataByRuleTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRecognizeDataByRuleTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询识别规则详情
+   *
+   * @param request QueryRecognizeRuleDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryRecognizeRuleDetailResponse
+   */
   async queryRecognizeRuleDetailWithOptions(request: QueryRecognizeRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRecognizeRuleDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49491,11 +53731,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRecognizeRuleDetailResponse>(await this.callApi(params, req, runtime), new QueryRecognizeRuleDetailResponse({}));
   }
 
+  /**
+   * @summary 查询识别规则详情
+   *
+   * @param request QueryRecognizeRuleDetailRequest
+   * @return QueryRecognizeRuleDetailResponse
+   */
   async queryRecognizeRuleDetail(request: QueryRecognizeRuleDetailRequest): Promise<QueryRecognizeRuleDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRecognizeRuleDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取识别规则类型
+   *
+   * @param request QueryRecognizeRulesTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryRecognizeRulesTypeResponse
+   */
   async queryRecognizeRulesTypeWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryRecognizeRulesTypeResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -49512,11 +53765,23 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryRecognizeRulesTypeResponse>(await this.callApi(params, req, runtime), new QueryRecognizeRulesTypeResponse({}));
   }
 
+  /**
+   * @summary 获取识别规则类型
+   *
+   * @return QueryRecognizeRulesTypeResponse
+   */
   async queryRecognizeRulesType(): Promise<QueryRecognizeRulesTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRecognizeRulesTypeWithOptions(runtime);
   }
 
+  /**
+   * @summary 获取分类
+   *
+   * @param request QuerySensClassificationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySensClassificationResponse
+   */
   async querySensClassificationWithOptions(request: QuerySensClassificationRequest, runtime: $Util.RuntimeOptions): Promise<QuerySensClassificationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49545,11 +53810,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySensClassificationResponse>(await this.callApi(params, req, runtime), new QuerySensClassificationResponse({}));
   }
 
+  /**
+   * @summary 获取分类
+   *
+   * @param request QuerySensClassificationRequest
+   * @return QuerySensClassificationResponse
+   */
   async querySensClassification(request: QuerySensClassificationRequest): Promise<QuerySensClassificationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySensClassificationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取分级
+   *
+   * @param request QuerySensLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySensLevelResponse
+   */
   async querySensLevelWithOptions(request: QuerySensLevelRequest, runtime: $Util.RuntimeOptions): Promise<QuerySensLevelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49578,11 +53856,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySensLevelResponse>(await this.callApi(params, req, runtime), new QuerySensLevelResponse({}));
   }
 
+  /**
+   * @summary 获取分级
+   *
+   * @param request QuerySensLevelRequest
+   * @return QuerySensLevelResponse
+   */
   async querySensLevel(request: QuerySensLevelRequest): Promise<QuerySensLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySensLevelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取敏感字段
+   *
+   * @param request QuerySensNodeInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySensNodeInfoResponse
+   */
   async querySensNodeInfoWithOptions(request: QuerySensNodeInfoRequest, runtime: $Util.RuntimeOptions): Promise<QuerySensNodeInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49631,11 +53922,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySensNodeInfoResponse>(await this.callApi(params, req, runtime), new QuerySensNodeInfoResponse({}));
   }
 
+  /**
+   * @summary 获取敏感字段
+   *
+   * @param request QuerySensNodeInfoRequest
+   * @return QuerySensNodeInfoResponse
+   */
   async querySensNodeInfo(request: QuerySensNodeInfoRequest): Promise<QuerySensNodeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySensNodeInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 注册实体关系，支持用户注册自定义的实体关系
+   *
+   * @param tmpReq RegisterLineageRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegisterLineageRelationResponse
+   */
   async registerLineageRelationWithOptions(tmpReq: RegisterLineageRelationRequest, runtime: $Util.RuntimeOptions): Promise<RegisterLineageRelationResponse> {
     Util.validateModel(tmpReq);
     let request = new RegisterLineageRelationShrinkRequest({ });
@@ -49666,11 +53970,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterLineageRelationResponse>(await this.callApi(params, req, runtime), new RegisterLineageRelationResponse({}));
   }
 
+  /**
+   * @summary 注册实体关系，支持用户注册自定义的实体关系
+   *
+   * @param request RegisterLineageRelationRequest
+   * @return RegisterLineageRelationResponse
+   */
   async registerLineageRelation(request: RegisterLineageRelationRequest): Promise<RegisterLineageRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerLineageRelationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Remove entity tags by given qualified name and tag keys
+   *
+   * @param tmpReq RemoveEntityTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveEntityTagsResponse
+   */
   async removeEntityTagsWithOptions(tmpReq: RemoveEntityTagsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntityTagsResponse> {
     Util.validateModel(tmpReq);
     let request = new RemoveEntityTagsShrinkRequest({ });
@@ -49707,11 +54024,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveEntityTagsResponse>(await this.callApi(params, req, runtime), new RemoveEntityTagsResponse({}));
   }
 
+  /**
+   * @summary Remove entity tags by given qualified name and tag keys
+   *
+   * @param request RemoveEntityTagsRequest
+   * @return RemoveEntityTagsResponse
+   */
   async removeEntityTags(request: RemoveEntityTagsRequest): Promise<RemoveEntityTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeEntityTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RemoveProjectMemberFromRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveProjectMemberFromRoleResponse
+   */
   async removeProjectMemberFromRoleWithOptions(request: RemoveProjectMemberFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<RemoveProjectMemberFromRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49744,11 +54072,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveProjectMemberFromRoleResponse>(await this.callApi(params, req, runtime), new RemoveProjectMemberFromRoleResponse({}));
   }
 
+  /**
+   * @param request RemoveProjectMemberFromRoleRequest
+   * @return RemoveProjectMemberFromRoleResponse
+   */
   async removeProjectMemberFromRole(request: RemoveProjectMemberFromRoleRequest): Promise<RemoveProjectMemberFromRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeProjectMemberFromRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restarts an instance.
+   *
+   * @param request RestartInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartInstanceResponse
+   */
   async restartInstanceWithOptions(request: RestartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49777,11 +54116,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartInstanceResponse>(await this.callApi(params, req, runtime), new RestartInstanceResponse({}));
   }
 
+  /**
+   * @summary Restarts an instance.
+   *
+   * @param request RestartInstanceRequest
+   * @return RestartInstanceResponse
+   */
   async restartInstance(request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Resumes a suspended instance.
+   *
+   * @param request ResumeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeInstanceResponse
+   */
   async resumeInstanceWithOptions(request: ResumeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResumeInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -49810,11 +54162,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeInstanceResponse>(await this.callApi(params, req, runtime), new ResumeInstanceResponse({}));
   }
 
+  /**
+   * @summary Resumes a suspended instance.
+   *
+   * @param request ResumeInstanceRequest
+   * @return ResumeInstanceResponse
+   */
   async resumeInstance(request: ResumeInstanceRequest): Promise<ResumeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the region where the MaxCompute project that contains the destination fields resides. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+   *
+   * @param request RevokeColumnPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeColumnPermissionResponse
+   */
   async revokeColumnPermissionWithOptions(request: RevokeColumnPermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeColumnPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49859,11 +54224,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeColumnPermissionResponse>(await this.callApi(params, req, runtime), new RevokeColumnPermissionResponse({}));
   }
 
+  /**
+   * @summary The ID of the region where the MaxCompute project that contains the destination fields resides. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+   *
+   * @param request RevokeColumnPermissionRequest
+   * @return RevokeColumnPermissionResponse
+   */
   async revokeColumnPermission(request: RevokeColumnPermissionRequest): Promise<RevokeColumnPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeColumnPermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RevokeTablePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeTablePermissionResponse
+   */
   async revokeTablePermissionWithOptions(request: RevokeTablePermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeTablePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -49908,17 +54284,21 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeTablePermissionResponse>(await this.callApi(params, req, runtime), new RevokeTablePermissionResponse({}));
   }
 
+  /**
+   * @param request RevokeTablePermissionRequest
+   * @return RevokeTablePermissionResponse
+   */
   async revokeTablePermission(request: RevokeTablePermissionRequest): Promise<RevokeTablePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeTablePermissionWithOptions(request, runtime);
   }
 
   /**
-    * For more information about data backfill, see [Backfill data](~~137937~~).
-    *
-    * @param request RunCycleDagNodesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RunCycleDagNodesResponse
+   * @description For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+   *
+   * @param request RunCycleDagNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunCycleDagNodesResponse
    */
   async runCycleDagNodesWithOptions(request: RunCycleDagNodesRequest, runtime: $Util.RuntimeOptions): Promise<RunCycleDagNodesResponse> {
     Util.validateModel(request);
@@ -50001,16 +54381,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about data backfill, see [Backfill data](~~137937~~).
-    *
-    * @param request RunCycleDagNodesRequest
-    * @return RunCycleDagNodesResponse
+   * @description For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+   *
+   * @param request RunCycleDagNodesRequest
+   * @return RunCycleDagNodesResponse
    */
   async runCycleDagNodes(request: RunCycleDagNodesRequest): Promise<RunCycleDagNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runCycleDagNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The region ID. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+   *
+   * @param request RunManualDagNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunManualDagNodesResponse
+   */
   async runManualDagNodesWithOptions(request: RunManualDagNodesRequest, runtime: $Util.RuntimeOptions): Promise<RunManualDagNodesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50075,11 +54462,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RunManualDagNodesResponse>(await this.callApi(params, req, runtime), new RunManualDagNodesResponse({}));
   }
 
+  /**
+   * @summary The region ID. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+   *
+   * @param request RunManualDagNodesRequest
+   * @return RunManualDagNodesResponse
+   */
   async runManualDagNodes(request: RunManualDagNodesRequest): Promise<RunManualDagNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runManualDagNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RunSmokeTestRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunSmokeTestResponse
+   */
   async runSmokeTestWithOptions(request: RunSmokeTestRequest, runtime: $Util.RuntimeOptions): Promise<RunSmokeTestResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50120,11 +54518,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RunSmokeTestResponse>(await this.callApi(params, req, runtime), new RunSmokeTestResponse({}));
   }
 
+  /**
+   * @param request RunSmokeTestRequest
+   * @return RunSmokeTestResponse
+   */
   async runSmokeTest(request: RunSmokeTestRequest): Promise<RunSmokeTestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runSmokeTestWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RunTriggerNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunTriggerNodeResponse
+   */
   async runTriggerNodeWithOptions(request: RunTriggerNodeRequest, runtime: $Util.RuntimeOptions): Promise<RunTriggerNodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50161,11 +54568,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RunTriggerNodeResponse>(await this.callApi(params, req, runtime), new RunTriggerNodeResponse({}));
   }
 
+  /**
+   * @param request RunTriggerNodeRequest
+   * @return RunTriggerNodeResponse
+   */
   async runTriggerNode(request: RunTriggerNodeRequest): Promise<RunTriggerNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runTriggerNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 保存api测试结果
+   *
+   * @param request SaveDataServiceApiTestResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveDataServiceApiTestResultResponse
+   */
   async saveDataServiceApiTestResultWithOptions(request: SaveDataServiceApiTestResultRequest, runtime: $Util.RuntimeOptions): Promise<SaveDataServiceApiTestResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50206,11 +54624,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveDataServiceApiTestResultResponse>(await this.callApi(params, req, runtime), new SaveDataServiceApiTestResultResponse({}));
   }
 
+  /**
+   * @summary 保存api测试结果
+   *
+   * @param request SaveDataServiceApiTestResultRequest
+   * @return SaveDataServiceApiTestResultResponse
+   */
   async saveDataServiceApiTestResult(request: SaveDataServiceApiTestResultRequest): Promise<SaveDataServiceApiTestResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveDataServiceApiTestResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ScanSensitiveDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ScanSensitiveDataResponse
+   */
   async scanSensitiveDataWithOptions(request: ScanSensitiveDataRequest, runtime: $Util.RuntimeOptions): Promise<ScanSensitiveDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -50231,17 +54660,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ScanSensitiveDataResponse>(await this.callApi(params, req, runtime), new ScanSensitiveDataResponse({}));
   }
 
+  /**
+   * @param request ScanSensitiveDataRequest
+   * @return ScanSensitiveDataResponse
+   */
   async scanSensitiveData(request: ScanSensitiveDataRequest): Promise<ScanSensitiveDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.scanSensitiveDataWithOptions(request, runtime);
   }
 
   /**
-    * The operation that you want to perform. Set the value to **SearchMetaTables**.
-    *
-    * @param request SearchMetaTablesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchMetaTablesResponse
+   * @summary For more information about the example on how to use the SearchMetaTables operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+   *
+   * @description The operation that you want to perform. Set the value to **SearchMetaTables**.
+   *
+   * @param request SearchMetaTablesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchMetaTablesResponse
    */
   async searchMetaTablesWithOptions(request: SearchMetaTablesRequest, runtime: $Util.RuntimeOptions): Promise<SearchMetaTablesResponse> {
     Util.validateModel(request);
@@ -50296,10 +54731,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **SearchMetaTables**.
-    *
-    * @param request SearchMetaTablesRequest
-    * @return SearchMetaTablesResponse
+   * @summary For more information about the example on how to use the SearchMetaTables operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+   *
+   * @description The operation that you want to perform. Set the value to **SearchMetaTables**.
+   *
+   * @param request SearchMetaTablesRequest
+   * @return SearchMetaTablesResponse
    */
   async searchMetaTables(request: SearchMetaTablesRequest): Promise<SearchMetaTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -50307,11 +54744,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request SearchNodesByOutputRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SearchNodesByOutputResponse
+   * @deprecated OpenAPI SearchNodesByOutput is deprecated
+   *
+   * @param request SearchNodesByOutputRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchNodesByOutputResponse
    */
   // Deprecated
   async searchNodesByOutputWithOptions(request: SearchNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<SearchNodesByOutputResponse> {
@@ -50343,10 +54780,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request SearchNodesByOutputRequest
-    * @return SearchNodesByOutputResponse
+   * @deprecated OpenAPI SearchNodesByOutput is deprecated
+   *
+   * @param request SearchNodesByOutputRequest
+   * @return SearchNodesByOutputResponse
    */
   // Deprecated
   async searchNodesByOutput(request: SearchNodesByOutputRequest): Promise<SearchNodesByOutputResponse> {
@@ -50355,11 +54792,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request SetDataSourceShareRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDataSourceShareResponse
+   * @deprecated OpenAPI SetDataSourceShare is deprecated
+   *
+   * @param request SetDataSourceShareRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDataSourceShareResponse
    */
   // Deprecated
   async setDataSourceShareWithOptions(request: SetDataSourceShareRequest, runtime: $Util.RuntimeOptions): Promise<SetDataSourceShareResponse> {
@@ -50403,10 +54840,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request SetDataSourceShareRequest
-    * @return SetDataSourceShareResponse
+   * @deprecated OpenAPI SetDataSourceShare is deprecated
+   *
+   * @param request SetDataSourceShareRequest
+   * @return SetDataSourceShareResponse
    */
   // Deprecated
   async setDataSourceShare(request: SetDataSourceShareRequest): Promise<SetDataSourceShareResponse> {
@@ -50414,6 +54851,13 @@ export default class Client extends OpenApi {
     return await this.setDataSourceShareWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Set entity tags by given qualified name and tags
+   *
+   * @param tmpReq SetEntityTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetEntityTagsResponse
+   */
   async setEntityTagsWithOptions(tmpReq: SetEntityTagsRequest, runtime: $Util.RuntimeOptions): Promise<SetEntityTagsResponse> {
     Util.validateModel(tmpReq);
     let request = new SetEntityTagsShrinkRequest({ });
@@ -50450,11 +54894,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetEntityTagsResponse>(await this.callApi(params, req, runtime), new SetEntityTagsResponse({}));
   }
 
+  /**
+   * @summary Set entity tags by given qualified name and tags
+   *
+   * @param request SetEntityTagsRequest
+   * @return SetEntityTagsResponse
+   */
   async setEntityTags(request: SetEntityTagsRequest): Promise<SetEntityTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setEntityTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **SetSuccessInstance**.
+   *
+   * @param request SetSuccessInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetSuccessInstanceResponse
+   */
   async setSuccessInstanceWithOptions(request: SetSuccessInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SetSuccessInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50483,11 +54940,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetSuccessInstanceResponse>(await this.callApi(params, req, runtime), new SetSuccessInstanceResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **SetSuccessInstance**.
+   *
+   * @param request SetSuccessInstanceRequest
+   * @return SetSuccessInstanceResponse
+   */
   async setSuccessInstance(request: SetSuccessInstanceRequest): Promise<SetSuccessInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setSuccessInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 启动数据集成新版解决方案任务
+   *
+   * @param tmpReq StartDIJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartDIJobResponse
+   */
   async startDIJobWithOptions(tmpReq: StartDIJobRequest, runtime: $Util.RuntimeOptions): Promise<StartDIJobResponse> {
     Util.validateModel(tmpReq);
     let request = new StartDIJobShrinkRequest({ });
@@ -50526,11 +54996,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDIJobResponse>(await this.callApi(params, req, runtime), new StartDIJobResponse({}));
   }
 
+  /**
+   * @summary 启动数据集成新版解决方案任务
+   *
+   * @param request StartDIJobRequest
+   * @return StartDIJobResponse
+   */
   async startDIJob(request: StartDIJobRequest): Promise<StartDIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDIJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request StartDISyncInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartDISyncInstanceResponse
+   */
   async startDISyncInstanceWithOptions(request: StartDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartDISyncInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50567,11 +55050,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartDISyncInstanceResponse>(await this.callApi(params, req, runtime), new StartDISyncInstanceResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request StartDISyncInstanceRequest
+   * @return StartDISyncInstanceResponse
+   */
   async startDISyncInstance(request: StartDISyncInstanceRequest): Promise<StartDISyncInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startDISyncInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StartMigrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartMigrationResponse
+   */
   async startMigrationWithOptions(request: StartMigrationRequest, runtime: $Util.RuntimeOptions): Promise<StartMigrationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50600,11 +55094,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartMigrationResponse>(await this.callApi(params, req, runtime), new StartMigrationResponse({}));
   }
 
+  /**
+   * @param request StartMigrationRequest
+   * @return StartMigrationResponse
+   */
   async startMigration(request: StartMigrationRequest): Promise<StartMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startMigrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 停止数据集成新版解决方案任务
+   *
+   * @param request StopDIJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopDIJobResponse
+   */
   async stopDIJobWithOptions(request: StopDIJobRequest, runtime: $Util.RuntimeOptions): Promise<StopDIJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50629,11 +55134,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopDIJobResponse>(await this.callApi(params, req, runtime), new StopDIJobResponse({}));
   }
 
+  /**
+   * @summary 停止数据集成新版解决方案任务
+   *
+   * @param request StopDIJobRequest
+   * @return StopDIJobResponse
+   */
   async stopDIJob(request: StopDIJobRequest): Promise<StopDIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDIJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request StopDISyncInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopDISyncInstanceResponse
+   */
   async stopDISyncInstanceWithOptions(request: StopDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopDISyncInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50666,11 +55184,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StopDISyncInstanceResponse>(await this.callApi(params, req, runtime), new StopDISyncInstanceResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request StopDISyncInstanceRequest
+   * @return StopDISyncInstanceResponse
+   */
   async stopDISyncInstance(request: StopDISyncInstanceRequest): Promise<StopDISyncInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopDISyncInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StopInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopInstanceResponse
+   */
   async stopInstanceWithOptions(request: StopInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50699,11 +55228,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
   }
 
+  /**
+   * @param request StopInstanceRequest
+   * @return StopInstanceResponse
+   */
   async stopInstance(request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 发布APi
+   *
+   * @param request SubmitDataServiceApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitDataServiceApiResponse
+   */
   async submitDataServiceApiWithOptions(request: SubmitDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDataServiceApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50736,11 +55276,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitDataServiceApiResponse>(await this.callApi(params, req, runtime), new SubmitDataServiceApiResponse({}));
   }
 
+  /**
+   * @summary 发布APi
+   *
+   * @param request SubmitDataServiceApiRequest
+   * @return SubmitDataServiceApiResponse
+   */
   async submitDataServiceApi(request: SubmitDataServiceApiRequest): Promise<SubmitDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitDataServiceApiWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **SubmitFile**.
+   *
+   * @param request SubmitFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitFileResponse
+   */
   async submitFileWithOptions(request: SubmitFileRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50781,11 +55334,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitFileResponse>(await this.callApi(params, req, runtime), new SubmitFileResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **SubmitFile**.
+   *
+   * @param request SubmitFileRequest
+   * @return SubmitFileResponse
+   */
   async submitFile(request: SubmitFileRequest): Promise<SubmitFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Suspends an instance.
+   *
+   * @param request SuspendInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SuspendInstanceResponse
+   */
   async suspendInstanceWithOptions(request: SuspendInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SuspendInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50814,11 +55380,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SuspendInstanceResponse>(await this.callApi(params, req, runtime), new SuspendInstanceResponse({}));
   }
 
+  /**
+   * @summary Suspends an instance.
+   *
+   * @param request SuspendInstanceRequest
+   * @return SuspendInstanceResponse
+   */
   async suspendInstance(request: SuspendInstanceRequest): Promise<SuspendInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.suspendInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **TerminateDISyncInstance**.
+   *
+   * @param request TerminateDISyncInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TerminateDISyncInstanceResponse
+   */
   async terminateDISyncInstanceWithOptions(request: TerminateDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TerminateDISyncInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50851,11 +55430,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TerminateDISyncInstanceResponse>(await this.callApi(params, req, runtime), new TerminateDISyncInstanceResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **TerminateDISyncInstance**.
+   *
+   * @param request TerminateDISyncInstanceRequest
+   * @return TerminateDISyncInstanceResponse
+   */
   async terminateDISyncInstance(request: TerminateDISyncInstanceRequest): Promise<TerminateDISyncInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminateDISyncInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Tests a DataService Studio API in asynchronous mode. You can call the GetDataServiceApiTest operation to query the test result.
+   *
+   * @param request TestDataServiceApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TestDataServiceApiResponse
+   */
   async testDataServiceApiWithOptions(request: TestDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<TestDataServiceApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50902,11 +55494,22 @@ export default class Client extends OpenApi {
     return $tea.cast<TestDataServiceApiResponse>(await this.callApi(params, req, runtime), new TestDataServiceApiResponse({}));
   }
 
+  /**
+   * @summary Tests a DataService Studio API in asynchronous mode. You can call the GetDataServiceApiTest operation to query the test result.
+   *
+   * @param request TestDataServiceApiRequest
+   * @return TestDataServiceApiResponse
+   */
   async testDataServiceApi(request: TestDataServiceApiRequest): Promise<TestDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.testDataServiceApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TestNetworkConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TestNetworkConnectionResponse
+   */
   async testNetworkConnectionWithOptions(request: TestNetworkConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TestNetworkConnectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -50943,11 +55546,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TestNetworkConnectionResponse>(await this.callApi(params, req, runtime), new TestNetworkConnectionResponse({}));
   }
 
+  /**
+   * @param request TestNetworkConnectionRequest
+   * @return TestNetworkConnectionResponse
+   */
   async testNetworkConnection(request: TestNetworkConnectionRequest): Promise<TestNetworkConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.testNetworkConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TopTenElapsedTimeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TopTenElapsedTimeInstanceResponse
+   */
   async topTenElapsedTimeInstanceWithOptions(request: TopTenElapsedTimeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TopTenElapsedTimeInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -50972,11 +55584,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TopTenElapsedTimeInstanceResponse>(await this.callApi(params, req, runtime), new TopTenElapsedTimeInstanceResponse({}));
   }
 
+  /**
+   * @param request TopTenElapsedTimeInstanceRequest
+   * @return TopTenElapsedTimeInstanceResponse
+   */
   async topTenElapsedTimeInstance(request: TopTenElapsedTimeInstanceRequest): Promise<TopTenElapsedTimeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.topTenElapsedTimeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TopTenErrorTimesInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TopTenErrorTimesInstanceResponse
+   */
   async topTenErrorTimesInstanceWithOptions(request: TopTenErrorTimesInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TopTenErrorTimesInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -51001,11 +55622,22 @@ export default class Client extends OpenApi {
     return $tea.cast<TopTenErrorTimesInstanceResponse>(await this.callApi(params, req, runtime), new TopTenErrorTimesInstanceResponse({}));
   }
 
+  /**
+   * @param request TopTenErrorTimesInstanceRequest
+   * @return TopTenErrorTimesInstanceResponse
+   */
   async topTenErrorTimesInstance(request: TopTenErrorTimesInstanceRequest): Promise<TopTenErrorTimesInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.topTenErrorTimesInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 将数据专辑从数据分析的左侧导航目录移除（卸载）
+   *
+   * @param request UmountDirectoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UmountDirectoryResponse
+   */
   async umountDirectoryWithOptions(request: UmountDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<UmountDirectoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -51038,11 +55670,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UmountDirectoryResponse>(await this.callApi(params, req, runtime), new UmountDirectoryResponse({}));
   }
 
+  /**
+   * @summary 将数据专辑从数据分析的左侧导航目录移除（卸载）
+   *
+   * @param request UmountDirectoryRequest
+   * @return UmountDirectoryResponse
+   */
   async umountDirectory(request: UmountDirectoryRequest): Promise<UmountDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.umountDirectoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新基线
+   *
+   * @param tmpReq UpdateBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBaselineResponse
+   */
   async updateBaselineWithOptions(tmpReq: UpdateBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBaselineResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateBaselineShrinkRequest({ });
@@ -51125,11 +55770,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBaselineResponse>(await this.callApi(params, req, runtime), new UpdateBaselineResponse({}));
   }
 
+  /**
+   * @summary 更新基线
+   *
+   * @param request UpdateBaselineRequest
+   * @return UpdateBaselineResponse
+   */
   async updateBaseline(request: UpdateBaselineRequest): Promise<UpdateBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a workflow.
+   *
+   * @param request UpdateBusinessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBusinessResponse
+   */
   async updateBusinessWithOptions(request: UpdateBusinessRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBusinessResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -51174,17 +55832,23 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBusinessResponse>(await this.callApi(params, req, runtime), new UpdateBusinessResponse({}));
   }
 
+  /**
+   * @summary Updates a workflow.
+   *
+   * @param request UpdateBusinessRequest
+   * @return UpdateBusinessResponse
+   */
   async updateBusiness(request: UpdateBusinessRequest): Promise<UpdateBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBusinessWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request UpdateConnectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateConnectionResponse
+   * @deprecated OpenAPI UpdateConnection is deprecated
+   *
+   * @param request UpdateConnectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateConnectionResponse
    */
   // Deprecated
   async updateConnectionWithOptions(request: UpdateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnectionResponse> {
@@ -51228,10 +55892,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request UpdateConnectionRequest
-    * @return UpdateConnectionResponse
+   * @deprecated OpenAPI UpdateConnection is deprecated
+   *
+   * @param request UpdateConnectionRequest
+   * @return UpdateConnectionResponse
    */
   // Deprecated
   async updateConnection(request: UpdateConnectionRequest): Promise<UpdateConnectionResponse> {
@@ -51239,6 +55903,13 @@ export default class Client extends OpenApi {
     return await this.updateConnectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新数据集成新版告警规则
+   *
+   * @param tmpReq UpdateDIAlarmRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDIAlarmRuleResponse
+   */
   async updateDIAlarmRuleWithOptions(tmpReq: UpdateDIAlarmRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIAlarmRuleResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateDIAlarmRuleShrinkRequest({ });
@@ -51293,11 +55964,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new UpdateDIAlarmRuleResponse({}));
   }
 
+  /**
+   * @summary 更新数据集成新版告警规则
+   *
+   * @param request UpdateDIAlarmRuleRequest
+   * @return UpdateDIAlarmRuleResponse
+   */
   async updateDIAlarmRule(request: UpdateDIAlarmRuleRequest): Promise<UpdateDIAlarmRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDIAlarmRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新数据集成新版解决方案任务
+   *
+   * @param tmpReq UpdateDIJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDIJobResponse
+   */
   async updateDIJobWithOptions(tmpReq: UpdateDIJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIJobResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateDIJobShrinkRequest({ });
@@ -51360,17 +56044,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDIJobResponse>(await this.callApi(params, req, runtime), new UpdateDIJobResponse({}));
   }
 
+  /**
+   * @summary 更新数据集成新版解决方案任务
+   *
+   * @param request UpdateDIJobRequest
+   * @return UpdateDIJobResponse
+   */
   async updateDIJob(request: UpdateDIJobRequest): Promise<UpdateDIJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDIJobWithOptions(request, runtime);
   }
 
   /**
-    * The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
-    *
-    * @param request UpdateDIProjectConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateDIProjectConfigResponse
+   * @summary DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
+   *
+   * @description The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
+   *
+   * @param request UpdateDIProjectConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDIProjectConfigResponse
    */
   async updateDIProjectConfigWithOptions(request: UpdateDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIProjectConfigResponse> {
     Util.validateModel(request);
@@ -51409,16 +56101,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
-    *
-    * @param request UpdateDIProjectConfigRequest
-    * @return UpdateDIProjectConfigResponse
+   * @summary DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
+   *
+   * @description The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
+   *
+   * @param request UpdateDIProjectConfigRequest
+   * @return UpdateDIProjectConfigResponse
    */
   async updateDIProjectConfig(request: UpdateDIProjectConfigRequest): Promise<UpdateDIProjectConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDIProjectConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateDISyncTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDISyncTaskResponse
+   */
   async updateDISyncTaskWithOptions(request: UpdateDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51459,11 +56158,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDISyncTaskResponse>(await this.callApi(params, req, runtime), new UpdateDISyncTaskResponse({}));
   }
 
+  /**
+   * @param request UpdateDISyncTaskRequest
+   * @return UpdateDISyncTaskResponse
+   */
   async updateDISyncTask(request: UpdateDISyncTaskRequest): Promise<UpdateDISyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDISyncTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the information about an API in the development state in DataService Studio.
+   *
+   * @param request UpdateDataServiceApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDataServiceApiResponse
+   */
   async updateDataServiceApiWithOptions(request: UpdateDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataServiceApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -51540,11 +56250,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDataServiceApiResponse>(await this.callApi(params, req, runtime), new UpdateDataServiceApiResponse({}));
   }
 
+  /**
+   * @summary Updates the information about an API in the development state in DataService Studio.
+   *
+   * @param request UpdateDataServiceApiRequest
+   * @return UpdateDataServiceApiResponse
+   */
   async updateDataServiceApi(request: UpdateDataServiceApiRequest): Promise<UpdateDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDataServiceApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateDataSourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDataSourceResponse
+   */
   async updateDataSourceWithOptions(request: UpdateDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataSourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51585,17 +56306,21 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDataSourceResponse>(await this.callApi(params, req, runtime), new UpdateDataSourceResponse({}));
   }
 
+  /**
+   * @param request UpdateDataSourceRequest
+   * @return UpdateDataSourceResponse
+   */
   async updateDataSource(request: UpdateDataSourceRequest): Promise<UpdateDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDataSourceWithOptions(request, runtime);
   }
 
   /**
-    * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
-    *
-    * @param request UpdateFileRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateFileResponse
+   * @description When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+   *
+   * @param request UpdateFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFileResponse
    */
   async updateFileWithOptions(request: UpdateFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
     Util.validateModel(request);
@@ -51738,16 +56463,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
-    *
-    * @param request UpdateFileRequest
-    * @return UpdateFileResponse
+   * @description When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+   *
+   * @param request UpdateFileRequest
+   * @return UpdateFileResponse
    */
   async updateFile(request: UpdateFileRequest): Promise<UpdateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateFolderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateFolderResponse
+   */
   async updateFolderWithOptions(request: UpdateFolderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFolderResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -51784,11 +56514,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateFolderResponse>(await this.callApi(params, req, runtime), new UpdateFolderResponse({}));
   }
 
+  /**
+   * @param request UpdateFolderRequest
+   * @return UpdateFolderResponse
+   */
   async updateFolder(request: UpdateFolderRequest): Promise<UpdateFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateFolderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request UpdateIDEEventResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIDEEventResultResponse
+   */
   async updateIDEEventResultWithOptions(request: UpdateIDEEventResultRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIDEEventResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -51825,11 +56566,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIDEEventResultResponse>(await this.callApi(params, req, runtime), new UpdateIDEEventResultResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform.
+   *
+   * @param request UpdateIDEEventResultRequest
+   * @return UpdateIDEEventResultResponse
+   */
   async updateIDEEventResult(request: UpdateIDEEventResultRequest): Promise<UpdateIDEEventResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIDEEventResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a category.
+   *
+   * @param request UpdateMetaCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMetaCategoryResponse
+   */
   async updateMetaCategoryWithOptions(request: UpdateMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaCategoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -51862,17 +56616,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMetaCategoryResponse>(await this.callApi(params, req, runtime), new UpdateMetaCategoryResponse({}));
   }
 
+  /**
+   * @summary Updates a category.
+   *
+   * @param request UpdateMetaCategoryRequest
+   * @return UpdateMetaCategoryResponse
+   */
   async updateMetaCategory(request: UpdateMetaCategoryRequest): Promise<UpdateMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMetaCategoryWithOptions(request, runtime);
   }
 
   /**
-    * You must configure at least one of the Name and Comment parameters when you update a collection.
-    *
-    * @param request UpdateMetaCollectionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateMetaCollectionResponse
+   * @summary Only the name and comment of a collection can be updated.
+   *
+   * @description You must configure at least one of the Name and Comment parameters when you update a collection.
+   *
+   * @param request UpdateMetaCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMetaCollectionResponse
    */
   async updateMetaCollectionWithOptions(request: UpdateMetaCollectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaCollectionResponse> {
     Util.validateModel(request);
@@ -51907,16 +56669,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must configure at least one of the Name and Comment parameters when you update a collection.
-    *
-    * @param request UpdateMetaCollectionRequest
-    * @return UpdateMetaCollectionResponse
+   * @summary Only the name and comment of a collection can be updated.
+   *
+   * @description You must configure at least one of the Name and Comment parameters when you update a collection.
+   *
+   * @param request UpdateMetaCollectionRequest
+   * @return UpdateMetaCollectionResponse
    */
   async updateMetaCollection(request: UpdateMetaCollectionRequest): Promise<UpdateMetaCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMetaCollectionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateMetaTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMetaTableResponse
+   */
   async updateMetaTableWithOptions(request: UpdateMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -51983,11 +56752,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMetaTableResponse>(await this.callApi(params, req, runtime), new UpdateMetaTableResponse({}));
   }
 
+  /**
+   * @param request UpdateMetaTableRequest
+   * @return UpdateMetaTableResponse
+   */
   async updateMetaTable(request: UpdateMetaTableRequest): Promise<UpdateMetaTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMetaTableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the instructions on how to use a metatable. If no instruction on how to use the metatable is available, the instructions that are specified by calling this operation are added.
+   *
+   * @param request UpdateMetaTableIntroWikiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMetaTableIntroWikiResponse
+   */
   async updateMetaTableIntroWikiWithOptions(request: UpdateMetaTableIntroWikiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableIntroWikiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52018,11 +56798,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMetaTableIntroWikiResponse>(await this.callApi(params, req, runtime), new UpdateMetaTableIntroWikiResponse({}));
   }
 
+  /**
+   * @summary Updates the instructions on how to use a metatable. If no instruction on how to use the metatable is available, the instructions that are specified by calling this operation are added.
+   *
+   * @param request UpdateMetaTableIntroWikiRequest
+   * @return UpdateMetaTableIntroWikiResponse
+   */
   async updateMetaTableIntroWiki(request: UpdateMetaTableIntroWikiRequest): Promise<UpdateMetaTableIntroWikiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMetaTableIntroWikiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateNodeOwnerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNodeOwnerResponse
+   */
   async updateNodeOwnerWithOptions(request: UpdateNodeOwnerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNodeOwnerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -52055,11 +56846,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNodeOwnerResponse>(await this.callApi(params, req, runtime), new UpdateNodeOwnerResponse({}));
   }
 
+  /**
+   * @param request UpdateNodeOwnerRequest
+   * @return UpdateNodeOwnerResponse
+   */
   async updateNodeOwner(request: UpdateNodeOwnerRequest): Promise<UpdateNodeOwnerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNodeOwnerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateNodeRunModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateNodeRunModeResponse
+   */
   async updateNodeRunModeWithOptions(request: UpdateNodeRunModeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNodeRunModeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -52092,11 +56892,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateNodeRunModeResponse>(await this.callApi(params, req, runtime), new UpdateNodeRunModeResponse({}));
   }
 
+  /**
+   * @param request UpdateNodeRunModeRequest
+   * @return UpdateNodeRunModeResponse
+   */
   async updateNodeRunMode(request: UpdateNodeRunModeRequest): Promise<UpdateNodeRunModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateNodeRunModeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateQualityFollowerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateQualityFollowerResponse
+   */
   async updateQualityFollowerWithOptions(request: UpdateQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityFollowerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -52137,11 +56946,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateQualityFollowerResponse>(await this.callApi(params, req, runtime), new UpdateQualityFollowerResponse({}));
   }
 
+  /**
+   * @param request UpdateQualityFollowerRequest
+   * @return UpdateQualityFollowerResponse
+   */
   async updateQualityFollower(request: UpdateQualityFollowerRequest): Promise<UpdateQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateQualityFollowerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateQualityRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateQualityRuleResponse
+   */
   async updateQualityRuleWithOptions(request: UpdateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -52250,11 +57068,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateQualityRuleResponse>(await this.callApi(params, req, runtime), new UpdateQualityRuleResponse({}));
   }
 
+  /**
+   * @param request UpdateQualityRuleRequest
+   * @return UpdateQualityRuleResponse
+   */
   async updateQualityRule(request: UpdateQualityRuleRequest): Promise<UpdateQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateQualityRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateRemindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRemindResponse
+   */
   async updateRemindWithOptions(request: UpdateRemindRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRemindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -52347,11 +57174,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRemindResponse>(await this.callApi(params, req, runtime), new UpdateRemindResponse({}));
   }
 
+  /**
+   * @param request UpdateRemindRequest
+   * @return UpdateRemindResponse
+   */
   async updateRemind(request: UpdateRemindRequest): Promise<UpdateRemindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRemindWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **UpdateTable**.
+   *
+   * @param request UpdateTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTableResponse
+   */
   async updateTableWithOptions(request: UpdateTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52454,11 +57292,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTableResponse>(await this.callApi(params, req, runtime), new UpdateTableResponse({}));
   }
 
+  /**
+   * @summary The operation that you want to perform. Set the value to **UpdateTable**.
+   *
+   * @param request UpdateTableRequest
+   * @return UpdateTableResponse
+   */
   async updateTable(request: UpdateTableRequest): Promise<UpdateTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTableWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateTableAddColumnRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTableAddColumnResponse
+   */
   async updateTableAddColumnWithOptions(request: UpdateTableAddColumnRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableAddColumnResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52489,11 +57338,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTableAddColumnResponse>(await this.callApi(params, req, runtime), new UpdateTableAddColumnResponse({}));
   }
 
+  /**
+   * @param request UpdateTableAddColumnRequest
+   * @return UpdateTableAddColumnResponse
+   */
   async updateTableAddColumn(request: UpdateTableAddColumnRequest): Promise<UpdateTableAddColumnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTableAddColumnWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateTableLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTableLevelResponse
+   */
   async updateTableLevelWithOptions(request: UpdateTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableLevelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52534,11 +57392,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTableLevelResponse>(await this.callApi(params, req, runtime), new UpdateTableLevelResponse({}));
   }
 
+  /**
+   * @param request UpdateTableLevelRequest
+   * @return UpdateTableLevelResponse
+   */
   async updateTableLevel(request: UpdateTableLevelRequest): Promise<UpdateTableLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTableLevelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateTableModelInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTableModelInfoResponse
+   */
   async updateTableModelInfoWithOptions(request: UpdateTableModelInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableModelInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52579,11 +57446,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTableModelInfoResponse>(await this.callApi(params, req, runtime), new UpdateTableModelInfoResponse({}));
   }
 
+  /**
+   * @param request UpdateTableModelInfoRequest
+   * @return UpdateTableModelInfoResponse
+   */
   async updateTableModelInfo(request: UpdateTableModelInfoRequest): Promise<UpdateTableModelInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTableModelInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateTableThemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTableThemeResponse
+   */
   async updateTableThemeWithOptions(request: UpdateTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableThemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52616,11 +57492,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTableThemeResponse>(await this.callApi(params, req, runtime), new UpdateTableThemeResponse({}));
   }
 
+  /**
+   * @param request UpdateTableThemeRequest
+   * @return UpdateTableThemeResponse
+   */
   async updateTableTheme(request: UpdateTableThemeRequest): Promise<UpdateTableThemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTableThemeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateUdfFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUdfFileResponse
+   */
   async updateUdfFileWithOptions(request: UpdateUdfFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUdfFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -52689,11 +57574,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUdfFileResponse>(await this.callApi(params, req, runtime), new UpdateUdfFileResponse({}));
   }
 
+  /**
+   * @param request UpdateUdfFileRequest
+   * @return UpdateUdfFileResponse
+   */
   async updateUdfFile(request: UpdateUdfFileRequest): Promise<UpdateUdfFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUdfFileWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新运维中心扩展程序的回调结果
+   *
+   * @param request UpdateWorkbenchEventResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWorkbenchEventResultResponse
+   */
   async updateWorkbenchEventResultWithOptions(request: UpdateWorkbenchEventResultRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWorkbenchEventResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -52730,6 +57626,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWorkbenchEventResultResponse>(await this.callApi(params, req, runtime), new UpdateWorkbenchEventResultResponse({}));
   }
 
+  /**
+   * @summary 更新运维中心扩展程序的回调结果
+   *
+   * @param request UpdateWorkbenchEventResultRequest
+   * @return UpdateWorkbenchEventResultResponse
+   */
   async updateWorkbenchEventResult(request: UpdateWorkbenchEventResultRequest): Promise<UpdateWorkbenchEventResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWorkbenchEventResultWithOptions(request, runtime);
