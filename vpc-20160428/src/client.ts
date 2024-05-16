@@ -20212,6 +20212,7 @@ export class DescribeVSwitchAttributesResponse extends $tea.Model {
 
 export class DescribeVSwitchesRequest extends $tea.Model {
   dryRun?: boolean;
+  enableIpv6?: boolean;
   isDefault?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -20231,6 +20232,7 @@ export class DescribeVSwitchesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       dryRun: 'DryRun',
+      enableIpv6: 'EnableIpv6',
       isDefault: 'IsDefault',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -20253,6 +20255,7 @@ export class DescribeVSwitchesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dryRun: 'boolean',
+      enableIpv6: 'boolean',
       isDefault: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -20906,6 +20909,7 @@ export class DescribeVpcAttributeResponse extends $tea.Model {
 export class DescribeVpcsRequest extends $tea.Model {
   dhcpOptionsSetId?: string;
   dryRun?: boolean;
+  enableIpv6?: boolean;
   isDefault?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -20923,6 +20927,7 @@ export class DescribeVpcsRequest extends $tea.Model {
     return {
       dhcpOptionsSetId: 'DhcpOptionsSetId',
       dryRun: 'DryRun',
+      enableIpv6: 'EnableIpv6',
       isDefault: 'IsDefault',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -20943,6 +20948,7 @@ export class DescribeVpcsRequest extends $tea.Model {
     return {
       dhcpOptionsSetId: 'string',
       dryRun: 'boolean',
+      enableIpv6: 'boolean',
       isDefault: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -68852,6 +68858,10 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!Util.isUnset(request.enableIpv6)) {
+      query["EnableIpv6"] = request.enableIpv6;
+    }
+
     if (!Util.isUnset(request.isDefault)) {
       query["IsDefault"] = request.isDefault;
     }
@@ -69326,6 +69336,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.enableIpv6)) {
+      query["EnableIpv6"] = request.enableIpv6;
     }
 
     if (!Util.isUnset(request.isDefault)) {
