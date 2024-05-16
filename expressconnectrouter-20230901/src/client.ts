@@ -225,6 +225,7 @@ export class CreateExpressConnectRouterRequest extends $tea.Model {
   dryRun?: boolean;
   name?: string;
   resourceGroupId?: string;
+  tags?: CreateExpressConnectRouterRequestTags[];
   static names(): { [key: string]: string } {
     return {
       alibabaSideAsn: 'AlibabaSideAsn',
@@ -233,6 +234,7 @@ export class CreateExpressConnectRouterRequest extends $tea.Model {
       dryRun: 'DryRun',
       name: 'Name',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -244,6 +246,7 @@ export class CreateExpressConnectRouterRequest extends $tea.Model {
       dryRun: 'boolean',
       name: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateExpressConnectRouterRequestTags },
     };
   }
 
@@ -2672,6 +2675,28 @@ export class SynchronizeExpressConnectRouterInterRegionBandwidthResponse extends
   }
 }
 
+export class CreateExpressConnectRouterRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDisabledExpressConnectRouterRouteEntriesResponseBodyDisabledRouteEntryList extends $tea.Model {
   destinationCidrBlock?: string;
   ecrId?: string;
@@ -3115,6 +3140,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AttachExpressConnectRouterChildInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachExpressConnectRouterChildInstanceResponse
+   */
   async attachExpressConnectRouterChildInstanceWithOptions(request: AttachExpressConnectRouterChildInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AttachExpressConnectRouterChildInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3163,11 +3193,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachExpressConnectRouterChildInstanceResponse>(await this.callApi(params, req, runtime), new AttachExpressConnectRouterChildInstanceResponse({}));
   }
 
+  /**
+   * @param request AttachExpressConnectRouterChildInstanceRequest
+   * @return AttachExpressConnectRouterChildInstanceResponse
+   */
   async attachExpressConnectRouterChildInstance(request: AttachExpressConnectRouterChildInstanceRequest): Promise<AttachExpressConnectRouterChildInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachExpressConnectRouterChildInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CheckAddRegionToExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckAddRegionToExpressConnectRouterResponse
+   */
   async checkAddRegionToExpressConnectRouterWithOptions(request: CheckAddRegionToExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<CheckAddRegionToExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3204,11 +3243,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckAddRegionToExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new CheckAddRegionToExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request CheckAddRegionToExpressConnectRouterRequest
+   * @return CheckAddRegionToExpressConnectRouterResponse
+   */
   async checkAddRegionToExpressConnectRouter(request: CheckAddRegionToExpressConnectRouterRequest): Promise<CheckAddRegionToExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkAddRegionToExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExpressConnectRouterResponse
+   */
   async createExpressConnectRouterWithOptions(request: CreateExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3236,6 +3284,10 @@ export default class Client extends OpenApi {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -3253,11 +3305,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new CreateExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request CreateExpressConnectRouterRequest
+   * @return CreateExpressConnectRouterResponse
+   */
   async createExpressConnectRouter(request: CreateExpressConnectRouterRequest): Promise<CreateExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateExpressConnectRouterAssociationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateExpressConnectRouterAssociationResponse
+   */
   async createExpressConnectRouterAssociationWithOptions(request: CreateExpressConnectRouterAssociationRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressConnectRouterAssociationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3322,11 +3383,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateExpressConnectRouterAssociationResponse>(await this.callApi(params, req, runtime), new CreateExpressConnectRouterAssociationResponse({}));
   }
 
+  /**
+   * @param request CreateExpressConnectRouterAssociationRequest
+   * @return CreateExpressConnectRouterAssociationResponse
+   */
   async createExpressConnectRouterAssociation(request: CreateExpressConnectRouterAssociationRequest): Promise<CreateExpressConnectRouterAssociationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createExpressConnectRouterAssociationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExpressConnectRouterResponse
+   */
   async deleteExpressConnectRouterWithOptions(request: DeleteExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3359,11 +3429,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request DeleteExpressConnectRouterRequest
+   * @return DeleteExpressConnectRouterResponse
+   */
   async deleteExpressConnectRouter(request: DeleteExpressConnectRouterRequest): Promise<DeleteExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteExpressConnectRouterAssociationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExpressConnectRouterAssociationResponse
+   */
   async deleteExpressConnectRouterAssociationWithOptions(request: DeleteExpressConnectRouterAssociationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectRouterAssociationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3404,11 +3483,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExpressConnectRouterAssociationResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectRouterAssociationResponse({}));
   }
 
+  /**
+   * @param request DeleteExpressConnectRouterAssociationRequest
+   * @return DeleteExpressConnectRouterAssociationResponse
+   */
   async deleteExpressConnectRouterAssociation(request: DeleteExpressConnectRouterAssociationRequest): Promise<DeleteExpressConnectRouterAssociationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteExpressConnectRouterAssociationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDisabledExpressConnectRouterRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse
+   */
   async describeDisabledExpressConnectRouterRouteEntriesWithOptions(request: DescribeDisabledExpressConnectRouterRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDisabledExpressConnectRouterRouteEntriesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3449,11 +3537,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDisabledExpressConnectRouterRouteEntriesResponse>(await this.callApi(params, req, runtime), new DescribeDisabledExpressConnectRouterRouteEntriesResponse({}));
   }
 
+  /**
+   * @param request DescribeDisabledExpressConnectRouterRouteEntriesRequest
+   * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse
+   */
   async describeDisabledExpressConnectRouterRouteEntries(request: DescribeDisabledExpressConnectRouterRouteEntriesRequest): Promise<DescribeDisabledExpressConnectRouterRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDisabledExpressConnectRouterRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectRouterResponse
+   */
   async describeExpressConnectRouterWithOptions(request: DescribeExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3506,11 +3603,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterRequest
+   * @return DescribeExpressConnectRouterResponse
+   */
   async describeExpressConnectRouter(request: DescribeExpressConnectRouterRequest): Promise<DescribeExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterAllowedPrefixHistoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse
+   */
   async describeExpressConnectRouterAllowedPrefixHistoryWithOptions(request: DescribeExpressConnectRouterAllowedPrefixHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectRouterAllowedPrefixHistoryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3555,11 +3661,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectRouterAllowedPrefixHistoryResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectRouterAllowedPrefixHistoryResponse({}));
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterAllowedPrefixHistoryRequest
+   * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse
+   */
   async describeExpressConnectRouterAllowedPrefixHistory(request: DescribeExpressConnectRouterAllowedPrefixHistoryRequest): Promise<DescribeExpressConnectRouterAllowedPrefixHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectRouterAllowedPrefixHistoryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterAssociationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectRouterAssociationResponse
+   */
   async describeExpressConnectRouterAssociationWithOptions(request: DescribeExpressConnectRouterAssociationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectRouterAssociationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3624,11 +3739,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectRouterAssociationResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectRouterAssociationResponse({}));
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterAssociationRequest
+   * @return DescribeExpressConnectRouterAssociationResponse
+   */
   async describeExpressConnectRouterAssociation(request: DescribeExpressConnectRouterAssociationRequest): Promise<DescribeExpressConnectRouterAssociationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectRouterAssociationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterChildInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectRouterChildInstanceResponse
+   */
   async describeExpressConnectRouterChildInstanceWithOptions(request: DescribeExpressConnectRouterChildInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectRouterChildInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3685,11 +3809,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectRouterChildInstanceResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectRouterChildInstanceResponse({}));
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterChildInstanceRequest
+   * @return DescribeExpressConnectRouterChildInstanceResponse
+   */
   async describeExpressConnectRouterChildInstance(request: DescribeExpressConnectRouterChildInstanceRequest): Promise<DescribeExpressConnectRouterChildInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectRouterChildInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterInterRegionTransitModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectRouterInterRegionTransitModeResponse
+   */
   async describeExpressConnectRouterInterRegionTransitModeWithOptions(request: DescribeExpressConnectRouterInterRegionTransitModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectRouterInterRegionTransitModeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3722,11 +3855,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectRouterInterRegionTransitModeResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectRouterInterRegionTransitModeResponse({}));
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterInterRegionTransitModeRequest
+   * @return DescribeExpressConnectRouterInterRegionTransitModeResponse
+   */
   async describeExpressConnectRouterInterRegionTransitMode(request: DescribeExpressConnectRouterInterRegionTransitModeRequest): Promise<DescribeExpressConnectRouterInterRegionTransitModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectRouterInterRegionTransitModeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectRouterRegionResponse
+   */
   async describeExpressConnectRouterRegionWithOptions(request: DescribeExpressConnectRouterRegionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectRouterRegionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3759,11 +3901,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectRouterRegionResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectRouterRegionResponse({}));
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterRegionRequest
+   * @return DescribeExpressConnectRouterRegionResponse
+   */
   async describeExpressConnectRouterRegion(request: DescribeExpressConnectRouterRegionRequest): Promise<DescribeExpressConnectRouterRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectRouterRegionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExpressConnectRouterRouteEntriesResponse
+   */
   async describeExpressConnectRouterRouteEntriesWithOptions(request: DescribeExpressConnectRouterRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressConnectRouterRouteEntriesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3824,11 +3975,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExpressConnectRouterRouteEntriesResponse>(await this.callApi(params, req, runtime), new DescribeExpressConnectRouterRouteEntriesResponse({}));
   }
 
+  /**
+   * @param request DescribeExpressConnectRouterRouteEntriesRequest
+   * @return DescribeExpressConnectRouterRouteEntriesResponse
+   */
   async describeExpressConnectRouterRouteEntries(request: DescribeExpressConnectRouterRouteEntriesRequest): Promise<DescribeExpressConnectRouterRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExpressConnectRouterRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInstanceGrantedToExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceGrantedToExpressConnectRouterResponse
+   */
   async describeInstanceGrantedToExpressConnectRouterWithOptions(request: DescribeInstanceGrantedToExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceGrantedToExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3893,11 +4053,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceGrantedToExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new DescribeInstanceGrantedToExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request DescribeInstanceGrantedToExpressConnectRouterRequest
+   * @return DescribeInstanceGrantedToExpressConnectRouterResponse
+   */
   async describeInstanceGrantedToExpressConnectRouter(request: DescribeInstanceGrantedToExpressConnectRouterRequest): Promise<DescribeInstanceGrantedToExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceGrantedToExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DetachExpressConnectRouterChildInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachExpressConnectRouterChildInstanceResponse
+   */
   async detachExpressConnectRouterChildInstanceWithOptions(request: DetachExpressConnectRouterChildInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DetachExpressConnectRouterChildInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3938,11 +4107,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachExpressConnectRouterChildInstanceResponse>(await this.callApi(params, req, runtime), new DetachExpressConnectRouterChildInstanceResponse({}));
   }
 
+  /**
+   * @param request DetachExpressConnectRouterChildInstanceRequest
+   * @return DetachExpressConnectRouterChildInstanceResponse
+   */
   async detachExpressConnectRouterChildInstance(request: DetachExpressConnectRouterChildInstanceRequest): Promise<DetachExpressConnectRouterChildInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachExpressConnectRouterChildInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DisableExpressConnectRouterRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableExpressConnectRouterRouteEntriesResponse
+   */
   async disableExpressConnectRouterRouteEntriesWithOptions(request: DisableExpressConnectRouterRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DisableExpressConnectRouterRouteEntriesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3983,11 +4161,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableExpressConnectRouterRouteEntriesResponse>(await this.callApi(params, req, runtime), new DisableExpressConnectRouterRouteEntriesResponse({}));
   }
 
+  /**
+   * @param request DisableExpressConnectRouterRouteEntriesRequest
+   * @return DisableExpressConnectRouterRouteEntriesResponse
+   */
   async disableExpressConnectRouterRouteEntries(request: DisableExpressConnectRouterRouteEntriesRequest): Promise<DisableExpressConnectRouterRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableExpressConnectRouterRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EnableExpressConnectRouterRouteEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableExpressConnectRouterRouteEntriesResponse
+   */
   async enableExpressConnectRouterRouteEntriesWithOptions(request: EnableExpressConnectRouterRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<EnableExpressConnectRouterRouteEntriesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4028,11 +4215,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableExpressConnectRouterRouteEntriesResponse>(await this.callApi(params, req, runtime), new EnableExpressConnectRouterRouteEntriesResponse({}));
   }
 
+  /**
+   * @param request EnableExpressConnectRouterRouteEntriesRequest
+   * @return EnableExpressConnectRouterRouteEntriesResponse
+   */
   async enableExpressConnectRouterRouteEntries(request: EnableExpressConnectRouterRouteEntriesRequest): Promise<EnableExpressConnectRouterRouteEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableExpressConnectRouterRouteEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ForceDeleteExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ForceDeleteExpressConnectRouterResponse
+   */
   async forceDeleteExpressConnectRouterWithOptions(request: ForceDeleteExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<ForceDeleteExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4065,11 +4261,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ForceDeleteExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new ForceDeleteExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request ForceDeleteExpressConnectRouterRequest
+   * @return ForceDeleteExpressConnectRouterResponse
+   */
   async forceDeleteExpressConnectRouter(request: ForceDeleteExpressConnectRouterRequest): Promise<ForceDeleteExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.forceDeleteExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GrantInstanceToExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantInstanceToExpressConnectRouterResponse
+   */
   async grantInstanceToExpressConnectRouterWithOptions(request: GrantInstanceToExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<GrantInstanceToExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4118,11 +4323,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantInstanceToExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new GrantInstanceToExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request GrantInstanceToExpressConnectRouterRequest
+   * @return GrantInstanceToExpressConnectRouterResponse
+   */
   async grantInstanceToExpressConnectRouter(request: GrantInstanceToExpressConnectRouterRequest): Promise<GrantInstanceToExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantInstanceToExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListExpressConnectRouterSupportedRegionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExpressConnectRouterSupportedRegionResponse
+   */
   async listExpressConnectRouterSupportedRegionWithOptions(request: ListExpressConnectRouterSupportedRegionRequest, runtime: $Util.RuntimeOptions): Promise<ListExpressConnectRouterSupportedRegionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4151,11 +4365,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExpressConnectRouterSupportedRegionResponse>(await this.callApi(params, req, runtime), new ListExpressConnectRouterSupportedRegionResponse({}));
   }
 
+  /**
+   * @param request ListExpressConnectRouterSupportedRegionRequest
+   * @return ListExpressConnectRouterSupportedRegionResponse
+   */
   async listExpressConnectRouterSupportedRegion(request: ListExpressConnectRouterSupportedRegionRequest): Promise<ListExpressConnectRouterSupportedRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExpressConnectRouterSupportedRegionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyExpressConnectRouterResponse
+   */
   async modifyExpressConnectRouterWithOptions(request: ModifyExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4196,11 +4419,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request ModifyExpressConnectRouterRequest
+   * @return ModifyExpressConnectRouterResponse
+   */
   async modifyExpressConnectRouter(request: ModifyExpressConnectRouterRequest): Promise<ModifyExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyExpressConnectRouterAssociationAllowedPrefixRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse
+   */
   async modifyExpressConnectRouterAssociationAllowedPrefixWithOptions(request: ModifyExpressConnectRouterAssociationAllowedPrefixRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectRouterAssociationAllowedPrefixResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4245,11 +4477,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyExpressConnectRouterAssociationAllowedPrefixResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectRouterAssociationAllowedPrefixResponse({}));
   }
 
+  /**
+   * @param request ModifyExpressConnectRouterAssociationAllowedPrefixRequest
+   * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse
+   */
   async modifyExpressConnectRouterAssociationAllowedPrefix(request: ModifyExpressConnectRouterAssociationAllowedPrefixRequest): Promise<ModifyExpressConnectRouterAssociationAllowedPrefixResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyExpressConnectRouterAssociationAllowedPrefixWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyExpressConnectRouterInterRegionTransitModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyExpressConnectRouterInterRegionTransitModeResponse
+   */
   async modifyExpressConnectRouterInterRegionTransitModeWithOptions(request: ModifyExpressConnectRouterInterRegionTransitModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressConnectRouterInterRegionTransitModeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4286,11 +4527,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyExpressConnectRouterInterRegionTransitModeResponse>(await this.callApi(params, req, runtime), new ModifyExpressConnectRouterInterRegionTransitModeResponse({}));
   }
 
+  /**
+   * @param request ModifyExpressConnectRouterInterRegionTransitModeRequest
+   * @return ModifyExpressConnectRouterInterRegionTransitModeResponse
+   */
   async modifyExpressConnectRouterInterRegionTransitMode(request: ModifyExpressConnectRouterInterRegionTransitModeRequest): Promise<ModifyExpressConnectRouterInterRegionTransitModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyExpressConnectRouterInterRegionTransitModeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RevokeInstanceFromExpressConnectRouterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeInstanceFromExpressConnectRouterResponse
+   */
   async revokeInstanceFromExpressConnectRouterWithOptions(request: RevokeInstanceFromExpressConnectRouterRequest, runtime: $Util.RuntimeOptions): Promise<RevokeInstanceFromExpressConnectRouterResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4339,11 +4589,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeInstanceFromExpressConnectRouterResponse>(await this.callApi(params, req, runtime), new RevokeInstanceFromExpressConnectRouterResponse({}));
   }
 
+  /**
+   * @param request RevokeInstanceFromExpressConnectRouterRequest
+   * @return RevokeInstanceFromExpressConnectRouterResponse
+   */
   async revokeInstanceFromExpressConnectRouter(request: RevokeInstanceFromExpressConnectRouterRequest): Promise<RevokeInstanceFromExpressConnectRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeInstanceFromExpressConnectRouterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SynchronizeExpressConnectRouterInterRegionBandwidthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse
+   */
   async synchronizeExpressConnectRouterInterRegionBandwidthWithOptions(request: SynchronizeExpressConnectRouterInterRegionBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<SynchronizeExpressConnectRouterInterRegionBandwidthResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4376,6 +4635,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SynchronizeExpressConnectRouterInterRegionBandwidthResponse>(await this.callApi(params, req, runtime), new SynchronizeExpressConnectRouterInterRegionBandwidthResponse({}));
   }
 
+  /**
+   * @param request SynchronizeExpressConnectRouterInterRegionBandwidthRequest
+   * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse
+   */
   async synchronizeExpressConnectRouterInterRegionBandwidth(request: SynchronizeExpressConnectRouterInterRegionBandwidthRequest): Promise<SynchronizeExpressConnectRouterInterRegionBandwidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.synchronizeExpressConnectRouterInterRegionBandwidthWithOptions(request, runtime);
