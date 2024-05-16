@@ -3353,12 +3353,14 @@ export class DescribeInternetTrafficTrendResponseBody extends $tea.Model {
   avgTotalBps?: number;
   dataList?: DescribeInternetTrafficTrendResponseBodyDataList[];
   maxBandwidthTime?: number;
+  maxDayExceedBytes?: number;
   maxInBps?: number;
   maxOutBps?: number;
   maxSession?: number;
   maxTotalBps?: number;
   requestId?: string;
   totalBytes?: number;
+  totalExceedBytes?: number;
   totalInBytes?: number;
   totalOutBytes?: number;
   totalSession?: number;
@@ -3370,12 +3372,14 @@ export class DescribeInternetTrafficTrendResponseBody extends $tea.Model {
       avgTotalBps: 'AvgTotalBps',
       dataList: 'DataList',
       maxBandwidthTime: 'MaxBandwidthTime',
+      maxDayExceedBytes: 'MaxDayExceedBytes',
       maxInBps: 'MaxInBps',
       maxOutBps: 'MaxOutBps',
       maxSession: 'MaxSession',
       maxTotalBps: 'MaxTotalBps',
       requestId: 'RequestId',
       totalBytes: 'TotalBytes',
+      totalExceedBytes: 'TotalExceedBytes',
       totalInBytes: 'TotalInBytes',
       totalOutBytes: 'TotalOutBytes',
       totalSession: 'TotalSession',
@@ -3390,12 +3394,14 @@ export class DescribeInternetTrafficTrendResponseBody extends $tea.Model {
       avgTotalBps: 'number',
       dataList: { 'type': 'array', 'itemType': DescribeInternetTrafficTrendResponseBodyDataList },
       maxBandwidthTime: 'number',
+      maxDayExceedBytes: 'number',
       maxInBps: 'number',
       maxOutBps: 'number',
       maxSession: 'number',
       maxTotalBps: 'number',
       requestId: 'string',
       totalBytes: 'number',
+      totalExceedBytes: 'number',
       totalInBytes: 'number',
       totalOutBytes: 'number',
       totalSession: 'number',
