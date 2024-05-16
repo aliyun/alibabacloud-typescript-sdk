@@ -790,6 +790,163 @@ export class CreateSaslUserResponse extends $tea.Model {
   }
 }
 
+export class CreateScheduledScalingRuleRequest extends $tea.Model {
+  durationMinutes?: number;
+  enable?: boolean;
+  firstScheduledTime?: number;
+  instanceId?: string;
+  regionId?: string;
+  repeatType?: string;
+  reservedPubFlow?: number;
+  reservedSubFlow?: number;
+  ruleName?: string;
+  scheduleType?: string;
+  timeZone?: string;
+  weeklyTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      durationMinutes: 'DurationMinutes',
+      enable: 'Enable',
+      firstScheduledTime: 'FirstScheduledTime',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      repeatType: 'RepeatType',
+      reservedPubFlow: 'ReservedPubFlow',
+      reservedSubFlow: 'ReservedSubFlow',
+      ruleName: 'RuleName',
+      scheduleType: 'ScheduleType',
+      timeZone: 'TimeZone',
+      weeklyTypes: 'WeeklyTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationMinutes: 'number',
+      enable: 'boolean',
+      firstScheduledTime: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      repeatType: 'string',
+      reservedPubFlow: 'number',
+      reservedSubFlow: 'number',
+      ruleName: 'string',
+      scheduleType: 'string',
+      timeZone: 'string',
+      weeklyTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduledScalingRuleShrinkRequest extends $tea.Model {
+  durationMinutes?: number;
+  enable?: boolean;
+  firstScheduledTime?: number;
+  instanceId?: string;
+  regionId?: string;
+  repeatType?: string;
+  reservedPubFlow?: number;
+  reservedSubFlow?: number;
+  ruleName?: string;
+  scheduleType?: string;
+  timeZone?: string;
+  weeklyTypesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationMinutes: 'DurationMinutes',
+      enable: 'Enable',
+      firstScheduledTime: 'FirstScheduledTime',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      repeatType: 'RepeatType',
+      reservedPubFlow: 'ReservedPubFlow',
+      reservedSubFlow: 'ReservedSubFlow',
+      ruleName: 'RuleName',
+      scheduleType: 'ScheduleType',
+      timeZone: 'TimeZone',
+      weeklyTypesShrink: 'WeeklyTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationMinutes: 'number',
+      enable: 'boolean',
+      firstScheduledTime: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      repeatType: 'string',
+      reservedPubFlow: 'number',
+      reservedSubFlow: 'number',
+      ruleName: 'string',
+      scheduleType: 'string',
+      timeZone: 'string',
+      weeklyTypesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduledScalingRuleResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduledScalingRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateScheduledScalingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateScheduledScalingRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTopicRequest extends $tea.Model {
   compactTopic?: boolean;
   config?: string;
@@ -1220,6 +1377,84 @@ export class DeleteSaslUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSaslUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScheduledScalingRuleRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScheduledScalingRuleResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteScheduledScalingRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteScheduledScalingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteScheduledScalingRuleResponseBody,
     };
   }
 
@@ -1787,6 +2022,84 @@ export class GetAllowedIpListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAllowedIpListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoScalingConfigurationRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoScalingConfigurationResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetAutoScalingConfigurationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetAutoScalingConfigurationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoScalingConfigurationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAutoScalingConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAutoScalingConfigurationResponseBody,
     };
   }
 
@@ -2630,6 +2943,87 @@ export class ModifyPartitionNumResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyPartitionNumResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScheduledScalingRuleRequest extends $tea.Model {
+  enable?: boolean;
+  instanceId?: string;
+  regionId?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      instanceId: 'string',
+      regionId: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScheduledScalingRuleResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScheduledScalingRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyScheduledScalingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyScheduledScalingRuleResponseBody,
     };
   }
 
@@ -4492,6 +4886,118 @@ export class GetAllowedIpListResponseBodyAllowedList extends $tea.Model {
   }
 }
 
+export class GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes extends $tea.Model {
+  weeklyTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      weeklyTypes: 'WeeklyTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      weeklyTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules extends $tea.Model {
+  durationMinutes?: number;
+  enable?: boolean;
+  estimatedElasticScalingDownTimeSecs?: number;
+  estimatedElasticScalingUpTimeSecs?: number;
+  firstScheduledTime?: number;
+  repeatType?: string;
+  reservedPubFlow?: number;
+  reservedSubFlow?: number;
+  ruleId?: number;
+  ruleName?: string;
+  scheduleType?: string;
+  timeZone?: string;
+  weeklyTypes?: GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes;
+  static names(): { [key: string]: string } {
+    return {
+      durationMinutes: 'DurationMinutes',
+      enable: 'Enable',
+      estimatedElasticScalingDownTimeSecs: 'EstimatedElasticScalingDownTimeSecs',
+      estimatedElasticScalingUpTimeSecs: 'EstimatedElasticScalingUpTimeSecs',
+      firstScheduledTime: 'FirstScheduledTime',
+      repeatType: 'RepeatType',
+      reservedPubFlow: 'ReservedPubFlow',
+      reservedSubFlow: 'ReservedSubFlow',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      scheduleType: 'ScheduleType',
+      timeZone: 'TimeZone',
+      weeklyTypes: 'WeeklyTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationMinutes: 'number',
+      enable: 'boolean',
+      estimatedElasticScalingDownTimeSecs: 'number',
+      estimatedElasticScalingUpTimeSecs: 'number',
+      firstScheduledTime: 'number',
+      repeatType: 'string',
+      reservedPubFlow: 'number',
+      reservedSubFlow: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      scheduleType: 'string',
+      timeZone: 'string',
+      weeklyTypes: GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRulesWeeklyTypes,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules extends $tea.Model {
+  scheduledScalingRules?: GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules[];
+  static names(): { [key: string]: string } {
+    return {
+      scheduledScalingRules: 'ScheduledScalingRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scheduledScalingRules: { 'type': 'array', 'itemType': GetAutoScalingConfigurationResponseBodyDataScheduledScalingRulesScheduledScalingRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoScalingConfigurationResponseBodyData extends $tea.Model {
+  scheduledScalingRules?: GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules;
+  static names(): { [key: string]: string } {
+    return {
+      scheduledScalingRules: 'ScheduledScalingRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scheduledScalingRules: GetAutoScalingConfigurationResponseBodyDataScheduledScalingRules,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConsumerListResponseBodyConsumerListConsumerVOTagsTagVO extends $tea.Model {
   key?: string;
   value?: string;
@@ -5174,6 +5680,7 @@ export class GetTopicListResponseBodyTopicListTopicVO extends $tea.Model {
   statusName?: string;
   tags?: GetTopicListResponseBodyTopicListTopicVOTags;
   topic?: string;
+  topicConfig?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreate: 'AutoCreate',
@@ -5188,6 +5695,7 @@ export class GetTopicListResponseBodyTopicListTopicVO extends $tea.Model {
       statusName: 'StatusName',
       tags: 'Tags',
       topic: 'Topic',
+      topicConfig: 'TopicConfig',
     };
   }
 
@@ -5205,6 +5713,7 @@ export class GetTopicListResponseBodyTopicListTopicVO extends $tea.Model {
       statusName: 'string',
       tags: GetTopicListResponseBodyTopicListTopicVOTags,
       topic: 'string',
+      topicConfig: 'string',
     };
   }
 
@@ -5615,6 +6124,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5647,11 +6163,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
+   *
+   * @param request ConvertPostPayOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConvertPostPayOrderResponse
+   */
   async convertPostPayOrderWithOptions(request: ConvertPostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<ConvertPostPayOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5684,11 +6213,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ConvertPostPayOrderResponse>(await this.callApi(params, req, runtime), new ConvertPostPayOrderResponse({}));
   }
 
+  /**
+   * @summary Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
+   *
+   * @param request ConvertPostPayOrderRequest
+   * @return ConvertPostPayOrderResponse
+   */
   async convertPostPayOrder(request: ConvertPostPayOrderRequest): Promise<ConvertPostPayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.convertPostPayOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an access control list (ACL).
+   *
+   * @param request CreateAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAclResponse
+   */
   async createAclWithOptions(request: CreateAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5749,11 +6291,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAclResponse>(await this.callApi(params, req, runtime), new CreateAclResponse({}));
   }
 
+  /**
+   * @summary Creates an access control list (ACL).
+   *
+   * @param request CreateAclRequest
+   * @return CreateAclResponse
+   */
   async createAcl(request: CreateAclRequest): Promise<CreateAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a consumer group.
+   *
+   * @param request CreateConsumerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateConsumerGroupResponse
+   */
   async createConsumerGroupWithOptions(request: CreateConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5794,17 +6349,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateConsumerGroupResponse>(await this.callApi(params, req, runtime), new CreateConsumerGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a consumer group.
+   *
+   * @param request CreateConsumerGroupRequest
+   * @return CreateConsumerGroupResponse
+   */
   async createConsumerGroup(request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createConsumerGroupWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
-    *
-    * @param tmpReq CreatePostPayOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePostPayOrderResponse
+   * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
+   *
+   * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   *
+   * @param tmpReq CreatePostPayOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePostPayOrderResponse
    */
   async createPostPayOrderWithOptions(tmpReq: CreatePostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePostPayOrderResponse> {
     Util.validateModel(tmpReq);
@@ -5889,10 +6452,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
-    *
-    * @param request CreatePostPayOrderRequest
-    * @return CreatePostPayOrderResponse
+   * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
+   *
+   * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   *
+   * @param request CreatePostPayOrderRequest
+   * @return CreatePostPayOrderResponse
    */
   async createPostPayOrder(request: CreatePostPayOrderRequest): Promise<CreatePostPayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5900,12 +6465,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](~~84737~~).
-    * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
-    *
-    * @param tmpReq CreatePrePayOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreatePrePayOrderResponse
+   * @summary Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
+   *
+   * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+   *
+   * @param tmpReq CreatePrePayOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePrePayOrderResponse
    */
   async createPrePayOrderWithOptions(tmpReq: CreatePrePayOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrePayOrderResponse> {
     Util.validateModel(tmpReq);
@@ -5994,17 +6561,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](~~84737~~).
-    * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
-    *
-    * @param request CreatePrePayOrderRequest
-    * @return CreatePrePayOrderResponse
+   * @summary Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
+   *
+   * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+   *
+   * @param request CreatePrePayOrderRequest
+   * @return CreatePrePayOrderResponse
    */
   async createPrePayOrder(request: CreatePrePayOrderRequest): Promise<CreatePrePayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrePayOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a Simple Authentication and Security Layer (SASL) user.
+   *
+   * @param request CreateSaslUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSaslUserResponse
+   */
   async createSaslUserWithOptions(request: CreateSaslUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateSaslUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6049,18 +6625,118 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSaslUserResponse>(await this.callApi(params, req, runtime), new CreateSaslUserResponse({}));
   }
 
+  /**
+   * @summary Creates a Simple Authentication and Security Layer (SASL) user.
+   *
+   * @param request CreateSaslUserRequest
+   * @return CreateSaslUserResponse
+   */
   async createSaslUser(request: CreateSaslUserRequest): Promise<CreateSaslUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSaslUserWithOptions(request, runtime);
   }
 
   /**
-    * *   Each Alibaba Cloud account can call this operation up to once per second.
-    * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
-    *
-    * @param request CreateTopicRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTopicResponse
+   * @summary 创建定时伸缩配置
+   *
+   * @param tmpReq CreateScheduledScalingRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateScheduledScalingRuleResponse
+   */
+  async createScheduledScalingRuleWithOptions(tmpReq: CreateScheduledScalingRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateScheduledScalingRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateScheduledScalingRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.weeklyTypes)) {
+      request.weeklyTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.weeklyTypes, "WeeklyTypes", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.durationMinutes)) {
+      query["DurationMinutes"] = request.durationMinutes;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.firstScheduledTime)) {
+      query["FirstScheduledTime"] = request.firstScheduledTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.repeatType)) {
+      query["RepeatType"] = request.repeatType;
+    }
+
+    if (!Util.isUnset(request.reservedPubFlow)) {
+      query["ReservedPubFlow"] = request.reservedPubFlow;
+    }
+
+    if (!Util.isUnset(request.reservedSubFlow)) {
+      query["ReservedSubFlow"] = request.reservedSubFlow;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.scheduleType)) {
+      query["ScheduleType"] = request.scheduleType;
+    }
+
+    if (!Util.isUnset(request.timeZone)) {
+      query["TimeZone"] = request.timeZone;
+    }
+
+    if (!Util.isUnset(request.weeklyTypesShrink)) {
+      query["WeeklyTypes"] = request.weeklyTypesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateScheduledScalingRule",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateScheduledScalingRuleResponse>(await this.callApi(params, req, runtime), new CreateScheduledScalingRuleResponse({}));
+  }
+
+  /**
+   * @summary 创建定时伸缩配置
+   *
+   * @param request CreateScheduledScalingRuleRequest
+   * @return CreateScheduledScalingRuleResponse
+   */
+  async createScheduledScalingRule(request: CreateScheduledScalingRuleRequest): Promise<CreateScheduledScalingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createScheduledScalingRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Creates a topic.
+   *
+   * @description *   Each Alibaba Cloud account can call this operation up to once per second.
+   * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+   *
+   * @param request CreateTopicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTopicResponse
    */
   async createTopicWithOptions(request: CreateTopicRequest, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
     Util.validateModel(request);
@@ -6127,17 +6803,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Each Alibaba Cloud account can call this operation up to once per second.
-    * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
-    *
-    * @param request CreateTopicRequest
-    * @return CreateTopicResponse
+   * @summary Creates a topic.
+   *
+   * @description *   Each Alibaba Cloud account can call this operation up to once per second.
+   * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+   *
+   * @param request CreateTopicRequest
+   * @return CreateTopicResponse
    */
   async createTopic(request: CreateTopicRequest): Promise<CreateTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTopicWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an access control list (ACL).
+   *
+   * @param request DeleteAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAclResponse
+   */
   async deleteAclWithOptions(request: DeleteAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6198,11 +6883,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAclResponse>(await this.callApi(params, req, runtime), new DeleteAclResponse({}));
   }
 
+  /**
+   * @summary Deletes an access control list (ACL).
+   *
+   * @param request DeleteAclRequest
+   * @return DeleteAclResponse
+   */
   async deleteAcl(request: DeleteAclRequest): Promise<DeleteAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
+   *
+   * @param request DeleteConsumerGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteConsumerGroupResponse
+   */
   async deleteConsumerGroupWithOptions(request: DeleteConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6235,11 +6933,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteConsumerGroupResponse>(await this.callApi(params, req, runtime), new DeleteConsumerGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
+   *
+   * @param request DeleteConsumerGroupRequest
+   * @return DeleteConsumerGroupResponse
+   */
   async deleteConsumerGroup(request: DeleteConsumerGroupRequest): Promise<DeleteConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteConsumerGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
+   *
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6268,11 +6979,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+   * @summary Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
+   *
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
+   */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
+   *
+   * @param request DeleteSaslUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSaslUserResponse
+   */
   async deleteSaslUserWithOptions(request: DeleteSaslUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSaslUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6313,11 +7037,74 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSaslUserResponse>(await this.callApi(params, req, runtime), new DeleteSaslUserResponse({}));
   }
 
+  /**
+   * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
+   *
+   * @param request DeleteSaslUserRequest
+   * @return DeleteSaslUserResponse
+   */
   async deleteSaslUser(request: DeleteSaslUserRequest): Promise<DeleteSaslUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSaslUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除定时伸缩规则
+   *
+   * @param request DeleteScheduledScalingRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteScheduledScalingRuleResponse
+   */
+  async deleteScheduledScalingRuleWithOptions(request: DeleteScheduledScalingRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScheduledScalingRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteScheduledScalingRule",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteScheduledScalingRuleResponse>(await this.callApi(params, req, runtime), new DeleteScheduledScalingRuleResponse({}));
+  }
+
+  /**
+   * @summary 删除定时伸缩规则
+   *
+   * @param request DeleteScheduledScalingRuleRequest
+   * @return DeleteScheduledScalingRuleResponse
+   */
+  async deleteScheduledScalingRule(request: DeleteScheduledScalingRuleRequest): Promise<DeleteScheduledScalingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteScheduledScalingRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Deletes a topic.
+   *
+   * @param request DeleteTopicRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTopicResponse
+   */
   async deleteTopicWithOptions(request: DeleteTopicRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTopicResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6350,11 +7137,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTopicResponse>(await this.callApi(params, req, runtime), new DeleteTopicResponse({}));
   }
 
+  /**
+   * @summary Deletes a topic.
+   *
+   * @param request DeleteTopicRequest
+   * @return DeleteTopicResponse
+   */
   async deleteTopic(request: DeleteTopicRequest): Promise<DeleteTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTopicWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries access control lists (ACLs).
+   *
+   * @param request DescribeAclsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAclsResponse
+   */
   async describeAclsWithOptions(request: DescribeAclsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAclsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6411,11 +7211,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAclsResponse>(await this.callApi(params, req, runtime), new DescribeAclsResponse({}));
   }
 
+  /**
+   * @summary Queries access control lists (ACLs).
+   *
+   * @param request DescribeAclsRequest
+   * @return DescribeAclsResponse
+   */
   async describeAcls(request: DescribeAclsRequest): Promise<DescribeAclsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAclsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Simple Authentication and Security Layer (SASL) users.
+   *
+   * @param request DescribeSaslUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSaslUsersResponse
+   */
   async describeSaslUsersWithOptions(request: DescribeSaslUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSaslUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6444,11 +7257,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSaslUsersResponse>(await this.callApi(params, req, runtime), new DescribeSaslUsersResponse({}));
   }
 
+  /**
+   * @summary Queries Simple Authentication and Security Layer (SASL) users.
+   *
+   * @param request DescribeSaslUsersRequest
+   * @return DescribeSaslUsersResponse
+   */
   async describeSaslUsers(request: DescribeSaslUsersRequest): Promise<DescribeSaslUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSaslUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables and disables the flexible group creation feature.
+   *
+   * @param request EnableAutoGroupCreationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableAutoGroupCreationResponse
+   */
   async enableAutoGroupCreationWithOptions(request: EnableAutoGroupCreationRequest, runtime: $Util.RuntimeOptions): Promise<EnableAutoGroupCreationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6481,11 +7307,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableAutoGroupCreationResponse>(await this.callApi(params, req, runtime), new EnableAutoGroupCreationResponse({}));
   }
 
+  /**
+   * @summary Enables and disables the flexible group creation feature.
+   *
+   * @param request EnableAutoGroupCreationRequest
+   * @return EnableAutoGroupCreationResponse
+   */
   async enableAutoGroupCreation(request: EnableAutoGroupCreationRequest): Promise<EnableAutoGroupCreationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableAutoGroupCreationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
+   *
+   * @param request EnableAutoTopicCreationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableAutoTopicCreationResponse
+   */
   async enableAutoTopicCreationWithOptions(request: EnableAutoTopicCreationRequest, runtime: $Util.RuntimeOptions): Promise<EnableAutoTopicCreationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6522,11 +7361,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableAutoTopicCreationResponse>(await this.callApi(params, req, runtime), new EnableAutoTopicCreationResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
+   *
+   * @param request EnableAutoTopicCreationRequest
+   * @return EnableAutoTopicCreationResponse
+   */
   async enableAutoTopicCreation(request: EnableAutoTopicCreationRequest): Promise<EnableAutoTopicCreationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableAutoTopicCreationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the IDs of all instances in the current account.
+   *
+   * @param request GetAllInstanceIdListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAllInstanceIdListResponse
+   */
   async getAllInstanceIdListWithOptions(request: GetAllInstanceIdListRequest, runtime: $Util.RuntimeOptions): Promise<GetAllInstanceIdListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6551,11 +7403,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAllInstanceIdListResponse>(await this.callApi(params, req, runtime), new GetAllInstanceIdListResponse({}));
   }
 
+  /**
+   * @summary Queries the IDs of all instances in the current account.
+   *
+   * @param request GetAllInstanceIdListRequest
+   * @return GetAllInstanceIdListResponse
+   */
   async getAllInstanceIdList(request: GetAllInstanceIdListRequest): Promise<GetAllInstanceIdListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAllInstanceIdListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the IP address whitelist.
+   *
+   * @param request GetAllowedIpListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAllowedIpListResponse
+   */
   async getAllowedIpListWithOptions(request: GetAllowedIpListRequest, runtime: $Util.RuntimeOptions): Promise<GetAllowedIpListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6584,11 +7449,70 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAllowedIpListResponse>(await this.callApi(params, req, runtime), new GetAllowedIpListResponse({}));
   }
 
+  /**
+   * @summary Queries the IP address whitelist.
+   *
+   * @param request GetAllowedIpListRequest
+   * @return GetAllowedIpListResponse
+   */
   async getAllowedIpList(request: GetAllowedIpListRequest): Promise<GetAllowedIpListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAllowedIpListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询自动伸缩配置
+   *
+   * @param request GetAutoScalingConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAutoScalingConfigurationResponse
+   */
+  async getAutoScalingConfigurationWithOptions(request: GetAutoScalingConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoScalingConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAutoScalingConfiguration",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAutoScalingConfigurationResponse>(await this.callApi(params, req, runtime), new GetAutoScalingConfigurationResponse({}));
+  }
+
+  /**
+   * @summary 查询自动伸缩配置
+   *
+   * @param request GetAutoScalingConfigurationRequest
+   * @return GetAutoScalingConfigurationResponse
+   */
+  async getAutoScalingConfiguration(request: GetAutoScalingConfigurationRequest): Promise<GetAutoScalingConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAutoScalingConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+   *
+   * @param request GetConsumerListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConsumerListResponse
+   */
   async getConsumerListWithOptions(request: GetConsumerListRequest, runtime: $Util.RuntimeOptions): Promise<GetConsumerListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6629,11 +7553,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConsumerListResponse>(await this.callApi(params, req, runtime), new GetConsumerListResponse({}));
   }
 
+  /**
+   * @summary Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+   *
+   * @param request GetConsumerListRequest
+   * @return GetConsumerListResponse
+   */
   async getConsumerList(request: GetConsumerListRequest): Promise<GetConsumerListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConsumerListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the consumer progress of a consumer group.
+   *
+   * @param request GetConsumerProgressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConsumerProgressResponse
+   */
   async getConsumerProgressWithOptions(request: GetConsumerProgressRequest, runtime: $Util.RuntimeOptions): Promise<GetConsumerProgressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6666,11 +7603,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConsumerProgressResponse>(await this.callApi(params, req, runtime), new GetConsumerProgressResponse({}));
   }
 
+  /**
+   * @summary Queries the consumer progress of a consumer group.
+   *
+   * @param request GetConsumerProgressRequest
+   * @return GetConsumerProgressResponse
+   */
   async getConsumerProgress(request: GetConsumerProgressRequest): Promise<GetConsumerProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConsumerProgressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about instances in a specified region.
+   *
+   * @param request GetInstanceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceListResponse
+   */
   async getInstanceListWithOptions(request: GetInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6715,11 +7665,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceListResponse>(await this.callApi(params, req, runtime), new GetInstanceListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about instances in a specified region.
+   *
+   * @param request GetInstanceListRequest
+   * @return GetInstanceListResponse
+   */
   async getInstanceList(request: GetInstanceListRequest): Promise<GetInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the used quota of topics and partitions.
+   *
+   * @param request GetQuotaTipRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaTipResponse
+   */
   async getQuotaTipWithOptions(request: GetQuotaTipRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaTipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6748,11 +7711,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQuotaTipResponse>(await this.callApi(params, req, runtime), new GetQuotaTipResponse({}));
   }
 
+  /**
+   * @summary Queries the used quota of topics and partitions.
+   *
+   * @param request GetQuotaTipRequest
+   * @return GetQuotaTipResponse
+   */
   async getQuotaTip(request: GetQuotaTipRequest): Promise<GetQuotaTipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQuotaTipWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a topic.
+   *
+   * @param request GetTopicListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTopicListResponse
+   */
   async getTopicListWithOptions(request: GetTopicListRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6793,11 +7769,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTopicListResponse>(await this.callApi(params, req, runtime), new GetTopicListResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a topic.
+   *
+   * @param request GetTopicListRequest
+   * @return GetTopicListResponse
+   */
   async getTopicList(request: GetTopicListRequest): Promise<GetTopicListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTopicListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status information about messages in a specified topic.
+   *
+   * @param request GetTopicStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTopicStatusResponse
+   */
   async getTopicStatusWithOptions(request: GetTopicStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6830,11 +7819,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTopicStatusResponse>(await this.callApi(params, req, runtime), new GetTopicStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status information about messages in a specified topic.
+   *
+   * @param request GetTopicStatusRequest
+   * @return GetTopicStatusResponse
+   */
   async getTopicStatus(request: GetTopicStatusRequest): Promise<GetTopicStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTopicStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the information about a group that subscribes to a topic.
+   *
+   * @param request GetTopicSubscribeStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTopicSubscribeStatusResponse
+   */
   async getTopicSubscribeStatusWithOptions(request: GetTopicSubscribeStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicSubscribeStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6867,11 +7869,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTopicSubscribeStatusResponse>(await this.callApi(params, req, runtime), new GetTopicSubscribeStatusResponse({}));
   }
 
+  /**
+   * @summary Obtains the information about a group that subscribes to a topic.
+   *
+   * @param request GetTopicSubscribeStatusRequest
+   * @return GetTopicSubscribeStatusResponse
+   */
   async getTopicSubscribeStatus(request: GetTopicSubscribeStatusRequest): Promise<GetTopicSubscribeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTopicSubscribeStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags that are attached to a specified resource.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6912,11 +7927,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the tags that are attached to a specified resource.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
+   *
+   * @param request ModifyInstanceNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceNameResponse
+   */
   async modifyInstanceNameWithOptions(request: ModifyInstanceNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6949,11 +7977,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceNameResponse>(await this.callApi(params, req, runtime), new ModifyInstanceNameResponse({}));
   }
 
+  /**
+   * @summary Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
+   *
+   * @param request ModifyInstanceNameRequest
+   * @return ModifyInstanceNameResponse
+   */
   async modifyInstanceName(request: ModifyInstanceNameRequest): Promise<ModifyInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the number of partitions in a specified topic.
+   *
+   * @param request ModifyPartitionNumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPartitionNumResponse
+   */
   async modifyPartitionNumWithOptions(request: ModifyPartitionNumRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPartitionNumResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6990,11 +8031,78 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPartitionNumResponse>(await this.callApi(params, req, runtime), new ModifyPartitionNumResponse({}));
   }
 
+  /**
+   * @summary Changes the number of partitions in a specified topic.
+   *
+   * @param request ModifyPartitionNumRequest
+   * @return ModifyPartitionNumResponse
+   */
   async modifyPartitionNum(request: ModifyPartitionNumRequest): Promise<ModifyPartitionNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPartitionNumWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改定时伸缩规则
+   *
+   * @param request ModifyScheduledScalingRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyScheduledScalingRuleResponse
+   */
+  async modifyScheduledScalingRuleWithOptions(request: ModifyScheduledScalingRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyScheduledScalingRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyScheduledScalingRule",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyScheduledScalingRuleResponse>(await this.callApi(params, req, runtime), new ModifyScheduledScalingRuleResponse({}));
+  }
+
+  /**
+   * @summary 修改定时伸缩规则
+   *
+   * @param request ModifyScheduledScalingRuleRequest
+   * @return ModifyScheduledScalingRuleResponse
+   */
+  async modifyScheduledScalingRule(request: ModifyScheduledScalingRuleRequest): Promise<ModifyScheduledScalingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyScheduledScalingRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Modifies the description of a topic.
+   *
+   * @param request ModifyTopicRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTopicRemarkResponse
+   */
   async modifyTopicRemarkWithOptions(request: ModifyTopicRemarkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTopicRemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7031,11 +8139,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTopicRemarkResponse>(await this.callApi(params, req, runtime), new ModifyTopicRemarkResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a topic.
+   *
+   * @param request ModifyTopicRemarkRequest
+   * @return ModifyTopicRemarkResponse
+   */
   async modifyTopicRemark(request: ModifyTopicRemarkRequest): Promise<ModifyTopicRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTopicRemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries messages stored in a topic. You can query messages by creation time or offset.
+   *
+   * @param request QueryMessageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMessageResponse
+   */
   async queryMessageWithOptions(request: QueryMessageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMessageResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7056,17 +8177,25 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMessageResponse>(await this.callApi(params, req, runtime), new QueryMessageResponse({}));
   }
 
+  /**
+   * @summary Queries messages stored in a topic. You can query messages by creation time or offset.
+   *
+   * @param request QueryMessageRequest
+   * @return QueryMessageResponse
+   */
   async queryMessage(request: QueryMessageRequest): Promise<QueryMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMessageWithOptions(request, runtime);
   }
 
   /**
-    * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
-    *
-    * @param request ReleaseInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseInstanceResponse
+   * @summary Releases a pay-as-you-go Message Queue for Apache Kafka instance.
+   *
+   * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+   *
+   * @param request ReleaseInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstanceResponse
    */
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
@@ -7101,10 +8230,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
-    *
-    * @param request ReleaseInstanceRequest
-    * @return ReleaseInstanceResponse
+   * @summary Releases a pay-as-you-go Message Queue for Apache Kafka instance.
+   *
+   * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+   *
+   * @param request ReleaseInstanceRequest
+   * @return ReleaseInstanceResponse
    */
   async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7112,11 +8243,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only if your instance is in the Stopped state.
-    *
-    * @param request ReopenInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReopenInstanceResponse
+   * @summary Enables an ApsaraMQ for Kafka instance.
+   *
+   * @description You can call this operation only if your instance is in the Stopped state.
+   *
+   * @param request ReopenInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReopenInstanceResponse
    */
   async reopenInstanceWithOptions(request: ReopenInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReopenInstanceResponse> {
     Util.validateModel(request);
@@ -7147,10 +8280,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation only if your instance is in the Stopped state.
-    *
-    * @param request ReopenInstanceRequest
-    * @return ReopenInstanceResponse
+   * @summary Enables an ApsaraMQ for Kafka instance.
+   *
+   * @description You can call this operation only if your instance is in the Stopped state.
+   *
+   * @param request ReopenInstanceRequest
+   * @return ReopenInstanceResponse
    */
   async reopenInstance(request: ReopenInstanceRequest): Promise<ReopenInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7158,11 +8293,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to twice per second.
-    *
-    * @param request StartInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartInstanceResponse
+   * @summary Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
+   *
+   * @description >  You can call this operation up to twice per second.
+   *
+   * @param request StartInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartInstanceResponse
    */
   async startInstanceWithOptions(request: StartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
     Util.validateModel(request);
@@ -7269,10 +8406,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation up to twice per second.
-    *
-    * @param request StartInstanceRequest
-    * @return StartInstanceResponse
+   * @summary Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
+   *
+   * @description >  You can call this operation up to twice per second.
+   *
+   * @param request StartInstanceRequest
+   * @return StartInstanceResponse
    */
   async startInstance(request: StartInstanceRequest): Promise<StartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7280,11 +8419,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
-    *
-    * @param request StopInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopInstanceResponse
+   * @summary Stops an ApsaraMQ for Kafka instance.
+   *
+   * @description You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+   *
+   * @param request StopInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopInstanceResponse
    */
   async stopInstanceWithOptions(request: StopInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
@@ -7315,16 +8456,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
-    *
-    * @param request StopInstanceRequest
-    * @return StopInstanceResponse
+   * @summary Stops an ApsaraMQ for Kafka instance.
+   *
+   * @description You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+   *
+   * @param request StopInstanceRequest
+   * @return StopInstanceResponse
    */
   async stopInstance(request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Attaches a tag to a resource.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7365,11 +8515,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Attaches a tag to a resource.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Detaches tags from a specified resource.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7410,11 +8573,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Detaches tags from a specified resource.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
+   *
+   * @param request UpdateAllowedIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAllowedIpResponse
+   */
   async updateAllowedIpWithOptions(request: UpdateAllowedIpRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAllowedIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7463,20 +8639,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAllowedIpResponse>(await this.callApi(params, req, runtime), new UpdateAllowedIpResponse({}));
   }
 
+  /**
+   * @summary Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
+   *
+   * @param request UpdateAllowedIpRequest
+   * @return UpdateAllowedIpResponse
+   */
   async updateAllowedIp(request: UpdateAllowedIpRequest): Promise<UpdateAllowedIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAllowedIpWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
-    * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
-    * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
-    * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
-    *
-    * @param tmpReq UpdateConsumerOffsetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateConsumerOffsetResponse
+   * @summary Resets the consumer offsets of the subscribed topics of a consumer group.
+   *
+   * @description You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
+   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
+   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
+   * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+   *
+   * @param tmpReq UpdateConsumerOffsetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateConsumerOffsetResponse
    */
   async updateConsumerOffsetWithOptions(tmpReq: UpdateConsumerOffsetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerOffsetResponse> {
     Util.validateModel(tmpReq);
@@ -7533,13 +8717,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
-    * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
-    * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
-    * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
-    *
-    * @param request UpdateConsumerOffsetRequest
-    * @return UpdateConsumerOffsetResponse
+   * @summary Resets the consumer offsets of the subscribed topics of a consumer group.
+   *
+   * @description You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
+   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
+   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
+   * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+   *
+   * @param request UpdateConsumerOffsetRequest
+   * @return UpdateConsumerOffsetResponse
    */
   async updateConsumerOffset(request: UpdateConsumerOffsetRequest): Promise<UpdateConsumerOffsetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7547,15 +8733,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## **Permissions**
-    * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](~~185815~~).
-    * |API|Action|Resource|
-    * |---|---|---|
-    * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
-    *
-    * @param request UpdateInstanceConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateInstanceConfigResponse
+   * @summary Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+   *
+   * @description ## **Permissions**
+   * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
+   * |API|Action|Resource|
+   * |---|---|---|
+   * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
+   *
+   * @param request UpdateInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceConfigResponse
    */
   async updateInstanceConfigWithOptions(request: UpdateInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceConfigResponse> {
     Util.validateModel(request);
@@ -7590,20 +8778,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## **Permissions**
-    * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](~~185815~~).
-    * |API|Action|Resource|
-    * |---|---|---|
-    * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
-    *
-    * @param request UpdateInstanceConfigRequest
-    * @return UpdateInstanceConfigResponse
+   * @summary Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+   *
+   * @description ## **Permissions**
+   * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
+   * |API|Action|Resource|
+   * |---|---|---|
+   * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
+   *
+   * @param request UpdateInstanceConfigRequest
+   * @return UpdateInstanceConfigResponse
    */
   async updateInstanceConfig(request: UpdateInstanceConfigRequest): Promise<UpdateInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
+   *
+   * @param request UpdateTopicConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTopicConfigResponse
+   */
   async updateTopicConfigWithOptions(request: UpdateTopicConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTopicConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7644,23 +8841,31 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTopicConfigResponse>(await this.callApi(params, req, runtime), new UpdateTopicConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
+   *
+   * @param request UpdateTopicConfigRequest
+   * @return UpdateTopicConfigResponse
+   */
   async updateTopicConfig(request: UpdateTopicConfigRequest): Promise<UpdateTopicConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTopicConfigWithOptions(request, runtime);
   }
 
   /**
-    * ## **Permissions**
-    * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
-    * |API|Action|Resource|
-    * |---|---|---|
-    * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
-    * ## **QPS limits**
-    * You can send a maximum of two queries per second (QPS).
-    *
-    * @param request UpgradeInstanceVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeInstanceVersionResponse
+   * @summary Updates the version of an instance.
+   *
+   * @description ## **Permissions**
+   * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
+   * |API|Action|Resource|
+   * |---|---|---|
+   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+   * ## **QPS limits**
+   * You can send a maximum of two queries per second (QPS).
+   *
+   * @param request UpgradeInstanceVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeInstanceVersionResponse
    */
   async upgradeInstanceVersionWithOptions(request: UpgradeInstanceVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeInstanceVersionResponse> {
     Util.validateModel(request);
@@ -7695,16 +8900,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## **Permissions**
-    * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
-    * |API|Action|Resource|
-    * |---|---|---|
-    * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
-    * ## **QPS limits**
-    * You can send a maximum of two queries per second (QPS).
-    *
-    * @param request UpgradeInstanceVersionRequest
-    * @return UpgradeInstanceVersionResponse
+   * @summary Updates the version of an instance.
+   *
+   * @description ## **Permissions**
+   * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
+   * |API|Action|Resource|
+   * |---|---|---|
+   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+   * ## **QPS limits**
+   * You can send a maximum of two queries per second (QPS).
+   *
+   * @param request UpgradeInstanceVersionRequest
+   * @return UpgradeInstanceVersionResponse
    */
   async upgradeInstanceVersion(request: UpgradeInstanceVersionRequest): Promise<UpgradeInstanceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7712,11 +8919,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
-    *
-    * @param tmpReq UpgradePostPayOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradePostPayOrderResponse
+   * @summary Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
+   *
+   * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   *
+   * @param tmpReq UpgradePostPayOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradePostPayOrderResponse
    */
   async upgradePostPayOrderWithOptions(tmpReq: UpgradePostPayOrderRequest, runtime: $Util.RuntimeOptions): Promise<UpgradePostPayOrderResponse> {
     Util.validateModel(tmpReq);
@@ -7789,10 +8998,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
-    *
-    * @param request UpgradePostPayOrderRequest
-    * @return UpgradePostPayOrderResponse
+   * @summary Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
+   *
+   * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   *
+   * @param request UpgradePostPayOrderRequest
+   * @return UpgradePostPayOrderResponse
    */
   async upgradePostPayOrder(request: UpgradePostPayOrderRequest): Promise<UpgradePostPayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7800,11 +9011,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](~~84737~~).
-    *
-    * @param tmpReq UpgradePrePayOrderRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradePrePayOrderResponse
+   * @summary Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+   *
+   * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   *
+   * @param tmpReq UpgradePrePayOrderRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradePrePayOrderResponse
    */
   async upgradePrePayOrderWithOptions(tmpReq: UpgradePrePayOrderRequest, runtime: $Util.RuntimeOptions): Promise<UpgradePrePayOrderResponse> {
     Util.validateModel(tmpReq);
@@ -7881,10 +9094,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](~~84737~~).
-    *
-    * @param request UpgradePrePayOrderRequest
-    * @return UpgradePrePayOrderResponse
+   * @summary Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+   *
+   * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   *
+   * @param request UpgradePrePayOrderRequest
+   * @return UpgradePrePayOrderResponse
    */
   async upgradePrePayOrder(request: UpgradePrePayOrderRequest): Promise<UpgradePrePayOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
