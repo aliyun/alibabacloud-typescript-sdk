@@ -1082,6 +1082,141 @@ export class CreateAppResponse extends $tea.Model {
   }
 }
 
+export class CreateAppCodeRequest extends $tea.Model {
+  appCode?: string;
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCode: 'AppCode',
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCode: 'string',
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppCodeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppKeyRequest extends $tea.Model {
+  appId?: string;
+  appKey?: string;
+  appSecret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appKey: 'AppKey',
+      appSecret: 'AppSecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appKey: 'string',
+      appSecret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppKeyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppKeyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBackendRequest extends $tea.Model {
   backendName?: string;
   backendType?: string;
@@ -2619,6 +2754,138 @@ export class DeleteAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppCodeRequest extends $tea.Model {
+  appCode?: string;
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCode: 'AppCode',
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCode: 'string',
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppCodeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppKeyRequest extends $tea.Model {
+  appId?: string;
+  appKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appKey: 'AppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppKeyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppKeyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppKeyResponseBody,
     };
   }
 
@@ -26561,6 +26828,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建新的AppCode
+   *
+   * @param request CreateAppCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppCodeResponse
+   */
+  async createAppCodeWithOptions(request: CreateAppCodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appCode)) {
+      query["AppCode"] = request.appCode;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAppCode",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppCodeResponse>(await this.callApi(params, req, runtime), new CreateAppCodeResponse({}));
+  }
+
+  /**
+   * @summary 创建新的AppCode
+   *
+   * @param request CreateAppCodeRequest
+   * @return CreateAppCodeResponse
+   */
+  async createAppCode(request: CreateAppCodeRequest): Promise<CreateAppCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAppCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建新的AK、SK
+   *
+   * @param request CreateAppKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppKeyResponse
+   */
+  async createAppKeyWithOptions(request: CreateAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.appSecret)) {
+      query["AppSecret"] = request.appSecret;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAppKey",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppKeyResponse>(await this.callApi(params, req, runtime), new CreateAppKeyResponse({}));
+  }
+
+  /**
+   * @summary 创建新的AK、SK
+   *
+   * @param request CreateAppKeyRequest
+   * @return CreateAppKeyResponse
+   */
+  async createAppKey(request: CreateAppKeyRequest): Promise<CreateAppKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAppKeyWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 创建后端服务
    *
    * @param request CreateBackendRequest
@@ -27758,6 +28121,98 @@ export default class Client extends OpenApi {
   async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 删除新的AppCode
+   *
+   * @param request DeleteAppCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppCodeResponse
+   */
+  async deleteAppCodeWithOptions(request: DeleteAppCodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appCode)) {
+      query["AppCode"] = request.appCode;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAppCode",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppCodeResponse>(await this.callApi(params, req, runtime), new DeleteAppCodeResponse({}));
+  }
+
+  /**
+   * @summary 删除新的AppCode
+   *
+   * @param request DeleteAppCodeRequest
+   * @return DeleteAppCodeResponse
+   */
+  async deleteAppCode(request: DeleteAppCodeRequest): Promise<DeleteAppCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAppCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 删除新的AppKey
+   *
+   * @param request DeleteAppKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppKeyResponse
+   */
+  async deleteAppKeyWithOptions(request: DeleteAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAppKey",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppKeyResponse>(await this.callApi(params, req, runtime), new DeleteAppKeyResponse({}));
+  }
+
+  /**
+   * @summary 删除新的AppKey
+   *
+   * @param request DeleteAppKeyRequest
+   * @return DeleteAppKeyResponse
+   */
+  async deleteAppKey(request: DeleteAppKeyRequest): Promise<DeleteAppKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAppKeyWithOptions(request, runtime);
   }
 
   /**
