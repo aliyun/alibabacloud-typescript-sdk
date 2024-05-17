@@ -1914,20 +1914,24 @@ export class MachineGroup extends $tea.Model {
 
 export class Project extends $tea.Model {
   createTime?: string;
+  dataRedundancyType?: string;
   description?: string;
   lastModifyTime?: string;
   owner?: string;
   projectName?: string;
+  quota?: { [key: string]: any };
   region?: string;
   resourceGroupId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
+      dataRedundancyType: 'dataRedundancyType',
       description: 'description',
       lastModifyTime: 'lastModifyTime',
       owner: 'owner',
       projectName: 'projectName',
+      quota: 'quota',
       region: 'region',
       resourceGroupId: 'resourceGroupId',
       status: 'status',
@@ -1937,10 +1941,12 @@ export class Project extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      dataRedundancyType: 'string',
       description: 'string',
       lastModifyTime: 'string',
       owner: 'string',
       projectName: 'string',
+      quota: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       region: 'string',
       resourceGroupId: 'string',
       status: 'string',
@@ -7141,12 +7147,14 @@ export class ListOSSIngestionsResponse extends $tea.Model {
 }
 
 export class ListProjectRequest extends $tea.Model {
+  fetchQuota?: boolean;
   offset?: number;
   projectName?: string;
   resourceGroupId?: string;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      fetchQuota: 'fetchQuota',
       offset: 'offset',
       projectName: 'projectName',
       resourceGroupId: 'resourceGroupId',
@@ -7156,6 +7164,7 @@ export class ListProjectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fetchQuota: 'boolean',
       offset: 'number',
       projectName: 'string',
       resourceGroupId: 'string',
@@ -16992,6 +17001,10 @@ export default class Client extends OpenApi {
   async listProjectWithOptions(request: ListProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fetchQuota)) {
+      query["fetchQuota"] = request.fetchQuota;
+    }
+
     if (!Util.isUnset(request.offset)) {
       query["offset"] = request.offset;
     }
