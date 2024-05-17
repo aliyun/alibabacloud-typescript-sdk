@@ -5027,6 +5027,9 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   scaleRoNumMax?: string;
   scaleRoNumMin?: string;
   secondsUntilAutoPause?: string;
+  serverlessRuleCpuEnlargeThreshold?: string;
+  serverlessRuleCpuShrinkThreshold?: string;
+  serverlessRuleMode?: string;
   switchs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5040,6 +5043,9 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
       scaleRoNumMax: 'ScaleRoNumMax',
       scaleRoNumMin: 'ScaleRoNumMin',
       secondsUntilAutoPause: 'SecondsUntilAutoPause',
+      serverlessRuleCpuEnlargeThreshold: 'ServerlessRuleCpuEnlargeThreshold',
+      serverlessRuleCpuShrinkThreshold: 'ServerlessRuleCpuShrinkThreshold',
+      serverlessRuleMode: 'ServerlessRuleMode',
       switchs: 'Switchs',
     };
   }
@@ -5056,6 +5062,9 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
       scaleRoNumMax: 'string',
       scaleRoNumMin: 'string',
       secondsUntilAutoPause: 'string',
+      serverlessRuleCpuEnlargeThreshold: 'string',
+      serverlessRuleCpuShrinkThreshold: 'string',
+      serverlessRuleMode: 'string',
       switchs: 'string',
     };
   }
@@ -10537,6 +10546,9 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
   scaleRoNumMax?: string;
   scaleRoNumMin?: string;
   secondsUntilAutoPause?: string;
+  serverlessRuleCpuEnlargeThreshold?: string;
+  serverlessRuleCpuShrinkThreshold?: string;
+  serverlessRuleMode?: string;
   static names(): { [key: string]: string } {
     return {
       allowShutDown: 'AllowShutDown',
@@ -10555,6 +10567,9 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
       scaleRoNumMax: 'ScaleRoNumMax',
       scaleRoNumMin: 'ScaleRoNumMin',
       secondsUntilAutoPause: 'SecondsUntilAutoPause',
+      serverlessRuleCpuEnlargeThreshold: 'ServerlessRuleCpuEnlargeThreshold',
+      serverlessRuleCpuShrinkThreshold: 'ServerlessRuleCpuShrinkThreshold',
+      serverlessRuleMode: 'ServerlessRuleMode',
     };
   }
 
@@ -10576,6 +10591,9 @@ export class ModifyDBClusterServerlessConfRequest extends $tea.Model {
       scaleRoNumMax: 'string',
       scaleRoNumMin: 'string',
       secondsUntilAutoPause: 'string',
+      serverlessRuleCpuEnlargeThreshold: 'string',
+      serverlessRuleCpuShrinkThreshold: 'string',
+      serverlessRuleMode: 'string',
     };
   }
 
@@ -16679,6 +16697,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Cancels scheduled tasks that are not yet started.
+   *
+   * @param request CancelScheduleTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelScheduleTasksResponse
+   */
   async cancelScheduleTasksWithOptions(request: CancelScheduleTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelScheduleTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16727,11 +16752,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelScheduleTasksResponse>(await this.callApi(params, req, runtime), new CancelScheduleTasksResponse({}));
   }
 
+  /**
+   * @summary Cancels scheduled tasks that are not yet started.
+   *
+   * @param request CancelScheduleTasksRequest
+   * @return CancelScheduleTasksResponse
+   */
   async cancelScheduleTasks(request: CancelScheduleTasksRequest): Promise<CancelScheduleTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelScheduleTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether an account name is valid or unique in a cluster.
+   *
+   * @param request CheckAccountNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckAccountNameResponse
+   */
   async checkAccountNameWithOptions(request: CheckAccountNameRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccountNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16776,11 +16814,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckAccountNameResponse>(await this.callApi(params, req, runtime), new CheckAccountNameResponse({}));
   }
 
+  /**
+   * @summary Checks whether an account name is valid or unique in a cluster.
+   *
+   * @param request CheckAccountNameRequest
+   * @return CheckAccountNameResponse
+   */
   async checkAccountName(request: CheckAccountNameRequest): Promise<CheckAccountNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkAccountNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+   *
+   * @param request CheckDBNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckDBNameResponse
+   */
   async checkDBNameWithOptions(request: CheckDBNameRequest, runtime: $Util.RuntimeOptions): Promise<CheckDBNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16825,11 +16876,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckDBNameResponse>(await this.callApi(params, req, runtime), new CheckDBNameResponse({}));
   }
 
+  /**
+   * @summary Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+   *
+   * @param request CheckDBNameRequest
+   * @return CheckDBNameResponse
+   */
   async checkDBName(request: CheckDBNameRequest): Promise<CheckDBNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkDBNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the cluster is authorized to use Key Management Service (KMS).
+   *
+   * @param request CheckKMSAuthorizedRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckKMSAuthorizedResponse
+   */
   async checkKMSAuthorizedWithOptions(request: CheckKMSAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckKMSAuthorizedResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16878,11 +16942,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckKMSAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckKMSAuthorizedResponse({}));
   }
 
+  /**
+   * @summary Queries whether the cluster is authorized to use Key Management Service (KMS).
+   *
+   * @param request CheckKMSAuthorizedRequest
+   * @return CheckKMSAuthorizedResponse
+   */
   async checkKMSAuthorized(request: CheckKMSAuthorizedRequest): Promise<CheckKMSAuthorizedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkKMSAuthorizedWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Checks whether a service-linked role (SLR) is created.
+   *
+   * @param request CheckServiceLinkedRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckServiceLinkedRoleResponse
+   */
   async checkServiceLinkedRoleWithOptions(request: CheckServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16919,11 +16996,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CheckServiceLinkedRoleResponse({}));
   }
 
+  /**
+   * @summary Checks whether a service-linked role (SLR) is created.
+   *
+   * @param request CheckServiceLinkedRoleRequest
+   * @return CheckServiceLinkedRoleResponse
+   */
   async checkServiceLinkedRole(request: CheckServiceLinkedRoleRequest): Promise<CheckServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 关闭DB4AI
+   *
+   * @param request CloseAITaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseAITaskResponse
+   */
   async closeAITaskWithOptions(request: CloseAITaskRequest, runtime: $Util.RuntimeOptions): Promise<CloseAITaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -16968,19 +17058,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CloseAITaskResponse>(await this.callApi(params, req, runtime), new CloseAITaskResponse({}));
   }
 
+  /**
+   * @summary 关闭DB4AI
+   *
+   * @param request CloseAITaskRequest
+   * @return CloseAITaskResponse
+   */
   async closeAITask(request: CloseAITaskRequest): Promise<CloseAITaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeAITaskWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation to cancel the migration task before data migration.
-    * *   You can call this operation to perform the migration task after data migration.
-    * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
-    *
-    * @param request CloseDBClusterMigrationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CloseDBClusterMigrationResponse
+   * @summary Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
+   *
+   * @description *   You can call this operation to cancel the migration task before data migration.
+   * *   You can call this operation to perform the migration task after data migration.
+   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+   *
+   * @param request CloseDBClusterMigrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloseDBClusterMigrationResponse
    */
   async closeDBClusterMigrationWithOptions(request: CloseDBClusterMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CloseDBClusterMigrationResponse> {
     Util.validateModel(request);
@@ -17027,18 +17125,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to cancel the migration task before data migration.
-    * *   You can call this operation to perform the migration task after data migration.
-    * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
-    *
-    * @param request CloseDBClusterMigrationRequest
-    * @return CloseDBClusterMigrationResponse
+   * @summary Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
+   *
+   * @description *   You can call this operation to cancel the migration task before data migration.
+   * *   You can call this operation to perform the migration task after data migration.
+   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+   *
+   * @param request CloseDBClusterMigrationRequest
+   * @return CloseDBClusterMigrationResponse
    */
   async closeDBClusterMigration(request: CloseDBClusterMigrationRequest): Promise<CloseDBClusterMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.closeDBClusterMigrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a database account for a PolarDB cluster.
+   *
+   * @param request CreateAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccountResponse
+   */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17111,20 +17218,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
+  /**
+   * @summary Creates a database account for a PolarDB cluster.
+   *
+   * @param request CreateAccountRequest
+   * @return CreateAccountResponse
+   */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
   /**
-    * > 
-    * *   You can manually create up to three backups for each cluster.
-    * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](~~98101~~).
-    * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
-    *
-    * @param request CreateBackupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBackupResponse
+   * @summary Creates a full snapshot backup for a PolarDB cluster.
+   *
+   * @description > 
+   * *   You can manually create up to three backups for each cluster.
+   * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](https://help.aliyun.com/document_detail/98101.html).
+   * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+   *
+   * @param request CreateBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBackupResponse
    */
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
@@ -17171,19 +17286,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can manually create up to three backups for each cluster.
-    * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](~~98101~~).
-    * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
-    *
-    * @param request CreateBackupRequest
-    * @return CreateBackupResponse
+   * @summary Creates a full snapshot backup for a PolarDB cluster.
+   *
+   * @description > 
+   * *   You can manually create up to three backups for each cluster.
+   * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](https://help.aliyun.com/document_detail/98101.html).
+   * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+   *
+   * @param request CreateBackupRequest
+   * @return CreateBackupResponse
    */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建冷存储实例
+   *
+   * @param request CreateColdStorageInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateColdStorageInstanceResponse
+   */
   async createColdStorageInstanceWithOptions(request: CreateColdStorageInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateColdStorageInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17236,11 +17360,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateColdStorageInstanceResponse>(await this.callApi(params, req, runtime), new CreateColdStorageInstanceResponse({}));
   }
 
+  /**
+   * @summary 创建冷存储实例
+   *
+   * @param request CreateColdStorageInstanceRequest
+   * @return CreateColdStorageInstanceResponse
+   */
   async createColdStorageInstance(request: CreateColdStorageInstanceRequest): Promise<CreateColdStorageInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createColdStorageInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a PolarDB cluster.
+   *
+   * @param request CreateDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBClusterResponse
+   */
   async createDBClusterWithOptions(request: CreateDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17477,11 +17614,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBClusterResponse>(await this.callApi(params, req, runtime), new CreateDBClusterResponse({}));
   }
 
+  /**
+   * @summary Creates a PolarDB cluster.
+   *
+   * @param request CreateDBClusterRequest
+   * @return CreateDBClusterResponse
+   */
   async createDBCluster(request: CreateDBClusterRequest): Promise<CreateDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom cluster endpoint for a PolarDB cluster.
+   *
+   * @param request CreateDBClusterEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBClusterEndpointResponse
+   */
   async createDBClusterEndpointWithOptions(request: CreateDBClusterEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBClusterEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17550,17 +17700,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBClusterEndpointResponse>(await this.callApi(params, req, runtime), new CreateDBClusterEndpointResponse({}));
   }
 
+  /**
+   * @summary Creates a custom cluster endpoint for a PolarDB cluster.
+   *
+   * @param request CreateDBClusterEndpointRequest
+   * @return CreateDBClusterEndpointResponse
+   */
   async createDBClusterEndpoint(request: CreateDBClusterEndpointRequest): Promise<CreateDBClusterEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBClusterEndpointWithOptions(request, runtime);
   }
 
   /**
-    * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-    *
-    * @param request CreateDBEndpointAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBEndpointAddressResponse
+   * @summary Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+   *
+   * @description > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+   *
+   * @param request CreateDBEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBEndpointAddressResponse
    */
   async createDBEndpointAddressWithOptions(request: CreateDBEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBEndpointAddressResponse> {
     Util.validateModel(request);
@@ -17627,10 +17785,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-    *
-    * @param request CreateDBEndpointAddressRequest
-    * @return CreateDBEndpointAddressResponse
+   * @summary Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+   *
+   * @description > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+   *
+   * @param request CreateDBEndpointAddressRequest
+   * @return CreateDBEndpointAddressResponse
    */
   async createDBEndpointAddress(request: CreateDBEndpointAddressRequest): Promise<CreateDBEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17638,14 +17798,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
-    * > *   You can create up to 10 database links for a cluster.
-    * > *   Each database link connects a source cluster and a destination cluster.
-    * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
-    *
-    * @param request CreateDBLinkRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDBLinkResponse
+   * @summary Creates a database link.
+   *
+   * @description A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+   * > *   You can create up to 10 database links for a cluster.
+   * > *   Each database link connects a source cluster and a destination cluster.
+   * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+   *
+   * @param request CreateDBLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBLinkResponse
    */
   async createDBLinkWithOptions(request: CreateDBLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBLinkResponse> {
     Util.validateModel(request);
@@ -17736,19 +17898,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
-    * > *   You can create up to 10 database links for a cluster.
-    * > *   Each database link connects a source cluster and a destination cluster.
-    * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
-    *
-    * @param request CreateDBLinkRequest
-    * @return CreateDBLinkResponse
+   * @summary Creates a database link.
+   *
+   * @description A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+   * > *   You can create up to 10 database links for a cluster.
+   * > *   Each database link connects a source cluster and a destination cluster.
+   * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+   *
+   * @param request CreateDBLinkRequest
+   * @return CreateDBLinkResponse
    */
   async createDBLink(request: CreateDBLinkRequest): Promise<CreateDBLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a read-only node to a PolarDB cluster.
+   *
+   * @param request CreateDBNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDBNodesResponse
+   */
   async createDBNodesWithOptions(request: CreateDBNodesRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBNodesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17821,19 +17992,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDBNodesResponse>(await this.callApi(params, req, runtime), new CreateDBNodesResponse({}));
   }
 
+  /**
+   * @summary Adds a read-only node to a PolarDB cluster.
+   *
+   * @param request CreateDBNodesRequest
+   * @return CreateDBNodesResponse
+   */
   async createDBNodes(request: CreateDBNodesRequest): Promise<CreateDBNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBNodesWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The cluster is in the Running state.
-    * *   The cluster is unlocked.
-    *
-    * @param request CreateDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDatabaseResponse
+   * @summary Creates a database for a PolarDB cluster.
+   *
+   * @description Before you call this operation, make sure that the following requirements are met:
+   * *   The cluster is in the Running state.
+   * *   The cluster is unlocked.
+   *
+   * @param request CreateDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDatabaseResponse
    */
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
     Util.validateModel(request);
@@ -17904,12 +18083,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   The cluster is in the Running state.
-    * *   The cluster is unlocked.
-    *
-    * @param request CreateDatabaseRequest
-    * @return CreateDatabaseResponse
+   * @summary Creates a database for a PolarDB cluster.
+   *
+   * @description Before you call this operation, make sure that the following requirements are met:
+   * *   The cluster is in the Running state.
+   * *   The cluster is unlocked.
+   *
+   * @param request CreateDatabaseRequest
+   * @return CreateDatabaseResponse
    */
   async createDatabase(request: CreateDatabaseRequest): Promise<CreateDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17917,11 +18098,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  A cluster belongs to only one GDN.
-    *
-    * @param request CreateGlobalDatabaseNetworkRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateGlobalDatabaseNetworkResponse
+   * @summary Creates a global database network (GDN).
+   *
+   * @description >  A cluster belongs to only one GDN.
+   *
+   * @param request CreateGlobalDatabaseNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGlobalDatabaseNetworkResponse
    */
   async createGlobalDatabaseNetworkWithOptions(request: CreateGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
@@ -17976,16 +18159,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  A cluster belongs to only one GDN.
-    *
-    * @param request CreateGlobalDatabaseNetworkRequest
-    * @return CreateGlobalDatabaseNetworkResponse
+   * @summary Creates a global database network (GDN).
+   *
+   * @description >  A cluster belongs to only one GDN.
+   *
+   * @param request CreateGlobalDatabaseNetworkRequest
+   * @return CreateGlobalDatabaseNetworkResponse
    */
   async createGlobalDatabaseNetwork(request: CreateGlobalDatabaseNetworkRequest): Promise<CreateGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalDatabaseNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a global IP whitelist template.
+   *
+   * @param request CreateGlobalSecurityIPGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGlobalSecurityIPGroupResponse
+   */
   async createGlobalSecurityIPGroupWithOptions(request: CreateGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18042,18 +18234,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new CreateGlobalSecurityIPGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a global IP whitelist template.
+   *
+   * @param request CreateGlobalSecurityIPGroupRequest
+   * @return CreateGlobalSecurityIPGroupResponse
+   */
   async createGlobalSecurityIPGroup(request: CreateGlobalSecurityIPGroupRequest): Promise<CreateGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
   /**
-    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * > You can call this operation only on a PolarDB for MySQL cluster.
-    *
-    * @param request CreateParameterGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateParameterGroupResponse
+   * @summary Creates a parameter template.
+   *
+   * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * > You can call this operation only on a PolarDB for MySQL cluster.
+   *
+   * @param request CreateParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateParameterGroupResponse
    */
   async createParameterGroupWithOptions(request: CreateParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterGroupResponse> {
     Util.validateModel(request);
@@ -18120,17 +18320,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * > You can call this operation only on a PolarDB for MySQL cluster.
-    *
-    * @param request CreateParameterGroupRequest
-    * @return CreateParameterGroupResponse
+   * @summary Creates a parameter template.
+   *
+   * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * > You can call this operation only on a PolarDB for MySQL cluster.
+   *
+   * @param request CreateParameterGroupRequest
+   * @return CreateParameterGroupResponse
    */
   async createParameterGroup(request: CreateParameterGroupRequest): Promise<CreateParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createParameterGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a service-linked role (SLR).
+   *
+   * @param request CreateServiceLinkedRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceLinkedRoleResponse
+   */
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18167,11 +18376,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
   }
 
+  /**
+   * @summary Creates a service-linked role (SLR).
+   *
+   * @param request CreateServiceLinkedRoleRequest
+   * @return CreateServiceLinkedRoleResponse
+   */
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Purchases a storage plan.
+   *
+   * @param request CreateStoragePlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateStoragePlanResponse
+   */
   async createStoragePlanWithOptions(request: CreateStoragePlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateStoragePlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18228,17 +18450,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStoragePlanResponse>(await this.callApi(params, req, runtime), new CreateStoragePlanResponse({}));
   }
 
+  /**
+   * @summary Purchases a storage plan.
+   *
+   * @param request CreateStoragePlanRequest
+   * @return CreateStoragePlanResponse
+   */
   async createStoragePlan(request: CreateStoragePlanRequest): Promise<CreateStoragePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStoragePlanWithOptions(request, runtime);
   }
 
   /**
-    * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-    *
-    * @param request DeleteAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAccountResponse
+   * @summary Deletes a database account for a PolarDB cluster.
+   *
+   * @description > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+   *
+   * @param request DeleteAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccountResponse
    */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
@@ -18285,10 +18515,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-    *
-    * @param request DeleteAccountRequest
-    * @return DeleteAccountResponse
+   * @summary Deletes a database account for a PolarDB cluster.
+   *
+   * @description > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+   *
+   * @param request DeleteAccountRequest
+   * @return DeleteAccountResponse
    */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18296,15 +18528,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the cluster meets the following requirements:
-    * *   The cluster is in the Running state.
-    * *   The backup sets are in the Success state.
-    * > *   You can call the [DescribeBackups](~~98102~~) operation to query the status of backup sets.
-    * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
-    *
-    * @param request DeleteBackupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBackupResponse
+   * @summary Deletes the backup sets of a PolarDB cluster.
+   *
+   * @description Before you call this operation, make sure that the cluster meets the following requirements:
+   * *   The cluster is in the Running state.
+   * *   The backup sets are in the Success state.
+   * > *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the status of backup sets.
+   * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
+   *
+   * @param request DeleteBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBackupResponse
    */
   async deleteBackupWithOptions(request: DeleteBackupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupResponse> {
     Util.validateModel(request);
@@ -18351,20 +18585,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the cluster meets the following requirements:
-    * *   The cluster is in the Running state.
-    * *   The backup sets are in the Success state.
-    * > *   You can call the [DescribeBackups](~~98102~~) operation to query the status of backup sets.
-    * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
-    *
-    * @param request DeleteBackupRequest
-    * @return DeleteBackupResponse
+   * @summary Deletes the backup sets of a PolarDB cluster.
+   *
+   * @description Before you call this operation, make sure that the cluster meets the following requirements:
+   * *   The cluster is in the Running state.
+   * *   The backup sets are in the Success state.
+   * > *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the status of backup sets.
+   * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
+   *
+   * @param request DeleteBackupRequest
+   * @return DeleteBackupResponse
    */
   async deleteBackup(request: DeleteBackupRequest): Promise<DeleteBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBackupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases a pay-as-you-go PolarDB cluster.
+   *
+   * @param request DeleteDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBClusterResponse
+   */
   async deleteDBClusterWithOptions(request: DeleteDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18409,11 +18652,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBClusterResponse>(await this.callApi(params, req, runtime), new DeleteDBClusterResponse({}));
   }
 
+  /**
+   * @summary Releases a pay-as-you-go PolarDB cluster.
+   *
+   * @param request DeleteDBClusterRequest
+   * @return DeleteDBClusterResponse
+   */
   async deleteDBCluster(request: DeleteDBClusterRequest): Promise<DeleteDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases a custom cluster endpoint of a PolarDB cluster.
+   *
+   * @param request DeleteDBClusterEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBClusterEndpointResponse
+   */
   async deleteDBClusterEndpointWithOptions(request: DeleteDBClusterEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBClusterEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18458,18 +18714,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBClusterEndpointResponse>(await this.callApi(params, req, runtime), new DeleteDBClusterEndpointResponse({}));
   }
 
+  /**
+   * @summary Releases a custom cluster endpoint of a PolarDB cluster.
+   *
+   * @param request DeleteDBClusterEndpointRequest
+   * @return DeleteDBClusterEndpointResponse
+   */
   async deleteDBClusterEndpoint(request: DeleteDBClusterEndpointRequest): Promise<DeleteDBClusterEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBClusterEndpointWithOptions(request, runtime);
   }
 
   /**
-    * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-    * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
-    *
-    * @param request DeleteDBEndpointAddressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDBEndpointAddressResponse
+   * @summary Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
+   *
+   * @description > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+   * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+   *
+   * @param request DeleteDBEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBEndpointAddressResponse
    */
   async deleteDBEndpointAddressWithOptions(request: DeleteDBEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBEndpointAddressResponse> {
     Util.validateModel(request);
@@ -18520,17 +18784,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-    * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
-    *
-    * @param request DeleteDBEndpointAddressRequest
-    * @return DeleteDBEndpointAddressResponse
+   * @summary Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
+   *
+   * @description > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+   * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+   *
+   * @param request DeleteDBEndpointAddressRequest
+   * @return DeleteDBEndpointAddressResponse
    */
   async deleteDBEndpointAddress(request: DeleteDBEndpointAddressRequest): Promise<DeleteDBEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBEndpointAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   *
+   * @param request DeleteDBLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBLinkResponse
+   */
   async deleteDBLinkWithOptions(request: DeleteDBLinkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18575,11 +18848,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBLinkResponse>(await this.callApi(params, req, runtime), new DeleteDBLinkResponse({}));
   }
 
+  /**
+   * @summary Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   *
+   * @param request DeleteDBLinkRequest
+   * @return DeleteDBLinkResponse
+   */
   async deleteDBLink(request: DeleteDBLinkRequest): Promise<DeleteDBLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a read-only node from a PolarDB cluster.
+   *
+   * @param request DeleteDBNodesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDBNodesResponse
+   */
   async deleteDBNodesWithOptions(request: DeleteDBNodesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBNodesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18632,18 +18918,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDBNodesResponse>(await this.callApi(params, req, runtime), new DeleteDBNodesResponse({}));
   }
 
+  /**
+   * @summary Deletes a read-only node from a PolarDB cluster.
+   *
+   * @param request DeleteDBNodesRequest
+   * @return DeleteDBNodesResponse
+   */
   async deleteDBNodes(request: DeleteDBNodesRequest): Promise<DeleteDBNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDBNodesWithOptions(request, runtime);
   }
 
   /**
-    * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
-    * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
-    *
-    * @param request DeleteDatabaseRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDatabaseResponse
+   * @summary Deletes a database from a PolarDB cluster.
+   *
+   * @description >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+   * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+   *
+   * @param request DeleteDatabaseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDatabaseResponse
    */
   async deleteDatabaseWithOptions(request: DeleteDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseResponse> {
     Util.validateModel(request);
@@ -18690,11 +18984,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
-    * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
-    *
-    * @param request DeleteDatabaseRequest
-    * @return DeleteDatabaseResponse
+   * @summary Deletes a database from a PolarDB cluster.
+   *
+   * @description >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+   * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+   *
+   * @param request DeleteDatabaseRequest
+   * @return DeleteDatabaseResponse
    */
   async deleteDatabase(request: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18702,11 +18998,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can delete a GDN only when the GDN includes only a primary cluster.
-    *
-    * @param request DeleteGlobalDatabaseNetworkRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteGlobalDatabaseNetworkResponse
+   * @summary Deletes a global database network (GDN).
+   *
+   * @description >  You can delete a GDN only when the GDN includes only a primary cluster.
+   *
+   * @param request DeleteGlobalDatabaseNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGlobalDatabaseNetworkResponse
    */
   async deleteGlobalDatabaseNetworkWithOptions(request: DeleteGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
@@ -18757,16 +19055,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can delete a GDN only when the GDN includes only a primary cluster.
-    *
-    * @param request DeleteGlobalDatabaseNetworkRequest
-    * @return DeleteGlobalDatabaseNetworkResponse
+   * @summary Deletes a global database network (GDN).
+   *
+   * @description >  You can delete a GDN only when the GDN includes only a primary cluster.
+   *
+   * @param request DeleteGlobalDatabaseNetworkRequest
+   * @return DeleteGlobalDatabaseNetworkResponse
    */
   async deleteGlobalDatabaseNetwork(request: DeleteGlobalDatabaseNetworkRequest): Promise<DeleteGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGlobalDatabaseNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a global IP whitelist template.
+   *
+   * @param request DeleteGlobalSecurityIPGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGlobalSecurityIPGroupResponse
+   */
   async deleteGlobalSecurityIPGroupWithOptions(request: DeleteGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18823,11 +19130,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new DeleteGlobalSecurityIPGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a global IP whitelist template.
+   *
+   * @param request DeleteGlobalSecurityIPGroupRequest
+   * @return DeleteGlobalSecurityIPGroupResponse
+   */
   async deleteGlobalSecurityIPGroup(request: DeleteGlobalSecurityIPGroupRequest): Promise<DeleteGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a data masking rule.
+   *
+   * @param request DeleteMaskingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMaskingRulesResponse
+   */
   async deleteMaskingRulesWithOptions(request: DeleteMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMaskingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18856,18 +19176,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMaskingRulesResponse>(await this.callApi(params, req, runtime), new DeleteMaskingRulesResponse({}));
   }
 
+  /**
+   * @summary Deletes a data masking rule.
+   *
+   * @param request DeleteMaskingRulesRequest
+   * @return DeleteMaskingRulesResponse
+   */
   async deleteMaskingRules(request: DeleteMaskingRulesRequest): Promise<DeleteMaskingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMaskingRulesWithOptions(request, runtime);
   }
 
   /**
-    * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
-    *
-    * @param request DeleteParameterGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteParameterGroupResponse
+   * @summary Deletes a parameter template of a PolarDB cluster.
+   *
+   * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+   *
+   * @param request DeleteParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteParameterGroupResponse
    */
   async deleteParameterGroupWithOptions(request: DeleteParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterGroupResponse> {
     Util.validateModel(request);
@@ -18918,17 +19246,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
-    *
-    * @param request DeleteParameterGroupRequest
-    * @return DeleteParameterGroupResponse
+   * @summary Deletes a parameter template of a PolarDB cluster.
+   *
+   * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+   *
+   * @param request DeleteParameterGroupRequest
+   * @return DeleteParameterGroupResponse
    */
   async deleteParameterGroup(request: DeleteParameterGroupRequest): Promise<DeleteParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteParameterGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the state of the PolarDB for AI feature for a cluster.
+   *
+   * @param request DescribeAITaskStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAITaskStatusResponse
+   */
   async describeAITaskStatusWithOptions(request: DescribeAITaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAITaskStatusResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -18949,11 +19286,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAITaskStatusResponse>(await this.callApi(params, req, runtime), new DescribeAITaskStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the state of the PolarDB for AI feature for a cluster.
+   *
+   * @param request DescribeAITaskStatusRequest
+   * @return DescribeAITaskStatusResponse
+   */
   async describeAITaskStatus(request: DescribeAITaskStatusRequest): Promise<DescribeAITaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAITaskStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about a database account of a PolarDB cluster.
+   *
+   * @param request DescribeAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAccountsResponse
+   */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19006,11 +19356,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
   }
 
+  /**
+   * @summary Queries information about a database account of a PolarDB cluster.
+   *
+   * @param request DescribeAccountsRequest
+   * @return DescribeAccountsResponse
+   */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the auto-renewal attributes of a subscription PolarDB cluster.
+   *
+   * @param request DescribeAutoRenewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoRenewAttributeResponse
+   */
   async describeAutoRenewAttributeWithOptions(request: DescribeAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19067,11 +19430,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAutoRenewAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the auto-renewal attributes of a subscription PolarDB cluster.
+   *
+   * @param request DescribeAutoRenewAttributeRequest
+   * @return DescribeAutoRenewAttributeResponse
+   */
   async describeAutoRenewAttribute(request: DescribeAutoRenewAttributeRequest): Promise<DescribeAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries backup logs and the URLs to download the backup logs.
+   *
+   * @param request DescribeBackupLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupLogsResponse
+   */
   async describeBackupLogsWithOptions(request: DescribeBackupLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19132,11 +19508,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupLogsResponse>(await this.callApi(params, req, runtime), new DescribeBackupLogsResponse({}));
   }
 
+  /**
+   * @summary Queries backup logs and the URLs to download the backup logs.
+   *
+   * @param request DescribeBackupLogsRequest
+   * @return DescribeBackupLogsResponse
+   */
   async describeBackupLogs(request: DescribeBackupLogsRequest): Promise<DescribeBackupLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the automatic backup policy of a PolarDB cluster.
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19177,11 +19566,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the automatic backup policy of a PolarDB cluster.
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backup tasks of a PolarDB cluster.
+   *
+   * @param request DescribeBackupTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupTasksResponse
+   */
   async describeBackupTasksWithOptions(request: DescribeBackupTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19230,11 +19632,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupTasksResponse>(await this.callApi(params, req, runtime), new DescribeBackupTasksResponse({}));
   }
 
+  /**
+   * @summary Queries the backup tasks of a PolarDB cluster.
+   *
+   * @param request DescribeBackupTasksRequest
+   * @return DescribeBackupTasksResponse
+   */
   async describeBackupTasks(request: DescribeBackupTasksRequest): Promise<DescribeBackupTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the backup details of a PolarDB cluster.
+   *
+   * @param request DescribeBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupsResponse
+   */
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19307,11 +19722,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupsResponse>(await this.callApi(params, req, runtime), new DescribeBackupsResponse({}));
   }
 
+  /**
+   * @summary Queries the backup details of a PolarDB cluster.
+   *
+   * @param request DescribeBackupsRequest
+   * @return DescribeBackupsResponse
+   */
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries character sets that are supported by a PolarDB for MySQL cluster.
+   *
+   * @param request DescribeCharacterSetNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCharacterSetNameResponse
+   */
   async describeCharacterSetNameWithOptions(request: DescribeCharacterSetNameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharacterSetNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19356,11 +19784,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCharacterSetNameResponse>(await this.callApi(params, req, runtime), new DescribeCharacterSetNameResponse({}));
   }
 
+  /**
+   * @summary Queries character sets that are supported by a PolarDB for MySQL cluster.
+   *
+   * @param request DescribeCharacterSetNameRequest
+   * @return DescribeCharacterSetNameResponse
+   */
   async describeCharacterSetName(request: DescribeCharacterSetNameRequest): Promise<DescribeCharacterSetNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCharacterSetNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the specifications of a cluster.
+   *
+   * @param request DescribeClassListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeClassListResponse
+   */
   async describeClassListWithOptions(request: DescribeClassListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClassListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19417,11 +19858,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClassListResponse>(await this.callApi(params, req, runtime), new DescribeClassListResponse({}));
   }
 
+  /**
+   * @summary Queries the specifications of a cluster.
+   *
+   * @param request DescribeClassListRequest
+   * @return DescribeClassListResponse
+   */
   async describeClassList(request: DescribeClassListRequest): Promise<DescribeClassListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClassListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the IP address whitelists and security groups of a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterAccessWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterAccessWhitelistResponse
+   */
   async describeDBClusterAccessWhitelistWithOptions(request: DescribeDBClusterAccessWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterAccessWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19462,11 +19916,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterAccessWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterAccessWhitelistResponse({}));
   }
 
+  /**
+   * @summary Queries the IP address whitelists and security groups of a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterAccessWhitelistRequest
+   * @return DescribeDBClusterAccessWhitelistResponse
+   */
   async describeDBClusterAccessWhitelist(request: DescribeDBClusterAccessWhitelistRequest): Promise<DescribeDBClusterAccessWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterAccessWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterAttributeResponse
+   */
   async describeDBClusterAttributeWithOptions(request: DescribeDBClusterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19511,11 +19978,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries information about a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterAttributeRequest
+   * @return DescribeDBClusterAttributeResponse
+   */
   async describeDBClusterAttribute(request: DescribeDBClusterAttributeRequest): Promise<DescribeDBClusterAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Describe SQL collector for a PolarDB cluster. Features related to SQL collector include audit log and SQL Explorer.
+   *
+   * @param request DescribeDBClusterAuditLogCollectorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterAuditLogCollectorResponse
+   */
   async describeDBClusterAuditLogCollectorWithOptions(request: DescribeDBClusterAuditLogCollectorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterAuditLogCollectorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19556,11 +20036,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterAuditLogCollectorResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterAuditLogCollectorResponse({}));
   }
 
+  /**
+   * @summary Describe SQL collector for a PolarDB cluster. Features related to SQL collector include audit log and SQL Explorer.
+   *
+   * @param request DescribeDBClusterAuditLogCollectorRequest
+   * @return DescribeDBClusterAuditLogCollectorResponse
+   */
   async describeDBClusterAuditLogCollector(request: DescribeDBClusterAuditLogCollectorRequest): Promise<DescribeDBClusterAuditLogCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterAuditLogCollectorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available resources in a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterAvailableResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterAvailableResourcesResponse
+   */
   async describeDBClusterAvailableResourcesWithOptions(request: DescribeDBClusterAvailableResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterAvailableResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19621,11 +20114,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterAvailableResourcesResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterAvailableResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries available resources in a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterAvailableResourcesRequest
+   * @return DescribeDBClusterAvailableResourcesResponse
+   */
   async describeDBClusterAvailableResources(request: DescribeDBClusterAvailableResourcesRequest): Promise<DescribeDBClusterAvailableResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterAvailableResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the source IP address can access a cluster.
+   *
+   * @param request DescribeDBClusterConnectivityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterConnectivityResponse
+   */
   async describeDBClusterConnectivityWithOptions(request: DescribeDBClusterConnectivityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterConnectivityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19678,11 +20184,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterConnectivityResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterConnectivityResponse({}));
   }
 
+  /**
+   * @summary Queries whether the source IP address can access a cluster.
+   *
+   * @param request DescribeDBClusterConnectivityRequest
+   * @return DescribeDBClusterConnectivityResponse
+   */
   async describeDBClusterConnectivity(request: DescribeDBClusterConnectivityRequest): Promise<DescribeDBClusterConnectivityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterConnectivityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the endpoints of a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterEndpointsResponse
+   */
   async describeDBClusterEndpointsWithOptions(request: DescribeDBClusterEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19731,18 +20250,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterEndpointsResponse({}));
   }
 
+  /**
+   * @summary Queries the endpoints of a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterEndpointsRequest
+   * @return DescribeDBClusterEndpointsResponse
+   */
   async describeDBClusterEndpoints(request: DescribeDBClusterEndpointsRequest): Promise<DescribeDBClusterEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterEndpointsWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](~~121582~~).
-    * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
-    *
-    * @param request DescribeDBClusterMigrationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBClusterMigrationResponse
+   * @summary Queries the migration status of PolarDB clusters.
+   *
+   * @description *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](https://help.aliyun.com/document_detail/121582.html).
+   * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+   *
+   * @param request DescribeDBClusterMigrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterMigrationResponse
    */
   async describeDBClusterMigrationWithOptions(request: DescribeDBClusterMigrationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterMigrationResponse> {
     Util.validateModel(request);
@@ -19785,17 +20312,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](~~121582~~).
-    * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
-    *
-    * @param request DescribeDBClusterMigrationRequest
-    * @return DescribeDBClusterMigrationResponse
+   * @summary Queries the migration status of PolarDB clusters.
+   *
+   * @description *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](https://help.aliyun.com/document_detail/121582.html).
+   * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+   *
+   * @param request DescribeDBClusterMigrationRequest
+   * @return DescribeDBClusterMigrationResponse
    */
   async describeDBClusterMigration(request: DescribeDBClusterMigrationRequest): Promise<DescribeDBClusterMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterMigrationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the interval at which the monitoring data of a PolarDB cluster is collected.
+   *
+   * @param request DescribeDBClusterMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterMonitorResponse
+   */
   async describeDBClusterMonitorWithOptions(request: DescribeDBClusterMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19836,11 +20372,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterMonitorResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterMonitorResponse({}));
   }
 
+  /**
+   * @summary Queries the interval at which the monitoring data of a PolarDB cluster is collected.
+   *
+   * @param request DescribeDBClusterMonitorRequest
+   * @return DescribeDBClusterMonitorResponse
+   */
   async describeDBClusterMonitor(request: DescribeDBClusterMonitorRequest): Promise<DescribeDBClusterMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the parameters of a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterParametersResponse
+   */
   async describeDBClusterParametersWithOptions(request: DescribeDBClusterParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19885,28 +20434,36 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterParametersResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterParametersResponse({}));
   }
 
+  /**
+   * @summary Queries the parameters of a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterParametersRequest
+   * @return DescribeDBClusterParametersResponse
+   */
   async describeDBClusterParameters(request: DescribeDBClusterParametersRequest): Promise<DescribeDBClusterParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterParametersWithOptions(request, runtime);
   }
 
   /**
-    * *   When the monitoring data is collected every 5 seconds:
-    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * *   When the monitoring data is collected every 60 seconds:
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
-    *
-    * @param request DescribeDBClusterPerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBClusterPerformanceResponse
+   * @summary Queries the performance data of a PolarDB cluster.
+   *
+   * @description *   When the monitoring data is collected every 5 seconds:
+   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * *   When the monitoring data is collected every 60 seconds:
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+   *
+   * @param request DescribeDBClusterPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterPerformanceResponse
    */
   async describeDBClusterPerformanceWithOptions(request: DescribeDBClusterPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterPerformanceResponse> {
     Util.validateModel(request);
@@ -19949,27 +20506,36 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When the monitoring data is collected every 5 seconds:
-    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * *   When the monitoring data is collected every 60 seconds:
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
-    *
-    * @param request DescribeDBClusterPerformanceRequest
-    * @return DescribeDBClusterPerformanceResponse
+   * @summary Queries the performance data of a PolarDB cluster.
+   *
+   * @description *   When the monitoring data is collected every 5 seconds:
+   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * *   When the monitoring data is collected every 60 seconds:
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+   *
+   * @param request DescribeDBClusterPerformanceRequest
+   * @return DescribeDBClusterPerformanceResponse
    */
   async describeDBClusterPerformance(request: DescribeDBClusterPerformanceRequest): Promise<DescribeDBClusterPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterSSLResponse
+   */
   async describeDBClusterSSLWithOptions(request: DescribeDBClusterSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20010,11 +20576,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterSSLResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterSSLResponse({}));
   }
 
+  /**
+   * @summary Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+   *
+   * @param request DescribeDBClusterSSLRequest
+   * @return DescribeDBClusterSSLResponse
+   */
   async describeDBClusterSSL(request: DescribeDBClusterSSLRequest): Promise<DescribeDBClusterSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterSSLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of a serverless cluster.
+   *
+   * @param request DescribeDBClusterServerlessConfRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterServerlessConfResponse
+   */
   async describeDBClusterServerlessConfWithOptions(request: DescribeDBClusterServerlessConfRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterServerlessConfResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20055,11 +20634,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterServerlessConfResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterServerlessConfResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of a serverless cluster.
+   *
+   * @param request DescribeDBClusterServerlessConfRequest
+   * @return DescribeDBClusterServerlessConfResponse
+   */
   async describeDBClusterServerlessConf(request: DescribeDBClusterServerlessConfRequest): Promise<DescribeDBClusterServerlessConfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterServerlessConfWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB for MySQL cluster.
+   *
+   * @param request DescribeDBClusterTDERequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterTDEResponse
+   */
   async describeDBClusterTDEWithOptions(request: DescribeDBClusterTDERequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterTDEResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20100,11 +20692,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterTDEResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterTDEResponse({}));
   }
 
+  /**
+   * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB for MySQL cluster.
+   *
+   * @param request DescribeDBClusterTDERequest
+   * @return DescribeDBClusterTDEResponse
+   */
   async describeDBClusterTDE(request: DescribeDBClusterTDERequest): Promise<DescribeDBClusterTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterTDEWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the database engine version of a PolarDB for MySQL cluster.
+   *
+   * @param request DescribeDBClusterVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClusterVersionResponse
+   */
   async describeDBClusterVersionWithOptions(request: DescribeDBClusterVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterVersionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20149,11 +20754,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClusterVersionResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterVersionResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the database engine version of a PolarDB for MySQL cluster.
+   *
+   * @param request DescribeDBClusterVersionRequest
+   * @return DescribeDBClusterVersionResponse
+   */
   async describeDBClusterVersion(request: DescribeDBClusterVersionRequest): Promise<DescribeDBClusterVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+   *
+   * @param request DescribeDBClustersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClustersResponse
+   */
   async describeDBClustersWithOptions(request: DescribeDBClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClustersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20258,11 +20876,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClustersResponse>(await this.callApi(params, req, runtime), new DescribeDBClustersResponse({}));
   }
 
+  /**
+   * @summary Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+   *
+   * @param request DescribeDBClustersRequest
+   * @return DescribeDBClustersResponse
+   */
   async describeDBClusters(request: DescribeDBClustersRequest): Promise<DescribeDBClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClustersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about PolarDB clusters that contain backup sets in a region.
+   *
+   * @param request DescribeDBClustersWithBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBClustersWithBackupsResponse
+   */
   async describeDBClustersWithBackupsWithOptions(request: DescribeDBClustersWithBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClustersWithBackupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20335,11 +20966,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBClustersWithBackupsResponse>(await this.callApi(params, req, runtime), new DescribeDBClustersWithBackupsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about PolarDB clusters that contain backup sets in a region.
+   *
+   * @param request DescribeDBClustersWithBackupsRequest
+   * @return DescribeDBClustersWithBackupsResponse
+   */
   async describeDBClustersWithBackups(request: DescribeDBClustersWithBackupsRequest): Promise<DescribeDBClustersWithBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClustersWithBackupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the attributes that are supported by a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, such as the character sets and collations.
+   *
+   * @param request DescribeDBInitializeVariableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBInitializeVariableResponse
+   */
   async describeDBInitializeVariableWithOptions(request: DescribeDBInitializeVariableRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInitializeVariableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20380,17 +21024,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBInitializeVariableResponse>(await this.callApi(params, req, runtime), new DescribeDBInitializeVariableResponse({}));
   }
 
+  /**
+   * @summary Queries the attributes that are supported by a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, such as the character sets and collations.
+   *
+   * @param request DescribeDBInitializeVariableRequest
+   * @return DescribeDBInitializeVariableResponse
+   */
   async describeDBInitializeVariable(request: DescribeDBInitializeVariableRequest): Promise<DescribeDBInitializeVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInitializeVariableWithOptions(request, runtime);
   }
 
   /**
-    * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
-    *
-    * @param request DescribeDBLinksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBLinksResponse
+   * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   *
+   * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+   *
+   * @param request DescribeDBLinksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBLinksResponse
    */
   async describeDBLinksWithOptions(request: DescribeDBLinksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBLinksResponse> {
     Util.validateModel(request);
@@ -20437,10 +21089,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
-    *
-    * @param request DescribeDBLinksRequest
-    * @return DescribeDBLinksResponse
+   * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+   *
+   * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+   *
+   * @param request DescribeDBLinksRequest
+   * @return DescribeDBLinksResponse
    */
   async describeDBLinks(request: DescribeDBLinksRequest): Promise<DescribeDBLinksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20448,22 +21102,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When the monitoring data is collected every 5 seconds:
-    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * *   When the monitoring data is collected every 60 seconds:
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
-    *
-    * @param request DescribeDBNodePerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBNodePerformanceResponse
+   * @summary Queries the performance data of a node in a PolarDB cluster.
+   *
+   * @description *   When the monitoring data is collected every 5 seconds:
+   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * *   When the monitoring data is collected every 60 seconds:
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+   *
+   * @param request DescribeDBNodePerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBNodePerformanceResponse
    */
   async describeDBNodePerformanceWithOptions(request: DescribeDBNodePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodePerformanceResponse> {
     Util.validateModel(request);
@@ -20514,27 +21170,36 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When the monitoring data is collected every 5 seconds:
-    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * *   When the monitoring data is collected every 60 seconds:
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
-    *
-    * @param request DescribeDBNodePerformanceRequest
-    * @return DescribeDBNodePerformanceResponse
+   * @summary Queries the performance data of a node in a PolarDB cluster.
+   *
+   * @description *   When the monitoring data is collected every 5 seconds:
+   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * *   When the monitoring data is collected every 60 seconds:
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+   *
+   * @param request DescribeDBNodePerformanceRequest
+   * @return DescribeDBNodePerformanceResponse
    */
   async describeDBNodePerformance(request: DescribeDBNodePerformanceRequest): Promise<DescribeDBNodePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBNodePerformanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the parameters of a specified node in a cluster.
+   *
+   * @param request DescribeDBNodesParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBNodesParametersResponse
+   */
   async describeDBNodesParametersWithOptions(request: DescribeDBNodesParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodesParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20579,17 +21244,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBNodesParametersResponse>(await this.callApi(params, req, runtime), new DescribeDBNodesParametersResponse({}));
   }
 
+  /**
+   * @summary Queries the parameters of a specified node in a cluster.
+   *
+   * @param request DescribeDBNodesParametersRequest
+   * @return DescribeDBNodesParametersResponse
+   */
   async describeDBNodesParameters(request: DescribeDBNodesParametersRequest): Promise<DescribeDBNodesParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBNodesParametersWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is applicable only to PolarDB for MySQL clusters.
-    *
-    * @param request DescribeDBProxyPerformanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDBProxyPerformanceResponse
+   * @summary Queries the performance data of PolarProxy.
+   *
+   * @description > This operation is applicable only to PolarDB for MySQL clusters.
+   *
+   * @param request DescribeDBProxyPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBProxyPerformanceResponse
    */
   async describeDBProxyPerformanceWithOptions(request: DescribeDBProxyPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyPerformanceResponse> {
     Util.validateModel(request);
@@ -20640,16 +21313,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is applicable only to PolarDB for MySQL clusters.
-    *
-    * @param request DescribeDBProxyPerformanceRequest
-    * @return DescribeDBProxyPerformanceResponse
+   * @summary Queries the performance data of PolarProxy.
+   *
+   * @description > This operation is applicable only to PolarDB for MySQL clusters.
+   *
+   * @param request DescribeDBProxyPerformanceRequest
+   * @return DescribeDBProxyPerformanceResponse
    */
   async describeDBProxyPerformance(request: DescribeDBProxyPerformanceRequest): Promise<DescribeDBProxyPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBProxyPerformanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看实例的 DAS 配置
+   *
+   * @param request DescribeDasConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDasConfigResponse
+   */
   async describeDasConfigWithOptions(request: DescribeDasConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDasConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20690,11 +21372,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDasConfigResponse>(await this.callApi(params, req, runtime), new DescribeDasConfigResponse({}));
   }
 
+  /**
+   * @summary 查看实例的 DAS 配置
+   *
+   * @param request DescribeDasConfigRequest
+   * @return DescribeDasConfigResponse
+   */
   async describeDasConfig(request: DescribeDasConfigRequest): Promise<DescribeDasConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDasConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about databases in a PolarDB cluster.
+   *
+   * @param request DescribeDatabasesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDatabasesResponse
+   */
   async describeDatabasesWithOptions(request: DescribeDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabasesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20747,18 +21442,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDatabasesResponse>(await this.callApi(params, req, runtime), new DescribeDatabasesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about databases in a PolarDB cluster.
+   *
+   * @param request DescribeDatabasesRequest
+   * @return DescribeDatabasesResponse
+   */
   async describeDatabases(request: DescribeDatabasesRequest): Promise<DescribeDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDatabasesWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
-    * > You can call the [DescribeDBClusterAttribute](~~98181~~) operation to query the cluster status.
-    *
-    * @param request DescribeDetachedBackupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDetachedBackupsResponse
+   * @summary Queries the information about the backup sets in a released PolarDB cluster.
+   *
+   * @description Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+   * > You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+   *
+   * @param request DescribeDetachedBackupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDetachedBackupsResponse
    */
   async describeDetachedBackupsWithOptions(request: DescribeDetachedBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDetachedBackupsResponse> {
     Util.validateModel(request);
@@ -20833,17 +21536,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
-    * > You can call the [DescribeDBClusterAttribute](~~98181~~) operation to query the cluster status.
-    *
-    * @param request DescribeDetachedBackupsRequest
-    * @return DescribeDetachedBackupsResponse
+   * @summary Queries the information about the backup sets in a released PolarDB cluster.
+   *
+   * @description Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+   * > You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+   *
+   * @param request DescribeDetachedBackupsRequest
+   * @return DescribeDetachedBackupsResponse
    */
   async describeDetachedBackups(request: DescribeDetachedBackupsRequest): Promise<DescribeDetachedBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDetachedBackupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a Global Database Network (GDN).
+   *
+   * @param request DescribeGlobalDatabaseNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalDatabaseNetworkResponse
+   */
   async describeGlobalDatabaseNetworkWithOptions(request: DescribeGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20892,11 +21604,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalDatabaseNetworkResponse>(await this.callApi(params, req, runtime), new DescribeGlobalDatabaseNetworkResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a Global Database Network (GDN).
+   *
+   * @param request DescribeGlobalDatabaseNetworkRequest
+   * @return DescribeGlobalDatabaseNetworkResponse
+   */
   async describeGlobalDatabaseNetwork(request: DescribeGlobalDatabaseNetworkRequest): Promise<DescribeGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalDatabaseNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about all Global Database Networks (GDNs) that belong to an account.
+   *
+   * @param request DescribeGlobalDatabaseNetworksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalDatabaseNetworksResponse
+   */
   async describeGlobalDatabaseNetworksWithOptions(request: DescribeGlobalDatabaseNetworksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalDatabaseNetworksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20965,11 +21690,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalDatabaseNetworksResponse>(await this.callApi(params, req, runtime), new DescribeGlobalDatabaseNetworksResponse({}));
   }
 
+  /**
+   * @summary Queries the information about all Global Database Networks (GDNs) that belong to an account.
+   *
+   * @param request DescribeGlobalDatabaseNetworksRequest
+   * @return DescribeGlobalDatabaseNetworksResponse
+   */
   async describeGlobalDatabaseNetworks(request: DescribeGlobalDatabaseNetworksRequest): Promise<DescribeGlobalDatabaseNetworksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalDatabaseNetworksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries global IP whitelist templates.
+   *
+   * @param request DescribeGlobalSecurityIPGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalSecurityIPGroupResponse
+   */
   async describeGlobalSecurityIPGroupWithOptions(request: DescribeGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21022,11 +21760,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new DescribeGlobalSecurityIPGroupResponse({}));
   }
 
+  /**
+   * @summary Queries global IP whitelist templates.
+   *
+   * @param request DescribeGlobalSecurityIPGroupRequest
+   * @return DescribeGlobalSecurityIPGroupResponse
+   */
   async describeGlobalSecurityIPGroup(request: DescribeGlobalSecurityIPGroupRequest): Promise<DescribeGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the relationship between a cluster and a global IP whitelist template.
+   *
+   * @param request DescribeGlobalSecurityIPGroupRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGlobalSecurityIPGroupRelationResponse
+   */
   async describeGlobalSecurityIPGroupRelationWithOptions(request: DescribeGlobalSecurityIPGroupRelationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalSecurityIPGroupRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21079,11 +21830,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGlobalSecurityIPGroupRelationResponse>(await this.callApi(params, req, runtime), new DescribeGlobalSecurityIPGroupRelationResponse({}));
   }
 
+  /**
+   * @summary Queries the relationship between a cluster and a global IP whitelist template.
+   *
+   * @param request DescribeGlobalSecurityIPGroupRelationRequest
+   * @return DescribeGlobalSecurityIPGroupRelationResponse
+   */
   async describeGlobalSecurityIPGroupRelation(request: DescribeGlobalSecurityIPGroupRelationRequest): Promise<DescribeGlobalSecurityIPGroupRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGlobalSecurityIPGroupRelationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the retention policy of log backups in a PolarDB cluster.
+   *
+   * @param request DescribeLogBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogBackupPolicyResponse
+   */
   async describeLogBackupPolicyWithOptions(request: DescribeLogBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21124,11 +21888,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeLogBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the retention policy of log backups in a PolarDB cluster.
+   *
+   * @param request DescribeLogBackupPolicyRequest
+   * @return DescribeLogBackupPolicyResponse
+   */
   async describeLogBackupPolicy(request: DescribeLogBackupPolicyRequest): Promise<DescribeLogBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the data masking rules of a PolarDB cluster or the information about a specified masking rule.
+   *
+   * @param request DescribeMaskingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMaskingRulesResponse
+   */
   async describeMaskingRulesWithOptions(request: DescribeMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMaskingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21157,11 +21934,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMaskingRulesResponse>(await this.callApi(params, req, runtime), new DescribeMaskingRulesResponse({}));
   }
 
+  /**
+   * @summary Queries the data masking rules of a PolarDB cluster or the information about a specified masking rule.
+   *
+   * @param request DescribeMaskingRulesRequest
+   * @return DescribeMaskingRulesResponse
+   */
   async describeMaskingRules(request: DescribeMaskingRulesRequest): Promise<DescribeMaskingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMaskingRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of the databases or tables that can be restored.
+   *
+   * @param request DescribeMetaListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMetaListResponse
+   */
   async describeMetaListWithOptions(request: DescribeMetaListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetaListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21230,18 +22020,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMetaListResponse>(await this.callApi(params, req, runtime), new DescribeMetaListResponse({}));
   }
 
+  /**
+   * @summary Queries the details of the databases or tables that can be restored.
+   *
+   * @param request DescribeMetaListRequest
+   * @return DescribeMetaListResponse
+   */
   async describeMetaList(request: DescribeMetaListRequest): Promise<DescribeMetaListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMetaListWithOptions(request, runtime);
   }
 
   /**
-    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * > This parameter is valid only for a PolarDB for MySQL cluster.
-    *
-    * @param request DescribeParameterGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParameterGroupResponse
+   * @summary Queries the information about a parameter template.
+   *
+   * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * > This parameter is valid only for a PolarDB for MySQL cluster.
+   *
+   * @param request DescribeParameterGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterGroupResponse
    */
   async describeParameterGroupWithOptions(request: DescribeParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupResponse> {
     Util.validateModel(request);
@@ -21292,11 +22090,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * > This parameter is valid only for a PolarDB for MySQL cluster.
-    *
-    * @param request DescribeParameterGroupRequest
-    * @return DescribeParameterGroupResponse
+   * @summary Queries the information about a parameter template.
+   *
+   * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * > This parameter is valid only for a PolarDB for MySQL cluster.
+   *
+   * @param request DescribeParameterGroupRequest
+   * @return DescribeParameterGroupResponse
    */
   async describeParameterGroup(request: DescribeParameterGroupRequest): Promise<DescribeParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21304,12 +22104,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * > This operation is applicable only to PolarDB for MySQL clusters.
-    *
-    * @param request DescribeParameterGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeParameterGroupsResponse
+   * @summary Queries parameter templates that are available in a specified region.
+   *
+   * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * > This operation is applicable only to PolarDB for MySQL clusters.
+   *
+   * @param request DescribeParameterGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterGroupsResponse
    */
   async describeParameterGroupsWithOptions(request: DescribeParameterGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupsResponse> {
     Util.validateModel(request);
@@ -21364,17 +22166,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * > This operation is applicable only to PolarDB for MySQL clusters.
-    *
-    * @param request DescribeParameterGroupsRequest
-    * @return DescribeParameterGroupsResponse
+   * @summary Queries parameter templates that are available in a specified region.
+   *
+   * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * > This operation is applicable only to PolarDB for MySQL clusters.
+   *
+   * @param request DescribeParameterGroupsRequest
+   * @return DescribeParameterGroupsResponse
    */
   async describeParameterGroups(request: DescribeParameterGroupsRequest): Promise<DescribeParameterGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the default parameters in a cluster.
+   *
+   * @param request DescribeParameterTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeParameterTemplatesResponse
+   */
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21427,11 +22238,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeParameterTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeParameterTemplatesResponse({}));
   }
 
+  /**
+   * @summary Queries the default parameters in a cluster.
+   *
+   * @param request DescribeParameterTemplatesRequest
+   * @return DescribeParameterTemplatesResponse
+   */
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParameterTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a pending event.
+   *
+   * @param request DescribePendingMaintenanceActionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePendingMaintenanceActionResponse
+   */
   async describePendingMaintenanceActionWithOptions(request: DescribePendingMaintenanceActionRequest, runtime: $Util.RuntimeOptions): Promise<DescribePendingMaintenanceActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21496,11 +22320,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePendingMaintenanceActionResponse>(await this.callApi(params, req, runtime), new DescribePendingMaintenanceActionResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a pending event.
+   *
+   * @param request DescribePendingMaintenanceActionRequest
+   * @return DescribePendingMaintenanceActionResponse
+   */
   async describePendingMaintenanceAction(request: DescribePendingMaintenanceActionRequest): Promise<DescribePendingMaintenanceActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePendingMaintenanceActionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the numbers of pending events of different task types.
+   *
+   * @param request DescribePendingMaintenanceActionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePendingMaintenanceActionsResponse
+   */
   async describePendingMaintenanceActionsWithOptions(request: DescribePendingMaintenanceActionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePendingMaintenanceActionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21553,11 +22390,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePendingMaintenanceActionsResponse>(await this.callApi(params, req, runtime), new DescribePendingMaintenanceActionsResponse({}));
   }
 
+  /**
+   * @summary Queries the numbers of pending events of different task types.
+   *
+   * @param request DescribePendingMaintenanceActionsRequest
+   * @return DescribePendingMaintenanceActionsResponse
+   */
   async describePendingMaintenanceActions(request: DescribePendingMaintenanceActionsRequest): Promise<DescribePendingMaintenanceActionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePendingMaintenanceActionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
+   *
+   * @param request DescribePolarSQLCollectorPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePolarSQLCollectorPolicyResponse
+   */
   async describePolarSQLCollectorPolicyWithOptions(request: DescribePolarSQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolarSQLCollectorPolicyResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -21578,11 +22428,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePolarSQLCollectorPolicyResponse>(await this.callApi(params, req, runtime), new DescribePolarSQLCollectorPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
+   *
+   * @param request DescribePolarSQLCollectorPolicyRequest
+   * @return DescribePolarSQLCollectorPolicyResponse
+   */
   async describePolarSQLCollectorPolicy(request: DescribePolarSQLCollectorPolicyRequest): Promise<DescribePolarSQLCollectorPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolarSQLCollectorPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the regions and zones available for PolarDB.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21619,11 +22482,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the regions and zones available for PolarDB.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of all scheduled tasks.
+   *
+   * @param request DescribeScheduleTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeScheduleTasksResponse
+   */
   async describeScheduleTasksWithOptions(request: DescribeScheduleTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScheduleTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21704,17 +22580,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeScheduleTasksResponse>(await this.callApi(params, req, runtime), new DescribeScheduleTasksResponse({}));
   }
 
+  /**
+   * @summary Queries the details of all scheduled tasks.
+   *
+   * @param request DescribeScheduleTasksRequest
+   * @return DescribeScheduleTasksResponse
+   */
   async describeScheduleTasks(request: DescribeScheduleTasksRequest): Promise<DescribeScheduleTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeScheduleTasksWithOptions(request, runtime);
   }
 
   /**
-    * > This operation is applicable only to PolarDB for MySQL clusters.
-    *
-    * @param request DescribeSlowLogRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSlowLogRecordsResponse
+   * @summary Queries the details of the slow query logs of a PolarDB cluster.
+   *
+   * @description > This operation is applicable only to PolarDB for MySQL clusters.
+   *
+   * @param request DescribeSlowLogRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
@@ -21785,10 +22669,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is applicable only to PolarDB for MySQL clusters.
-    *
-    * @param request DescribeSlowLogRecordsRequest
-    * @return DescribeSlowLogRecordsResponse
+   * @summary Queries the details of the slow query logs of a PolarDB cluster.
+   *
+   * @description > This operation is applicable only to PolarDB for MySQL clusters.
+   *
+   * @param request DescribeSlowLogRecordsRequest
+   * @return DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21796,11 +22682,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is applicable only to PolarDB for MySQL clusters.
-    *
-    * @param request DescribeSlowLogsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSlowLogsResponse
+   * @summary Queries the statistics about the slow query logs of a PolarDB cluster.
+   *
+   * @description > This operation is applicable only to PolarDB for MySQL clusters.
+   *
+   * @param request DescribeSlowLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSlowLogsResponse
    */
   async describeSlowLogsWithOptions(request: DescribeSlowLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogsResponse> {
     Util.validateModel(request);
@@ -21867,10 +22755,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > This operation is applicable only to PolarDB for MySQL clusters.
-    *
-    * @param request DescribeSlowLogsRequest
-    * @return DescribeSlowLogsResponse
+   * @summary Queries the statistics about the slow query logs of a PolarDB cluster.
+   *
+   * @description > This operation is applicable only to PolarDB for MySQL clusters.
+   *
+   * @param request DescribeSlowLogsRequest
+   * @return DescribeSlowLogsResponse
    */
   async describeSlowLogs(request: DescribeSlowLogsRequest): Promise<DescribeSlowLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21878,12 +22768,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](~~98169~~) operation or [create a cluster](~~58769~~) in the console.
-    * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](~~98169~~) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
-    *
-    * @param request DescribeTasksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTasksResponse
+   * @summary Queries the details of the tasks that are generated by calling API operations. For example, you can call this operation to view the details of the task when you create a cluster.
+   *
+   * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the console.
+   * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+   *
+   * @param request DescribeTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTasksResponse
    */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
@@ -21950,17 +22842,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](~~98169~~) operation or [create a cluster](~~58769~~) in the console.
-    * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](~~98169~~) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
-    *
-    * @param request DescribeTasksRequest
-    * @return DescribeTasksResponse
+   * @summary Queries the details of the tasks that are generated by calling API operations. For example, you can call this operation to view the details of the task when you create a cluster.
+   *
+   * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the console.
+   * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+   *
+   * @param request DescribeTasksRequest
+   * @return DescribeTasksResponse
    */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+   *
+   * @param request DescribeUserEncryptionKeyListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserEncryptionKeyListResponse
+   */
   async describeUserEncryptionKeyListWithOptions(request: DescribeUserEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserEncryptionKeyListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22009,11 +22910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new DescribeUserEncryptionKeyListResponse({}));
   }
 
+  /**
+   * @summary Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+   *
+   * @param request DescribeUserEncryptionKeyListRequest
+   * @return DescribeUserEncryptionKeyListResponse
+   */
   async describeUserEncryptionKeyList(request: DescribeUserEncryptionKeyListRequest): Promise<DescribeUserEncryptionKeyListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a vSwitch.
+   *
+   * @param request DescribeVSwitchesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVSwitchesResponse
+   */
   async describeVSwitchesWithOptions(request: DescribeVSwitchesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22082,11 +22996,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVSwitchesResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchesResponse({}));
   }
 
+  /**
+   * @summary Queries a vSwitch.
+   *
+   * @param request DescribeVSwitchesRequest
+   * @return DescribeVSwitchesResponse
+   */
   async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a stable serverless cluster.
+   *
+   * @param request DisableDBClusterServerlessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableDBClusterServerlessResponse
+   */
   async disableDBClusterServerlessWithOptions(request: DisableDBClusterServerlessRequest, runtime: $Util.RuntimeOptions): Promise<DisableDBClusterServerlessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22127,11 +23054,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableDBClusterServerlessResponse>(await this.callApi(params, req, runtime), new DisableDBClusterServerlessResponse({}));
   }
 
+  /**
+   * @summary Disables a stable serverless cluster.
+   *
+   * @param request DisableDBClusterServerlessRequest
+   * @return DisableDBClusterServerlessResponse
+   */
   async disableDBClusterServerless(request: DisableDBClusterServerlessRequest): Promise<DisableDBClusterServerlessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableDBClusterServerlessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables a stable serverless cluster.
+   *
+   * @param request EnableDBClusterServerlessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableDBClusterServerlessResponse
+   */
   async enableDBClusterServerlessWithOptions(request: EnableDBClusterServerlessRequest, runtime: $Util.RuntimeOptions): Promise<EnableDBClusterServerlessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22196,11 +23136,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableDBClusterServerlessResponse>(await this.callApi(params, req, runtime), new EnableDBClusterServerlessResponse({}));
   }
 
+  /**
+   * @summary Enables a stable serverless cluster.
+   *
+   * @param request EnableDBClusterServerlessRequest
+   * @return EnableDBClusterServerlessResponse
+   */
   async enableDBClusterServerless(request: EnableDBClusterServerlessRequest): Promise<EnableDBClusterServerlessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableDBClusterServerlessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改sql防火墙状态
+   *
+   * @param request EnableFirewallRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableFirewallRulesResponse
+   */
   async enableFirewallRulesWithOptions(request: EnableFirewallRulesRequest, runtime: $Util.RuntimeOptions): Promise<EnableFirewallRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22249,11 +23202,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableFirewallRulesResponse>(await this.callApi(params, req, runtime), new EnableFirewallRulesResponse({}));
   }
 
+  /**
+   * @summary 修改sql防火墙状态
+   *
+   * @param request EnableFirewallRulesRequest
+   * @return EnableFirewallRulesResponse
+   */
   async enableFirewallRules(request: EnableFirewallRulesRequest): Promise<EnableFirewallRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableFirewallRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Evaluates available resources.
+   *
+   * @param request EvaluateRegionResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EvaluateRegionResourceResponse
+   */
   async evaluateRegionResourceWithOptions(request: EvaluateRegionResourceRequest, runtime: $Util.RuntimeOptions): Promise<EvaluateRegionResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22330,11 +23296,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EvaluateRegionResourceResponse>(await this.callApi(params, req, runtime), new EvaluateRegionResourceResponse({}));
   }
 
+  /**
+   * @summary Evaluates available resources.
+   *
+   * @param request EvaluateRegionResourceRequest
+   * @return EvaluateRegionResourceResponse
+   */
   async evaluateRegionResource(request: EvaluateRegionResourceRequest): Promise<EvaluateRegionResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.evaluateRegionResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
+   *
+   * @param request FailoverDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FailoverDBClusterResponse
+   */
   async failoverDBClusterWithOptions(request: FailoverDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<FailoverDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22387,21 +23366,29 @@ export default class Client extends OpenApi {
     return $tea.cast<FailoverDBClusterResponse>(await this.callApi(params, req, runtime), new FailoverDBClusterResponse({}));
   }
 
+  /**
+   * @summary Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
+   *
+   * @param request FailoverDBClusterRequest
+   * @return FailoverDBClusterResponse
+   */
   async failoverDBCluster(request: FailoverDBClusterRequest): Promise<FailoverDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.failoverDBClusterWithOptions(request, runtime);
   }
 
   /**
-    * > *   An account can be authorized to access one or more databases.
-    * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
-    * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-    * > *   You can call this operation only on a PolarDB for MySQL cluster.
-    * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
-    *
-    * @param request GrantAccountPrivilegeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GrantAccountPrivilegeResponse
+   * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
+   *
+   * @description > *   An account can be authorized to access one or more databases.
+   * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+   * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+   * > *   You can call this operation only on a PolarDB for MySQL cluster.
+   * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+   *
+   * @param request GrantAccountPrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantAccountPrivilegeResponse
    */
   async grantAccountPrivilegeWithOptions(request: GrantAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<GrantAccountPrivilegeResponse> {
     Util.validateModel(request);
@@ -22456,20 +23443,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   An account can be authorized to access one or more databases.
-    * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
-    * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-    * > *   You can call this operation only on a PolarDB for MySQL cluster.
-    * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
-    *
-    * @param request GrantAccountPrivilegeRequest
-    * @return GrantAccountPrivilegeResponse
+   * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
+   *
+   * @description > *   An account can be authorized to access one or more databases.
+   * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+   * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+   * > *   You can call this operation only on a PolarDB for MySQL cluster.
+   * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+   *
+   * @param request GrantAccountPrivilegeRequest
+   * @return GrantAccountPrivilegeResponse
    */
   async grantAccountPrivilege(request: GrantAccountPrivilegeRequest): Promise<GrantAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantAccountPrivilegeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags that are bound to one or more PolarDB clusters, or queries the PolarDB clusters to which one or more tags are bound.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22526,11 +23522,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the tags that are bound to one or more PolarDB clusters, or queries the PolarDB clusters to which one or more tags are bound.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Manually starts a cluster.
+   *
+   * @param request ManuallyStartDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ManuallyStartDBClusterResponse
+   */
   async manuallyStartDBClusterWithOptions(request: ManuallyStartDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<ManuallyStartDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22575,11 +23584,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ManuallyStartDBClusterResponse>(await this.callApi(params, req, runtime), new ManuallyStartDBClusterResponse({}));
   }
 
+  /**
+   * @summary Manually starts a cluster.
+   *
+   * @param request ManuallyStartDBClusterRequest
+   * @return ManuallyStartDBClusterResponse
+   */
   async manuallyStartDBCluster(request: ManuallyStartDBClusterRequest): Promise<ManuallyStartDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.manuallyStartDBClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a database account of a PolarDB cluster.
+   *
+   * @param request ModifyAccountDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22628,11 +23650,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a database account of a PolarDB cluster.
+   *
+   * @param request ModifyAccountDescriptionRequest
+   * @return ModifyAccountDescriptionResponse
+   */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the password of a database account for a specified PolarDB cluster.
+   *
+   * @param request ModifyAccountPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAccountPasswordResponse
+   */
   async modifyAccountPasswordWithOptions(request: ModifyAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22685,11 +23720,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAccountPasswordResponse>(await this.callApi(params, req, runtime), new ModifyAccountPasswordResponse({}));
   }
 
+  /**
+   * @summary Changes the password of a database account for a specified PolarDB cluster.
+   *
+   * @param request ModifyAccountPasswordRequest
+   * @return ModifyAccountPasswordResponse
+   */
   async modifyAccountPassword(request: ModifyAccountPasswordRequest): Promise<ModifyAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+   *
+   * @param request ModifyAutoRenewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAutoRenewAttributeResponse
+   */
   async modifyAutoRenewAttributeWithOptions(request: ModifyAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22750,17 +23798,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new ModifyAutoRenewAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+   *
+   * @param request ModifyAutoRenewAttributeRequest
+   * @return ModifyAutoRenewAttributeResponse
+   */
   async modifyAutoRenewAttribute(request: ModifyAutoRenewAttributeRequest): Promise<ModifyAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAutoRenewAttributeWithOptions(request, runtime);
   }
 
   /**
-    * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](~~280422~~).
-    *
-    * @param request ModifyBackupPolicyRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyBackupPolicyResponse
+   * @summary Modifies the automatic backup policy of a PolarDB cluster.
+   *
+   * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPolicyResponse
    */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
@@ -22851,16 +23907,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](~~280422~~).
-    *
-    * @param request ModifyBackupPolicyRequest
-    * @return ModifyBackupPolicyResponse
+   * @summary Modifies the automatic backup policy of a PolarDB cluster.
+   *
+   * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @return ModifyBackupPolicyResponse
    */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a PolarDB for MySQL cluster.
+   *
+   * @param request ModifyDBClusterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterResponse
+   */
   async modifyDBClusterWithOptions(request: ModifyDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22925,11 +23990,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a PolarDB for MySQL cluster.
+   *
+   * @param request ModifyDBClusterRequest
+   * @return ModifyDBClusterResponse
+   */
   async modifyDBCluster(request: ModifyDBClusterRequest): Promise<ModifyDBClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+   *
+   * @param request ModifyDBClusterAccessWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterAccessWhitelistResponse
+   */
   async modifyDBClusterAccessWhitelistWithOptions(request: ModifyDBClusterAccessWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterAccessWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22994,11 +24072,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterAccessWhitelistResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterAccessWhitelistResponse({}));
   }
 
+  /**
+   * @summary Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+   *
+   * @param request ModifyDBClusterAccessWhitelistRequest
+   * @return ModifyDBClusterAccessWhitelistResponse
+   */
   async modifyDBClusterAccessWhitelist(request: ModifyDBClusterAccessWhitelistRequest): Promise<ModifyDBClusterAccessWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterAccessWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies cluster parameters and applies them to specified nodes.
+   *
+   * @param request ModifyDBClusterAndNodesParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterAndNodesParametersResponse
+   */
   async modifyDBClusterAndNodesParametersWithOptions(request: ModifyDBClusterAndNodesParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterAndNodesParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23063,11 +24154,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterAndNodesParametersResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterAndNodesParametersResponse({}));
   }
 
+  /**
+   * @summary Modifies cluster parameters and applies them to specified nodes.
+   *
+   * @param request ModifyDBClusterAndNodesParametersRequest
+   * @return ModifyDBClusterAndNodesParametersResponse
+   */
   async modifyDBClusterAndNodesParameters(request: ModifyDBClusterAndNodesParametersRequest): Promise<ModifyDBClusterAndNodesParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterAndNodesParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+   *
+   * @param request ModifyDBClusterAuditLogCollectorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterAuditLogCollectorResponse
+   */
   async modifyDBClusterAuditLogCollectorWithOptions(request: ModifyDBClusterAuditLogCollectorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterAuditLogCollectorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23112,11 +24216,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterAuditLogCollectorResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterAuditLogCollectorResponse({}));
   }
 
+  /**
+   * @summary Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+   *
+   * @param request ModifyDBClusterAuditLogCollectorRequest
+   * @return ModifyDBClusterAuditLogCollectorResponse
+   */
   async modifyDBClusterAuditLogCollector(request: ModifyDBClusterAuditLogCollectorRequest): Promise<ModifyDBClusterAuditLogCollectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterAuditLogCollectorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the cluster lock feature for a PolarDB cluster.
+   *
+   * @param request ModifyDBClusterDeletionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterDeletionResponse
+   */
   async modifyDBClusterDeletionWithOptions(request: ModifyDBClusterDeletionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterDeletionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23161,11 +24278,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterDeletionResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterDeletionResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the cluster lock feature for a PolarDB cluster.
+   *
+   * @param request ModifyDBClusterDeletionRequest
+   * @return ModifyDBClusterDeletionResponse
+   */
   async modifyDBClusterDeletion(request: ModifyDBClusterDeletionRequest): Promise<ModifyDBClusterDeletionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterDeletionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of a PolarDB cluster.
+   *
+   * @param request ModifyDBClusterDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterDescriptionResponse
+   */
   async modifyDBClusterDescriptionWithOptions(request: ModifyDBClusterDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23210,11 +24340,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of a PolarDB cluster.
+   *
+   * @param request ModifyDBClusterDescriptionRequest
+   * @return ModifyDBClusterDescriptionResponse
+   */
   async modifyDBClusterDescription(request: ModifyDBClusterDescriptionRequest): Promise<ModifyDBClusterDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+   *
+   * @param request ModifyDBClusterEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterEndpointResponse
+   */
   async modifyDBClusterEndpointWithOptions(request: ModifyDBClusterEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23279,17 +24422,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterEndpointResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterEndpointResponse({}));
   }
 
+  /**
+   * @summary Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+   *
+   * @param request ModifyDBClusterEndpointRequest
+   * @return ModifyDBClusterEndpointResponse
+   */
   async modifyDBClusterEndpoint(request: ModifyDBClusterEndpointRequest): Promise<ModifyDBClusterEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterEndpointWithOptions(request, runtime);
   }
 
   /**
-    * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
-    *
-    * @param request ModifyDBClusterMaintainTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBClusterMaintainTimeResponse
+   * @summary Modifies the maintenance window of a PolarDB cluster.
+   *
+   * @description >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+   *
+   * @param request ModifyDBClusterMaintainTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterMaintainTimeResponse
    */
   async modifyDBClusterMaintainTimeWithOptions(request: ModifyDBClusterMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterMaintainTimeResponse> {
     Util.validateModel(request);
@@ -23336,10 +24487,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
-    *
-    * @param request ModifyDBClusterMaintainTimeRequest
-    * @return ModifyDBClusterMaintainTimeResponse
+   * @summary Modifies the maintenance window of a PolarDB cluster.
+   *
+   * @description >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+   *
+   * @param request ModifyDBClusterMaintainTimeRequest
+   * @return ModifyDBClusterMaintainTimeResponse
    */
   async modifyDBClusterMaintainTime(request: ModifyDBClusterMaintainTimeRequest): Promise<ModifyDBClusterMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23347,13 +24500,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
-    * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
-    * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
-    *
-    * @param request ModifyDBClusterMigrationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBClusterMigrationResponse
+   * @summary Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
+   *
+   * @description *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+   * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
+   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+   *
+   * @param request ModifyDBClusterMigrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterMigrationResponse
    */
   async modifyDBClusterMigrationWithOptions(request: ModifyDBClusterMigrationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterMigrationResponse> {
     Util.validateModel(request);
@@ -23416,12 +24571,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
-    * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
-    * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
-    *
-    * @param request ModifyDBClusterMigrationRequest
-    * @return ModifyDBClusterMigrationResponse
+   * @summary Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
+   *
+   * @description *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+   * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
+   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+   *
+   * @param request ModifyDBClusterMigrationRequest
+   * @return ModifyDBClusterMigrationResponse
    */
   async modifyDBClusterMigration(request: ModifyDBClusterMigrationRequest): Promise<ModifyDBClusterMigrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23429,21 +24586,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When the monitoring data is collected every 5 seconds:
-    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * *   When the monitoring data is collected every 60 seconds:
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    *
-    * @param request ModifyDBClusterMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBClusterMonitorResponse
+   * @summary Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
+   *
+   * @description *   When the monitoring data is collected every 5 seconds:
+   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * *   When the monitoring data is collected every 60 seconds:
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   *
+   * @param request ModifyDBClusterMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterMonitorResponse
    */
   async modifyDBClusterMonitorWithOptions(request: ModifyDBClusterMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterMonitorResponse> {
     Util.validateModel(request);
@@ -23490,20 +24649,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When the monitoring data is collected every 5 seconds:
-    *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    * *   When the monitoring data is collected every 60 seconds:
-    *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-    *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-    *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-    *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-    *
-    * @param request ModifyDBClusterMonitorRequest
-    * @return ModifyDBClusterMonitorResponse
+   * @summary Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
+   *
+   * @description *   When the monitoring data is collected every 5 seconds:
+   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   * *   When the monitoring data is collected every 60 seconds:
+   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+   *
+   * @param request ModifyDBClusterMonitorRequest
+   * @return ModifyDBClusterMonitorResponse
    */
   async modifyDBClusterMonitor(request: ModifyDBClusterMonitorRequest): Promise<ModifyDBClusterMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23511,13 +24672,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * **
-    * **Only PolarDB for MySQL clusters support parameter templates.
-    *
-    * @param request ModifyDBClusterParametersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBClusterParametersResponse
+   * @summary Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
+   *
+   * @description PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * **
+   * **Only PolarDB for MySQL clusters support parameter templates.
+   *
+   * @param request ModifyDBClusterParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterParametersResponse
    */
   async modifyDBClusterParametersWithOptions(request: ModifyDBClusterParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterParametersResponse> {
     Util.validateModel(request);
@@ -23580,18 +24743,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-    * **
-    * **Only PolarDB for MySQL clusters support parameter templates.
-    *
-    * @param request ModifyDBClusterParametersRequest
-    * @return ModifyDBClusterParametersResponse
+   * @summary Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
+   *
+   * @description PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+   * **
+   * **Only PolarDB for MySQL clusters support parameter templates.
+   *
+   * @param request ModifyDBClusterParametersRequest
+   * @return ModifyDBClusterParametersResponse
    */
   async modifyDBClusterParameters(request: ModifyDBClusterParametersRequest): Promise<ModifyDBClusterParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the primary zone of a PolarDB cluster.
+   *
+   * @param request ModifyDBClusterPrimaryZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterPrimaryZoneResponse
+   */
   async modifyDBClusterPrimaryZoneWithOptions(request: ModifyDBClusterPrimaryZoneRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterPrimaryZoneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23664,11 +24836,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterPrimaryZoneResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterPrimaryZoneResponse({}));
   }
 
+  /**
+   * @summary Modifies the primary zone of a PolarDB cluster.
+   *
+   * @param request ModifyDBClusterPrimaryZoneRequest
+   * @return ModifyDBClusterPrimaryZoneResponse
+   */
   async modifyDBClusterPrimaryZone(request: ModifyDBClusterPrimaryZoneRequest): Promise<ModifyDBClusterPrimaryZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterPrimaryZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyDBClusterResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterResourceGroupResponse
+   */
   async modifyDBClusterResourceGroupWithOptions(request: ModifyDBClusterResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23717,11 +24900,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterResourceGroupResponse({}));
   }
 
+  /**
+   * @param request ModifyDBClusterResourceGroupRequest
+   * @return ModifyDBClusterResourceGroupResponse
+   */
   async modifyDBClusterResourceGroup(request: ModifyDBClusterResourceGroupRequest): Promise<ModifyDBClusterResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables Secure Sockets Layer (SSL) encryption or updates the Certificate Authorities (CA) certificate for a specified PolarDB cluster.
+   *
+   * @param request ModifyDBClusterSSLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterSSLResponse
+   */
   async modifyDBClusterSSLWithOptions(request: ModifyDBClusterSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterSSLResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23778,11 +24972,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterSSLResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterSSLResponse({}));
   }
 
+  /**
+   * @summary Enables or disables Secure Sockets Layer (SSL) encryption or updates the Certificate Authorities (CA) certificate for a specified PolarDB cluster.
+   *
+   * @param request ModifyDBClusterSSLRequest
+   * @return ModifyDBClusterSSLResponse
+   */
   async modifyDBClusterSSL(request: ModifyDBClusterSSLRequest): Promise<ModifyDBClusterSSLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterSSLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a serverless cluster.
+   *
+   * @param request ModifyDBClusterServerlessConfRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterServerlessConfResponse
+   */
   async modifyDBClusterServerlessConfWithOptions(request: ModifyDBClusterServerlessConfRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterServerlessConfResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23850,6 +25057,18 @@ export default class Client extends OpenApi {
       query["SecondsUntilAutoPause"] = request.secondsUntilAutoPause;
     }
 
+    if (!Util.isUnset(request.serverlessRuleCpuEnlargeThreshold)) {
+      query["ServerlessRuleCpuEnlargeThreshold"] = request.serverlessRuleCpuEnlargeThreshold;
+    }
+
+    if (!Util.isUnset(request.serverlessRuleCpuShrinkThreshold)) {
+      query["ServerlessRuleCpuShrinkThreshold"] = request.serverlessRuleCpuShrinkThreshold;
+    }
+
+    if (!Util.isUnset(request.serverlessRuleMode)) {
+      query["ServerlessRuleMode"] = request.serverlessRuleMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -23867,11 +25086,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterServerlessConfResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterServerlessConfResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a serverless cluster.
+   *
+   * @param request ModifyDBClusterServerlessConfRequest
+   * @return ModifyDBClusterServerlessConfResponse
+   */
   async modifyDBClusterServerlessConf(request: ModifyDBClusterServerlessConfRequest): Promise<ModifyDBClusterServerlessConfResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterServerlessConfWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+   *
+   * @param request ModifyDBClusterStorageSpaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterStorageSpaceResponse
+   */
   async modifyDBClusterStorageSpaceWithOptions(request: ModifyDBClusterStorageSpaceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterStorageSpaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23932,18 +25164,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBClusterStorageSpaceResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterStorageSpaceResponse({}));
   }
 
+  /**
+   * @summary Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+   *
+   * @param request ModifyDBClusterStorageSpaceRequest
+   * @return ModifyDBClusterStorageSpaceResponse
+   */
   async modifyDBClusterStorageSpace(request: ModifyDBClusterStorageSpaceRequest): Promise<ModifyDBClusterStorageSpaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterStorageSpaceWithOptions(request, runtime);
   }
 
   /**
-    * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](~~153781~~).
-    * > *   After TDE is enabled, you cannot disable TDE.
-    *
-    * @param request ModifyDBClusterTDERequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyDBClusterTDEResponse
+   * @summary Enables the TDE feature or changes the encryption method for a specified PolarDB for MySQL cluster.
+   *
+   * @description > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+   * > *   After TDE is enabled, you cannot disable TDE.
+   *
+   * @param request ModifyDBClusterTDERequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBClusterTDEResponse
    */
   async modifyDBClusterTDEWithOptions(request: ModifyDBClusterTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterTDEResponse> {
     Util.validateModel(request);
@@ -24002,17 +25242,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](~~153781~~).
-    * > *   After TDE is enabled, you cannot disable TDE.
-    *
-    * @param request ModifyDBClusterTDERequest
-    * @return ModifyDBClusterTDEResponse
+   * @summary Enables the TDE feature or changes the encryption method for a specified PolarDB for MySQL cluster.
+   *
+   * @description > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+   * > *   After TDE is enabled, you cannot disable TDE.
+   *
+   * @param request ModifyDBClusterTDERequest
+   * @return ModifyDBClusterTDEResponse
    */
   async modifyDBClusterTDE(request: ModifyDBClusterTDERequest): Promise<ModifyDBClusterTDEResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBClusterTDEWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a database in a PolarDB for MySQL cluster.
+   *
+   * @param request ModifyDBDescriptionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBDescriptionResponse
+   */
   async modifyDBDescriptionWithOptions(request: ModifyDBDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24061,11 +25310,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBDescriptionResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a database in a PolarDB for MySQL cluster.
+   *
+   * @param request ModifyDBDescriptionRequest
+   * @return ModifyDBDescriptionResponse
+   */
   async modifyDBDescription(request: ModifyDBDescriptionRequest): Promise<ModifyDBDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBDescriptionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+   *
+   * @param request ModifyDBEndpointAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBEndpointAddressResponse
+   */
   async modifyDBEndpointAddressWithOptions(request: ModifyDBEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBEndpointAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24130,11 +25392,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBEndpointAddressResponse>(await this.callApi(params, req, runtime), new ModifyDBEndpointAddressResponse({}));
   }
 
+  /**
+   * @summary Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+   *
+   * @param request ModifyDBEndpointAddressRequest
+   * @return ModifyDBEndpointAddressResponse
+   */
   async modifyDBEndpointAddress(request: ModifyDBEndpointAddressRequest): Promise<ModifyDBEndpointAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBEndpointAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the node specifications of a PolarDB cluster.
+   *
+   * @param request ModifyDBNodeClassRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBNodeClassResponse
+   */
   async modifyDBNodeClassWithOptions(request: ModifyDBNodeClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBNodeClassResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24203,11 +25478,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBNodeClassResponse>(await this.callApi(params, req, runtime), new ModifyDBNodeClassResponse({}));
   }
 
+  /**
+   * @summary Changes the node specifications of a PolarDB cluster.
+   *
+   * @param request ModifyDBNodeClassRequest
+   * @return ModifyDBNodeClassResponse
+   */
   async modifyDBNodeClass(request: ModifyDBNodeClassRequest): Promise<ModifyDBNodeClassResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBNodeClassWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables a cluster node.
+   *
+   * @param request ModifyDBNodeHotReplicaModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBNodeHotReplicaModeResponse
+   */
   async modifyDBNodeHotReplicaModeWithOptions(request: ModifyDBNodeHotReplicaModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBNodeHotReplicaModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24256,11 +25544,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBNodeHotReplicaModeResponse>(await this.callApi(params, req, runtime), new ModifyDBNodeHotReplicaModeResponse({}));
   }
 
+  /**
+   * @summary Enables or disables a cluster node.
+   *
+   * @param request ModifyDBNodeHotReplicaModeRequest
+   * @return ModifyDBNodeHotReplicaModeResponse
+   */
   async modifyDBNodeHotReplicaMode(request: ModifyDBNodeHotReplicaModeRequest): Promise<ModifyDBNodeHotReplicaModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBNodeHotReplicaModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the specifications of a node in a PolarDB cluster.
+   *
+   * @param request ModifyDBNodesClassRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBNodesClassResponse
+   */
   async modifyDBNodesClassWithOptions(request: ModifyDBNodesClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBNodesClassResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24325,11 +25626,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBNodesClassResponse>(await this.callApi(params, req, runtime), new ModifyDBNodesClassResponse({}));
   }
 
+  /**
+   * @summary Changes the specifications of a node in a PolarDB cluster.
+   *
+   * @param request ModifyDBNodesClassRequest
+   * @return ModifyDBNodesClassResponse
+   */
   async modifyDBNodesClass(request: ModifyDBNodesClassRequest): Promise<ModifyDBNodesClassResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBNodesClassWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the parameters of a node and applies them to specified nodes.
+   *
+   * @param request ModifyDBNodesParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBNodesParametersResponse
+   */
   async modifyDBNodesParametersWithOptions(request: ModifyDBNodesParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBNodesParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24394,11 +25708,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBNodesParametersResponse>(await this.callApi(params, req, runtime), new ModifyDBNodesParametersResponse({}));
   }
 
+  /**
+   * @summary Modifies the parameters of a node and applies them to specified nodes.
+   *
+   * @param request ModifyDBNodesParametersRequest
+   * @return ModifyDBNodesParametersResponse
+   */
   async modifyDBNodesParameters(request: ModifyDBNodesParametersRequest): Promise<ModifyDBNodesParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBNodesParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a Global Database Network (GDN).
+   *
+   * @param request ModifyGlobalDatabaseNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalDatabaseNetworkResponse
+   */
   async modifyGlobalDatabaseNetworkWithOptions(request: ModifyGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24451,11 +25778,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalDatabaseNetworkResponse>(await this.callApi(params, req, runtime), new ModifyGlobalDatabaseNetworkResponse({}));
   }
 
+  /**
+   * @summary Modifies a Global Database Network (GDN).
+   *
+   * @param request ModifyGlobalDatabaseNetworkRequest
+   * @return ModifyGlobalDatabaseNetworkResponse
+   */
   async modifyGlobalDatabaseNetwork(request: ModifyGlobalDatabaseNetworkRequest): Promise<ModifyGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalDatabaseNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalSecurityIPGroupResponse
+   */
   async modifyGlobalSecurityIPGroupWithOptions(request: ModifyGlobalSecurityIPGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24516,11 +25856,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies an IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupRequest
+   * @return ModifyGlobalSecurityIPGroupResponse
+   */
   async modifyGlobalSecurityIPGroup(request: ModifyGlobalSecurityIPGroupRequest): Promise<ModifyGlobalSecurityIPGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalSecurityIPGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of a global IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalSecurityIPGroupNameResponse
+   */
   async modifyGlobalSecurityIPGroupNameWithOptions(request: ModifyGlobalSecurityIPGroupNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupNameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24577,11 +25930,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalSecurityIPGroupNameResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupNameResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of a global IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupNameRequest
+   * @return ModifyGlobalSecurityIPGroupNameResponse
+   */
   async modifyGlobalSecurityIPGroupName(request: ModifyGlobalSecurityIPGroupNameRequest): Promise<ModifyGlobalSecurityIPGroupNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalSecurityIPGroupNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the relationship between a cluster and a global IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGlobalSecurityIPGroupRelationResponse
+   */
   async modifyGlobalSecurityIPGroupRelationWithOptions(request: ModifyGlobalSecurityIPGroupRelationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalSecurityIPGroupRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24638,11 +26004,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGlobalSecurityIPGroupRelationResponse>(await this.callApi(params, req, runtime), new ModifyGlobalSecurityIPGroupRelationResponse({}));
   }
 
+  /**
+   * @summary Modifies the relationship between a cluster and a global IP whitelist template.
+   *
+   * @param request ModifyGlobalSecurityIPGroupRelationRequest
+   * @return ModifyGlobalSecurityIPGroupRelationResponse
+   */
   async modifyGlobalSecurityIPGroupRelation(request: ModifyGlobalSecurityIPGroupRelationRequest): Promise<ModifyGlobalSecurityIPGroupRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGlobalSecurityIPGroupRelationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
+   *
+   * @param request ModifyLogBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLogBackupPolicyResponse
+   */
   async modifyLogBackupPolicyWithOptions(request: ModifyLogBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24695,11 +26074,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyLogBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyLogBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
+   *
+   * @param request ModifyLogBackupPolicyRequest
+   * @return ModifyLogBackupPolicyResponse
+   */
   async modifyLogBackupPolicy(request: ModifyLogBackupPolicyRequest): Promise<ModifyLogBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLogBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies or adds a data masking rule.
+   *
+   * @param request ModifyMaskingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyMaskingRulesResponse
+   */
   async modifyMaskingRulesWithOptions(request: ModifyMaskingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMaskingRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24744,11 +26136,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyMaskingRulesResponse>(await this.callApi(params, req, runtime), new ModifyMaskingRulesResponse({}));
   }
 
+  /**
+   * @summary Modifies or adds a data masking rule.
+   *
+   * @param request ModifyMaskingRulesRequest
+   * @return ModifyMaskingRulesResponse
+   */
   async modifyMaskingRules(request: ModifyMaskingRulesRequest): Promise<ModifyMaskingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMaskingRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the switching time of a pending event.
+   *
+   * @param request ModifyPendingMaintenanceActionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPendingMaintenanceActionResponse
+   */
   async modifyPendingMaintenanceActionWithOptions(request: ModifyPendingMaintenanceActionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPendingMaintenanceActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24805,11 +26210,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPendingMaintenanceActionResponse>(await this.callApi(params, req, runtime), new ModifyPendingMaintenanceActionResponse({}));
   }
 
+  /**
+   * @summary Modifies the switching time of a pending event.
+   *
+   * @param request ModifyPendingMaintenanceActionRequest
+   * @return ModifyPendingMaintenanceActionResponse
+   */
   async modifyPendingMaintenanceAction(request: ModifyPendingMaintenanceActionRequest): Promise<ModifyPendingMaintenanceActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPendingMaintenanceActionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the PolarDB for AI feature for a cluster.
+   *
+   * @param request OpenAITaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenAITaskResponse
+   */
   async openAITaskWithOptions(request: OpenAITaskRequest, runtime: $Util.RuntimeOptions): Promise<OpenAITaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24870,11 +26288,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenAITaskResponse>(await this.callApi(params, req, runtime), new OpenAITaskResponse({}));
   }
 
+  /**
+   * @summary Enables the PolarDB for AI feature for a cluster.
+   *
+   * @param request OpenAITaskRequest
+   * @return OpenAITaskResponse
+   */
   async openAITask(request: OpenAITaskRequest): Promise<OpenAITaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openAITaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the storage usage of a cluster.
+   *
+   * @param request RefreshDBClusterStorageUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefreshDBClusterStorageUsageResponse
+   */
   async refreshDBClusterStorageUsageWithOptions(request: RefreshDBClusterStorageUsageRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDBClusterStorageUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24915,17 +26346,25 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshDBClusterStorageUsageResponse>(await this.callApi(params, req, runtime), new RefreshDBClusterStorageUsageResponse({}));
   }
 
+  /**
+   * @summary Updates the storage usage of a cluster.
+   *
+   * @param request RefreshDBClusterStorageUsageRequest
+   * @return RefreshDBClusterStorageUsageResponse
+   */
   async refreshDBClusterStorageUsage(request: RefreshDBClusterStorageUsageRequest): Promise<RefreshDBClusterStorageUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshDBClusterStorageUsageWithOptions(request, runtime);
   }
 
   /**
-    * >  You cannot remove the primary cluster from a GDN.
-    *
-    * @param request RemoveDBClusterFromGDNRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveDBClusterFromGDNResponse
+   * @summary Removes a secondary cluster from a GDN.
+   *
+   * @description >  You cannot remove the primary cluster from a GDN.
+   *
+   * @param request RemoveDBClusterFromGDNRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveDBClusterFromGDNResponse
    */
   async removeDBClusterFromGDNWithOptions(request: RemoveDBClusterFromGDNRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDBClusterFromGDNResponse> {
     Util.validateModel(request);
@@ -24976,10 +26415,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You cannot remove the primary cluster from a GDN.
-    *
-    * @param request RemoveDBClusterFromGDNRequest
-    * @return RemoveDBClusterFromGDNResponse
+   * @summary Removes a secondary cluster from a GDN.
+   *
+   * @description >  You cannot remove the primary cluster from a GDN.
+   *
+   * @param request RemoveDBClusterFromGDNRequest
+   * @return RemoveDBClusterFromGDNResponse
    */
   async removeDBClusterFromGDN(request: RemoveDBClusterFromGDNRequest): Promise<RemoveDBClusterFromGDNResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24987,12 +26428,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >- Only PolarDB for MySQL clusters support this operation.
-    * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
-    *
-    * @param request ResetAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetAccountResponse
+   * @summary Resets the permissions of a privileged account for a PolarDB cluster.
+   *
+   * @description >- Only PolarDB for MySQL clusters support this operation.
+   * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+   *
+   * @param request ResetAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAccountResponse
    */
   async resetAccountWithOptions(request: ResetAccountRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountResponse> {
     Util.validateModel(request);
@@ -25043,17 +26486,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >- Only PolarDB for MySQL clusters support this operation.
-    * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
-    *
-    * @param request ResetAccountRequest
-    * @return ResetAccountResponse
+   * @summary Resets the permissions of a privileged account for a PolarDB cluster.
+   *
+   * @description >- Only PolarDB for MySQL clusters support this operation.
+   * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+   *
+   * @param request ResetAccountRequest
+   * @return ResetAccountResponse
    */
   async resetAccount(request: ResetAccountRequest): Promise<ResetAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
+   *
+   * @param request ResetGlobalDatabaseNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetGlobalDatabaseNetworkResponse
+   */
   async resetGlobalDatabaseNetworkWithOptions(request: ResetGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<ResetGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25106,11 +26558,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetGlobalDatabaseNetworkResponse>(await this.callApi(params, req, runtime), new ResetGlobalDatabaseNetworkResponse({}));
   }
 
+  /**
+   * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
+   *
+   * @param request ResetGlobalDatabaseNetworkRequest
+   * @return ResetGlobalDatabaseNetworkResponse
+   */
   async resetGlobalDatabaseNetwork(request: ResetGlobalDatabaseNetworkRequest): Promise<ResetGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetGlobalDatabaseNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 重启代理
+   *
+   * @param request RestartDBLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartDBLinkResponse
+   */
   async restartDBLinkWithOptions(request: RestartDBLinkRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25155,11 +26620,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartDBLinkResponse>(await this.callApi(params, req, runtime), new RestartDBLinkResponse({}));
   }
 
+  /**
+   * @summary 重启代理
+   *
+   * @param request RestartDBLinkRequest
+   * @return RestartDBLinkResponse
+   */
   async restartDBLink(request: RestartDBLinkRequest): Promise<RestartDBLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDBLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restarts a node in a PolarDB cluster.
+   *
+   * @param request RestartDBNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartDBNodeResponse
+   */
   async restartDBNodeWithOptions(request: RestartDBNodeRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25200,11 +26678,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartDBNodeResponse>(await this.callApi(params, req, runtime), new RestartDBNodeResponse({}));
   }
 
+  /**
+   * @summary Restarts a node in a PolarDB cluster.
+   *
+   * @param request RestartDBNodeRequest
+   * @return RestartDBNodeResponse
+   */
   async restartDBNode(request: RestartDBNodeRequest): Promise<RestartDBNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDBNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restores PolarDB databases and tables.
+   *
+   * @param request RestoreTableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestoreTableResponse
+   */
   async restoreTableWithOptions(request: RestoreTableRequest, runtime: $Util.RuntimeOptions): Promise<RestoreTableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25261,11 +26752,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestoreTableResponse>(await this.callApi(params, req, runtime), new RestoreTableResponse({}));
   }
 
+  /**
+   * @summary Restores PolarDB databases and tables.
+   *
+   * @param request RestoreTableRequest
+   * @return RestoreTableResponse
+   */
   async restoreTable(request: RestoreTableRequest): Promise<RestoreTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restoreTableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+   *
+   * @param request RevokeAccountPrivilegeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeAccountPrivilegeResponse
+   */
   async revokeAccountPrivilegeWithOptions(request: RevokeAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<RevokeAccountPrivilegeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25314,11 +26818,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new RevokeAccountPrivilegeResponse({}));
   }
 
+  /**
+   * @summary Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+   *
+   * @param request RevokeAccountPrivilegeRequest
+   * @return RevokeAccountPrivilegeResponse
+   */
   async revokeAccountPrivilege(request: RevokeAccountPrivilegeRequest): Promise<RevokeAccountPrivilegeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeAccountPrivilegeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SwitchOverGlobalDatabaseNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchOverGlobalDatabaseNetworkResponse
+   */
   async switchOverGlobalDatabaseNetworkWithOptions(request: SwitchOverGlobalDatabaseNetworkRequest, runtime: $Util.RuntimeOptions): Promise<SwitchOverGlobalDatabaseNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25379,11 +26894,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchOverGlobalDatabaseNetworkResponse>(await this.callApi(params, req, runtime), new SwitchOverGlobalDatabaseNetworkResponse({}));
   }
 
+  /**
+   * @param request SwitchOverGlobalDatabaseNetworkRequest
+   * @return SwitchOverGlobalDatabaseNetworkResponse
+   */
   async switchOverGlobalDatabaseNetwork(request: SwitchOverGlobalDatabaseNetworkRequest): Promise<SwitchOverGlobalDatabaseNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchOverGlobalDatabaseNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25436,11 +26960,22 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Temporarily upgrades the configuration of a PolarDB cluster or adds one or more nodes to a cluster.
+   *
+   * @param request TempModifyDBNodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TempModifyDBNodeResponse
+   */
   async tempModifyDBNodeWithOptions(request: TempModifyDBNodeRequest, runtime: $Util.RuntimeOptions): Promise<TempModifyDBNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25501,19 +27036,27 @@ export default class Client extends OpenApi {
     return $tea.cast<TempModifyDBNodeResponse>(await this.callApi(params, req, runtime), new TempModifyDBNodeResponse({}));
   }
 
+  /**
+   * @summary Temporarily upgrades the configuration of a PolarDB cluster or adds one or more nodes to a cluster.
+   *
+   * @param request TempModifyDBNodeRequest
+   * @return TempModifyDBNodeResponse
+   */
   async tempModifyDBNode(request: TempModifyDBNodeRequest): Promise<TempModifyDBNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tempModifyDBNodeWithOptions(request, runtime);
   }
 
   /**
-    * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](~~172886~~) and [Change the billing method from pay-as-you-go to subscription](~~84076~~).
-    * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-    * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
-    *
-    * @param request TransformDBClusterPayTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TransformDBClusterPayTypeResponse
+   * @summary Changes the billing method of a PolarDB cluster.
+   *
+   * @description > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+   * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+   * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+   *
+   * @param request TransformDBClusterPayTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransformDBClusterPayTypeResponse
    */
   async transformDBClusterPayTypeWithOptions(request: TransformDBClusterPayTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransformDBClusterPayTypeResponse> {
     Util.validateModel(request);
@@ -25580,18 +27123,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](~~172886~~) and [Change the billing method from pay-as-you-go to subscription](~~84076~~).
-    * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-    * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
-    *
-    * @param request TransformDBClusterPayTypeRequest
-    * @return TransformDBClusterPayTypeResponse
+   * @summary Changes the billing method of a PolarDB cluster.
+   *
+   * @description > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+   * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+   * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+   *
+   * @param request TransformDBClusterPayTypeRequest
+   * @return TransformDBClusterPayTypeResponse
    */
   async transformDBClusterPayType(request: TransformDBClusterPayTypeRequest): Promise<TransformDBClusterPayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformDBClusterPayTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unbinds tags from PolarDB clusters.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25648,18 +27200,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Unbinds tags from PolarDB clusters.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
-    * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
-    *
-    * @param request UpgradeDBClusterVersionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeDBClusterVersionResponse
+   * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.
+   *
+   * @description > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+   * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+   *
+   * @param request UpgradeDBClusterVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeDBClusterVersionResponse
    */
   async upgradeDBClusterVersionWithOptions(request: UpgradeDBClusterVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBClusterVersionResponse> {
     Util.validateModel(request);
@@ -25730,11 +27290,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
-    * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
-    *
-    * @param request UpgradeDBClusterVersionRequest
-    * @return UpgradeDBClusterVersionResponse
+   * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.
+   *
+   * @description > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+   * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+   *
+   * @param request UpgradeDBClusterVersionRequest
+   * @return UpgradeDBClusterVersionResponse
    */
   async upgradeDBClusterVersion(request: UpgradeDBClusterVersionRequest): Promise<UpgradeDBClusterVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
