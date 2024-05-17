@@ -3755,6 +3755,7 @@ export class ListUserDevicesRequest extends $tea.Model {
   dlpStatuses?: string[];
   hostname?: string;
   iaStatuses?: string[];
+  innerIp?: string;
   mac?: string;
   nacStatuses?: string[];
   paStatuses?: string[];
@@ -3775,6 +3776,7 @@ export class ListUserDevicesRequest extends $tea.Model {
       dlpStatuses: 'DlpStatuses',
       hostname: 'Hostname',
       iaStatuses: 'IaStatuses',
+      innerIp: 'InnerIp',
       mac: 'Mac',
       nacStatuses: 'NacStatuses',
       paStatuses: 'PaStatuses',
@@ -3798,6 +3800,7 @@ export class ListUserDevicesRequest extends $tea.Model {
       dlpStatuses: { 'type': 'array', 'itemType': 'string' },
       hostname: 'string',
       iaStatuses: { 'type': 'array', 'itemType': 'string' },
+      innerIp: 'string',
       mac: 'string',
       nacStatuses: { 'type': 'array', 'itemType': 'string' },
       paStatuses: { 'type': 'array', 'itemType': 'string' },
@@ -8429,6 +8432,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 挂载connector的应用
+   *
+   * @param tmpReq AttachApplication2ConnectorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachApplication2ConnectorResponse
+   */
   async attachApplication2ConnectorWithOptions(tmpReq: AttachApplication2ConnectorRequest, runtime: $Util.RuntimeOptions): Promise<AttachApplication2ConnectorResponse> {
     Util.validateModel(tmpReq);
     let request = new AttachApplication2ConnectorShrinkRequest({ });
@@ -8463,11 +8473,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachApplication2ConnectorResponse>(await this.callApi(params, req, runtime), new AttachApplication2ConnectorResponse({}));
   }
 
+  /**
+   * @summary 挂载connector的应用
+   *
+   * @param request AttachApplication2ConnectorRequest
+   * @return AttachApplication2ConnectorResponse
+   */
   async attachApplication2Connector(request: AttachApplication2ConnectorRequest): Promise<AttachApplication2ConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachApplication2ConnectorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建自定义身份源用户
+   *
+   * @param request CreateClientUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClientUserResponse
+   */
   async createClientUserWithOptions(request: CreateClientUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8516,11 +8539,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClientUserResponse>(await this.callApi(params, req, runtime), new CreateClientUserResponse({}));
   }
 
+  /**
+   * @summary 创建自定义身份源用户
+   *
+   * @param request CreateClientUserRequest
+   * @return CreateClientUserResponse
+   */
   async createClientUser(request: CreateClientUserRequest): Promise<CreateClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClientUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建动态路由
+   *
+   * @param request CreateDynamicRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDynamicRouteResponse
+   */
   async createDynamicRouteWithOptions(request: CreateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateDynamicRouteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8586,11 +8622,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDynamicRouteResponse>(await this.callApi(params, req, runtime), new CreateDynamicRouteResponse({}));
   }
 
+  /**
+   * @summary 创建动态路由
+   *
+   * @param request CreateDynamicRouteRequest
+   * @return CreateDynamicRouteResponse
+   */
   async createDynamicRoute(request: CreateDynamicRouteRequest): Promise<CreateDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDynamicRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建自定义身份源部门
+   *
+   * @param request CreateIdpDepartmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIdpDepartmentResponse
+   */
   async createIdpDepartmentWithOptions(request: CreateIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateIdpDepartmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8619,11 +8668,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIdpDepartmentResponse>(await this.callApi(params, req, runtime), new CreateIdpDepartmentResponse({}));
   }
 
+  /**
+   * @summary 创建自定义身份源部门
+   *
+   * @param request CreateIdpDepartmentRequest
+   * @return CreateIdpDepartmentResponse
+   */
   async createIdpDepartment(request: CreateIdpDepartmentRequest): Promise<CreateIdpDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIdpDepartmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建内网访问应用
+   *
+   * @param request CreatePrivateAccessApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePrivateAccessApplicationResponse
+   */
   async createPrivateAccessApplicationWithOptions(request: CreatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8677,11 +8739,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessApplicationResponse({}));
   }
 
+  /**
+   * @summary 创建内网访问应用
+   *
+   * @param request CreatePrivateAccessApplicationRequest
+   * @return CreatePrivateAccessApplicationResponse
+   */
   async createPrivateAccessApplication(request: CreatePrivateAccessApplicationRequest): Promise<CreatePrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrivateAccessApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建内网访问策略
+   *
+   * @param request CreatePrivateAccessPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePrivateAccessPolicyResponse
+   */
   async createPrivateAccessPolicyWithOptions(request: CreatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8755,11 +8830,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessPolicyResponse({}));
   }
 
+  /**
+   * @summary 创建内网访问策略
+   *
+   * @param request CreatePrivateAccessPolicyRequest
+   * @return CreatePrivateAccessPolicyResponse
+   */
   async createPrivateAccessPolicy(request: CreatePrivateAccessPolicyRequest): Promise<CreatePrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrivateAccessPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建内网访问标签
+   *
+   * @param request CreatePrivateAccessTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePrivateAccessTagResponse
+   */
   async createPrivateAccessTagWithOptions(request: CreatePrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<CreatePrivateAccessTagResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8788,11 +8876,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePrivateAccessTagResponse>(await this.callApi(params, req, runtime), new CreatePrivateAccessTagResponse({}));
   }
 
+  /**
+   * @summary 创建内网访问标签
+   *
+   * @param request CreatePrivateAccessTagRequest
+   * @return CreatePrivateAccessTagResponse
+   */
   async createPrivateAccessTag(request: CreatePrivateAccessTagRequest): Promise<CreatePrivateAccessTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPrivateAccessTagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建设备注册策略
+   *
+   * @param tmpReq CreateRegistrationPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRegistrationPolicyResponse
+   */
   async createRegistrationPolicyWithOptions(tmpReq: CreateRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateRegistrationPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateRegistrationPolicyShrinkRequest({ });
@@ -8872,11 +8973,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new CreateRegistrationPolicyResponse({}));
   }
 
+  /**
+   * @summary 创建设备注册策略
+   *
+   * @param request CreateRegistrationPolicyRequest
+   * @return CreateRegistrationPolicyResponse
+   */
   async createRegistrationPolicy(request: CreateRegistrationPolicyRequest): Promise<CreateRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRegistrationPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建用户组
+   *
+   * @param request CreateUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserGroupResponse
+   */
   async createUserGroupWithOptions(request: CreateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8914,11 +9028,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserGroupResponse>(await this.callApi(params, req, runtime), new CreateUserGroupResponse({}));
   }
 
+  /**
+   * @summary 创建用户组
+   *
+   * @param request CreateUserGroupRequest
+   * @return CreateUserGroupResponse
+   */
   async createUserGroup(request: CreateUserGroupRequest): Promise<CreateUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除自定义身份源指定用户
+   *
+   * @param request DeleteClientUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteClientUserResponse
+   */
   async deleteClientUserWithOptions(request: DeleteClientUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8943,11 +9070,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClientUserResponse>(await this.callApi(params, req, runtime), new DeleteClientUserResponse({}));
   }
 
+  /**
+   * @summary 删除自定义身份源指定用户
+   *
+   * @param request DeleteClientUserRequest
+   * @return DeleteClientUserResponse
+   */
   async deleteClientUser(request: DeleteClientUserRequest): Promise<DeleteClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteClientUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除动态路由
+   *
+   * @param request DeleteDynamicRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDynamicRouteResponse
+   */
   async deleteDynamicRouteWithOptions(request: DeleteDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDynamicRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8972,11 +9112,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDynamicRouteResponse>(await this.callApi(params, req, runtime), new DeleteDynamicRouteResponse({}));
   }
 
+  /**
+   * @summary 删除动态路由
+   *
+   * @param request DeleteDynamicRouteRequest
+   * @return DeleteDynamicRouteResponse
+   */
   async deleteDynamicRoute(request: DeleteDynamicRouteRequest): Promise<DeleteDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDynamicRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除指定自定义身份源部门
+   *
+   * @param request DeleteIdpDepartmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIdpDepartmentResponse
+   */
   async deleteIdpDepartmentWithOptions(request: DeleteIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIdpDepartmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9005,11 +9158,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIdpDepartmentResponse>(await this.callApi(params, req, runtime), new DeleteIdpDepartmentResponse({}));
   }
 
+  /**
+   * @summary 删除指定自定义身份源部门
+   *
+   * @param request DeleteIdpDepartmentRequest
+   * @return DeleteIdpDepartmentResponse
+   */
   async deleteIdpDepartment(request: DeleteIdpDepartmentRequest): Promise<DeleteIdpDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIdpDepartmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除内网访问应用
+   *
+   * @param request DeletePrivateAccessApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrivateAccessApplicationResponse
+   */
   async deletePrivateAccessApplicationWithOptions(request: DeletePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9034,11 +9200,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessApplicationResponse({}));
   }
 
+  /**
+   * @summary 删除内网访问应用
+   *
+   * @param request DeletePrivateAccessApplicationRequest
+   * @return DeletePrivateAccessApplicationResponse
+   */
   async deletePrivateAccessApplication(request: DeletePrivateAccessApplicationRequest): Promise<DeletePrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrivateAccessApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除内网访问策略
+   *
+   * @param request DeletePrivateAccessPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrivateAccessPolicyResponse
+   */
   async deletePrivateAccessPolicyWithOptions(request: DeletePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9063,11 +9242,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessPolicyResponse({}));
   }
 
+  /**
+   * @summary 删除内网访问策略
+   *
+   * @param request DeletePrivateAccessPolicyRequest
+   * @return DeletePrivateAccessPolicyResponse
+   */
   async deletePrivateAccessPolicy(request: DeletePrivateAccessPolicyRequest): Promise<DeletePrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrivateAccessPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除内网访问标签
+   *
+   * @param request DeletePrivateAccessTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrivateAccessTagResponse
+   */
   async deletePrivateAccessTagWithOptions(request: DeletePrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrivateAccessTagResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9092,11 +9284,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrivateAccessTagResponse>(await this.callApi(params, req, runtime), new DeletePrivateAccessTagResponse({}));
   }
 
+  /**
+   * @summary 删除内网访问标签
+   *
+   * @param request DeletePrivateAccessTagRequest
+   * @return DeletePrivateAccessTagResponse
+   */
   async deletePrivateAccessTag(request: DeletePrivateAccessTagRequest): Promise<DeletePrivateAccessTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrivateAccessTagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除设备注册策略
+   *
+   * @param request DeleteRegistrationPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRegistrationPoliciesResponse
+   */
   async deleteRegistrationPoliciesWithOptions(request: DeleteRegistrationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRegistrationPoliciesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9126,11 +9331,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRegistrationPoliciesResponse>(await this.callApi(params, req, runtime), new DeleteRegistrationPoliciesResponse({}));
   }
 
+  /**
+   * @summary 删除设备注册策略
+   *
+   * @param request DeleteRegistrationPoliciesRequest
+   * @return DeleteRegistrationPoliciesResponse
+   */
   async deleteRegistrationPolicies(request: DeleteRegistrationPoliciesRequest): Promise<DeleteRegistrationPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRegistrationPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除用户组
+   *
+   * @param request DeleteUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserGroupResponse
+   */
   async deleteUserGroupWithOptions(request: DeleteUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9155,11 +9373,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserGroupResponse>(await this.callApi(params, req, runtime), new DeleteUserGroupResponse({}));
   }
 
+  /**
+   * @summary 删除用户组
+   *
+   * @param request DeleteUserGroupRequest
+   * @return DeleteUserGroupResponse
+   */
   async deleteUserGroup(request: DeleteUserGroupRequest): Promise<DeleteUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 卸载connector的应用
+   *
+   * @param tmpReq DetachApplication2ConnectorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachApplication2ConnectorResponse
+   */
   async detachApplication2ConnectorWithOptions(tmpReq: DetachApplication2ConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DetachApplication2ConnectorResponse> {
     Util.validateModel(tmpReq);
     let request = new DetachApplication2ConnectorShrinkRequest({ });
@@ -9194,11 +9425,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachApplication2ConnectorResponse>(await this.callApi(params, req, runtime), new DetachApplication2ConnectorResponse({}));
   }
 
+  /**
+   * @summary 卸载connector的应用
+   *
+   * @param request DetachApplication2ConnectorRequest
+   * @return DetachApplication2ConnectorResponse
+   */
   async detachApplication2Connector(request: DetachApplication2ConnectorRequest): Promise<DetachApplication2ConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachApplication2ConnectorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询已启用的身份源配置
+   *
+   * @param request GetActiveIdpConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetActiveIdpConfigResponse
+   */
   async getActiveIdpConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetActiveIdpConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -9215,11 +9459,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetActiveIdpConfigResponse>(await this.callApi(params, req, runtime), new GetActiveIdpConfigResponse({}));
   }
 
+  /**
+   * @summary 查询已启用的身份源配置
+   *
+   * @return GetActiveIdpConfigResponse
+   */
   async getActiveIdpConfig(): Promise<GetActiveIdpConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getActiveIdpConfigWithOptions(runtime);
   }
 
+  /**
+   * @summary 查询自定义身份源指定用户
+   *
+   * @param request GetClientUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClientUserResponse
+   */
   async getClientUserWithOptions(request: GetClientUserRequest, runtime: $Util.RuntimeOptions): Promise<GetClientUserResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9240,11 +9496,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClientUserResponse>(await this.callApi(params, req, runtime), new GetClientUserResponse({}));
   }
 
+  /**
+   * @summary 查询自定义身份源指定用户
+   *
+   * @param request GetClientUserRequest
+   * @return GetClientUserResponse
+   */
   async getClientUser(request: GetClientUserRequest): Promise<GetClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClientUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询动态路由详情
+   *
+   * @param request GetDynamicRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDynamicRouteResponse
+   */
   async getDynamicRouteWithOptions(request: GetDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<GetDynamicRouteResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9265,11 +9534,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDynamicRouteResponse>(await this.callApi(params, req, runtime), new GetDynamicRouteResponse({}));
   }
 
+  /**
+   * @summary 查询动态路由详情
+   *
+   * @param request GetDynamicRouteRequest
+   * @return GetDynamicRouteResponse
+   */
   async getDynamicRoute(request: GetDynamicRouteRequest): Promise<GetDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDynamicRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询身份源配置详情
+   *
+   * @param request GetIdpConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIdpConfigResponse
+   */
   async getIdpConfigWithOptions(request: GetIdpConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetIdpConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9290,11 +9572,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIdpConfigResponse>(await this.callApi(params, req, runtime), new GetIdpConfigResponse({}));
   }
 
+  /**
+   * @summary 查询身份源配置详情
+   *
+   * @param request GetIdpConfigRequest
+   * @return GetIdpConfigResponse
+   */
   async getIdpConfig(request: GetIdpConfigRequest): Promise<GetIdpConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIdpConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询内网访问应用详情
+   *
+   * @param request GetPrivateAccessApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrivateAccessApplicationResponse
+   */
   async getPrivateAccessApplicationWithOptions(request: GetPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetPrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9315,11 +9610,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new GetPrivateAccessApplicationResponse({}));
   }
 
+  /**
+   * @summary 查询内网访问应用详情
+   *
+   * @param request GetPrivateAccessApplicationRequest
+   * @return GetPrivateAccessApplicationResponse
+   */
   async getPrivateAccessApplication(request: GetPrivateAccessApplicationRequest): Promise<GetPrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrivateAccessApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询内网访问策略详情
+   *
+   * @param request GetPrivateAccessPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrivateAccessPolicyResponse
+   */
   async getPrivateAccessPolicyWithOptions(request: GetPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPrivateAccessPolicyResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9340,11 +9648,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new GetPrivateAccessPolicyResponse({}));
   }
 
+  /**
+   * @summary 查询内网访问策略详情
+   *
+   * @param request GetPrivateAccessPolicyRequest
+   * @return GetPrivateAccessPolicyResponse
+   */
   async getPrivateAccessPolicy(request: GetPrivateAccessPolicyRequest): Promise<GetPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrivateAccessPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询设备注册策略详情
+   *
+   * @param request GetRegistrationPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRegistrationPolicyResponse
+   */
   async getRegistrationPolicyWithOptions(request: GetRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetRegistrationPolicyResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9365,11 +9686,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new GetRegistrationPolicyResponse({}));
   }
 
+  /**
+   * @summary 查询设备注册策略详情
+   *
+   * @param request GetRegistrationPolicyRequest
+   * @return GetRegistrationPolicyResponse
+   */
   async getRegistrationPolicy(request: GetRegistrationPolicyRequest): Promise<GetRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRegistrationPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询用户设备详情
+   *
+   * @param request GetUserDeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserDeviceResponse
+   */
   async getUserDeviceWithOptions(request: GetUserDeviceRequest, runtime: $Util.RuntimeOptions): Promise<GetUserDeviceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9390,11 +9724,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserDeviceResponse>(await this.callApi(params, req, runtime), new GetUserDeviceResponse({}));
   }
 
+  /**
+   * @summary 查询用户设备详情
+   *
+   * @param request GetUserDeviceRequest
+   * @return GetUserDeviceResponse
+   */
   async getUserDevice(request: GetUserDeviceRequest): Promise<GetUserDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserDeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询用户组详情
+   *
+   * @param request GetUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserGroupResponse
+   */
   async getUserGroupWithOptions(request: GetUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetUserGroupResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9415,11 +9762,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserGroupResponse>(await this.callApi(params, req, runtime), new GetUserGroupResponse({}));
   }
 
+  /**
+   * @summary 查询用户组详情
+   *
+   * @param request GetUserGroupRequest
+   * @return GetUserGroupResponse
+   */
   async getUserGroup(request: GetUserGroupRequest): Promise<GetUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问策略的应用
+   *
+   * @param request ListApplicationsForPrivateAccessPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsForPrivateAccessPolicyResponse
+   */
   async listApplicationsForPrivateAccessPolicyWithOptions(request: ListApplicationsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9440,11 +9800,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListApplicationsForPrivateAccessPolicyResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问策略的应用
+   *
+   * @param request ListApplicationsForPrivateAccessPolicyRequest
+   * @return ListApplicationsForPrivateAccessPolicyResponse
+   */
   async listApplicationsForPrivateAccessPolicy(request: ListApplicationsForPrivateAccessPolicyRequest): Promise<ListApplicationsForPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsForPrivateAccessPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问标签的应用
+   *
+   * @param request ListApplicationsForPrivateAccessTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsForPrivateAccessTagResponse
+   */
   async listApplicationsForPrivateAccessTagWithOptions(request: ListApplicationsForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsForPrivateAccessTagResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9465,11 +9838,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationsForPrivateAccessTagResponse>(await this.callApi(params, req, runtime), new ListApplicationsForPrivateAccessTagResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问标签的应用
+   *
+   * @param request ListApplicationsForPrivateAccessTagRequest
+   * @return ListApplicationsForPrivateAccessTagResponse
+   */
   async listApplicationsForPrivateAccessTag(request: ListApplicationsForPrivateAccessTagRequest): Promise<ListApplicationsForPrivateAccessTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsForPrivateAccessTagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询自定义身份源用户
+   *
+   * @param request ListClientUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClientUsersResponse
+   */
   async listClientUsersWithOptions(request: ListClientUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListClientUsersResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9490,11 +9876,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListClientUsersResponse>(await this.callApi(params, req, runtime), new ListClientUsersResponse({}));
   }
 
+  /**
+   * @summary 查询自定义身份源用户
+   *
+   * @param request ListClientUsersRequest
+   * @return ListClientUsersResponse
+   */
   async listClientUsers(request: ListClientUsersRequest): Promise<ListClientUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClientUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询connector
+   *
+   * @param request ListConnectorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConnectorsResponse
+   */
   async listConnectorsWithOptions(request: ListConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectorsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9515,11 +9914,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConnectorsResponse>(await this.callApi(params, req, runtime), new ListConnectorsResponse({}));
   }
 
+  /**
+   * @summary 批量查询connector
+   *
+   * @param request ListConnectorsRequest
+   * @return ListConnectorsResponse
+   */
   async listConnectors(request: ListConnectorsRequest): Promise<ListConnectorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConnectorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询动态路由的地域
+   *
+   * @param request ListDynamicRouteRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDynamicRouteRegionsResponse
+   */
   async listDynamicRouteRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListDynamicRouteRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -9536,11 +9948,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDynamicRouteRegionsResponse>(await this.callApi(params, req, runtime), new ListDynamicRouteRegionsResponse({}));
   }
 
+  /**
+   * @summary 批量查询动态路由的地域
+   *
+   * @return ListDynamicRouteRegionsResponse
+   */
   async listDynamicRouteRegions(): Promise<ListDynamicRouteRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDynamicRouteRegionsWithOptions(runtime);
   }
 
+  /**
+   * @summary 批量查询动态路由
+   *
+   * @param request ListDynamicRoutesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDynamicRoutesResponse
+   */
   async listDynamicRoutesWithOptions(request: ListDynamicRoutesRequest, runtime: $Util.RuntimeOptions): Promise<ListDynamicRoutesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9561,11 +9985,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDynamicRoutesResponse>(await this.callApi(params, req, runtime), new ListDynamicRoutesResponse({}));
   }
 
+  /**
+   * @summary 批量查询动态路由
+   *
+   * @param request ListDynamicRoutesRequest
+   * @return ListDynamicRoutesResponse
+   */
   async listDynamicRoutes(request: ListDynamicRoutesRequest): Promise<ListDynamicRoutesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDynamicRoutesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询超额注册申请列表
+   *
+   * @param request ListExcessiveDeviceRegistrationApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExcessiveDeviceRegistrationApplicationsResponse
+   */
   async listExcessiveDeviceRegistrationApplicationsWithOptions(request: ListExcessiveDeviceRegistrationApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9586,11 +10023,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExcessiveDeviceRegistrationApplicationsResponse>(await this.callApi(params, req, runtime), new ListExcessiveDeviceRegistrationApplicationsResponse({}));
   }
 
+  /**
+   * @summary 批量查询超额注册申请列表
+   *
+   * @param request ListExcessiveDeviceRegistrationApplicationsRequest
+   * @return ListExcessiveDeviceRegistrationApplicationsResponse
+   */
   async listExcessiveDeviceRegistrationApplications(request: ListExcessiveDeviceRegistrationApplicationsRequest): Promise<ListExcessiveDeviceRegistrationApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExcessiveDeviceRegistrationApplicationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询IDP配置
+   *
+   * @param request ListIdpConfigsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIdpConfigsResponse
+   */
   async listIdpConfigsWithOptions(request: ListIdpConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListIdpConfigsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9611,11 +10061,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIdpConfigsResponse>(await this.callApi(params, req, runtime), new ListIdpConfigsResponse({}));
   }
 
+  /**
+   * @summary 查询IDP配置
+   *
+   * @param request ListIdpConfigsRequest
+   * @return ListIdpConfigsResponse
+   */
   async listIdpConfigs(request: ListIdpConfigsRequest): Promise<ListIdpConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIdpConfigsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询自定义身份源部门
+   *
+   * @param request ListIdpDepartmentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIdpDepartmentsResponse
+   */
   async listIdpDepartmentsWithOptions(request: ListIdpDepartmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListIdpDepartmentsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9636,11 +10099,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIdpDepartmentsResponse>(await this.callApi(params, req, runtime), new ListIdpDepartmentsResponse({}));
   }
 
+  /**
+   * @summary 查询自定义身份源部门
+   *
+   * @param request ListIdpDepartmentsRequest
+   * @return ListIdpDepartmentsResponse
+   */
   async listIdpDepartments(request: ListIdpDepartmentsRequest): Promise<ListIdpDepartmentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIdpDepartmentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问应用的策略
+   *
+   * @param request ListPolicesForPrivateAccessApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPolicesForPrivateAccessApplicationResponse
+   */
   async listPolicesForPrivateAccessApplicationWithOptions(request: ListPolicesForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9661,11 +10137,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPolicesForPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new ListPolicesForPrivateAccessApplicationResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问应用的策略
+   *
+   * @param request ListPolicesForPrivateAccessApplicationRequest
+   * @return ListPolicesForPrivateAccessApplicationResponse
+   */
   async listPolicesForPrivateAccessApplication(request: ListPolicesForPrivateAccessApplicationRequest): Promise<ListPolicesForPrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPolicesForPrivateAccessApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问标签的策略
+   *
+   * @param request ListPolicesForPrivateAccessTagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPolicesForPrivateAccessTagResponse
+   */
   async listPolicesForPrivateAccessTagWithOptions(request: ListPolicesForPrivateAccessTagRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForPrivateAccessTagResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9686,11 +10175,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPolicesForPrivateAccessTagResponse>(await this.callApi(params, req, runtime), new ListPolicesForPrivateAccessTagResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问标签的策略
+   *
+   * @param request ListPolicesForPrivateAccessTagRequest
+   * @return ListPolicesForPrivateAccessTagResponse
+   */
   async listPolicesForPrivateAccessTag(request: ListPolicesForPrivateAccessTagRequest): Promise<ListPolicesForPrivateAccessTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPolicesForPrivateAccessTagWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询用户组的策略
+   *
+   * @param request ListPolicesForUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPolicesForUserGroupResponse
+   */
   async listPolicesForUserGroupWithOptions(request: ListPolicesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicesForUserGroupResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9711,11 +10213,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPolicesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListPolicesForUserGroupResponse({}));
   }
 
+  /**
+   * @summary 批量查询用户组的策略
+   *
+   * @param request ListPolicesForUserGroupRequest
+   * @return ListPolicesForUserGroupResponse
+   */
   async listPolicesForUserGroup(request: ListPolicesForUserGroupRequest): Promise<ListPolicesForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPolicesForUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary pop节点流量统计
+   *
+   * @param request ListPopTrafficStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPopTrafficStatisticsResponse
+   */
   async listPopTrafficStatisticsWithOptions(request: ListPopTrafficStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<ListPopTrafficStatisticsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9736,11 +10251,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPopTrafficStatisticsResponse>(await this.callApi(params, req, runtime), new ListPopTrafficStatisticsResponse({}));
   }
 
+  /**
+   * @summary pop节点流量统计
+   *
+   * @param request ListPopTrafficStatisticsRequest
+   * @return ListPopTrafficStatisticsResponse
+   */
   async listPopTrafficStatistics(request: ListPopTrafficStatisticsRequest): Promise<ListPopTrafficStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPopTrafficStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问应用
+   *
+   * @param request ListPrivateAccessApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrivateAccessApplicationsResponse
+   */
   async listPrivateAccessApplicationsWithOptions(request: ListPrivateAccessApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9761,11 +10289,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrivateAccessApplicationsResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessApplicationsResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问应用
+   *
+   * @param request ListPrivateAccessApplicationsRequest
+   * @return ListPrivateAccessApplicationsResponse
+   */
   async listPrivateAccessApplications(request: ListPrivateAccessApplicationsRequest): Promise<ListPrivateAccessApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrivateAccessApplicationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询动态路由的内网访问应用
+   *
+   * @param request ListPrivateAccessApplicationsForDynamicRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+   */
   async listPrivateAccessApplicationsForDynamicRouteWithOptions(request: ListPrivateAccessApplicationsForDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9786,11 +10327,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrivateAccessApplicationsForDynamicRouteResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessApplicationsForDynamicRouteResponse({}));
   }
 
+  /**
+   * @summary 批量查询动态路由的内网访问应用
+   *
+   * @param request ListPrivateAccessApplicationsForDynamicRouteRequest
+   * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+   */
   async listPrivateAccessApplicationsForDynamicRoute(request: ListPrivateAccessApplicationsForDynamicRouteRequest): Promise<ListPrivateAccessApplicationsForDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrivateAccessApplicationsForDynamicRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问策略
+   *
+   * @param request ListPrivateAccessPolicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrivateAccessPolicesResponse
+   */
   async listPrivateAccessPolicesWithOptions(request: ListPrivateAccessPolicesRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessPolicesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9811,11 +10365,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrivateAccessPolicesResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessPolicesResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问策略
+   *
+   * @param request ListPrivateAccessPolicesRequest
+   * @return ListPrivateAccessPolicesResponse
+   */
   async listPrivateAccessPolices(request: ListPrivateAccessPolicesRequest): Promise<ListPrivateAccessPolicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrivateAccessPolicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about all internal access tags within the current Alibaba Cloud account.
+   *
+   * @param request ListPrivateAccessTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrivateAccessTagsResponse
+   */
   async listPrivateAccessTagsWithOptions(request: ListPrivateAccessTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9836,11 +10403,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrivateAccessTagsResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessTagsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about all internal access tags within the current Alibaba Cloud account.
+   *
+   * @param request ListPrivateAccessTagsRequest
+   * @return ListPrivateAccessTagsResponse
+   */
   async listPrivateAccessTags(request: ListPrivateAccessTagsRequest): Promise<ListPrivateAccessTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrivateAccessTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询动态路由的内网访问标签
+   *
+   * @param request ListPrivateAccessTagsForDynamicRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrivateAccessTagsForDynamicRouteResponse
+   */
   async listPrivateAccessTagsForDynamicRouteWithOptions(request: ListPrivateAccessTagsForDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9861,11 +10441,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrivateAccessTagsForDynamicRouteResponse>(await this.callApi(params, req, runtime), new ListPrivateAccessTagsForDynamicRouteResponse({}));
   }
 
+  /**
+   * @summary 批量查询动态路由的内网访问标签
+   *
+   * @param request ListPrivateAccessTagsForDynamicRouteRequest
+   * @return ListPrivateAccessTagsForDynamicRouteResponse
+   */
   async listPrivateAccessTagsForDynamicRoute(request: ListPrivateAccessTagsForDynamicRouteRequest): Promise<ListPrivateAccessTagsForDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrivateAccessTagsForDynamicRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询用户设备注册策略列表
+   *
+   * @param request ListRegistrationPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRegistrationPoliciesResponse
+   */
   async listRegistrationPoliciesWithOptions(request: ListRegistrationPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListRegistrationPoliciesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9886,11 +10479,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRegistrationPoliciesResponse>(await this.callApi(params, req, runtime), new ListRegistrationPoliciesResponse({}));
   }
 
+  /**
+   * @summary 查询用户设备注册策略列表
+   *
+   * @param request ListRegistrationPoliciesRequest
+   * @return ListRegistrationPoliciesResponse
+   */
   async listRegistrationPolicies(request: ListRegistrationPoliciesRequest): Promise<ListRegistrationPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRegistrationPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询用户组相关的设备注册策略
+   *
+   * @param request ListRegistrationPoliciesForUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRegistrationPoliciesForUserGroupResponse
+   */
   async listRegistrationPoliciesForUserGroupWithOptions(request: ListRegistrationPoliciesForUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListRegistrationPoliciesForUserGroupResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9911,11 +10517,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRegistrationPoliciesForUserGroupResponse>(await this.callApi(params, req, runtime), new ListRegistrationPoliciesForUserGroupResponse({}));
   }
 
+  /**
+   * @summary 查询用户组相关的设备注册策略
+   *
+   * @param request ListRegistrationPoliciesForUserGroupRequest
+   * @return ListRegistrationPoliciesForUserGroupResponse
+   */
   async listRegistrationPoliciesForUserGroup(request: ListRegistrationPoliciesForUserGroupRequest): Promise<ListRegistrationPoliciesForUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRegistrationPoliciesForUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询终端安装软件列表
+   *
+   * @param request ListSoftwareForUserDeviceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSoftwareForUserDeviceResponse
+   */
   async listSoftwareForUserDeviceWithOptions(request: ListSoftwareForUserDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListSoftwareForUserDeviceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9936,11 +10555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSoftwareForUserDeviceResponse>(await this.callApi(params, req, runtime), new ListSoftwareForUserDeviceResponse({}));
   }
 
+  /**
+   * @summary 批量查询终端安装软件列表
+   *
+   * @param request ListSoftwareForUserDeviceRequest
+   * @return ListSoftwareForUserDeviceResponse
+   */
   async listSoftwareForUserDevice(request: ListSoftwareForUserDeviceRequest): Promise<ListSoftwareForUserDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSoftwareForUserDeviceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问应用的标签
+   *
+   * @param request ListTagsForPrivateAccessApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagsForPrivateAccessApplicationResponse
+   */
   async listTagsForPrivateAccessApplicationWithOptions(request: ListTagsForPrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9961,11 +10593,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagsForPrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new ListTagsForPrivateAccessApplicationResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问应用的标签
+   *
+   * @param request ListTagsForPrivateAccessApplicationRequest
+   * @return ListTagsForPrivateAccessApplicationResponse
+   */
   async listTagsForPrivateAccessApplication(request: ListTagsForPrivateAccessApplicationRequest): Promise<ListTagsForPrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagsForPrivateAccessApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问策略的标签
+   *
+   * @param request ListTagsForPrivateAccessPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagsForPrivateAccessPolicyResponse
+   */
   async listTagsForPrivateAccessPolicyWithOptions(request: ListTagsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsForPrivateAccessPolicyResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -9986,11 +10631,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListTagsForPrivateAccessPolicyResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问策略的标签
+   *
+   * @param request ListTagsForPrivateAccessPolicyRequest
+   * @return ListTagsForPrivateAccessPolicyResponse
+   */
   async listTagsForPrivateAccessPolicy(request: ListTagsForPrivateAccessPolicyRequest): Promise<ListTagsForPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagsForPrivateAccessPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询用户设备列表
+   *
+   * @param request ListUserDevicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserDevicesResponse
+   */
   async listUserDevicesWithOptions(request: ListUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserDevicesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -10011,11 +10669,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserDevicesResponse>(await this.callApi(params, req, runtime), new ListUserDevicesResponse({}));
   }
 
+  /**
+   * @summary 批量查询用户设备列表
+   *
+   * @param request ListUserDevicesRequest
+   * @return ListUserDevicesResponse
+   */
   async listUserDevices(request: ListUserDevicesRequest): Promise<ListUserDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserDevicesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询用户组
+   *
+   * @param request ListUserGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserGroupsResponse
+   */
   async listUserGroupsWithOptions(request: ListUserGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -10036,11 +10707,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserGroupsResponse>(await this.callApi(params, req, runtime), new ListUserGroupsResponse({}));
   }
 
+  /**
+   * @summary 批量查询用户组
+   *
+   * @param request ListUserGroupsRequest
+   * @return ListUserGroupsResponse
+   */
   async listUserGroups(request: ListUserGroupsRequest): Promise<ListUserGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量查询内网访问策略的用户组
+   *
+   * @param request ListUserGroupsForPrivateAccessPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserGroupsForPrivateAccessPolicyResponse
+   */
   async listUserGroupsForPrivateAccessPolicyWithOptions(request: ListUserGroupsForPrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -10061,11 +10745,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserGroupsForPrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new ListUserGroupsForPrivateAccessPolicyResponse({}));
   }
 
+  /**
+   * @summary 批量查询内网访问策略的用户组
+   *
+   * @param request ListUserGroupsForPrivateAccessPolicyRequest
+   * @return ListUserGroupsForPrivateAccessPolicyResponse
+   */
   async listUserGroupsForPrivateAccessPolicy(request: ListUserGroupsForPrivateAccessPolicyRequest): Promise<ListUserGroupsForPrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsForPrivateAccessPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询设备注册策略相关用户组
+   *
+   * @param request ListUserGroupsForRegistrationPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserGroupsForRegistrationPolicyResponse
+   */
   async listUserGroupsForRegistrationPolicyWithOptions(request: ListUserGroupsForRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsForRegistrationPolicyResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -10086,11 +10783,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserGroupsForRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new ListUserGroupsForRegistrationPolicyResponse({}));
   }
 
+  /**
+   * @summary 查询设备注册策略相关用户组
+   *
+   * @param request ListUserGroupsForRegistrationPolicyRequest
+   * @return ListUserGroupsForRegistrationPolicyResponse
+   */
   async listUserGroupsForRegistrationPolicy(request: ListUserGroupsForRegistrationPolicyRequest): Promise<ListUserGroupsForRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsForRegistrationPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表查询登陆用户
+   *
+   * @param request ListUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -10111,11 +10821,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * @summary 列表查询登陆用户
+   *
+   * @param request ListUsersRequest
+   * @return ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改自定义身份源指定用户
+   *
+   * @param request UpdateClientUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateClientUserResponse
+   */
   async updateClientUserWithOptions(request: UpdateClientUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10156,11 +10879,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateClientUserResponse>(await this.callApi(params, req, runtime), new UpdateClientUserResponse({}));
   }
 
+  /**
+   * @summary 修改自定义身份源指定用户
+   *
+   * @param request UpdateClientUserRequest
+   * @return UpdateClientUserResponse
+   */
   async updateClientUser(request: UpdateClientUserRequest): Promise<UpdateClientUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateClientUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改自定义身份源指定用户密码
+   *
+   * @param request UpdateClientUserPasswordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateClientUserPasswordResponse
+   */
   async updateClientUserPasswordWithOptions(request: UpdateClientUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserPasswordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10193,11 +10929,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateClientUserPasswordResponse>(await this.callApi(params, req, runtime), new UpdateClientUserPasswordResponse({}));
   }
 
+  /**
+   * @summary 修改自定义身份源指定用户密码
+   *
+   * @param request UpdateClientUserPasswordRequest
+   * @return UpdateClientUserPasswordResponse
+   */
   async updateClientUserPassword(request: UpdateClientUserPasswordRequest): Promise<UpdateClientUserPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateClientUserPasswordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改自定义身份源指定用户启用状态
+   *
+   * @param request UpdateClientUserStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateClientUserStatusResponse
+   */
   async updateClientUserStatusWithOptions(request: UpdateClientUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClientUserStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10226,11 +10975,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateClientUserStatusResponse>(await this.callApi(params, req, runtime), new UpdateClientUserStatusResponse({}));
   }
 
+  /**
+   * @summary 修改自定义身份源指定用户启用状态
+   *
+   * @param request UpdateClientUserStatusRequest
+   * @return UpdateClientUserStatusResponse
+   */
   async updateClientUserStatus(request: UpdateClientUserStatusRequest): Promise<UpdateClientUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateClientUserStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改动态路由
+   *
+   * @param request UpdateDynamicRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDynamicRouteResponse
+   */
   async updateDynamicRouteWithOptions(request: UpdateDynamicRouteRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDynamicRouteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10304,11 +11066,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDynamicRouteResponse>(await this.callApi(params, req, runtime), new UpdateDynamicRouteResponse({}));
   }
 
+  /**
+   * @summary 修改动态路由
+   *
+   * @param request UpdateDynamicRouteRequest
+   * @return UpdateDynamicRouteResponse
+   */
   async updateDynamicRoute(request: UpdateDynamicRouteRequest): Promise<UpdateDynamicRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDynamicRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量更新超额注册申请状态
+   *
+   * @param request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+   */
   async updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10342,11 +11117,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse>(await this.callApi(params, req, runtime), new UpdateExcessiveDeviceRegistrationApplicationsStatusResponse({}));
   }
 
+  /**
+   * @summary 批量更新超额注册申请状态
+   *
+   * @param request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
+   * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+   */
   async updateExcessiveDeviceRegistrationApplicationsStatus(request: UpdateExcessiveDeviceRegistrationApplicationsStatusRequest): Promise<UpdateExcessiveDeviceRegistrationApplicationsStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateExcessiveDeviceRegistrationApplicationsStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改指定自定义身份源部门
+   *
+   * @param request UpdateIdpDepartmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIdpDepartmentResponse
+   */
   async updateIdpDepartmentWithOptions(request: UpdateIdpDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIdpDepartmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10379,11 +11167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIdpDepartmentResponse>(await this.callApi(params, req, runtime), new UpdateIdpDepartmentResponse({}));
   }
 
+  /**
+   * @summary 修改指定自定义身份源部门
+   *
+   * @param request UpdateIdpDepartmentRequest
+   * @return UpdateIdpDepartmentResponse
+   */
   async updateIdpDepartment(request: UpdateIdpDepartmentRequest): Promise<UpdateIdpDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIdpDepartmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改内网访问应用
+   *
+   * @param request UpdatePrivateAccessApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrivateAccessApplicationResponse
+   */
   async updatePrivateAccessApplicationWithOptions(request: UpdatePrivateAccessApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessApplicationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10441,11 +11242,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrivateAccessApplicationResponse>(await this.callApi(params, req, runtime), new UpdatePrivateAccessApplicationResponse({}));
   }
 
+  /**
+   * @summary 修改内网访问应用
+   *
+   * @param request UpdatePrivateAccessApplicationRequest
+   * @return UpdatePrivateAccessApplicationResponse
+   */
   async updatePrivateAccessApplication(request: UpdatePrivateAccessApplicationRequest): Promise<UpdatePrivateAccessApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrivateAccessApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改内网访问策略
+   *
+   * @param request UpdatePrivateAccessPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePrivateAccessPolicyResponse
+   */
   async updatePrivateAccessPolicyWithOptions(request: UpdatePrivateAccessPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateAccessPolicyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10523,11 +11337,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePrivateAccessPolicyResponse>(await this.callApi(params, req, runtime), new UpdatePrivateAccessPolicyResponse({}));
   }
 
+  /**
+   * @summary 修改内网访问策略
+   *
+   * @param request UpdatePrivateAccessPolicyRequest
+   * @return UpdatePrivateAccessPolicyResponse
+   */
   async updatePrivateAccessPolicy(request: UpdatePrivateAccessPolicyRequest): Promise<UpdatePrivateAccessPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePrivateAccessPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改设备注册策略
+   *
+   * @param tmpReq UpdateRegistrationPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRegistrationPolicyResponse
+   */
   async updateRegistrationPolicyWithOptions(tmpReq: UpdateRegistrationPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRegistrationPolicyResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateRegistrationPolicyShrinkRequest({ });
@@ -10611,11 +11438,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRegistrationPolicyResponse>(await this.callApi(params, req, runtime), new UpdateRegistrationPolicyResponse({}));
   }
 
+  /**
+   * @summary 修改设备注册策略
+   *
+   * @param request UpdateRegistrationPolicyRequest
+   * @return UpdateRegistrationPolicyResponse
+   */
   async updateRegistrationPolicy(request: UpdateRegistrationPolicyRequest): Promise<UpdateRegistrationPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRegistrationPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量更新用户设备共享状态
+   *
+   * @param request UpdateUserDevicesSharingStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserDevicesSharingStatusResponse
+   */
   async updateUserDevicesSharingStatusWithOptions(request: UpdateUserDevicesSharingStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDevicesSharingStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10649,11 +11489,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserDevicesSharingStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserDevicesSharingStatusResponse({}));
   }
 
+  /**
+   * @summary 批量更新用户设备共享状态
+   *
+   * @param request UpdateUserDevicesSharingStatusRequest
+   * @return UpdateUserDevicesSharingStatusResponse
+   */
   async updateUserDevicesSharingStatus(request: UpdateUserDevicesSharingStatusRequest): Promise<UpdateUserDevicesSharingStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserDevicesSharingStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量更新用户设备状态
+   *
+   * @param request UpdateUserDevicesStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserDevicesStatusResponse
+   */
   async updateUserDevicesStatusWithOptions(request: UpdateUserDevicesStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserDevicesStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10687,11 +11540,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserDevicesStatusResponse>(await this.callApi(params, req, runtime), new UpdateUserDevicesStatusResponse({}));
   }
 
+  /**
+   * @summary 批量更新用户设备状态
+   *
+   * @param request UpdateUserDevicesStatusRequest
+   * @return UpdateUserDevicesStatusResponse
+   */
   async updateUserDevicesStatus(request: UpdateUserDevicesStatusRequest): Promise<UpdateUserDevicesStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserDevicesStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改用户组
+   *
+   * @param request UpdateUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserGroupResponse
+   */
   async updateUserGroupWithOptions(request: UpdateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -10733,11 +11599,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserGroupResponse>(await this.callApi(params, req, runtime), new UpdateUserGroupResponse({}));
   }
 
+  /**
+   * @summary 修改用户组
+   *
+   * @param request UpdateUserGroupRequest
+   * @return UpdateUserGroupResponse
+   */
   async updateUserGroup(request: UpdateUserGroupRequest): Promise<UpdateUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量修改登陆用户状态
+   *
+   * @param request UpdateUsersStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUsersStatusResponse
+   */
   async updateUsersStatusWithOptions(request: UpdateUsersStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUsersStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10766,6 +11645,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUsersStatusResponse>(await this.callApi(params, req, runtime), new UpdateUsersStatusResponse({}));
   }
 
+  /**
+   * @summary 批量修改登陆用户状态
+   *
+   * @param request UpdateUsersStatusRequest
+   * @return UpdateUsersStatusResponse
+   */
   async updateUsersStatus(request: UpdateUsersStatusRequest): Promise<UpdateUsersStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUsersStatusWithOptions(request, runtime);
