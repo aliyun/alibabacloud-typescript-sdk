@@ -113,6 +113,25 @@ export class Configuration extends $tea.Model {
   }
 }
 
+export class ConfigurationOverrides extends $tea.Model {
+  configurations?: ConfigurationOverridesConfigurations[];
+  static names(): { [key: string]: string } {
+    return {
+      configurations: 'configurations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurations: { 'type': 'array', 'itemType': ConfigurationOverridesConfigurations },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Credential extends $tea.Model {
   accessId?: string;
   dir?: string;
@@ -217,19 +236,25 @@ export class ReleaseVersionImage extends $tea.Model {
 }
 
 export class RunLog extends $tea.Model {
+  driverStartup?: string;
   driverStdError?: string;
   driverStdOut?: string;
+  driverSyslog?: string;
   static names(): { [key: string]: string } {
     return {
+      driverStartup: 'driverStartup',
       driverStdError: 'driverStdError',
       driverStdOut: 'driverStdOut',
+      driverSyslog: 'driverSyslog',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      driverStartup: 'string',
       driverStdError: 'string',
       driverStdOut: 'string',
+      driverSyslog: 'string',
     };
   }
 
@@ -305,6 +330,7 @@ export class Tag extends $tea.Model {
 }
 
 export class Task extends $tea.Model {
+  archives?: string[];
   artifactUrl?: string;
   bizId?: string;
   categoryBizId?: string;
@@ -315,10 +341,13 @@ export class Task extends $tea.Model {
   defaultResourceQueueId?: string;
   defaultSqlComputeId?: string;
   extraArtifactIds?: string[];
+  extraSparkSubmitParams?: string;
+  files?: string[];
   gmtCreated?: string;
   gmtModified?: string;
   hasChanged?: boolean;
   hasCommited?: boolean;
+  jars?: string[];
   lastRunResourceQueueId?: string;
   modifier?: number;
   name?: string;
@@ -337,6 +366,7 @@ export class Task extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      archives: 'archives',
       artifactUrl: 'artifactUrl',
       bizId: 'bizId',
       categoryBizId: 'categoryBizId',
@@ -347,10 +377,13 @@ export class Task extends $tea.Model {
       defaultResourceQueueId: 'defaultResourceQueueId',
       defaultSqlComputeId: 'defaultSqlComputeId',
       extraArtifactIds: 'extraArtifactIds',
+      extraSparkSubmitParams: 'extraSparkSubmitParams',
+      files: 'files',
       gmtCreated: 'gmtCreated',
       gmtModified: 'gmtModified',
       hasChanged: 'hasChanged',
       hasCommited: 'hasCommited',
+      jars: 'jars',
       lastRunResourceQueueId: 'lastRunResourceQueueId',
       modifier: 'modifier',
       name: 'name',
@@ -372,6 +405,7 @@ export class Task extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      archives: { 'type': 'array', 'itemType': 'string' },
       artifactUrl: 'string',
       bizId: 'string',
       categoryBizId: 'string',
@@ -382,10 +416,13 @@ export class Task extends $tea.Model {
       defaultResourceQueueId: 'string',
       defaultSqlComputeId: 'string',
       extraArtifactIds: { 'type': 'array', 'itemType': 'string' },
+      extraSparkSubmitParams: 'string',
+      files: { 'type': 'array', 'itemType': 'string' },
       gmtCreated: 'string',
       gmtModified: 'string',
       hasChanged: 'boolean',
       hasCommited: 'boolean',
+      jars: { 'type': 'array', 'itemType': 'string' },
       lastRunResourceQueueId: 'string',
       modifier: 'number',
       name: 'string',
@@ -946,6 +983,31 @@ export class StartJobRunResponse extends $tea.Model {
   }
 }
 
+export class ConfigurationOverridesConfigurations extends $tea.Model {
+  configFileName?: string;
+  configItemKey?: string;
+  configItemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configFileName: 'configFileName',
+      configItemKey: 'configItemKey',
+      configItemValue: 'configItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFileName: 'string',
+      configItemKey: 'string',
+      configItemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class JobDriverSparkSubmit extends $tea.Model {
   entryPoint?: string;
   entryPointArguments?: string[];
@@ -1380,6 +1442,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 取消jobRun作业
+   *
+   * @param request CancelJobRunRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelJobRunResponse
+   */
   async cancelJobRunWithOptions(workspaceId: string, jobRunId: string, request: CancelJobRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelJobRunResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1405,12 +1475,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelJobRunResponse>(await this.callApi(params, req, runtime), new CancelJobRunResponse({}));
   }
 
+  /**
+   * @summary 取消jobRun作业
+   *
+   * @param request CancelJobRunRequest
+   * @return CancelJobRunResponse
+   */
   async cancelJobRun(workspaceId: string, jobRunId: string, request: CancelJobRunRequest): Promise<CancelJobRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取任务
+   *
+   * @param request GetJobRunRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobRunResponse
+   */
   async getJobRunWithOptions(workspaceId: string, jobRunId: string, request: GetJobRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobRunResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1436,12 +1520,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobRunResponse>(await this.callApi(params, req, runtime), new GetJobRunResponse({}));
   }
 
+  /**
+   * @summary 获取任务
+   *
+   * @param request GetJobRunRequest
+   * @return GetJobRunResponse
+   */
   async getJobRun(workspaceId: string, jobRunId: string, request: GetJobRunRequest): Promise<GetJobRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
   }
 
+  /**
+   * @summary 查询run列表
+   *
+   * @param tmpReq ListJobRunsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobRunsResponse
+   */
   async listJobRunsWithOptions(workspaceId: string, tmpReq: ListJobRunsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobRunsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListJobRunsShrinkRequest({ });
@@ -1525,12 +1623,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListJobRunsResponse>(await this.callApi(params, req, runtime), new ListJobRunsResponse({}));
   }
 
+  /**
+   * @summary 查询run列表
+   *
+   * @param request ListJobRunsRequest
+   * @return ListJobRunsResponse
+   */
   async listJobRuns(workspaceId: string, request: ListJobRunsRequest): Promise<ListJobRunsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listJobRunsWithOptions(workspaceId, request, headers, runtime);
   }
 
+  /**
+   * @summary 启动作业
+   *
+   * @param request StartJobRunRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartJobRunResponse
+   */
   async startJobRunWithOptions(workspaceId: string, request: StartJobRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartJobRunResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1598,6 +1710,12 @@ export default class Client extends OpenApi {
     return $tea.cast<StartJobRunResponse>(await this.callApi(params, req, runtime), new StartJobRunResponse({}));
   }
 
+  /**
+   * @summary 启动作业
+   *
+   * @param request StartJobRunRequest
+   * @return StartJobRunResponse
+   */
   async startJobRun(workspaceId: string, request: StartJobRunRequest): Promise<StartJobRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
