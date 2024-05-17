@@ -515,6 +515,93 @@ export class CopyMcdpGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateLinkRequest extends $tea.Model {
+  appId?: string;
+  cors?: string;
+  domain?: string;
+  dynamicfield?: string;
+  targetUrl?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      cors: 'Cors',
+      domain: 'Domain',
+      dynamicfield: 'Dynamicfield',
+      targetUrl: 'TargetUrl',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      cors: 'string',
+      domain: 'string',
+      dynamicfield: 'string',
+      targetUrl: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLinkResponseBody extends $tea.Model {
+  requestId?: string;
+  resultCode?: string;
+  resultContent?: CreateLinkResponseBodyResultContent;
+  resultMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resultCode: 'ResultCode',
+      resultContent: 'ResultContent',
+      resultMessage: 'ResultMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resultCode: 'string',
+      resultContent: CreateLinkResponseBodyResultContent,
+      resultMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLinkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLinkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMasCrowdRequest extends $tea.Model {
   appId?: string;
   mpaasMappcenterMcdpMasCrowdCreateJsonStr?: string;
@@ -8008,6 +8095,84 @@ export class QueryInfoFromMdpResponse extends $tea.Model {
   }
 }
 
+export class QueryLinkRequest extends $tea.Model {
+  appId?: string;
+  url?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      url: 'Url',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      url: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLinkResponseBody extends $tea.Model {
+  requestId?: string;
+  resultCode?: string;
+  resultContent?: QueryLinkResponseBodyResultContent;
+  resultMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resultCode: 'ResultCode',
+      resultContent: 'ResultContent',
+      resultMessage: 'ResultMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resultCode: 'string',
+      resultContent: QueryLinkResponseBodyResultContent,
+      resultMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLinkResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryLinkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMappCenterAppRequest extends $tea.Model {
   appId?: string;
   workspaceId?: string;
@@ -10490,6 +10655,31 @@ export class CopyMcdpGroupResponseBodyResultContent extends $tea.Model {
       data: 'string',
       message: 'string',
       success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLinkResponseBodyResultContent extends $tea.Model {
+  data?: string;
+  target?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      target: 'Target',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      target: 'string',
+      version: 'string',
     };
   }
 
@@ -15094,6 +15284,31 @@ export class PushUnBindResponseBodyPushResult extends $tea.Model {
   }
 }
 
+export class QueryLinkResponseBodyResultContent extends $tea.Model {
+  data?: any;
+  target?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      target: 'Target',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      target: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterAppAndroidConfig extends $tea.Model {
   certRSA?: string;
   packageName?: string;
@@ -17826,6 +18041,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AddMdsMiniConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMdsMiniConfigResponse
+   */
   async addMdsMiniConfigWithOptions(request: AddMdsMiniConfigRequest, runtime: $Util.RuntimeOptions): Promise<AddMdsMiniConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17862,11 +18082,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AddMdsMiniConfigResponse>(await this.callApi(params, req, runtime), new AddMdsMiniConfigResponse({}));
   }
 
+  /**
+   * @param request AddMdsMiniConfigRequest
+   * @return AddMdsMiniConfigResponse
+   */
   async addMdsMiniConfig(request: AddMdsMiniConfigRequest): Promise<AddMdsMiniConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addMdsMiniConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CancelPushSchedulerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelPushSchedulerResponse
+   */
   async cancelPushSchedulerWithOptions(request: CancelPushSchedulerRequest, runtime: $Util.RuntimeOptions): Promise<CancelPushSchedulerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17903,11 +18132,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelPushSchedulerResponse>(await this.callApi(params, req, runtime), new CancelPushSchedulerResponse({}));
   }
 
+  /**
+   * @param request CancelPushSchedulerRequest
+   * @return CancelPushSchedulerResponse
+   */
   async cancelPushScheduler(request: CancelPushSchedulerRequest): Promise<CancelPushSchedulerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelPushSchedulerWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ChangeMcubeMiniTaskStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeMcubeMiniTaskStatusResponse
+   */
   async changeMcubeMiniTaskStatusWithOptions(request: ChangeMcubeMiniTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeMcubeMiniTaskStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -17956,11 +18194,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeMcubeMiniTaskStatusResponse>(await this.callApi(params, req, runtime), new ChangeMcubeMiniTaskStatusResponse({}));
   }
 
+  /**
+   * @param request ChangeMcubeMiniTaskStatusRequest
+   * @return ChangeMcubeMiniTaskStatusResponse
+   */
   async changeMcubeMiniTaskStatus(request: ChangeMcubeMiniTaskStatusRequest): Promise<ChangeMcubeMiniTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeMcubeMiniTaskStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ChangeMcubeNebulaTaskStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeMcubeNebulaTaskStatusResponse
+   */
   async changeMcubeNebulaTaskStatusWithOptions(request: ChangeMcubeNebulaTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeMcubeNebulaTaskStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18009,11 +18256,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeMcubeNebulaTaskStatusResponse>(await this.callApi(params, req, runtime), new ChangeMcubeNebulaTaskStatusResponse({}));
   }
 
+  /**
+   * @param request ChangeMcubeNebulaTaskStatusRequest
+   * @return ChangeMcubeNebulaTaskStatusResponse
+   */
   async changeMcubeNebulaTaskStatus(request: ChangeMcubeNebulaTaskStatusRequest): Promise<ChangeMcubeNebulaTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeMcubeNebulaTaskStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ChangeMcubePublicTaskStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeMcubePublicTaskStatusResponse
+   */
   async changeMcubePublicTaskStatusWithOptions(request: ChangeMcubePublicTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeMcubePublicTaskStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18054,11 +18310,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeMcubePublicTaskStatusResponse>(await this.callApi(params, req, runtime), new ChangeMcubePublicTaskStatusResponse({}));
   }
 
+  /**
+   * @param request ChangeMcubePublicTaskStatusRequest
+   * @return ChangeMcubePublicTaskStatusResponse
+   */
   async changeMcubePublicTaskStatus(request: ChangeMcubePublicTaskStatusRequest): Promise<ChangeMcubePublicTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeMcubePublicTaskStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CopyMcdpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyMcdpGroupResponse
+   */
   async copyMcdpGroupWithOptions(request: CopyMcdpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CopyMcdpGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18095,11 +18360,82 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyMcdpGroupResponse>(await this.callApi(params, req, runtime), new CopyMcdpGroupResponse({}));
   }
 
+  /**
+   * @param request CopyMcdpGroupRequest
+   * @return CopyMcdpGroupResponse
+   */
   async copyMcdpGroup(request: CopyMcdpGroupRequest): Promise<CopyMcdpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyMcdpGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建短链
+   *
+   * @param request CreateLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLinkResponse
+   */
+  async createLinkWithOptions(request: CreateLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateLinkResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.cors)) {
+      body["Cors"] = request.cors;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      body["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.dynamicfield)) {
+      body["Dynamicfield"] = request.dynamicfield;
+    }
+
+    if (!Util.isUnset(request.targetUrl)) {
+      body["TargetUrl"] = request.targetUrl;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLink",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLinkResponse>(await this.callApi(params, req, runtime), new CreateLinkResponse({}));
+  }
+
+  /**
+   * @summary 创建短链
+   *
+   * @param request CreateLinkRequest
+   * @return CreateLinkResponse
+   */
+  async createLink(request: CreateLinkRequest): Promise<CreateLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request CreateMasCrowdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMasCrowdResponse
+   */
   async createMasCrowdWithOptions(request: CreateMasCrowdRequest, runtime: $Util.RuntimeOptions): Promise<CreateMasCrowdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18136,11 +18472,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMasCrowdResponse>(await this.callApi(params, req, runtime), new CreateMasCrowdResponse({}));
   }
 
+  /**
+   * @param request CreateMasCrowdRequest
+   * @return CreateMasCrowdResponse
+   */
   async createMasCrowd(request: CreateMasCrowdRequest): Promise<CreateMasCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMasCrowdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMasFunnelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMasFunnelResponse
+   */
   async createMasFunnelWithOptions(request: CreateMasFunnelRequest, runtime: $Util.RuntimeOptions): Promise<CreateMasFunnelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18177,11 +18522,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMasFunnelResponse>(await this.callApi(params, req, runtime), new CreateMasFunnelResponse({}));
   }
 
+  /**
+   * @param request CreateMasFunnelRequest
+   * @return CreateMasFunnelResponse
+   */
   async createMasFunnel(request: CreateMasFunnelRequest): Promise<CreateMasFunnelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMasFunnelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcdpEventRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcdpEventResponse
+   */
   async createMcdpEventWithOptions(request: CreateMcdpEventRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpEventResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18218,11 +18572,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcdpEventResponse>(await this.callApi(params, req, runtime), new CreateMcdpEventResponse({}));
   }
 
+  /**
+   * @param request CreateMcdpEventRequest
+   * @return CreateMcdpEventResponse
+   */
   async createMcdpEvent(request: CreateMcdpEventRequest): Promise<CreateMcdpEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcdpEventWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcdpEventAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcdpEventAttributeResponse
+   */
   async createMcdpEventAttributeWithOptions(request: CreateMcdpEventAttributeRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpEventAttributeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18259,11 +18622,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcdpEventAttributeResponse>(await this.callApi(params, req, runtime), new CreateMcdpEventAttributeResponse({}));
   }
 
+  /**
+   * @param request CreateMcdpEventAttributeRequest
+   * @return CreateMcdpEventAttributeResponse
+   */
   async createMcdpEventAttribute(request: CreateMcdpEventAttributeRequest): Promise<CreateMcdpEventAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcdpEventAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcdpGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcdpGroupResponse
+   */
   async createMcdpGroupWithOptions(request: CreateMcdpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18300,11 +18672,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcdpGroupResponse>(await this.callApi(params, req, runtime), new CreateMcdpGroupResponse({}));
   }
 
+  /**
+   * @param request CreateMcdpGroupRequest
+   * @return CreateMcdpGroupResponse
+   */
   async createMcdpGroup(request: CreateMcdpGroupRequest): Promise<CreateMcdpGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcdpGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcdpMaterialRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcdpMaterialResponse
+   */
   async createMcdpMaterialWithOptions(request: CreateMcdpMaterialRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpMaterialResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18341,11 +18722,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcdpMaterialResponse>(await this.callApi(params, req, runtime), new CreateMcdpMaterialResponse({}));
   }
 
+  /**
+   * @param request CreateMcdpMaterialRequest
+   * @return CreateMcdpMaterialResponse
+   */
   async createMcdpMaterial(request: CreateMcdpMaterialRequest): Promise<CreateMcdpMaterialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcdpMaterialWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcdpZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcdpZoneResponse
+   */
   async createMcdpZoneWithOptions(request: CreateMcdpZoneRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpZoneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18382,11 +18772,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcdpZoneResponse>(await this.callApi(params, req, runtime), new CreateMcdpZoneResponse({}));
   }
 
+  /**
+   * @param request CreateMcdpZoneRequest
+   * @return CreateMcdpZoneResponse
+   */
   async createMcdpZone(request: CreateMcdpZoneRequest): Promise<CreateMcdpZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcdpZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeMiniAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeMiniAppResponse
+   */
   async createMcubeMiniAppWithOptions(request: CreateMcubeMiniAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeMiniAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18427,11 +18826,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeMiniAppResponse>(await this.callApi(params, req, runtime), new CreateMcubeMiniAppResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeMiniAppRequest
+   * @return CreateMcubeMiniAppResponse
+   */
   async createMcubeMiniApp(request: CreateMcubeMiniAppRequest): Promise<CreateMcubeMiniAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeMiniAppWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeMiniTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeMiniTaskResponse
+   */
   async createMcubeMiniTaskWithOptions(request: CreateMcubeMiniTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeMiniTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18496,11 +18904,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeMiniTaskResponse>(await this.callApi(params, req, runtime), new CreateMcubeMiniTaskResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeMiniTaskRequest
+   * @return CreateMcubeMiniTaskResponse
+   */
   async createMcubeMiniTask(request: CreateMcubeMiniTaskRequest): Promise<CreateMcubeMiniTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeMiniTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeNebulaAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeNebulaAppResponse
+   */
   async createMcubeNebulaAppWithOptions(request: CreateMcubeNebulaAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeNebulaAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18541,11 +18958,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeNebulaAppResponse>(await this.callApi(params, req, runtime), new CreateMcubeNebulaAppResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeNebulaAppRequest
+   * @return CreateMcubeNebulaAppResponse
+   */
   async createMcubeNebulaApp(request: CreateMcubeNebulaAppRequest): Promise<CreateMcubeNebulaAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeNebulaAppWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeNebulaResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeNebulaResourceResponse
+   */
   async createMcubeNebulaResourceWithOptions(request: CreateMcubeNebulaResourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeNebulaResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18646,11 +19072,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeNebulaResourceResponse>(await this.callApi(params, req, runtime), new CreateMcubeNebulaResourceResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeNebulaResourceRequest
+   * @return CreateMcubeNebulaResourceResponse
+   */
   async createMcubeNebulaResource(request: CreateMcubeNebulaResourceRequest): Promise<CreateMcubeNebulaResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeNebulaResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeNebulaTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeNebulaTaskResponse
+   */
   async createMcubeNebulaTaskWithOptions(request: CreateMcubeNebulaTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeNebulaTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18823,11 +19258,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeNebulaTaskResponse>(await this.callApi(params, req, runtime), new CreateMcubeNebulaTaskResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeNebulaTaskRequest
+   * @return CreateMcubeNebulaTaskResponse
+   */
   async createMcubeNebulaTask(request: CreateMcubeNebulaTaskRequest): Promise<CreateMcubeNebulaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeNebulaTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeUpgradePackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeUpgradePackageResponse
+   */
   async createMcubeUpgradePackageWithOptions(request: CreateMcubeUpgradePackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeUpgradePackageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18920,11 +19364,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeUpgradePackageResponse>(await this.callApi(params, req, runtime), new CreateMcubeUpgradePackageResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeUpgradePackageRequest
+   * @return CreateMcubeUpgradePackageResponse
+   */
   async createMcubeUpgradePackage(request: CreateMcubeUpgradePackageRequest): Promise<CreateMcubeUpgradePackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeUpgradePackageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeUpgradeTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeUpgradeTaskResponse
+   */
   async createMcubeUpgradeTaskWithOptions(request: CreateMcubeUpgradeTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeUpgradeTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19001,11 +19454,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeUpgradeTaskResponse>(await this.callApi(params, req, runtime), new CreateMcubeUpgradeTaskResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeUpgradeTaskRequest
+   * @return CreateMcubeUpgradeTaskResponse
+   */
   async createMcubeUpgradeTask(request: CreateMcubeUpgradeTaskRequest): Promise<CreateMcubeUpgradeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeUpgradeTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeVhostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeVhostResponse
+   */
   async createMcubeVhostWithOptions(request: CreateMcubeVhostRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeVhostResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19042,11 +19504,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeVhostResponse>(await this.callApi(params, req, runtime), new CreateMcubeVhostResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeVhostRequest
+   * @return CreateMcubeVhostResponse
+   */
   async createMcubeVhost(request: CreateMcubeVhostRequest): Promise<CreateMcubeVhostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeVhostWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeWhitelistResponse
+   */
   async createMcubeWhitelistWithOptions(request: CreateMcubeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeWhitelistResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19087,11 +19558,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new CreateMcubeWhitelistResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeWhitelistRequest
+   * @return CreateMcubeWhitelistResponse
+   */
   async createMcubeWhitelist(request: CreateMcubeWhitelistRequest): Promise<CreateMcubeWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMcubeWhitelistForIdeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMcubeWhitelistForIdeResponse
+   */
   async createMcubeWhitelistForIdeWithOptions(request: CreateMcubeWhitelistForIdeRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeWhitelistForIdeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19132,11 +19612,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMcubeWhitelistForIdeResponse>(await this.callApi(params, req, runtime), new CreateMcubeWhitelistForIdeResponse({}));
   }
 
+  /**
+   * @param request CreateMcubeWhitelistForIdeRequest
+   * @return CreateMcubeWhitelistForIdeResponse
+   */
   async createMcubeWhitelistForIde(request: CreateMcubeWhitelistForIdeRequest): Promise<CreateMcubeWhitelistForIdeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMcubeWhitelistForIdeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMdsMiniprogramTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMdsMiniprogramTaskResponse
+   */
   async createMdsMiniprogramTaskWithOptions(request: CreateMdsMiniprogramTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMdsMiniprogramTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19209,11 +19698,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMdsMiniprogramTaskResponse>(await this.callApi(params, req, runtime), new CreateMdsMiniprogramTaskResponse({}));
   }
 
+  /**
+   * @param request CreateMdsMiniprogramTaskRequest
+   * @return CreateMdsMiniprogramTaskResponse
+   */
   async createMdsMiniprogramTask(request: CreateMdsMiniprogramTaskRequest): Promise<CreateMdsMiniprogramTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMdsMiniprogramTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMsaEnhanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMsaEnhanceResponse
+   */
   async createMsaEnhanceWithOptions(request: CreateMsaEnhanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateMsaEnhanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19250,11 +19748,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMsaEnhanceResponse>(await this.callApi(params, req, runtime), new CreateMsaEnhanceResponse({}));
   }
 
+  /**
+   * @param request CreateMsaEnhanceRequest
+   * @return CreateMsaEnhanceResponse
+   */
   async createMsaEnhance(request: CreateMsaEnhanceRequest): Promise<CreateMsaEnhanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMsaEnhanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateOpenGlobalDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOpenGlobalDataResponse
+   */
   async createOpenGlobalDataWithOptions(request: CreateOpenGlobalDataRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpenGlobalDataResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19331,11 +19838,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOpenGlobalDataResponse>(await this.callApi(params, req, runtime), new CreateOpenGlobalDataResponse({}));
   }
 
+  /**
+   * @param request CreateOpenGlobalDataRequest
+   * @return CreateOpenGlobalDataResponse
+   */
   async createOpenGlobalData(request: CreateOpenGlobalDataRequest): Promise<CreateOpenGlobalDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOpenGlobalDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateOpenSingleDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOpenSingleDataResponse
+   */
   async createOpenSingleDataWithOptions(request: CreateOpenSingleDataRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpenSingleDataResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19408,11 +19924,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOpenSingleDataResponse>(await this.callApi(params, req, runtime), new CreateOpenSingleDataResponse({}));
   }
 
+  /**
+   * @param request CreateOpenSingleDataRequest
+   * @return CreateOpenSingleDataResponse
+   */
   async createOpenSingleData(request: CreateOpenSingleDataRequest): Promise<CreateOpenSingleDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOpenSingleDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteCubecardWhitelistContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCubecardWhitelistContentResponse
+   */
   async deleteCubecardWhitelistContentWithOptions(request: DeleteCubecardWhitelistContentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCubecardWhitelistContentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19453,11 +19978,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCubecardWhitelistContentResponse>(await this.callApi(params, req, runtime), new DeleteCubecardWhitelistContentResponse({}));
   }
 
+  /**
+   * @param request DeleteCubecardWhitelistContentRequest
+   * @return DeleteCubecardWhitelistContentResponse
+   */
   async deleteCubecardWhitelistContent(request: DeleteCubecardWhitelistContentRequest): Promise<DeleteCubecardWhitelistContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCubecardWhitelistContentWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcdpAimRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcdpAimResponse
+   */
   async deleteMcdpAimWithOptions(request: DeleteMcdpAimRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpAimResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19494,11 +20028,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcdpAimResponse>(await this.callApi(params, req, runtime), new DeleteMcdpAimResponse({}));
   }
 
+  /**
+   * @param request DeleteMcdpAimRequest
+   * @return DeleteMcdpAimResponse
+   */
   async deleteMcdpAim(request: DeleteMcdpAimRequest): Promise<DeleteMcdpAimResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcdpAimWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcdpCrowdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcdpCrowdResponse
+   */
   async deleteMcdpCrowdWithOptions(request: DeleteMcdpCrowdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpCrowdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19535,11 +20078,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcdpCrowdResponse>(await this.callApi(params, req, runtime), new DeleteMcdpCrowdResponse({}));
   }
 
+  /**
+   * @param request DeleteMcdpCrowdRequest
+   * @return DeleteMcdpCrowdResponse
+   */
   async deleteMcdpCrowd(request: DeleteMcdpCrowdRequest): Promise<DeleteMcdpCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcdpCrowdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcdpEventAttributeByIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcdpEventAttributeByIdResponse
+   */
   async deleteMcdpEventAttributeByIdWithOptions(request: DeleteMcdpEventAttributeByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpEventAttributeByIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19576,11 +20128,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcdpEventAttributeByIdResponse>(await this.callApi(params, req, runtime), new DeleteMcdpEventAttributeByIdResponse({}));
   }
 
+  /**
+   * @param request DeleteMcdpEventAttributeByIdRequest
+   * @return DeleteMcdpEventAttributeByIdResponse
+   */
   async deleteMcdpEventAttributeById(request: DeleteMcdpEventAttributeByIdRequest): Promise<DeleteMcdpEventAttributeByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcdpEventAttributeByIdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcdpEventByIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcdpEventByIdResponse
+   */
   async deleteMcdpEventByIdWithOptions(request: DeleteMcdpEventByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpEventByIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19617,11 +20178,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcdpEventByIdResponse>(await this.callApi(params, req, runtime), new DeleteMcdpEventByIdResponse({}));
   }
 
+  /**
+   * @param request DeleteMcdpEventByIdRequest
+   * @return DeleteMcdpEventByIdResponse
+   */
   async deleteMcdpEventById(request: DeleteMcdpEventByIdRequest): Promise<DeleteMcdpEventByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcdpEventByIdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcdpMaterialRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcdpMaterialResponse
+   */
   async deleteMcdpMaterialWithOptions(request: DeleteMcdpMaterialRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpMaterialResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19658,11 +20228,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcdpMaterialResponse>(await this.callApi(params, req, runtime), new DeleteMcdpMaterialResponse({}));
   }
 
+  /**
+   * @param request DeleteMcdpMaterialRequest
+   * @return DeleteMcdpMaterialResponse
+   */
   async deleteMcdpMaterial(request: DeleteMcdpMaterialRequest): Promise<DeleteMcdpMaterialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcdpMaterialWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcdpZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcdpZoneResponse
+   */
   async deleteMcdpZoneWithOptions(request: DeleteMcdpZoneRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpZoneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19699,11 +20278,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcdpZoneResponse>(await this.callApi(params, req, runtime), new DeleteMcdpZoneResponse({}));
   }
 
+  /**
+   * @param request DeleteMcdpZoneRequest
+   * @return DeleteMcdpZoneResponse
+   */
   async deleteMcdpZone(request: DeleteMcdpZoneRequest): Promise<DeleteMcdpZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcdpZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcubeMiniAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcubeMiniAppResponse
+   */
   async deleteMcubeMiniAppWithOptions(request: DeleteMcubeMiniAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcubeMiniAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19740,11 +20328,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcubeMiniAppResponse>(await this.callApi(params, req, runtime), new DeleteMcubeMiniAppResponse({}));
   }
 
+  /**
+   * @param request DeleteMcubeMiniAppRequest
+   * @return DeleteMcubeMiniAppResponse
+   */
   async deleteMcubeMiniApp(request: DeleteMcubeMiniAppRequest): Promise<DeleteMcubeMiniAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcubeMiniAppWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcubeNebulaAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcubeNebulaAppResponse
+   */
   async deleteMcubeNebulaAppWithOptions(request: DeleteMcubeNebulaAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcubeNebulaAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19781,11 +20378,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcubeNebulaAppResponse>(await this.callApi(params, req, runtime), new DeleteMcubeNebulaAppResponse({}));
   }
 
+  /**
+   * @param request DeleteMcubeNebulaAppRequest
+   * @return DeleteMcubeNebulaAppResponse
+   */
   async deleteMcubeNebulaApp(request: DeleteMcubeNebulaAppRequest): Promise<DeleteMcubeNebulaAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcubeNebulaAppWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcubeUpgradeResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcubeUpgradeResourceResponse
+   */
   async deleteMcubeUpgradeResourceWithOptions(request: DeleteMcubeUpgradeResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcubeUpgradeResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19826,11 +20432,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcubeUpgradeResourceResponse>(await this.callApi(params, req, runtime), new DeleteMcubeUpgradeResourceResponse({}));
   }
 
+  /**
+   * @param request DeleteMcubeUpgradeResourceRequest
+   * @return DeleteMcubeUpgradeResourceResponse
+   */
   async deleteMcubeUpgradeResource(request: DeleteMcubeUpgradeResourceRequest): Promise<DeleteMcubeUpgradeResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcubeUpgradeResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMcubeWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMcubeWhitelistResponse
+   */
   async deleteMcubeWhitelistWithOptions(request: DeleteMcubeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcubeWhitelistResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19867,11 +20482,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteMcubeWhitelistResponse({}));
   }
 
+  /**
+   * @param request DeleteMcubeWhitelistRequest
+   * @return DeleteMcubeWhitelistResponse
+   */
   async deleteMcubeWhitelist(request: DeleteMcubeWhitelistRequest): Promise<DeleteMcubeWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMcubeWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMdsWhitelistContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMdsWhitelistContentResponse
+   */
   async deleteMdsWhitelistContentWithOptions(request: DeleteMdsWhitelistContentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMdsWhitelistContentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19912,11 +20536,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMdsWhitelistContentResponse>(await this.callApi(params, req, runtime), new DeleteMdsWhitelistContentResponse({}));
   }
 
+  /**
+   * @param request DeleteMdsWhitelistContentRequest
+   * @return DeleteMdsWhitelistContentResponse
+   */
   async deleteMdsWhitelistContent(request: DeleteMdsWhitelistContentRequest): Promise<DeleteMdsWhitelistContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMdsWhitelistContentWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ExistMcubeRsaKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExistMcubeRsaKeyResponse
+   */
   async existMcubeRsaKeyWithOptions(request: ExistMcubeRsaKeyRequest, runtime: $Util.RuntimeOptions): Promise<ExistMcubeRsaKeyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19949,11 +20582,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ExistMcubeRsaKeyResponse>(await this.callApi(params, req, runtime), new ExistMcubeRsaKeyResponse({}));
   }
 
+  /**
+   * @param request ExistMcubeRsaKeyRequest
+   * @return ExistMcubeRsaKeyResponse
+   */
   async existMcubeRsaKey(request: ExistMcubeRsaKeyRequest): Promise<ExistMcubeRsaKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.existMcubeRsaKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ExportMappCenterAppConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportMappCenterAppConfigResponse
+   */
   async exportMappCenterAppConfigWithOptions(request: ExportMappCenterAppConfigRequest, runtime: $Util.RuntimeOptions): Promise<ExportMappCenterAppConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20002,11 +20644,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportMappCenterAppConfigResponse>(await this.callApi(params, req, runtime), new ExportMappCenterAppConfigResponse({}));
   }
 
+  /**
+   * @param request ExportMappCenterAppConfigRequest
+   * @return ExportMappCenterAppConfigResponse
+   */
   async exportMappCenterAppConfig(request: ExportMappCenterAppConfigRequest): Promise<ExportMappCenterAppConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportMappCenterAppConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetFileTokenForUploadToMsaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFileTokenForUploadToMsaResponse
+   */
   async getFileTokenForUploadToMsaWithOptions(request: GetFileTokenForUploadToMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileTokenForUploadToMsaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20043,11 +20694,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFileTokenForUploadToMsaResponse>(await this.callApi(params, req, runtime), new GetFileTokenForUploadToMsaResponse({}));
   }
 
+  /**
+   * @param request GetFileTokenForUploadToMsaRequest
+   * @return GetFileTokenForUploadToMsaResponse
+   */
   async getFileTokenForUploadToMsa(request: GetFileTokenForUploadToMsaRequest): Promise<GetFileTokenForUploadToMsaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFileTokenForUploadToMsaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetLogUrlInMsaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLogUrlInMsaResponse
+   */
   async getLogUrlInMsaWithOptions(request: GetLogUrlInMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetLogUrlInMsaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20084,11 +20744,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogUrlInMsaResponse>(await this.callApi(params, req, runtime), new GetLogUrlInMsaResponse({}));
   }
 
+  /**
+   * @param request GetLogUrlInMsaRequest
+   * @return GetLogUrlInMsaResponse
+   */
   async getLogUrlInMsa(request: GetLogUrlInMsaRequest): Promise<GetLogUrlInMsaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLogUrlInMsaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMcubeFileTokenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMcubeFileTokenResponse
+   */
   async getMcubeFileTokenWithOptions(request: GetMcubeFileTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeFileTokenResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20125,11 +20794,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMcubeFileTokenResponse>(await this.callApi(params, req, runtime), new GetMcubeFileTokenResponse({}));
   }
 
+  /**
+   * @param request GetMcubeFileTokenRequest
+   * @return GetMcubeFileTokenResponse
+   */
   async getMcubeFileToken(request: GetMcubeFileTokenRequest): Promise<GetMcubeFileTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMcubeFileTokenWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMcubeNebulaResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMcubeNebulaResourceResponse
+   */
   async getMcubeNebulaResourceWithOptions(request: GetMcubeNebulaResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeNebulaResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20166,11 +20844,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMcubeNebulaResourceResponse>(await this.callApi(params, req, runtime), new GetMcubeNebulaResourceResponse({}));
   }
 
+  /**
+   * @param request GetMcubeNebulaResourceRequest
+   * @return GetMcubeNebulaResourceResponse
+   */
   async getMcubeNebulaResource(request: GetMcubeNebulaResourceRequest): Promise<GetMcubeNebulaResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMcubeNebulaResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMcubeNebulaTaskDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMcubeNebulaTaskDetailResponse
+   */
   async getMcubeNebulaTaskDetailWithOptions(request: GetMcubeNebulaTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeNebulaTaskDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20207,11 +20894,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMcubeNebulaTaskDetailResponse>(await this.callApi(params, req, runtime), new GetMcubeNebulaTaskDetailResponse({}));
   }
 
+  /**
+   * @param request GetMcubeNebulaTaskDetailRequest
+   * @return GetMcubeNebulaTaskDetailResponse
+   */
   async getMcubeNebulaTaskDetail(request: GetMcubeNebulaTaskDetailRequest): Promise<GetMcubeNebulaTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMcubeNebulaTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMcubeUpgradePackageInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMcubeUpgradePackageInfoResponse
+   */
   async getMcubeUpgradePackageInfoWithOptions(request: GetMcubeUpgradePackageInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeUpgradePackageInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20248,11 +20944,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMcubeUpgradePackageInfoResponse>(await this.callApi(params, req, runtime), new GetMcubeUpgradePackageInfoResponse({}));
   }
 
+  /**
+   * @param request GetMcubeUpgradePackageInfoRequest
+   * @return GetMcubeUpgradePackageInfoResponse
+   */
   async getMcubeUpgradePackageInfo(request: GetMcubeUpgradePackageInfoRequest): Promise<GetMcubeUpgradePackageInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMcubeUpgradePackageInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMcubeUpgradeTaskInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMcubeUpgradeTaskInfoResponse
+   */
   async getMcubeUpgradeTaskInfoWithOptions(request: GetMcubeUpgradeTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeUpgradeTaskInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20289,11 +20994,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMcubeUpgradeTaskInfoResponse>(await this.callApi(params, req, runtime), new GetMcubeUpgradeTaskInfoResponse({}));
   }
 
+  /**
+   * @param request GetMcubeUpgradeTaskInfoRequest
+   * @return GetMcubeUpgradeTaskInfoResponse
+   */
   async getMcubeUpgradeTaskInfo(request: GetMcubeUpgradeTaskInfoRequest): Promise<GetMcubeUpgradeTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMcubeUpgradeTaskInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMdsMiniConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMdsMiniConfigResponse
+   */
   async getMdsMiniConfigWithOptions(request: GetMdsMiniConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetMdsMiniConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20330,11 +21044,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMdsMiniConfigResponse>(await this.callApi(params, req, runtime), new GetMdsMiniConfigResponse({}));
   }
 
+  /**
+   * @param request GetMdsMiniConfigRequest
+   * @return GetMdsMiniConfigResponse
+   */
   async getMdsMiniConfig(request: GetMdsMiniConfigRequest): Promise<GetMdsMiniConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMdsMiniConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetUserAppDonwloadUrlInMsaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserAppDonwloadUrlInMsaResponse
+   */
   async getUserAppDonwloadUrlInMsaWithOptions(request: GetUserAppDonwloadUrlInMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetUserAppDonwloadUrlInMsaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20371,11 +21094,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserAppDonwloadUrlInMsaResponse>(await this.callApi(params, req, runtime), new GetUserAppDonwloadUrlInMsaResponse({}));
   }
 
+  /**
+   * @param request GetUserAppDonwloadUrlInMsaRequest
+   * @return GetUserAppDonwloadUrlInMsaResponse
+   */
   async getUserAppDonwloadUrlInMsa(request: GetUserAppDonwloadUrlInMsaRequest): Promise<GetUserAppDonwloadUrlInMsaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserAppDonwloadUrlInMsaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetUserAppEnhanceProcessInMsaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserAppEnhanceProcessInMsaResponse
+   */
   async getUserAppEnhanceProcessInMsaWithOptions(request: GetUserAppEnhanceProcessInMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetUserAppEnhanceProcessInMsaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20412,11 +21144,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserAppEnhanceProcessInMsaResponse>(await this.callApi(params, req, runtime), new GetUserAppEnhanceProcessInMsaResponse({}));
   }
 
+  /**
+   * @param request GetUserAppEnhanceProcessInMsaRequest
+   * @return GetUserAppEnhanceProcessInMsaResponse
+   */
   async getUserAppEnhanceProcessInMsa(request: GetUserAppEnhanceProcessInMsaRequest): Promise<GetUserAppEnhanceProcessInMsaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserAppEnhanceProcessInMsaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetUserAppUploadProcessInMsaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserAppUploadProcessInMsaResponse
+   */
   async getUserAppUploadProcessInMsaWithOptions(request: GetUserAppUploadProcessInMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetUserAppUploadProcessInMsaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20453,11 +21194,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserAppUploadProcessInMsaResponse>(await this.callApi(params, req, runtime), new GetUserAppUploadProcessInMsaResponse({}));
   }
 
+  /**
+   * @param request GetUserAppUploadProcessInMsaRequest
+   * @return GetUserAppUploadProcessInMsaResponse
+   */
   async getUserAppUploadProcessInMsa(request: GetUserAppUploadProcessInMsaRequest): Promise<GetUserAppUploadProcessInMsaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserAppUploadProcessInMsaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMappCenterAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMappCenterAppsResponse
+   */
   async listMappCenterAppsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListMappCenterAppsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -20474,11 +21224,19 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMappCenterAppsResponse>(await this.callApi(params, req, runtime), new ListMappCenterAppsResponse({}));
   }
 
+  /**
+   * @return ListMappCenterAppsResponse
+   */
   async listMappCenterApps(): Promise<ListMappCenterAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMappCenterAppsWithOptions(runtime);
   }
 
+  /**
+   * @param request ListMappCenterWorkspacesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMappCenterWorkspacesResponse
+   */
   async listMappCenterWorkspacesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListMappCenterWorkspacesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -20495,11 +21253,19 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMappCenterWorkspacesResponse>(await this.callApi(params, req, runtime), new ListMappCenterWorkspacesResponse({}));
   }
 
+  /**
+   * @return ListMappCenterWorkspacesResponse
+   */
   async listMappCenterWorkspaces(): Promise<ListMappCenterWorkspacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMappCenterWorkspacesWithOptions(runtime);
   }
 
+  /**
+   * @param request ListMcdpAimRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcdpAimResponse
+   */
   async listMcdpAimWithOptions(request: ListMcdpAimRequest, runtime: $Util.RuntimeOptions): Promise<ListMcdpAimResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20564,11 +21330,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcdpAimResponse>(await this.callApi(params, req, runtime), new ListMcdpAimResponse({}));
   }
 
+  /**
+   * @param request ListMcdpAimRequest
+   * @return ListMcdpAimResponse
+   */
   async listMcdpAim(request: ListMcdpAimRequest): Promise<ListMcdpAimResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcdpAimWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeMiniAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeMiniAppsResponse
+   */
   async listMcubeMiniAppsWithOptions(request: ListMcubeMiniAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeMiniAppsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20613,11 +21388,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeMiniAppsResponse>(await this.callApi(params, req, runtime), new ListMcubeMiniAppsResponse({}));
   }
 
+  /**
+   * @param request ListMcubeMiniAppsRequest
+   * @return ListMcubeMiniAppsResponse
+   */
   async listMcubeMiniApps(request: ListMcubeMiniAppsRequest): Promise<ListMcubeMiniAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeMiniAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeMiniPackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeMiniPackagesResponse
+   */
   async listMcubeMiniPackagesWithOptions(request: ListMcubeMiniPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeMiniPackagesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20666,11 +21450,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeMiniPackagesResponse>(await this.callApi(params, req, runtime), new ListMcubeMiniPackagesResponse({}));
   }
 
+  /**
+   * @param request ListMcubeMiniPackagesRequest
+   * @return ListMcubeMiniPackagesResponse
+   */
   async listMcubeMiniPackages(request: ListMcubeMiniPackagesRequest): Promise<ListMcubeMiniPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeMiniPackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeMiniTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeMiniTasksResponse
+   */
   async listMcubeMiniTasksWithOptions(request: ListMcubeMiniTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeMiniTasksResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20707,11 +21500,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeMiniTasksResponse>(await this.callApi(params, req, runtime), new ListMcubeMiniTasksResponse({}));
   }
 
+  /**
+   * @param request ListMcubeMiniTasksRequest
+   * @return ListMcubeMiniTasksResponse
+   */
   async listMcubeMiniTasks(request: ListMcubeMiniTasksRequest): Promise<ListMcubeMiniTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeMiniTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeNebulaAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeNebulaAppsResponse
+   */
   async listMcubeNebulaAppsWithOptions(request: ListMcubeNebulaAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeNebulaAppsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20756,11 +21558,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeNebulaAppsResponse>(await this.callApi(params, req, runtime), new ListMcubeNebulaAppsResponse({}));
   }
 
+  /**
+   * @param request ListMcubeNebulaAppsRequest
+   * @return ListMcubeNebulaAppsResponse
+   */
   async listMcubeNebulaApps(request: ListMcubeNebulaAppsRequest): Promise<ListMcubeNebulaAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeNebulaAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeNebulaResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeNebulaResourcesResponse
+   */
   async listMcubeNebulaResourcesWithOptions(request: ListMcubeNebulaResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeNebulaResourcesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20805,11 +21616,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeNebulaResourcesResponse>(await this.callApi(params, req, runtime), new ListMcubeNebulaResourcesResponse({}));
   }
 
+  /**
+   * @param request ListMcubeNebulaResourcesRequest
+   * @return ListMcubeNebulaResourcesResponse
+   */
   async listMcubeNebulaResources(request: ListMcubeNebulaResourcesRequest): Promise<ListMcubeNebulaResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeNebulaResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeNebulaTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeNebulaTasksResponse
+   */
   async listMcubeNebulaTasksWithOptions(request: ListMcubeNebulaTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeNebulaTasksResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20846,11 +21666,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeNebulaTasksResponse>(await this.callApi(params, req, runtime), new ListMcubeNebulaTasksResponse({}));
   }
 
+  /**
+   * @param request ListMcubeNebulaTasksRequest
+   * @return ListMcubeNebulaTasksResponse
+   */
   async listMcubeNebulaTasks(request: ListMcubeNebulaTasksRequest): Promise<ListMcubeNebulaTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeNebulaTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeUpgradePackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeUpgradePackagesResponse
+   */
   async listMcubeUpgradePackagesWithOptions(request: ListMcubeUpgradePackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeUpgradePackagesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20891,11 +21720,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeUpgradePackagesResponse>(await this.callApi(params, req, runtime), new ListMcubeUpgradePackagesResponse({}));
   }
 
+  /**
+   * @param request ListMcubeUpgradePackagesRequest
+   * @return ListMcubeUpgradePackagesResponse
+   */
   async listMcubeUpgradePackages(request: ListMcubeUpgradePackagesRequest): Promise<ListMcubeUpgradePackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeUpgradePackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeUpgradeTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeUpgradeTasksResponse
+   */
   async listMcubeUpgradeTasksWithOptions(request: ListMcubeUpgradeTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeUpgradeTasksResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20932,11 +21770,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeUpgradeTasksResponse>(await this.callApi(params, req, runtime), new ListMcubeUpgradeTasksResponse({}));
   }
 
+  /**
+   * @param request ListMcubeUpgradeTasksRequest
+   * @return ListMcubeUpgradeTasksResponse
+   */
   async listMcubeUpgradeTasks(request: ListMcubeUpgradeTasksRequest): Promise<ListMcubeUpgradeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeUpgradeTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMcubeWhitelistsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMcubeWhitelistsResponse
+   */
   async listMcubeWhitelistsWithOptions(request: ListMcubeWhitelistsRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeWhitelistsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20981,11 +21828,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMcubeWhitelistsResponse>(await this.callApi(params, req, runtime), new ListMcubeWhitelistsResponse({}));
   }
 
+  /**
+   * @param request ListMcubeWhitelistsRequest
+   * @return ListMcubeWhitelistsResponse
+   */
   async listMcubeWhitelists(request: ListMcubeWhitelistsRequest): Promise<ListMcubeWhitelistsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMcubeWhitelistsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListMgsApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListMgsApiResponse
+   */
   async listMgsApiWithOptions(request: ListMgsApiRequest, runtime: $Util.RuntimeOptions): Promise<ListMgsApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21070,11 +21926,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMgsApiResponse>(await this.callApi(params, req, runtime), new ListMgsApiResponse({}));
   }
 
+  /**
+   * @param request ListMgsApiRequest
+   * @return ListMgsApiResponse
+   */
   async listMgsApi(request: ListMgsApiRequest): Promise<ListMgsApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listMgsApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request LogMsaQueryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LogMsaQueryResponse
+   */
   async logMsaQueryWithOptions(request: LogMsaQueryRequest, runtime: $Util.RuntimeOptions): Promise<LogMsaQueryResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21115,11 +21980,22 @@ export default class Client extends OpenApi {
     return $tea.cast<LogMsaQueryResponse>(await this.callApi(params, req, runtime), new LogMsaQueryResponse({}));
   }
 
+  /**
+   * @param request LogMsaQueryRequest
+   * @return LogMsaQueryResponse
+   */
   async logMsaQuery(request: LogMsaQueryRequest): Promise<LogMsaQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.logMsaQueryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary OCR通用接口
+   *
+   * @param request MTRSOCRServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MTRSOCRServiceResponse
+   */
   async mTRSOCRServiceWithOptions(request: MTRSOCRServiceRequest, runtime: $Util.RuntimeOptions): Promise<MTRSOCRServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21164,11 +22040,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MTRSOCRServiceResponse>(await this.callApi(params, req, runtime), new MTRSOCRServiceResponse({}));
   }
 
+  /**
+   * @summary OCR通用接口
+   *
+   * @param request MTRSOCRServiceRequest
+   * @return MTRSOCRServiceResponse
+   */
   async mTRSOCRService(request: MTRSOCRServiceRequest): Promise<MTRSOCRServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.mTRSOCRServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新增主扫码
+   *
+   * @param request OpenApiAddActiveCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiAddActiveCodeResponse
+   */
   async openApiAddActiveCodeWithOptions(request: OpenApiAddActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiAddActiveCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21205,11 +22094,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiAddActiveCodeResponse>(await this.callApi(params, req, runtime), new OpenApiAddActiveCodeResponse({}));
   }
 
+  /**
+   * @summary 新增主扫码
+   *
+   * @param request OpenApiAddActiveCodeRequest
+   * @return OpenApiAddActiveCodeResponse
+   */
   async openApiAddActiveCode(request: OpenApiAddActiveCodeRequest): Promise<OpenApiAddActiveCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiAddActiveCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新增场景
+   *
+   * @param request OpenApiAddActiveSceneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiAddActiveSceneResponse
+   */
   async openApiAddActiveSceneWithOptions(request: OpenApiAddActiveSceneRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiAddActiveSceneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21246,11 +22148,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiAddActiveSceneResponse>(await this.callApi(params, req, runtime), new OpenApiAddActiveSceneResponse({}));
   }
 
+  /**
+   * @summary 新增场景
+   *
+   * @param request OpenApiAddActiveSceneRequest
+   * @return OpenApiAddActiveSceneResponse
+   */
   async openApiAddActiveScene(request: OpenApiAddActiveSceneRequest): Promise<OpenApiAddActiveSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiAddActiveSceneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 用户注册
+   *
+   * @param request OpenApiCallbackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiCallbackResponse
+   */
   async openApiCallbackWithOptions(request: OpenApiCallbackRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiCallbackResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21287,11 +22202,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiCallbackResponse>(await this.callApi(params, req, runtime), new OpenApiCallbackResponse({}));
   }
 
+  /**
+   * @summary 用户注册
+   *
+   * @param request OpenApiCallbackRequest
+   * @return OpenApiCallbackResponse
+   */
   async openApiCallback(request: OpenApiCallbackRequest): Promise<OpenApiCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiCallbackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 解码
+   *
+   * @param request OpenApiDecodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiDecodeResponse
+   */
   async openApiDecodeWithOptions(request: OpenApiDecodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiDecodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21328,11 +22256,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiDecodeResponse>(await this.callApi(params, req, runtime), new OpenApiDecodeResponse({}));
   }
 
+  /**
+   * @summary 解码
+   *
+   * @param request OpenApiDecodeRequest
+   * @return OpenApiDecodeResponse
+   */
   async openApiDecode(request: OpenApiDecodeRequest): Promise<OpenApiDecodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiDecodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除主扫码
+   *
+   * @param request OpenApiDeleteActiveCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiDeleteActiveCodeResponse
+   */
   async openApiDeleteActiveCodeWithOptions(request: OpenApiDeleteActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiDeleteActiveCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21369,11 +22310,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiDeleteActiveCodeResponse>(await this.callApi(params, req, runtime), new OpenApiDeleteActiveCodeResponse({}));
   }
 
+  /**
+   * @summary 删除主扫码
+   *
+   * @param request OpenApiDeleteActiveCodeRequest
+   * @return OpenApiDeleteActiveCodeResponse
+   */
   async openApiDeleteActiveCode(request: OpenApiDeleteActiveCodeRequest): Promise<OpenApiDeleteActiveCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiDeleteActiveCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 编码
+   *
+   * @param request OpenApiEncodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiEncodeResponse
+   */
   async openApiEncodeWithOptions(request: OpenApiEncodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiEncodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21410,11 +22364,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiEncodeResponse>(await this.callApi(params, req, runtime), new OpenApiEncodeResponse({}));
   }
 
+  /**
+   * @summary 编码
+   *
+   * @param request OpenApiEncodeRequest
+   * @return OpenApiEncodeResponse
+   */
   async openApiEncode(request: OpenApiEncodeRequest): Promise<OpenApiEncodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiEncodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 主扫码查询
+   *
+   * @param request OpenApiQueryActiveCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiQueryActiveCodeResponse
+   */
   async openApiQueryActiveCodeWithOptions(request: OpenApiQueryActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiQueryActiveCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21451,11 +22418,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiQueryActiveCodeResponse>(await this.callApi(params, req, runtime), new OpenApiQueryActiveCodeResponse({}));
   }
 
+  /**
+   * @summary 主扫码查询
+   *
+   * @param request OpenApiQueryActiveCodeRequest
+   * @return OpenApiQueryActiveCodeResponse
+   */
   async openApiQueryActiveCode(request: OpenApiQueryActiveCodeRequest): Promise<OpenApiQueryActiveCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiQueryActiveCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询场景
+   *
+   * @param request OpenApiQueryActiveSceneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiQueryActiveSceneResponse
+   */
   async openApiQueryActiveSceneWithOptions(request: OpenApiQueryActiveSceneRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiQueryActiveSceneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21492,11 +22472,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiQueryActiveSceneResponse>(await this.callApi(params, req, runtime), new OpenApiQueryActiveSceneResponse({}));
   }
 
+  /**
+   * @summary 查询场景
+   *
+   * @param request OpenApiQueryActiveSceneRequest
+   * @return OpenApiQueryActiveSceneResponse
+   */
   async openApiQueryActiveScene(request: OpenApiQueryActiveSceneRequest): Promise<OpenApiQueryActiveSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiQueryActiveSceneWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 生成唯一被扫码
+   *
+   * @param request OpenApiUniqueEncodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiUniqueEncodeResponse
+   */
   async openApiUniqueEncodeWithOptions(request: OpenApiUniqueEncodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiUniqueEncodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21533,11 +22526,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiUniqueEncodeResponse>(await this.callApi(params, req, runtime), new OpenApiUniqueEncodeResponse({}));
   }
 
+  /**
+   * @summary 生成唯一被扫码
+   *
+   * @param request OpenApiUniqueEncodeRequest
+   * @return OpenApiUniqueEncodeResponse
+   */
   async openApiUniqueEncode(request: OpenApiUniqueEncodeRequest): Promise<OpenApiUniqueEncodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiUniqueEncodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新主扫码
+   *
+   * @param request OpenApiUpdateActiveCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiUpdateActiveCodeResponse
+   */
   async openApiUpdateActiveCodeWithOptions(request: OpenApiUpdateActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiUpdateActiveCodeResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21574,11 +22580,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiUpdateActiveCodeResponse>(await this.callApi(params, req, runtime), new OpenApiUpdateActiveCodeResponse({}));
   }
 
+  /**
+   * @summary 更新主扫码
+   *
+   * @param request OpenApiUpdateActiveCodeRequest
+   * @return OpenApiUpdateActiveCodeResponse
+   */
   async openApiUpdateActiveCode(request: OpenApiUpdateActiveCodeRequest): Promise<OpenApiUpdateActiveCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiUpdateActiveCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新场景
+   *
+   * @param request OpenApiUpdateActiveSceneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenApiUpdateActiveSceneResponse
+   */
   async openApiUpdateActiveSceneWithOptions(request: OpenApiUpdateActiveSceneRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiUpdateActiveSceneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21615,11 +22634,22 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenApiUpdateActiveSceneResponse>(await this.callApi(params, req, runtime), new OpenApiUpdateActiveSceneResponse({}));
   }
 
+  /**
+   * @summary 更新场景
+   *
+   * @param request OpenApiUpdateActiveSceneRequest
+   * @return OpenApiUpdateActiveSceneResponse
+   */
   async openApiUpdateActiveScene(request: OpenApiUpdateActiveSceneRequest): Promise<OpenApiUpdateActiveSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openApiUpdateActiveSceneWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushBindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushBindResponse
+   */
   async pushBindWithOptions(request: PushBindRequest, runtime: $Util.RuntimeOptions): Promise<PushBindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21664,11 +22694,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushBindResponse>(await this.callApi(params, req, runtime), new PushBindResponse({}));
   }
 
+  /**
+   * @param request PushBindRequest
+   * @return PushBindResponse
+   */
   async pushBind(request: PushBindRequest): Promise<PushBindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushBindWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq PushBroadcastRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushBroadcastResponse
+   */
   async pushBroadcastWithOptions(tmpReq: PushBroadcastRequest, runtime: $Util.RuntimeOptions): Promise<PushBroadcastResponse> {
     Util.validateModel(tmpReq);
     let request = new PushBroadcastShrinkRequest({ });
@@ -21783,11 +22822,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushBroadcastResponse>(await this.callApi(params, req, runtime), new PushBroadcastResponse({}));
   }
 
+  /**
+   * @param request PushBroadcastRequest
+   * @return PushBroadcastResponse
+   */
   async pushBroadcast(request: PushBroadcastRequest): Promise<PushBroadcastResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushBroadcastWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq PushMultipleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushMultipleResponse
+   */
   async pushMultipleWithOptions(tmpReq: PushMultipleRequest, runtime: $Util.RuntimeOptions): Promise<PushMultipleResponse> {
     Util.validateModel(tmpReq);
     let request = new PushMultipleShrinkRequest({ });
@@ -21894,11 +22942,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushMultipleResponse>(await this.callApi(params, req, runtime), new PushMultipleResponse({}));
   }
 
+  /**
+   * @param request PushMultipleRequest
+   * @return PushMultipleResponse
+   */
   async pushMultiple(request: PushMultipleRequest): Promise<PushMultipleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushMultipleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushReportResponse
+   */
   async pushReportWithOptions(request: PushReportRequest, runtime: $Util.RuntimeOptions): Promise<PushReportResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21971,11 +23028,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushReportResponse>(await this.callApi(params, req, runtime), new PushReportResponse({}));
   }
 
+  /**
+   * @param request PushReportRequest
+   * @return PushReportResponse
+   */
   async pushReport(request: PushReportRequest): Promise<PushReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushReportWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq PushSimpleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushSimpleResponse
+   */
   async pushSimpleWithOptions(tmpReq: PushSimpleRequest, runtime: $Util.RuntimeOptions): Promise<PushSimpleResponse> {
     Util.validateModel(tmpReq);
     let request = new PushSimpleShrinkRequest({ });
@@ -22118,11 +23184,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushSimpleResponse>(await this.callApi(params, req, runtime), new PushSimpleResponse({}));
   }
 
+  /**
+   * @param request PushSimpleRequest
+   * @return PushSimpleResponse
+   */
   async pushSimple(request: PushSimpleRequest): Promise<PushSimpleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushSimpleWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq PushTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushTemplateResponse
+   */
   async pushTemplateWithOptions(tmpReq: PushTemplateRequest, runtime: $Util.RuntimeOptions): Promise<PushTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new PushTemplateShrinkRequest({ });
@@ -22249,11 +23324,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushTemplateResponse>(await this.callApi(params, req, runtime), new PushTemplateResponse({}));
   }
 
+  /**
+   * @param request PushTemplateRequest
+   * @return PushTemplateResponse
+   */
   async pushTemplate(request: PushTemplateRequest): Promise<PushTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request PushUnBindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushUnBindResponse
+   */
   async pushUnBindWithOptions(request: PushUnBindRequest, runtime: $Util.RuntimeOptions): Promise<PushUnBindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22290,11 +23374,22 @@ export default class Client extends OpenApi {
     return $tea.cast<PushUnBindResponse>(await this.callApi(params, req, runtime), new PushUnBindResponse({}));
   }
 
+  /**
+   * @param request PushUnBindRequest
+   * @return PushUnBindResponse
+   */
   async pushUnBind(request: PushUnBindRequest): Promise<PushUnBindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushUnBindWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询Device+服务的
+   *
+   * @param request QueryInfoFromMdpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryInfoFromMdpResponse
+   */
   async queryInfoFromMdpWithOptions(request: QueryInfoFromMdpRequest, runtime: $Util.RuntimeOptions): Promise<QueryInfoFromMdpResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22343,11 +23438,72 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryInfoFromMdpResponse>(await this.callApi(params, req, runtime), new QueryInfoFromMdpResponse({}));
   }
 
+  /**
+   * @summary 查询Device+服务的
+   *
+   * @param request QueryInfoFromMdpRequest
+   * @return QueryInfoFromMdpResponse
+   */
   async queryInfoFromMdp(request: QueryInfoFromMdpRequest): Promise<QueryInfoFromMdpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryInfoFromMdpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询短链
+   *
+   * @param request QueryLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryLinkResponse
+   */
+  async queryLinkWithOptions(request: QueryLinkRequest, runtime: $Util.RuntimeOptions): Promise<QueryLinkResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryLink",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryLinkResponse>(await this.callApi(params, req, runtime), new QueryLinkResponse({}));
+  }
+
+  /**
+   * @summary 查询短链
+   *
+   * @param request QueryLinkRequest
+   * @return QueryLinkResponse
+   */
+  async queryLink(request: QueryLinkRequest): Promise<QueryLinkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request QueryMappCenterAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMappCenterAppResponse
+   */
   async queryMappCenterAppWithOptions(request: QueryMappCenterAppRequest, runtime: $Util.RuntimeOptions): Promise<QueryMappCenterAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22376,11 +23532,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMappCenterAppResponse>(await this.callApi(params, req, runtime), new QueryMappCenterAppResponse({}));
   }
 
+  /**
+   * @param request QueryMappCenterAppRequest
+   * @return QueryMappCenterAppResponse
+   */
   async queryMappCenterApp(request: QueryMappCenterAppRequest): Promise<QueryMappCenterAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMappCenterAppWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMcdpAimRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMcdpAimResponse
+   */
   async queryMcdpAimWithOptions(request: QueryMcdpAimRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcdpAimResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22417,11 +23582,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMcdpAimResponse>(await this.callApi(params, req, runtime), new QueryMcdpAimResponse({}));
   }
 
+  /**
+   * @param request QueryMcdpAimRequest
+   * @return QueryMcdpAimResponse
+   */
   async queryMcdpAim(request: QueryMcdpAimRequest): Promise<QueryMcdpAimResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMcdpAimWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMcdpZoneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMcdpZoneResponse
+   */
   async queryMcdpZoneWithOptions(request: QueryMcdpZoneRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcdpZoneResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22458,11 +23632,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMcdpZoneResponse>(await this.callApi(params, req, runtime), new QueryMcdpZoneResponse({}));
   }
 
+  /**
+   * @param request QueryMcdpZoneRequest
+   * @return QueryMcdpZoneResponse
+   */
   async queryMcdpZone(request: QueryMcdpZoneRequest): Promise<QueryMcdpZoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMcdpZoneWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMcubeMiniPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMcubeMiniPackageResponse
+   */
   async queryMcubeMiniPackageWithOptions(request: QueryMcubeMiniPackageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcubeMiniPackageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22503,11 +23686,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMcubeMiniPackageResponse>(await this.callApi(params, req, runtime), new QueryMcubeMiniPackageResponse({}));
   }
 
+  /**
+   * @param request QueryMcubeMiniPackageRequest
+   * @return QueryMcubeMiniPackageResponse
+   */
   async queryMcubeMiniPackage(request: QueryMcubeMiniPackageRequest): Promise<QueryMcubeMiniPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMcubeMiniPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMcubeMiniTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMcubeMiniTaskResponse
+   */
   async queryMcubeMiniTaskWithOptions(request: QueryMcubeMiniTaskRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcubeMiniTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22544,11 +23736,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMcubeMiniTaskResponse>(await this.callApi(params, req, runtime), new QueryMcubeMiniTaskResponse({}));
   }
 
+  /**
+   * @param request QueryMcubeMiniTaskRequest
+   * @return QueryMcubeMiniTaskResponse
+   */
   async queryMcubeMiniTask(request: QueryMcubeMiniTaskRequest): Promise<QueryMcubeMiniTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMcubeMiniTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMcubeVhostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMcubeVhostResponse
+   */
   async queryMcubeVhostWithOptions(request: QueryMcubeVhostRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcubeVhostResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22581,11 +23782,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMcubeVhostResponse>(await this.callApi(params, req, runtime), new QueryMcubeVhostResponse({}));
   }
 
+  /**
+   * @param request QueryMcubeVhostRequest
+   * @return QueryMcubeVhostResponse
+   */
   async queryMcubeVhost(request: QueryMcubeVhostRequest): Promise<QueryMcubeVhostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMcubeVhostWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMdsUpgradeTaskDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMdsUpgradeTaskDetailResponse
+   */
   async queryMdsUpgradeTaskDetailWithOptions(request: QueryMdsUpgradeTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryMdsUpgradeTaskDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22622,11 +23832,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMdsUpgradeTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryMdsUpgradeTaskDetailResponse({}));
   }
 
+  /**
+   * @param request QueryMdsUpgradeTaskDetailRequest
+   * @return QueryMdsUpgradeTaskDetailResponse
+   */
   async queryMdsUpgradeTaskDetail(request: QueryMdsUpgradeTaskDetailRequest): Promise<QueryMdsUpgradeTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMdsUpgradeTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMgsApipageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMgsApipageResponse
+   */
   async queryMgsApipageWithOptions(request: QueryMgsApipageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMgsApipageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22711,11 +23930,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMgsApipageResponse>(await this.callApi(params, req, runtime), new QueryMgsApipageResponse({}));
   }
 
+  /**
+   * @param request QueryMgsApipageRequest
+   * @return QueryMgsApipageResponse
+   */
   async queryMgsApipage(request: QueryMgsApipageRequest): Promise<QueryMgsApipageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMgsApipageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMgsApirestRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMgsApirestResponse
+   */
   async queryMgsApirestWithOptions(request: QueryMgsApirestRequest, runtime: $Util.RuntimeOptions): Promise<QueryMgsApirestResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22760,11 +23988,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMgsApirestResponse>(await this.callApi(params, req, runtime), new QueryMgsApirestResponse({}));
   }
 
+  /**
+   * @param request QueryMgsApirestRequest
+   * @return QueryMgsApirestResponse
+   */
   async queryMgsApirest(request: QueryMgsApirestRequest): Promise<QueryMgsApirestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMgsApirestWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMgsTestreqbodyautogenRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMgsTestreqbodyautogenResponse
+   */
   async queryMgsTestreqbodyautogenWithOptions(request: QueryMgsTestreqbodyautogenRequest, runtime: $Util.RuntimeOptions): Promise<QueryMgsTestreqbodyautogenResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22805,11 +24042,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMgsTestreqbodyautogenResponse>(await this.callApi(params, req, runtime), new QueryMgsTestreqbodyautogenResponse({}));
   }
 
+  /**
+   * @param request QueryMgsTestreqbodyautogenRequest
+   * @return QueryMgsTestreqbodyautogenResponse
+   */
   async queryMgsTestreqbodyautogen(request: QueryMgsTestreqbodyautogenRequest): Promise<QueryMgsTestreqbodyautogenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMgsTestreqbodyautogenWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryMpsSchedulerListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryMpsSchedulerListResponse
+   */
   async queryMpsSchedulerListWithOptions(request: QueryMpsSchedulerListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMpsSchedulerListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22862,11 +24108,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryMpsSchedulerListResponse>(await this.callApi(params, req, runtime), new QueryMpsSchedulerListResponse({}));
   }
 
+  /**
+   * @param request QueryMpsSchedulerListRequest
+   * @return QueryMpsSchedulerListResponse
+   */
   async queryMpsSchedulerList(request: QueryMpsSchedulerListRequest): Promise<QueryMpsSchedulerListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryMpsSchedulerListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryPushAnalysisCoreIndexRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPushAnalysisCoreIndexResponse
+   */
   async queryPushAnalysisCoreIndexWithOptions(request: QueryPushAnalysisCoreIndexRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushAnalysisCoreIndexResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22919,11 +24174,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPushAnalysisCoreIndexResponse>(await this.callApi(params, req, runtime), new QueryPushAnalysisCoreIndexResponse({}));
   }
 
+  /**
+   * @param request QueryPushAnalysisCoreIndexRequest
+   * @return QueryPushAnalysisCoreIndexResponse
+   */
   async queryPushAnalysisCoreIndex(request: QueryPushAnalysisCoreIndexRequest): Promise<QueryPushAnalysisCoreIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPushAnalysisCoreIndexWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryPushAnalysisTaskDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPushAnalysisTaskDetailResponse
+   */
   async queryPushAnalysisTaskDetailWithOptions(request: QueryPushAnalysisTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushAnalysisTaskDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -22956,11 +24220,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPushAnalysisTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryPushAnalysisTaskDetailResponse({}));
   }
 
+  /**
+   * @param request QueryPushAnalysisTaskDetailRequest
+   * @return QueryPushAnalysisTaskDetailResponse
+   */
   async queryPushAnalysisTaskDetail(request: QueryPushAnalysisTaskDetailRequest): Promise<QueryPushAnalysisTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPushAnalysisTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryPushAnalysisTaskListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPushAnalysisTaskListResponse
+   */
   async queryPushAnalysisTaskListWithOptions(request: QueryPushAnalysisTaskListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushAnalysisTaskListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23009,11 +24282,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPushAnalysisTaskListResponse>(await this.callApi(params, req, runtime), new QueryPushAnalysisTaskListResponse({}));
   }
 
+  /**
+   * @param request QueryPushAnalysisTaskListRequest
+   * @return QueryPushAnalysisTaskListResponse
+   */
   async queryPushAnalysisTaskList(request: QueryPushAnalysisTaskListRequest): Promise<QueryPushAnalysisTaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPushAnalysisTaskListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryPushSchedulerListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryPushSchedulerListResponse
+   */
   async queryPushSchedulerListWithOptions(request: QueryPushSchedulerListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushSchedulerListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23066,11 +24348,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryPushSchedulerListResponse>(await this.callApi(params, req, runtime), new QueryPushSchedulerListResponse({}));
   }
 
+  /**
+   * @param request QueryPushSchedulerListRequest
+   * @return QueryPushSchedulerListResponse
+   */
   async queryPushSchedulerList(request: QueryPushSchedulerListRequest): Promise<QueryPushSchedulerListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryPushSchedulerListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RevokePushMessageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokePushMessageResponse
+   */
   async revokePushMessageWithOptions(request: RevokePushMessageRequest, runtime: $Util.RuntimeOptions): Promise<RevokePushMessageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23107,11 +24398,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokePushMessageResponse>(await this.callApi(params, req, runtime), new RevokePushMessageResponse({}));
   }
 
+  /**
+   * @param request RevokePushMessageRequest
+   * @return RevokePushMessageResponse
+   */
   async revokePushMessage(request: RevokePushMessageRequest): Promise<RevokePushMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokePushMessageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RevokePushTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokePushTaskResponse
+   */
   async revokePushTaskWithOptions(request: RevokePushTaskRequest, runtime: $Util.RuntimeOptions): Promise<RevokePushTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23144,11 +24444,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokePushTaskResponse>(await this.callApi(params, req, runtime), new RevokePushTaskResponse({}));
   }
 
+  /**
+   * @param request RevokePushTaskRequest
+   * @return RevokePushTaskResponse
+   */
   async revokePushTask(request: RevokePushTaskRequest): Promise<RevokePushTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokePushTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RunMsaDiffRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunMsaDiffResponse
+   */
   async runMsaDiffWithOptions(request: RunMsaDiffRequest, runtime: $Util.RuntimeOptions): Promise<RunMsaDiffResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23185,11 +24494,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RunMsaDiffResponse>(await this.callApi(params, req, runtime), new RunMsaDiffResponse({}));
   }
 
+  /**
+   * @param request RunMsaDiffRequest
+   * @return RunMsaDiffResponse
+   */
   async runMsaDiff(request: RunMsaDiffRequest): Promise<RunMsaDiffResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runMsaDiffWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveMgsApirestRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveMgsApirestResponse
+   */
   async saveMgsApirestWithOptions(request: SaveMgsApirestRequest, runtime: $Util.RuntimeOptions): Promise<SaveMgsApirestResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23226,11 +24544,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveMgsApirestResponse>(await this.callApi(params, req, runtime), new SaveMgsApirestResponse({}));
   }
 
+  /**
+   * @param request SaveMgsApirestRequest
+   * @return SaveMgsApirestResponse
+   */
   async saveMgsApirest(request: SaveMgsApirestRequest): Promise<SaveMgsApirestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveMgsApirestWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StartUserAppAsyncEnhanceInMsaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartUserAppAsyncEnhanceInMsaResponse
+   */
   async startUserAppAsyncEnhanceInMsaWithOptions(request: StartUserAppAsyncEnhanceInMsaRequest, runtime: $Util.RuntimeOptions): Promise<StartUserAppAsyncEnhanceInMsaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23331,11 +24658,20 @@ export default class Client extends OpenApi {
     return $tea.cast<StartUserAppAsyncEnhanceInMsaResponse>(await this.callApi(params, req, runtime), new StartUserAppAsyncEnhanceInMsaResponse({}));
   }
 
+  /**
+   * @param request StartUserAppAsyncEnhanceInMsaRequest
+   * @return StartUserAppAsyncEnhanceInMsaResponse
+   */
   async startUserAppAsyncEnhanceInMsa(request: StartUserAppAsyncEnhanceInMsaRequest): Promise<StartUserAppAsyncEnhanceInMsaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startUserAppAsyncEnhanceInMsaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateMcubeWhitelistRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMcubeWhitelistResponse
+   */
   async updateMcubeWhitelistWithOptions(request: UpdateMcubeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMcubeWhitelistResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23384,11 +24720,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new UpdateMcubeWhitelistResponse({}));
   }
 
+  /**
+   * @param request UpdateMcubeWhitelistRequest
+   * @return UpdateMcubeWhitelistResponse
+   */
   async updateMcubeWhitelist(request: UpdateMcubeWhitelistRequest): Promise<UpdateMcubeWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMcubeWhitelistWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateMpaasAppInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMpaasAppInfoResponse
+   */
   async updateMpaasAppInfoWithOptions(request: UpdateMpaasAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMpaasAppInfoResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23437,11 +24782,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMpaasAppInfoResponse>(await this.callApi(params, req, runtime), new UpdateMpaasAppInfoResponse({}));
   }
 
+  /**
+   * @param request UpdateMpaasAppInfoRequest
+   * @return UpdateMpaasAppInfoResponse
+   */
   async updateMpaasAppInfo(request: UpdateMpaasAppInfoRequest): Promise<UpdateMpaasAppInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMpaasAppInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 上传字节码到msa进行加固
+   *
+   * @param request UploadBitcodeToMsaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadBitcodeToMsaResponse
+   */
   async uploadBitcodeToMsaWithOptions(request: UploadBitcodeToMsaRequest, runtime: $Util.RuntimeOptions): Promise<UploadBitcodeToMsaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23490,11 +24846,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadBitcodeToMsaResponse>(await this.callApi(params, req, runtime), new UploadBitcodeToMsaResponse({}));
   }
 
+  /**
+   * @summary 上传字节码到msa进行加固
+   *
+   * @param request UploadBitcodeToMsaRequest
+   * @return UploadBitcodeToMsaResponse
+   */
   async uploadBitcodeToMsa(request: UploadBitcodeToMsaRequest): Promise<UploadBitcodeToMsaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadBitcodeToMsaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UploadMcubeMiniPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadMcubeMiniPackageResponse
+   */
   async uploadMcubeMiniPackageWithOptions(request: UploadMcubeMiniPackageRequest, runtime: $Util.RuntimeOptions): Promise<UploadMcubeMiniPackageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23615,11 +24982,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadMcubeMiniPackageResponse>(await this.callApi(params, req, runtime), new UploadMcubeMiniPackageResponse({}));
   }
 
+  /**
+   * @param request UploadMcubeMiniPackageRequest
+   * @return UploadMcubeMiniPackageResponse
+   */
   async uploadMcubeMiniPackage(request: UploadMcubeMiniPackageRequest): Promise<UploadMcubeMiniPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadMcubeMiniPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UploadMcubeRsaKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadMcubeRsaKeyResponse
+   */
   async uploadMcubeRsaKeyWithOptions(request: UploadMcubeRsaKeyRequest, runtime: $Util.RuntimeOptions): Promise<UploadMcubeRsaKeyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23660,11 +25036,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadMcubeRsaKeyResponse>(await this.callApi(params, req, runtime), new UploadMcubeRsaKeyResponse({}));
   }
 
+  /**
+   * @param request UploadMcubeRsaKeyRequest
+   * @return UploadMcubeRsaKeyResponse
+   */
   async uploadMcubeRsaKey(request: UploadMcubeRsaKeyRequest): Promise<UploadMcubeRsaKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadMcubeRsaKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UploadUserAppToMsaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadUserAppToMsaResponse
+   */
   async uploadUserAppToMsaWithOptions(request: UploadUserAppToMsaRequest, runtime: $Util.RuntimeOptions): Promise<UploadUserAppToMsaResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23701,6 +25086,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadUserAppToMsaResponse>(await this.callApi(params, req, runtime), new UploadUserAppToMsaResponse({}));
   }
 
+  /**
+   * @param request UploadUserAppToMsaRequest
+   * @return UploadUserAppToMsaResponse
+   */
   async uploadUserAppToMsa(request: UploadUserAppToMsaRequest): Promise<UploadUserAppToMsaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadUserAppToMsaWithOptions(request, runtime);
