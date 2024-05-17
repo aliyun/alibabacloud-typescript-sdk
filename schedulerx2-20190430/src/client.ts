@@ -68,9 +68,9 @@ export class BatchDeleteJobsResponseBody extends $tea.Model {
 }
 
 export class BatchDeleteJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchDeleteJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchDeleteJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -149,9 +149,9 @@ export class BatchDeleteRouteStrategyResponseBody extends $tea.Model {
 }
 
 export class BatchDeleteRouteStrategyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchDeleteRouteStrategyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchDeleteRouteStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -233,9 +233,9 @@ export class BatchDisableJobsResponseBody extends $tea.Model {
 }
 
 export class BatchDisableJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchDisableJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchDisableJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -317,9 +317,9 @@ export class BatchEnableJobsResponseBody extends $tea.Model {
 }
 
 export class BatchEnableJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchEnableJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchEnableJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -431,9 +431,9 @@ export class CreateAppGroupResponseBody extends $tea.Model {
 }
 
 export class CreateAppGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -611,9 +611,9 @@ export class CreateJobResponseBody extends $tea.Model {
 }
 
 export class CreateJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -695,9 +695,9 @@ export class CreateNamespaceResponseBody extends $tea.Model {
 }
 
 export class CreateNamespaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateNamespaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNamespaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -791,9 +791,9 @@ export class CreateRouteStrategyResponseBody extends $tea.Model {
 }
 
 export class CreateRouteStrategyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateRouteStrategyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRouteStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -893,9 +893,9 @@ export class CreateWorkflowResponseBody extends $tea.Model {
 }
 
 export class CreateWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -974,9 +974,9 @@ export class DeleteAppGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteAppGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1058,9 +1058,9 @@ export class DeleteJobResponseBody extends $tea.Model {
 }
 
 export class DeleteJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1139,9 +1139,9 @@ export class DeleteRouteStrategyResponseBody extends $tea.Model {
 }
 
 export class DeleteRouteStrategyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteRouteStrategyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRouteStrategyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1223,9 +1223,9 @@ export class DeleteWorkflowResponseBody extends $tea.Model {
 }
 
 export class DeleteWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1279,9 +1279,9 @@ export class DescribeRegionsResponseBody extends $tea.Model {
 }
 
 export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1375,9 +1375,9 @@ export class DesignateWorkersResponseBody extends $tea.Model {
 }
 
 export class DesignateWorkersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DesignateWorkersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DesignateWorkersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1459,9 +1459,9 @@ export class DisableJobResponseBody extends $tea.Model {
 }
 
 export class DisableJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1543,9 +1543,9 @@ export class DisableWorkflowResponseBody extends $tea.Model {
 }
 
 export class DisableWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DisableWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1627,9 +1627,9 @@ export class EnableJobResponseBody extends $tea.Model {
 }
 
 export class EnableJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1711,9 +1711,9 @@ export class EnableWorkflowResponseBody extends $tea.Model {
 }
 
 export class EnableWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EnableWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1813,9 +1813,9 @@ export class ExecuteJobResponseBody extends $tea.Model {
 }
 
 export class ExecuteJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExecuteJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1903,9 +1903,9 @@ export class ExecuteWorkflowResponseBody extends $tea.Model {
 }
 
 export class ExecuteWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ExecuteWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1984,9 +1984,9 @@ export class GetAppGroupResponseBody extends $tea.Model {
 }
 
 export class GetAppGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2074,9 +2074,9 @@ export class GetJobInfoResponseBody extends $tea.Model {
 }
 
 export class GetJobInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2164,9 +2164,9 @@ export class GetJobInstanceResponseBody extends $tea.Model {
 }
 
 export class GetJobInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2194,6 +2194,8 @@ export class GetJobInstanceListRequest extends $tea.Model {
   jobId?: number;
   namespace?: string;
   namespaceSource?: string;
+  pageNum?: number;
+  pageSize?: number;
   regionId?: string;
   startTimestamp?: number;
   status?: number;
@@ -2204,6 +2206,8 @@ export class GetJobInstanceListRequest extends $tea.Model {
       jobId: 'JobId',
       namespace: 'Namespace',
       namespaceSource: 'NamespaceSource',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       startTimestamp: 'StartTimestamp',
       status: 'Status',
@@ -2217,6 +2221,8 @@ export class GetJobInstanceListRequest extends $tea.Model {
       jobId: 'number',
       namespace: 'string',
       namespaceSource: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
       regionId: 'string',
       startTimestamp: 'number',
       status: 'number',
@@ -2260,9 +2266,9 @@ export class GetJobInstanceListResponseBody extends $tea.Model {
 }
 
 export class GetJobInstanceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetJobInstanceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobInstanceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2368,9 +2374,9 @@ export class GetLogResponseBody extends $tea.Model {
 }
 
 export class GetLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2464,9 +2470,9 @@ export class GetOverviewResponseBody extends $tea.Model {
 }
 
 export class GetOverviewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOverviewResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOverviewResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2551,9 +2557,9 @@ export class GetWorkFlowResponseBody extends $tea.Model {
 }
 
 export class GetWorkFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWorkFlowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWorkFlowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2635,9 +2641,9 @@ export class GetWorkerListResponseBody extends $tea.Model {
 }
 
 export class GetWorkerListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWorkerListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWorkerListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2725,9 +2731,9 @@ export class GetWorkflowInstanceResponseBody extends $tea.Model {
 }
 
 export class GetWorkflowInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWorkflowInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWorkflowInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2815,9 +2821,9 @@ export class GrantPermissionResponseBody extends $tea.Model {
 }
 
 export class GrantPermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GrantPermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GrantPermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2899,9 +2905,9 @@ export class ListGroupsResponseBody extends $tea.Model {
 }
 
 export class ListGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2989,9 +2995,9 @@ export class ListJobsResponseBody extends $tea.Model {
 }
 
 export class ListJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListJobsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJobsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3070,9 +3076,9 @@ export class ListNamespacesResponseBody extends $tea.Model {
 }
 
 export class ListNamespacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListNamespacesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNamespacesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3157,9 +3163,9 @@ export class ListWorkflowInstanceResponseBody extends $tea.Model {
 }
 
 export class ListWorkflowInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListWorkflowInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWorkflowInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3250,9 +3256,9 @@ export class RerunJobResponseBody extends $tea.Model {
 }
 
 export class RerunJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RerunJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RerunJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3337,9 +3343,9 @@ export class RetryJobInstanceResponseBody extends $tea.Model {
 }
 
 export class RetryJobInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RetryJobInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RetryJobInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3421,9 +3427,9 @@ export class RevokePermissionResponseBody extends $tea.Model {
 }
 
 export class RevokePermissionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RevokePermissionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokePermissionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3508,9 +3514,9 @@ export class SetJobInstanceSuccessResponseBody extends $tea.Model {
 }
 
 export class SetJobInstanceSuccessResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetJobInstanceSuccessResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetJobInstanceSuccessResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3595,9 +3601,9 @@ export class SetWfInstanceSuccessResponseBody extends $tea.Model {
 }
 
 export class SetWfInstanceSuccessResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetWfInstanceSuccessResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetWfInstanceSuccessResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3682,9 +3688,9 @@ export class StopInstanceResponseBody extends $tea.Model {
 }
 
 export class StopInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3766,9 +3772,9 @@ export class UpdateAppGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateAppGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAppGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAppGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3946,9 +3952,9 @@ export class UpdateJobResponseBody extends $tea.Model {
 }
 
 export class UpdateJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateJobResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4042,9 +4048,9 @@ export class UpdateWorkflowResponseBody extends $tea.Model {
 }
 
 export class UpdateWorkflowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateWorkflowResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWorkflowResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4129,9 +4135,9 @@ export class UpdateWorkflowDagResponseBody extends $tea.Model {
 }
 
 export class UpdateWorkflowDagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateWorkflowDagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWorkflowDagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5548,18 +5554,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    * ```xml
-    * <dependency>
-    *     <groupId>com.aliyun</groupId>
-    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *     <version>1.0.4</version>
-    * </dependency>
-    * ```
-    *
-    * @param request BatchDeleteJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return BatchDeleteJobsResponse
+   * @summary Deletes multiple jobs at a time.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   * ```xml
+   * <dependency>
+   *     <groupId>com.aliyun</groupId>
+   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *     <version>1.0.4</version>
+   * </dependency>
+   * ```
+   *
+   * @param request BatchDeleteJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchDeleteJobsResponse
    */
   async batchDeleteJobsWithOptions(request: BatchDeleteJobsRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteJobsResponse> {
     Util.validateModel(request);
@@ -5604,23 +5612,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    * ```xml
-    * <dependency>
-    *     <groupId>com.aliyun</groupId>
-    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *     <version>1.0.4</version>
-    * </dependency>
-    * ```
-    *
-    * @param request BatchDeleteJobsRequest
-    * @return BatchDeleteJobsResponse
+   * @summary Deletes multiple jobs at a time.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   * ```xml
+   * <dependency>
+   *     <groupId>com.aliyun</groupId>
+   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *     <version>1.0.4</version>
+   * </dependency>
+   * ```
+   *
+   * @param request BatchDeleteJobsRequest
+   * @return BatchDeleteJobsResponse
    */
   async batchDeleteJobs(request: BatchDeleteJobsRequest): Promise<BatchDeleteJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The additional information that is returned.
+   *
+   * @param request BatchDeleteRouteStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchDeleteRouteStrategyResponse
+   */
   async batchDeleteRouteStrategyWithOptions(request: BatchDeleteRouteStrategyRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteRouteStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5659,24 +5676,32 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchDeleteRouteStrategyResponse>(await this.callApi(params, req, runtime), new BatchDeleteRouteStrategyResponse({}));
   }
 
+  /**
+   * @summary The additional information that is returned.
+   *
+   * @param request BatchDeleteRouteStrategyRequest
+   * @return BatchDeleteRouteStrategyResponse
+   */
   async batchDeleteRouteStrategy(request: BatchDeleteRouteStrategyRequest): Promise<BatchDeleteRouteStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchDeleteRouteStrategyWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    * ```xml
-    * <dependency>
-    *     <groupId>com.aliyun</groupId>
-    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *     <version>1.0.4</version>
-    * </dependency>
-    * ```
-    *
-    * @param request BatchDisableJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return BatchDisableJobsResponse
+   * @summary Disables multiple jobs at a time.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   * ```xml
+   * <dependency>
+   *     <groupId>com.aliyun</groupId>
+   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *     <version>1.0.4</version>
+   * </dependency>
+   * ```
+   *
+   * @param request BatchDisableJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchDisableJobsResponse
    */
   async batchDisableJobsWithOptions(request: BatchDisableJobsRequest, runtime: $Util.RuntimeOptions): Promise<BatchDisableJobsResponse> {
     Util.validateModel(request);
@@ -5721,17 +5746,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    * ```xml
-    * <dependency>
-    *     <groupId>com.aliyun</groupId>
-    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *     <version>1.0.4</version>
-    * </dependency>
-    * ```
-    *
-    * @param request BatchDisableJobsRequest
-    * @return BatchDisableJobsResponse
+   * @summary Disables multiple jobs at a time.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   * ```xml
+   * <dependency>
+   *     <groupId>com.aliyun</groupId>
+   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *     <version>1.0.4</version>
+   * </dependency>
+   * ```
+   *
+   * @param request BatchDisableJobsRequest
+   * @return BatchDisableJobsResponse
    */
   async batchDisableJobs(request: BatchDisableJobsRequest): Promise<BatchDisableJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5739,18 +5766,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    * ```xml
-    * <dependency>
-    *     <groupId>com.aliyun</groupId>
-    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *     <version>1.0.4</version>
-    * </dependency>
-    * ```
-    *
-    * @param request BatchEnableJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return BatchEnableJobsResponse
+   * @summary Enables multiple jobs at a time.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   * ```xml
+   * <dependency>
+   *     <groupId>com.aliyun</groupId>
+   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *     <version>1.0.4</version>
+   * </dependency>
+   * ```
+   *
+   * @param request BatchEnableJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchEnableJobsResponse
    */
   async batchEnableJobsWithOptions(request: BatchEnableJobsRequest, runtime: $Util.RuntimeOptions): Promise<BatchEnableJobsResponse> {
     Util.validateModel(request);
@@ -5795,23 +5824,32 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    * ```xml
-    * <dependency>
-    *     <groupId>com.aliyun</groupId>
-    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *     <version>1.0.4</version>
-    * </dependency>
-    * ```
-    *
-    * @param request BatchEnableJobsRequest
-    * @return BatchEnableJobsResponse
+   * @summary Enables multiple jobs at a time.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   * ```xml
+   * <dependency>
+   *     <groupId>com.aliyun</groupId>
+   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *     <version>1.0.4</version>
+   * </dependency>
+   * ```
+   *
+   * @param request BatchEnableJobsRequest
+   * @return BatchEnableJobsResponse
    */
   async batchEnableJobs(request: BatchEnableJobsRequest): Promise<BatchEnableJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchEnableJobsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an application group. The AppKey is returned.
+   *
+   * @param request CreateAppGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppGroupResponse
+   */
   async createAppGroupWithOptions(request: CreateAppGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppGroupResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5832,11 +5870,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppGroupResponse>(await this.callApi(params, req, runtime), new CreateAppGroupResponse({}));
   }
 
+  /**
+   * @summary Creates an application group. The AppKey is returned.
+   *
+   * @param request CreateAppGroupRequest
+   * @return CreateAppGroupResponse
+   */
   async createAppGroup(request: CreateAppGroupRequest): Promise<CreateAppGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a job and obtains the job ID.
+   *
+   * @param request CreateJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateJobResponse
+   */
   async createJobWithOptions(request: CreateJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6003,11 +6054,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
   }
 
+  /**
+   * @summary Creates a job and obtains the job ID.
+   *
+   * @param request CreateJobRequest
+   * @return CreateJobResponse
+   */
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a namespace.
+   *
+   * @param request CreateNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNamespaceResponse
+   */
   async createNamespaceWithOptions(request: CreateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6044,11 +6108,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
   }
 
+  /**
+   * @summary Creates a namespace.
+   *
+   * @param request CreateNamespaceRequest
+   * @return CreateNamespaceResponse
+   */
   async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNamespaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a routing policy.
+   *
+   * @param request CreateRouteStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateRouteStrategyResponse
+   */
   async createRouteStrategyWithOptions(request: CreateRouteStrategyRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6101,11 +6178,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateRouteStrategyResponse>(await this.callApi(params, req, runtime), new CreateRouteStrategyResponse({}));
   }
 
+  /**
+   * @summary Creates a routing policy.
+   *
+   * @param request CreateRouteStrategyRequest
+   * @return CreateRouteStrategyResponse
+   */
   async createRouteStrategy(request: CreateRouteStrategyRequest): Promise<CreateRouteStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRouteStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
+   *
+   * @param request CreateWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWorkflowResponse
+   */
   async createWorkflowWithOptions(request: CreateWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<CreateWorkflowResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6166,11 +6256,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWorkflowResponse>(await this.callApi(params, req, runtime), new CreateWorkflowResponse({}));
   }
 
+  /**
+   * @summary Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
+   *
+   * @param request CreateWorkflowRequest
+   * @return CreateWorkflowResponse
+   */
   async createWorkflow(request: CreateWorkflowRequest): Promise<CreateWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The additional information that is returned.
+   *
+   * @param request DeleteAppGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppGroupResponse
+   */
   async deleteAppGroupWithOptions(request: DeleteAppGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6207,11 +6310,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppGroupResponse>(await this.callApi(params, req, runtime), new DeleteAppGroupResponse({}));
   }
 
+  /**
+   * @summary The additional information that is returned.
+   *
+   * @param request DeleteAppGroupRequest
+   * @return DeleteAppGroupResponse
+   */
   async deleteAppGroup(request: DeleteAppGroupRequest): Promise<DeleteAppGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified job.
+   *
+   * @param request DeleteJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteJobResponse
+   */
   async deleteJobWithOptions(request: DeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6232,11 +6348,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified job.
+   *
+   * @param request DeleteJobRequest
+   * @return DeleteJobResponse
+   */
   async deleteJob(request: DeleteJobRequest): Promise<DeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a routing policy.
+   *
+   * @param request DeleteRouteStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRouteStrategyResponse
+   */
   async deleteRouteStrategyWithOptions(request: DeleteRouteStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6273,11 +6402,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRouteStrategyResponse>(await this.callApi(params, req, runtime), new DeleteRouteStrategyResponse({}));
   }
 
+  /**
+   * @summary Deletes a routing policy.
+   *
+   * @param request DeleteRouteStrategyRequest
+   * @return DeleteRouteStrategyResponse
+   */
   async deleteRouteStrategy(request: DeleteRouteStrategyRequest): Promise<DeleteRouteStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRouteStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a workflow.
+   *
+   * @param request DeleteWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWorkflowResponse
+   */
   async deleteWorkflowWithOptions(request: DeleteWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWorkflowResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6298,11 +6440,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWorkflowResponse>(await this.callApi(params, req, runtime), new DeleteWorkflowResponse({}));
   }
 
+  /**
+   * @summary Deletes a workflow.
+   *
+   * @param request DeleteWorkflowRequest
+   * @return DeleteWorkflowResponse
+   */
   async deleteWorkflow(request: DeleteWorkflowRequest): Promise<DeleteWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Returns available regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -6319,11 +6474,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Returns available regions.
+   *
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(runtime);
   }
 
+  /**
+   * @summary Designates machines.
+   *
+   * @param request DesignateWorkersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DesignateWorkersResponse
+   */
   async designateWorkersWithOptions(request: DesignateWorkersRequest, runtime: $Util.RuntimeOptions): Promise<DesignateWorkersResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6344,11 +6511,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DesignateWorkersResponse>(await this.callApi(params, req, runtime), new DesignateWorkersResponse({}));
   }
 
+  /**
+   * @summary Designates machines.
+   *
+   * @param request DesignateWorkersRequest
+   * @return DesignateWorkersResponse
+   */
   async designateWorkers(request: DesignateWorkersRequest): Promise<DesignateWorkersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.designateWorkersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a job.
+   *
+   * @param request DisableJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableJobResponse
+   */
   async disableJobWithOptions(request: DisableJobRequest, runtime: $Util.RuntimeOptions): Promise<DisableJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6369,11 +6549,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableJobResponse>(await this.callApi(params, req, runtime), new DisableJobResponse({}));
   }
 
+  /**
+   * @summary Disables a job.
+   *
+   * @param request DisableJobRequest
+   * @return DisableJobResponse
+   */
   async disableJob(request: DisableJobRequest): Promise<DisableJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables a specified workflow.
+   *
+   * @param request DisableWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableWorkflowResponse
+   */
   async disableWorkflowWithOptions(request: DisableWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DisableWorkflowResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6394,11 +6587,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableWorkflowResponse>(await this.callApi(params, req, runtime), new DisableWorkflowResponse({}));
   }
 
+  /**
+   * @summary Disables a specified workflow.
+   *
+   * @param request DisableWorkflowRequest
+   * @return DisableWorkflowResponse
+   */
   async disableWorkflow(request: DisableWorkflowRequest): Promise<DisableWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables a job.
+   *
+   * @param request EnableJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableJobResponse
+   */
   async enableJobWithOptions(request: EnableJobRequest, runtime: $Util.RuntimeOptions): Promise<EnableJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6419,11 +6625,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableJobResponse>(await this.callApi(params, req, runtime), new EnableJobResponse({}));
   }
 
+  /**
+   * @summary Enables a job.
+   *
+   * @param request EnableJobRequest
+   * @return EnableJobResponse
+   */
   async enableJob(request: EnableJobRequest): Promise<EnableJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables a specified workflow.
+   *
+   * @param request EnableWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableWorkflowResponse
+   */
   async enableWorkflowWithOptions(request: EnableWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<EnableWorkflowResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6444,17 +6663,25 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableWorkflowResponse>(await this.callApi(params, req, runtime), new EnableWorkflowResponse({}));
   }
 
+  /**
+   * @summary Enables a specified workflow.
+   *
+   * @param request EnableWorkflowRequest
+   * @return EnableWorkflowResponse
+   */
   async enableWorkflow(request: EnableWorkflowRequest): Promise<EnableWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableWorkflowWithOptions(request, runtime);
   }
 
   /**
-    * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
-    *
-    * @param request ExecuteJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ExecuteJobResponse
+   * @summary Triggers a job to immediately run once.
+   *
+   * @description > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+   *
+   * @param request ExecuteJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecuteJobResponse
    */
   async executeJobWithOptions(request: ExecuteJobRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteJobResponse> {
     Util.validateModel(request);
@@ -6477,16 +6704,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
-    *
-    * @param request ExecuteJobRequest
-    * @return ExecuteJobResponse
+   * @summary Triggers a job to immediately run once.
+   *
+   * @description > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+   *
+   * @param request ExecuteJobRequest
+   * @return ExecuteJobResponse
    */
   async executeJob(request: ExecuteJobRequest): Promise<ExecuteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Immediately triggers a workflow.
+   *
+   * @param request ExecuteWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecuteWorkflowResponse
+   */
   async executeWorkflowWithOptions(request: ExecuteWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteWorkflowResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6507,11 +6743,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecuteWorkflowResponse>(await this.callApi(params, req, runtime), new ExecuteWorkflowResponse({}));
   }
 
+  /**
+   * @summary Immediately triggers a workflow.
+   *
+   * @param request ExecuteWorkflowRequest
+   * @return ExecuteWorkflowResponse
+   */
   async executeWorkflow(request: ExecuteWorkflowRequest): Promise<ExecuteWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The configuration of the alert. The value is a JSON string. For more information, see **the additional information about response parameters below this table**.
+   *
+   * @param request GetAppGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppGroupResponse
+   */
   async getAppGroupWithOptions(request: GetAppGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetAppGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6544,11 +6793,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppGroupResponse>(await this.callApi(params, req, runtime), new GetAppGroupResponse({}));
   }
 
+  /**
+   * @summary The configuration of the alert. The value is a JSON string. For more information, see **the additional information about response parameters below this table**.
+   *
+   * @param request GetAppGroupRequest
+   * @return GetAppGroupResponse
+   */
   async getAppGroup(request: GetAppGroupRequest): Promise<GetAppGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+   *
+   * @param request GetJobInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobInfoResponse
+   */
   async getJobInfoWithOptions(request: GetJobInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetJobInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6569,11 +6831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobInfoResponse>(await this.callApi(params, req, runtime), new GetJobInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+   *
+   * @param request GetJobInfoRequest
+   * @return GetJobInfoResponse
+   */
   async getJobInfo(request: GetJobInfoRequest): Promise<GetJobInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a job instance. You can view the status and progress of the job instance.
+   *
+   * @param request GetJobInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobInstanceResponse
+   */
   async getJobInstanceWithOptions(request: GetJobInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetJobInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6594,11 +6869,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobInstanceResponse>(await this.callApi(params, req, runtime), new GetJobInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a job instance. You can view the status and progress of the job instance.
+   *
+   * @param request GetJobInstanceRequest
+   * @return GetJobInstanceResponse
+   */
   async getJobInstance(request: GetJobInstanceRequest): Promise<GetJobInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the most recent 10 execution instances of a job.
+   *
+   * @param request GetJobInstanceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetJobInstanceListResponse
+   */
   async getJobInstanceListWithOptions(request: GetJobInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetJobInstanceListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6619,11 +6907,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetJobInstanceListResponse>(await this.callApi(params, req, runtime), new GetJobInstanceListResponse({}));
   }
 
+  /**
+   * @summary Queries the most recent 10 execution instances of a job.
+   *
+   * @param request GetJobInstanceListRequest
+   * @return GetJobInstanceListResponse
+   */
   async getJobInstanceList(request: GetJobInstanceListRequest): Promise<GetJobInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobInstanceListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the operational logs of a job. You can call this operation only in the professional edition.
+   *
+   * @param request GetLogRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLogResponse
+   */
   async getLogWithOptions(request: GetLogRequest, runtime: $Util.RuntimeOptions): Promise<GetLogResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6644,11 +6945,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLogResponse>(await this.callApi(params, req, runtime), new GetLogResponse({}));
   }
 
+  /**
+   * @summary Queries the operational logs of a job. You can call this operation only in the professional edition.
+   *
+   * @param request GetLogRequest
+   * @return GetLogResponse
+   */
   async getLog(request: GetLogRequest): Promise<GetLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLogWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询概览数据信息
+   *
+   * @param request GetOverviewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOverviewResponse
+   */
   async getOverviewWithOptions(request: GetOverviewRequest, runtime: $Util.RuntimeOptions): Promise<GetOverviewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6701,11 +7015,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOverviewResponse>(await this.callApi(params, req, runtime), new GetOverviewResponse({}));
   }
 
+  /**
+   * @summary 查询概览数据信息
+   *
+   * @param request GetOverviewRequest
+   * @return GetOverviewResponse
+   */
   async getOverview(request: GetOverviewRequest): Promise<GetOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOverviewWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the information about a workflow.
+   *
+   * @param request GetWorkFlowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWorkFlowResponse
+   */
   async getWorkFlowWithOptions(request: GetWorkFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkFlowResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6726,11 +7053,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWorkFlowResponse>(await this.callApi(params, req, runtime), new GetWorkFlowResponse({}));
   }
 
+  /**
+   * @summary Obtains the information about a workflow.
+   *
+   * @param request GetWorkFlowRequest
+   * @return GetWorkFlowResponse
+   */
   async getWorkFlow(request: GetWorkFlowRequest): Promise<GetWorkFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWorkFlowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the list of workers that are connected to an application.
+   *
+   * @param request GetWorkerListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWorkerListResponse
+   */
   async getWorkerListWithOptions(request: GetWorkerListRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkerListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6751,11 +7091,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWorkerListResponse>(await this.callApi(params, req, runtime), new GetWorkerListResponse({}));
   }
 
+  /**
+   * @summary Obtains the list of workers that are connected to an application.
+   *
+   * @param request GetWorkerListRequest
+   * @return GetWorkerListResponse
+   */
   async getWorkerList(request: GetWorkerListRequest): Promise<GetWorkerListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWorkerListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a specified workflow instance, including the state of the workflow instance, the state of each job instance, and the dependencies between job instances. You can call this operation only in the professional edition.
+   *
+   * @param request GetWorkflowInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWorkflowInstanceResponse
+   */
   async getWorkflowInstanceWithOptions(request: GetWorkflowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkflowInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6776,11 +7129,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWorkflowInstanceResponse>(await this.callApi(params, req, runtime), new GetWorkflowInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a specified workflow instance, including the state of the workflow instance, the state of each job instance, and the dependencies between job instances. You can call this operation only in the professional edition.
+   *
+   * @param request GetWorkflowInstanceRequest
+   * @return GetWorkflowInstanceResponse
+   */
   async getWorkflowInstance(request: GetWorkflowInstanceRequest): Promise<GetWorkflowInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWorkflowInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Grants permissions to an application group.
+   *
+   * @param request GrantPermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantPermissionResponse
+   */
   async grantPermissionWithOptions(request: GrantPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantPermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6829,24 +7195,32 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantPermissionResponse>(await this.callApi(params, req, runtime), new GrantPermissionResponse({}));
   }
 
+  /**
+   * @summary Grants permissions to an application group.
+   *
+   * @param request GrantPermissionRequest
+   * @return GrantPermissionResponse
+   */
   async grantPermission(request: GrantPermissionRequest): Promise<GrantPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantPermissionWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    * ```xml
-    * <dependency>
-    *     <groupId>com.aliyun</groupId>
-    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *     <version>1.0.5</version>
-    * </dependency>
-    * ```
-    *
-    * @param request ListGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListGroupsResponse
+   * @summary Queries a list of applications.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   * ```xml
+   * <dependency>
+   *     <groupId>com.aliyun</groupId>
+   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *     <version>1.0.5</version>
+   * </dependency>
+   * ```
+   *
+   * @param request ListGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupsResponse
    */
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
@@ -6885,17 +7259,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    * ```xml
-    * <dependency>
-    *     <groupId>com.aliyun</groupId>
-    *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *     <version>1.0.5</version>
-    * </dependency>
-    * ```
-    *
-    * @param request ListGroupsRequest
-    * @return ListGroupsResponse
+   * @summary Queries a list of applications.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   * ```xml
+   * <dependency>
+   *     <groupId>com.aliyun</groupId>
+   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *     <version>1.0.5</version>
+   * </dependency>
+   * ```
+   *
+   * @param request ListGroupsRequest
+   * @return ListGroupsResponse
    */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6903,16 +7279,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    *     <dependency>
-    *           <groupId>com.aliyun</groupId>
-    *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *           <version>1.0.5</version>
-    *     </dependency>
-    *
-    * @param request ListJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListJobsResponse
+   * @summary Queries jobs.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   *     <dependency>
+   *           <groupId>com.aliyun</groupId>
+   *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *           <version>1.0.5</version>
+   *     </dependency>
+   *
+   * @param request ListJobsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListJobsResponse
    */
   async listJobsWithOptions(request: ListJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(request);
@@ -6935,15 +7313,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    *     <dependency>
-    *           <groupId>com.aliyun</groupId>
-    *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *           <version>1.0.5</version>
-    *     </dependency>
-    *
-    * @param request ListJobsRequest
-    * @return ListJobsResponse
+   * @summary Queries jobs.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   *     <dependency>
+   *           <groupId>com.aliyun</groupId>
+   *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *           <version>1.0.5</version>
+   *     </dependency>
+   *
+   * @param request ListJobsRequest
+   * @return ListJobsResponse
    */
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6951,16 +7331,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    *     <dependency>
-    *         <groupId>com.aliyun</groupId>
-    *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *         <version>1.0.5</version>
-    *     </dependency>
-    *
-    * @param request ListNamespacesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListNamespacesResponse
+   * @summary Queries namespaces.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   *     <dependency>
+   *         <groupId>com.aliyun</groupId>
+   *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *         <version>1.0.5</version>
+   *     </dependency>
+   *
+   * @param request ListNamespacesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNamespacesResponse
    */
   async listNamespacesWithOptions(request: ListNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<ListNamespacesResponse> {
     Util.validateModel(request);
@@ -6995,21 +7377,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must add the following dependency to the pom.xml file:
-    *     <dependency>
-    *         <groupId>com.aliyun</groupId>
-    *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-    *         <version>1.0.5</version>
-    *     </dependency>
-    *
-    * @param request ListNamespacesRequest
-    * @return ListNamespacesResponse
+   * @summary Queries namespaces.
+   *
+   * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+   *     <dependency>
+   *         <groupId>com.aliyun</groupId>
+   *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+   *         <version>1.0.5</version>
+   *     </dependency>
+   *
+   * @param request ListNamespacesRequest
+   * @return ListNamespacesResponse
    */
   async listNamespaces(request: ListNamespacesRequest): Promise<ListNamespacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNamespacesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the execution history of a workflow. You can call this operation only in the professional edition.
+   *
+   * @param request ListWorkflowInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkflowInstanceResponse
+   */
   async listWorkflowInstanceWithOptions(request: ListWorkflowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkflowInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7030,11 +7421,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkflowInstanceResponse>(await this.callApi(params, req, runtime), new ListWorkflowInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the execution history of a workflow. You can call this operation only in the professional edition.
+   *
+   * @param request ListWorkflowInstanceRequest
+   * @return ListWorkflowInstanceResponse
+   */
   async listWorkflowInstance(request: ListWorkflowInstanceRequest): Promise<ListWorkflowInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWorkflowInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
+   *
+   * @param request RerunJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RerunJobResponse
+   */
   async rerunJobWithOptions(request: RerunJobRequest, runtime: $Util.RuntimeOptions): Promise<RerunJobResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7087,11 +7491,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RerunJobResponse>(await this.callApi(params, req, runtime), new RerunJobResponse({}));
   }
 
+  /**
+   * @summary Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
+   *
+   * @param request RerunJobRequest
+   * @return RerunJobResponse
+   */
   async rerunJob(request: RerunJobRequest): Promise<RerunJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rerunJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+   *
+   * @param request RetryJobInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetryJobInstanceResponse
+   */
   async retryJobInstanceWithOptions(request: RetryJobInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RetryJobInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7136,11 +7553,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RetryJobInstanceResponse>(await this.callApi(params, req, runtime), new RetryJobInstanceResponse({}));
   }
 
+  /**
+   * @summary Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+   *
+   * @param request RetryJobInstanceRequest
+   * @return RetryJobInstanceResponse
+   */
   async retryJobInstance(request: RetryJobInstanceRequest): Promise<RetryJobInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retryJobInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Revokes the permissions that are granted to an Alibaba Cloud Resource Access Management (RAM) user.
+   *
+   * @param request RevokePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokePermissionResponse
+   */
   async revokePermissionWithOptions(request: RevokePermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7181,11 +7611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokePermissionResponse>(await this.callApi(params, req, runtime), new RevokePermissionResponse({}));
   }
 
+  /**
+   * @summary Revokes the permissions that are granted to an Alibaba Cloud Resource Access Management (RAM) user.
+   *
+   * @param request RevokePermissionRequest
+   * @return RevokePermissionResponse
+   */
   async revokePermission(request: RevokePermissionRequest): Promise<RevokePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokePermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+   *
+   * @param request SetJobInstanceSuccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetJobInstanceSuccessResponse
+   */
   async setJobInstanceSuccessWithOptions(request: SetJobInstanceSuccessRequest, runtime: $Util.RuntimeOptions): Promise<SetJobInstanceSuccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7230,11 +7673,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetJobInstanceSuccessResponse>(await this.callApi(params, req, runtime), new SetJobInstanceSuccessResponse({}));
   }
 
+  /**
+   * @summary Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+   *
+   * @param request SetJobInstanceSuccessRequest
+   * @return SetJobInstanceSuccessResponse
+   */
   async setJobInstanceSuccess(request: SetJobInstanceSuccessRequest): Promise<SetJobInstanceSuccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setJobInstanceSuccessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Forcibly sets the state of a workflow instance to successful. You can call this operation only in the professional edition.
+   *
+   * @param request SetWfInstanceSuccessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetWfInstanceSuccessResponse
+   */
   async setWfInstanceSuccessWithOptions(request: SetWfInstanceSuccessRequest, runtime: $Util.RuntimeOptions): Promise<SetWfInstanceSuccessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7279,11 +7735,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetWfInstanceSuccessResponse>(await this.callApi(params, req, runtime), new SetWfInstanceSuccessResponse({}));
   }
 
+  /**
+   * @summary Forcibly sets the state of a workflow instance to successful. You can call this operation only in the professional edition.
+   *
+   * @param request SetWfInstanceSuccessRequest
+   * @return SetWfInstanceSuccessResponse
+   */
   async setWfInstanceSuccess(request: SetWfInstanceSuccessRequest): Promise<SetWfInstanceSuccessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setWfInstanceSuccessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Stops a job instance in the running state.
+   *
+   * @param request StopInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopInstanceResponse
+   */
   async stopInstanceWithOptions(request: StopInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7304,11 +7773,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
   }
 
+  /**
+   * @summary Stops a job instance in the running state.
+   *
+   * @param request StopInstanceRequest
+   * @return StopInstanceResponse
+   */
   async stopInstance(request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The additional information that is returned.
+   *
+   * @param request UpdateAppGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAppGroupResponse
+   */
   async updateAppGroupWithOptions(request: UpdateAppGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7349,11 +7831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAppGroupResponse>(await this.callApi(params, req, runtime), new UpdateAppGroupResponse({}));
   }
 
+  /**
+   * @summary The additional information that is returned.
+   *
+   * @param request UpdateAppGroupRequest
+   * @return UpdateAppGroupResponse
+   */
   async updateAppGroup(request: UpdateAppGroupRequest): Promise<UpdateAppGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAppGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+   *
+   * @param request UpdateJobRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateJobResponse
+   */
   async updateJobWithOptions(request: UpdateJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7524,11 +8019,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
   }
 
+  /**
+   * @summary Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+   *
+   * @param request UpdateJobRequest
+   * @return UpdateJobResponse
+   */
   async updateJob(request: UpdateJobRequest): Promise<UpdateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateJobWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the basic information about a workflow. You can call this operation only in the professional edition.
+   *
+   * @param request UpdateWorkflowRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWorkflowResponse
+   */
   async updateWorkflowWithOptions(request: UpdateWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWorkflowResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7587,11 +8095,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWorkflowResponse>(await this.callApi(params, req, runtime), new UpdateWorkflowResponse({}));
   }
 
+  /**
+   * @summary Updates the basic information about a workflow. You can call this operation only in the professional edition.
+   *
+   * @param request UpdateWorkflowRequest
+   * @return UpdateWorkflowResponse
+   */
   async updateWorkflow(request: UpdateWorkflowRequest): Promise<UpdateWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWorkflowWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+   *
+   * @param request UpdateWorkflowDagRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWorkflowDagResponse
+   */
   async updateWorkflowDagWithOptions(request: UpdateWorkflowDagRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWorkflowDagResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7638,6 +8159,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWorkflowDagResponse>(await this.callApi(params, req, runtime), new UpdateWorkflowDagResponse({}));
   }
 
+  /**
+   * @summary Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+   *
+   * @param request UpdateWorkflowDagRequest
+   * @return UpdateWorkflowDagResponse
+   */
   async updateWorkflowDag(request: UpdateWorkflowDagRequest): Promise<UpdateWorkflowDagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWorkflowDagWithOptions(request, runtime);
