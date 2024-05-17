@@ -1701,6 +1701,7 @@ export class DescribeBackupPolicyResponseBodyDataAdvanceDataPolicies extends $te
   filterKey?: string;
   filterType?: string;
   filterValue?: string;
+  policyId?: string;
   retentionType?: string;
   retentionValue?: string;
   srcRegion?: string;
@@ -1716,6 +1717,7 @@ export class DescribeBackupPolicyResponseBodyDataAdvanceDataPolicies extends $te
       filterKey: 'FilterKey',
       filterType: 'FilterType',
       filterValue: 'FilterValue',
+      policyId: 'PolicyId',
       retentionType: 'RetentionType',
       retentionValue: 'RetentionValue',
       srcRegion: 'SrcRegion',
@@ -1734,6 +1736,7 @@ export class DescribeBackupPolicyResponseBodyDataAdvanceDataPolicies extends $te
       filterKey: 'string',
       filterType: 'string',
       filterValue: 'string',
+      policyId: 'string',
       retentionType: 'string',
       retentionValue: 'string',
       srcRegion: 'string',
@@ -2066,6 +2069,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Moves a resource from one resource group to another.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2106,25 +2116,33 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Moves a resource from one resource group to another.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL
-    * *   ApsaraDB RDS for PostgreSQL
-    * *   PolarDB for MySQL
-    * ### [](#)References
-    * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
-    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
-    *
-    * @param request CreateDownloadRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDownloadResponse
+   * @summary Creates an advanced download task for an ApsaraDB RDS for MySQL instance, an ApsaraDB RDS for PostgreSQL instance, or a PolarDB for MySQL cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL
+   * *   ApsaraDB RDS for PostgreSQL
+   * *   PolarDB for MySQL
+   * ### [](#)References
+   * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+   * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+   *
+   * @param request CreateDownloadRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDownloadResponse
    */
   async createDownloadWithOptions(request: CreateDownloadRequest, runtime: $Util.RuntimeOptions): Promise<CreateDownloadResponse> {
     Util.validateModel(request);
@@ -2191,18 +2209,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL
-    * *   ApsaraDB RDS for PostgreSQL
-    * *   PolarDB for MySQL
-    * ### [](#)References
-    * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
-    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
-    *
-    * @param request CreateDownloadRequest
-    * @return CreateDownloadResponse
+   * @summary Creates an advanced download task for an ApsaraDB RDS for MySQL instance, an ApsaraDB RDS for PostgreSQL instance, or a PolarDB for MySQL cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL
+   * *   ApsaraDB RDS for PostgreSQL
+   * *   PolarDB for MySQL
+   * ### [](#)References
+   * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+   * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+   *
+   * @param request CreateDownloadRequest
+   * @return CreateDownloadResponse
    */
   async createDownload(request: CreateDownloadRequest): Promise<CreateDownloadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2210,11 +2230,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request DeleteSandboxInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSandboxInstanceResponse
+   * @summary Releases a sandbox instance.
+   *
+   * @description This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
+   *
+   * @param request DeleteSandboxInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSandboxInstanceResponse
    */
   async deleteSandboxInstanceWithOptions(request: DeleteSandboxInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSandboxInstanceResponse> {
     Util.validateModel(request);
@@ -2249,16 +2271,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request DeleteSandboxInstanceRequest
-    * @return DeleteSandboxInstanceResponse
+   * @summary Releases a sandbox instance.
+   *
+   * @description This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
+   *
+   * @param request DeleteSandboxInstanceRequest
+   * @return DeleteSandboxInstanceResponse
    */
   async deleteSandboxInstance(request: DeleteSandboxInstanceRequest): Promise<DeleteSandboxInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSandboxInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 备份数据列表查询接口
+   *
+   * @param request DescribeBackupDataListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupDataListResponse
+   */
   async describeBackupDataListWithOptions(request: DescribeBackupDataListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupDataListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2343,11 +2374,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupDataListResponse>(await this.callApi(params, req, runtime), new DescribeBackupDataListResponse({}));
   }
 
+  /**
+   * @summary 备份数据列表查询接口
+   *
+   * @param request DescribeBackupDataListRequest
+   * @return DescribeBackupDataListResponse
+   */
   async describeBackupDataList(request: DescribeBackupDataListRequest): Promise<DescribeBackupDataListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupDataListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取备份策略接口
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2376,11 +2420,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
+  /**
+   * @summary 获取备份策略接口
+   *
+   * @param request DescribeBackupPolicyRequest
+   * @return DescribeBackupPolicyResponse
+   */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBTablesRecoveryBackupSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBTablesRecoveryBackupSetResponse
+   */
   async describeDBTablesRecoveryBackupSetWithOptions(request: DescribeDBTablesRecoveryBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBTablesRecoveryBackupSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2409,11 +2464,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBTablesRecoveryBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeDBTablesRecoveryBackupSetResponse({}));
   }
 
+  /**
+   * @param request DescribeDBTablesRecoveryBackupSetRequest
+   * @return DescribeDBTablesRecoveryBackupSetResponse
+   */
   async describeDBTablesRecoveryBackupSet(request: DescribeDBTablesRecoveryBackupSetRequest): Promise<DescribeDBTablesRecoveryBackupSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBTablesRecoveryBackupSetWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBTablesRecoveryStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBTablesRecoveryStateResponse
+   */
   async describeDBTablesRecoveryStateWithOptions(request: DescribeDBTablesRecoveryStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBTablesRecoveryStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2442,11 +2506,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBTablesRecoveryStateResponse>(await this.callApi(params, req, runtime), new DescribeDBTablesRecoveryStateResponse({}));
   }
 
+  /**
+   * @param request DescribeDBTablesRecoveryStateRequest
+   * @return DescribeDBTablesRecoveryStateResponse
+   */
   async describeDBTablesRecoveryState(request: DescribeDBTablesRecoveryStateRequest): Promise<DescribeDBTablesRecoveryStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBTablesRecoveryStateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDBTablesRecoveryTimeRangeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDBTablesRecoveryTimeRangeResponse
+   */
   async describeDBTablesRecoveryTimeRangeWithOptions(request: DescribeDBTablesRecoveryTimeRangeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBTablesRecoveryTimeRangeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2475,24 +2548,30 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDBTablesRecoveryTimeRangeResponse>(await this.callApi(params, req, runtime), new DescribeDBTablesRecoveryTimeRangeResponse({}));
   }
 
+  /**
+   * @param request DescribeDBTablesRecoveryTimeRangeRequest
+   * @return DescribeDBTablesRecoveryTimeRangeResponse
+   */
   async describeDBTablesRecoveryTimeRange(request: DescribeDBTablesRecoveryTimeRangeRequest): Promise<DescribeDBTablesRecoveryTimeRangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBTablesRecoveryTimeRangeWithOptions(request, runtime);
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL
-    * *   ApsaraDB RDS for PostgreSQL
-    * *   PolarDB for MySQL
-    * ### [](#)References
-    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
-    *
-    * @param request DescribeDownloadBackupSetStorageInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDownloadBackupSetStorageInfoResponse
+   * @summary Queries the storage information of a downloaded backup set.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL
+   * *   ApsaraDB RDS for PostgreSQL
+   * *   PolarDB for MySQL
+   * ### [](#)References
+   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+   * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+   *
+   * @param request DescribeDownloadBackupSetStorageInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDownloadBackupSetStorageInfoResponse
    */
   async describeDownloadBackupSetStorageInfoWithOptions(request: DescribeDownloadBackupSetStorageInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadBackupSetStorageInfoResponse> {
     Util.validateModel(request);
@@ -2535,17 +2614,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL
-    * *   ApsaraDB RDS for PostgreSQL
-    * *   PolarDB for MySQL
-    * ### [](#)References
-    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
-    *
-    * @param request DescribeDownloadBackupSetStorageInfoRequest
-    * @return DescribeDownloadBackupSetStorageInfoResponse
+   * @summary Queries the storage information of a downloaded backup set.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL
+   * *   ApsaraDB RDS for PostgreSQL
+   * *   PolarDB for MySQL
+   * ### [](#)References
+   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+   * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+   *
+   * @param request DescribeDownloadBackupSetStorageInfoRequest
+   * @return DescribeDownloadBackupSetStorageInfoResponse
    */
   async describeDownloadBackupSetStorageInfo(request: DescribeDownloadBackupSetStorageInfoRequest): Promise<DescribeDownloadBackupSetStorageInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2553,19 +2634,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL
-    * *   ApsaraDB RDS for PostgreSQL
-    * *   PolarDB for MySQL
-    * ### [](#)References
-    * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
-    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
-    *
-    * @param request DescribeDownloadSupportRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDownloadSupportResponse
+   * @summary Queries whether an instance supports the advanced download feature.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL
+   * *   ApsaraDB RDS for PostgreSQL
+   * *   PolarDB for MySQL
+   * ### [](#)References
+   * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+   * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+   *
+   * @param request DescribeDownloadSupportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDownloadSupportResponse
    */
   async describeDownloadSupportWithOptions(request: DescribeDownloadSupportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadSupportResponse> {
     Util.validateModel(request);
@@ -2596,18 +2679,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL
-    * *   ApsaraDB RDS for PostgreSQL
-    * *   PolarDB for MySQL
-    * ### [](#)References
-    * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
-    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
-    *
-    * @param request DescribeDownloadSupportRequest
-    * @return DescribeDownloadSupportResponse
+   * @summary Queries whether an instance supports the advanced download feature.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL
+   * *   ApsaraDB RDS for PostgreSQL
+   * *   PolarDB for MySQL
+   * ### [](#)References
+   * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+   * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+   *
+   * @param request DescribeDownloadSupportRequest
+   * @return DescribeDownloadSupportResponse
    */
   async describeDownloadSupport(request: DescribeDownloadSupportRequest): Promise<DescribeDownloadSupportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2615,18 +2700,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL
-    * *   ApsaraDB RDS for PostgreSQL
-    * *   PolarDB for MySQL
-    * ### [](#)References
-    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
-    *
-    * @param request DescribeDownloadTaskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDownloadTaskResponse
+   * @summary Queries the advanced download tasks for an ApsaraDB RDS for MySQL instance, an ApsaraDB RDS for PostgreSQL instance, or a PolarDB for MySQL cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL
+   * *   ApsaraDB RDS for PostgreSQL
+   * *   PolarDB for MySQL
+   * ### [](#)References
+   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+   * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+   *
+   * @param request DescribeDownloadTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDownloadTaskResponse
    */
   async describeDownloadTaskWithOptions(request: DescribeDownloadTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDownloadTaskResponse> {
     Util.validateModel(request);
@@ -2697,17 +2784,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### [](#)Supported database engines
-    * *   ApsaraDB RDS for MySQL
-    * *   ApsaraDB RDS for PostgreSQL
-    * *   PolarDB for MySQL
-    * ### [](#)References
-    * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-    * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-    * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~)
-    *
-    * @param request DescribeDownloadTaskRequest
-    * @return DescribeDownloadTaskResponse
+   * @summary Queries the advanced download tasks for an ApsaraDB RDS for MySQL instance, an ApsaraDB RDS for PostgreSQL instance, or a PolarDB for MySQL cluster.
+   *
+   * @description ### [](#)Supported database engines
+   * *   ApsaraDB RDS for MySQL
+   * *   ApsaraDB RDS for PostgreSQL
+   * *   PolarDB for MySQL
+   * ### [](#)References
+   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+   * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+   *
+   * @param request DescribeDownloadTaskRequest
+   * @return DescribeDownloadTaskResponse
    */
   async describeDownloadTask(request: DescribeDownloadTaskRequest): Promise<DescribeDownloadTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2715,11 +2804,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request DescribeSandboxBackupSetsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSandboxBackupSetsResponse
+   * @summary Queries the snapshots of an instance.
+   *
+   * @description Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/203154.html) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](https://help.aliyun.com/document_detail/185577.html). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
+   *
+   * @param request DescribeSandboxBackupSetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSandboxBackupSetsResponse
    */
   async describeSandboxBackupSetsWithOptions(request: DescribeSandboxBackupSetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSandboxBackupSetsResponse> {
     Util.validateModel(request);
@@ -2758,10 +2849,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request DescribeSandboxBackupSetsRequest
-    * @return DescribeSandboxBackupSetsResponse
+   * @summary Queries the snapshots of an instance.
+   *
+   * @description Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/203154.html) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](https://help.aliyun.com/document_detail/185577.html). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
+   *
+   * @param request DescribeSandboxBackupSetsRequest
+   * @return DescribeSandboxBackupSetsResponse
    */
   async describeSandboxBackupSets(request: DescribeSandboxBackupSetsRequest): Promise<DescribeSandboxBackupSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2769,11 +2862,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request DescribeSandboxInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSandboxInstancesResponse
+   * @summary Queries sandbox instances that are created within an account.
+   *
+   * @description This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+   *
+   * @param request DescribeSandboxInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSandboxInstancesResponse
    */
   async describeSandboxInstancesWithOptions(request: DescribeSandboxInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSandboxInstancesResponse> {
     Util.validateModel(request);
@@ -2812,10 +2907,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request DescribeSandboxInstancesRequest
-    * @return DescribeSandboxInstancesResponse
+   * @summary Queries sandbox instances that are created within an account.
+   *
+   * @description This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+   *
+   * @param request DescribeSandboxInstancesRequest
+   * @return DescribeSandboxInstancesResponse
    */
   async describeSandboxInstances(request: DescribeSandboxInstancesRequest): Promise<DescribeSandboxInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2823,11 +2920,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request DescribeSandboxRecoveryTimeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeSandboxRecoveryTimeResponse
+   * @summary Queries the recoverable time range of a sandbox instance.
+   *
+   * @description Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/203154.html) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](https://help.aliyun.com/document_detail/185577.html). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+   *
+   * @param request DescribeSandboxRecoveryTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSandboxRecoveryTimeResponse
    */
   async describeSandboxRecoveryTimeWithOptions(request: DescribeSandboxRecoveryTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSandboxRecoveryTimeResponse> {
     Util.validateModel(request);
@@ -2854,16 +2953,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-    *
-    * @param request DescribeSandboxRecoveryTimeRequest
-    * @return DescribeSandboxRecoveryTimeResponse
+   * @summary Queries the recoverable time range of a sandbox instance.
+   *
+   * @description Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/203154.html) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](https://help.aliyun.com/document_detail/185577.html). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+   *
+   * @param request DescribeSandboxRecoveryTimeRequest
+   * @return DescribeSandboxRecoveryTimeResponse
    */
   async describeSandboxRecoveryTime(request: DescribeSandboxRecoveryTimeRequest): Promise<DescribeSandboxRecoveryTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSandboxRecoveryTimeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyDBTablesRecoveryStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyDBTablesRecoveryStateResponse
+   */
   async modifyDBTablesRecoveryStateWithOptions(request: ModifyDBTablesRecoveryStateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBTablesRecoveryStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2900,11 +3006,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyDBTablesRecoveryStateResponse>(await this.callApi(params, req, runtime), new ModifyDBTablesRecoveryStateResponse({}));
   }
 
+  /**
+   * @param request ModifyDBTablesRecoveryStateRequest
+   * @return ModifyDBTablesRecoveryStateResponse
+   */
   async modifyDBTablesRecoveryState(request: ModifyDBTablesRecoveryStateRequest): Promise<ModifyDBTablesRecoveryStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBTablesRecoveryStateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SupportDBTableRecoveryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SupportDBTableRecoveryResponse
+   */
   async supportDBTableRecoveryWithOptions(request: SupportDBTableRecoveryRequest, runtime: $Util.RuntimeOptions): Promise<SupportDBTableRecoveryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2933,6 +3048,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SupportDBTableRecoveryResponse>(await this.callApi(params, req, runtime), new SupportDBTableRecoveryResponse({}));
   }
 
+  /**
+   * @param request SupportDBTableRecoveryRequest
+   * @return SupportDBTableRecoveryResponse
+   */
   async supportDBTableRecovery(request: SupportDBTableRecoveryRequest): Promise<SupportDBTableRecoveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.supportDBTableRecoveryWithOptions(request, runtime);
