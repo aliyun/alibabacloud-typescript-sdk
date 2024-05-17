@@ -28361,9 +28361,11 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   callsBlindTransferOut?: number;
   callsHandled?: number;
   callsOffered?: number;
+  callsQueuingTimeout?: number;
   callsServiceLevel10?: number;
   callsServiceLevel20?: number;
   callsServiceLevel30?: number;
+  callsTimeout?: number;
   giveUpByAgentOfQueueCount?: number;
   handleRate?: number;
   inComingQueueOfQueueCount?: number;
@@ -28393,9 +28395,11 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       callsBlindTransferOut: 'CallsBlindTransferOut',
       callsHandled: 'CallsHandled',
       callsOffered: 'CallsOffered',
+      callsQueuingTimeout: 'CallsQueuingTimeout',
       callsServiceLevel10: 'CallsServiceLevel10',
       callsServiceLevel20: 'CallsServiceLevel20',
       callsServiceLevel30: 'CallsServiceLevel30',
+      callsTimeout: 'CallsTimeout',
       giveUpByAgentOfQueueCount: 'GiveUpByAgentOfQueueCount',
       handleRate: 'HandleRate',
       inComingQueueOfQueueCount: 'InComingQueueOfQueueCount',
@@ -28428,9 +28432,11 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
       callsBlindTransferOut: 'number',
       callsHandled: 'number',
       callsOffered: 'number',
+      callsQueuingTimeout: 'number',
       callsServiceLevel10: 'number',
       callsServiceLevel20: 'number',
       callsServiceLevel30: 'number',
+      callsTimeout: 'number',
       giveUpByAgentOfQueueCount: 'number',
       handleRate: 'number',
       inComingQueueOfQueueCount: 'number',
