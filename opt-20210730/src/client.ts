@@ -65,10 +65,12 @@ export class GetOpenStatusResponse extends $tea.Model {
 }
 
 export class GetOrderInfoRequest extends $tea.Model {
+  listReleased?: boolean;
   relService?: string;
   resourceType?: number;
   static names(): { [key: string]: string } {
     return {
+      listReleased: 'ListReleased',
       relService: 'RelService',
       resourceType: 'ResourceType',
     };
@@ -76,6 +78,7 @@ export class GetOrderInfoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      listReleased: 'boolean',
       relService: 'string',
       resourceType: 'number',
     };
@@ -283,6 +286,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request GetOpenStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpenStatusResponse
+   */
   async getOpenStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOpenStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -299,14 +307,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpenStatusResponse>(await this.callApi(params, req, runtime), new GetOpenStatusResponse({}));
   }
 
+  /**
+   * @return GetOpenStatusResponse
+   */
   async getOpenStatus(): Promise<GetOpenStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpenStatusWithOptions(runtime);
   }
 
+  /**
+   * @param request GetOrderInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOrderInfoResponse
+   */
   async getOrderInfoWithOptions(request: GetOrderInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetOrderInfoResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.listReleased)) {
+      query["ListReleased"] = request.listReleased;
+    }
+
     if (!Util.isUnset(request.relService)) {
       query["RelService"] = request.relService;
     }
@@ -332,11 +352,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrderInfoResponse>(await this.callApi(params, req, runtime), new GetOrderInfoResponse({}));
   }
 
+  /**
+   * @param request GetOrderInfoRequest
+   * @return GetOrderInfoResponse
+   */
   async getOrderInfo(request: GetOrderInfoRequest): Promise<GetOrderInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOrderInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetOrderUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOrderUsageResponse
+   */
   async getOrderUsageWithOptions(request: GetOrderUsageRequest, runtime: $Util.RuntimeOptions): Promise<GetOrderUsageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -373,6 +402,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOrderUsageResponse>(await this.callApi(params, req, runtime), new GetOrderUsageResponse({}));
   }
 
+  /**
+   * @param request GetOrderUsageRequest
+   * @return GetOrderUsageResponse
+   */
   async getOrderUsage(request: GetOrderUsageRequest): Promise<GetOrderUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOrderUsageWithOptions(request, runtime);
