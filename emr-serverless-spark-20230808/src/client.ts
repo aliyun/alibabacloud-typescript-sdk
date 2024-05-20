@@ -887,6 +887,255 @@ export class ListJobRunsResponse extends $tea.Model {
   }
 }
 
+export class ListReleaseVersionsRequest extends $tea.Model {
+  regionId?: string;
+  releaseType?: string;
+  releaseVersion?: string;
+  releaseVersionStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+      releaseType: 'releaseType',
+      releaseVersion: 'releaseVersion',
+      releaseVersionStatus: 'releaseVersionStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      releaseType: 'string',
+      releaseVersion: 'string',
+      releaseVersionStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReleaseVersionsResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  releaseVersions?: ListReleaseVersionsResponseBodyReleaseVersions[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      releaseVersions: 'releaseVersions',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      releaseVersions: { 'type': 'array', 'itemType': ListReleaseVersionsResponseBodyReleaseVersions },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReleaseVersionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListReleaseVersionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListReleaseVersionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceQueuesRequest extends $tea.Model {
+  environment?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environment: 'environment',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environment: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceQueuesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  queues?: ListWorkspaceQueuesResponseBodyQueues[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      queues: 'queues',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      queues: { 'type': 'array', 'itemType': ListWorkspaceQueuesResponseBodyQueues },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceQueuesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWorkspaceQueuesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkspaceQueuesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesRequest extends $tea.Model {
+  maxResults?: number;
+  name?: string;
+  nextToken?: string;
+  regionId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      name: 'name',
+      nextToken: 'nextToken',
+      regionId: 'regionId',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  workspaces?: ListWorkspacesResponseBodyWorkspaces[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+      workspaces: 'workspaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      workspaces: { 'type': 'array', 'itemType': ListWorkspacesResponseBodyWorkspaces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWorkspacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkspacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartJobRunRequest extends $tea.Model {
   clientToken?: string;
   codeType?: string;
@@ -1375,6 +1624,227 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
   }
 }
 
+export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
+  communityVersion?: string;
+  cpuArchitectures?: string[];
+  gmtCreate?: number;
+  iaasType?: string;
+  releaseVersion?: string;
+  scalaVersion?: string;
+  state?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      communityVersion: 'communityVersion',
+      cpuArchitectures: 'cpuArchitectures',
+      gmtCreate: 'gmtCreate',
+      iaasType: 'iaasType',
+      releaseVersion: 'releaseVersion',
+      scalaVersion: 'scalaVersion',
+      state: 'state',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      communityVersion: 'string',
+      cpuArchitectures: { 'type': 'array', 'itemType': 'string' },
+      gmtCreate: 'number',
+      iaasType: 'string',
+      releaseVersion: 'string',
+      scalaVersion: 'string',
+      state: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $tea.Model {
+  actionArn?: string;
+  actionName?: string;
+  dependencies?: string[];
+  description?: string;
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionArn: 'actionArn',
+      actionName: 'actionName',
+      dependencies: 'dependencies',
+      description: 'description',
+      displayName: 'displayName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionArn: 'string',
+      actionName: 'string',
+      dependencies: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      displayName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspaceQueuesResponseBodyQueues extends $tea.Model {
+  allowActions?: ListWorkspaceQueuesResponseBodyQueuesAllowActions[];
+  creator?: string;
+  environments?: string[];
+  maxResource?: string;
+  minResource?: string;
+  properties?: string;
+  queueName?: string;
+  queueScope?: string;
+  queueStatus?: string;
+  queueType?: string;
+  regionId?: string;
+  usedResource?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowActions: 'allowActions',
+      creator: 'creator',
+      environments: 'environments',
+      maxResource: 'maxResource',
+      minResource: 'minResource',
+      properties: 'properties',
+      queueName: 'queueName',
+      queueScope: 'queueScope',
+      queueStatus: 'queueStatus',
+      queueType: 'queueType',
+      regionId: 'regionId',
+      usedResource: 'usedResource',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowActions: { 'type': 'array', 'itemType': ListWorkspaceQueuesResponseBodyQueuesAllowActions },
+      creator: 'string',
+      environments: { 'type': 'array', 'itemType': 'string' },
+      maxResource: 'string',
+      minResource: 'string',
+      properties: 'string',
+      queueName: 'string',
+      queueScope: 'string',
+      queueStatus: 'string',
+      queueType: 'string',
+      regionId: 'string',
+      usedResource: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesResponseBodyWorkspacesStateChangeReason extends $tea.Model {
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
+  autoRenewPeriodUnit?: string;
+  createTime?: number;
+  dlfCatalogId?: string;
+  duration?: number;
+  endTime?: number;
+  failReason?: string;
+  paymentDurationUnit?: string;
+  paymentStatus?: string;
+  paymentType?: string;
+  regionId?: string;
+  releaseType?: string;
+  resourceSpec?: string;
+  stateChangeReason?: ListWorkspacesResponseBodyWorkspacesStateChangeReason;
+  storage?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  workspaceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'autoRenew',
+      autoRenewPeriod: 'autoRenewPeriod',
+      autoRenewPeriodUnit: 'autoRenewPeriodUnit',
+      createTime: 'createTime',
+      dlfCatalogId: 'dlfCatalogId',
+      duration: 'duration',
+      endTime: 'endTime',
+      failReason: 'failReason',
+      paymentDurationUnit: 'paymentDurationUnit',
+      paymentStatus: 'paymentStatus',
+      paymentType: 'paymentType',
+      regionId: 'regionId',
+      releaseType: 'releaseType',
+      resourceSpec: 'resourceSpec',
+      stateChangeReason: 'stateChangeReason',
+      storage: 'storage',
+      workspaceId: 'workspaceId',
+      workspaceName: 'workspaceName',
+      workspaceStatus: 'workspaceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      autoRenewPeriodUnit: 'string',
+      createTime: 'number',
+      dlfCatalogId: 'string',
+      duration: 'number',
+      endTime: 'number',
+      failReason: 'string',
+      paymentDurationUnit: 'string',
+      paymentStatus: 'string',
+      paymentType: 'string',
+      regionId: 'string',
+      releaseType: 'string',
+      resourceSpec: 'string',
+      stateChangeReason: ListWorkspacesResponseBodyWorkspacesStateChangeReason,
+      storage: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+      workspaceStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartJobRunRequestConfigurationOverridesConfigurations extends $tea.Model {
   configFileName?: string;
   configItemKey?: string;
@@ -1633,6 +2103,173 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listJobRunsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 获取发布版本列表
+   *
+   * @param request ListReleaseVersionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListReleaseVersionsResponse
+   */
+  async listReleaseVersionsWithOptions(request: ListReleaseVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListReleaseVersionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.releaseType)) {
+      query["releaseType"] = request.releaseType;
+    }
+
+    if (!Util.isUnset(request.releaseVersion)) {
+      query["releaseVersion"] = request.releaseVersion;
+    }
+
+    if (!Util.isUnset(request.releaseVersionStatus)) {
+      query["releaseVersionStatus"] = request.releaseVersionStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListReleaseVersions",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/releaseVersions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListReleaseVersionsResponse>(await this.callApi(params, req, runtime), new ListReleaseVersionsResponse({}));
+  }
+
+  /**
+   * @summary 获取发布版本列表
+   *
+   * @param request ListReleaseVersionsRequest
+   * @return ListReleaseVersionsResponse
+   */
+  async listReleaseVersions(request: ListReleaseVersionsRequest): Promise<ListReleaseVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listReleaseVersionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查看工作空间队列列表
+   *
+   * @param request ListWorkspaceQueuesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkspaceQueuesResponse
+   */
+  async listWorkspaceQueuesWithOptions(workspaceId: string, request: ListWorkspaceQueuesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspaceQueuesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.environment)) {
+      query["environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkspaceQueues",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/queues`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkspaceQueuesResponse>(await this.callApi(params, req, runtime), new ListWorkspaceQueuesResponse({}));
+  }
+
+  /**
+   * @summary 查看工作空间队列列表
+   *
+   * @param request ListWorkspaceQueuesRequest
+   * @return ListWorkspaceQueuesResponse
+   */
+  async listWorkspaceQueues(workspaceId: string, request: ListWorkspaceQueuesRequest): Promise<ListWorkspaceQueuesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkspaceQueuesWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 查看工作空间列表
+   *
+   * @param request ListWorkspacesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkspacesResponse
+   */
+  async listWorkspacesWithOptions(request: ListWorkspacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspacesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["state"] = request.state;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkspaces",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkspacesResponse>(await this.callApi(params, req, runtime), new ListWorkspacesResponse({}));
+  }
+
+  /**
+   * @summary 查看工作空间列表
+   *
+   * @param request ListWorkspacesRequest
+   * @return ListWorkspacesResponse
+   */
+  async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkspacesWithOptions(request, headers, runtime);
   }
 
   /**
