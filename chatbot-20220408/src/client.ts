@@ -1048,7 +1048,9 @@ export class CreateDocRequest extends $tea.Model {
   endDate?: string;
   meta?: string;
   startDate?: string;
+  tagIds?: number[];
   title?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
@@ -1058,7 +1060,9 @@ export class CreateDocRequest extends $tea.Model {
       endDate: 'EndDate',
       meta: 'Meta',
       startDate: 'StartDate',
+      tagIds: 'TagIds',
       title: 'Title',
+      url: 'Url',
     };
   }
 
@@ -1071,7 +1075,55 @@ export class CreateDocRequest extends $tea.Model {
       endDate: 'string',
       meta: 'string',
       startDate: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'number' },
       title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDocShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  categoryId?: number;
+  config?: string;
+  content?: string;
+  endDate?: string;
+  meta?: string;
+  startDate?: string;
+  tagIdsShrink?: string;
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      categoryId: 'CategoryId',
+      config: 'Config',
+      content: 'Content',
+      endDate: 'EndDate',
+      meta: 'Meta',
+      startDate: 'StartDate',
+      tagIdsShrink: 'TagIds',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      categoryId: 'number',
+      config: 'string',
+      content: 'string',
+      endDate: 'string',
+      meta: 'string',
+      startDate: 'string',
+      tagIdsShrink: 'string',
+      title: 'string',
+      url: 'string',
     };
   }
 
@@ -3133,6 +3185,7 @@ export class DescribeDocResponseBody extends $tea.Model {
   createUserName?: string;
   docInfo?: DescribeDocResponseBodyDocInfo;
   docName?: string;
+  docTags?: DescribeDocResponseBodyDocTags[];
   effectStatus?: number;
   endDate?: string;
   knowledgeId?: number;
@@ -3158,6 +3211,7 @@ export class DescribeDocResponseBody extends $tea.Model {
       createUserName: 'CreateUserName',
       docInfo: 'DocInfo',
       docName: 'DocName',
+      docTags: 'DocTags',
       effectStatus: 'EffectStatus',
       endDate: 'EndDate',
       knowledgeId: 'KnowledgeId',
@@ -3186,6 +3240,7 @@ export class DescribeDocResponseBody extends $tea.Model {
       createUserName: 'string',
       docInfo: DescribeDocResponseBodyDocInfo,
       docName: 'string',
+      docTags: { 'type': 'array', 'itemType': DescribeDocResponseBodyDocTags },
       effectStatus: 'number',
       endDate: 'string',
       knowledgeId: 'number',
@@ -4289,14 +4344,12 @@ export class ListAgentRequest extends $tea.Model {
   goodsCodes?: string;
   pageNumber?: number;
   pageSize?: number;
-  productCode?: string;
   static names(): { [key: string]: string } {
     return {
       agentName: 'AgentName',
       goodsCodes: 'GoodsCodes',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      productCode: 'ProductCode',
     };
   }
 
@@ -4306,7 +4359,6 @@ export class ListAgentRequest extends $tea.Model {
       goodsCodes: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      productCode: 'string',
     };
   }
 
@@ -5638,6 +5690,7 @@ export class SearchDocRequest extends $tea.Model {
   startTimeBegin?: string;
   startTimeEnd?: string;
   status?: number;
+  tagIds?: number[];
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
@@ -5658,6 +5711,7 @@ export class SearchDocRequest extends $tea.Model {
       startTimeBegin: 'StartTimeBegin',
       startTimeEnd: 'StartTimeEnd',
       status: 'Status',
+      tagIds: 'TagIds',
     };
   }
 
@@ -5681,6 +5735,7 @@ export class SearchDocRequest extends $tea.Model {
       startTimeBegin: 'string',
       startTimeEnd: 'string',
       status: 'number',
+      tagIds: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -5708,6 +5763,7 @@ export class SearchDocShrinkRequest extends $tea.Model {
   startTimeBegin?: string;
   startTimeEnd?: string;
   status?: number;
+  tagIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
@@ -5728,6 +5784,7 @@ export class SearchDocShrinkRequest extends $tea.Model {
       startTimeBegin: 'StartTimeBegin',
       startTimeEnd: 'StartTimeEnd',
       status: 'Status',
+      tagIdsShrink: 'TagIds',
     };
   }
 
@@ -5751,6 +5808,7 @@ export class SearchDocShrinkRequest extends $tea.Model {
       startTimeBegin: 'string',
       startTimeEnd: 'string',
       status: 'number',
+      tagIdsShrink: 'string',
     };
   }
 
@@ -6349,6 +6407,7 @@ export class UpdateDocRequest extends $tea.Model {
   knowledgeId?: number;
   meta?: string;
   startDate?: string;
+  tagIds?: number[];
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6361,6 +6420,7 @@ export class UpdateDocRequest extends $tea.Model {
       knowledgeId: 'KnowledgeId',
       meta: 'Meta',
       startDate: 'StartDate',
+      tagIds: 'TagIds',
       title: 'Title',
     };
   }
@@ -6376,6 +6436,56 @@ export class UpdateDocRequest extends $tea.Model {
       knowledgeId: 'number',
       meta: 'string',
       startDate: 'string',
+      tagIds: { 'type': 'array', 'itemType': 'number' },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDocShrinkRequest extends $tea.Model {
+  agentKey?: string;
+  categoryId?: number;
+  config?: string;
+  content?: string;
+  docName?: string;
+  endDate?: string;
+  knowledgeId?: number;
+  meta?: string;
+  startDate?: string;
+  tagIdsShrink?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      categoryId: 'CategoryId',
+      config: 'Config',
+      content: 'Content',
+      docName: 'DocName',
+      endDate: 'EndDate',
+      knowledgeId: 'KnowledgeId',
+      meta: 'Meta',
+      startDate: 'StartDate',
+      tagIdsShrink: 'TagIds',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      categoryId: 'number',
+      config: 'string',
+      content: 'string',
+      docName: 'string',
+      endDate: 'string',
+      knowledgeId: 'number',
+      meta: 'string',
+      startDate: 'string',
+      tagIdsShrink: 'string',
       title: 'string',
     };
   }
@@ -7594,6 +7704,37 @@ export class DescribeDocResponseBodyDocInfo extends $tea.Model {
   }
 }
 
+export class DescribeDocResponseBodyDocTags extends $tea.Model {
+  defaultTag?: boolean;
+  groupId?: number;
+  groupName?: string;
+  tagId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultTag: 'DefaultTag',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultTag: 'boolean',
+      groupId: 'number',
+      groupName: 'string',
+      tagId: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFaqResponseBodyOutlines extends $tea.Model {
   connQuestionId?: number;
   createTime?: string;
@@ -7775,14 +7916,12 @@ export class ListAgentResponseBodyData extends $tea.Model {
   agentId?: number;
   agentKey?: string;
   agentName?: string;
-  defaultAgent?: boolean;
   instanceInfos?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
       agentKey: 'AgentKey',
       agentName: 'AgentName',
-      defaultAgent: 'DefaultAgent',
       instanceInfos: 'InstanceInfos',
     };
   }
@@ -7792,7 +7931,6 @@ export class ListAgentResponseBodyData extends $tea.Model {
       agentId: 'number',
       agentKey: 'string',
       agentName: 'string',
-      defaultAgent: 'boolean',
       instanceInfos: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -8537,6 +8675,37 @@ export class QueryPerspectivesResponseBodyPerspectives extends $tea.Model {
   }
 }
 
+export class SearchDocResponseBodyDocHitsDocTags extends $tea.Model {
+  defaultTag?: boolean;
+  groupId?: number;
+  groupName?: string;
+  tagId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultTag: 'DefaultTag',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      tagId: 'TagId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultTag: 'boolean',
+      groupId: 'number',
+      groupName: 'string',
+      tagId: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchDocResponseBodyDocHits extends $tea.Model {
   bizCode?: string;
   categoryId?: number;
@@ -8545,6 +8714,7 @@ export class SearchDocResponseBodyDocHits extends $tea.Model {
   createUserId?: number;
   createUserName?: string;
   docName?: string;
+  docTags?: SearchDocResponseBodyDocHitsDocTags[];
   effectStatus?: number;
   endDate?: string;
   knowledgeId?: number;
@@ -8567,6 +8737,7 @@ export class SearchDocResponseBodyDocHits extends $tea.Model {
       createUserId: 'CreateUserId',
       createUserName: 'CreateUserName',
       docName: 'DocName',
+      docTags: 'DocTags',
       effectStatus: 'EffectStatus',
       endDate: 'EndDate',
       knowledgeId: 'KnowledgeId',
@@ -8592,6 +8763,7 @@ export class SearchDocResponseBodyDocHits extends $tea.Model {
       createUserId: 'number',
       createUserName: 'string',
       docName: 'string',
+      docTags: { 'type': 'array', 'itemType': SearchDocResponseBodyDocHitsDocTags },
       effectStatus: 'number',
       endDate: 'string',
       knowledgeId: 'number',
@@ -9447,12 +9619,18 @@ export default class Client extends OpenApi {
   /**
    * @summary 创建文档
    *
-   * @param request CreateDocRequest
+   * @param tmpReq CreateDocRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateDocResponse
    */
-  async createDocWithOptions(request: CreateDocRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocResponse> {
-    Util.validateModel(request);
+  async createDocWithOptions(tmpReq: CreateDocRequest, runtime: $Util.RuntimeOptions): Promise<CreateDocResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDocShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tagIds)) {
+      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -9482,8 +9660,16 @@ export default class Client extends OpenApi {
       query["StartDate"] = request.startDate;
     }
 
+    if (!Util.isUnset(request.tagIdsShrink)) {
+      query["TagIds"] = request.tagIdsShrink;
+    }
+
     if (!Util.isUnset(request.title)) {
       query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11490,10 +11676,6 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productCode)) {
-      query["ProductCode"] = request.productCode;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -12391,6 +12573,10 @@ export default class Client extends OpenApi {
       request.categoryIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categoryIds, "CategoryIds", "json");
     }
 
+    if (!Util.isUnset(tmpReq.tagIds)) {
+      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -12462,6 +12648,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tagIdsShrink)) {
+      query["TagIds"] = request.tagIdsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -12845,12 +13035,18 @@ export default class Client extends OpenApi {
   /**
    * @summary 文档变更
    *
-   * @param request UpdateDocRequest
+   * @param tmpReq UpdateDocRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpdateDocResponse
    */
-  async updateDocWithOptions(request: UpdateDocRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDocResponse> {
-    Util.validateModel(request);
+  async updateDocWithOptions(tmpReq: UpdateDocRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDocResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDocShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tagIds)) {
+      request.tagIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIds, "TagIds", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -12886,6 +13082,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startDate)) {
       query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.tagIdsShrink)) {
+      query["TagIds"] = request.tagIdsShrink;
     }
 
     if (!Util.isUnset(request.title)) {
