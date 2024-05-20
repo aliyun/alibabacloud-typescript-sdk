@@ -66,9 +66,9 @@ export class BatchCheckSessionResponseBody extends $tea.Model {
 }
 
 export class BatchCheckSessionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchCheckSessionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchCheckSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -135,9 +135,9 @@ export class CancelReserveTaskResponseBody extends $tea.Model {
 }
 
 export class CancelReserveTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelReserveTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelReserveTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -226,9 +226,9 @@ export class CreateAdaptationResponseBody extends $tea.Model {
 }
 
 export class CreateAdaptationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAdaptationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAdaptationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -253,10 +253,14 @@ export class CreateAdaptationResponse extends $tea.Model {
 export class CreateAppRequest extends $tea.Model {
   appName?: string;
   appType?: string;
+  streamingAppId?: string;
+  streamingSolution?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       appType: 'AppType',
+      streamingAppId: 'StreamingAppId',
+      streamingSolution: 'StreamingSolution',
     };
   }
 
@@ -264,6 +268,8 @@ export class CreateAppRequest extends $tea.Model {
     return {
       appName: 'string',
       appType: 'string',
+      streamingAppId: 'string',
+      streamingSolution: 'string',
     };
   }
 
@@ -295,9 +301,9 @@ export class CreateAppResponseBody extends $tea.Model {
 }
 
 export class CreateAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -326,6 +332,7 @@ export class CreateAppSessionRequest extends $tea.Model {
   clientIp?: string;
   customSessionId?: string;
   customUserId?: string;
+  districtId?: string;
   enablePostpaid?: boolean;
   projectId?: string;
   startParameters?: CreateAppSessionRequestStartParameters[];
@@ -339,6 +346,7 @@ export class CreateAppSessionRequest extends $tea.Model {
       clientIp: 'ClientIp',
       customSessionId: 'CustomSessionId',
       customUserId: 'CustomUserId',
+      districtId: 'DistrictId',
       enablePostpaid: 'EnablePostpaid',
       projectId: 'ProjectId',
       startParameters: 'StartParameters',
@@ -355,6 +363,7 @@ export class CreateAppSessionRequest extends $tea.Model {
       clientIp: 'string',
       customSessionId: 'string',
       customUserId: 'string',
+      districtId: 'string',
       enablePostpaid: 'boolean',
       projectId: 'string',
       startParameters: { 'type': 'array', 'itemType': CreateAppSessionRequestStartParameters },
@@ -400,9 +409,9 @@ export class CreateAppSessionResponseBody extends $tea.Model {
 }
 
 export class CreateAppSessionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppSessionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -416,6 +425,106 @@ export class CreateAppSessionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateAppSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchRequest extends $tea.Model {
+  appInfos?: CreateAppSessionBatchRequestAppInfos[];
+  customTaskId?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appInfos: 'AppInfos',
+      customTaskId: 'CustomTaskId',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInfos: { 'type': 'array', 'itemType': CreateAppSessionBatchRequestAppInfos },
+      customTaskId: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchShrinkRequest extends $tea.Model {
+  appInfosShrink?: string;
+  customTaskId?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appInfosShrink: 'AppInfos',
+      customTaskId: 'CustomTaskId',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInfosShrink: 'string',
+      customTaskId: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchResponseBody extends $tea.Model {
+  customTaskId?: string;
+  platformTaskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customTaskId: 'CustomTaskId',
+      platformTaskId: 'PlatformTaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customTaskId: 'string',
+      platformTaskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppSessionBatchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppSessionBatchResponseBody,
     };
   }
 
@@ -497,9 +606,9 @@ export class CreateAppSessionBatchSyncResponseBody extends $tea.Model {
 }
 
 export class CreateAppSessionBatchSyncResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppSessionBatchSyncResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppSessionBatchSyncResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -608,9 +717,9 @@ export class CreateAppSessionSyncResponseBody extends $tea.Model {
 }
 
 export class CreateAppSessionSyncResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppSessionSyncResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppSessionSyncResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -677,9 +786,9 @@ export class CreateAppVersionResponseBody extends $tea.Model {
 }
 
 export class CreateAppVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -764,9 +873,9 @@ export class CreateCapacityReservationResponseBody extends $tea.Model {
 }
 
 export class CreateCapacityReservationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateCapacityReservationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCapacityReservationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -830,9 +939,9 @@ export class DeleteAppResponseBody extends $tea.Model {
 }
 
 export class DeleteAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -896,9 +1005,9 @@ export class DeleteAppVersionResponseBody extends $tea.Model {
 }
 
 export class DeleteAppVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -980,9 +1089,9 @@ export class GetAdaptationResponseBody extends $tea.Model {
 }
 
 export class GetAdaptationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAdaptationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAdaptationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1030,6 +1139,8 @@ export class GetAppResponseBody extends $tea.Model {
   gmtCreate?: string;
   gmtModified?: string;
   requestId?: string;
+  streamingAppId?: string;
+  streamingSolution?: string;
   versionAdaptNum?: number;
   versionTotalNum?: number;
   static names(): { [key: string]: string } {
@@ -1040,6 +1151,8 @@ export class GetAppResponseBody extends $tea.Model {
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       requestId: 'RequestId',
+      streamingAppId: 'StreamingAppId',
+      streamingSolution: 'StreamingSolution',
       versionAdaptNum: 'VersionAdaptNum',
       versionTotalNum: 'VersionTotalNum',
     };
@@ -1053,6 +1166,8 @@ export class GetAppResponseBody extends $tea.Model {
       gmtCreate: 'string',
       gmtModified: 'string',
       requestId: 'string',
+      streamingAppId: 'string',
+      streamingSolution: 'string',
       versionAdaptNum: 'number',
       versionTotalNum: 'number',
     };
@@ -1064,9 +1179,9 @@ export class GetAppResponseBody extends $tea.Model {
 }
 
 export class GetAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1139,9 +1254,9 @@ export class GetAppCcuResponseBody extends $tea.Model {
 }
 
 export class GetAppCcuResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppCcuResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppCcuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1223,9 +1338,9 @@ export class GetAppSessionResponseBody extends $tea.Model {
 }
 
 export class GetAppSessionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppSessionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1322,9 +1437,9 @@ export class GetAppVersionResponseBody extends $tea.Model {
 }
 
 export class GetAppVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1338,84 +1453,6 @@ export class GetAppVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAppVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAutoPickPicRequest extends $tea.Model {
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAutoPickPicResponseBody extends $tea.Model {
-  data?: GetAutoPickPicResponseBodyData;
-  errorCode?: string;
-  errorMessage?: string;
-  httpCode?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      httpCode: 'HttpCode',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetAutoPickPicResponseBodyData,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAutoPickPicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAutoPickPicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAutoPickPicResponseBody,
     };
   }
 
@@ -1490,9 +1527,9 @@ export class GetCapacityResponseBody extends $tea.Model {
 }
 
 export class GetCapacityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCapacityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCapacityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1583,9 +1620,9 @@ export class GetReserveTaskDetailResponseBody extends $tea.Model {
 }
 
 export class GetReserveTaskDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetReserveTaskDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetReserveTaskDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1664,9 +1701,9 @@ export class GetResourcePublicIPsResponseBody extends $tea.Model {
 }
 
 export class GetResourcePublicIPsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourcePublicIPsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourcePublicIPsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1739,9 +1776,9 @@ export class ListAppResponseBody extends $tea.Model {
 }
 
 export class ListAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1769,6 +1806,7 @@ export class ListAppSessionsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   platformSessionIds?: string[];
+  projectId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -1776,6 +1814,7 @@ export class ListAppSessionsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       platformSessionIds: 'PlatformSessionIds',
+      projectId: 'ProjectId',
     };
   }
 
@@ -1786,6 +1825,7 @@ export class ListAppSessionsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       platformSessionIds: { 'type': 'array', 'itemType': 'string' },
+      projectId: 'string',
     };
   }
 
@@ -1826,9 +1866,9 @@ export class ListAppSessionsResponseBody extends $tea.Model {
 }
 
 export class ListAppSessionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppSessionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppSessionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1901,9 +1941,9 @@ export class ListAppVersionResponseBody extends $tea.Model {
 }
 
 export class ListAppVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1917,6 +1957,96 @@ export class ListAppVersionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAppVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesRequest extends $tea.Model {
+  districtId?: string;
+  instanceId?: string[];
+  instanceType?: string;
+  maxResults?: number;
+  nextToken?: string;
+  projectId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      districtId: 'DistrictId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectId: 'ProjectId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      districtId: 'string',
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+      instanceType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      projectId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBody extends $tea.Model {
+  instances?: ListInstancesResponseBodyInstances[];
+  maxResults?: string;
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstances },
+      maxResults: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesResponseBody,
     };
   }
 
@@ -1970,9 +2100,9 @@ export class ModifyAppResponseBody extends $tea.Model {
 }
 
 export class ModifyAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2039,9 +2169,9 @@ export class ModifyAppVersionResponseBody extends $tea.Model {
 }
 
 export class ModifyAppVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAppVersionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppVersionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2117,9 +2247,9 @@ export class ReleaseCapacityResponseBody extends $tea.Model {
 }
 
 export class ReleaseCapacityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseCapacityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseCapacityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2180,9 +2310,9 @@ export class ReleaseCapacityByBatchResponseBody extends $tea.Model {
 }
 
 export class ReleaseCapacityByBatchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ReleaseCapacityByBatchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseCapacityByBatchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2196,6 +2326,222 @@ export class ReleaseCapacityByBatchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseCapacityByBatchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstancesRequest extends $tea.Model {
+  amount?: number;
+  districtId?: string;
+  instanceType?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      districtId: 'DistrictId',
+      instanceType: 'InstanceType',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      districtId: 'string',
+      instanceType: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstancesResponseBody extends $tea.Model {
+  instanceIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReserveInstancesRequest extends $tea.Model {
+  amount?: number;
+  districtId?: string;
+  instanceType?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      districtId: 'DistrictId',
+      instanceType: 'InstanceType',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      districtId: 'string',
+      instanceType: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReserveInstancesResponseBody extends $tea.Model {
+  instanceIds?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReserveInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReserveInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReserveInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBizCocChangeCallbackRequest extends $tea.Model {
+  platformSessionId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      platformSessionId: 'PlatformSessionId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      platformSessionId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBizCocChangeCallbackResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBizCocChangeCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendBizCocChangeCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendBizCocChangeCallbackResponseBody,
     };
   }
 
@@ -2286,9 +2632,9 @@ export class StopAppSessionResponseBody extends $tea.Model {
 }
 
 export class StopAppSessionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopAppSessionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopAppSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2407,9 +2753,9 @@ export class StopAppSessionBatchResponseBody extends $tea.Model {
 }
 
 export class StopAppSessionBatchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopAppSessionBatchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopAppSessionBatchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2423,6 +2769,84 @@ export class StopAppSessionBatchResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopAppSessionBatchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSessionBizStatusRequest extends $tea.Model {
+  bizStatus?: string;
+  platformSessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizStatus: 'BizStatus',
+      platformSessionId: 'PlatformSessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizStatus: 'string',
+      platformSessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSessionBizStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateSessionBizStatusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateSessionBizStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSessionBizStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSessionBizStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSessionBizStatusResponseBody,
     };
   }
 
@@ -2523,6 +2947,149 @@ export class CreateAppSessionRequestSystemInfo extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchRequestAppInfosResultStoreStoreInfo extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchRequestAppInfosResultStore extends $tea.Model {
+  need?: boolean;
+  storeInfo?: CreateAppSessionBatchRequestAppInfosResultStoreStoreInfo[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      need: 'Need',
+      storeInfo: 'StoreInfo',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      need: 'boolean',
+      storeInfo: { 'type': 'array', 'itemType': CreateAppSessionBatchRequestAppInfosResultStoreStoreInfo },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchRequestAppInfosStartParameters extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchRequestAppInfosSystemInfo extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSessionBatchRequestAppInfos extends $tea.Model {
+  adapterFileId?: string;
+  appId?: string;
+  appVersion?: string;
+  clientIp?: string;
+  customUserId?: string;
+  customerSessionId?: string;
+  datasetId?: string;
+  districtId?: string;
+  projectId?: string;
+  resultStore?: CreateAppSessionBatchRequestAppInfosResultStore;
+  startParameters?: CreateAppSessionBatchRequestAppInfosStartParameters[];
+  systemInfo?: CreateAppSessionBatchRequestAppInfosSystemInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      adapterFileId: 'AdapterFileId',
+      appId: 'AppId',
+      appVersion: 'AppVersion',
+      clientIp: 'ClientIp',
+      customUserId: 'CustomUserId',
+      customerSessionId: 'CustomerSessionId',
+      datasetId: 'DatasetId',
+      districtId: 'DistrictId',
+      projectId: 'ProjectId',
+      resultStore: 'ResultStore',
+      startParameters: 'StartParameters',
+      systemInfo: 'SystemInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adapterFileId: 'string',
+      appId: 'string',
+      appVersion: 'string',
+      clientIp: 'string',
+      customUserId: 'string',
+      customerSessionId: 'string',
+      datasetId: 'string',
+      districtId: 'string',
+      projectId: 'string',
+      resultStore: CreateAppSessionBatchRequestAppInfosResultStore,
+      startParameters: { 'type': 'array', 'itemType': CreateAppSessionBatchRequestAppInfosStartParameters },
+      systemInfo: { 'type': 'array', 'itemType': CreateAppSessionBatchRequestAppInfosSystemInfo },
     };
   }
 
@@ -3036,50 +3603,6 @@ export class GetAppSessionResponseBodyBizInfo extends $tea.Model {
   }
 }
 
-export class GetAutoPickPicResponseBodyDataDtoList extends $tea.Model {
-  key?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAutoPickPicResponseBodyData extends $tea.Model {
-  dtoList?: GetAutoPickPicResponseBodyDataDtoList[];
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dtoList: 'DtoList',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dtoList: { 'type': 'array', 'itemType': GetAutoPickPicResponseBodyDataDtoList },
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetCapacityResponseBodyCapacities extends $tea.Model {
   appId?: string;
   appVersion?: string;
@@ -3220,6 +3743,7 @@ export class ListAppSessionsResponseBodyAppSessions extends $tea.Model {
   bizInfo?: ListAppSessionsResponseBodyAppSessionsBizInfo;
   customSessionId?: string;
   platformSessionId?: string;
+  projectId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3228,6 +3752,7 @@ export class ListAppSessionsResponseBodyAppSessions extends $tea.Model {
       bizInfo: 'BizInfo',
       customSessionId: 'CustomSessionId',
       platformSessionId: 'PlatformSessionId',
+      projectId: 'ProjectId',
       status: 'Status',
     };
   }
@@ -3239,6 +3764,7 @@ export class ListAppSessionsResponseBodyAppSessions extends $tea.Model {
       bizInfo: ListAppSessionsResponseBodyAppSessionsBizInfo,
       customSessionId: 'string',
       platformSessionId: 'string',
+      projectId: 'string',
       status: 'string',
     };
   }
@@ -3292,6 +3818,40 @@ export class ListAppVersionResponseBodyVersions extends $tea.Model {
       fileUploadType: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstances extends $tea.Model {
+  creationTime?: string;
+  districtId?: string;
+  instanceId?: string;
+  instanceType?: string;
+  projectId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      districtId: 'DistrictId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      projectId: 'ProjectId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      districtId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      projectId: 'string',
+      status: 'string',
     };
   }
 
@@ -3388,6 +3948,28 @@ export class StopAppSessionBatchShrinkRequestTags extends $tea.Model {
   }
 }
 
+export class UpdateSessionBizStatusResponseBodyData extends $tea.Model {
+  customSessionId?: string;
+  platformSessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customSessionId: 'CustomSessionId',
+      platformSessionId: 'PlatformSessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customSessionId: 'string',
+      platformSessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -3411,6 +3993,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 批量检查异常会话
+   *
+   * @param tmpReq BatchCheckSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchCheckSessionResponse
+   */
   async batchCheckSessionWithOptions(tmpReq: BatchCheckSessionRequest, runtime: $Util.RuntimeOptions): Promise<BatchCheckSessionResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchCheckSessionShrinkRequest({ });
@@ -3441,11 +4030,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchCheckSessionResponse>(await this.callApi(params, req, runtime), new BatchCheckSessionResponse({}));
   }
 
+  /**
+   * @summary 批量检查异常会话
+   *
+   * @param request BatchCheckSessionRequest
+   * @return BatchCheckSessionResponse
+   */
   async batchCheckSession(request: BatchCheckSessionRequest): Promise<BatchCheckSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchCheckSessionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消 session 资源预定任务
+   *
+   * @param request CancelReserveTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelReserveTaskResponse
+   */
   async cancelReserveTaskWithOptions(request: CancelReserveTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelReserveTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3474,17 +4076,30 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelReserveTaskResponse>(await this.callApi(params, req, runtime), new CancelReserveTaskResponse({}));
   }
 
+  /**
+   * @summary 取消 session 资源预定任务
+   *
+   * @param request CancelReserveTaskRequest
+   * @return CancelReserveTaskResponse
+   */
   async cancelReserveTask(request: CancelReserveTaskRequest): Promise<CancelReserveTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelReserveTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 提交适配请求
+   *
+   * @param tmpReq CreateAdaptationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAdaptationResponse
+   */
   async createAdaptationWithOptions(tmpReq: CreateAdaptationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAdaptationResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAdaptationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.adaptTarget))) {
-      request.adaptTargetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.adaptTarget), "AdaptTarget", "json");
+    if (!Util.isUnset(tmpReq.adaptTarget)) {
+      request.adaptTargetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.adaptTarget, "AdaptTarget", "json");
     }
 
     let body : {[key: string ]: any} = { };
@@ -3513,11 +4128,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAdaptationResponse>(await this.callApi(params, req, runtime), new CreateAdaptationResponse({}));
   }
 
+  /**
+   * @summary 提交适配请求
+   *
+   * @param request CreateAdaptationRequest
+   * @return CreateAdaptationResponse
+   */
   async createAdaptation(request: CreateAdaptationRequest): Promise<CreateAdaptationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAdaptationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用创建服务
+   *
+   * @param request CreateAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppResponse
+   */
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3527,6 +4155,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.appType)) {
       body["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.streamingAppId)) {
+      body["StreamingAppId"] = request.streamingAppId;
+    }
+
+    if (!Util.isUnset(request.streamingSolution)) {
+      body["StreamingSolution"] = request.streamingSolution;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -3546,11 +4182,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppResponse>(await this.callApi(params, req, runtime), new CreateAppResponse({}));
   }
 
+  /**
+   * @summary 应用创建服务
+   *
+   * @param request CreateAppRequest
+   * @return CreateAppResponse
+   */
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 增加实时生产资源的相关字段
+   *
+   * @param request CreateAppSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppSessionResponse
+   */
   async createAppSessionWithOptions(request: CreateAppSessionRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3576,6 +4225,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.customUserId)) {
       query["CustomUserId"] = request.customUserId;
+    }
+
+    if (!Util.isUnset(request.districtId)) {
+      query["DistrictId"] = request.districtId;
     }
 
     if (!Util.isUnset(request.enablePostpaid)) {
@@ -3615,11 +4268,80 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppSessionResponse>(await this.callApi(params, req, runtime), new CreateAppSessionResponse({}));
   }
 
+  /**
+   * @summary 增加实时生产资源的相关字段
+   *
+   * @param request CreateAppSessionRequest
+   * @return CreateAppSessionResponse
+   */
   async createAppSession(request: CreateAppSessionRequest): Promise<CreateAppSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppSessionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量创建会话
+   *
+   * @param tmpReq CreateAppSessionBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppSessionBatchResponse
+   */
+  async createAppSessionBatchWithOptions(tmpReq: CreateAppSessionBatchRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSessionBatchResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAppSessionBatchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.appInfos)) {
+      request.appInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appInfos, "AppInfos", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appInfosShrink)) {
+      query["AppInfos"] = request.appInfosShrink;
+    }
+
+    if (!Util.isUnset(request.customTaskId)) {
+      query["CustomTaskId"] = request.customTaskId;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAppSessionBatch",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppSessionBatchResponse>(await this.callApi(params, req, runtime), new CreateAppSessionBatchResponse({}));
+  }
+
+  /**
+   * @summary 批量创建会话
+   *
+   * @param request CreateAppSessionBatchRequest
+   * @return CreateAppSessionBatchResponse
+   */
+  async createAppSessionBatch(request: CreateAppSessionBatchRequest): Promise<CreateAppSessionBatchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAppSessionBatchWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 同步批量创建多个会话
+   *
+   * @param tmpReq CreateAppSessionBatchSyncRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppSessionBatchSyncResponse
+   */
   async createAppSessionBatchSyncWithOptions(tmpReq: CreateAppSessionBatchSyncRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSessionBatchSyncResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAppSessionBatchSyncShrinkRequest({ });
@@ -3654,11 +4376,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppSessionBatchSyncResponse>(await this.callApi(params, req, runtime), new CreateAppSessionBatchSyncResponse({}));
   }
 
+  /**
+   * @summary 同步批量创建多个会话
+   *
+   * @param request CreateAppSessionBatchSyncRequest
+   * @return CreateAppSessionBatchSyncResponse
+   */
   async createAppSessionBatchSync(request: CreateAppSessionBatchSyncRequest): Promise<CreateAppSessionBatchSyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppSessionBatchSyncWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 同步创建会话
+   *
+   * @param request CreateAppSessionSyncRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppSessionSyncResponse
+   */
   async createAppSessionSyncWithOptions(request: CreateAppSessionSyncRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSessionSyncResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3727,11 +4462,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppSessionSyncResponse>(await this.callApi(params, req, runtime), new CreateAppSessionSyncResponse({}));
   }
 
+  /**
+   * @summary 同步创建会话
+   *
+   * @param request CreateAppSessionSyncRequest
+   * @return CreateAppSessionSyncResponse
+   */
   async createAppSessionSync(request: CreateAppSessionSyncRequest): Promise<CreateAppSessionSyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppSessionSyncWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用版本创建服务
+   *
+   * @param request CreateAppVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppVersionResponse
+   */
   async createAppVersionWithOptions(request: CreateAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3760,11 +4508,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppVersionResponse>(await this.callApi(params, req, runtime), new CreateAppVersionResponse({}));
   }
 
+  /**
+   * @summary 应用版本创建服务
+   *
+   * @param request CreateAppVersionRequest
+   * @return CreateAppVersionResponse
+   */
   async createAppVersion(request: CreateAppVersionRequest): Promise<CreateAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 预定session资源
+   *
+   * @param request CreateCapacityReservationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCapacityReservationResponse
+   */
   async createCapacityReservationWithOptions(request: CreateCapacityReservationRequest, runtime: $Util.RuntimeOptions): Promise<CreateCapacityReservationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3813,11 +4574,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCapacityReservationResponse>(await this.callApi(params, req, runtime), new CreateCapacityReservationResponse({}));
   }
 
+  /**
+   * @summary 预定session资源
+   *
+   * @param request CreateCapacityReservationRequest
+   * @return CreateCapacityReservationResponse
+   */
   async createCapacityReservation(request: CreateCapacityReservationRequest): Promise<CreateCapacityReservationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCapacityReservationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用删除接口
+   *
+   * @param request DeleteAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppResponse
+   */
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3842,11 +4616,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppResponse>(await this.callApi(params, req, runtime), new DeleteAppResponse({}));
   }
 
+  /**
+   * @summary 应用删除接口
+   *
+   * @param request DeleteAppRequest
+   * @return DeleteAppResponse
+   */
   async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用版本删除接口
+   *
+   * @param request DeleteAppVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppVersionResponse
+   */
   async deleteAppVersionWithOptions(request: DeleteAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3871,11 +4658,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppVersionResponse>(await this.callApi(params, req, runtime), new DeleteAppVersionResponse({}));
   }
 
+  /**
+   * @summary 应用版本删除接口
+   *
+   * @param request DeleteAppVersionRequest
+   * @return DeleteAppVersionResponse
+   */
   async deleteAppVersion(request: DeleteAppVersionRequest): Promise<DeleteAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取适配申请详情
+   *
+   * @param request GetAdaptationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAdaptationResponse
+   */
   async getAdaptationWithOptions(request: GetAdaptationRequest, runtime: $Util.RuntimeOptions): Promise<GetAdaptationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3904,11 +4704,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAdaptationResponse>(await this.callApi(params, req, runtime), new GetAdaptationResponse({}));
   }
 
+  /**
+   * @summary 获取适配申请详情
+   *
+   * @param request GetAdaptationRequest
+   * @return GetAdaptationResponse
+   */
   async getAdaptation(request: GetAdaptationRequest): Promise<GetAdaptationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAdaptationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用详情接口
+   *
+   * @param request GetAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppResponse
+   */
   async getAppWithOptions(request: GetAppRequest, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3933,11 +4746,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppResponse>(await this.callApi(params, req, runtime), new GetAppResponse({}));
   }
 
+  /**
+   * @summary 应用详情接口
+   *
+   * @param request GetAppRequest
+   * @return GetAppResponse
+   */
   async getApp(request: GetAppRequest): Promise<GetAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询会话并发数
+   *
+   * @param request GetAppCcuRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppCcuResponse
+   */
   async getAppCcuWithOptions(request: GetAppCcuRequest, runtime: $Util.RuntimeOptions): Promise<GetAppCcuResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3958,11 +4784,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppCcuResponse>(await this.callApi(params, req, runtime), new GetAppCcuResponse({}));
   }
 
+  /**
+   * @summary 查询会话并发数
+   *
+   * @param request GetAppCcuRequest
+   * @return GetAppCcuResponse
+   */
   async getAppCcu(request: GetAppCcuRequest): Promise<GetAppCcuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppCcuWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取App会话信息
+   *
+   * @param request GetAppSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppSessionResponse
+   */
   async getAppSessionWithOptions(request: GetAppSessionRequest, runtime: $Util.RuntimeOptions): Promise<GetAppSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3991,11 +4830,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppSessionResponse>(await this.callApi(params, req, runtime), new GetAppSessionResponse({}));
   }
 
+  /**
+   * @summary 获取App会话信息
+   *
+   * @param request GetAppSessionRequest
+   * @return GetAppSessionResponse
+   */
   async getAppSession(request: GetAppSessionRequest): Promise<GetAppSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppSessionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用版本详情接口
+   *
+   * @param request GetAppVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppVersionResponse
+   */
   async getAppVersionWithOptions(request: GetAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetAppVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4020,40 +4872,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppVersionResponse>(await this.callApi(params, req, runtime), new GetAppVersionResponse({}));
   }
 
+  /**
+   * @summary 应用版本详情接口
+   *
+   * @param request GetAppVersionRequest
+   * @return GetAppVersionResponse
+   */
   async getAppVersion(request: GetAppVersionRequest): Promise<GetAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppVersionWithOptions(request, runtime);
   }
 
-  async getAutoPickPicWithOptions(request: GetAutoPickPicRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoPickPicResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.taskId)) {
-      query["TaskId"] = request.taskId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetAutoPickPic",
-      version: "2021-11-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetAutoPickPicResponse>(await this.callApi(params, req, runtime), new GetAutoPickPicResponse({}));
-  }
-
-  async getAutoPickPic(request: GetAutoPickPicRequest): Promise<GetAutoPickPicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAutoPickPicWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary 查询 session 会话容量信息
+   *
+   * @param request GetCapacityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCapacityResponse
+   */
   async getCapacityWithOptions(request: GetCapacityRequest, runtime: $Util.RuntimeOptions): Promise<GetCapacityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4098,11 +4934,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCapacityResponse>(await this.callApi(params, req, runtime), new GetCapacityResponse({}));
   }
 
+  /**
+   * @summary 查询 session 会话容量信息
+   *
+   * @param request GetCapacityRequest
+   * @return GetCapacityResponse
+   */
   async getCapacity(request: GetCapacityRequest): Promise<GetCapacityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCapacityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询预定任务的详情信息
+   *
+   * @param request GetReserveTaskDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetReserveTaskDetailResponse
+   */
   async getReserveTaskDetailWithOptions(request: GetReserveTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetReserveTaskDetailResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4127,11 +4976,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetReserveTaskDetailResponse>(await this.callApi(params, req, runtime), new GetReserveTaskDetailResponse({}));
   }
 
+  /**
+   * @summary 查询预定任务的详情信息
+   *
+   * @param request GetReserveTaskDetailRequest
+   * @return GetReserveTaskDetailResponse
+   */
   async getReserveTaskDetail(request: GetReserveTaskDetailRequest): Promise<GetReserveTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getReserveTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询公网ip
+   *
+   * @param request GetResourcePublicIPsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetResourcePublicIPsResponse
+   */
   async getResourcePublicIPsWithOptions(request: GetResourcePublicIPsRequest, runtime: $Util.RuntimeOptions): Promise<GetResourcePublicIPsResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4164,11 +5026,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourcePublicIPsResponse>(await this.callApi(params, req, runtime), new GetResourcePublicIPsResponse({}));
   }
 
+  /**
+   * @summary 查询公网ip
+   *
+   * @param request GetResourcePublicIPsRequest
+   * @return GetResourcePublicIPsResponse
+   */
   async getResourcePublicIPs(request: GetResourcePublicIPsRequest): Promise<GetResourcePublicIPsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourcePublicIPsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用列表接口
+   *
+   * @param request ListAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppResponse
+   */
   async listAppWithOptions(request: ListAppRequest, runtime: $Util.RuntimeOptions): Promise<ListAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4201,11 +5076,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppResponse>(await this.callApi(params, req, runtime), new ListAppResponse({}));
   }
 
+  /**
+   * @summary 应用列表接口
+   *
+   * @param request ListAppRequest
+   * @return ListAppResponse
+   */
   async listApp(request: ListAppRequest): Promise<ListAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询App会话
+   *
+   * @param request ListAppSessionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppSessionsResponse
+   */
   async listAppSessionsWithOptions(request: ListAppSessionsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppSessionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4229,6 +5117,10 @@ export default class Client extends OpenApi {
       query["PlatformSessionIds"] = request.platformSessionIds;
     }
 
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4246,11 +5138,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppSessionsResponse>(await this.callApi(params, req, runtime), new ListAppSessionsResponse({}));
   }
 
+  /**
+   * @summary 查询App会话
+   *
+   * @param request ListAppSessionsRequest
+   * @return ListAppSessionsResponse
+   */
   async listAppSessions(request: ListAppSessionsRequest): Promise<ListAppSessionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppSessionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用版本列表接口
+   *
+   * @param request ListAppVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppVersionResponse
+   */
   async listAppVersionWithOptions(request: ListAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<ListAppVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4283,11 +5188,62 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppVersionResponse>(await this.callApi(params, req, runtime), new ListAppVersionResponse({}));
   }
 
+  /**
+   * @summary 应用版本列表接口
+   *
+   * @param request ListAppVersionRequest
+   * @return ListAppVersionResponse
+   */
   async listAppVersion(request: ListAppVersionRequest): Promise<ListAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询GCS实例列表
+   *
+   * @param request ListInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
+  async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstances",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+  }
+
+  /**
+   * @summary 查询GCS实例列表
+   *
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
+  async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 应用修改服务
+   *
+   * @param request ModifyAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAppResponse
+   */
   async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4316,11 +5272,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAppResponse>(await this.callApi(params, req, runtime), new ModifyAppResponse({}));
   }
 
+  /**
+   * @summary 应用修改服务
+   *
+   * @param request ModifyAppRequest
+   * @return ModifyAppResponse
+   */
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用版本修改服务
+   *
+   * @param request ModifyAppVersionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAppVersionResponse
+   */
   async modifyAppVersionWithOptions(request: ModifyAppVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4349,11 +5318,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAppVersionResponse>(await this.callApi(params, req, runtime), new ModifyAppVersionResponse({}));
   }
 
+  /**
+   * @summary 应用版本修改服务
+   *
+   * @param request ModifyAppVersionRequest
+   * @return ModifyAppVersionResponse
+   */
   async modifyAppVersion(request: ModifyAppVersionRequest): Promise<ModifyAppVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppVersionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 释放 session 资源预定的资源
+   *
+   * @param request ReleaseCapacityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseCapacityResponse
+   */
   async releaseCapacityWithOptions(request: ReleaseCapacityRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCapacityResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4394,11 +5376,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseCapacityResponse>(await this.callApi(params, req, runtime), new ReleaseCapacityResponse({}));
   }
 
+  /**
+   * @summary 释放 session 资源预定的资源
+   *
+   * @param request ReleaseCapacityRequest
+   * @return ReleaseCapacityResponse
+   */
   async releaseCapacity(request: ReleaseCapacityRequest): Promise<ReleaseCapacityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseCapacityWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据资源批次号释放 session 资源预定的资源
+   *
+   * @param request ReleaseCapacityByBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseCapacityByBatchResponse
+   */
   async releaseCapacityByBatchWithOptions(request: ReleaseCapacityByBatchRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCapacityByBatchResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -4423,11 +5418,178 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseCapacityByBatchResponse>(await this.callApi(params, req, runtime), new ReleaseCapacityByBatchResponse({}));
   }
 
+  /**
+   * @summary 根据资源批次号释放 session 资源预定的资源
+   *
+   * @param request ReleaseCapacityByBatchRequest
+   * @return ReleaseCapacityByBatchResponse
+   */
   async releaseCapacityByBatch(request: ReleaseCapacityByBatchRequest): Promise<ReleaseCapacityByBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseCapacityByBatchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 退订GCS实例
+   *
+   * @param request ReleaseInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstancesResponse
+   */
+  async releaseInstancesWithOptions(request: ReleaseInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.amount)) {
+      body["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.districtId)) {
+      body["DistrictId"] = request.districtId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseInstances",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseInstancesResponse>(await this.callApi(params, req, runtime), new ReleaseInstancesResponse({}));
+  }
+
+  /**
+   * @summary 退订GCS实例
+   *
+   * @param request ReleaseInstancesRequest
+   * @return ReleaseInstancesResponse
+   */
+  async releaseInstances(request: ReleaseInstancesRequest): Promise<ReleaseInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 预定GCS实例
+   *
+   * @param request ReserveInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReserveInstancesResponse
+   */
+  async reserveInstancesWithOptions(request: ReserveInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ReserveInstancesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.amount)) {
+      body["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.districtId)) {
+      body["DistrictId"] = request.districtId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReserveInstances",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReserveInstancesResponse>(await this.callApi(params, req, runtime), new ReserveInstancesResponse({}));
+  }
+
+  /**
+   * @summary 预定GCS实例
+   *
+   * @param request ReserveInstancesRequest
+   * @return ReserveInstancesResponse
+   */
+  async reserveInstances(request: ReserveInstancesRequest): Promise<ReserveInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reserveInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 发送业务能力变更结果回调
+   *
+   * @param request SendBizCocChangeCallbackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SendBizCocChangeCallbackResponse
+   */
+  async sendBizCocChangeCallbackWithOptions(request: SendBizCocChangeCallbackRequest, runtime: $Util.RuntimeOptions): Promise<SendBizCocChangeCallbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.platformSessionId)) {
+      query["PlatformSessionId"] = request.platformSessionId;
+    }
+
+    if (!Util.isUnset(request.result)) {
+      query["Result"] = request.result;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendBizCocChangeCallback",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendBizCocChangeCallbackResponse>(await this.callApi(params, req, runtime), new SendBizCocChangeCallbackResponse({}));
+  }
+
+  /**
+   * @summary 发送业务能力变更结果回调
+   *
+   * @param request SendBizCocChangeCallbackRequest
+   * @return SendBizCocChangeCallbackResponse
+   */
+  async sendBizCocChangeCallback(request: SendBizCocChangeCallbackRequest): Promise<SendBizCocChangeCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendBizCocChangeCallbackWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 停止App会话
+   *
+   * @param tmpReq StopAppSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopAppSessionResponse
+   */
   async stopAppSessionWithOptions(tmpReq: StopAppSessionRequest, runtime: $Util.RuntimeOptions): Promise<StopAppSessionResponse> {
     Util.validateModel(tmpReq);
     let request = new StopAppSessionShrinkRequest({ });
@@ -4466,11 +5628,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopAppSessionResponse>(await this.callApi(params, req, runtime), new StopAppSessionResponse({}));
   }
 
+  /**
+   * @summary 停止App会话
+   *
+   * @param request StopAppSessionRequest
+   * @return StopAppSessionResponse
+   */
   async stopAppSession(request: StopAppSessionRequest): Promise<StopAppSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopAppSessionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量停止会话接口
+   *
+   * @param tmpReq StopAppSessionBatchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopAppSessionBatchResponse
+   */
   async stopAppSessionBatchWithOptions(tmpReq: StopAppSessionBatchRequest, runtime: $Util.RuntimeOptions): Promise<StopAppSessionBatchResponse> {
     Util.validateModel(tmpReq);
     let request = new StopAppSessionBatchShrinkRequest({ });
@@ -4521,9 +5696,61 @@ export default class Client extends OpenApi {
     return $tea.cast<StopAppSessionBatchResponse>(await this.callApi(params, req, runtime), new StopAppSessionBatchResponse({}));
   }
 
+  /**
+   * @summary 批量停止会话接口
+   *
+   * @param request StopAppSessionBatchRequest
+   * @return StopAppSessionBatchResponse
+   */
   async stopAppSessionBatch(request: StopAppSessionBatchRequest): Promise<StopAppSessionBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopAppSessionBatchWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 更新会话状态
+   *
+   * @param request UpdateSessionBizStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSessionBizStatusResponse
+   */
+  async updateSessionBizStatusWithOptions(request: UpdateSessionBizStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSessionBizStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizStatus)) {
+      query["BizStatus"] = request.bizStatus;
+    }
+
+    if (!Util.isUnset(request.platformSessionId)) {
+      query["PlatformSessionId"] = request.platformSessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSessionBizStatus",
+      version: "2021-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSessionBizStatusResponse>(await this.callApi(params, req, runtime), new UpdateSessionBizStatusResponse({}));
+  }
+
+  /**
+   * @summary 更新会话状态
+   *
+   * @param request UpdateSessionBizStatusRequest
+   * @return UpdateSessionBizStatusResponse
+   */
+  async updateSessionBizStatus(request: UpdateSessionBizStatusRequest): Promise<UpdateSessionBizStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSessionBizStatusWithOptions(request, runtime);
   }
 
 }
