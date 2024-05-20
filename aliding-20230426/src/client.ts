@@ -29436,15 +29436,21 @@ export class CreateSubscribedCalendarHeadersAccountContext extends $tea.Model {
 }
 
 export class CreateSubscribedCalendarRequestSubscribeScope extends $tea.Model {
+  corpIds?: string[];
+  openConversationIds?: string[];
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      corpIds: 'CorpIds',
+      openConversationIds: 'OpenConversationIds',
       userIds: 'UserIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      corpIds: { 'type': 'array', 'itemType': 'string' },
+      openConversationIds: { 'type': 'array', 'itemType': 'string' },
       userIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
