@@ -461,6 +461,7 @@ export class CreateTaskRequestInput extends $tea.Model {
   fileUrl?: string;
   format?: string;
   multipleStreamsEnabled?: boolean;
+  outputPath?: string;
   progressiveCallbacksEnabled?: boolean;
   sampleRate?: number;
   sourceLanguage?: string;
@@ -471,6 +472,7 @@ export class CreateTaskRequestInput extends $tea.Model {
       fileUrl: 'FileUrl',
       format: 'Format',
       multipleStreamsEnabled: 'MultipleStreamsEnabled',
+      outputPath: 'OutputPath',
       progressiveCallbacksEnabled: 'ProgressiveCallbacksEnabled',
       sampleRate: 'SampleRate',
       sourceLanguage: 'SourceLanguage',
@@ -484,6 +486,7 @@ export class CreateTaskRequestInput extends $tea.Model {
       fileUrl: 'string',
       format: 'string',
       multipleStreamsEnabled: 'boolean',
+      outputPath: 'string',
       progressiveCallbacksEnabled: 'boolean',
       sampleRate: 'number',
       sourceLanguage: 'string',
@@ -545,15 +548,18 @@ export class CreateTaskRequestParametersCustomPrompt extends $tea.Model {
 }
 
 export class CreateTaskRequestParametersExtraParams extends $tea.Model {
+  maxKeywords?: number;
   nfixEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
+      maxKeywords: 'MaxKeywords',
       nfixEnabled: 'NfixEnabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxKeywords: 'number',
       nfixEnabled: 'boolean',
     };
   }
