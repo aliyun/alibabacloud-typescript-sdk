@@ -101,6 +101,90 @@ export class ChangeResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateAdvancedPolicyRequest extends $tea.Model {
+  instanceName?: string;
+  regionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceName: 'InstanceName',
+      regionCode: 'RegionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceName: 'string',
+      regionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAdvancedPolicyResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  errCode?: string;
+  errMessage?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      errCode: 'string',
+      errMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAdvancedPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAdvancedPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAdvancedPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDownloadRequest extends $tea.Model {
   bakSetId?: string;
   bakSetSize?: string;
@@ -1313,6 +1397,96 @@ export class DescribeSandboxRecoveryTimeResponse extends $tea.Model {
   }
 }
 
+export class ModifyBackupPolicyRequest extends $tea.Model {
+  advanceDataPolicies?: ModifyBackupPolicyRequestAdvanceDataPolicies[];
+  instanceName?: string;
+  preferredBackupWindowBegin?: string;
+  regionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceDataPolicies: 'AdvanceDataPolicies',
+      instanceName: 'InstanceName',
+      preferredBackupWindowBegin: 'PreferredBackupWindowBegin',
+      regionCode: 'RegionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceDataPolicies: { 'type': 'array', 'itemType': ModifyBackupPolicyRequestAdvanceDataPolicies },
+      instanceName: 'string',
+      preferredBackupWindowBegin: 'string',
+      regionCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackupPolicyResponseBody extends $tea.Model {
+  code?: string;
+  data?: ModifyBackupPolicyResponseBodyData;
+  errCode?: string;
+  errMessage?: string;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ModifyBackupPolicyResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackupPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyBackupPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyBackupPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBTablesRecoveryStateRequest extends $tea.Model {
   category?: string;
   instanceId?: string;
@@ -2021,6 +2195,138 @@ export class DescribeSandboxRecoveryTimeResponseBodyData extends $tea.Model {
   }
 }
 
+export class ModifyBackupPolicyRequestAdvanceDataPolicies extends $tea.Model {
+  actionType?: string;
+  destRegion?: string;
+  destType?: string;
+  filterKey?: string;
+  filterType?: string;
+  filterTypeCopy?: string;
+  filterValue?: string;
+  policyId?: string;
+  retentionType?: string;
+  retentionValue?: string;
+  srcRegion?: string;
+  srcType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionType: 'ActionType',
+      destRegion: 'DestRegion',
+      destType: 'DestType',
+      filterKey: 'FilterKey',
+      filterType: 'FilterType',
+      filterTypeCopy: 'FilterType-copy',
+      filterValue: 'FilterValue',
+      policyId: 'PolicyId',
+      retentionType: 'RetentionType',
+      retentionValue: 'RetentionValue',
+      srcRegion: 'SrcRegion',
+      srcType: 'SrcType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionType: 'string',
+      destRegion: 'string',
+      destType: 'string',
+      filterKey: 'string',
+      filterType: 'string',
+      filterTypeCopy: 'string',
+      filterValue: 'string',
+      policyId: 'string',
+      retentionType: 'string',
+      retentionValue: 'string',
+      srcRegion: 'string',
+      srcType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies extends $tea.Model {
+  autoCreated?: boolean;
+  bakType?: string;
+  destRegion?: string;
+  destType?: string;
+  dumpAction?: string;
+  filterKey?: string;
+  filterType?: string;
+  filterValue?: string;
+  policyId?: string;
+  retentionType?: string;
+  retentionValue?: string;
+  srcRegion?: string;
+  srcType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCreated: 'AutoCreated',
+      bakType: 'BakType',
+      destRegion: 'DestRegion',
+      destType: 'DestType',
+      dumpAction: 'DumpAction',
+      filterKey: 'FilterKey',
+      filterType: 'FilterType',
+      filterValue: 'FilterValue',
+      policyId: 'PolicyId',
+      retentionType: 'RetentionType',
+      retentionValue: 'RetentionValue',
+      srcRegion: 'SrcRegion',
+      srcType: 'SrcType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCreated: 'boolean',
+      bakType: 'string',
+      destRegion: 'string',
+      destType: 'string',
+      dumpAction: 'string',
+      filterKey: 'string',
+      filterType: 'string',
+      filterValue: 'string',
+      policyId: 'string',
+      retentionType: 'string',
+      retentionValue: 'string',
+      srcRegion: 'string',
+      srcType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackupPolicyResponseBodyData extends $tea.Model {
+  advanceDataPolicies?: ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies[];
+  preferredBackupWindow?: string;
+  preferredBackupWindowBegin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advanceDataPolicies: 'AdvanceDataPolicies',
+      preferredBackupWindow: 'PreferredBackupWindow',
+      preferredBackupWindowBegin: 'PreferredBackupWindowBegin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advanceDataPolicies: { 'type': 'array', 'itemType': ModifyBackupPolicyResponseBodyDataAdvanceDataPolicies },
+      preferredBackupWindow: 'string',
+      preferredBackupWindowBegin: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -2125,6 +2431,52 @@ export default class Client extends OpenApi {
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 开启高级备份策略
+   *
+   * @param request CreateAdvancedPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAdvancedPolicyResponse
+   */
+  async createAdvancedPolicyWithOptions(request: CreateAdvancedPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAdvancedPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.regionCode)) {
+      query["RegionCode"] = request.regionCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAdvancedPolicy",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAdvancedPolicyResponse>(await this.callApi(params, req, runtime), new CreateAdvancedPolicyResponse({}));
+  }
+
+  /**
+   * @summary 开启高级备份策略
+   *
+   * @param request CreateAdvancedPolicyRequest
+   * @return CreateAdvancedPolicyResponse
+   */
+  async createAdvancedPolicy(request: CreateAdvancedPolicyRequest): Promise<CreateAdvancedPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAdvancedPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -2963,6 +3315,60 @@ export default class Client extends OpenApi {
   async describeSandboxRecoveryTime(request: DescribeSandboxRecoveryTimeRequest): Promise<DescribeSandboxRecoveryTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSandboxRecoveryTimeWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 修改备份策略
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyBackupPolicyResponse
+   */
+  async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.advanceDataPolicies)) {
+      query["AdvanceDataPolicies"] = request.advanceDataPolicies;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.preferredBackupWindowBegin)) {
+      query["PreferredBackupWindowBegin"] = request.preferredBackupWindowBegin;
+    }
+
+    if (!Util.isUnset(request.regionCode)) {
+      query["RegionCode"] = request.regionCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupPolicy",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
+  }
+
+  /**
+   * @summary 修改备份策略
+   *
+   * @param request ModifyBackupPolicyRequest
+   * @return ModifyBackupPolicyResponse
+   */
+  async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
   /**
