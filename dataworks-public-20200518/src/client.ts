@@ -6823,6 +6823,103 @@ export class DesensitizeDataResponse extends $tea.Model {
   }
 }
 
+export class DsgDesensPlanAddOrUpdateRequest extends $tea.Model {
+  desensRules?: DsgDesensPlanAddOrUpdateRequestDesensRules[];
+  static names(): { [key: string]: string } {
+    return {
+      desensRules: 'DesensRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desensRules: { 'type': 'array', 'itemType': DsgDesensPlanAddOrUpdateRequestDesensRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanAddOrUpdateShrinkRequest extends $tea.Model {
+  desensRulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desensRulesShrink: 'DesensRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desensRulesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanAddOrUpdateResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanAddOrUpdateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgDesensPlanAddOrUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgDesensPlanAddOrUpdateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgDesensPlanDeleteRequest extends $tea.Model {
   ids?: number[];
   sceneCode?: string;
@@ -7610,6 +7707,181 @@ export class DsgSceneAddOrUpdateSceneResponse extends $tea.Model {
   }
 }
 
+export class DsgSceneQuerySceneListByNameRequest extends $tea.Model {
+  sceneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneName: 'SceneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgSceneQuerySceneListByNameResponseBody extends $tea.Model {
+  data?: DsgSceneQuerySceneListByNameResponseBodyData[];
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DsgSceneQuerySceneListByNameResponseBodyData },
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgSceneQuerySceneListByNameResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgSceneQuerySceneListByNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgSceneQuerySceneListByNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgScenedDeleteSceneRequest extends $tea.Model {
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgScenedDeleteSceneShrinkRequest extends $tea.Model {
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgScenedDeleteSceneResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgScenedDeleteSceneResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgScenedDeleteSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgScenedDeleteSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgStopSensIdentifyRequest extends $tea.Model {
   jobId?: number;
   tenantId?: string;
@@ -8104,6 +8376,200 @@ export class DsgUserGroupQueryUserListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DsgUserGroupQueryUserListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListAddOrUpdateRequest extends $tea.Model {
+  whiteLists?: DsgWhiteListAddOrUpdateRequestWhiteLists[];
+  static names(): { [key: string]: string } {
+    return {
+      whiteLists: 'WhiteLists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      whiteLists: { 'type': 'array', 'itemType': DsgWhiteListAddOrUpdateRequestWhiteLists },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListAddOrUpdateShrinkRequest extends $tea.Model {
+  whiteListsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      whiteListsShrink: 'WhiteLists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      whiteListsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListAddOrUpdateResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListAddOrUpdateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgWhiteListAddOrUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgWhiteListAddOrUpdateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListDeleteListRequest extends $tea.Model {
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListDeleteListShrinkRequest extends $tea.Model {
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListDeleteListResponseBody extends $tea.Model {
+  data?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListDeleteListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DsgWhiteListDeleteListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DsgWhiteListDeleteListResponseBody,
     };
   }
 
@@ -27050,6 +27516,68 @@ export class DeployDISyncTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class DsgDesensPlanAddOrUpdateRequestDesensRulesDesensPlan extends $tea.Model {
+  desensPlanType?: string;
+  extParam?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      desensPlanType: 'DesensPlanType',
+      extParam: 'ExtParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desensPlanType: 'string',
+      extParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $tea.Model {
+  checkWatermark?: boolean;
+  dataType?: string;
+  desensPlan?: DsgDesensPlanAddOrUpdateRequestDesensRulesDesensPlan;
+  id?: number;
+  owner?: string;
+  ruleName?: string;
+  sceneIds?: number[];
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkWatermark: 'CheckWatermark',
+      dataType: 'DataType',
+      desensPlan: 'DesensPlan',
+      id: 'Id',
+      owner: 'Owner',
+      ruleName: 'RuleName',
+      sceneIds: 'SceneIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkWatermark: 'boolean',
+      dataType: 'string',
+      desensPlan: DsgDesensPlanAddOrUpdateRequestDesensRulesDesensPlan,
+      id: 'number',
+      owner: 'string',
+      ruleName: 'string',
+      sceneIds: { 'type': 'array', 'itemType': 'number' },
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgDesensPlanQueryListResponseBodyPageDataDataDesensPlan extends $tea.Model {
   desensPlanType?: string;
   extParam?: { [key: string]: any };
@@ -27301,6 +27829,71 @@ export class DsgSceneAddOrUpdateSceneRequestScenes extends $tea.Model {
   }
 }
 
+export class DsgSceneQuerySceneListByNameResponseBodyDataProjects extends $tea.Model {
+  clusterId?: string;
+  dbType?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dbType: 'DbType',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbType: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgSceneQuerySceneListByNameResponseBodyData extends $tea.Model {
+  children?: any[];
+  desc?: string;
+  id?: number;
+  projects?: DsgSceneQuerySceneListByNameResponseBodyDataProjects[];
+  sceneCode?: string;
+  sceneLevel?: number;
+  sceneName?: string;
+  userGroups?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'Children',
+      desc: 'Desc',
+      id: 'Id',
+      projects: 'Projects',
+      sceneCode: 'SceneCode',
+      sceneLevel: 'SceneLevel',
+      sceneName: 'SceneName',
+      userGroups: 'UserGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': 'any' },
+      desc: 'string',
+      id: 'number',
+      projects: { 'type': 'array', 'itemType': DsgSceneQuerySceneListByNameResponseBodyDataProjects },
+      sceneCode: 'string',
+      sceneLevel: 'number',
+      sceneName: 'string',
+      userGroups: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgUserGroupAddOrUpdateRequestUserGroups extends $tea.Model {
   accounts?: string[];
   id?: number;
@@ -27420,6 +28013,37 @@ export class DsgUserGroupQueryUserListResponseBodyData extends $tea.Model {
       baseId: 'string',
       parentAccountId: 'string',
       yunAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DsgWhiteListAddOrUpdateRequestWhiteLists extends $tea.Model {
+  endTime?: string;
+  id?: number;
+  ruleId?: number;
+  startTime?: string;
+  userGroupIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      id: 'Id',
+      ruleId: 'RuleId',
+      startTime: 'StartTime',
+      userGroupIds: 'UserGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      id: 'number',
+      ruleId: 'number',
+      startTime: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -45324,6 +45948,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 新增或编辑脱敏规则
+   *
+   * @param tmpReq DsgDesensPlanAddOrUpdateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgDesensPlanAddOrUpdateResponse
+   */
+  async dsgDesensPlanAddOrUpdateWithOptions(tmpReq: DsgDesensPlanAddOrUpdateRequest, runtime: $Util.RuntimeOptions): Promise<DsgDesensPlanAddOrUpdateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgDesensPlanAddOrUpdateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.desensRules)) {
+      request.desensRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.desensRules, "DesensRules", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.desensRulesShrink)) {
+      query["DesensRules"] = request.desensRulesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgDesensPlanAddOrUpdate",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgDesensPlanAddOrUpdateResponse>(await this.callApi(params, req, runtime), new DsgDesensPlanAddOrUpdateResponse({}));
+  }
+
+  /**
+   * @summary 新增或编辑脱敏规则
+   *
+   * @param request DsgDesensPlanAddOrUpdateRequest
+   * @return DsgDesensPlanAddOrUpdateResponse
+   */
+  async dsgDesensPlanAddOrUpdate(request: DsgDesensPlanAddOrUpdateRequest): Promise<DsgDesensPlanAddOrUpdateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgDesensPlanAddOrUpdateWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 删除脱敏规则
    *
    * @param tmpReq DsgDesensPlanDeleteRequest
@@ -45740,6 +46412,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询场景列表
+   *
+   * @param request DsgSceneQuerySceneListByNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgSceneQuerySceneListByNameResponse
+   */
+  async dsgSceneQuerySceneListByNameWithOptions(request: DsgSceneQuerySceneListByNameRequest, runtime: $Util.RuntimeOptions): Promise<DsgSceneQuerySceneListByNameResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgSceneQuerySceneListByName",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgSceneQuerySceneListByNameResponse>(await this.callApi(params, req, runtime), new DsgSceneQuerySceneListByNameResponse({}));
+  }
+
+  /**
+   * @summary 查询场景列表
+   *
+   * @param request DsgSceneQuerySceneListByNameRequest
+   * @return DsgSceneQuerySceneListByNameResponse
+   */
+  async dsgSceneQuerySceneListByName(request: DsgSceneQuerySceneListByNameRequest): Promise<DsgSceneQuerySceneListByNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgSceneQuerySceneListByNameWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 删除二级场景
+   *
+   * @param tmpReq DsgScenedDeleteSceneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgScenedDeleteSceneResponse
+   */
+  async dsgScenedDeleteSceneWithOptions(tmpReq: DsgScenedDeleteSceneRequest, runtime: $Util.RuntimeOptions): Promise<DsgScenedDeleteSceneResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgScenedDeleteSceneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgScenedDeleteScene",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgScenedDeleteSceneResponse>(await this.callApi(params, req, runtime), new DsgScenedDeleteSceneResponse({}));
+  }
+
+  /**
+   * @summary 删除二级场景
+   *
+   * @param request DsgScenedDeleteSceneRequest
+   * @return DsgScenedDeleteSceneResponse
+   */
+  async dsgScenedDeleteScene(request: DsgScenedDeleteSceneRequest): Promise<DsgScenedDeleteSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgScenedDeleteSceneWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 识别任务停止
    *
    * @param request DsgStopSensIdentifyRequest
@@ -45984,6 +46742,102 @@ export default class Client extends OpenApi {
   async dsgUserGroupQueryUserList(): Promise<DsgUserGroupQueryUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dsgUserGroupQueryUserListWithOptions(runtime);
+  }
+
+  /**
+   * @summary 新增或编辑脱敏白名单
+   *
+   * @param tmpReq DsgWhiteListAddOrUpdateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgWhiteListAddOrUpdateResponse
+   */
+  async dsgWhiteListAddOrUpdateWithOptions(tmpReq: DsgWhiteListAddOrUpdateRequest, runtime: $Util.RuntimeOptions): Promise<DsgWhiteListAddOrUpdateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgWhiteListAddOrUpdateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.whiteLists)) {
+      request.whiteListsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.whiteLists, "WhiteLists", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.whiteListsShrink)) {
+      query["WhiteLists"] = request.whiteListsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgWhiteListAddOrUpdate",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgWhiteListAddOrUpdateResponse>(await this.callApi(params, req, runtime), new DsgWhiteListAddOrUpdateResponse({}));
+  }
+
+  /**
+   * @summary 新增或编辑脱敏白名单
+   *
+   * @param request DsgWhiteListAddOrUpdateRequest
+   * @return DsgWhiteListAddOrUpdateResponse
+   */
+  async dsgWhiteListAddOrUpdate(request: DsgWhiteListAddOrUpdateRequest): Promise<DsgWhiteListAddOrUpdateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgWhiteListAddOrUpdateWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 删除脱敏白名单
+   *
+   * @param tmpReq DsgWhiteListDeleteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DsgWhiteListDeleteListResponse
+   */
+  async dsgWhiteListDeleteListWithOptions(tmpReq: DsgWhiteListDeleteListRequest, runtime: $Util.RuntimeOptions): Promise<DsgWhiteListDeleteListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DsgWhiteListDeleteListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DsgWhiteListDeleteList",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DsgWhiteListDeleteListResponse>(await this.callApi(params, req, runtime), new DsgWhiteListDeleteListResponse({}));
+  }
+
+  /**
+   * @summary 删除脱敏白名单
+   *
+   * @param request DsgWhiteListDeleteListRequest
+   * @return DsgWhiteListDeleteListResponse
+   */
+  async dsgWhiteListDeleteList(request: DsgWhiteListDeleteListRequest): Promise<DsgWhiteListDeleteListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dsgWhiteListDeleteListWithOptions(request, runtime);
   }
 
   /**
