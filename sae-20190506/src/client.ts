@@ -3380,6 +3380,7 @@ export class CreateApplicationRequest extends $tea.Model {
   appSource?: string;
   associateEip?: boolean;
   autoConfig?: boolean;
+  baseAppId?: string;
   command?: string;
   commandArgs?: string;
   configMapMountDesc?: string;
@@ -3398,6 +3399,7 @@ export class CreateApplicationRequest extends $tea.Model {
   liveness?: string;
   memory?: number;
   microRegistration?: string;
+  microRegistrationConfig?: string;
   mountDesc?: string;
   mountHost?: string;
   namespaceId?: string;
@@ -3423,6 +3425,7 @@ export class CreateApplicationRequest extends $tea.Model {
   replicas?: number;
   saeVersion?: string;
   securityGroupId?: string;
+  serviceTags?: string;
   slsConfigs?: string;
   terminationGracePeriodSeconds?: number;
   timezone?: string;
@@ -3440,6 +3443,7 @@ export class CreateApplicationRequest extends $tea.Model {
       appSource: 'AppSource',
       associateEip: 'AssociateEip',
       autoConfig: 'AutoConfig',
+      baseAppId: 'BaseAppId',
       command: 'Command',
       commandArgs: 'CommandArgs',
       configMapMountDesc: 'ConfigMapMountDesc',
@@ -3458,6 +3462,7 @@ export class CreateApplicationRequest extends $tea.Model {
       liveness: 'Liveness',
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
+      microRegistrationConfig: 'MicroRegistrationConfig',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
       namespaceId: 'NamespaceId',
@@ -3483,6 +3488,7 @@ export class CreateApplicationRequest extends $tea.Model {
       replicas: 'Replicas',
       saeVersion: 'SaeVersion',
       securityGroupId: 'SecurityGroupId',
+      serviceTags: 'ServiceTags',
       slsConfigs: 'SlsConfigs',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
       timezone: 'Timezone',
@@ -3503,6 +3509,7 @@ export class CreateApplicationRequest extends $tea.Model {
       appSource: 'string',
       associateEip: 'boolean',
       autoConfig: 'boolean',
+      baseAppId: 'string',
       command: 'string',
       commandArgs: 'string',
       configMapMountDesc: 'string',
@@ -3521,6 +3528,7 @@ export class CreateApplicationRequest extends $tea.Model {
       liveness: 'string',
       memory: 'number',
       microRegistration: 'string',
+      microRegistrationConfig: 'string',
       mountDesc: 'string',
       mountHost: 'string',
       namespaceId: 'string',
@@ -3546,6 +3554,7 @@ export class CreateApplicationRequest extends $tea.Model {
       replicas: 'number',
       saeVersion: 'string',
       securityGroupId: 'string',
+      serviceTags: 'string',
       slsConfigs: 'string',
       terminationGracePeriodSeconds: 'number',
       timezone: 'string',
@@ -5233,6 +5242,7 @@ export class DeployApplicationRequest extends $tea.Model {
   liveness?: string;
   memory?: number;
   microRegistration?: string;
+  microRegistrationConfig?: string;
   minReadyInstanceRatio?: number;
   minReadyInstances?: number;
   mountDesc?: string;
@@ -5257,6 +5267,7 @@ export class DeployApplicationRequest extends $tea.Model {
   readiness?: string;
   replicas?: number;
   securityGroupId?: string;
+  serviceTags?: string;
   slsConfigs?: string;
   terminationGracePeriodSeconds?: number;
   timezone?: string;
@@ -5293,6 +5304,7 @@ export class DeployApplicationRequest extends $tea.Model {
       liveness: 'Liveness',
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
+      microRegistrationConfig: 'MicroRegistrationConfig',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
@@ -5317,6 +5329,7 @@ export class DeployApplicationRequest extends $tea.Model {
       readiness: 'Readiness',
       replicas: 'Replicas',
       securityGroupId: 'SecurityGroupId',
+      serviceTags: 'ServiceTags',
       slsConfigs: 'SlsConfigs',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
       timezone: 'Timezone',
@@ -5356,6 +5369,7 @@ export class DeployApplicationRequest extends $tea.Model {
       liveness: 'string',
       memory: 'number',
       microRegistration: 'string',
+      microRegistrationConfig: 'string',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       mountDesc: 'string',
@@ -5380,6 +5394,7 @@ export class DeployApplicationRequest extends $tea.Model {
       readiness: 'string',
       replicas: 'number',
       securityGroupId: 'string',
+      serviceTags: 'string',
       slsConfigs: 'string',
       terminationGracePeriodSeconds: 'number',
       timezone: 'string',
@@ -13776,6 +13791,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
   regionId?: string;
   replicas?: number;
   securityGroupId?: string;
+  serviceTags?: { [key: string]: string };
   slsConfigs?: string;
   tags?: DescribeApplicationConfigResponseBodyDataTags[];
   terminationGracePeriodSeconds?: number;
@@ -13843,6 +13859,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       regionId: 'RegionId',
       replicas: 'Replicas',
       securityGroupId: 'SecurityGroupId',
+      serviceTags: 'ServiceTags',
       slsConfigs: 'SlsConfigs',
       tags: 'Tags',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
@@ -13913,6 +13930,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       regionId: 'string',
       replicas: 'number',
       securityGroupId: 'string',
+      serviceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       slsConfigs: 'string',
       tags: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataTags },
       terminationGracePeriodSeconds: 'number',
@@ -17061,6 +17079,92 @@ export class ListAppVersionsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListApplicationsResponseBodyDataApplicationsChildrenTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponseBodyDataApplicationsChildren extends $tea.Model {
+  appDeletingStatus?: boolean;
+  appDescription?: string;
+  appId?: string;
+  appName?: string;
+  baseAppId?: string;
+  cpu?: number;
+  instances?: number;
+  mem?: number;
+  mseEnabled?: boolean;
+  namespaceId?: string;
+  programmingLanguage?: string;
+  regionId?: string;
+  runningInstances?: number;
+  scaleRuleEnabled?: boolean;
+  scaleRuleType?: string;
+  tags?: ListApplicationsResponseBodyDataApplicationsChildrenTags[];
+  static names(): { [key: string]: string } {
+    return {
+      appDeletingStatus: 'AppDeletingStatus',
+      appDescription: 'AppDescription',
+      appId: 'AppId',
+      appName: 'AppName',
+      baseAppId: 'BaseAppId',
+      cpu: 'Cpu',
+      instances: 'Instances',
+      mem: 'Mem',
+      mseEnabled: 'MseEnabled',
+      namespaceId: 'NamespaceId',
+      programmingLanguage: 'ProgrammingLanguage',
+      regionId: 'RegionId',
+      runningInstances: 'RunningInstances',
+      scaleRuleEnabled: 'ScaleRuleEnabled',
+      scaleRuleType: 'ScaleRuleType',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appDeletingStatus: 'boolean',
+      appDescription: 'string',
+      appId: 'string',
+      appName: 'string',
+      baseAppId: 'string',
+      cpu: 'number',
+      instances: 'number',
+      mem: 'number',
+      mseEnabled: 'boolean',
+      namespaceId: 'string',
+      programmingLanguage: 'string',
+      regionId: 'string',
+      runningInstances: 'number',
+      scaleRuleEnabled: 'boolean',
+      scaleRuleType: 'string',
+      tags: { 'type': 'array', 'itemType': ListApplicationsResponseBodyDataApplicationsChildrenTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationsResponseBodyDataApplicationsTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -17088,10 +17192,14 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
   appDescription?: string;
   appId?: string;
   appName?: string;
+  baseAppId?: string;
+  children?: ListApplicationsResponseBodyDataApplicationsChildren[];
   cpu?: number;
   instances?: number;
   mem?: number;
+  mseEnabled?: boolean;
   namespaceId?: string;
+  programmingLanguage?: string;
   regionId?: string;
   runningInstances?: number;
   tags?: ListApplicationsResponseBodyDataApplicationsTags[];
@@ -17101,10 +17209,14 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
       appDescription: 'AppDescription',
       appId: 'AppId',
       appName: 'AppName',
+      baseAppId: 'BaseAppId',
+      children: 'Children',
       cpu: 'Cpu',
       instances: 'Instances',
       mem: 'Mem',
+      mseEnabled: 'MseEnabled',
       namespaceId: 'NamespaceId',
+      programmingLanguage: 'ProgrammingLanguage',
       regionId: 'RegionId',
       runningInstances: 'RunningInstances',
       tags: 'Tags',
@@ -17117,10 +17229,14 @@ export class ListApplicationsResponseBodyDataApplications extends $tea.Model {
       appDescription: 'string',
       appId: 'string',
       appName: 'string',
+      baseAppId: 'string',
+      children: { 'type': 'array', 'itemType': ListApplicationsResponseBodyDataApplicationsChildren },
       cpu: 'number',
       instances: 'number',
       mem: 'number',
+      mseEnabled: 'boolean',
       namespaceId: 'string',
+      programmingLanguage: 'string',
       regionId: 'string',
       runningInstances: 'number',
       tags: { 'type': 'array', 'itemType': ListApplicationsResponseBodyDataApplicationsTags },
@@ -19229,8 +19345,16 @@ export default class Client extends OpenApi {
       body["AssociateEip"] = request.associateEip;
     }
 
+    if (!Util.isUnset(request.baseAppId)) {
+      body["BaseAppId"] = request.baseAppId;
+    }
+
     if (!Util.isUnset(request.configMapMountDesc)) {
       body["ConfigMapMountDesc"] = request.configMapMountDesc;
+    }
+
+    if (!Util.isUnset(request.microRegistrationConfig)) {
+      body["MicroRegistrationConfig"] = request.microRegistrationConfig;
     }
 
     if (!Util.isUnset(request.ossAkId)) {
@@ -19251,6 +19375,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.phpConfig)) {
       body["PhpConfig"] = request.phpConfig;
+    }
+
+    if (!Util.isUnset(request.serviceTags)) {
+      body["ServiceTags"] = request.serviceTags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -20590,6 +20718,10 @@ export default class Client extends OpenApi {
       body["ConfigMapMountDesc"] = request.configMapMountDesc;
     }
 
+    if (!Util.isUnset(request.microRegistrationConfig)) {
+      body["MicroRegistrationConfig"] = request.microRegistrationConfig;
+    }
+
     if (!Util.isUnset(request.ossAkId)) {
       body["OssAkId"] = request.ossAkId;
     }
@@ -20608,6 +20740,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.phpConfig)) {
       body["PhpConfig"] = request.phpConfig;
+    }
+
+    if (!Util.isUnset(request.serviceTags)) {
+      body["ServiceTags"] = request.serviceTags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
