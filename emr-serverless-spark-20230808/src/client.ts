@@ -971,6 +971,93 @@ export class ListReleaseVersionsResponse extends $tea.Model {
   }
 }
 
+export class ListSessionClustersRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  queueName?: string;
+  regionId?: string;
+  sessionClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      queueName: 'queueName',
+      regionId: 'regionId',
+      sessionClusterId: 'sessionClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      queueName: 'string',
+      regionId: 'string',
+      sessionClusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  sessionClusters?: ListSessionClustersResponseBodySessionClusters[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      sessionClusters: 'sessionClusters',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      sessionClusters: { 'type': 'array', 'itemType': ListSessionClustersResponseBodySessionClusters },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSessionClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSessionClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspaceQueuesRequest extends $tea.Model {
   environment?: string;
   regionId?: string;
@@ -1664,6 +1751,143 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
   }
 }
 
+export class ListSessionClustersResponseBodySessionClustersApplicationConfigs extends $tea.Model {
+  configFileName?: string;
+  configItemKey?: string;
+  configItemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configFileName: 'configFileName',
+      configItemKey: 'configItemKey',
+      configItemValue: 'configItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFileName: 'string',
+      configItemKey: 'string',
+      configItemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersResponseBodySessionClustersAutoStartConfiguration extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersResponseBodySessionClustersAutoStopConfiguration extends $tea.Model {
+  enable?: boolean;
+  idleTimeoutMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      idleTimeoutMinutes: 'idleTimeoutMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      idleTimeoutMinutes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersResponseBodySessionClustersStateChangeReason extends $tea.Model {
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
+  applicationConfigs?: ListSessionClustersResponseBodySessionClustersApplicationConfigs[];
+  autoStartConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStartConfiguration;
+  autoStopConfiguration?: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration;
+  name?: string;
+  queueName?: string;
+  sessionClusterId?: string;
+  state?: string;
+  stateChangeReason?: ListSessionClustersResponseBodySessionClustersStateChangeReason;
+  userId?: string;
+  userName?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfigs: 'applicationConfigs',
+      autoStartConfiguration: 'autoStartConfiguration',
+      autoStopConfiguration: 'autoStopConfiguration',
+      name: 'name',
+      queueName: 'queueName',
+      sessionClusterId: 'sessionClusterId',
+      state: 'state',
+      stateChangeReason: 'stateChangeReason',
+      userId: 'userId',
+      userName: 'userName',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfigs: { 'type': 'array', 'itemType': ListSessionClustersResponseBodySessionClustersApplicationConfigs },
+      autoStartConfiguration: ListSessionClustersResponseBodySessionClustersAutoStartConfiguration,
+      autoStopConfiguration: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration,
+      name: 'string',
+      queueName: 'string',
+      sessionClusterId: 'string',
+      state: 'string',
+      stateChangeReason: ListSessionClustersResponseBodySessionClustersStateChangeReason,
+      userId: 'string',
+      userName: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspaceQueuesResponseBodyQueuesAllowActions extends $tea.Model {
   actionArn?: string;
   actionName?: string;
@@ -2160,6 +2384,67 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listReleaseVersionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询run列表
+   *
+   * @param request ListSessionClustersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSessionClustersResponse
+   */
+  async listSessionClustersWithOptions(workspaceId: string, request: ListSessionClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSessionClustersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.queueName)) {
+      query["queueName"] = request.queueName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sessionClusterId)) {
+      query["sessionClusterId"] = request.sessionClusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSessionClusters",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/sessionClusters`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSessionClustersResponse>(await this.callApi(params, req, runtime), new ListSessionClustersResponse({}));
+  }
+
+  /**
+   * @summary 查询run列表
+   *
+   * @param request ListSessionClustersRequest
+   * @return ListSessionClustersResponse
+   */
+  async listSessionClusters(workspaceId: string, request: ListSessionClustersRequest): Promise<ListSessionClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSessionClustersWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
