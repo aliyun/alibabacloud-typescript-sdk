@@ -1671,6 +1671,131 @@ export class AccessTokenResponse extends $tea.Model {
   }
 }
 
+export class AddEmployeesToCustomRoleHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeesToCustomRoleRequest extends $tea.Model {
+  roleId?: string;
+  userIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'role_id',
+      userIdList: 'user_id_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'string',
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeesToCustomRoleShrinkRequest extends $tea.Model {
+  roleId?: string;
+  userIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'role_id',
+      userIdListShrink: 'user_id_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'string',
+      userIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeesToCustomRoleResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEmployeesToCustomRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddEmployeesToCustomRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddEmployeesToCustomRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddInvoiceEntityHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -5622,6 +5747,109 @@ export class CostCenterSaveResponse extends $tea.Model {
   }
 }
 
+export class CreateCustomRoleHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoleRequest extends $tea.Model {
+  roleId?: string;
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'role_id',
+      roleName: 'role_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'string',
+      roleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoleResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCustomRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCustomRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSubCorpHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -5720,6 +5948,231 @@ export class CreateSubCorpResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSubCorpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoleHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoleRequest extends $tea.Model {
+  roleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'role_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoleResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCustomRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCustomRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEmployeesFromCustomRoleHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEmployeesFromCustomRoleRequest extends $tea.Model {
+  roleId?: string;
+  userIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'role_id',
+      userIdList: 'user_id_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'string',
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEmployeesFromCustomRoleShrinkRequest extends $tea.Model {
+  roleId?: string;
+  userIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'role_id',
+      userIdListShrink: 'user_id_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'string',
+      userIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEmployeesFromCustomRoleResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEmployeesFromCustomRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEmployeesFromCustomRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEmployeesFromCustomRoleResponseBody,
     };
   }
 
@@ -18279,6 +18732,106 @@ export class ProjectModifyResponse extends $tea.Model {
   }
 }
 
+export class QueryGroupCorpListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupCorpListRequest extends $tea.Model {
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupCorpListResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  message?: string;
+  module?: QueryGroupCorpListResponseBodyModule[];
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      success: 'success',
+      traceId: 'trace_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      message: 'string',
+      module: { 'type': 'array', 'itemType': QueryGroupCorpListResponseBodyModule },
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupCorpListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryGroupCorpListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryGroupCorpListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryReimbursementOrderHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripCorpToken?: string;
@@ -22148,6 +22701,109 @@ export class TravelStandardQueryResponse extends $tea.Model {
   }
 }
 
+export class UpdateCustomRoleHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoleRequest extends $tea.Model {
+  roleId?: string;
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleId: 'role_id',
+      roleName: 'role_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleId: 'string',
+      roleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoleResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCustomRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCustomRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UserQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -24803,6 +25459,8 @@ export class ApplyListQueryResponseBodyModuleListItineraryList extends $tea.Mode
   itineraryId?: string;
   projectCode?: string;
   projectTitle?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartInvoiceId?: string;
   thirdpartItineraryId?: string;
   trafficType?: number;
   tripWay?: number;
@@ -24817,6 +25475,8 @@ export class ApplyListQueryResponseBodyModuleListItineraryList extends $tea.Mode
       itineraryId: 'itinerary_id',
       projectCode: 'project_code',
       projectTitle: 'project_title',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartInvoiceId: 'thirdpart_invoice_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       trafficType: 'traffic_type',
       tripWay: 'trip_way',
@@ -24834,6 +25494,8 @@ export class ApplyListQueryResponseBodyModuleListItineraryList extends $tea.Mode
       itineraryId: 'string',
       projectCode: 'string',
       projectTitle: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartInvoiceId: 'string',
       thirdpartItineraryId: 'string',
       trafficType: 'number',
       tripWay: 'number',
@@ -24855,6 +25517,8 @@ export class ApplyListQueryResponseBodyModuleListItinerarySetList extends $tea.M
   itineraryId?: string;
   projectCode?: string;
   projectTitle?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartInvoiceId?: string;
   thirdpartItineraryId?: string;
   trafficType?: number;
   static names(): { [key: string]: string } {
@@ -24868,6 +25532,8 @@ export class ApplyListQueryResponseBodyModuleListItinerarySetList extends $tea.M
       itineraryId: 'itinerary_id',
       projectCode: 'project_code',
       projectTitle: 'project_title',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartInvoiceId: 'thirdpart_invoice_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       trafficType: 'traffic_type',
     };
@@ -24884,6 +25550,8 @@ export class ApplyListQueryResponseBodyModuleListItinerarySetList extends $tea.M
       itineraryId: 'string',
       projectCode: 'string',
       projectTitle: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartInvoiceId: 'string',
       thirdpartItineraryId: 'string',
       trafficType: 'number',
     };
@@ -25918,6 +26586,8 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $tea.Model {
   itineraryTravelStandard?: ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard;
   projectCode?: string;
   projectTitle?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartInvoiceId?: string;
   thirdpartItineraryId?: string;
   trafficType?: number;
   tripWay?: number;
@@ -25936,6 +26606,8 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $tea.Model {
       itineraryTravelStandard: 'itinerary_travel_standard',
       projectCode: 'project_code',
       projectTitle: 'project_title',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartInvoiceId: 'thirdpart_invoice_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       trafficType: 'traffic_type',
       tripWay: 'trip_way',
@@ -25957,6 +26629,8 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $tea.Model {
       itineraryTravelStandard: ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard,
       projectCode: 'string',
       projectTitle: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartInvoiceId: 'string',
       thirdpartItineraryId: 'string',
       trafficType: 'number',
       tripWay: 'number',
@@ -25999,6 +26673,8 @@ export class ApplyQueryResponseBodyModuleItinerarySetList extends $tea.Model {
   itineraryTravelStandard?: ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard;
   projectCode?: string;
   projectTitle?: string;
+  thirdpartCostCenterId?: string;
+  thirdpartInvoiceId?: string;
   thirdpartItineraryId?: string;
   trafficType?: number;
   static names(): { [key: string]: string } {
@@ -26014,6 +26690,8 @@ export class ApplyQueryResponseBodyModuleItinerarySetList extends $tea.Model {
       itineraryTravelStandard: 'itinerary_travel_standard',
       projectCode: 'project_code',
       projectTitle: 'project_title',
+      thirdpartCostCenterId: 'thirdpart_cost_center_id',
+      thirdpartInvoiceId: 'thirdpart_invoice_id',
       thirdpartItineraryId: 'thirdpart_itinerary_id',
       trafficType: 'traffic_type',
     };
@@ -26032,6 +26710,8 @@ export class ApplyQueryResponseBodyModuleItinerarySetList extends $tea.Model {
       itineraryTravelStandard: ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard,
       projectCode: 'string',
       projectTitle: 'string',
+      thirdpartCostCenterId: 'string',
+      thirdpartInvoiceId: 'string',
       thirdpartItineraryId: 'string',
       trafficType: 'number',
     };
@@ -34534,7 +35214,9 @@ export class FlightOrderListQueryResponseBodyPageInfo extends $tea.Model {
 export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extends $tea.Model {
   applyId?: string;
   arrAirport?: string;
+  arrAirportCode?: string;
   arrCity?: string;
+  arrCityCode?: string;
   arrTime?: string;
   changeCabin?: string;
   changeCabinLevel?: string;
@@ -34544,7 +35226,9 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
   changeReason?: string;
   changeType?: number;
   depAirport?: string;
+  depAirportCode?: string;
   depCity?: string;
+  depCityCode?: string;
   depTime?: string;
   discount?: string;
   gmtCreate?: string;
@@ -34560,7 +35244,9 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
     return {
       applyId: 'apply_id',
       arrAirport: 'arr_airport',
+      arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
+      arrCityCode: 'arr_city_code',
       arrTime: 'arr_time',
       changeCabin: 'change_cabin',
       changeCabinLevel: 'change_cabin_level',
@@ -34570,7 +35256,9 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
       changeReason: 'change_reason',
       changeType: 'change_type',
       depAirport: 'dep_airport',
+      depAirportCode: 'dep_airport_code',
       depCity: 'dep_city',
+      depCityCode: 'dep_city_code',
       depTime: 'dep_time',
       discount: 'discount',
       gmtCreate: 'gmt_create',
@@ -34589,7 +35277,9 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
     return {
       applyId: 'string',
       arrAirport: 'string',
+      arrAirportCode: 'string',
       arrCity: 'string',
+      arrCityCode: 'string',
       arrTime: 'string',
       changeCabin: 'string',
       changeCabinLevel: 'string',
@@ -34599,7 +35289,9 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
       changeReason: 'string',
       changeType: 'number',
       depAirport: 'string',
+      depAirportCode: 'string',
       depCity: 'string',
+      depCityCode: 'string',
       depTime: 'string',
       discount: 'string',
       gmtCreate: 'string',
@@ -34692,9 +35384,13 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $tea.Model
 export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extends $tea.Model {
   applyId?: string;
   arrAirport?: string;
+  arrAirportCode?: string;
   arrCity?: string;
+  arrCityCode?: string;
   depAirport?: string;
+  depAirportCode?: string;
   depCity?: string;
+  depCityCode?: string;
   flightNo?: string;
   gmtCreate?: string;
   gmtModify?: string;
@@ -34708,9 +35404,13 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
     return {
       applyId: 'apply_id',
       arrAirport: 'arr_airport',
+      arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
+      arrCityCode: 'arr_city_code',
       depAirport: 'dep_airport',
+      depAirportCode: 'dep_airport_code',
       depCity: 'dep_city',
+      depCityCode: 'dep_city_code',
       flightNo: 'flight_no',
       gmtCreate: 'gmt_create',
       gmtModify: 'gmt_modify',
@@ -34727,9 +35427,13 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
     return {
       applyId: 'string',
       arrAirport: 'string',
+      arrAirportCode: 'string',
       arrCity: 'string',
+      arrCityCode: 'string',
       depAirport: 'string',
+      depAirportCode: 'string',
       depCity: 'string',
+      depCityCode: 'string',
       flightNo: 'string',
       gmtCreate: 'string',
       gmtModify: 'string',
@@ -34748,8 +35452,12 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea.Model {
+  arrAirport?: string;
+  arrAirportCode?: string;
   buildPrice?: number;
   changed?: boolean;
+  depAirport?: string;
+  depAirportCode?: string;
   discount?: number;
   flightNo?: string;
   gmtCreate?: string;
@@ -34764,8 +35472,12 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      arrAirport: 'arr_airport',
+      arrAirportCode: 'arr_airport_code',
       buildPrice: 'build_price',
       changed: 'changed',
+      depAirport: 'dep_airport',
+      depAirportCode: 'dep_airport_code',
       discount: 'discount',
       flightNo: 'flight_no',
       gmtCreate: 'gmt_create',
@@ -34783,8 +35495,12 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      arrAirport: 'string',
+      arrAirportCode: 'string',
       buildPrice: 'number',
       changed: 'boolean',
+      depAirport: 'string',
+      depAirportCode: 'string',
       discount: 'number',
       flightNo: 'string',
       gmtCreate: 'string',
@@ -44614,6 +45330,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
   primaryId?: number;
   projectCode?: string;
   projectName?: string;
+  refundChangeCost?: number;
   refundFee?: number;
   refundResult?: string;
   remark?: string;
@@ -44703,6 +45420,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       primaryId: 'primary_id',
       projectCode: 'project_code',
       projectName: 'project_name',
+      refundChangeCost: 'refund_change_cost',
       refundFee: 'refund_fee',
       refundResult: 'refund_result',
       remark: 'remark',
@@ -44795,6 +45513,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $tea.
       primaryId: 'number',
       projectCode: 'string',
       projectName: 'string',
+      refundChangeCost: 'number',
       refundFee: 'number',
       refundResult: 'string',
       remark: 'string',
@@ -49646,6 +50365,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
   position?: string;
   positionLevel?: string;
   realNameEn?: string;
+  roleIdList?: string[];
   thirdDepartId?: string;
   thirdDepartIdList?: string[];
   userId?: string;
@@ -49667,6 +50387,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
       position: 'position',
       positionLevel: 'position_level',
       realNameEn: 'real_name_en',
+      roleIdList: 'role_id_list',
       thirdDepartId: 'third_depart_id',
       thirdDepartIdList: 'third_depart_id_list',
       userId: 'user_id',
@@ -49691,6 +50412,7 @@ export class IsvUserSaveRequestUserList extends $tea.Model {
       position: 'string',
       positionLevel: 'string',
       realNameEn: 'string',
+      roleIdList: { 'type': 'array', 'itemType': 'string' },
       thirdDepartId: 'string',
       thirdDepartIdList: { 'type': 'array', 'itemType': 'string' },
       userId: 'string',
@@ -50117,6 +50839,28 @@ export class MonthBillGetResponseBodyModule extends $tea.Model {
       monthAccountBillDetail: MonthBillGetResponseBodyModuleMonthAccountBillDetail,
       startDate: 'string',
       url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupCorpListResponseBodyModule extends $tea.Model {
+  corpId?: string;
+  corpName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'corp_id',
+      corpName: 'corp_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      corpName: 'string',
     };
   }
 
@@ -56249,6 +56993,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 批量新增企业自定义角色下人员
+   *
+   * @param tmpReq AddEmployeesToCustomRoleRequest
+   * @param headers AddEmployeesToCustomRoleHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddEmployeesToCustomRoleResponse
+   */
+  async addEmployeesToCustomRoleWithOptions(tmpReq: AddEmployeesToCustomRoleRequest, headers: AddEmployeesToCustomRoleHeaders, runtime: $Util.RuntimeOptions): Promise<AddEmployeesToCustomRoleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddEmployeesToCustomRoleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.userIdList)) {
+      request.userIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIdList, "user_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.roleId)) {
+      body["role_id"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.userIdListShrink)) {
+      body["user_id_list"] = request.userIdListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddEmployeesToCustomRole",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/role/v1/customRoleEmployees/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddEmployeesToCustomRoleResponse>(await this.callApi(params, req, runtime), new AddEmployeesToCustomRoleResponse({}));
+  }
+
+  /**
+   * @summary 批量新增企业自定义角色下人员
+   *
+   * @param request AddEmployeesToCustomRoleRequest
+   * @return AddEmployeesToCustomRoleResponse
+   */
+  async addEmployeesToCustomRole(request: AddEmployeesToCustomRoleRequest): Promise<AddEmployeesToCustomRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new AddEmployeesToCustomRoleHeaders({ });
+    return await this.addEmployeesToCustomRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary 新增发票抬头适用人员
    *
    * @param tmpReq AddInvoiceEntityRequest
@@ -58719,6 +59527,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 创建企业自定义角色
+   *
+   * @param request CreateCustomRoleRequest
+   * @param headers CreateCustomRoleHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomRoleResponse
+   */
+  async createCustomRoleWithOptions(request: CreateCustomRoleRequest, headers: CreateCustomRoleHeaders, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.roleId)) {
+      body["role_id"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      body["role_name"] = request.roleName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomRole",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/role/v1/customRoles/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomRoleResponse>(await this.callApi(params, req, runtime), new CreateCustomRoleResponse({}));
+  }
+
+  /**
+   * @summary 创建企业自定义角色
+   *
+   * @param request CreateCustomRoleRequest
+   * @return CreateCustomRoleResponse
+   */
+  async createCustomRole(request: CreateCustomRoleRequest): Promise<CreateCustomRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CreateCustomRoleHeaders({ });
+    return await this.createCustomRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary 创建子企业
    *
    * @param request CreateSubCorpRequest
@@ -58778,6 +59644,124 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CreateSubCorpHeaders({ });
     return await this.createSubCorpWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除企业自定义角色
+   *
+   * @param request DeleteCustomRoleRequest
+   * @param headers DeleteCustomRoleHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomRoleResponse
+   */
+  async deleteCustomRoleWithOptions(request: DeleteCustomRoleRequest, headers: DeleteCustomRoleHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.roleId)) {
+      body["role_id"] = request.roleId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomRole",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/role/v1/customRoles/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomRoleResponse>(await this.callApi(params, req, runtime), new DeleteCustomRoleResponse({}));
+  }
+
+  /**
+   * @summary 删除企业自定义角色
+   *
+   * @param request DeleteCustomRoleRequest
+   * @return DeleteCustomRoleResponse
+   */
+  async deleteCustomRole(request: DeleteCustomRoleRequest): Promise<DeleteCustomRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteCustomRoleHeaders({ });
+    return await this.deleteCustomRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 批量删除企业自定义角色下人员
+   *
+   * @param tmpReq DeleteEmployeesFromCustomRoleRequest
+   * @param headers DeleteEmployeesFromCustomRoleHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEmployeesFromCustomRoleResponse
+   */
+  async deleteEmployeesFromCustomRoleWithOptions(tmpReq: DeleteEmployeesFromCustomRoleRequest, headers: DeleteEmployeesFromCustomRoleHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteEmployeesFromCustomRoleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteEmployeesFromCustomRoleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.userIdList)) {
+      request.userIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIdList, "user_id_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.roleId)) {
+      body["role_id"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.userIdListShrink)) {
+      body["user_id_list"] = request.userIdListShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEmployeesFromCustomRole",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/role/v1/customRoleEmployees/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEmployeesFromCustomRoleResponse>(await this.callApi(params, req, runtime), new DeleteEmployeesFromCustomRoleResponse({}));
+  }
+
+  /**
+   * @summary 批量删除企业自定义角色下人员
+   *
+   * @param request DeleteEmployeesFromCustomRoleRequest
+   * @return DeleteEmployeesFromCustomRoleResponse
+   */
+  async deleteEmployeesFromCustomRole(request: DeleteEmployeesFromCustomRoleRequest): Promise<DeleteEmployeesFromCustomRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new DeleteEmployeesFromCustomRoleHeaders({ });
+    return await this.deleteEmployeesFromCustomRoleWithOptions(request, headers, runtime);
   }
 
   /**
@@ -66172,6 +67156,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询子企业列表
+   *
+   * @param request QueryGroupCorpListRequest
+   * @param headers QueryGroupCorpListHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryGroupCorpListResponse
+   */
+  async queryGroupCorpListWithOptions(request: QueryGroupCorpListRequest, headers: QueryGroupCorpListHeaders, runtime: $Util.RuntimeOptions): Promise<QueryGroupCorpListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryGroupCorpList",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/sub_corps/v1/corps/action/corpList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryGroupCorpListResponse>(await this.callApi(params, req, runtime), new QueryGroupCorpListResponse({}));
+  }
+
+  /**
+   * @summary 查询子企业列表
+   *
+   * @param request QueryGroupCorpListRequest
+   * @return QueryGroupCorpListResponse
+   */
+  async queryGroupCorpList(request: QueryGroupCorpListRequest): Promise<QueryGroupCorpListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryGroupCorpListHeaders({ });
+    return await this.queryGroupCorpListWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary 报销单查询
    *
    * @param request QueryReimbursementOrderRequest
@@ -68403,6 +69441,64 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new TravelStandardQueryHeaders({ });
     return await this.travelStandardQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 更新企业自定义角色
+   *
+   * @param request UpdateCustomRoleRequest
+   * @param headers UpdateCustomRoleHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCustomRoleResponse
+   */
+  async updateCustomRoleWithOptions(request: UpdateCustomRoleRequest, headers: UpdateCustomRoleHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.roleId)) {
+      body["role_id"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      body["role_name"] = request.roleName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomRole",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/role/v1/customRoles/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomRoleResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoleResponse({}));
+  }
+
+  /**
+   * @summary 更新企业自定义角色
+   *
+   * @param request UpdateCustomRoleRequest
+   * @return UpdateCustomRoleResponse
+   */
+  async updateCustomRole(request: UpdateCustomRoleRequest): Promise<UpdateCustomRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateCustomRoleHeaders({ });
+    return await this.updateCustomRoleWithOptions(request, headers, runtime);
   }
 
   /**
