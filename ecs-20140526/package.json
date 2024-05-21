@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ecs20140526",
-  "version": "4.1.6",
+  "version": "4.1.7",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
