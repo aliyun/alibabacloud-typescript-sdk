@@ -659,6 +659,7 @@ export class CreateTaskRequestParametersTranscription extends $tea.Model {
   audioEventDetectionEnabled?: boolean;
   diarization?: CreateTaskRequestParametersTranscriptionDiarization;
   diarizationEnabled?: boolean;
+  model?: string;
   outputLevel?: number;
   phraseId?: string;
   static names(): { [key: string]: string } {
@@ -667,6 +668,7 @@ export class CreateTaskRequestParametersTranscription extends $tea.Model {
       audioEventDetectionEnabled: 'AudioEventDetectionEnabled',
       diarization: 'Diarization',
       diarizationEnabled: 'DiarizationEnabled',
+      model: 'Model',
       outputLevel: 'OutputLevel',
       phraseId: 'PhraseId',
     };
@@ -678,6 +680,7 @@ export class CreateTaskRequestParametersTranscription extends $tea.Model {
       audioEventDetectionEnabled: 'boolean',
       diarization: CreateTaskRequestParametersTranscriptionDiarization,
       diarizationEnabled: 'boolean',
+      model: 'string',
       outputLevel: 'number',
       phraseId: 'string',
     };
