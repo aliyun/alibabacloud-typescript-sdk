@@ -7145,6 +7145,7 @@ export class ListDataLevelPermissionWhiteListResponseBodyResult extends $tea.Mod
 
 export class ListFavoriteReportsResponseBodyResultData extends $tea.Model {
   favorite?: boolean;
+  favoriteDate?: string;
   gmtCreate?: string;
   gmtModified?: string;
   hasEditAuth?: boolean;
@@ -7160,6 +7161,7 @@ export class ListFavoriteReportsResponseBodyResultData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       favorite: 'Favorite',
+      favoriteDate: 'FavoriteDate',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       hasEditAuth: 'HasEditAuth',
@@ -7178,6 +7180,7 @@ export class ListFavoriteReportsResponseBodyResultData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       favorite: 'boolean',
+      favoriteDate: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       hasEditAuth: 'boolean',
@@ -9854,11 +9857,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
-    *
-    * @param request AddDataLevelPermissionRuleUsersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddDataLevelPermissionRuleUsersResponse
+   * @summary Add selected groups of people incrementally for a single row and column permission rule.
+   *
+   * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
+   *
+   * @param request AddDataLevelPermissionRuleUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDataLevelPermissionRuleUsersResponse
    */
   async addDataLevelPermissionRuleUsersWithOptions(request: AddDataLevelPermissionRuleUsersRequest, runtime: $Util.RuntimeOptions): Promise<AddDataLevelPermissionRuleUsersResponse> {
     Util.validateModel(request);
@@ -9885,10 +9890,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
-    *
-    * @param request AddDataLevelPermissionRuleUsersRequest
-    * @return AddDataLevelPermissionRuleUsersResponse
+   * @summary Add selected groups of people incrementally for a single row and column permission rule.
+   *
+   * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
+   *
+   * @param request AddDataLevelPermissionRuleUsersRequest
+   * @return AddDataLevelPermissionRuleUsersResponse
    */
   async addDataLevelPermissionRuleUsers(request: AddDataLevelPermissionRuleUsersRequest): Promise<AddDataLevelPermissionRuleUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -9896,11 +9903,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ROW_LEVEL
-    *
-    * @param request AddDataLevelPermissionWhiteListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddDataLevelPermissionWhiteListResponse
+   * @summary 43342***435,1553a****41231
+   *
+   * @description ROW_LEVEL
+   *
+   * @param request AddDataLevelPermissionWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDataLevelPermissionWhiteListResponse
    */
   async addDataLevelPermissionWhiteListWithOptions(request: AddDataLevelPermissionWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<AddDataLevelPermissionWhiteListResponse> {
     Util.validateModel(request);
@@ -9943,16 +9952,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ROW_LEVEL
-    *
-    * @param request AddDataLevelPermissionWhiteListRequest
-    * @return AddDataLevelPermissionWhiteListResponse
+   * @summary 43342***435,1553a****41231
+   *
+   * @description ROW_LEVEL
+   *
+   * @param request AddDataLevelPermissionWhiteListRequest
+   * @return AddDataLevelPermissionWhiteListResponse
    */
   async addDataLevelPermissionWhiteList(request: AddDataLevelPermissionWhiteListRequest): Promise<AddDataLevelPermissionWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDataLevelPermissionWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Add a sharing configuration for data works.
+   *
+   * @param request AddShareReportRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddShareReportResponse
+   */
   async addShareReportWithOptions(request: AddShareReportRequest, runtime: $Util.RuntimeOptions): Promise<AddShareReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -9993,11 +10011,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddShareReportResponse>(await this.callApi(params, req, runtime), new AddShareReportResponse({}));
   }
 
+  /**
+   * @summary Add a sharing configuration for data works.
+   *
+   * @param request AddShareReportRequest
+   * @return AddShareReportResponse
+   */
   async addShareReport(request: AddShareReportRequest): Promise<AddShareReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addShareReportWithOptions(request, runtime);
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request AddUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserResponse
+   */
   async addUserWithOptions(request: AddUserRequest, runtime: $Util.RuntimeOptions): Promise<AddUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10044,11 +10075,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserResponse>(await this.callApi(params, req, runtime), new AddUserResponse({}));
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request AddUserRequest
+   * @return AddUserResponse
+   */
   async addUser(request: AddUserRequest): Promise<AddUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request AddUserGroupMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserGroupMemberResponse
+   */
   async addUserGroupMemberWithOptions(request: AddUserGroupMemberRequest, runtime: $Util.RuntimeOptions): Promise<AddUserGroupMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10077,11 +10121,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserGroupMemberResponse>(await this.callApi(params, req, runtime), new AddUserGroupMemberResponse({}));
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request AddUserGroupMemberRequest
+   * @return AddUserGroupMemberResponse
+   */
   async addUserGroupMember(request: AddUserGroupMemberRequest): Promise<AddUserGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserGroupMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Add users to a specified user group at a time.
+   *
+   * @param request AddUserGroupMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserGroupMembersResponse
+   */
   async addUserGroupMembersWithOptions(request: AddUserGroupMembersRequest, runtime: $Util.RuntimeOptions): Promise<AddUserGroupMembersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10110,11 +10167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserGroupMembersResponse>(await this.callApi(params, req, runtime), new AddUserGroupMembersResponse({}));
   }
 
+  /**
+   * @summary Add users to a specified user group at a time.
+   *
+   * @param request AddUserGroupMembersRequest
+   * @return AddUserGroupMembersResponse
+   */
   async addUserGroupMembers(request: AddUserGroupMembersRequest): Promise<AddUserGroupMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserGroupMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Add the metadata of an organization member tag.
+   *
+   * @param request AddUserTagMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserTagMetaResponse
+   */
   async addUserTagMetaWithOptions(request: AddUserTagMetaRequest, runtime: $Util.RuntimeOptions): Promise<AddUserTagMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10143,11 +10213,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserTagMetaResponse>(await this.callApi(params, req, runtime), new AddUserTagMetaResponse({}));
   }
 
+  /**
+   * @summary Add the metadata of an organization member tag.
+   *
+   * @param request AddUserTagMetaRequest
+   * @return AddUserTagMetaResponse
+   */
   async addUserTagMeta(request: AddUserTagMetaRequest): Promise<AddUserTagMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserTagMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AddUserToWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddUserToWorkspaceResponse
+   */
   async addUserToWorkspaceWithOptions(request: AddUserToWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10180,11 +10261,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AddUserToWorkspaceResponse>(await this.callApi(params, req, runtime), new AddUserToWorkspaceResponse({}));
   }
 
+  /**
+   * @param request AddUserToWorkspaceRequest
+   * @return AddUserToWorkspaceResponse
+   */
   async addUserToWorkspace(request: AddUserToWorkspaceRequest): Promise<AddUserToWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addUserToWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AddWorkspaceUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddWorkspaceUsersResponse
+   */
   async addWorkspaceUsersWithOptions(request: AddWorkspaceUsersRequest, runtime: $Util.RuntimeOptions): Promise<AddWorkspaceUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10217,11 +10307,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddWorkspaceUsersResponse>(await this.callApi(params, req, runtime), new AddWorkspaceUsersResponse({}));
   }
 
+  /**
+   * @param request AddWorkspaceUsersRequest
+   * @return AddWorkspaceUsersResponse
+   */
   async addWorkspaceUsers(request: AddWorkspaceUsersRequest): Promise<AddWorkspaceUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addWorkspaceUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 触发数据集抽取加速
+   *
+   * @param request AllotDatasetAccelerationTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AllotDatasetAccelerationTaskResponse
+   */
   async allotDatasetAccelerationTaskWithOptions(request: AllotDatasetAccelerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<AllotDatasetAccelerationTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10246,11 +10347,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AllotDatasetAccelerationTaskResponse>(await this.callApi(params, req, runtime), new AllotDatasetAccelerationTaskResponse({}));
   }
 
+  /**
+   * @summary 触发数据集抽取加速
+   *
+   * @param request AllotDatasetAccelerationTaskRequest
+   * @return AllotDatasetAccelerationTaskResponse
+   */
   async allotDatasetAccelerationTask(request: AllotDatasetAccelerationTaskRequest): Promise<AllotDatasetAccelerationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allotDatasetAccelerationTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Batch authorization of BI portal menu will be skipped automatically.
+   *
+   * @param request AuthorizeMenuRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuthorizeMenuResponse
+   */
   async authorizeMenuWithOptions(request: AuthorizeMenuRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeMenuResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10291,11 +10405,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeMenuResponse>(await this.callApi(params, req, runtime), new AuthorizeMenuResponse({}));
   }
 
+  /**
+   * @summary Batch authorization of BI portal menu will be skipped automatically.
+   *
+   * @param request AuthorizeMenuRequest
+   * @return AuthorizeMenuResponse
+   */
   async authorizeMenu(request: AuthorizeMenuRequest): Promise<AuthorizeMenuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeMenuWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量添加飞书用户
+   *
+   * @param request BatchAddFeishuUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchAddFeishuUsersResponse
+   */
   async batchAddFeishuUsersWithOptions(request: BatchAddFeishuUsersRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddFeishuUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10336,11 +10463,22 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchAddFeishuUsersResponse>(await this.callApi(params, req, runtime), new BatchAddFeishuUsersResponse({}));
   }
 
+  /**
+   * @summary 批量添加飞书用户
+   *
+   * @param request BatchAddFeishuUsersRequest
+   * @return BatchAddFeishuUsersResponse
+   */
   async batchAddFeishuUsers(request: BatchAddFeishuUsersRequest): Promise<BatchAddFeishuUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchAddFeishuUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CancelAuthorizationMenuRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelAuthorizationMenuResponse
+   */
   async cancelAuthorizationMenuWithOptions(request: CancelAuthorizationMenuRequest, runtime: $Util.RuntimeOptions): Promise<CancelAuthorizationMenuResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10377,11 +10515,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelAuthorizationMenuResponse>(await this.callApi(params, req, runtime), new CancelAuthorizationMenuResponse({}));
   }
 
+  /**
+   * @param request CancelAuthorizationMenuRequest
+   * @return CancelAuthorizationMenuResponse
+   */
   async cancelAuthorizationMenu(request: CancelAuthorizationMenuRequest): Promise<CancelAuthorizationMenuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelAuthorizationMenuWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Cancel the data works from the user\\"s collection.
+   *
+   * @param request CancelCollectionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelCollectionResponse
+   */
   async cancelCollectionWithOptions(request: CancelCollectionRequest, runtime: $Util.RuntimeOptions): Promise<CancelCollectionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10410,11 +10559,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelCollectionResponse>(await this.callApi(params, req, runtime), new CancelCollectionResponse({}));
   }
 
+  /**
+   * @summary Cancel the data works from the user\\"s collection.
+   *
+   * @param request CancelCollectionRequest
+   * @return CancelCollectionResponse
+   */
   async cancelCollection(request: CancelCollectionRequest): Promise<CancelCollectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelCollectionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Delete a share authorization for a data work.
+   *
+   * @param request CancelReportShareRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelReportShareResponse
+   */
   async cancelReportShareWithOptions(request: CancelReportShareRequest, runtime: $Util.RuntimeOptions): Promise<CancelReportShareResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10447,11 +10609,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelReportShareResponse>(await this.callApi(params, req, runtime), new CancelReportShareResponse({}));
   }
 
+  /**
+   * @summary Delete a share authorization for a data work.
+   *
+   * @param request CancelReportShareRequest
+   * @return CancelReportShareResponse
+   */
   async cancelReportShare(request: CancelReportShareRequest): Promise<CancelReportShareResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelReportShareWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request ChangeVisibilityModelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeVisibilityModelResponse
+   */
   async changeVisibilityModelWithOptions(request: ChangeVisibilityModelRequest, runtime: $Util.RuntimeOptions): Promise<ChangeVisibilityModelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10484,11 +10659,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeVisibilityModelResponse>(await this.callApi(params, req, runtime), new ChangeVisibilityModelResponse({}));
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request ChangeVisibilityModelRequest
+   * @return ChangeVisibilityModelResponse
+   */
   async changeVisibilityModel(request: ChangeVisibilityModelRequest): Promise<ChangeVisibilityModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeVisibilityModelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether a user has permissions to view data works, such as dashboards and workbooks.
+   *
+   * @param request CheckReadableRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckReadableResponse
+   */
   async checkReadableWithOptions(request: CheckReadableRequest, runtime: $Util.RuntimeOptions): Promise<CheckReadableResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10517,11 +10705,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CheckReadableResponse>(await this.callApi(params, req, runtime), new CheckReadableResponse({}));
   }
 
+  /**
+   * @summary Queries whether a user has permissions to view data works, such as dashboards and workbooks.
+   *
+   * @param request CheckReadableRequest
+   * @return CheckReadableResponse
+   */
   async checkReadable(request: CheckReadableRequest): Promise<CheckReadableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkReadableWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 生成三方嵌入的ticket
+   *
+   * @param request CreateTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTicketResponse
+   */
   async createTicketWithOptions(request: CreateTicketRequest, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10578,11 +10779,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTicketResponse>(await this.callApi(params, req, runtime), new CreateTicketResponse({}));
   }
 
+  /**
+   * @summary 生成三方嵌入的ticket
+   *
+   * @param request CreateTicketRequest
+   * @return CreateTicketResponse
+   */
   async createTicket(request: CreateTicketRequest): Promise<CreateTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTicketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Create a user group. You can specify a parent user group.
+   *
+   * @param request CreateUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserGroupResponse
+   */
   async createUserGroupWithOptions(request: CreateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10619,11 +10833,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateUserGroupResponse>(await this.callApi(params, req, runtime), new CreateUserGroupResponse({}));
   }
 
+  /**
+   * @summary Create a user group. You can specify a parent user group.
+   *
+   * @param request CreateUserGroupRequest
+   * @return CreateUserGroupResponse
+   */
   async createUserGroup(request: CreateUserGroupRequest): Promise<CreateUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Update the expiration time of the ticket embedded in the report.
+   *
+   * @param request DelayTicketExpireTimeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DelayTicketExpireTimeResponse
+   */
   async delayTicketExpireTimeWithOptions(request: DelayTicketExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<DelayTicketExpireTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10652,17 +10879,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DelayTicketExpireTimeResponse>(await this.callApi(params, req, runtime), new DelayTicketExpireTimeResponse({}));
   }
 
+  /**
+   * @summary Update the expiration time of the ticket embedded in the report.
+   *
+   * @param request DelayTicketExpireTimeRequest
+   * @return DelayTicketExpireTimeResponse
+   */
   async delayTicketExpireTime(request: DelayTicketExpireTimeRequest): Promise<DelayTicketExpireTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.delayTicketExpireTimeWithOptions(request, runtime);
   }
 
   /**
-    * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
-    *
-    * @param request DeleteDataLevelPermissionRuleUsersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDataLevelPermissionRuleUsersResponse
+   * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+   *
+   * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+   *
+   * @param request DeleteDataLevelPermissionRuleUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataLevelPermissionRuleUsersResponse
    */
   async deleteDataLevelPermissionRuleUsersWithOptions(request: DeleteDataLevelPermissionRuleUsersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLevelPermissionRuleUsersResponse> {
     Util.validateModel(request);
@@ -10689,10 +10924,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
-    *
-    * @param request DeleteDataLevelPermissionRuleUsersRequest
-    * @return DeleteDataLevelPermissionRuleUsersResponse
+   * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+   *
+   * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+   *
+   * @param request DeleteDataLevelPermissionRuleUsersRequest
+   * @return DeleteDataLevelPermissionRuleUsersResponse
    */
   async deleteDataLevelPermissionRuleUsers(request: DeleteDataLevelPermissionRuleUsersRequest): Promise<DeleteDataLevelPermissionRuleUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -10700,11 +10937,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the training dataset that you want to remove from the specified custom linguistic model.
-    *
-    * @param request DeleteDataLevelRuleConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDataLevelRuleConfigResponse
+   * @summary The ID of the request.
+   *
+   * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+   *
+   * @param request DeleteDataLevelRuleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataLevelRuleConfigResponse
    */
   async deleteDataLevelRuleConfigWithOptions(request: DeleteDataLevelRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLevelRuleConfigResponse> {
     Util.validateModel(request);
@@ -10735,16 +10974,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The ID of the training dataset that you want to remove from the specified custom linguistic model.
-    *
-    * @param request DeleteDataLevelRuleConfigRequest
-    * @return DeleteDataLevelRuleConfigResponse
+   * @summary The ID of the request.
+   *
+   * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+   *
+   * @param request DeleteDataLevelRuleConfigRequest
+   * @return DeleteDataLevelRuleConfigResponse
    */
   async deleteDataLevelRuleConfig(request: DeleteDataLevelRuleConfigRequest): Promise<DeleteDataLevelRuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataLevelRuleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request DeleteTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTicketResponse
+   */
   async deleteTicketWithOptions(request: DeleteTicketRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTicketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10769,11 +11017,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTicketResponse>(await this.callApi(params, req, runtime), new DeleteTicketResponse({}));
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request DeleteTicketRequest
+   * @return DeleteTicketResponse
+   */
   async deleteTicket(request: DeleteTicketRequest): Promise<DeleteTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTicketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request DeleteUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserResponse
+   */
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10802,11 +11063,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request DeleteUserRequest
+   * @return DeleteUserResponse
+   */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteUserFromWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserFromWorkspaceResponse
+   */
   async deleteUserFromWorkspaceWithOptions(request: DeleteUserFromWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserFromWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10835,11 +11107,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserFromWorkspaceResponse>(await this.callApi(params, req, runtime), new DeleteUserFromWorkspaceResponse({}));
   }
 
+  /**
+   * @param request DeleteUserFromWorkspaceRequest
+   * @return DeleteUserFromWorkspaceResponse
+   */
   async deleteUserFromWorkspace(request: DeleteUserFromWorkspaceRequest): Promise<DeleteUserFromWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserFromWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a user group in an organization.
+   *
+   * @param request DeleteUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserGroupResponse
+   */
   async deleteUserGroupWithOptions(request: DeleteUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10864,11 +11147,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserGroupResponse>(await this.callApi(params, req, runtime), new DeleteUserGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes a user group in an organization.
+   *
+   * @param request DeleteUserGroupRequest
+   * @return DeleteUserGroupResponse
+   */
   async deleteUserGroup(request: DeleteUserGroupRequest): Promise<DeleteUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a specified member from a specified user group.
+   *
+   * @param request DeleteUserGroupMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserGroupMemberResponse
+   */
   async deleteUserGroupMemberWithOptions(request: DeleteUserGroupMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10897,11 +11193,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserGroupMemberResponse>(await this.callApi(params, req, runtime), new DeleteUserGroupMemberResponse({}));
   }
 
+  /**
+   * @summary Deletes a specified member from a specified user group.
+   *
+   * @param request DeleteUserGroupMemberRequest
+   * @return DeleteUserGroupMemberResponse
+   */
   async deleteUserGroupMember(request: DeleteUserGroupMemberRequest): Promise<DeleteUserGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserGroupMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Indicates whether the request is successful. Valid values:
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   *
+   * @param request DeleteUserGroupMembersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserGroupMembersResponse
+   */
   async deleteUserGroupMembersWithOptions(request: DeleteUserGroupMembersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupMembersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10930,11 +11241,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserGroupMembersResponse>(await this.callApi(params, req, runtime), new DeleteUserGroupMembersResponse({}));
   }
 
+  /**
+   * @summary Indicates whether the request is successful. Valid values:
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   *
+   * @param request DeleteUserGroupMembersRequest
+   * @return DeleteUserGroupMembersResponse
+   */
   async deleteUserGroupMembers(request: DeleteUserGroupMembersRequest): Promise<DeleteUserGroupMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserGroupMembersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the tag metadata of an organization member.
+   *
+   * @param request DeleteUserTagMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteUserTagMetaResponse
+   */
   async deleteUserTagMetaWithOptions(request: DeleteUserTagMetaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserTagMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10959,11 +11285,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteUserTagMetaResponse>(await this.callApi(params, req, runtime), new DeleteUserTagMetaResponse({}));
   }
 
+  /**
+   * @summary Deletes the tag metadata of an organization member.
+   *
+   * @param request DeleteUserTagMetaRequest
+   * @return DeleteUserTagMetaResponse
+   */
   async deleteUserTagMeta(request: DeleteUserTagMetaRequest): Promise<DeleteUserTagMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteUserTagMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Test description
+   *
+   * @param request GetUserGroupInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserGroupInfoResponse
+   */
   async getUserGroupInfoWithOptions(request: GetUserGroupInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetUserGroupInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10988,11 +11327,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserGroupInfoResponse>(await this.callApi(params, req, runtime), new GetUserGroupInfoResponse({}));
   }
 
+  /**
+   * @summary Test description
+   *
+   * @param request GetUserGroupInfoRequest
+   * @return GetUserGroupInfoResponse
+   */
   async getUserGroupInfo(request: GetUserGroupInfoRequest): Promise<GetUserGroupInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserGroupInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 概述
+   *
+   * @param request ListApiDatasourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApiDatasourceResponse
+   */
   async listApiDatasourceWithOptions(request: ListApiDatasourceRequest, runtime: $Util.RuntimeOptions): Promise<ListApiDatasourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11029,11 +11381,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApiDatasourceResponse>(await this.callApi(params, req, runtime), new ListApiDatasourceResponse({}));
   }
 
+  /**
+   * @summary 概述
+   *
+   * @param request ListApiDatasourceRequest
+   * @return ListApiDatasourceResponse
+   */
   async listApiDatasource(request: ListApiDatasourceRequest): Promise<ListApiDatasourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApiDatasourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries user group information at a time by user group ID.
+   *
+   * @param request ListByUserGroupIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListByUserGroupIdResponse
+   */
   async listByUserGroupIdWithOptions(request: ListByUserGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<ListByUserGroupIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11058,11 +11423,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListByUserGroupIdResponse>(await this.callApi(params, req, runtime), new ListByUserGroupIdResponse({}));
   }
 
+  /**
+   * @summary Queries user group information at a time by user group ID.
+   *
+   * @param request ListByUserGroupIdRequest
+   * @return ListByUserGroupIdResponse
+   */
   async listByUserGroupId(request: ListByUserGroupIdRequest): Promise<ListByUserGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listByUserGroupIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the work.
+   *
+   * @param request ListCollectionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCollectionsResponse
+   */
   async listCollectionsWithOptions(request: ListCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListCollectionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11087,17 +11465,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCollectionsResponse>(await this.callApi(params, req, runtime), new ListCollectionsResponse({}));
   }
 
+  /**
+   * @summary The ID of the work.
+   *
+   * @param request ListCollectionsRequest
+   * @return ListCollectionsResponse
+   */
   async listCollections(request: ListCollectionsRequest): Promise<ListCollectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCollectionsWithOptions(request, runtime);
   }
 
   /**
-    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-    *
-    * @param request ListCubeDataLevelPermissionConfigRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListCubeDataLevelPermissionConfigResponse
+   * @summary You can this operation to obtain a list of row and column permission configurations for a specified dataset.
+   *
+   * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+   *
+   * @param request ListCubeDataLevelPermissionConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCubeDataLevelPermissionConfigResponse
    */
   async listCubeDataLevelPermissionConfigWithOptions(request: ListCubeDataLevelPermissionConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListCubeDataLevelPermissionConfigResponse> {
     Util.validateModel(request);
@@ -11128,16 +11514,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-    *
-    * @param request ListCubeDataLevelPermissionConfigRequest
-    * @return ListCubeDataLevelPermissionConfigResponse
+   * @summary You can this operation to obtain a list of row and column permission configurations for a specified dataset.
+   *
+   * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+   *
+   * @param request ListCubeDataLevelPermissionConfigRequest
+   * @return ListCubeDataLevelPermissionConfigResponse
    */
   async listCubeDataLevelPermissionConfig(request: ListCubeDataLevelPermissionConfigRequest): Promise<ListCubeDataLevelPermissionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCubeDataLevelPermissionConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListDataLevelPermissionWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataLevelPermissionWhiteListResponse
+   */
   async listDataLevelPermissionWhiteListWithOptions(request: ListDataLevelPermissionWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLevelPermissionWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11166,11 +11559,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataLevelPermissionWhiteListResponse>(await this.callApi(params, req, runtime), new ListDataLevelPermissionWhiteListResponse({}));
   }
 
+  /**
+   * @param request ListDataLevelPermissionWhiteListRequest
+   * @return ListDataLevelPermissionWhiteListResponse
+   */
   async listDataLevelPermissionWhiteList(request: ListDataLevelPermissionWhiteListRequest): Promise<ListDataLevelPermissionWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataLevelPermissionWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 概述
+   *
+   * @param request ListFavoriteReportsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFavoriteReportsResponse
+   */
   async listFavoriteReportsWithOptions(request: ListFavoriteReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListFavoriteReportsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11207,11 +11611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFavoriteReportsResponse>(await this.callApi(params, req, runtime), new ListFavoriteReportsResponse({}));
   }
 
+  /**
+   * @summary 概述
+   *
+   * @param request ListFavoriteReportsRequest
+   * @return ListFavoriteReportsResponse
+   */
   async listFavoriteReports(request: ListFavoriteReportsRequest): Promise<ListFavoriteReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFavoriteReportsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取指定组织角色下的用户列表
+   *
+   * @param request ListOrganizationRoleUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOrganizationRoleUsersResponse
+   */
   async listOrganizationRoleUsersWithOptions(request: ListOrganizationRoleUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListOrganizationRoleUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11248,11 +11665,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrganizationRoleUsersResponse>(await this.callApi(params, req, runtime), new ListOrganizationRoleUsersResponse({}));
   }
 
+  /**
+   * @summary 获取指定组织角色下的用户列表
+   *
+   * @param request ListOrganizationRoleUsersRequest
+   * @return ListOrganizationRoleUsersResponse
+   */
   async listOrganizationRoleUsers(request: ListOrganizationRoleUsersRequest): Promise<ListOrganizationRoleUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOrganizationRoleUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取组织级别自定义角色列表
+   *
+   * @param request ListOrganizationRolesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOrganizationRolesResponse
+   */
   async listOrganizationRolesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListOrganizationRolesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -11269,11 +11699,23 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrganizationRolesResponse>(await this.callApi(params, req, runtime), new ListOrganizationRolesResponse({}));
   }
 
+  /**
+   * @summary 获取组织级别自定义角色列表
+   *
+   * @return ListOrganizationRolesResponse
+   */
   async listOrganizationRoles(): Promise<ListOrganizationRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOrganizationRolesWithOptions(runtime);
   }
 
+  /**
+   * @summary Obtains the list of authorization details for a BI portal menu.
+   *
+   * @param request ListPortalMenuAuthorizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPortalMenuAuthorizationResponse
+   */
   async listPortalMenuAuthorizationWithOptions(request: ListPortalMenuAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<ListPortalMenuAuthorizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11298,11 +11740,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPortalMenuAuthorizationResponse>(await this.callApi(params, req, runtime), new ListPortalMenuAuthorizationResponse({}));
   }
 
+  /**
+   * @summary Obtains the list of authorization details for a BI portal menu.
+   *
+   * @param request ListPortalMenuAuthorizationRequest
+   * @return ListPortalMenuAuthorizationResponse
+   */
   async listPortalMenuAuthorization(request: ListPortalMenuAuthorizationRequest): Promise<ListPortalMenuAuthorizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPortalMenuAuthorizationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Gets a hierarchical list of menus under a specific BI portal.
+   *
+   * @param request ListPortalMenusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPortalMenusResponse
+   */
   async listPortalMenusWithOptions(request: ListPortalMenusRequest, runtime: $Util.RuntimeOptions): Promise<ListPortalMenusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11331,11 +11786,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPortalMenusResponse>(await this.callApi(params, req, runtime), new ListPortalMenusResponse({}));
   }
 
+  /**
+   * @summary Gets a hierarchical list of menus under a specific BI portal.
+   *
+   * @param request ListPortalMenusRequest
+   * @return ListPortalMenusResponse
+   */
   async listPortalMenus(request: ListPortalMenusRequest): Promise<ListPortalMenusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPortalMenusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取首页看板常看和足迹列表
+   *
+   * @param request ListRecentViewReportsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRecentViewReportsResponse
+   */
   async listRecentViewReportsWithOptions(request: ListRecentViewReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListRecentViewReportsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11380,11 +11848,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRecentViewReportsResponse>(await this.callApi(params, req, runtime), new ListRecentViewReportsResponse({}));
   }
 
+  /**
+   * @summary 获取首页看板常看和足迹列表
+   *
+   * @param request ListRecentViewReportsRequest
+   * @return ListRecentViewReportsResponse
+   */
   async listRecentViewReports(request: ListRecentViewReportsRequest): Promise<ListRecentViewReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRecentViewReportsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 概述
+   *
+   * @param request ListSharedReportsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSharedReportsResponse
+   */
   async listSharedReportsWithOptions(request: ListSharedReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListSharedReportsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11421,11 +11902,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSharedReportsResponse>(await this.callApi(params, req, runtime), new ListSharedReportsResponse({}));
   }
 
+  /**
+   * @summary 概述
+   *
+   * @param request ListSharedReportsRequest
+   * @return ListSharedReportsResponse
+   */
   async listSharedReports(request: ListSharedReportsRequest): Promise<ListSharedReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSharedReportsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Description
+   *
+   * @param request ListUserGroupsByUserIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserGroupsByUserIdResponse
+   */
   async listUserGroupsByUserIdWithOptions(request: ListUserGroupsByUserIdRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsByUserIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11450,11 +11944,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserGroupsByUserIdResponse>(await this.callApi(params, req, runtime), new ListUserGroupsByUserIdResponse({}));
   }
 
+  /**
+   * @summary Description
+   *
+   * @param request ListUserGroupsByUserIdRequest
+   * @return ListUserGroupsByUserIdResponse
+   */
   async listUserGroupsByUserId(request: ListUserGroupsByUserIdRequest): Promise<ListUserGroupsByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserGroupsByUserIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取指定空间角色下的用户列表
+   *
+   * @param request ListWorkspaceRoleUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkspaceRoleUsersResponse
+   */
   async listWorkspaceRoleUsersWithOptions(request: ListWorkspaceRoleUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkspaceRoleUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11495,11 +12002,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkspaceRoleUsersResponse>(await this.callApi(params, req, runtime), new ListWorkspaceRoleUsersResponse({}));
   }
 
+  /**
+   * @summary 获取指定空间角色下的用户列表
+   *
+   * @param request ListWorkspaceRoleUsersRequest
+   * @return ListWorkspaceRoleUsersResponse
+   */
   async listWorkspaceRoleUsers(request: ListWorkspaceRoleUsersRequest): Promise<ListWorkspaceRoleUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWorkspaceRoleUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取空间角色列表
+   *
+   * @param request ListWorkspaceRolesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWorkspaceRolesResponse
+   */
   async listWorkspaceRolesWithOptions(request: ListWorkspaceRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListWorkspaceRolesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11524,11 +12044,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkspaceRolesResponse>(await this.callApi(params, req, runtime), new ListWorkspaceRolesResponse({}));
   }
 
+  /**
+   * @summary 获取空间角色列表
+   *
+   * @param request ListWorkspaceRolesRequest
+   * @return ListWorkspaceRolesResponse
+   */
   async listWorkspaceRoles(request: ListWorkspaceRolesRequest): Promise<ListWorkspaceRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWorkspaceRolesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改指定API数据源参数值
+   *
+   * @param request ModifyApiDatasourceParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyApiDatasourceParametersResponse
+   */
   async modifyApiDatasourceParametersWithOptions(request: ModifyApiDatasourceParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiDatasourceParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11561,11 +12094,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyApiDatasourceParametersResponse>(await this.callApi(params, req, runtime), new ModifyApiDatasourceParametersResponse({}));
   }
 
+  /**
+   * @summary 修改指定API数据源参数值
+   *
+   * @param request ModifyApiDatasourceParametersRequest
+   * @return ModifyApiDatasourceParametersResponse
+   */
   async modifyApiDatasourceParameters(request: ModifyApiDatasourceParametersRequest): Promise<ModifyApiDatasourceParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyApiDatasourceParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询组件性能列表
+   *
+   * @param request QueryComponentPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryComponentPerformanceResponse
+   */
   async queryComponentPerformanceWithOptions(request: QueryComponentPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryComponentPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11614,11 +12160,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryComponentPerformanceResponse>(await this.callApi(params, req, runtime), new QueryComponentPerformanceResponse({}));
   }
 
+  /**
+   * @summary 查询组件性能列表
+   *
+   * @param request QueryComponentPerformanceRequest
+   * @return QueryComponentPerformanceResponse
+   */
   async queryComponentPerformance(request: QueryComponentPerformanceRequest): Promise<QueryComponentPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryComponentPerformanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询数据集优化建议
+   *
+   * @param request QueryCubeOptimizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCubeOptimizationResponse
+   */
   async queryCubeOptimizationWithOptions(request: QueryCubeOptimizationRequest, runtime: $Util.RuntimeOptions): Promise<QueryCubeOptimizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11643,11 +12202,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCubeOptimizationResponse>(await this.callApi(params, req, runtime), new QueryCubeOptimizationResponse({}));
   }
 
+  /**
+   * @summary 查询数据集优化建议
+   *
+   * @param request QueryCubeOptimizationRequest
+   * @return QueryCubeOptimizationResponse
+   */
   async queryCubeOptimization(request: QueryCubeOptimizationRequest): Promise<QueryCubeOptimizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCubeOptimizationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询数据集性能
+   *
+   * @param request QueryCubePerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCubePerformanceResponse
+   */
   async queryCubePerformanceWithOptions(request: QueryCubePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryCubePerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11692,17 +12264,25 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCubePerformanceResponse>(await this.callApi(params, req, runtime), new QueryCubePerformanceResponse({}));
   }
 
+  /**
+   * @summary 查询数据集性能
+   *
+   * @param request QueryCubePerformanceRequest
+   * @return QueryCubePerformanceResponse
+   */
   async queryCubePerformance(request: QueryCubePerformanceRequest): Promise<QueryCubePerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCubePerformanceWithOptions(request, runtime);
   }
 
   /**
-    * f4cc43bc3***
-    *
-    * @param request QueryDataServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryDataServiceResponse
+   * @summary The operator for the aggregate operation. Metric fields are available, such as SUM, AVG, and MAX.
+   *
+   * @description f4cc43bc3***
+   *
+   * @param request QueryDataServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDataServiceResponse
    */
   async queryDataServiceWithOptions(request: QueryDataServiceRequest, runtime: $Util.RuntimeOptions): Promise<QueryDataServiceResponse> {
     Util.validateModel(request);
@@ -11737,10 +12317,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * f4cc43bc3***
-    *
-    * @param request QueryDataServiceRequest
-    * @return QueryDataServiceResponse
+   * @summary The operator for the aggregate operation. Metric fields are available, such as SUM, AVG, and MAX.
+   *
+   * @description f4cc43bc3***
+   *
+   * @param request QueryDataServiceRequest
+   * @return QueryDataServiceResponse
    */
   async queryDataService(request: QueryDataServiceRequest): Promise<QueryDataServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11748,11 +12330,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
-    *
-    * @param request QueryDatasetDetailInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return QueryDatasetDetailInfoResponse
+   * @summary Queries the details of a specified dataset, including the data source, directory, and dataset model.
+   *
+   * @description The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
+   *
+   * @param request QueryDatasetDetailInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDatasetDetailInfoResponse
    */
   async queryDatasetDetailInfoWithOptions(request: QueryDatasetDetailInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDatasetDetailInfoResponse> {
     Util.validateModel(request);
@@ -11779,16 +12363,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
-    *
-    * @param request QueryDatasetDetailInfoRequest
-    * @return QueryDatasetDetailInfoResponse
+   * @summary Queries the details of a specified dataset, including the data source, directory, and dataset model.
+   *
+   * @description The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
+   *
+   * @param request QueryDatasetDetailInfoRequest
+   * @return QueryDatasetDetailInfoResponse
    */
   async queryDatasetDetailInfo(request: QueryDatasetDetailInfoRequest): Promise<QueryDatasetDetailInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDatasetDetailInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Indicates whether the table is a custom SQL table. Valid values:
+   * *   true: custom SQL table
+   * *   false: non-custom SQL table
+   *
+   * @param request QueryDatasetInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDatasetInfoResponse
+   */
   async queryDatasetInfoWithOptions(request: QueryDatasetInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDatasetInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11813,11 +12408,26 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDatasetInfoResponse>(await this.callApi(params, req, runtime), new QueryDatasetInfoResponse({}));
   }
 
+  /**
+   * @summary Indicates whether the table is a custom SQL table. Valid values:
+   * *   true: custom SQL table
+   * *   false: non-custom SQL table
+   *
+   * @param request QueryDatasetInfoRequest
+   * @return QueryDatasetInfoResponse
+   */
   async queryDatasetInfo(request: QueryDatasetInfoRequest): Promise<QueryDatasetInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDatasetInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The name of the training dataset.
+   *
+   * @param request QueryDatasetListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDatasetListResponse
+   */
   async queryDatasetListWithOptions(request: QueryDatasetListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDatasetListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11862,11 +12472,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDatasetListResponse>(await this.callApi(params, req, runtime), new QueryDatasetListResponse({}));
   }
 
+  /**
+   * @summary The name of the training dataset.
+   *
+   * @param request QueryDatasetListRequest
+   * @return QueryDatasetListResponse
+   */
   async queryDatasetList(request: QueryDatasetListRequest): Promise<QueryDatasetListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDatasetListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryDatasetSwitchInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryDatasetSwitchInfoResponse
+   */
   async queryDatasetSwitchInfoWithOptions(request: QueryDatasetSwitchInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDatasetSwitchInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11891,11 +12512,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryDatasetSwitchInfoResponse>(await this.callApi(params, req, runtime), new QueryDatasetSwitchInfoResponse({}));
   }
 
+  /**
+   * @param request QueryDatasetSwitchInfoRequest
+   * @return QueryDatasetSwitchInfoResponse
+   */
   async queryDatasetSwitchInfo(request: QueryDatasetSwitchInfoRequest): Promise<QueryDatasetSwitchInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDatasetSwitchInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The number of reports that are currently embedded.
+   *
+   * @param request QueryEmbeddedInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryEmbeddedInfoResponse
+   */
   async queryEmbeddedInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryEmbeddedInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -11912,11 +12544,23 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEmbeddedInfoResponse>(await this.callApi(params, req, runtime), new QueryEmbeddedInfoResponse({}));
   }
 
+  /**
+   * @summary The number of reports that are currently embedded.
+   *
+   * @return QueryEmbeddedInfoResponse
+   */
   async queryEmbeddedInfo(): Promise<QueryEmbeddedInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEmbeddedInfoWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries whether embedding is enabled for a report.
+   *
+   * @param request QueryEmbeddedStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryEmbeddedStatusResponse
+   */
   async queryEmbeddedStatusWithOptions(request: QueryEmbeddedStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryEmbeddedStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11941,11 +12585,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryEmbeddedStatusResponse>(await this.callApi(params, req, runtime), new QueryEmbeddedStatusResponse({}));
   }
 
+  /**
+   * @summary Queries whether embedding is enabled for a report.
+   *
+   * @param request QueryEmbeddedStatusRequest
+   * @return QueryEmbeddedStatusResponse
+   */
   async queryEmbeddedStatus(request: QueryEmbeddedStatusRequest): Promise<QueryEmbeddedStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryEmbeddedStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取指定组织角色的配置信息
+   *
+   * @param request QueryOrganizationRoleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryOrganizationRoleConfigResponse
+   */
   async queryOrganizationRoleConfigWithOptions(request: QueryOrganizationRoleConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrganizationRoleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11970,11 +12627,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryOrganizationRoleConfigResponse>(await this.callApi(params, req, runtime), new QueryOrganizationRoleConfigResponse({}));
   }
 
+  /**
+   * @summary 获取指定组织角色的配置信息
+   *
+   * @param request QueryOrganizationRoleConfigRequest
+   * @return QueryOrganizationRoleConfigResponse
+   */
   async queryOrganizationRoleConfig(request: QueryOrganizationRoleConfigRequest): Promise<QueryOrganizationRoleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryOrganizationRoleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取当前组织下的工作空间列表信息。
+   *
+   * @param request QueryOrganizationWorkspaceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryOrganizationWorkspaceListResponse
+   */
   async queryOrganizationWorkspaceListWithOptions(request: QueryOrganizationWorkspaceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryOrganizationWorkspaceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12011,11 +12681,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryOrganizationWorkspaceListResponse>(await this.callApi(params, req, runtime), new QueryOrganizationWorkspaceListResponse({}));
   }
 
+  /**
+   * @summary 获取当前组织下的工作空间列表信息。
+   *
+   * @param request QueryOrganizationWorkspaceListRequest
+   * @return QueryOrganizationWorkspaceListResponse
+   */
   async queryOrganizationWorkspaceList(request: QueryOrganizationWorkspaceListRequest): Promise<QueryOrganizationWorkspaceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryOrganizationWorkspaceListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The Alibaba Cloud account name of the owner.
+   *
+   * @param request QueryReadableResourcesListByUserIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryReadableResourcesListByUserIdResponse
+   */
   async queryReadableResourcesListByUserIdWithOptions(request: QueryReadableResourcesListByUserIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryReadableResourcesListByUserIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12040,11 +12723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryReadableResourcesListByUserIdResponse>(await this.callApi(params, req, runtime), new QueryReadableResourcesListByUserIdResponse({}));
   }
 
+  /**
+   * @summary The Alibaba Cloud account name of the owner.
+   *
+   * @param request QueryReadableResourcesListByUserIdRequest
+   * @return QueryReadableResourcesListByUserIdResponse
+   */
   async queryReadableResourcesListByUserId(request: QueryReadableResourcesListByUserIdRequest): Promise<QueryReadableResourcesListByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryReadableResourcesListByUserIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询报表性能列表
+   *
+   * @param request QueryReportPerformanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryReportPerformanceResponse
+   */
   async queryReportPerformanceWithOptions(request: QueryReportPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryReportPerformanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12093,11 +12789,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryReportPerformanceResponse>(await this.callApi(params, req, runtime), new QueryReportPerformanceResponse({}));
   }
 
+  /**
+   * @summary 查询报表性能列表
+   *
+   * @param request QueryReportPerformanceRequest
+   * @return QueryReportPerformanceResponse
+   */
   async queryReportPerformance(request: QueryReportPerformanceRequest): Promise<QueryReportPerformanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryReportPerformanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Xiao Zhang
+   *
+   * @param request QueryShareListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryShareListResponse
+   */
   async queryShareListWithOptions(request: QueryShareListRequest, runtime: $Util.RuntimeOptions): Promise<QueryShareListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12122,11 +12831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryShareListResponse>(await this.callApi(params, req, runtime), new QueryShareListResponse({}));
   }
 
+  /**
+   * @summary Xiao Zhang
+   *
+   * @param request QueryShareListRequest
+   * @return QueryShareListResponse
+   */
   async queryShareList(request: QueryShareListRequest): Promise<QueryShareListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryShareListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the list of works authorized to a user.
+   *
+   * @param request QuerySharesToUserListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QuerySharesToUserListResponse
+   */
   async querySharesToUserListWithOptions(request: QuerySharesToUserListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySharesToUserListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12151,11 +12873,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySharesToUserListResponse>(await this.callApi(params, req, runtime), new QuerySharesToUserListResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the list of works authorized to a user.
+   *
+   * @param request QuerySharesToUserListRequest
+   * @return QuerySharesToUserListResponse
+   */
   async querySharesToUserList(request: QuerySharesToUserListRequest): Promise<QuerySharesToUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySharesToUserListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request QueryTicketInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryTicketInfoResponse
+   */
   async queryTicketInfoWithOptions(request: QueryTicketInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryTicketInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12180,11 +12915,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTicketInfoResponse>(await this.callApi(params, req, runtime), new QueryTicketInfoResponse({}));
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request QueryTicketInfoRequest
+   * @return QueryTicketInfoResponse
+   */
   async queryTicketInfo(request: QueryTicketInfoRequest): Promise<QueryTicketInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTicketInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can this operation to obtain information about child user groups under a specified parent user group.
+   *
+   * @param request QueryUserGroupListByParentIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUserGroupListByParentIdResponse
+   */
   async queryUserGroupListByParentIdWithOptions(request: QueryUserGroupListByParentIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserGroupListByParentIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12209,11 +12957,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUserGroupListByParentIdResponse>(await this.callApi(params, req, runtime), new QueryUserGroupListByParentIdResponse({}));
   }
 
+  /**
+   * @summary You can this operation to obtain information about child user groups under a specified parent user group.
+   *
+   * @param request QueryUserGroupListByParentIdRequest
+   * @return QueryUserGroupListByParentIdResponse
+   */
   async queryUserGroupListByParentId(request: QueryUserGroupListByParentIdRequest): Promise<QueryUserGroupListByParentIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUserGroupListByParentIdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryUserGroupMemberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUserGroupMemberResponse
+   */
   async queryUserGroupMemberWithOptions(request: QueryUserGroupMemberRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserGroupMemberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12242,11 +13001,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUserGroupMemberResponse>(await this.callApi(params, req, runtime), new QueryUserGroupMemberResponse({}));
   }
 
+  /**
+   * @param request QueryUserGroupMemberRequest
+   * @return QueryUserGroupMemberResponse
+   */
   async queryUserGroupMember(request: QueryUserGroupMemberRequest): Promise<QueryUserGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUserGroupMemberWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+   *
+   * @param request QueryUserInfoByAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUserInfoByAccountResponse
+   */
   async queryUserInfoByAccountWithOptions(request: QueryUserInfoByAccountRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserInfoByAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12275,11 +13045,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUserInfoByAccountResponse>(await this.callApi(params, req, runtime), new QueryUserInfoByAccountResponse({}));
   }
 
+  /**
+   * @summary Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+   *
+   * @param request QueryUserInfoByAccountRequest
+   * @return QueryUserInfoByAccountResponse
+   */
   async queryUserInfoByAccount(request: QueryUserInfoByAccountRequest): Promise<QueryUserInfoByAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUserInfoByAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries user information based on the user ID.
+   *
+   * @param request QueryUserInfoByUserIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUserInfoByUserIdResponse
+   */
   async queryUserInfoByUserIdWithOptions(request: QueryUserInfoByUserIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserInfoByUserIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12304,11 +13087,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUserInfoByUserIdResponse>(await this.callApi(params, req, runtime), new QueryUserInfoByUserIdResponse({}));
   }
 
+  /**
+   * @summary Queries user information based on the user ID.
+   *
+   * @param request QueryUserInfoByUserIdRequest
+   * @return QueryUserInfoByUserIdResponse
+   */
   async queryUserInfoByUserId(request: QueryUserInfoByUserIdRequest): Promise<QueryUserInfoByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUserInfoByUserIdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryUserListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUserListResponse
+   */
   async queryUserListWithOptions(request: QueryUserListRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -12329,11 +13123,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUserListResponse>(await this.callApi(params, req, runtime), new QueryUserListResponse({}));
   }
 
+  /**
+   * @param request QueryUserListRequest
+   * @return QueryUserListResponse
+   */
   async queryUserList(request: QueryUserListRequest): Promise<QueryUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUserListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryUserRoleInfoInWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUserRoleInfoInWorkspaceResponse
+   */
   async queryUserRoleInfoInWorkspaceWithOptions(request: QueryUserRoleInfoInWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserRoleInfoInWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12362,11 +13165,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUserRoleInfoInWorkspaceResponse>(await this.callApi(params, req, runtime), new QueryUserRoleInfoInWorkspaceResponse({}));
   }
 
+  /**
+   * @param request QueryUserRoleInfoInWorkspaceRequest
+   * @return QueryUserRoleInfoInWorkspaceResponse
+   */
   async queryUserRoleInfoInWorkspace(request: QueryUserRoleInfoInWorkspaceRequest): Promise<QueryUserRoleInfoInWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUserRoleInfoInWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary auditing
+   *
+   * @param request QueryUserTagMetaListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUserTagMetaListResponse
+   */
   async queryUserTagMetaListWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryUserTagMetaListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -12383,11 +13197,23 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUserTagMetaListResponse>(await this.callApi(params, req, runtime), new QueryUserTagMetaListResponse({}));
   }
 
+  /**
+   * @summary auditing
+   *
+   * @return QueryUserTagMetaListResponse
+   */
   async queryUserTagMetaList(): Promise<QueryUserTagMetaListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUserTagMetaListWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the list of tag values for a specific user.
+   *
+   * @param request QueryUserTagValueListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryUserTagValueListResponse
+   */
   async queryUserTagValueListWithOptions(request: QueryUserTagValueListRequest, runtime: $Util.RuntimeOptions): Promise<QueryUserTagValueListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -12408,11 +13234,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryUserTagValueListResponse>(await this.callApi(params, req, runtime), new QueryUserTagValueListResponse({}));
   }
 
+  /**
+   * @summary Queries the list of tag values for a specific user.
+   *
+   * @param request QueryUserTagValueListRequest
+   * @return QueryUserTagValueListResponse
+   */
   async queryUserTagValueList(request: QueryUserTagValueListRequest): Promise<QueryUserTagValueListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryUserTagValueListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取报表详情
+   *
+   * @param request QueryWorksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryWorksResponse
+   */
   async queryWorksWithOptions(request: QueryWorksRequest, runtime: $Util.RuntimeOptions): Promise<QueryWorksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12437,11 +13276,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryWorksResponse>(await this.callApi(params, req, runtime), new QueryWorksResponse({}));
   }
 
+  /**
+   * @summary 获取报表详情
+   *
+   * @param request QueryWorksRequest
+   * @return QueryWorksResponse
+   */
   async queryWorks(request: QueryWorksRequest): Promise<QueryWorksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWorksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary abcd****
+   *
+   * @param request QueryWorksBloodRelationshipRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryWorksBloodRelationshipResponse
+   */
   async queryWorksBloodRelationshipWithOptions(request: QueryWorksBloodRelationshipRequest, runtime: $Util.RuntimeOptions): Promise<QueryWorksBloodRelationshipResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12466,11 +13318,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryWorksBloodRelationshipResponse>(await this.callApi(params, req, runtime), new QueryWorksBloodRelationshipResponse({}));
   }
 
+  /**
+   * @summary abcd****
+   *
+   * @param request QueryWorksBloodRelationshipRequest
+   * @return QueryWorksBloodRelationshipResponse
+   */
   async queryWorksBloodRelationship(request: QueryWorksBloodRelationshipRequest): Promise<QueryWorksBloodRelationshipResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWorksBloodRelationshipWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The total number of rows in the table.
+   *
+   * @param request QueryWorksByOrganizationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryWorksByOrganizationResponse
+   */
   async queryWorksByOrganizationWithOptions(request: QueryWorksByOrganizationRequest, runtime: $Util.RuntimeOptions): Promise<QueryWorksByOrganizationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12511,11 +13376,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryWorksByOrganizationResponse>(await this.callApi(params, req, runtime), new QueryWorksByOrganizationResponse({}));
   }
 
+  /**
+   * @summary The total number of rows in the table.
+   *
+   * @param request QueryWorksByOrganizationRequest
+   * @return QueryWorksByOrganizationResponse
+   */
   async queryWorksByOrganization(request: QueryWorksByOrganizationRequest): Promise<QueryWorksByOrganizationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWorksByOrganizationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The name of the directory.
+   *
+   * @param request QueryWorksByWorkspaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryWorksByWorkspaceResponse
+   */
   async queryWorksByWorkspaceWithOptions(request: QueryWorksByWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<QueryWorksByWorkspaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12560,11 +13438,24 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryWorksByWorkspaceResponse>(await this.callApi(params, req, runtime), new QueryWorksByWorkspaceResponse({}));
   }
 
+  /**
+   * @summary The name of the directory.
+   *
+   * @param request QueryWorksByWorkspaceRequest
+   * @return QueryWorksByWorkspaceResponse
+   */
   async queryWorksByWorkspace(request: QueryWorksByWorkspaceRequest): Promise<QueryWorksByWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWorksByWorkspaceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取指定空间角色的配置信息
+   *
+   * @param request QueryWorkspaceRoleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryWorkspaceRoleConfigResponse
+   */
   async queryWorkspaceRoleConfigWithOptions(request: QueryWorkspaceRoleConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryWorkspaceRoleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12589,11 +13480,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryWorkspaceRoleConfigResponse>(await this.callApi(params, req, runtime), new QueryWorkspaceRoleConfigResponse({}));
   }
 
+  /**
+   * @summary 获取指定空间角色的配置信息
+   *
+   * @param request QueryWorkspaceRoleConfigRequest
+   * @return QueryWorkspaceRoleConfigResponse
+   */
   async queryWorkspaceRoleConfig(request: QueryWorkspaceRoleConfigRequest): Promise<QueryWorkspaceRoleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWorkspaceRoleConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryWorkspaceUserListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryWorkspaceUserListResponse
+   */
   async queryWorkspaceUserListWithOptions(request: QueryWorkspaceUserListRequest, runtime: $Util.RuntimeOptions): Promise<QueryWorkspaceUserListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12630,11 +13532,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryWorkspaceUserListResponse>(await this.callApi(params, req, runtime), new QueryWorkspaceUserListResponse({}));
   }
 
+  /**
+   * @param request QueryWorkspaceUserListRequest
+   * @return QueryWorkspaceUserListResponse
+   */
   async queryWorkspaceUserList(request: QueryWorkspaceUserListRequest): Promise<QueryWorkspaceUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWorkspaceUserListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 第三方资源审批回调接口
+   *
+   * @param request ResultCallbackRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResultCallbackResponse
+   */
   async resultCallbackWithOptions(request: ResultCallbackRequest, runtime: $Util.RuntimeOptions): Promise<ResultCallbackResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12667,11 +13580,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResultCallbackResponse>(await this.callApi(params, req, runtime), new ResultCallbackResponse({}));
   }
 
+  /**
+   * @summary 第三方资源审批回调接口
+   *
+   * @param request ResultCallbackRequest
+   * @return ResultCallbackResponse
+   */
   async resultCallback(request: ResultCallbackRequest): Promise<ResultCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resultCallbackWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Add the user\\"s collection data works.
+   *
+   * @param request SaveFavoritesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveFavoritesResponse
+   */
   async saveFavoritesWithOptions(request: SaveFavoritesRequest, runtime: $Util.RuntimeOptions): Promise<SaveFavoritesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12700,11 +13626,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveFavoritesResponse>(await this.callApi(params, req, runtime), new SaveFavoritesResponse({}));
   }
 
+  /**
+   * @summary Add the user\\"s collection data works.
+   *
+   * @param request SaveFavoritesRequest
+   * @return SaveFavoritesResponse
+   */
   async saveFavorites(request: SaveFavoritesRequest): Promise<SaveFavoritesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveFavoritesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetDataLevelPermissionExtraConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDataLevelPermissionExtraConfigResponse
+   */
   async setDataLevelPermissionExtraConfigWithOptions(request: SetDataLevelPermissionExtraConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDataLevelPermissionExtraConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12737,11 +13674,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDataLevelPermissionExtraConfigResponse>(await this.callApi(params, req, runtime), new SetDataLevelPermissionExtraConfigResponse({}));
   }
 
+  /**
+   * @param request SetDataLevelPermissionExtraConfigRequest
+   * @return SetDataLevelPermissionExtraConfigResponse
+   */
   async setDataLevelPermissionExtraConfig(request: SetDataLevelPermissionExtraConfigRequest): Promise<SetDataLevelPermissionExtraConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataLevelPermissionExtraConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetDataLevelPermissionRuleConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDataLevelPermissionRuleConfigResponse
+   */
   async setDataLevelPermissionRuleConfigWithOptions(request: SetDataLevelPermissionRuleConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDataLevelPermissionRuleConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12766,17 +13712,23 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDataLevelPermissionRuleConfigResponse>(await this.callApi(params, req, runtime), new SetDataLevelPermissionRuleConfigResponse({}));
   }
 
+  /**
+   * @param request SetDataLevelPermissionRuleConfigRequest
+   * @return SetDataLevelPermissionRuleConfigResponse
+   */
   async setDataLevelPermissionRuleConfig(request: SetDataLevelPermissionRuleConfigRequest): Promise<SetDataLevelPermissionRuleConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataLevelPermissionRuleConfigWithOptions(request, runtime);
   }
 
   /**
-    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-    *
-    * @param request SetDataLevelPermissionWhiteListRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDataLevelPermissionWhiteListResponse
+   * @summary Sets the whitelist for the specified row-level permissions.
+   *
+   * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+   *
+   * @param request SetDataLevelPermissionWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDataLevelPermissionWhiteListResponse
    */
   async setDataLevelPermissionWhiteListWithOptions(request: SetDataLevelPermissionWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<SetDataLevelPermissionWhiteListResponse> {
     Util.validateModel(request);
@@ -12803,10 +13755,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-    *
-    * @param request SetDataLevelPermissionWhiteListRequest
-    * @return SetDataLevelPermissionWhiteListResponse
+   * @summary Sets the whitelist for the specified row-level permissions.
+   *
+   * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+   *
+   * @param request SetDataLevelPermissionWhiteListRequest
+   * @return SetDataLevelPermissionWhiteListResponse
    */
   async setDataLevelPermissionWhiteList(request: SetDataLevelPermissionWhiteListRequest): Promise<SetDataLevelPermissionWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12814,13 +13768,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The execution result of the interface. Valid values:
-    * *   true: The request was successful.
-    * *   false: The request failed.
-    *
-    * @param request UpdateDataLevelPermissionStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateDataLevelPermissionStatusResponse
+   * @summary Indicates whether the request is successful. Valid values:
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   *
+   * @description The execution result of the interface. Valid values:
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   *
+   * @param request UpdateDataLevelPermissionStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDataLevelPermissionStatusResponse
    */
   async updateDataLevelPermissionStatusWithOptions(request: UpdateDataLevelPermissionStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataLevelPermissionStatusResponse> {
     Util.validateModel(request);
@@ -12855,18 +13813,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The execution result of the interface. Valid values:
-    * *   true: The request was successful.
-    * *   false: The request failed.
-    *
-    * @param request UpdateDataLevelPermissionStatusRequest
-    * @return UpdateDataLevelPermissionStatusResponse
+   * @summary Indicates whether the request is successful. Valid values:
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   *
+   * @description The execution result of the interface. Valid values:
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   *
+   * @param request UpdateDataLevelPermissionStatusRequest
+   * @return UpdateDataLevelPermissionStatusResponse
    */
   async updateDataLevelPermissionStatus(request: UpdateDataLevelPermissionStatusRequest): Promise<UpdateDataLevelPermissionStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDataLevelPermissionStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request UpdateEmbeddedStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEmbeddedStatusResponse
+   */
   async updateEmbeddedStatusWithOptions(request: UpdateEmbeddedStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEmbeddedStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12895,11 +13864,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEmbeddedStatusResponse>(await this.callApi(params, req, runtime), new UpdateEmbeddedStatusResponse({}));
   }
 
+  /**
+   * @summary The ID of the request.
+   *
+   * @param request UpdateEmbeddedStatusRequest
+   * @return UpdateEmbeddedStatusResponse
+   */
   async updateEmbeddedStatus(request: UpdateEmbeddedStatusRequest): Promise<UpdateEmbeddedStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEmbeddedStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新三方嵌入ticket的票据数量
+   *
+   * @param request UpdateTicketNumRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTicketNumResponse
+   */
   async updateTicketNumWithOptions(request: UpdateTicketNumRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTicketNumResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12928,11 +13910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTicketNumResponse>(await this.callApi(params, req, runtime), new UpdateTicketNumResponse({}));
   }
 
+  /**
+   * @summary 更新三方嵌入ticket的票据数量
+   *
+   * @param request UpdateTicketNumRequest
+   * @return UpdateTicketNumResponse
+   */
   async updateTicketNum(request: UpdateTicketNumRequest): Promise<UpdateTicketNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTicketNumWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the information of a specified member in an organization.
+   *
+   * @param request UpdateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserResponse
+   */
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12977,11 +13972,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
+  /**
+   * @summary Updates the information of a specified member in an organization.
+   *
+   * @param request UpdateUserRequest
+   * @return UpdateUserResponse
+   */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates information about a specified user group in an organization.
+   *
+   * @param request UpdateUserGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserGroupResponse
+   */
   async updateUserGroupWithOptions(request: UpdateUserGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13014,11 +14022,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserGroupResponse>(await this.callApi(params, req, runtime), new UpdateUserGroupResponse({}));
   }
 
+  /**
+   * @summary Updates information about a specified user group in an organization.
+   *
+   * @param request UpdateUserGroupRequest
+   * @return UpdateUserGroupResponse
+   */
   async updateUserGroup(request: UpdateUserGroupRequest): Promise<UpdateUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateUserTagMetaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserTagMetaResponse
+   */
   async updateUserTagMetaWithOptions(request: UpdateUserTagMetaRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserTagMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13051,11 +14070,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserTagMetaResponse>(await this.callApi(params, req, runtime), new UpdateUserTagMetaResponse({}));
   }
 
+  /**
+   * @param request UpdateUserTagMetaRequest
+   * @return UpdateUserTagMetaResponse
+   */
   async updateUserTagMeta(request: UpdateUserTagMetaRequest): Promise<UpdateUserTagMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserTagMetaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateUserTagValueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserTagValueResponse
+   */
   async updateUserTagValueWithOptions(request: UpdateUserTagValueRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserTagValueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13088,11 +14116,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserTagValueResponse>(await this.callApi(params, req, runtime), new UpdateUserTagValueResponse({}));
   }
 
+  /**
+   * @param request UpdateUserTagValueRequest
+   * @return UpdateUserTagValueResponse
+   */
   async updateUserTagValue(request: UpdateUserTagValueRequest): Promise<UpdateUserTagValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserTagValueWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateWorkspaceUserRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWorkspaceUserRoleResponse
+   */
   async updateWorkspaceUserRoleWithOptions(request: UpdateWorkspaceUserRoleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceUserRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13125,11 +14162,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWorkspaceUserRoleResponse>(await this.callApi(params, req, runtime), new UpdateWorkspaceUserRoleResponse({}));
   }
 
+  /**
+   * @param request UpdateWorkspaceUserRoleRequest
+   * @return UpdateWorkspaceUserRoleResponse
+   */
   async updateWorkspaceUserRole(request: UpdateWorkspaceUserRoleRequest): Promise<UpdateWorkspaceUserRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWorkspaceUserRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateWorkspaceUsersRoleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWorkspaceUsersRoleResponse
+   */
   async updateWorkspaceUsersRoleWithOptions(request: UpdateWorkspaceUsersRoleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWorkspaceUsersRoleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13162,11 +14208,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWorkspaceUsersRoleResponse>(await this.callApi(params, req, runtime), new UpdateWorkspaceUsersRoleResponse({}));
   }
 
+  /**
+   * @param request UpdateWorkspaceUsersRoleRequest
+   * @return UpdateWorkspaceUsersRoleResponse
+   */
   async updateWorkspaceUsersRole(request: UpdateWorkspaceUsersRoleRequest): Promise<UpdateWorkspaceUsersRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWorkspaceUsersRoleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Make the user exit all user groups. This process is irreversible. Exercise caution when performing this operation.
+   *
+   * @param request WithdrawAllUserGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return WithdrawAllUserGroupsResponse
+   */
   async withdrawAllUserGroupsWithOptions(request: WithdrawAllUserGroupsRequest, runtime: $Util.RuntimeOptions): Promise<WithdrawAllUserGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13191,6 +14248,12 @@ export default class Client extends OpenApi {
     return $tea.cast<WithdrawAllUserGroupsResponse>(await this.callApi(params, req, runtime), new WithdrawAllUserGroupsResponse({}));
   }
 
+  /**
+   * @summary Make the user exit all user groups. This process is irreversible. Exercise caution when performing this operation.
+   *
+   * @param request WithdrawAllUserGroupsRequest
+   * @return WithdrawAllUserGroupsResponse
+   */
   async withdrawAllUserGroups(request: WithdrawAllUserGroupsRequest): Promise<WithdrawAllUserGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.withdrawAllUserGroupsWithOptions(request, runtime);
