@@ -1097,6 +1097,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 获取H5页面性能统计数据
+   *
+   * @param request GetH5PageTrendRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetH5PageTrendResponse
+   */
   async getH5PageTrendWithOptions(request: GetH5PageTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetH5PageTrendResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1138,12 +1146,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetH5PageTrendResponse>(await this.callApi(params, req, runtime), new GetH5PageTrendResponse({}));
   }
 
+  /**
+   * @summary 获取H5页面性能统计数据
+   *
+   * @param request GetH5PageTrendRequest
+   * @return GetH5PageTrendResponse
+   */
   async getH5PageTrend(request: GetH5PageTrendRequest): Promise<GetH5PageTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getH5PageTrendWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取启动性能统计数据
+   *
+   * @param request GetLaunchTrendRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLaunchTrendResponse
+   */
   async getLaunchTrendWithOptions(request: GetLaunchTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLaunchTrendResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1185,12 +1207,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLaunchTrendResponse>(await this.callApi(params, req, runtime), new GetLaunchTrendResponse({}));
   }
 
+  /**
+   * @summary 获取启动性能统计数据
+   *
+   * @param request GetLaunchTrendRequest
+   * @return GetLaunchTrendResponse
+   */
   async getLaunchTrend(request: GetLaunchTrendRequest): Promise<GetLaunchTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLaunchTrendWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取原生页面性能统计数据
+   *
+   * @param request GetNativePageTrendRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNativePageTrendResponse
+   */
   async getNativePageTrendWithOptions(request: GetNativePageTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNativePageTrendResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1232,12 +1268,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNativePageTrendResponse>(await this.callApi(params, req, runtime), new GetNativePageTrendResponse({}));
   }
 
+  /**
+   * @summary 获取原生页面性能统计数据
+   *
+   * @param request GetNativePageTrendRequest
+   * @return GetNativePageTrendResponse
+   */
   async getNativePageTrend(request: GetNativePageTrendRequest): Promise<GetNativePageTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getNativePageTrendWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取网络性能统计数据
+   *
+   * @param request GetNetworkTrendRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNetworkTrendResponse
+   */
   async getNetworkTrendWithOptions(request: GetNetworkTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNetworkTrendResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1279,12 +1329,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNetworkTrendResponse>(await this.callApi(params, req, runtime), new GetNetworkTrendResponse({}));
   }
 
+  /**
+   * @summary 获取网络性能统计数据
+   *
+   * @param request GetNetworkTrendRequest
+   * @return GetNetworkTrendResponse
+   */
   async getNetworkTrend(request: GetNetworkTrendRequest): Promise<GetNetworkTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getNetworkTrendWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取离线统计数据
+   *
+   * @param request GetStatTrendRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetStatTrendResponse
+   */
   async getStatTrendWithOptions(request: GetStatTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetStatTrendResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1326,12 +1390,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetStatTrendResponse>(await this.callApi(params, req, runtime), new GetStatTrendResponse({}));
   }
 
+  /**
+   * @summary 获取离线统计数据
+   *
+   * @param request GetStatTrendRequest
+   * @return GetStatTrendResponse
+   */
   async getStatTrend(request: GetStatTrendRequest): Promise<GetStatTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getStatTrendWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取符号表文件上传参数
+   *
+   * @param request GetSymUploadParamRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSymUploadParamResponse
+   */
   async getSymUploadParamWithOptions(request: GetSymUploadParamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSymUploadParamResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1373,12 +1451,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSymUploadParamResponse>(await this.callApi(params, req, runtime), new GetSymUploadParamResponse({}));
   }
 
+  /**
+   * @summary 获取符号表文件上传参数
+   *
+   * @param request GetSymUploadParamRequest
+   * @return GetSymUploadParamResponse
+   */
   async getSymUploadParam(request: GetSymUploadParamRequest): Promise<GetSymUploadParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSymUploadParamWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 获取今日实时统计数据
+   *
+   * @param request GetTodayStatTrendRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTodayStatTrendResponse
+   */
   async getTodayStatTrendWithOptions(request: GetTodayStatTrendRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTodayStatTrendResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1412,12 +1504,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTodayStatTrendResponse>(await this.callApi(params, req, runtime), new GetTodayStatTrendResponse({}));
   }
 
+  /**
+   * @summary 获取今日实时统计数据
+   *
+   * @param request GetTodayStatTrendRequest
+   * @return GetTodayStatTrendResponse
+   */
   async getTodayStatTrend(request: GetTodayStatTrendRequest): Promise<GetTodayStatTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTodayStatTrendWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 更新监控告警计划
+   *
+   * @param request UpdateAlertPlanRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAlertPlanResponse
+   */
   async updateAlertPlanWithOptions(request: UpdateAlertPlanRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAlertPlanResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1451,12 +1557,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAlertPlanResponse>(await this.callApi(params, req, runtime), new UpdateAlertPlanResponse({}));
   }
 
+  /**
+   * @summary 更新监控告警计划
+   *
+   * @param request UpdateAlertPlanRequest
+   * @return UpdateAlertPlanResponse
+   */
   async updateAlertPlan(request: UpdateAlertPlanRequest): Promise<UpdateAlertPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAlertPlanWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 上传符号表文件
+   *
+   * @param request UploadSymbolFileRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadSymbolFileResponse
+   */
   async uploadSymbolFileWithOptions(request: UploadSymbolFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadSymbolFileResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1502,6 +1622,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadSymbolFileResponse>(await this.callApi(params, req, runtime), new UploadSymbolFileResponse({}));
   }
 
+  /**
+   * @summary 上传符号表文件
+   *
+   * @param request UploadSymbolFileRequest
+   * @return UploadSymbolFileResponse
+   */
   async uploadSymbolFile(request: UploadSymbolFileRequest): Promise<UploadSymbolFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1515,7 +1641,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -1539,12 +1665,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
