@@ -1385,6 +1385,90 @@ export class CreateTicketResponse extends $tea.Model {
   }
 }
 
+export class CreateTicket4CopilotRequest extends $tea.Model {
+  accountName?: string;
+  accountType?: number;
+  copilotId?: string;
+  expireTime?: number;
+  ticketNum?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountType: 'AccountType',
+      copilotId: 'CopilotId',
+      expireTime: 'ExpireTime',
+      ticketNum: 'TicketNum',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountType: 'number',
+      copilotId: 'string',
+      expireTime: 'number',
+      ticketNum: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicket4CopilotResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTicket4CopilotResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTicket4CopilotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTicket4CopilotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserGroupRequest extends $tea.Model {
   parentUserGroupId?: string;
   userGroupDescription?: string;
@@ -8200,6 +8284,7 @@ export class QueryDatasetInfoResponseBodyResult extends $tea.Model {
   gmtCreate?: string;
   gmtModify?: string;
   measureList?: QueryDatasetInfoResponseBodyResultMeasureList[];
+  openOfflineAcceleration?: boolean;
   ownerId?: string;
   ownerName?: string;
   rowLevel?: boolean;
@@ -8219,6 +8304,7 @@ export class QueryDatasetInfoResponseBodyResult extends $tea.Model {
       gmtCreate: 'GmtCreate',
       gmtModify: 'GmtModify',
       measureList: 'MeasureList',
+      openOfflineAcceleration: 'OpenOfflineAcceleration',
       ownerId: 'OwnerId',
       ownerName: 'OwnerName',
       rowLevel: 'RowLevel',
@@ -8241,6 +8327,7 @@ export class QueryDatasetInfoResponseBodyResult extends $tea.Model {
       gmtCreate: 'string',
       gmtModify: 'string',
       measureList: { 'type': 'array', 'itemType': QueryDatasetInfoResponseBodyResultMeasureList },
+      openOfflineAcceleration: 'boolean',
       ownerId: 'string',
       ownerName: 'string',
       rowLevel: 'boolean',
@@ -8315,6 +8402,7 @@ export class QueryDatasetListResponseBodyResultData extends $tea.Model {
   description?: string;
   directory?: QueryDatasetListResponseBodyResultDataDirectory;
   modifyTime?: string;
+  openOfflineAcceleration?: boolean;
   ownerId?: string;
   ownerName?: string;
   rowLevel?: boolean;
@@ -8329,6 +8417,7 @@ export class QueryDatasetListResponseBodyResultData extends $tea.Model {
       description: 'Description',
       directory: 'Directory',
       modifyTime: 'ModifyTime',
+      openOfflineAcceleration: 'OpenOfflineAcceleration',
       ownerId: 'OwnerId',
       ownerName: 'OwnerName',
       rowLevel: 'RowLevel',
@@ -8346,6 +8435,7 @@ export class QueryDatasetListResponseBodyResultData extends $tea.Model {
       description: 'string',
       directory: QueryDatasetListResponseBodyResultDataDirectory,
       modifyTime: 'string',
+      openOfflineAcceleration: 'boolean',
       ownerId: 'string',
       ownerName: 'string',
       rowLevel: 'boolean',
@@ -10788,6 +10878,68 @@ export default class Client extends OpenApi {
   async createTicket(request: CreateTicketRequest): Promise<CreateTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 生成智能小Q嵌入ticket
+   *
+   * @param request CreateTicket4CopilotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTicket4CopilotResponse
+   */
+  async createTicket4CopilotWithOptions(request: CreateTicket4CopilotRequest, runtime: $Util.RuntimeOptions): Promise<CreateTicket4CopilotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountType)) {
+      query["AccountType"] = request.accountType;
+    }
+
+    if (!Util.isUnset(request.copilotId)) {
+      query["CopilotId"] = request.copilotId;
+    }
+
+    if (!Util.isUnset(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!Util.isUnset(request.ticketNum)) {
+      query["TicketNum"] = request.ticketNum;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTicket4Copilot",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTicket4CopilotResponse>(await this.callApi(params, req, runtime), new CreateTicket4CopilotResponse({}));
+  }
+
+  /**
+   * @summary 生成智能小Q嵌入ticket
+   *
+   * @param request CreateTicket4CopilotRequest
+   * @return CreateTicket4CopilotResponse
+   */
+  async createTicket4Copilot(request: CreateTicket4CopilotRequest): Promise<CreateTicket4CopilotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTicket4CopilotWithOptions(request, runtime);
   }
 
   /**
