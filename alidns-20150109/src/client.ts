@@ -7563,6 +7563,7 @@ export class DescribeInstanceDomainsResponse extends $tea.Model {
 }
 
 export class DescribeInternetDnsLogsRequest extends $tea.Model {
+  accountId?: number;
   domainName?: string;
   endTimestamp?: number;
   lang?: string;
@@ -7573,6 +7574,7 @@ export class DescribeInternetDnsLogsRequest extends $tea.Model {
   startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       domainName: 'DomainName',
       endTimestamp: 'EndTimestamp',
       lang: 'Lang',
@@ -7586,6 +7588,7 @@ export class DescribeInternetDnsLogsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'number',
       domainName: 'string',
       endTimestamp: 'number',
       lang: 'string',
@@ -17275,6 +17278,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
   status?: string;
   subnetIp?: string;
   value?: DescribeInternetDnsLogsResponseBodyLogsLogValue;
+  zoneName?: string;
   static names(): { [key: string]: string } {
     return {
       dnsMsgId: 'DnsMsgId',
@@ -17287,6 +17291,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
       status: 'Status',
       subnetIp: 'SubnetIp',
       value: 'Value',
+      zoneName: 'ZoneName',
     };
   }
 
@@ -17302,6 +17307,7 @@ export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
       status: 'string',
       subnetIp: 'string',
       value: DescribeInternetDnsLogsResponseBodyLogsLogValue,
+      zoneName: 'string',
     };
   }
 
@@ -18793,12 +18799,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-    *
-    * @param request AddCustomLineRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddCustomLineResponse
+   * @summary Adds a custom line.
+   *
+   * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+   *
+   * @param request AddCustomLineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddCustomLineResponse
    */
   async addCustomLineWithOptions(request: AddCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomLineResponse> {
     Util.validateModel(request);
@@ -18837,17 +18845,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-    *
-    * @param request AddCustomLineRequest
-    * @return AddCustomLineResponse
+   * @summary Adds a custom line.
+   *
+   * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+   *
+   * @param request AddCustomLineRequest
+   * @return AddCustomLineResponse
    */
   async addCustomLine(request: AddCustomLineRequest): Promise<AddCustomLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addCustomLineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AddDnsCacheDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDnsCacheDomainResponse
+   */
   async addDnsCacheDomainWithOptions(request: AddDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsCacheDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18904,11 +18919,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new AddDnsCacheDomainResponse({}));
   }
 
+  /**
+   * @param request AddDnsCacheDomainRequest
+   * @return AddDnsCacheDomainResponse
+   */
   async addDnsCacheDomain(request: AddDnsCacheDomainRequest): Promise<AddDnsCacheDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDnsCacheDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an access policy.
+   *
+   * @param request AddDnsGtmAccessStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDnsGtmAccessStrategyResponse
+   */
   async addDnsGtmAccessStrategyWithOptions(request: AddDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18997,11 +19023,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new AddDnsGtmAccessStrategyResponse({}));
   }
 
+  /**
+   * @summary Creates an access policy.
+   *
+   * @param request AddDnsGtmAccessStrategyRequest
+   * @return AddDnsGtmAccessStrategyResponse
+   */
   async addDnsGtmAccessStrategy(request: AddDnsGtmAccessStrategyRequest): Promise<AddDnsGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDnsGtmAccessStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an address pool.
+   *
+   * @param request AddDnsGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDnsGtmAddressPoolResponse
+   */
   async addDnsGtmAddressPoolWithOptions(request: AddDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19074,17 +19113,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new AddDnsGtmAddressPoolResponse({}));
   }
 
+  /**
+   * @summary Creates an address pool.
+   *
+   * @param request AddDnsGtmAddressPoolRequest
+   * @return AddDnsGtmAddressPoolResponse
+   */
   async addDnsGtmAddressPool(request: AddDnsGtmAddressPoolRequest): Promise<AddDnsGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDnsGtmAddressPoolWithOptions(request, runtime);
   }
 
   /**
-    * ***
-    *
-    * @param request AddDnsGtmMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddDnsGtmMonitorResponse
+   * @summary Creates a health check task.
+   *
+   * @description ***
+   *
+   * @param request AddDnsGtmMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDnsGtmMonitorResponse
    */
   async addDnsGtmMonitorWithOptions(request: AddDnsGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmMonitorResponse> {
     Util.validateModel(request);
@@ -19139,10 +19186,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ***
-    *
-    * @param request AddDnsGtmMonitorRequest
-    * @return AddDnsGtmMonitorResponse
+   * @summary Creates a health check task.
+   *
+   * @description ***
+   *
+   * @param request AddDnsGtmMonitorRequest
+   * @return AddDnsGtmMonitorResponse
    */
   async addDnsGtmMonitor(request: AddDnsGtmMonitorRequest): Promise<AddDnsGtmMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19150,12 +19199,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to check whether a domain name is valid, see
-    * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
-    *
-    * @param request AddDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddDomainResponse
+   * @summary Adds a domain name based on the specified parameters.
+   *
+   * @description For more information about how to check whether a domain name is valid, see
+   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+   *
+   * @param request AddDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDomainResponse
    */
   async addDomainWithOptions(request: AddDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainResponse> {
     Util.validateModel(request);
@@ -19194,17 +19245,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to check whether a domain name is valid, see
-    * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
-    *
-    * @param request AddDomainRequest
-    * @return AddDomainResponse
+   * @summary Adds a domain name based on the specified parameters.
+   *
+   * @description For more information about how to check whether a domain name is valid, see
+   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+   *
+   * @param request AddDomainRequest
+   * @return AddDomainResponse
    */
   async addDomain(request: AddDomainRequest): Promise<AddDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a backup task for a domain name.
+   *
+   * @param request AddDomainBackupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDomainBackupResponse
+   */
   async addDomainBackupWithOptions(request: AddDomainBackupRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainBackupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19237,11 +19297,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDomainBackupResponse>(await this.callApi(params, req, runtime), new AddDomainBackupResponse({}));
   }
 
+  /**
+   * @summary Creates a backup task for a domain name.
+   *
+   * @param request AddDomainBackupRequest
+   * @return AddDomainBackupResponse
+   */
   async addDomainBackup(request: AddDomainBackupRequest): Promise<AddDomainBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDomainBackupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a domain name group based on the specified parameters.
+   *
+   * @param request AddDomainGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDomainGroupResponse
+   */
   async addDomainGroupWithOptions(request: AddDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19270,11 +19343,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDomainGroupResponse>(await this.callApi(params, req, runtime), new AddDomainGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a domain name group based on the specified parameters.
+   *
+   * @param request AddDomainGroupRequest
+   * @return AddDomainGroupResponse
+   */
   async addDomainGroup(request: AddDomainGroupRequest): Promise<AddDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDomainGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request AddDomainRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDomainRecordResponse
+   */
   async addDomainRecordWithOptions(request: AddDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19331,11 +19417,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDomainRecordResponse>(await this.callApi(params, req, runtime), new AddDomainRecordResponse({}));
   }
 
+  /**
+   * @summary Adds a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request AddDomainRecordRequest
+   * @return AddDomainRecordResponse
+   */
   async addDomainRecord(request: AddDomainRecordRequest): Promise<AddDomainRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDomainRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AddGtmAccessStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGtmAccessStrategyResponse
+   */
   async addGtmAccessStrategyWithOptions(request: AddGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19380,11 +19477,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new AddGtmAccessStrategyResponse({}));
   }
 
+  /**
+   * @param request AddGtmAccessStrategyRequest
+   * @return AddGtmAccessStrategyResponse
+   */
   async addGtmAccessStrategy(request: AddGtmAccessStrategyRequest): Promise<AddGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGtmAccessStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an address pool.
+   *
+   * @param request AddGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGtmAddressPoolResponse
+   */
   async addGtmAddressPoolWithOptions(request: AddGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19457,11 +19565,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new AddGtmAddressPoolResponse({}));
   }
 
+  /**
+   * @summary Creates an address pool.
+   *
+   * @param request AddGtmAddressPoolRequest
+   * @return AddGtmAddressPoolResponse
+   */
   async addGtmAddressPool(request: AddGtmAddressPoolRequest): Promise<AddGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGtmAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a health check task.
+   *
+   * @param request AddGtmMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGtmMonitorResponse
+   */
   async addGtmMonitorWithOptions(request: AddGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19514,11 +19635,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGtmMonitorResponse>(await this.callApi(params, req, runtime), new AddGtmMonitorResponse({}));
   }
 
+  /**
+   * @summary Creates a health check task.
+   *
+   * @param request AddGtmMonitorRequest
+   * @return AddGtmMonitorResponse
+   */
   async addGtmMonitor(request: AddGtmMonitorRequest): Promise<AddGtmMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGtmMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AddGtmRecoveryPlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGtmRecoveryPlanResponse
+   */
   async addGtmRecoveryPlanWithOptions(request: AddGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmRecoveryPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19555,18 +19687,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new AddGtmRecoveryPlanResponse({}));
   }
 
+  /**
+   * @param request AddGtmRecoveryPlanRequest
+   * @return AddGtmRecoveryPlanResponse
+   */
   async addGtmRecoveryPlan(request: AddGtmRecoveryPlanRequest): Promise<AddGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGtmRecoveryPlanWithOptions(request, runtime);
   }
 
   /**
-    * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
-    *
-    * @param request BindInstanceDomainsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return BindInstanceDomainsResponse
+   * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+   *
+   * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+   *
+   * @param request BindInstanceDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BindInstanceDomainsResponse
    */
   async bindInstanceDomainsWithOptions(request: BindInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<BindInstanceDomainsResponse> {
     Util.validateModel(request);
@@ -19601,11 +19739,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
-    *
-    * @param request BindInstanceDomainsRequest
-    * @return BindInstanceDomainsResponse
+   * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+   *
+   * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+   *
+   * @param request BindInstanceDomainsRequest
+   * @return BindInstanceDomainsResponse
    */
   async bindInstanceDomains(request: BindInstanceDomainsRequest): Promise<BindInstanceDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19613,11 +19753,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
-    *
-    * @param request ChangeDomainGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ChangeDomainGroupResponse
+   * @summary Moves a domain name from the original group to the new group based on the specified parameters.
+   *
+   * @description You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+   *
+   * @param request ChangeDomainGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeDomainGroupResponse
    */
   async changeDomainGroupWithOptions(request: ChangeDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeDomainGroupResponse> {
     Util.validateModel(request);
@@ -19652,10 +19794,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
-    *
-    * @param request ChangeDomainGroupRequest
-    * @return ChangeDomainGroupResponse
+   * @summary Moves a domain name from the original group to the new group based on the specified parameters.
+   *
+   * @description You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+   *
+   * @param request ChangeDomainGroupRequest
+   * @return ChangeDomainGroupResponse
    */
   async changeDomainGroup(request: ChangeDomainGroupRequest): Promise<ChangeDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19663,11 +19807,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
-    *
-    * @param request ChangeDomainOfDnsProductRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ChangeDomainOfDnsProductResponse
+   * @summary Changes the domain name bound to an Alibaba Cloud DNS instance.
+   *
+   * @description >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+   *
+   * @param request ChangeDomainOfDnsProductRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeDomainOfDnsProductResponse
    */
   async changeDomainOfDnsProductWithOptions(request: ChangeDomainOfDnsProductRequest, runtime: $Util.RuntimeOptions): Promise<ChangeDomainOfDnsProductResponse> {
     Util.validateModel(request);
@@ -19710,16 +19856,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
-    *
-    * @param request ChangeDomainOfDnsProductRequest
-    * @return ChangeDomainOfDnsProductResponse
+   * @summary Changes the domain name bound to an Alibaba Cloud DNS instance.
+   *
+   * @description >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+   *
+   * @param request ChangeDomainOfDnsProductRequest
+   * @return ChangeDomainOfDnsProductResponse
    */
   async changeDomainOfDnsProduct(request: ChangeDomainOfDnsProductRequest): Promise<ChangeDomainOfDnsProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeDomainOfDnsProductWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CopyGtmConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopyGtmConfigResponse
+   */
   async copyGtmConfigWithOptions(request: CopyGtmConfigRequest, runtime: $Util.RuntimeOptions): Promise<CopyGtmConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19756,11 +19909,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CopyGtmConfigResponse>(await this.callApi(params, req, runtime), new CopyGtmConfigResponse({}));
   }
 
+  /**
+   * @param request CopyGtmConfigRequest
+   * @return CopyGtmConfigResponse
+   */
   async copyGtmConfig(request: CopyGtmConfigRequest): Promise<CopyGtmConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copyGtmConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建公共DNS AppKey
+   *
+   * @param request CreatePdnsAppKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePdnsAppKeyResponse
+   */
   async createPdnsAppKeyWithOptions(request: CreatePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePdnsAppKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19785,11 +19949,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new CreatePdnsAppKeyResponse({}));
   }
 
+  /**
+   * @summary 创建公共DNS AppKey
+   *
+   * @param request CreatePdnsAppKeyRequest
+   * @return CreatePdnsAppKeyResponse
+   */
   async createPdnsAppKey(request: CreatePdnsAppKeyRequest): Promise<CreatePdnsAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPdnsAppKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建公共DNS Udp Ip地址段
+   *
+   * @param request CreatePdnsUdpIpSegmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePdnsUdpIpSegmentResponse
+   */
   async createPdnsUdpIpSegmentWithOptions(request: CreatePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<CreatePdnsUdpIpSegmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19822,11 +19999,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new CreatePdnsUdpIpSegmentResponse({}));
   }
 
+  /**
+   * @summary 创建公共DNS Udp Ip地址段
+   *
+   * @param request CreatePdnsUdpIpSegmentRequest
+   * @return CreatePdnsUdpIpSegmentResponse
+   */
   async createPdnsUdpIpSegment(request: CreatePdnsUdpIpSegmentRequest): Promise<CreatePdnsUdpIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPdnsUdpIpSegmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes multiple custom lines at a time.
+   *
+   * @param request DeleteCustomLinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomLinesResponse
+   */
   async deleteCustomLinesWithOptions(request: DeleteCustomLinesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomLinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19855,11 +20045,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomLinesResponse>(await this.callApi(params, req, runtime), new DeleteCustomLinesResponse({}));
   }
 
+  /**
+   * @summary Deletes multiple custom lines at a time.
+   *
+   * @param request DeleteCustomLinesRequest
+   * @return DeleteCustomLinesResponse
+   */
   async deleteCustomLines(request: DeleteCustomLinesRequest): Promise<DeleteCustomLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomLinesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDnsCacheDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDnsCacheDomainResponse
+   */
   async deleteDnsCacheDomainWithOptions(request: DeleteDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsCacheDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19888,11 +20089,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new DeleteDnsCacheDomainResponse({}));
   }
 
+  /**
+   * @param request DeleteDnsCacheDomainRequest
+   * @return DeleteDnsCacheDomainResponse
+   */
   async deleteDnsCacheDomain(request: DeleteDnsCacheDomainRequest): Promise<DeleteDnsCacheDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDnsCacheDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDnsGtmAccessStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDnsGtmAccessStrategyResponse
+   */
   async deleteDnsGtmAccessStrategyWithOptions(request: DeleteDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19921,11 +20131,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DeleteDnsGtmAccessStrategyResponse({}));
   }
 
+  /**
+   * @param request DeleteDnsGtmAccessStrategyRequest
+   * @return DeleteDnsGtmAccessStrategyResponse
+   */
   async deleteDnsGtmAccessStrategy(request: DeleteDnsGtmAccessStrategyRequest): Promise<DeleteDnsGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDnsGtmAccessStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDnsGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDnsGtmAddressPoolResponse
+   */
   async deleteDnsGtmAddressPoolWithOptions(request: DeleteDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19954,11 +20173,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteDnsGtmAddressPoolResponse({}));
   }
 
+  /**
+   * @param request DeleteDnsGtmAddressPoolRequest
+   * @return DeleteDnsGtmAddressPoolResponse
+   */
   async deleteDnsGtmAddressPool(request: DeleteDnsGtmAddressPoolRequest): Promise<DeleteDnsGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDnsGtmAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a domain name based on the specified parameters.
+   *
+   * @param request DeleteDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainResponse
+   */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19987,17 +20217,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
   }
 
+  /**
+   * @summary Deletes a domain name based on the specified parameters.
+   *
+   * @param request DeleteDomainRequest
+   * @return DeleteDomainResponse
+   */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainWithOptions(request, runtime);
   }
 
   /**
-    * >  The default group cannot be deleted.
-    *
-    * @param request DeleteDomainGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDomainGroupResponse
+   * @summary Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+   *
+   * @description >  The default group cannot be deleted.
+   *
+   * @param request DeleteDomainGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainGroupResponse
    */
   async deleteDomainGroupWithOptions(request: DeleteDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainGroupResponse> {
     Util.validateModel(request);
@@ -20028,16 +20266,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  The default group cannot be deleted.
-    *
-    * @param request DeleteDomainGroupRequest
-    * @return DeleteDomainGroupResponse
+   * @summary Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+   *
+   * @description >  The default group cannot be deleted.
+   *
+   * @param request DeleteDomainGroupRequest
+   * @return DeleteDomainGroupResponse
    */
   async deleteDomainGroup(request: DeleteDomainGroupRequest): Promise<DeleteDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request DeleteDomainRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainRecordResponse
+   */
   async deleteDomainRecordWithOptions(request: DeleteDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20070,11 +20317,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDomainRecordResponse>(await this.callApi(params, req, runtime), new DeleteDomainRecordResponse({}));
   }
 
+  /**
+   * @summary Deletes a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request DeleteDomainRecordRequest
+   * @return DeleteDomainRecordResponse
+   */
   async deleteDomainRecord(request: DeleteDomainRecordRequest): Promise<DeleteDomainRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDomainRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteGtmAccessStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGtmAccessStrategyResponse
+   */
   async deleteGtmAccessStrategyWithOptions(request: DeleteGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20103,11 +20361,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DeleteGtmAccessStrategyResponse({}));
   }
 
+  /**
+   * @param request DeleteGtmAccessStrategyRequest
+   * @return DeleteGtmAccessStrategyResponse
+   */
   async deleteGtmAccessStrategy(request: DeleteGtmAccessStrategyRequest): Promise<DeleteGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGtmAccessStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGtmAddressPoolResponse
+   */
   async deleteGtmAddressPoolWithOptions(request: DeleteGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20136,11 +20403,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new DeleteGtmAddressPoolResponse({}));
   }
 
+  /**
+   * @param request DeleteGtmAddressPoolRequest
+   * @return DeleteGtmAddressPoolResponse
+   */
   async deleteGtmAddressPool(request: DeleteGtmAddressPoolRequest): Promise<DeleteGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGtmAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteGtmRecoveryPlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGtmRecoveryPlanResponse
+   */
   async deleteGtmRecoveryPlanWithOptions(request: DeleteGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmRecoveryPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20169,17 +20445,21 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DeleteGtmRecoveryPlanResponse({}));
   }
 
+  /**
+   * @param request DeleteGtmRecoveryPlanRequest
+   * @return DeleteGtmRecoveryPlanResponse
+   */
   async deleteGtmRecoveryPlan(request: DeleteGtmRecoveryPlanRequest): Promise<DeleteGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGtmRecoveryPlanWithOptions(request, runtime);
   }
 
   /**
-    * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
-    *
-    * @param request DeleteSubDomainRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSubDomainRecordsResponse
+   * @description If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+   *
+   * @param request DeleteSubDomainRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSubDomainRecordsResponse
    */
   async deleteSubDomainRecordsWithOptions(request: DeleteSubDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubDomainRecordsResponse> {
     Util.validateModel(request);
@@ -20222,16 +20502,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
-    *
-    * @param request DeleteSubDomainRecordsRequest
-    * @return DeleteSubDomainRecordsResponse
+   * @description If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+   *
+   * @param request DeleteSubDomainRecordsRequest
+   * @return DeleteSubDomainRecordsResponse
    */
   async deleteSubDomainRecords(request: DeleteSubDomainRecordsRequest): Promise<DeleteSubDomainRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSubDomainRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeBatchResultCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBatchResultCountResponse
+   */
   async describeBatchResultCountWithOptions(request: DescribeBatchResultCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBatchResultCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20264,17 +20549,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBatchResultCountResponse>(await this.callApi(params, req, runtime), new DescribeBatchResultCountResponse({}));
   }
 
+  /**
+   * @param request DescribeBatchResultCountRequest
+   * @return DescribeBatchResultCountResponse
+   */
   async describeBatchResultCount(request: DescribeBatchResultCountRequest): Promise<DescribeBatchResultCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBatchResultCountWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, make sure that the batch operation task is complete.
-    *
-    * @param request DescribeBatchResultDetailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeBatchResultDetailResponse
+   * @summary Queries the detailed results of a batch operation task.
+   *
+   * @description Before you call this operation, make sure that the batch operation task is complete.
+   *
+   * @param request DescribeBatchResultDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBatchResultDetailResponse
    */
   async describeBatchResultDetailWithOptions(request: DescribeBatchResultDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBatchResultDetailResponse> {
     Util.validateModel(request);
@@ -20321,16 +20612,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that the batch operation task is complete.
-    *
-    * @param request DescribeBatchResultDetailRequest
-    * @return DescribeBatchResultDetailResponse
+   * @summary Queries the detailed results of a batch operation task.
+   *
+   * @description Before you call this operation, make sure that the batch operation task is complete.
+   *
+   * @param request DescribeBatchResultDetailRequest
+   * @return DescribeBatchResultDetailResponse
    */
   async describeBatchResultDetail(request: DescribeBatchResultDetailRequest): Promise<DescribeBatchResultDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBatchResultDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a custom line.
+   *
+   * @param request DescribeCustomLineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomLineResponse
+   */
   async describeCustomLineWithOptions(request: DescribeCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomLineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20359,11 +20659,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomLineResponse>(await this.callApi(params, req, runtime), new DescribeCustomLineResponse({}));
   }
 
+  /**
+   * @summary Queries a custom line.
+   *
+   * @param request DescribeCustomLineRequest
+   * @return DescribeCustomLineResponse
+   */
   async describeCustomLine(request: DescribeCustomLineRequest): Promise<DescribeCustomLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomLineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries custom lines.
+   *
+   * @param request DescribeCustomLinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomLinesResponse
+   */
   async describeCustomLinesWithOptions(request: DescribeCustomLinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomLinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20400,11 +20713,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomLinesResponse>(await this.callApi(params, req, runtime), new DescribeCustomLinesResponse({}));
   }
 
+  /**
+   * @summary Queries custom lines.
+   *
+   * @param request DescribeCustomLinesRequest
+   * @return DescribeCustomLinesResponse
+   */
   async describeCustomLines(request: DescribeCustomLinesRequest): Promise<DescribeCustomLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomLinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+   *
+   * @param request DescribeDNSSLBSubDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDNSSLBSubDomainsResponse
+   */
   async describeDNSSLBSubDomainsWithOptions(request: DescribeDNSSLBSubDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDNSSLBSubDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20449,11 +20775,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDNSSLBSubDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDNSSLBSubDomainsResponse({}));
   }
 
+  /**
+   * @summary Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+   *
+   * @param request DescribeDNSSLBSubDomainsRequest
+   * @return DescribeDNSSLBSubDomainsResponse
+   */
   async describeDNSSLBSubDomains(request: DescribeDNSSLBSubDomainsRequest): Promise<DescribeDNSSLBSubDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDNSSLBSubDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDnsCacheDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsCacheDomainsResponse
+   */
   async describeDnsCacheDomainsWithOptions(request: DescribeDnsCacheDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsCacheDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20490,11 +20827,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsCacheDomainsResponse>(await this.callApi(params, req, runtime), new DescribeDnsCacheDomainsResponse({}));
   }
 
+  /**
+   * @param request DescribeDnsCacheDomainsRequest
+   * @return DescribeDnsCacheDomainsResponse
+   */
   async describeDnsCacheDomains(request: DescribeDnsCacheDomainsRequest): Promise<DescribeDnsCacheDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsCacheDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmAccessStrategiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmAccessStrategiesResponse
+   */
   async describeDnsGtmAccessStrategiesWithOptions(request: DescribeDnsGtmAccessStrategiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategiesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20535,11 +20883,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmAccessStrategiesResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategiesResponse({}));
   }
 
+  /**
+   * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmAccessStrategiesRequest
+   * @return DescribeDnsGtmAccessStrategiesResponse
+   */
   async describeDnsGtmAccessStrategies(request: DescribeDnsGtmAccessStrategiesRequest): Promise<DescribeDnsGtmAccessStrategiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmAccessStrategiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmAccessStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmAccessStrategyResponse
+   */
   async describeDnsGtmAccessStrategyWithOptions(request: DescribeDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20568,11 +20929,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategyResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmAccessStrategyRequest
+   * @return DescribeDnsGtmAccessStrategyResponse
+   */
   async describeDnsGtmAccessStrategy(request: DescribeDnsGtmAccessStrategyRequest): Promise<DescribeDnsGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmAccessStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmAccessStrategyAvailableConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
+   */
   async describeDnsGtmAccessStrategyAvailableConfigWithOptions(request: DescribeDnsGtmAccessStrategyAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategyAvailableConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20605,11 +20979,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmAccessStrategyAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAccessStrategyAvailableConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmAccessStrategyAvailableConfigRequest
+   * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
+   */
   async describeDnsGtmAccessStrategyAvailableConfig(request: DescribeDnsGtmAccessStrategyAvailableConfigRequest): Promise<DescribeDnsGtmAccessStrategyAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmAccessStrategyAvailableConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDnsGtmAddrAttributeInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmAddrAttributeInfoResponse
+   */
   async describeDnsGtmAddrAttributeInfoWithOptions(request: DescribeDnsGtmAddrAttributeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAddrAttributeInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20642,11 +21027,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmAddrAttributeInfoResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAddrAttributeInfoResponse({}));
   }
 
+  /**
+   * @param request DescribeDnsGtmAddrAttributeInfoRequest
+   * @return DescribeDnsGtmAddrAttributeInfoResponse
+   */
   async describeDnsGtmAddrAttributeInfo(request: DescribeDnsGtmAddrAttributeInfoRequest): Promise<DescribeDnsGtmAddrAttributeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmAddrAttributeInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmAddressPoolAvailableConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
+   */
   async describeDnsGtmAddressPoolAvailableConfigWithOptions(request: DescribeDnsGtmAddressPoolAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAddressPoolAvailableConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20675,11 +21071,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmAddressPoolAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAddressPoolAvailableConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmAddressPoolAvailableConfigRequest
+   * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
+   */
   async describeDnsGtmAddressPoolAvailableConfig(request: DescribeDnsGtmAddressPoolAvailableConfigRequest): Promise<DescribeDnsGtmAddressPoolAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmAddressPoolAvailableConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDnsGtmAvailableAlertGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmAvailableAlertGroupResponse
+   */
   async describeDnsGtmAvailableAlertGroupWithOptions(request: DescribeDnsGtmAvailableAlertGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAvailableAlertGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20704,11 +21111,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmAvailableAlertGroupResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmAvailableAlertGroupResponse({}));
   }
 
+  /**
+   * @param request DescribeDnsGtmAvailableAlertGroupRequest
+   * @return DescribeDnsGtmAvailableAlertGroupResponse
+   */
   async describeDnsGtmAvailableAlertGroup(request: DescribeDnsGtmAvailableAlertGroupRequest): Promise<DescribeDnsGtmAvailableAlertGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmAvailableAlertGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmInstanceResponse
+   */
   async describeDnsGtmInstanceWithOptions(request: DescribeDnsGtmInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20737,11 +21155,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmInstanceResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceRequest
+   * @return DescribeDnsGtmInstanceResponse
+   */
   async describeDnsGtmInstance(request: DescribeDnsGtmInstanceRequest): Promise<DescribeDnsGtmInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmInstanceAddressPoolResponse
+   */
   async describeDnsGtmInstanceAddressPoolWithOptions(request: DescribeDnsGtmInstanceAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20770,11 +21201,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmInstanceAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceAddressPoolRequest
+   * @return DescribeDnsGtmInstanceAddressPoolResponse
+   */
   async describeDnsGtmInstanceAddressPool(request: DescribeDnsGtmInstanceAddressPoolRequest): Promise<DescribeDnsGtmInstanceAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmInstanceAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceAddressPoolsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmInstanceAddressPoolsResponse
+   */
   async describeDnsGtmInstanceAddressPoolsWithOptions(request: DescribeDnsGtmInstanceAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceAddressPoolsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20811,11 +21255,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmInstanceAddressPoolsResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceAddressPoolsResponse({}));
   }
 
+  /**
+   * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceAddressPoolsRequest
+   * @return DescribeDnsGtmInstanceAddressPoolsResponse
+   */
   async describeDnsGtmInstanceAddressPools(request: DescribeDnsGtmInstanceAddressPoolsRequest): Promise<DescribeDnsGtmInstanceAddressPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmInstanceAddressPoolsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmInstanceStatusResponse
+   */
   async describeDnsGtmInstanceStatusWithOptions(request: DescribeDnsGtmInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20844,11 +21301,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceStatusRequest
+   * @return DescribeDnsGtmInstanceStatusResponse
+   */
   async describeDnsGtmInstanceStatus(request: DescribeDnsGtmInstanceStatusRequest): Promise<DescribeDnsGtmInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmInstanceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceSystemCnameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmInstanceSystemCnameResponse
+   */
   async describeDnsGtmInstanceSystemCnameWithOptions(request: DescribeDnsGtmInstanceSystemCnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceSystemCnameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20877,11 +21347,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmInstanceSystemCnameResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstanceSystemCnameResponse({}));
   }
 
+  /**
+   * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmInstanceSystemCnameRequest
+   * @return DescribeDnsGtmInstanceSystemCnameResponse
+   */
   async describeDnsGtmInstanceSystemCname(request: DescribeDnsGtmInstanceSystemCnameRequest): Promise<DescribeDnsGtmInstanceSystemCnameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmInstanceSystemCnameWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDnsGtmInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmInstancesResponse
+   */
   async describeDnsGtmInstancesWithOptions(request: DescribeDnsGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20922,11 +21403,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmInstancesResponse({}));
   }
 
+  /**
+   * @param request DescribeDnsGtmInstancesRequest
+   * @return DescribeDnsGtmInstancesResponse
+   */
   async describeDnsGtmInstances(request: DescribeDnsGtmInstancesRequest): Promise<DescribeDnsGtmInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmLogsResponse
+   */
   async describeDnsGtmLogsWithOptions(request: DescribeDnsGtmLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20975,11 +21467,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmLogsResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmLogsResponse({}));
   }
 
+  /**
+   * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmLogsRequest
+   * @return DescribeDnsGtmLogsResponse
+   */
   async describeDnsGtmLogs(request: DescribeDnsGtmLogsRequest): Promise<DescribeDnsGtmLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available monitored nodes.
+   *
+   * @param request DescribeDnsGtmMonitorAvailableConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmMonitorAvailableConfigResponse
+   */
   async describeDnsGtmMonitorAvailableConfigWithOptions(request: DescribeDnsGtmMonitorAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmMonitorAvailableConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21004,11 +21509,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmMonitorAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmMonitorAvailableConfigResponse({}));
   }
 
+  /**
+   * @summary Queries available monitored nodes.
+   *
+   * @param request DescribeDnsGtmMonitorAvailableConfigRequest
+   * @return DescribeDnsGtmMonitorAvailableConfigResponse
+   */
   async describeDnsGtmMonitorAvailableConfig(request: DescribeDnsGtmMonitorAvailableConfigRequest): Promise<DescribeDnsGtmMonitorAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmMonitorAvailableConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmMonitorConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsGtmMonitorConfigResponse
+   */
   async describeDnsGtmMonitorConfigWithOptions(request: DescribeDnsGtmMonitorConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmMonitorConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21037,11 +21555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsGtmMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeDnsGtmMonitorConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeDnsGtmMonitorConfigRequest
+   * @return DescribeDnsGtmMonitorConfigResponse
+   */
   async describeDnsGtmMonitorConfig(request: DescribeDnsGtmMonitorConfigRequest): Promise<DescribeDnsGtmMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsGtmMonitorConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+   *
+   * @param request DescribeDnsProductInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsProductInstanceResponse
+   */
   async describeDnsProductInstanceWithOptions(request: DescribeDnsProductInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsProductInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21074,17 +21605,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDnsProductInstanceResponse>(await this.callApi(params, req, runtime), new DescribeDnsProductInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+   *
+   * @param request DescribeDnsProductInstanceRequest
+   * @return DescribeDnsProductInstanceResponse
+   */
   async describeDnsProductInstance(request: DescribeDnsProductInstanceRequest): Promise<DescribeDnsProductInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsProductInstanceWithOptions(request, runtime);
   }
 
   /**
-    * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
-    *
-    * @param request DescribeDnsProductInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDnsProductInstancesResponse
+   * @summary Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+   *
+   * @description >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+   *
+   * @param request DescribeDnsProductInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDnsProductInstancesResponse
    */
   async describeDnsProductInstancesWithOptions(request: DescribeDnsProductInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsProductInstancesResponse> {
     Util.validateModel(request);
@@ -21139,16 +21678,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
-    *
-    * @param request DescribeDnsProductInstancesRequest
-    * @return DescribeDnsProductInstancesResponse
+   * @summary Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+   *
+   * @description >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+   *
+   * @param request DescribeDnsProductInstancesRequest
+   * @return DescribeDnsProductInstancesResponse
    */
   async describeDnsProductInstances(request: DescribeDnsProductInstancesRequest): Promise<DescribeDnsProductInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDnsProductInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDohAccountStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDohAccountStatisticsResponse
+   */
   async describeDohAccountStatisticsWithOptions(request: DescribeDohAccountStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohAccountStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21181,11 +21727,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDohAccountStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohAccountStatisticsResponse({}));
   }
 
+  /**
+   * @param request DescribeDohAccountStatisticsRequest
+   * @return DescribeDohAccountStatisticsResponse
+   */
   async describeDohAccountStatistics(request: DescribeDohAccountStatisticsRequest): Promise<DescribeDohAccountStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDohAccountStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDohDomainStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDohDomainStatisticsResponse
+   */
   async describeDohDomainStatisticsWithOptions(request: DescribeDohDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohDomainStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21222,11 +21777,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDohDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohDomainStatisticsResponse({}));
   }
 
+  /**
+   * @param request DescribeDohDomainStatisticsRequest
+   * @return DescribeDohDomainStatisticsResponse
+   */
   async describeDohDomainStatistics(request: DescribeDohDomainStatisticsRequest): Promise<DescribeDohDomainStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDohDomainStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDohDomainStatisticsSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDohDomainStatisticsSummaryResponse
+   */
   async describeDohDomainStatisticsSummaryWithOptions(request: DescribeDohDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21271,11 +21835,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDohDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDohDomainStatisticsSummaryResponse({}));
   }
 
+  /**
+   * @param request DescribeDohDomainStatisticsSummaryRequest
+   * @return DescribeDohDomainStatisticsSummaryResponse
+   */
   async describeDohDomainStatisticsSummary(request: DescribeDohDomainStatisticsSummaryRequest): Promise<DescribeDohDomainStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDohDomainStatisticsSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDohSubDomainStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDohSubDomainStatisticsResponse
+   */
   async describeDohSubDomainStatisticsWithOptions(request: DescribeDohSubDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohSubDomainStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21312,11 +21885,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDohSubDomainStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDohSubDomainStatisticsResponse({}));
   }
 
+  /**
+   * @param request DescribeDohSubDomainStatisticsRequest
+   * @return DescribeDohSubDomainStatisticsResponse
+   */
   async describeDohSubDomainStatistics(request: DescribeDohSubDomainStatisticsRequest): Promise<DescribeDohSubDomainStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDohSubDomainStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeDohSubDomainStatisticsSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDohSubDomainStatisticsSummaryResponse
+   */
   async describeDohSubDomainStatisticsSummaryWithOptions(request: DescribeDohSubDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohSubDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21365,11 +21947,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDohSubDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDohSubDomainStatisticsSummaryResponse({}));
   }
 
+  /**
+   * @param request DescribeDohSubDomainStatisticsSummaryRequest
+   * @return DescribeDohSubDomainStatisticsSummaryResponse
+   */
   async describeDohSubDomainStatisticsSummary(request: DescribeDohSubDomainStatisticsSummaryRequest): Promise<DescribeDohSubDomainStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDohSubDomainStatisticsSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+   *
+   * @param request DescribeDohUserInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDohUserInfoResponse
+   */
   async describeDohUserInfoWithOptions(request: DescribeDohUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohUserInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21402,11 +21995,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDohUserInfoResponse>(await this.callApi(params, req, runtime), new DescribeDohUserInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+   *
+   * @param request DescribeDohUserInfoRequest
+   * @return DescribeDohUserInfoResponse
+   */
   async describeDohUserInfo(request: DescribeDohUserInfoRequest): Promise<DescribeDohUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDohUserInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+   *
+   * @param request DescribeDomainDnssecInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainDnssecInfoResponse
+   */
   async describeDomainDnssecInfoWithOptions(request: DescribeDomainDnssecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainDnssecInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21435,11 +22041,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainDnssecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainDnssecInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+   *
+   * @param request DescribeDomainDnssecInfoRequest
+   * @return DescribeDomainDnssecInfoResponse
+   */
   async describeDomainDnssecInfo(request: DescribeDomainDnssecInfoRequest): Promise<DescribeDomainDnssecInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainDnssecInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all domain name groups based on the specified parameters.
+   *
+   * @param request DescribeDomainGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainGroupsResponse
+   */
   async describeDomainGroupsWithOptions(request: DescribeDomainGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21476,17 +22095,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDomainGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries all domain name groups based on the specified parameters.
+   *
+   * @param request DescribeDomainGroupsRequest
+   * @return DescribeDomainGroupsResponse
+   */
   async describeDomainGroups(request: DescribeDomainGroupsRequest): Promise<DescribeDomainGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainGroupsWithOptions(request, runtime);
   }
 
   /**
-    * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
-    *
-    * @param request DescribeDomainInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainInfoResponse
+   * @summary Queries the information about a domain name based on specified parameters.
+   *
+   * @description In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+   *
+   * @param request DescribeDomainInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainInfoResponse
    */
   async describeDomainInfoWithOptions(request: DescribeDomainInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainInfoResponse> {
     Util.validateModel(request);
@@ -21521,16 +22148,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
-    *
-    * @param request DescribeDomainInfoRequest
-    * @return DescribeDomainInfoResponse
+   * @summary Queries the information about a domain name based on specified parameters.
+   *
+   * @description In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+   *
+   * @param request DescribeDomainInfoRequest
+   * @return DescribeDomainInfoResponse
    */
   async describeDomainInfo(request: DescribeDomainInfoRequest): Promise<DescribeDomainInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the operation logs of domain names based on the specified parameters.
+   *
+   * @param request DescribeDomainLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainLogsResponse
+   */
   async describeDomainLogsWithOptions(request: DescribeDomainLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21583,17 +22219,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainLogsResponse>(await this.callApi(params, req, runtime), new DescribeDomainLogsResponse({}));
   }
 
+  /**
+   * @summary Queries the operation logs of domain names based on the specified parameters.
+   *
+   * @param request DescribeDomainLogsRequest
+   * @return DescribeDomainLogsResponse
+   */
   async describeDomainLogs(request: DescribeDomainLogsRequest): Promise<DescribeDomainLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainLogsWithOptions(request, runtime);
   }
 
   /**
-    * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
-    *
-    * @param request DescribeDomainNsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainNsResponse
+   * @summary Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+   *
+   * @description >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+   *
+   * @param request DescribeDomainNsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainNsResponse
    */
   async describeDomainNsWithOptions(request: DescribeDomainNsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNsResponse> {
     Util.validateModel(request);
@@ -21624,10 +22268,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
-    *
-    * @param request DescribeDomainNsRequest
-    * @return DescribeDomainNsResponse
+   * @summary Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+   *
+   * @description >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+   *
+   * @param request DescribeDomainNsRequest
+   * @return DescribeDomainNsResponse
    */
   async describeDomainNs(request: DescribeDomainNsRequest): Promise<DescribeDomainNsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21635,12 +22281,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
-    *
-    * @param request DescribeDomainRecordInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainRecordInfoResponse
+   * @summary Queries the information about a Domain Name System (DNS) record.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+   *
+   * @param request DescribeDomainRecordInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainRecordInfoResponse
    */
   async describeDomainRecordInfoWithOptions(request: DescribeDomainRecordInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRecordInfoResponse> {
     Util.validateModel(request);
@@ -21675,11 +22323,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
-    *
-    * @param request DescribeDomainRecordInfoRequest
-    * @return DescribeDomainRecordInfoResponse
+   * @summary Queries the information about a Domain Name System (DNS) record.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+   *
+   * @param request DescribeDomainRecordInfoRequest
+   * @return DescribeDomainRecordInfoResponse
    */
   async describeDomainRecordInfo(request: DescribeDomainRecordInfoRequest): Promise<DescribeDomainRecordInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21687,14 +22337,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
-    * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
-    * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
-    * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
-    *
-    * @param request DescribeDomainRecordsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainRecordsResponse
+   * @summary Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+   *
+   * @description *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
+   * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
+   * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
+   * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+   *
+   * @param request DescribeDomainRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainRecordsResponse
    */
   async describeDomainRecordsWithOptions(request: DescribeDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRecordsResponse> {
     Util.validateModel(request);
@@ -21777,19 +22429,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
-    * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
-    * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
-    * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
-    *
-    * @param request DescribeDomainRecordsRequest
-    * @return DescribeDomainRecordsResponse
+   * @summary Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+   *
+   * @description *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
+   * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
+   * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
+   * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+   *
+   * @param request DescribeDomainRecordsRequest
+   * @return DescribeDomainRecordsResponse
    */
   async describeDomainRecords(request: DescribeDomainRecordsRequest): Promise<DescribeDomainRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the resolution requests of all paid domain names within your account.
+   *
+   * @param request DescribeDomainResolveStatisticsSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainResolveStatisticsSummaryResponse
+   */
   async describeDomainResolveStatisticsSummaryWithOptions(request: DescribeDomainResolveStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResolveStatisticsSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21846,17 +22507,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainResolveStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDomainResolveStatisticsSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the resolution requests of all paid domain names within your account.
+   *
+   * @param request DescribeDomainResolveStatisticsSummaryRequest
+   * @return DescribeDomainResolveStatisticsSummaryResponse
+   */
   async describeDomainResolveStatisticsSummary(request: DescribeDomainResolveStatisticsSummaryRequest): Promise<DescribeDomainResolveStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainResolveStatisticsSummaryWithOptions(request, runtime);
   }
 
   /**
-    * Real-time data is collected per hour.
-    *
-    * @param request DescribeDomainStatisticsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainStatisticsResponse
+   * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+   *
+   * @description Real-time data is collected per hour.
+   *
+   * @param request DescribeDomainStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainStatisticsResponse
    */
   async describeDomainStatisticsWithOptions(request: DescribeDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatisticsResponse> {
     Util.validateModel(request);
@@ -21899,16 +22568,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Real-time data is collected per hour.
-    *
-    * @param request DescribeDomainStatisticsRequest
-    * @return DescribeDomainStatisticsResponse
+   * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+   *
+   * @description Real-time data is collected per hour.
+   *
+   * @param request DescribeDomainStatisticsRequest
+   * @return DescribeDomainStatisticsResponse
    */
   async describeDomainStatistics(request: DescribeDomainStatisticsRequest): Promise<DescribeDomainStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+   *
+   * @param request DescribeDomainStatisticsSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainStatisticsSummaryResponse
+   */
   async describeDomainStatisticsSummaryWithOptions(request: DescribeDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21961,20 +22639,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDomainStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeDomainStatisticsSummaryResponse({}));
   }
 
+  /**
+   * @summary Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+   *
+   * @param request DescribeDomainStatisticsSummaryRequest
+   * @return DescribeDomainStatisticsSummaryResponse
+   */
   async describeDomainStatisticsSummary(request: DescribeDomainStatisticsSummaryRequest): Promise<DescribeDomainStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainStatisticsSummaryWithOptions(request, runtime);
   }
 
   /**
-    * *   You can specify the PageNumber and PageSize parameters to query domain names.
-    * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
-    * *   By default, the domain names in a list are sorted in descending order of the time they were added.
-    * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
-    *
-    * @param request DescribeDomainsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeDomainsResponse
+   * @summary Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+   *
+   * @description *   You can specify the PageNumber and PageSize parameters to query domain names.
+   * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
+   * *   By default, the domain names in a list are sorted in descending order of the time they were added.
+   * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+   *
+   * @param request DescribeDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDomainsResponse
    */
   async describeDomainsWithOptions(request: DescribeDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsResponse> {
     Util.validateModel(request);
@@ -22029,19 +22715,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can specify the PageNumber and PageSize parameters to query domain names.
-    * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
-    * *   By default, the domain names in a list are sorted in descending order of the time they were added.
-    * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
-    *
-    * @param request DescribeDomainsRequest
-    * @return DescribeDomainsResponse
+   * @summary Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+   *
+   * @description *   You can specify the PageNumber and PageSize parameters to query domain names.
+   * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
+   * *   By default, the domain names in a list are sorted in descending order of the time they were added.
+   * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+   *
+   * @param request DescribeDomainsRequest
+   * @return DescribeDomainsResponse
    */
   async describeDomains(request: DescribeDomainsRequest): Promise<DescribeDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmAccessStrategiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmAccessStrategiesResponse
+   */
   async describeGtmAccessStrategiesWithOptions(request: DescribeGtmAccessStrategiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategiesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22078,11 +22773,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmAccessStrategiesResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategiesResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmAccessStrategiesRequest
+   * @return DescribeGtmAccessStrategiesResponse
+   */
   async describeGtmAccessStrategies(request: DescribeGtmAccessStrategiesRequest): Promise<DescribeGtmAccessStrategiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmAccessStrategiesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+   *
+   * @param request DescribeGtmAccessStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmAccessStrategyResponse
+   */
   async describeGtmAccessStrategyWithOptions(request: DescribeGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22111,11 +22819,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategyResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+   *
+   * @param request DescribeGtmAccessStrategyRequest
+   * @return DescribeGtmAccessStrategyResponse
+   */
   async describeGtmAccessStrategy(request: DescribeGtmAccessStrategyRequest): Promise<DescribeGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmAccessStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configuration items that can be set for an access policy.
+   *
+   * @param request DescribeGtmAccessStrategyAvailableConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmAccessStrategyAvailableConfigResponse
+   */
   async describeGtmAccessStrategyAvailableConfigWithOptions(request: DescribeGtmAccessStrategyAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategyAvailableConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22144,11 +22865,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmAccessStrategyAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmAccessStrategyAvailableConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the configuration items that can be set for an access policy.
+   *
+   * @param request DescribeGtmAccessStrategyAvailableConfigRequest
+   * @return DescribeGtmAccessStrategyAvailableConfigResponse
+   */
   async describeGtmAccessStrategyAvailableConfig(request: DescribeGtmAccessStrategyAvailableConfigRequest): Promise<DescribeGtmAccessStrategyAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmAccessStrategyAvailableConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeGtmAvailableAlertGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmAvailableAlertGroupResponse
+   */
   async describeGtmAvailableAlertGroupWithOptions(request: DescribeGtmAvailableAlertGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAvailableAlertGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22173,11 +22905,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmAvailableAlertGroupResponse>(await this.callApi(params, req, runtime), new DescribeGtmAvailableAlertGroupResponse({}));
   }
 
+  /**
+   * @param request DescribeGtmAvailableAlertGroupRequest
+   * @return DescribeGtmAvailableAlertGroupResponse
+   */
   async describeGtmAvailableAlertGroup(request: DescribeGtmAvailableAlertGroupRequest): Promise<DescribeGtmAvailableAlertGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmAvailableAlertGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmInstanceResponse
+   */
   async describeGtmInstanceWithOptions(request: DescribeGtmInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22210,11 +22953,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmInstanceResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmInstanceRequest
+   * @return DescribeGtmInstanceResponse
+   */
   async describeGtmInstance(request: DescribeGtmInstanceRequest): Promise<DescribeGtmInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmInstanceAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmInstanceAddressPoolResponse
+   */
   async describeGtmInstanceAddressPoolWithOptions(request: DescribeGtmInstanceAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22243,11 +22999,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmInstanceAddressPoolResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceAddressPoolResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmInstanceAddressPoolRequest
+   * @return DescribeGtmInstanceAddressPoolResponse
+   */
   async describeGtmInstanceAddressPool(request: DescribeGtmInstanceAddressPoolRequest): Promise<DescribeGtmInstanceAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmInstanceAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmInstanceAddressPoolsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmInstanceAddressPoolsResponse
+   */
   async describeGtmInstanceAddressPoolsWithOptions(request: DescribeGtmInstanceAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceAddressPoolsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22284,11 +23053,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmInstanceAddressPoolsResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceAddressPoolsResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmInstanceAddressPoolsRequest
+   * @return DescribeGtmInstanceAddressPoolsResponse
+   */
   async describeGtmInstanceAddressPools(request: DescribeGtmInstanceAddressPoolsRequest): Promise<DescribeGtmInstanceAddressPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmInstanceAddressPoolsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the current status of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmInstanceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmInstanceStatusResponse
+   */
   async describeGtmInstanceStatusWithOptions(request: DescribeGtmInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22317,11 +23099,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the current status of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmInstanceStatusRequest
+   * @return DescribeGtmInstanceStatusResponse
+   */
   async describeGtmInstanceStatus(request: DescribeGtmInstanceStatusRequest): Promise<DescribeGtmInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmInstanceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeGtmInstanceSystemCnameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmInstanceSystemCnameResponse
+   */
   async describeGtmInstanceSystemCnameWithOptions(request: DescribeGtmInstanceSystemCnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceSystemCnameResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22350,11 +23143,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmInstanceSystemCnameResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstanceSystemCnameResponse({}));
   }
 
+  /**
+   * @param request DescribeGtmInstanceSystemCnameRequest
+   * @return DescribeGtmInstanceSystemCnameResponse
+   */
   async describeGtmInstanceSystemCname(request: DescribeGtmInstanceSystemCnameRequest): Promise<DescribeGtmInstanceSystemCnameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmInstanceSystemCnameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Global Traffic Manager (GTM) instances under your account.
+   *
+   * @param request DescribeGtmInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmInstancesResponse
+   */
   async describeGtmInstancesWithOptions(request: DescribeGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22399,11 +23203,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGtmInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries the Global Traffic Manager (GTM) instances under your account.
+   *
+   * @param request DescribeGtmInstancesRequest
+   * @return DescribeGtmInstancesResponse
+   */
   async describeGtmInstances(request: DescribeGtmInstancesRequest): Promise<DescribeGtmInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmLogsResponse
+   */
   async describeGtmLogsWithOptions(request: DescribeGtmLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22452,11 +23269,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmLogsResponse>(await this.callApi(params, req, runtime), new DescribeGtmLogsResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmLogsRequest
+   * @return DescribeGtmLogsResponse
+   */
   async describeGtmLogs(request: DescribeGtmLogsRequest): Promise<DescribeGtmLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available monitored nodes.
+   *
+   * @param request DescribeGtmMonitorAvailableConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmMonitorAvailableConfigResponse
+   */
   async describeGtmMonitorAvailableConfigWithOptions(request: DescribeGtmMonitorAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmMonitorAvailableConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22481,11 +23311,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmMonitorAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmMonitorAvailableConfigResponse({}));
   }
 
+  /**
+   * @summary Queries available monitored nodes.
+   *
+   * @param request DescribeGtmMonitorAvailableConfigRequest
+   * @return DescribeGtmMonitorAvailableConfigResponse
+   */
   async describeGtmMonitorAvailableConfig(request: DescribeGtmMonitorAvailableConfigRequest): Promise<DescribeGtmMonitorAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmMonitorAvailableConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmMonitorConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmMonitorConfigResponse
+   */
   async describeGtmMonitorConfigWithOptions(request: DescribeGtmMonitorConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmMonitorConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22514,11 +23357,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmMonitorConfigResponse({}));
   }
 
+  /**
+   * @summary Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmMonitorConfigRequest
+   * @return DescribeGtmMonitorConfigResponse
+   */
   async describeGtmMonitorConfig(request: DescribeGtmMonitorConfigRequest): Promise<DescribeGtmMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmMonitorConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmRecoveryPlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmRecoveryPlanResponse
+   */
   async describeGtmRecoveryPlanWithOptions(request: DescribeGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22547,11 +23403,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlanResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmRecoveryPlanRequest
+   * @return DescribeGtmRecoveryPlanResponse
+   */
   async describeGtmRecoveryPlan(request: DescribeGtmRecoveryPlanRequest): Promise<DescribeGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmRecoveryPlanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmRecoveryPlanAvailableConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmRecoveryPlanAvailableConfigResponse
+   */
   async describeGtmRecoveryPlanAvailableConfigWithOptions(request: DescribeGtmRecoveryPlanAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlanAvailableConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22576,11 +23445,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmRecoveryPlanAvailableConfigResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlanAvailableConfigResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmRecoveryPlanAvailableConfigRequest
+   * @return DescribeGtmRecoveryPlanAvailableConfigResponse
+   */
   async describeGtmRecoveryPlanAvailableConfig(request: DescribeGtmRecoveryPlanAvailableConfigRequest): Promise<DescribeGtmRecoveryPlanAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmRecoveryPlanAvailableConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmRecoveryPlansRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGtmRecoveryPlansResponse
+   */
   async describeGtmRecoveryPlansWithOptions(request: DescribeGtmRecoveryPlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlansResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22617,11 +23499,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGtmRecoveryPlansResponse>(await this.callApi(params, req, runtime), new DescribeGtmRecoveryPlansResponse({}));
   }
 
+  /**
+   * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request DescribeGtmRecoveryPlansRequest
+   * @return DescribeGtmRecoveryPlansResponse
+   */
   async describeGtmRecoveryPlans(request: DescribeGtmRecoveryPlansRequest): Promise<DescribeGtmRecoveryPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeGtmRecoveryPlansWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+   *
+   * @param request DescribeInstanceDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceDomainsResponse
+   */
   async describeInstanceDomainsWithOptions(request: DescribeInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22658,14 +23553,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceDomainsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceDomainsResponse({}));
   }
 
+  /**
+   * @summary Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+   *
+   * @param request DescribeInstanceDomainsRequest
+   * @return DescribeInstanceDomainsResponse
+   */
   async describeInstanceDomains(request: DescribeInstanceDomainsRequest): Promise<DescribeInstanceDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInternetDnsLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInternetDnsLogsResponse
+   */
   async describeInternetDnsLogsWithOptions(request: DescribeInternetDnsLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInternetDnsLogsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     if (!Util.isUnset(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
@@ -22715,11 +23625,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInternetDnsLogsResponse>(await this.callApi(params, req, runtime), new DescribeInternetDnsLogsResponse({}));
   }
 
+  /**
+   * @param request DescribeInternetDnsLogsRequest
+   * @return DescribeInternetDnsLogsResponse
+   */
   async describeInternetDnsLogs(request: DescribeInternetDnsLogsRequest): Promise<DescribeInternetDnsLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInternetDnsLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取缓存刷新套餐包列表
+   *
+   * @param request DescribeIspFlushCacheInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIspFlushCacheInstancesResponse
+   */
   async describeIspFlushCacheInstancesWithOptions(request: DescribeIspFlushCacheInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22772,11 +23693,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIspFlushCacheInstancesResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheInstancesResponse({}));
   }
 
+  /**
+   * @summary 获取缓存刷新套餐包列表
+   *
+   * @param request DescribeIspFlushCacheInstancesRequest
+   * @return DescribeIspFlushCacheInstancesResponse
+   */
   async describeIspFlushCacheInstances(request: DescribeIspFlushCacheInstancesRequest): Promise<DescribeIspFlushCacheInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIspFlushCacheInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取剩余可缓存刷新次数
+   *
+   * @param request DescribeIspFlushCacheRemainQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIspFlushCacheRemainQuotaResponse
+   */
   async describeIspFlushCacheRemainQuotaWithOptions(request: DescribeIspFlushCacheRemainQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheRemainQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22801,11 +23735,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIspFlushCacheRemainQuotaResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheRemainQuotaResponse({}));
   }
 
+  /**
+   * @summary 获取剩余可缓存刷新次数
+   *
+   * @param request DescribeIspFlushCacheRemainQuotaRequest
+   * @return DescribeIspFlushCacheRemainQuotaResponse
+   */
   async describeIspFlushCacheRemainQuota(request: DescribeIspFlushCacheRemainQuotaRequest): Promise<DescribeIspFlushCacheRemainQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIspFlushCacheRemainQuotaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取缓存刷新任务详情
+   *
+   * @param request DescribeIspFlushCacheTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIspFlushCacheTaskResponse
+   */
   async describeIspFlushCacheTaskWithOptions(request: DescribeIspFlushCacheTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22834,11 +23781,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIspFlushCacheTaskResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheTaskResponse({}));
   }
 
+  /**
+   * @summary 获取缓存刷新任务详情
+   *
+   * @param request DescribeIspFlushCacheTaskRequest
+   * @return DescribeIspFlushCacheTaskResponse
+   */
   async describeIspFlushCacheTask(request: DescribeIspFlushCacheTaskRequest): Promise<DescribeIspFlushCacheTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIspFlushCacheTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取缓存刷新任务列表
+   *
+   * @param request DescribeIspFlushCacheTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIspFlushCacheTasksResponse
+   */
   async describeIspFlushCacheTasksWithOptions(request: DescribeIspFlushCacheTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22891,11 +23851,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIspFlushCacheTasksResponse>(await this.callApi(params, req, runtime), new DescribeIspFlushCacheTasksResponse({}));
   }
 
+  /**
+   * @summary 获取缓存刷新任务列表
+   *
+   * @param request DescribeIspFlushCacheTasksRequest
+   * @return DescribeIspFlushCacheTasksResponse
+   */
   async describeIspFlushCacheTasks(request: DescribeIspFlushCacheTasksRequest): Promise<DescribeIspFlushCacheTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIspFlushCacheTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS用户数据概览
+   *
+   * @param request DescribePdnsAccountSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsAccountSummaryResponse
+   */
   async describePdnsAccountSummaryWithOptions(request: DescribePdnsAccountSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAccountSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22928,11 +23901,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsAccountSummaryResponse>(await this.callApi(params, req, runtime), new DescribePdnsAccountSummaryResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS用户数据概览
+   *
+   * @param request DescribePdnsAccountSummaryRequest
+   * @return DescribePdnsAccountSummaryResponse
+   */
   async describePdnsAccountSummary(request: DescribePdnsAccountSummaryRequest): Promise<DescribePdnsAccountSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsAccountSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS AppKey 详情
+   *
+   * @param request DescribePdnsAppKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsAppKeyResponse
+   */
   async describePdnsAppKeyWithOptions(request: DescribePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAppKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22965,11 +23951,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new DescribePdnsAppKeyResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS AppKey 详情
+   *
+   * @param request DescribePdnsAppKeyRequest
+   * @return DescribePdnsAppKeyResponse
+   */
   async describePdnsAppKey(request: DescribePdnsAppKeyRequest): Promise<DescribePdnsAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsAppKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS AppKey 列表
+   *
+   * @param request DescribePdnsAppKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsAppKeysResponse
+   */
   async describePdnsAppKeysWithOptions(request: DescribePdnsAppKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAppKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22994,11 +23993,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsAppKeysResponse>(await this.callApi(params, req, runtime), new DescribePdnsAppKeysResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS AppKey 列表
+   *
+   * @param request DescribePdnsAppKeysRequest
+   * @return DescribePdnsAppKeysResponse
+   */
   async describePdnsAppKeys(request: DescribePdnsAppKeysRequest): Promise<DescribePdnsAppKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsAppKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS 操作日志列表
+   *
+   * @param request DescribePdnsOperateLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsOperateLogsResponse
+   */
   async describePdnsOperateLogsWithOptions(request: DescribePdnsOperateLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsOperateLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23047,11 +24059,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsOperateLogsResponse>(await this.callApi(params, req, runtime), new DescribePdnsOperateLogsResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS 操作日志列表
+   *
+   * @param request DescribePdnsOperateLogsRequest
+   * @return DescribePdnsOperateLogsResponse
+   */
   async describePdnsOperateLogs(request: DescribePdnsOperateLogsRequest): Promise<DescribePdnsOperateLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsOperateLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS 请求统计
+   *
+   * @param request DescribePdnsRequestStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsRequestStatisticResponse
+   */
   async describePdnsRequestStatisticWithOptions(request: DescribePdnsRequestStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsRequestStatisticResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23092,11 +24117,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsRequestStatisticResponse>(await this.callApi(params, req, runtime), new DescribePdnsRequestStatisticResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS 请求统计
+   *
+   * @param request DescribePdnsRequestStatisticRequest
+   * @return DescribePdnsRequestStatisticResponse
+   */
   async describePdnsRequestStatistic(request: DescribePdnsRequestStatisticRequest): Promise<DescribePdnsRequestStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsRequestStatisticWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS 请求统计列表
+   *
+   * @param request DescribePdnsRequestStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsRequestStatisticsResponse
+   */
   async describePdnsRequestStatisticsWithOptions(request: DescribePdnsRequestStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsRequestStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23149,11 +24187,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsRequestStatisticsResponse>(await this.callApi(params, req, runtime), new DescribePdnsRequestStatisticsResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS 请求统计列表
+   *
+   * @param request DescribePdnsRequestStatisticsRequest
+   * @return DescribePdnsRequestStatisticsResponse
+   */
   async describePdnsRequestStatistics(request: DescribePdnsRequestStatisticsRequest): Promise<DescribePdnsRequestStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsRequestStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS 威胁日志列表
+   *
+   * @param request DescribePdnsThreatLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsThreatLogsResponse
+   */
   async describePdnsThreatLogsWithOptions(request: DescribePdnsThreatLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23210,11 +24261,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsThreatLogsResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatLogsResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS 威胁日志列表
+   *
+   * @param request DescribePdnsThreatLogsRequest
+   * @return DescribePdnsThreatLogsResponse
+   */
   async describePdnsThreatLogs(request: DescribePdnsThreatLogsRequest): Promise<DescribePdnsThreatLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsThreatLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS 威胁统计
+   *
+   * @param request DescribePdnsThreatStatisticRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsThreatStatisticResponse
+   */
   async describePdnsThreatStatisticWithOptions(request: DescribePdnsThreatStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatStatisticResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23251,11 +24315,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsThreatStatisticResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatStatisticResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS 威胁统计
+   *
+   * @param request DescribePdnsThreatStatisticRequest
+   * @return DescribePdnsThreatStatisticResponse
+   */
   async describePdnsThreatStatistic(request: DescribePdnsThreatStatisticRequest): Promise<DescribePdnsThreatStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsThreatStatisticWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS 威胁统计列表
+   *
+   * @param request DescribePdnsThreatStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsThreatStatisticsResponse
+   */
   async describePdnsThreatStatisticsWithOptions(request: DescribePdnsThreatStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23328,11 +24405,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsThreatStatisticsResponse>(await this.callApi(params, req, runtime), new DescribePdnsThreatStatisticsResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS 威胁统计列表
+   *
+   * @param request DescribePdnsThreatStatisticsRequest
+   * @return DescribePdnsThreatStatisticsResponse
+   */
   async describePdnsThreatStatistics(request: DescribePdnsThreatStatisticsRequest): Promise<DescribePdnsThreatStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsThreatStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS Udp IP段列表
+   *
+   * @param request DescribePdnsUdpIpSegmentsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsUdpIpSegmentsResponse
+   */
   async describePdnsUdpIpSegmentsWithOptions(request: DescribePdnsUdpIpSegmentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsUdpIpSegmentsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23365,11 +24455,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsUdpIpSegmentsResponse>(await this.callApi(params, req, runtime), new DescribePdnsUdpIpSegmentsResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS Udp IP段列表
+   *
+   * @param request DescribePdnsUdpIpSegmentsRequest
+   * @return DescribePdnsUdpIpSegmentsResponse
+   */
   async describePdnsUdpIpSegments(request: DescribePdnsUdpIpSegmentsRequest): Promise<DescribePdnsUdpIpSegmentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsUdpIpSegmentsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取公共DNS用户信息
+   *
+   * @param request DescribePdnsUserInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePdnsUserInfoResponse
+   */
   async describePdnsUserInfoWithOptions(request: DescribePdnsUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsUserInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23394,11 +24497,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePdnsUserInfoResponse>(await this.callApi(params, req, runtime), new DescribePdnsUserInfoResponse({}));
   }
 
+  /**
+   * @summary 获取公共DNS用户信息
+   *
+   * @param request DescribePdnsUserInfoRequest
+   * @return DescribePdnsUserInfoResponse
+   */
   async describePdnsUserInfo(request: DescribePdnsUserInfoRequest): Promise<DescribePdnsUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePdnsUserInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the operation logs of a domain name based on the specified parameters.
+   *
+   * @param request DescribeRecordLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecordLogsResponse
+   */
   async describeRecordLogsWithOptions(request: DescribeRecordLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23451,11 +24567,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecordLogsResponse>(await this.callApi(params, req, runtime), new DescribeRecordLogsResponse({}));
   }
 
+  /**
+   * @summary Queries the operation logs of a domain name based on the specified parameters.
+   *
+   * @param request DescribeRecordLogsRequest
+   * @return DescribeRecordLogsResponse
+   */
   async describeRecordLogs(request: DescribeRecordLogsRequest): Promise<DescribeRecordLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of resolution requests for all subdomain names of a specified domain name.
+   *
+   * @param request DescribeRecordResolveStatisticsSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecordResolveStatisticsSummaryResponse
+   */
   async describeRecordResolveStatisticsSummaryWithOptions(request: DescribeRecordResolveStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordResolveStatisticsSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23520,17 +24649,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecordResolveStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRecordResolveStatisticsSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the number of resolution requests for all subdomain names of a specified domain name.
+   *
+   * @param request DescribeRecordResolveStatisticsSummaryRequest
+   * @return DescribeRecordResolveStatisticsSummaryResponse
+   */
   async describeRecordResolveStatisticsSummary(request: DescribeRecordResolveStatisticsSummaryRequest): Promise<DescribeRecordResolveStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordResolveStatisticsSummaryWithOptions(request, runtime);
   }
 
   /**
-    * Real-time data is collected per hour.
-    *
-    * @param request DescribeRecordStatisticsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRecordStatisticsResponse
+   * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+   *
+   * @description Real-time data is collected per hour.
+   *
+   * @param request DescribeRecordStatisticsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecordStatisticsResponse
    */
   async describeRecordStatisticsWithOptions(request: DescribeRecordStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordStatisticsResponse> {
     Util.validateModel(request);
@@ -23577,16 +24714,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Real-time data is collected per hour.
-    *
-    * @param request DescribeRecordStatisticsRequest
-    * @return DescribeRecordStatisticsResponse
+   * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+   *
+   * @description Real-time data is collected per hour.
+   *
+   * @param request DescribeRecordStatisticsRequest
+   * @return DescribeRecordStatisticsResponse
    */
   async describeRecordStatistics(request: DescribeRecordStatisticsRequest): Promise<DescribeRecordStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+   *
+   * @param request DescribeRecordStatisticsSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecordStatisticsSummaryResponse
+   */
   async describeRecordStatisticsSummaryWithOptions(request: DescribeRecordStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordStatisticsSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23647,11 +24793,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecordStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRecordStatisticsSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+   *
+   * @param request DescribeRecordStatisticsSummaryRequest
+   * @return DescribeRecordStatisticsSummaryResponse
+   */
   async describeRecordStatisticsSummary(request: DescribeRecordStatisticsSummaryRequest): Promise<DescribeRecordStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordStatisticsSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+   *
+   * @param request DescribeSubDomainRecordsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSubDomainRecordsResponse
+   */
   async describeSubDomainRecordsWithOptions(request: DescribeSubDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSubDomainRecordsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23704,11 +24863,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSubDomainRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSubDomainRecordsResponse({}));
   }
 
+  /**
+   * @summary Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+   *
+   * @param request DescribeSubDomainRecordsRequest
+   * @return DescribeSubDomainRecordsResponse
+   */
   async describeSubDomainRecords(request: DescribeSubDomainRecordsRequest): Promise<DescribeSubDomainRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSubDomainRecordsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询云解析支持的所有线路列表。
+   *
+   * @param request DescribeSupportLinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSupportLinesResponse
+   */
   async describeSupportLinesWithOptions(request: DescribeSupportLinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportLinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23741,11 +24913,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSupportLinesResponse>(await this.callApi(params, req, runtime), new DescribeSupportLinesResponse({}));
   }
 
+  /**
+   * @summary 查询云解析支持的所有线路列表。
+   *
+   * @param request DescribeSupportLinesRequest
+   * @return DescribeSupportLinesResponse
+   */
   async describeSupportLines(request: DescribeSupportLinesRequest): Promise<DescribeSupportLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSupportLinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries existing tags.
+   *
+   * @param request DescribeTagsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTagsResponse
+   */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23782,11 +24967,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
+  /**
+   * @summary Queries existing tags.
+   *
+   * @param request DescribeTagsRequest
+   * @return DescribeTagsResponse
+   */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+   *
+   * @param request DescribeTransferDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTransferDomainsResponse
+   */
   async describeTransferDomainsWithOptions(request: DescribeTransferDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTransferDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23835,11 +25033,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTransferDomainsResponse>(await this.callApi(params, req, runtime), new DescribeTransferDomainsResponse({}));
   }
 
+  /**
+   * @summary Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+   *
+   * @param request DescribeTransferDomainsRequest
+   * @return DescribeTransferDomainsResponse
+   */
   async describeTransferDomains(request: DescribeTransferDomainsRequest): Promise<DescribeTransferDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTransferDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ExecuteGtmRecoveryPlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExecuteGtmRecoveryPlanResponse
+   */
   async executeGtmRecoveryPlanWithOptions(request: ExecuteGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteGtmRecoveryPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23868,18 +25077,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExecuteGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new ExecuteGtmRecoveryPlanResponse({}));
   }
 
+  /**
+   * @param request ExecuteGtmRecoveryPlanRequest
+   * @return ExecuteGtmRecoveryPlanResponse
+   */
   async executeGtmRecoveryPlan(request: ExecuteGtmRecoveryPlanRequest): Promise<ExecuteGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeGtmRecoveryPlanWithOptions(request, runtime);
   }
 
   /**
-    * For more information about the difference between primary domain names and subdomain names, see
-    * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
-    *
-    * @param request GetMainDomainNameRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetMainDomainNameResponse
+   * @summary Queries a primary domain name based on the specified parameters.
+   *
+   * @description For more information about the difference between primary domain names and subdomain names, see
+   * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+   *
+   * @param request GetMainDomainNameRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMainDomainNameResponse
    */
   async getMainDomainNameWithOptions(request: GetMainDomainNameRequest, runtime: $Util.RuntimeOptions): Promise<GetMainDomainNameResponse> {
     Util.validateModel(request);
@@ -23910,17 +25125,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about the difference between primary domain names and subdomain names, see
-    * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
-    *
-    * @param request GetMainDomainNameRequest
-    * @return GetMainDomainNameResponse
+   * @summary Queries a primary domain name based on the specified parameters.
+   *
+   * @description For more information about the difference between primary domain names and subdomain names, see
+   * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+   *
+   * @param request GetMainDomainNameRequest
+   * @return GetMainDomainNameResponse
    */
   async getMainDomainName(request: GetMainDomainNameRequest): Promise<GetMainDomainNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMainDomainNameWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+   *
+   * @param request GetTxtRecordForVerifyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTxtRecordForVerifyResponse
+   */
   async getTxtRecordForVerifyWithOptions(request: GetTxtRecordForVerifyRequest, runtime: $Util.RuntimeOptions): Promise<GetTxtRecordForVerifyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23953,20 +25177,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTxtRecordForVerifyResponse>(await this.callApi(params, req, runtime), new GetTxtRecordForVerifyResponse({}));
   }
 
+  /**
+   * @summary Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+   *
+   * @param request GetTxtRecordForVerifyRequest
+   * @return GetTxtRecordForVerifyResponse
+   */
   async getTxtRecordForVerify(request: GetTxtRecordForVerifyRequest): Promise<GetTxtRecordForVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTxtRecordForVerifyWithOptions(request, runtime);
   }
 
   /**
-    * *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-    * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
-    * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags that are added to a specified resource.
+   *
+   * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+   * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
+   * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -24009,13 +25241,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-    * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
-    * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags that are added to a specified resource.
+   *
+   * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+   * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
+   * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24023,12 +25257,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
-    * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
-    *
-    * @param request ModifyHichinaDomainDNSRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyHichinaDomainDNSResponse
+   * @summary Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
+   *
+   * @description If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
+   * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
+   *
+   * @param request ModifyHichinaDomainDNSRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyHichinaDomainDNSResponse
    */
   async modifyHichinaDomainDNSWithOptions(request: ModifyHichinaDomainDNSRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHichinaDomainDNSResponse> {
     Util.validateModel(request);
@@ -24063,17 +25299,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
-    * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
-    *
-    * @param request ModifyHichinaDomainDNSRequest
-    * @return ModifyHichinaDomainDNSResponse
+   * @summary Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
+   *
+   * @description If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
+   * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
+   *
+   * @param request ModifyHichinaDomainDNSRequest
+   * @return ModifyHichinaDomainDNSResponse
    */
   async modifyHichinaDomainDNS(request: ModifyHichinaDomainDNSRequest): Promise<ModifyHichinaDomainDNSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyHichinaDomainDNSWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Moves a domain name to another resource group.
+   *
+   * @param request MoveDomainResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveDomainResourceGroupResponse
+   */
   async moveDomainResourceGroupWithOptions(request: MoveDomainResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveDomainResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24106,11 +25351,22 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveDomainResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveDomainResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Moves a domain name to another resource group.
+   *
+   * @param request MoveDomainResourceGroupRequest
+   * @return MoveDomainResourceGroupResponse
+   */
   async moveDomainResourceGroup(request: MoveDomainResourceGroupRequest): Promise<MoveDomainResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveDomainResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request MoveGtmResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MoveGtmResourceGroupResponse
+   */
   async moveGtmResourceGroupWithOptions(request: MoveGtmResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveGtmResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24143,17 +25399,23 @@ export default class Client extends OpenApi {
     return $tea.cast<MoveGtmResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveGtmResourceGroupResponse({}));
   }
 
+  /**
+   * @param request MoveGtmResourceGroupRequest
+   * @return MoveGtmResourceGroupResponse
+   */
   async moveGtmResourceGroup(request: MoveGtmResourceGroupRequest): Promise<MoveGtmResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveGtmResourceGroupWithOptions(request, runtime);
   }
 
   /**
-    * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
-    *
-    * @param request OperateBatchDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return OperateBatchDomainResponse
+   * @summary Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
+   *
+   * @description Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+   *
+   * @param request OperateBatchDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OperateBatchDomainResponse
    */
   async operateBatchDomainWithOptions(request: OperateBatchDomainRequest, runtime: $Util.RuntimeOptions): Promise<OperateBatchDomainResponse> {
     Util.validateModel(request);
@@ -24188,16 +25450,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
-    *
-    * @param request OperateBatchDomainRequest
-    * @return OperateBatchDomainResponse
+   * @summary Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
+   *
+   * @description Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+   *
+   * @param request OperateBatchDomainRequest
+   * @return OperateBatchDomainResponse
    */
   async operateBatchDomain(request: OperateBatchDomainRequest): Promise<OperateBatchDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.operateBatchDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 暂停公共DNS服务
+   *
+   * @param request PausePdnsServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PausePdnsServiceResponse
+   */
   async pausePdnsServiceWithOptions(request: PausePdnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<PausePdnsServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24226,11 +25497,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PausePdnsServiceResponse>(await this.callApi(params, req, runtime), new PausePdnsServiceResponse({}));
   }
 
+  /**
+   * @summary 暂停公共DNS服务
+   *
+   * @param request PausePdnsServiceRequest
+   * @return PausePdnsServiceResponse
+   */
   async pausePdnsService(request: PausePdnsServiceRequest): Promise<PausePdnsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pausePdnsServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request PreviewGtmRecoveryPlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PreviewGtmRecoveryPlanResponse
+   */
   async previewGtmRecoveryPlanWithOptions(request: PreviewGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<PreviewGtmRecoveryPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24267,11 +25551,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PreviewGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new PreviewGtmRecoveryPlanResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request PreviewGtmRecoveryPlanRequest
+   * @return PreviewGtmRecoveryPlanResponse
+   */
   async previewGtmRecoveryPlan(request: PreviewGtmRecoveryPlanRequest): Promise<PreviewGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.previewGtmRecoveryPlanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除公共DNS AppKey
+   *
+   * @param request RemovePdnsAppKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemovePdnsAppKeyResponse
+   */
   async removePdnsAppKeyWithOptions(request: RemovePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<RemovePdnsAppKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24300,11 +25597,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemovePdnsAppKeyResponse>(await this.callApi(params, req, runtime), new RemovePdnsAppKeyResponse({}));
   }
 
+  /**
+   * @summary 删除公共DNS AppKey
+   *
+   * @param request RemovePdnsAppKeyRequest
+   * @return RemovePdnsAppKeyResponse
+   */
   async removePdnsAppKey(request: RemovePdnsAppKeyRequest): Promise<RemovePdnsAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removePdnsAppKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除公共DNS Udp Ip地址段
+   *
+   * @param request RemovePdnsUdpIpSegmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemovePdnsUdpIpSegmentResponse
+   */
   async removePdnsUdpIpSegmentWithOptions(request: RemovePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<RemovePdnsUdpIpSegmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24333,11 +25643,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemovePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new RemovePdnsUdpIpSegmentResponse({}));
   }
 
+  /**
+   * @summary 删除公共DNS Udp Ip地址段
+   *
+   * @param request RemovePdnsUdpIpSegmentRequest
+   * @return RemovePdnsUdpIpSegmentResponse
+   */
   async removePdnsUdpIpSegment(request: RemovePdnsUdpIpSegmentRequest): Promise<RemovePdnsUdpIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removePdnsUdpIpSegmentWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 恢复公共DNS服务
+   *
+   * @param request ResumePdnsServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumePdnsServiceResponse
+   */
   async resumePdnsServiceWithOptions(request: ResumePdnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<ResumePdnsServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24366,17 +25689,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumePdnsServiceResponse>(await this.callApi(params, req, runtime), new ResumePdnsServiceResponse({}));
   }
 
+  /**
+   * @summary 恢复公共DNS服务
+   *
+   * @param request ResumePdnsServiceRequest
+   * @return ResumePdnsServiceResponse
+   */
   async resumePdnsService(request: ResumePdnsServiceRequest): Promise<ResumePdnsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumePdnsServiceWithOptions(request, runtime);
   }
 
   /**
-    * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
-    *
-    * @param request RetrieveDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RetrieveDomainResponse
+   * @summary Retrieves a domain name.
+   *
+   * @description To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+   *
+   * @param request RetrieveDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RetrieveDomainResponse
    */
   async retrieveDomainWithOptions(request: RetrieveDomainRequest, runtime: $Util.RuntimeOptions): Promise<RetrieveDomainResponse> {
     Util.validateModel(request);
@@ -24407,16 +25738,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
-    *
-    * @param request RetrieveDomainRequest
-    * @return RetrieveDomainResponse
+   * @summary Retrieves a domain name.
+   *
+   * @description To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+   *
+   * @param request RetrieveDomainRequest
+   * @return RetrieveDomainResponse
    */
   async retrieveDomain(request: RetrieveDomainRequest): Promise<RetrieveDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.retrieveDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RollbackGtmRecoveryPlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RollbackGtmRecoveryPlanResponse
+   */
   async rollbackGtmRecoveryPlanWithOptions(request: RollbackGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<RollbackGtmRecoveryPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24445,11 +25783,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RollbackGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new RollbackGtmRecoveryPlanResponse({}));
   }
 
+  /**
+   * @param request RollbackGtmRecoveryPlanRequest
+   * @return RollbackGtmRecoveryPlanResponse
+   */
   async rollbackGtmRecoveryPlan(request: RollbackGtmRecoveryPlanRequest): Promise<RollbackGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackGtmRecoveryPlanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables weighted round-robin based on the specified parameters.
+   *
+   * @param request SetDNSSLBStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDNSSLBStatusResponse
+   */
   async setDNSSLBStatusWithOptions(request: SetDNSSLBStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDNSSLBStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24498,17 +25847,23 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDNSSLBStatusResponse>(await this.callApi(params, req, runtime), new SetDNSSLBStatusResponse({}));
   }
 
+  /**
+   * @summary Enables or disables weighted round-robin based on the specified parameters.
+   *
+   * @param request SetDNSSLBStatusRequest
+   * @return SetDNSSLBStatusResponse
+   */
   async setDNSSLBStatus(request: SetDNSSLBStatusRequest): Promise<SetDNSSLBStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDNSSLBStatusWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request SetDnsGtmAccessModeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetDnsGtmAccessModeResponse
+   * @description ****
+   *
+   * @param request SetDnsGtmAccessModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDnsGtmAccessModeResponse
    */
   async setDnsGtmAccessModeWithOptions(request: SetDnsGtmAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<SetDnsGtmAccessModeResponse> {
     Util.validateModel(request);
@@ -24543,16 +25898,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request SetDnsGtmAccessModeRequest
-    * @return SetDnsGtmAccessModeResponse
+   * @description ****
+   *
+   * @param request SetDnsGtmAccessModeRequest
+   * @return SetDnsGtmAccessModeResponse
    */
   async setDnsGtmAccessMode(request: SetDnsGtmAccessModeRequest): Promise<SetDnsGtmAccessModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDnsGtmAccessModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Specifies the health check status of an address pool.
+   *
+   * @param request SetDnsGtmMonitorStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDnsGtmMonitorStatusResponse
+   */
   async setDnsGtmMonitorStatusWithOptions(request: SetDnsGtmMonitorStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDnsGtmMonitorStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24585,11 +25947,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDnsGtmMonitorStatusResponse>(await this.callApi(params, req, runtime), new SetDnsGtmMonitorStatusResponse({}));
   }
 
+  /**
+   * @summary Specifies the health check status of an address pool.
+   *
+   * @param request SetDnsGtmMonitorStatusRequest
+   * @return SetDnsGtmMonitorStatusResponse
+   */
   async setDnsGtmMonitorStatus(request: SetDnsGtmMonitorStatusRequest): Promise<SetDnsGtmMonitorStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDnsGtmMonitorStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
+   *
+   * @param request SetDomainDnssecStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDomainDnssecStatusResponse
+   */
   async setDomainDnssecStatusWithOptions(request: SetDomainDnssecStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainDnssecStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24622,11 +25997,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDomainDnssecStatusResponse>(await this.callApi(params, req, runtime), new SetDomainDnssecStatusResponse({}));
   }
 
+  /**
+   * @summary Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
+   *
+   * @param request SetDomainDnssecStatusRequest
+   * @return SetDomainDnssecStatusResponse
+   */
   async setDomainDnssecStatus(request: SetDomainDnssecStatusRequest): Promise<SetDomainDnssecStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainDnssecStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Specifies the status of a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request SetDomainRecordStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetDomainRecordStatusResponse
+   */
   async setDomainRecordStatusWithOptions(request: SetDomainRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainRecordStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24663,11 +26051,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SetDomainRecordStatusResponse>(await this.callApi(params, req, runtime), new SetDomainRecordStatusResponse({}));
   }
 
+  /**
+   * @summary Specifies the status of a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request SetDomainRecordStatusRequest
+   * @return SetDomainRecordStatusResponse
+   */
   async setDomainRecordStatus(request: SetDomainRecordStatusRequest): Promise<SetDomainRecordStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDomainRecordStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetGtmAccessModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetGtmAccessModeResponse
+   */
   async setGtmAccessModeWithOptions(request: SetGtmAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<SetGtmAccessModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24700,11 +26099,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SetGtmAccessModeResponse>(await this.callApi(params, req, runtime), new SetGtmAccessModeResponse({}));
   }
 
+  /**
+   * @param request SetGtmAccessModeRequest
+   * @return SetGtmAccessModeResponse
+   */
   async setGtmAccessMode(request: SetGtmAccessModeRequest): Promise<SetGtmAccessModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setGtmAccessModeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetGtmMonitorStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetGtmMonitorStatusResponse
+   */
   async setGtmMonitorStatusWithOptions(request: SetGtmMonitorStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetGtmMonitorStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24737,11 +26145,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SetGtmMonitorStatusResponse>(await this.callApi(params, req, runtime), new SetGtmMonitorStatusResponse({}));
   }
 
+  /**
+   * @param request SetGtmMonitorStatusRequest
+   * @return SetGtmMonitorStatusResponse
+   */
   async setGtmMonitorStatus(request: SetGtmMonitorStatusRequest): Promise<SetGtmMonitorStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setGtmMonitorStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 提交缓存刷新任务
+   *
+   * @param request SubmitIspFlushCacheTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitIspFlushCacheTaskResponse
+   */
   async submitIspFlushCacheTaskWithOptions(request: SubmitIspFlushCacheTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIspFlushCacheTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24778,11 +26197,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitIspFlushCacheTaskResponse>(await this.callApi(params, req, runtime), new SubmitIspFlushCacheTaskResponse({}));
   }
 
+  /**
+   * @summary 提交缓存刷新任务
+   *
+   * @param request SubmitIspFlushCacheTaskRequest
+   * @return SubmitIspFlushCacheTaskResponse
+   */
   async submitIspFlushCacheTask(request: SubmitIspFlushCacheTaskRequest): Promise<SubmitIspFlushCacheTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitIspFlushCacheTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request SwitchDnsGtmInstanceStrategyModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchDnsGtmInstanceStrategyModeResponse
+   */
   async switchDnsGtmInstanceStrategyModeWithOptions(request: SwitchDnsGtmInstanceStrategyModeRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDnsGtmInstanceStrategyModeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24815,11 +26247,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchDnsGtmInstanceStrategyModeResponse>(await this.callApi(params, req, runtime), new SwitchDnsGtmInstanceStrategyModeResponse({}));
   }
 
+  /**
+   * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request SwitchDnsGtmInstanceStrategyModeRequest
+   * @return SwitchDnsGtmInstanceStrategyModeResponse
+   */
   async switchDnsGtmInstanceStrategyMode(request: SwitchDnsGtmInstanceStrategyModeRequest): Promise<SwitchDnsGtmInstanceStrategyModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchDnsGtmInstanceStrategyModeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds and modifies a tag for a resource.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24856,11 +26301,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds and modifies a tag for a resource.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Transfers multiple domain names from the current account to another account at a time.
+   *
+   * @param request TransferDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TransferDomainResponse
+   */
   async transferDomainWithOptions(request: TransferDomainRequest, runtime: $Util.RuntimeOptions): Promise<TransferDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24897,18 +26355,26 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferDomainResponse>(await this.callApi(params, req, runtime), new TransferDomainResponse({}));
   }
 
+  /**
+   * @summary Transfers multiple domain names from the current account to another account at a time.
+   *
+   * @param request TransferDomainRequest
+   * @return TransferDomainResponse
+   */
   async transferDomain(request: TransferDomainRequest): Promise<TransferDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transferDomainWithOptions(request, runtime);
   }
 
   /**
-    * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
-    *
-    * @param request UnbindInstanceDomainsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UnbindInstanceDomainsResponse
+   * @summary Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+   *
+   * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+   *
+   * @param request UnbindInstanceDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindInstanceDomainsResponse
    */
   async unbindInstanceDomainsWithOptions(request: UnbindInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<UnbindInstanceDomainsResponse> {
     Util.validateModel(request);
@@ -24943,17 +26409,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
-    *
-    * @param request UnbindInstanceDomainsRequest
-    * @return UnbindInstanceDomainsResponse
+   * @summary Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+   *
+   * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+   *
+   * @param request UnbindInstanceDomainsRequest
+   * @return UnbindInstanceDomainsResponse
    */
   async unbindInstanceDomains(request: UnbindInstanceDomainsRequest): Promise<UnbindInstanceDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindInstanceDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24994,11 +26469,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from resources.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改 AppKey 状态
+   *
+   * @param request UpdateAppKeyStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAppKeyStateResponse
+   */
   async updateAppKeyStateWithOptions(request: UpdateAppKeyStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppKeyStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25031,18 +26519,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAppKeyStateResponse>(await this.callApi(params, req, runtime), new UpdateAppKeyStateResponse({}));
   }
 
+  /**
+   * @summary 修改 AppKey 状态
+   *
+   * @param request UpdateAppKeyStateRequest
+   * @return UpdateAppKeyStateResponse
+   */
   async updateAppKeyState(request: UpdateAppKeyStateRequest): Promise<UpdateAppKeyStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAppKeyStateWithOptions(request, runtime);
   }
 
   /**
-    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-    *
-    * @param request UpdateCustomLineRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateCustomLineResponse
+   * @summary Modifies a custom line.
+   *
+   * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+   *
+   * @param request UpdateCustomLineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCustomLineResponse
    */
   async updateCustomLineWithOptions(request: UpdateCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomLineResponse> {
     Util.validateModel(request);
@@ -25081,17 +26577,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-    *
-    * @param request UpdateCustomLineRequest
-    * @return UpdateCustomLineResponse
+   * @summary Modifies a custom line.
+   *
+   * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+   *
+   * @param request UpdateCustomLineRequest
+   * @return UpdateCustomLineResponse
    */
   async updateCustomLine(request: UpdateCustomLineRequest): Promise<UpdateCustomLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCustomLineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request UpdateDNSSLBWeightRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDNSSLBWeightResponse
+   */
   async updateDNSSLBWeightWithOptions(request: UpdateDNSSLBWeightRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDNSSLBWeightResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25128,11 +26633,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDNSSLBWeightResponse>(await this.callApi(params, req, runtime), new UpdateDNSSLBWeightResponse({}));
   }
 
+  /**
+   * @summary Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request UpdateDNSSLBWeightRequest
+   * @return UpdateDNSSLBWeightResponse
+   */
   async updateDNSSLBWeight(request: UpdateDNSSLBWeightRequest): Promise<UpdateDNSSLBWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDNSSLBWeightWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateDnsCacheDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDnsCacheDomainResponse
+   */
   async updateDnsCacheDomainWithOptions(request: UpdateDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsCacheDomainResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25185,11 +26701,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDnsCacheDomainResponse>(await this.callApi(params, req, runtime), new UpdateDnsCacheDomainResponse({}));
   }
 
+  /**
+   * @param request UpdateDnsCacheDomainRequest
+   * @return UpdateDnsCacheDomainResponse
+   */
   async updateDnsCacheDomain(request: UpdateDnsCacheDomainRequest): Promise<UpdateDnsCacheDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDnsCacheDomainWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateDnsCacheDomainRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDnsCacheDomainRemarkResponse
+   */
   async updateDnsCacheDomainRemarkWithOptions(request: UpdateDnsCacheDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsCacheDomainRemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25222,11 +26747,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDnsCacheDomainRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDnsCacheDomainRemarkResponse({}));
   }
 
+  /**
+   * @param request UpdateDnsCacheDomainRemarkRequest
+   * @return UpdateDnsCacheDomainRemarkResponse
+   */
   async updateDnsCacheDomainRemark(request: UpdateDnsCacheDomainRemarkRequest): Promise<UpdateDnsCacheDomainRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDnsCacheDomainRemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an access policy.
+   *
+   * @param request UpdateDnsGtmAccessStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDnsGtmAccessStrategyResponse
+   */
   async updateDnsGtmAccessStrategyWithOptions(request: UpdateDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25315,11 +26851,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDnsGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmAccessStrategyResponse({}));
   }
 
+  /**
+   * @summary Modifies an access policy.
+   *
+   * @param request UpdateDnsGtmAccessStrategyRequest
+   * @return UpdateDnsGtmAccessStrategyResponse
+   */
   async updateDnsGtmAccessStrategy(request: UpdateDnsGtmAccessStrategyRequest): Promise<UpdateDnsGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDnsGtmAccessStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of address pools for a GTM instance.
+   *
+   * @param request UpdateDnsGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDnsGtmAddressPoolResponse
+   */
   async updateDnsGtmAddressPoolWithOptions(request: UpdateDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25360,11 +26909,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDnsGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmAddressPoolResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of address pools for a GTM instance.
+   *
+   * @param request UpdateDnsGtmAddressPoolRequest
+   * @return UpdateDnsGtmAddressPoolResponse
+   */
   async updateDnsGtmAddressPool(request: UpdateDnsGtmAddressPoolRequest): Promise<UpdateDnsGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDnsGtmAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request UpdateDnsGtmInstanceGlobalConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDnsGtmInstanceGlobalConfigResponse
+   */
   async updateDnsGtmInstanceGlobalConfigWithOptions(request: UpdateDnsGtmInstanceGlobalConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmInstanceGlobalConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25433,11 +26995,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDnsGtmInstanceGlobalConfigResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmInstanceGlobalConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request UpdateDnsGtmInstanceGlobalConfigRequest
+   * @return UpdateDnsGtmInstanceGlobalConfigResponse
+   */
   async updateDnsGtmInstanceGlobalConfig(request: UpdateDnsGtmInstanceGlobalConfigRequest): Promise<UpdateDnsGtmInstanceGlobalConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDnsGtmInstanceGlobalConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a health check task.
+   *
+   * @param request UpdateDnsGtmMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDnsGtmMonitorResponse
+   */
   async updateDnsGtmMonitorWithOptions(request: UpdateDnsGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25490,11 +27065,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDnsGtmMonitorResponse>(await this.callApi(params, req, runtime), new UpdateDnsGtmMonitorResponse({}));
   }
 
+  /**
+   * @summary Modifies a health check task.
+   *
+   * @param request UpdateDnsGtmMonitorRequest
+   * @return UpdateDnsGtmMonitorResponse
+   */
   async updateDnsGtmMonitor(request: UpdateDnsGtmMonitorRequest): Promise<UpdateDnsGtmMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDnsGtmMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of a domain name group based on the specified parameters.
+   *
+   * @param request UpdateDomainGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDomainGroupResponse
+   */
   async updateDomainGroupWithOptions(request: UpdateDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25527,11 +27115,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDomainGroupResponse>(await this.callApi(params, req, runtime), new UpdateDomainGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of a domain name group based on the specified parameters.
+   *
+   * @param request UpdateDomainGroupRequest
+   * @return UpdateDomainGroupResponse
+   */
   async updateDomainGroup(request: UpdateDomainGroupRequest): Promise<UpdateDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDomainGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request UpdateDomainRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDomainRecordResponse
+   */
   async updateDomainRecordWithOptions(request: UpdateDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25588,11 +27189,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDomainRecordResponse>(await this.callApi(params, req, runtime), new UpdateDomainRecordResponse({}));
   }
 
+  /**
+   * @summary Modifies a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request UpdateDomainRecordRequest
+   * @return UpdateDomainRecordResponse
+   */
   async updateDomainRecord(request: UpdateDomainRecordRequest): Promise<UpdateDomainRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDomainRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request UpdateDomainRecordRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDomainRecordRemarkResponse
+   */
   async updateDomainRecordRemarkWithOptions(request: UpdateDomainRecordRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRecordRemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25629,11 +27243,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDomainRecordRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDomainRecordRemarkResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+   *
+   * @param request UpdateDomainRecordRemarkRequest
+   * @return UpdateDomainRecordRemarkResponse
+   */
   async updateDomainRecordRemark(request: UpdateDomainRecordRemarkRequest): Promise<UpdateDomainRecordRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDomainRecordRemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a domain name based on the specified parameters.
+   *
+   * @param request UpdateDomainRemarkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDomainRemarkResponse
+   */
   async updateDomainRemarkWithOptions(request: UpdateDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRemarkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25666,11 +27293,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDomainRemarkResponse>(await this.callApi(params, req, runtime), new UpdateDomainRemarkResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a domain name based on the specified parameters.
+   *
+   * @param request UpdateDomainRemarkRequest
+   * @return UpdateDomainRemarkResponse
+   */
   async updateDomainRemark(request: UpdateDomainRemarkRequest): Promise<UpdateDomainRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDomainRemarkWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateGtmAccessStrategyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGtmAccessStrategyResponse
+   */
   async updateGtmAccessStrategyWithOptions(request: UpdateGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25715,11 +27353,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGtmAccessStrategyResponse>(await this.callApi(params, req, runtime), new UpdateGtmAccessStrategyResponse({}));
   }
 
+  /**
+   * @param request UpdateGtmAccessStrategyRequest
+   * @return UpdateGtmAccessStrategyResponse
+   */
   async updateGtmAccessStrategy(request: UpdateGtmAccessStrategyRequest): Promise<UpdateGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGtmAccessStrategyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateGtmAddressPoolRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGtmAddressPoolResponse
+   */
   async updateGtmAddressPoolWithOptions(request: UpdateGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmAddressPoolResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25764,11 +27411,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGtmAddressPoolResponse>(await this.callApi(params, req, runtime), new UpdateGtmAddressPoolResponse({}));
   }
 
+  /**
+   * @param request UpdateGtmAddressPoolRequest
+   * @return UpdateGtmAddressPoolResponse
+   */
   async updateGtmAddressPool(request: UpdateGtmAddressPoolRequest): Promise<UpdateGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGtmAddressPoolWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+   *
+   * @param request UpdateGtmInstanceGlobalConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGtmInstanceGlobalConfigResponse
+   */
   async updateGtmInstanceGlobalConfigWithOptions(request: UpdateGtmInstanceGlobalConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmInstanceGlobalConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25825,11 +27483,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGtmInstanceGlobalConfigResponse>(await this.callApi(params, req, runtime), new UpdateGtmInstanceGlobalConfigResponse({}));
   }
 
+  /**
+   * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+   *
+   * @param request UpdateGtmInstanceGlobalConfigRequest
+   * @return UpdateGtmInstanceGlobalConfigResponse
+   */
   async updateGtmInstanceGlobalConfig(request: UpdateGtmInstanceGlobalConfigRequest): Promise<UpdateGtmInstanceGlobalConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGtmInstanceGlobalConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request UpdateGtmMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGtmMonitorResponse
+   */
   async updateGtmMonitorWithOptions(request: UpdateGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25882,11 +27553,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGtmMonitorResponse>(await this.callApi(params, req, runtime), new UpdateGtmMonitorResponse({}));
   }
 
+  /**
+   * @summary Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+   *
+   * @param request UpdateGtmMonitorRequest
+   * @return UpdateGtmMonitorResponse
+   */
   async updateGtmMonitor(request: UpdateGtmMonitorRequest): Promise<UpdateGtmMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGtmMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request UpdateGtmRecoveryPlanRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGtmRecoveryPlanResponse
+   */
   async updateGtmRecoveryPlanWithOptions(request: UpdateGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmRecoveryPlanResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25927,11 +27611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGtmRecoveryPlanResponse>(await this.callApi(params, req, runtime), new UpdateGtmRecoveryPlanResponse({}));
   }
 
+  /**
+   * @summary Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   *
+   * @param request UpdateGtmRecoveryPlanRequest
+   * @return UpdateGtmRecoveryPlanResponse
+   */
   async updateGtmRecoveryPlan(request: UpdateGtmRecoveryPlanRequest): Promise<UpdateGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGtmRecoveryPlanWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改缓存刷新套餐包配置
+   *
+   * @param request UpdateIspFlushCacheInstanceConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIspFlushCacheInstanceConfigResponse
+   */
   async updateIspFlushCacheInstanceConfigWithOptions(request: UpdateIspFlushCacheInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIspFlushCacheInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25964,11 +27661,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateIspFlushCacheInstanceConfigResponse>(await this.callApi(params, req, runtime), new UpdateIspFlushCacheInstanceConfigResponse({}));
   }
 
+  /**
+   * @summary 修改缓存刷新套餐包配置
+   *
+   * @param request UpdateIspFlushCacheInstanceConfigRequest
+   * @return UpdateIspFlushCacheInstanceConfigResponse
+   */
   async updateIspFlushCacheInstanceConfig(request: UpdateIspFlushCacheInstanceConfigRequest): Promise<UpdateIspFlushCacheInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateIspFlushCacheInstanceConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 检查实例主机名是否可添加
+   *
+   * @param request ValidateDnsGtmCnameRrCanUseRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidateDnsGtmCnameRrCanUseResponse
+   */
   async validateDnsGtmCnameRrCanUseWithOptions(request: ValidateDnsGtmCnameRrCanUseRequest, runtime: $Util.RuntimeOptions): Promise<ValidateDnsGtmCnameRrCanUseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26013,11 +27723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateDnsGtmCnameRrCanUseResponse>(await this.callApi(params, req, runtime), new ValidateDnsGtmCnameRrCanUseResponse({}));
   }
 
+  /**
+   * @summary 检查实例主机名是否可添加
+   *
+   * @param request ValidateDnsGtmCnameRrCanUseRequest
+   * @return ValidateDnsGtmCnameRrCanUseResponse
+   */
   async validateDnsGtmCnameRrCanUse(request: ValidateDnsGtmCnameRrCanUseRequest): Promise<ValidateDnsGtmCnameRrCanUseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.validateDnsGtmCnameRrCanUseWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 验证公共DNS Udp Ip地址段
+   *
+   * @param request ValidatePdnsUdpIpSegmentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidatePdnsUdpIpSegmentResponse
+   */
   async validatePdnsUdpIpSegmentWithOptions(request: ValidatePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<ValidatePdnsUdpIpSegmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26046,6 +27769,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidatePdnsUdpIpSegmentResponse>(await this.callApi(params, req, runtime), new ValidatePdnsUdpIpSegmentResponse({}));
   }
 
+  /**
+   * @summary 验证公共DNS Udp Ip地址段
+   *
+   * @param request ValidatePdnsUdpIpSegmentRequest
+   * @return ValidatePdnsUdpIpSegmentResponse
+   */
   async validatePdnsUdpIpSegment(request: ValidatePdnsUdpIpSegmentRequest): Promise<ValidatePdnsUdpIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.validatePdnsUdpIpSegmentWithOptions(request, runtime);
