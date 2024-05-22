@@ -1087,6 +1087,7 @@ export class DescribeAppStreamingOutTemplatesResponse extends $tea.Model {
 
 export class DescribeAppsRequest extends $tea.Model {
   appId?: string;
+  appVersion?: string;
   order?: string;
   ownerId?: number;
   pageNum?: number;
@@ -1095,6 +1096,7 @@ export class DescribeAppsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      appVersion: 'AppVersion',
       order: 'Order',
       ownerId: 'OwnerId',
       pageNum: 'PageNum',
@@ -1106,6 +1108,7 @@ export class DescribeAppsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      appVersion: 'string',
       order: 'string',
       ownerId: 'number',
       pageNum: 'number',
@@ -10055,6 +10058,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AddRecordTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddRecordTemplateResponse
+   */
   async addRecordTemplateWithOptions(request: AddRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddRecordTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10151,11 +10159,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddRecordTemplateResponse>(await this.callApi(params, req, runtime), new AddRecordTemplateResponse({}));
   }
 
+  /**
+   * @param request AddRecordTemplateRequest
+   * @return AddRecordTemplateResponse
+   */
   async addRecordTemplate(request: AddRecordTemplateRequest): Promise<AddRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addRecordTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建应用推流模版
+   *
+   * @param tmpReq CreateAppStreamingOutTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppStreamingOutTemplateResponse
+   */
   async createAppStreamingOutTemplateWithOptions(tmpReq: CreateAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppStreamingOutTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAppStreamingOutTemplateShrinkRequest({ });
@@ -10190,11 +10209,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppStreamingOutTemplateResponse>(await this.callApi(params, req, runtime), new CreateAppStreamingOutTemplateResponse({}));
   }
 
+  /**
+   * @summary 创建应用推流模版
+   *
+   * @param request CreateAppStreamingOutTemplateRequest
+   * @return CreateAppStreamingOutTemplateResponse
+   */
   async createAppStreamingOutTemplate(request: CreateAppStreamingOutTemplateRequest): Promise<CreateAppStreamingOutTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppStreamingOutTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAutoLiveStreamRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAutoLiveStreamRuleResponse
+   */
   async createAutoLiveStreamRuleWithOptions(request: CreateAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10247,11 +10277,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new CreateAutoLiveStreamRuleResponse({}));
   }
 
+  /**
+   * @param request CreateAutoLiveStreamRuleRequest
+   * @return CreateAutoLiveStreamRuleResponse
+   */
   async createAutoLiveStreamRule(request: CreateAutoLiveStreamRuleRequest): Promise<CreateAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAutoLiveStreamRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateEventSubscribeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEventSubscribeResponse
+   */
   async createEventSubscribeWithOptions(request: CreateEventSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<CreateEventSubscribeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10308,11 +10347,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEventSubscribeResponse>(await this.callApi(params, req, runtime), new CreateEventSubscribeResponse({}));
   }
 
+  /**
+   * @param request CreateEventSubscribeRequest
+   * @return CreateEventSubscribeResponse
+   */
   async createEventSubscribe(request: CreateEventSubscribeRequest): Promise<CreateEventSubscribeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEventSubscribeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateMPULayoutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMPULayoutResponse
+   */
   async createMPULayoutWithOptions(request: CreateMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<CreateMPULayoutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10353,11 +10401,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateMPULayoutResponse>(await this.callApi(params, req, runtime), new CreateMPULayoutResponse({}));
   }
 
+  /**
+   * @param request CreateMPULayoutRequest
+   * @return CreateMPULayoutResponse
+   */
   async createMPULayout(request: CreateMPULayoutRequest): Promise<CreateMPULayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMPULayoutWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除应用推流模版
+   *
+   * @param tmpReq DeleteAppStreamingOutTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppStreamingOutTemplateResponse
+   */
   async deleteAppStreamingOutTemplateWithOptions(tmpReq: DeleteAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppStreamingOutTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteAppStreamingOutTemplateShrinkRequest({ });
@@ -10392,11 +10451,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppStreamingOutTemplateResponse>(await this.callApi(params, req, runtime), new DeleteAppStreamingOutTemplateResponse({}));
   }
 
+  /**
+   * @summary 删除应用推流模版
+   *
+   * @param request DeleteAppStreamingOutTemplateRequest
+   * @return DeleteAppStreamingOutTemplateResponse
+   */
   async deleteAppStreamingOutTemplate(request: DeleteAppStreamingOutTemplateRequest): Promise<DeleteAppStreamingOutTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppStreamingOutTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteAutoLiveStreamRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAutoLiveStreamRuleResponse
+   */
   async deleteAutoLiveStreamRuleWithOptions(request: DeleteAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10429,11 +10499,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new DeleteAutoLiveStreamRuleResponse({}));
   }
 
+  /**
+   * @param request DeleteAutoLiveStreamRuleRequest
+   * @return DeleteAutoLiveStreamRuleResponse
+   */
   async deleteAutoLiveStreamRule(request: DeleteAutoLiveStreamRuleRequest): Promise<DeleteAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAutoLiveStreamRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteChannelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteChannelResponse
+   */
   async deleteChannelWithOptions(request: DeleteChannelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChannelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10466,11 +10545,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteChannelResponse>(await this.callApi(params, req, runtime), new DeleteChannelResponse({}));
   }
 
+  /**
+   * @param request DeleteChannelRequest
+   * @return DeleteChannelResponse
+   */
   async deleteChannel(request: DeleteChannelRequest): Promise<DeleteChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteChannelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteEventSubscribeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEventSubscribeResponse
+   */
   async deleteEventSubscribeWithOptions(request: DeleteEventSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventSubscribeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10503,11 +10591,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEventSubscribeResponse>(await this.callApi(params, req, runtime), new DeleteEventSubscribeResponse({}));
   }
 
+  /**
+   * @param request DeleteEventSubscribeRequest
+   * @return DeleteEventSubscribeResponse
+   */
   async deleteEventSubscribe(request: DeleteEventSubscribeRequest): Promise<DeleteEventSubscribeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEventSubscribeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteMPULayoutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMPULayoutResponse
+   */
   async deleteMPULayoutWithOptions(request: DeleteMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMPULayoutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10540,11 +10637,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteMPULayoutResponse>(await this.callApi(params, req, runtime), new DeleteMPULayoutResponse({}));
   }
 
+  /**
+   * @param request DeleteMPULayoutRequest
+   * @return DeleteMPULayoutResponse
+   */
   async deleteMPULayout(request: DeleteMPULayoutRequest): Promise<DeleteMPULayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMPULayoutWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteRecordTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRecordTemplateResponse
+   */
   async deleteRecordTemplateWithOptions(request: DeleteRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRecordTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10577,11 +10683,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRecordTemplateResponse>(await this.callApi(params, req, runtime), new DeleteRecordTemplateResponse({}));
   }
 
+  /**
+   * @param request DeleteRecordTemplateRequest
+   * @return DeleteRecordTemplateResponse
+   */
   async deleteRecordTemplate(request: DeleteRecordTemplateRequest): Promise<DeleteRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRecordTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查看AppKey
+   *
+   * @param request DescribeAppKeyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppKeyResponse
+   */
   async describeAppKeyWithOptions(request: DescribeAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppKeyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10610,11 +10727,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAppKeyResponse>(await this.callApi(params, req, runtime), new DescribeAppKeyResponse({}));
   }
 
+  /**
+   * @summary 查看AppKey
+   *
+   * @param request DescribeAppKeyRequest
+   * @return DescribeAppKeyResponse
+   */
   async describeAppKey(request: DescribeAppKeyRequest): Promise<DescribeAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppKeyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 应用推流模版列表
+   *
+   * @param tmpReq DescribeAppStreamingOutTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppStreamingOutTemplatesResponse
+   */
   async describeAppStreamingOutTemplatesWithOptions(tmpReq: DescribeAppStreamingOutTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppStreamingOutTemplatesResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeAppStreamingOutTemplatesShrinkRequest({ });
@@ -10657,16 +10787,33 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAppStreamingOutTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeAppStreamingOutTemplatesResponse({}));
   }
 
+  /**
+   * @summary 应用推流模版列表
+   *
+   * @param request DescribeAppStreamingOutTemplatesRequest
+   * @return DescribeAppStreamingOutTemplatesResponse
+   */
   async describeAppStreamingOutTemplates(request: DescribeAppStreamingOutTemplatesRequest): Promise<DescribeAppStreamingOutTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppStreamingOutTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary App列表
+   *
+   * @param request DescribeAppsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppsResponse
+   */
   async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appVersion)) {
+      query["AppVersion"] = request.appVersion;
     }
 
     if (!Util.isUnset(request.order)) {
@@ -10706,11 +10853,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAppsResponse>(await this.callApi(params, req, runtime), new DescribeAppsResponse({}));
   }
 
+  /**
+   * @summary App列表
+   *
+   * @param request DescribeAppsRequest
+   * @return DescribeAppsResponse
+   */
   async describeApps(request: DescribeAppsRequest): Promise<DescribeAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeAutoLiveStreamRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAutoLiveStreamRuleResponse
+   */
   async describeAutoLiveStreamRuleWithOptions(request: DescribeAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10739,11 +10897,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new DescribeAutoLiveStreamRuleResponse({}));
   }
 
+  /**
+   * @param request DescribeAutoLiveStreamRuleRequest
+   * @return DescribeAutoLiveStreamRuleResponse
+   */
   async describeAutoLiveStreamRule(request: DescribeAutoLiveStreamRuleRequest): Promise<DescribeAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAutoLiveStreamRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeCall获取单次通信详情。
+   *
+   * @param request DescribeCallRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCallResponse
+   */
   async describeCallWithOptions(request: DescribeCallRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10788,11 +10957,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCallResponse>(await this.callApi(params, req, runtime), new DescribeCallResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeCall获取单次通信详情。
+   *
+   * @param request DescribeCallRequest
+   * @return DescribeCallResponse
+   */
   async describeCall(request: DescribeCallRequest): Promise<DescribeCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCallWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
+   *
+   * @param request DescribeCallListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCallListResponse
+   */
   async describeCallListWithOptions(request: DescribeCallListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCallListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10853,11 +11035,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCallListResponse>(await this.callApi(params, req, runtime), new DescribeCallListResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
+   *
+   * @param request DescribeCallListRequest
+   * @return DescribeCallListResponse
+   */
   async describeCallList(request: DescribeCallListRequest): Promise<DescribeCallListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCallListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary DescribeChannel
+   *
+   * @param request DescribeChannelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelResponse
+   */
   async describeChannelWithOptions(request: DescribeChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10886,11 +11081,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelResponse>(await this.callApi(params, req, runtime), new DescribeChannelResponse({}));
   }
 
+  /**
+   * @summary DescribeChannel
+   *
+   * @param request DescribeChannelRequest
+   * @return DescribeChannelResponse
+   */
   async describeChannel(request: DescribeChannelRequest): Promise<DescribeChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询频道的所有参会者
+   *
+   * @param request DescribeChannelAllUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelAllUsersResponse
+   */
   async describeChannelAllUsersWithOptions(request: DescribeChannelAllUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelAllUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10919,11 +11127,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelAllUsersResponse>(await this.callApi(params, req, runtime), new DescribeChannelAllUsersResponse({}));
   }
 
+  /**
+   * @summary 查询频道的所有参会者
+   *
+   * @param request DescribeChannelAllUsersRequest
+   * @return DescribeChannelAllUsersResponse
+   */
   async describeChannelAllUsers(request: DescribeChannelAllUsersRequest): Promise<DescribeChannelAllUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelAllUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+   *
+   * @param request DescribeChannelAreaDistributionStatDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelAreaDistributionStatDataResponse
+   */
   async describeChannelAreaDistributionStatDataWithOptions(request: DescribeChannelAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelAreaDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10964,11 +11185,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelAreaDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeChannelAreaDistributionStatDataResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+   *
+   * @param request DescribeChannelAreaDistributionStatDataRequest
+   * @return DescribeChannelAreaDistributionStatDataResponse
+   */
   async describeChannelAreaDistributionStatData(request: DescribeChannelAreaDistributionStatDataRequest): Promise<DescribeChannelAreaDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelAreaDistributionStatDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+   *
+   * @param request DescribeChannelDistributionStatDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelDistributionStatDataResponse
+   */
   async describeChannelDistributionStatDataWithOptions(request: DescribeChannelDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11009,11 +11243,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeChannelDistributionStatDataResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+   *
+   * @param request DescribeChannelDistributionStatDataRequest
+   * @return DescribeChannelDistributionStatDataResponse
+   */
   async describeChannelDistributionStatData(request: DescribeChannelDistributionStatDataRequest): Promise<DescribeChannelDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelDistributionStatDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeChannelOverallData查询频道概览数据。
+   *
+   * @param request DescribeChannelOverallDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelOverallDataResponse
+   */
   async describeChannelOverallDataWithOptions(request: DescribeChannelOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelOverallDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11050,11 +11297,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelOverallDataResponse>(await this.callApi(params, req, runtime), new DescribeChannelOverallDataResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeChannelOverallData查询频道概览数据。
+   *
+   * @param request DescribeChannelOverallDataRequest
+   * @return DescribeChannelOverallDataResponse
+   */
   async describeChannelOverallData(request: DescribeChannelOverallDataRequest): Promise<DescribeChannelOverallDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelOverallDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeChannelParticipantsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelParticipantsResponse
+   */
   async describeChannelParticipantsWithOptions(request: DescribeChannelParticipantsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelParticipantsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11099,11 +11357,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelParticipantsResponse>(await this.callApi(params, req, runtime), new DescribeChannelParticipantsResponse({}));
   }
 
+  /**
+   * @param request DescribeChannelParticipantsRequest
+   * @return DescribeChannelParticipantsResponse
+   */
   async describeChannelParticipants(request: DescribeChannelParticipantsRequest): Promise<DescribeChannelParticipantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelParticipantsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+   *
+   * @param request DescribeChannelTopPubUserListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelTopPubUserListResponse
+   */
   async describeChannelTopPubUserListWithOptions(request: DescribeChannelTopPubUserListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelTopPubUserListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11140,11 +11409,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelTopPubUserListResponse>(await this.callApi(params, req, runtime), new DescribeChannelTopPubUserListResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+   *
+   * @param request DescribeChannelTopPubUserListRequest
+   * @return DescribeChannelTopPubUserListResponse
+   */
   async describeChannelTopPubUserList(request: DescribeChannelTopPubUserListRequest): Promise<DescribeChannelTopPubUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelTopPubUserListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary DescribeChannelUser
+   *
+   * @param request DescribeChannelUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelUserResponse
+   */
   async describeChannelUserWithOptions(request: DescribeChannelUserRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11177,11 +11459,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelUserResponse>(await this.callApi(params, req, runtime), new DescribeChannelUserResponse({}));
   }
 
+  /**
+   * @summary DescribeChannelUser
+   *
+   * @param request DescribeChannelUserRequest
+   * @return DescribeChannelUserResponse
+   */
   async describeChannelUser(request: DescribeChannelUserRequest): Promise<DescribeChannelUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+   *
+   * @param request DescribeChannelUserMetricsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelUserMetricsResponse
+   */
   async describeChannelUserMetricsWithOptions(request: DescribeChannelUserMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUserMetricsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11218,11 +11513,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelUserMetricsResponse>(await this.callApi(params, req, runtime), new DescribeChannelUserMetricsResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+   *
+   * @param request DescribeChannelUserMetricsRequest
+   * @return DescribeChannelUserMetricsResponse
+   */
   async describeChannelUserMetrics(request: DescribeChannelUserMetricsRequest): Promise<DescribeChannelUserMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelUserMetricsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeChannelUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeChannelUsersResponse
+   */
   async describeChannelUsersWithOptions(request: DescribeChannelUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11255,11 +11561,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeChannelUsersResponse>(await this.callApi(params, req, runtime), new DescribeChannelUsersResponse({}));
   }
 
+  /**
+   * @param request DescribeChannelUsersRequest
+   * @return DescribeChannelUsersResponse
+   */
   async describeChannelUsers(request: DescribeChannelUsersRequest): Promise<DescribeChannelUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
+   *
+   * @param request DescribeEndPointEventListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEndPointEventListResponse
+   */
   async describeEndPointEventListWithOptions(request: DescribeEndPointEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndPointEventListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11300,11 +11617,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEndPointEventListResponse>(await this.callApi(params, req, runtime), new DescribeEndPointEventListResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
+   *
+   * @param request DescribeEndPointEventListRequest
+   * @return DescribeEndPointEventListResponse
+   */
   async describeEndPointEventList(request: DescribeEndPointEventListRequest): Promise<DescribeEndPointEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEndPointEventListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
+   *
+   * @param request DescribeEndPointMetricDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEndPointMetricDataResponse
+   */
   async describeEndPointMetricDataWithOptions(request: DescribeEndPointMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndPointMetricDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11357,11 +11687,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEndPointMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeEndPointMetricDataResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
+   *
+   * @param request DescribeEndPointMetricDataRequest
+   * @return DescribeEndPointMetricDataResponse
+   */
   async describeEndPointMetricData(request: DescribeEndPointMetricDataRequest): Promise<DescribeEndPointMetricDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEndPointMetricDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取异常诊断影响因素分布
+   *
+   * @param request DescribeFaultDiagnosisFactorDistributionStatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFaultDiagnosisFactorDistributionStatResponse
+   */
   async describeFaultDiagnosisFactorDistributionStatWithOptions(request: DescribeFaultDiagnosisFactorDistributionStatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisFactorDistributionStatResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11394,11 +11737,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFaultDiagnosisFactorDistributionStatResponse>(await this.callApi(params, req, runtime), new DescribeFaultDiagnosisFactorDistributionStatResponse({}));
   }
 
+  /**
+   * @summary 获取异常诊断影响因素分布
+   *
+   * @param request DescribeFaultDiagnosisFactorDistributionStatRequest
+   * @return DescribeFaultDiagnosisFactorDistributionStatResponse
+   */
   async describeFaultDiagnosisFactorDistributionStat(request: DescribeFaultDiagnosisFactorDistributionStatRequest): Promise<DescribeFaultDiagnosisFactorDistributionStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFaultDiagnosisFactorDistributionStatWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取异常诊断总览数据
+   *
+   * @param request DescribeFaultDiagnosisOverallDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFaultDiagnosisOverallDataResponse
+   */
   async describeFaultDiagnosisOverallDataWithOptions(request: DescribeFaultDiagnosisOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisOverallDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11435,11 +11791,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFaultDiagnosisOverallDataResponse>(await this.callApi(params, req, runtime), new DescribeFaultDiagnosisOverallDataResponse({}));
   }
 
+  /**
+   * @summary 获取异常诊断总览数据
+   *
+   * @param request DescribeFaultDiagnosisOverallDataRequest
+   * @return DescribeFaultDiagnosisOverallDataResponse
+   */
   async describeFaultDiagnosisOverallData(request: DescribeFaultDiagnosisOverallDataRequest): Promise<DescribeFaultDiagnosisOverallDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFaultDiagnosisOverallDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取异常诊断用户详情
+   *
+   * @param request DescribeFaultDiagnosisUserDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFaultDiagnosisUserDetailResponse
+   */
   async describeFaultDiagnosisUserDetailWithOptions(request: DescribeFaultDiagnosisUserDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisUserDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11484,11 +11853,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFaultDiagnosisUserDetailResponse>(await this.callApi(params, req, runtime), new DescribeFaultDiagnosisUserDetailResponse({}));
   }
 
+  /**
+   * @summary 获取异常诊断用户详情
+   *
+   * @param request DescribeFaultDiagnosisUserDetailRequest
+   * @return DescribeFaultDiagnosisUserDetailResponse
+   */
   async describeFaultDiagnosisUserDetail(request: DescribeFaultDiagnosisUserDetailRequest): Promise<DescribeFaultDiagnosisUserDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFaultDiagnosisUserDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取异常诊断用户明细列表
+   *
+   * @param request DescribeFaultDiagnosisUserListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFaultDiagnosisUserListResponse
+   */
   async describeFaultDiagnosisUserListWithOptions(request: DescribeFaultDiagnosisUserListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisUserListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11541,11 +11923,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFaultDiagnosisUserListResponse>(await this.callApi(params, req, runtime), new DescribeFaultDiagnosisUserListResponse({}));
   }
 
+  /**
+   * @summary 获取异常诊断用户明细列表
+   *
+   * @param request DescribeFaultDiagnosisUserListRequest
+   * @return DescribeFaultDiagnosisUserListResponse
+   */
   async describeFaultDiagnosisUserList(request: DescribeFaultDiagnosisUserListRequest): Promise<DescribeFaultDiagnosisUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFaultDiagnosisUserListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeMPULayoutInfoListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMPULayoutInfoListResponse
+   */
   async describeMPULayoutInfoListWithOptions(request: DescribeMPULayoutInfoListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMPULayoutInfoListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11590,11 +11983,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMPULayoutInfoListResponse>(await this.callApi(params, req, runtime), new DescribeMPULayoutInfoListResponse({}));
   }
 
+  /**
+   * @param request DescribeMPULayoutInfoListRequest
+   * @return DescribeMPULayoutInfoListResponse
+   */
   async describeMPULayoutInfoList(request: DescribeMPULayoutInfoListRequest): Promise<DescribeMPULayoutInfoListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMPULayoutInfoListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+   *
+   * @param request DescribePubUserListBySubUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePubUserListBySubUserResponse
+   */
   async describePubUserListBySubUserWithOptions(request: DescribePubUserListBySubUserRequest, runtime: $Util.RuntimeOptions): Promise<DescribePubUserListBySubUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11635,11 +12039,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePubUserListBySubUserResponse>(await this.callApi(params, req, runtime), new DescribePubUserListBySubUserResponse({}));
   }
 
+  /**
+   * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+   *
+   * @param request DescribePubUserListBySubUserRequest
+   * @return DescribePubUserListBySubUserResponse
+   */
   async describePubUserListBySubUser(request: DescribePubUserListBySubUserRequest): Promise<DescribePubUserListBySubUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePubUserListBySubUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+   *
+   * @param request DescribeQoeMetricDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeQoeMetricDataResponse
+   */
   async describeQoeMetricDataWithOptions(request: DescribeQoeMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQoeMetricDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11680,11 +12097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeQoeMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeQoeMetricDataResponse({}));
   }
 
+  /**
+   * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+   *
+   * @param request DescribeQoeMetricDataRequest
+   * @return DescribeQoeMetricDataResponse
+   */
   async describeQoeMetricData(request: DescribeQoeMetricDataRequest): Promise<DescribeQoeMetricDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeQoeMetricDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取质量统计区域分布统计数据
+   *
+   * @param request DescribeQualityAreaDistributionStatDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeQualityAreaDistributionStatDataResponse
+   */
   async describeQualityAreaDistributionStatDataWithOptions(request: DescribeQualityAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityAreaDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11721,11 +12151,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeQualityAreaDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeQualityAreaDistributionStatDataResponse({}));
   }
 
+  /**
+   * @summary 获取质量统计区域分布统计数据
+   *
+   * @param request DescribeQualityAreaDistributionStatDataRequest
+   * @return DescribeQualityAreaDistributionStatDataResponse
+   */
   async describeQualityAreaDistributionStatData(request: DescribeQualityAreaDistributionStatDataRequest): Promise<DescribeQualityAreaDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeQualityAreaDistributionStatDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取质量统计分布数据
+   *
+   * @param request DescribeQualityDistributionStatDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeQualityDistributionStatDataResponse
+   */
   async describeQualityDistributionStatDataWithOptions(request: DescribeQualityDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11762,11 +12205,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeQualityDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeQualityDistributionStatDataResponse({}));
   }
 
+  /**
+   * @summary 获取质量统计分布数据
+   *
+   * @param request DescribeQualityDistributionStatDataRequest
+   * @return DescribeQualityDistributionStatDataResponse
+   */
   async describeQualityDistributionStatData(request: DescribeQualityDistributionStatDataRequest): Promise<DescribeQualityDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeQualityDistributionStatDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取质量统计各操作系统下SDK版本分布数据
+   *
+   * @param request DescribeQualityOsSdkVersionDistributionStatDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeQualityOsSdkVersionDistributionStatDataResponse
+   */
   async describeQualityOsSdkVersionDistributionStatDataWithOptions(request: DescribeQualityOsSdkVersionDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityOsSdkVersionDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11799,11 +12255,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeQualityOsSdkVersionDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeQualityOsSdkVersionDistributionStatDataResponse({}));
   }
 
+  /**
+   * @summary 获取质量统计各操作系统下SDK版本分布数据
+   *
+   * @param request DescribeQualityOsSdkVersionDistributionStatDataRequest
+   * @return DescribeQualityOsSdkVersionDistributionStatDataResponse
+   */
   async describeQualityOsSdkVersionDistributionStatData(request: DescribeQualityOsSdkVersionDistributionStatDataRequest): Promise<DescribeQualityOsSdkVersionDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeQualityOsSdkVersionDistributionStatDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取质量统计概览数据
+   *
+   * @param request DescribeQualityOverallDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeQualityOverallDataResponse
+   */
   async describeQualityOverallDataWithOptions(request: DescribeQualityOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityOverallDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11840,11 +12309,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeQualityOverallDataResponse>(await this.callApi(params, req, runtime), new DescribeQualityOverallDataResponse({}));
   }
 
+  /**
+   * @summary 获取质量统计概览数据
+   *
+   * @param request DescribeQualityOverallDataRequest
+   * @return DescribeQualityOverallDataResponse
+   */
   async describeQualityOverallData(request: DescribeQualityOverallDataRequest): Promise<DescribeQualityOverallDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeQualityOverallDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRecordFilesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecordFilesResponse
+   */
   async describeRecordFilesWithOptions(request: DescribeRecordFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11897,11 +12377,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecordFilesResponse>(await this.callApi(params, req, runtime), new DescribeRecordFilesResponse({}));
   }
 
+  /**
+   * @param request DescribeRecordFilesRequest
+   * @return DescribeRecordFilesResponse
+   */
   async describeRecordFiles(request: DescribeRecordFilesRequest): Promise<DescribeRecordFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordFilesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRecordTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecordTemplatesResponse
+   */
   async describeRecordTemplatesWithOptions(request: DescribeRecordTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11942,11 +12431,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecordTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeRecordTemplatesResponse({}));
   }
 
+  /**
+   * @param request DescribeRecordTemplatesRequest
+   * @return DescribeRecordTemplatesResponse
+   */
   async describeRecordTemplates(request: DescribeRecordTemplatesRequest): Promise<DescribeRecordTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRtcChannelListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRtcChannelListResponse
+   */
   async describeRtcChannelListWithOptions(request: DescribeRtcChannelListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcChannelListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12003,11 +12501,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRtcChannelListResponse>(await this.callApi(params, req, runtime), new DescribeRtcChannelListResponse({}));
   }
 
+  /**
+   * @param request DescribeRtcChannelListRequest
+   * @return DescribeRtcChannelListResponse
+   */
   async describeRtcChannelList(request: DescribeRtcChannelListRequest): Promise<DescribeRtcChannelListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRtcChannelListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRtcChannelMetricRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRtcChannelMetricResponse
+   */
   async describeRtcChannelMetricWithOptions(request: DescribeRtcChannelMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcChannelMetricResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12044,11 +12551,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRtcChannelMetricResponse>(await this.callApi(params, req, runtime), new DescribeRtcChannelMetricResponse({}));
   }
 
+  /**
+   * @param request DescribeRtcChannelMetricRequest
+   * @return DescribeRtcChannelMetricResponse
+   */
   async describeRtcChannelMetric(request: DescribeRtcChannelMetricRequest): Promise<DescribeRtcChannelMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRtcChannelMetricWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRtcDurationDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRtcDurationDataResponse
+   */
   async describeRtcDurationDataWithOptions(request: DescribeRtcDurationDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcDurationDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12093,11 +12609,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRtcDurationDataResponse>(await this.callApi(params, req, runtime), new DescribeRtcDurationDataResponse({}));
   }
 
+  /**
+   * @param request DescribeRtcDurationDataRequest
+   * @return DescribeRtcDurationDataResponse
+   */
   async describeRtcDurationData(request: DescribeRtcDurationDataRequest): Promise<DescribeRtcDurationDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRtcDurationDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRtcPeakChannelCntDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRtcPeakChannelCntDataResponse
+   */
   async describeRtcPeakChannelCntDataWithOptions(request: DescribeRtcPeakChannelCntDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcPeakChannelCntDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12142,11 +12667,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRtcPeakChannelCntDataResponse>(await this.callApi(params, req, runtime), new DescribeRtcPeakChannelCntDataResponse({}));
   }
 
+  /**
+   * @param request DescribeRtcPeakChannelCntDataRequest
+   * @return DescribeRtcPeakChannelCntDataResponse
+   */
   async describeRtcPeakChannelCntData(request: DescribeRtcPeakChannelCntDataRequest): Promise<DescribeRtcPeakChannelCntDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRtcPeakChannelCntDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRtcUserCntDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRtcUserCntDataResponse
+   */
   async describeRtcUserCntDataWithOptions(request: DescribeRtcUserCntDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcUserCntDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12191,11 +12725,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRtcUserCntDataResponse>(await this.callApi(params, req, runtime), new DescribeRtcUserCntDataResponse({}));
   }
 
+  /**
+   * @param request DescribeRtcUserCntDataRequest
+   * @return DescribeRtcUserCntDataResponse
+   */
   async describeRtcUserCntData(request: DescribeRtcUserCntDataRequest): Promise<DescribeRtcUserCntDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRtcUserCntDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取用量统计地域分布数据
+   *
+   * @param request DescribeUsageAreaDistributionStatDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUsageAreaDistributionStatDataResponse
+   */
   async describeUsageAreaDistributionStatDataWithOptions(request: DescribeUsageAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageAreaDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12232,11 +12777,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUsageAreaDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeUsageAreaDistributionStatDataResponse({}));
   }
 
+  /**
+   * @summary 获取用量统计地域分布数据
+   *
+   * @param request DescribeUsageAreaDistributionStatDataRequest
+   * @return DescribeUsageAreaDistributionStatDataResponse
+   */
   async describeUsageAreaDistributionStatData(request: DescribeUsageAreaDistributionStatDataRequest): Promise<DescribeUsageAreaDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUsageAreaDistributionStatDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取用量统计分布数据
+   *
+   * @param request DescribeUsageDistributionStatDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUsageDistributionStatDataResponse
+   */
   async describeUsageDistributionStatDataWithOptions(request: DescribeUsageDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12273,11 +12831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUsageDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeUsageDistributionStatDataResponse({}));
   }
 
+  /**
+   * @summary 获取用量统计分布数据
+   *
+   * @param request DescribeUsageDistributionStatDataRequest
+   * @return DescribeUsageDistributionStatDataResponse
+   */
   async describeUsageDistributionStatData(request: DescribeUsageDistributionStatDataRequest): Promise<DescribeUsageDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUsageDistributionStatDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取用量统计各操作系统下SDK版本分布数据
+   *
+   * @param request DescribeUsageOsSdkVersionDistributionStatDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
+   */
   async describeUsageOsSdkVersionDistributionStatDataWithOptions(request: DescribeUsageOsSdkVersionDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageOsSdkVersionDistributionStatDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12310,11 +12881,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUsageOsSdkVersionDistributionStatDataResponse>(await this.callApi(params, req, runtime), new DescribeUsageOsSdkVersionDistributionStatDataResponse({}));
   }
 
+  /**
+   * @summary 获取用量统计各操作系统下SDK版本分布数据
+   *
+   * @param request DescribeUsageOsSdkVersionDistributionStatDataRequest
+   * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
+   */
   async describeUsageOsSdkVersionDistributionStatData(request: DescribeUsageOsSdkVersionDistributionStatDataRequest): Promise<DescribeUsageOsSdkVersionDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUsageOsSdkVersionDistributionStatDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取用量统计概览数据
+   *
+   * @param request DescribeUsageOverallDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUsageOverallDataResponse
+   */
   async describeUsageOverallDataWithOptions(request: DescribeUsageOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageOverallDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12351,11 +12935,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUsageOverallDataResponse>(await this.callApi(params, req, runtime), new DescribeUsageOverallDataResponse({}));
   }
 
+  /**
+   * @summary 获取用量统计概览数据
+   *
+   * @param request DescribeUsageOverallDataRequest
+   * @return DescribeUsageOverallDataResponse
+   */
   async describeUsageOverallData(request: DescribeUsageOverallDataRequest): Promise<DescribeUsageOverallDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUsageOverallDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeUserInfoInChannelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserInfoInChannelResponse
+   */
   async describeUserInfoInChannelWithOptions(request: DescribeUserInfoInChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserInfoInChannelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12392,11 +12987,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserInfoInChannelResponse>(await this.callApi(params, req, runtime), new DescribeUserInfoInChannelResponse({}));
   }
 
+  /**
+   * @param request DescribeUserInfoInChannelRequest
+   * @return DescribeUserInfoInChannelResponse
+   */
   async describeUserInfoInChannel(request: DescribeUserInfoInChannelRequest): Promise<DescribeUserInfoInChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserInfoInChannelWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DisableAutoLiveStreamRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableAutoLiveStreamRuleResponse
+   */
   async disableAutoLiveStreamRuleWithOptions(request: DisableAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DisableAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12429,11 +13033,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new DisableAutoLiveStreamRuleResponse({}));
   }
 
+  /**
+   * @param request DisableAutoLiveStreamRuleRequest
+   * @return DisableAutoLiveStreamRuleResponse
+   */
   async disableAutoLiveStreamRule(request: DisableAutoLiveStreamRuleRequest): Promise<DisableAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableAutoLiveStreamRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EnableAutoLiveStreamRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableAutoLiveStreamRuleResponse
+   */
   async enableAutoLiveStreamRuleWithOptions(request: EnableAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12466,11 +13079,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new EnableAutoLiveStreamRuleResponse({}));
   }
 
+  /**
+   * @param request EnableAutoLiveStreamRuleRequest
+   * @return EnableAutoLiveStreamRuleResponse
+   */
   async enableAutoLiveStreamRule(request: EnableAutoLiveStreamRuleRequest): Promise<EnableAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableAutoLiveStreamRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetMPUTaskStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMPUTaskStatusResponse
+   */
   async getMPUTaskStatusWithOptions(request: GetMPUTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetMPUTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12503,11 +13125,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMPUTaskStatusResponse>(await this.callApi(params, req, runtime), new GetMPUTaskStatusResponse({}));
   }
 
+  /**
+   * @param request GetMPUTaskStatusRequest
+   * @return GetMPUTaskStatusResponse
+   */
   async getMPUTaskStatus(request: GetMPUTaskStatusRequest): Promise<GetMPUTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMPUTaskStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改App信息
+   *
+   * @param request ModifyAppRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAppResponse
+   */
   async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12540,11 +13173,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAppResponse>(await this.callApi(params, req, runtime), new ModifyAppResponse({}));
   }
 
+  /**
+   * @summary 修改App信息
+   *
+   * @param request ModifyAppRequest
+   * @return ModifyAppResponse
+   */
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新应用推流模版
+   *
+   * @param tmpReq ModifyAppStreamingOutTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAppStreamingOutTemplateResponse
+   */
   async modifyAppStreamingOutTemplateWithOptions(tmpReq: ModifyAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppStreamingOutTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyAppStreamingOutTemplateShrinkRequest({ });
@@ -12579,11 +13225,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAppStreamingOutTemplateResponse>(await this.callApi(params, req, runtime), new ModifyAppStreamingOutTemplateResponse({}));
   }
 
+  /**
+   * @summary 更新应用推流模版
+   *
+   * @param request ModifyAppStreamingOutTemplateRequest
+   * @return ModifyAppStreamingOutTemplateResponse
+   */
   async modifyAppStreamingOutTemplate(request: ModifyAppStreamingOutTemplateRequest): Promise<ModifyAppStreamingOutTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppStreamingOutTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyMPULayoutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyMPULayoutResponse
+   */
   async modifyMPULayoutWithOptions(request: ModifyMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMPULayoutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12628,11 +13285,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyMPULayoutResponse>(await this.callApi(params, req, runtime), new ModifyMPULayoutResponse({}));
   }
 
+  /**
+   * @param request ModifyMPULayoutRequest
+   * @return ModifyMPULayoutResponse
+   */
   async modifyMPULayout(request: ModifyMPULayoutRequest): Promise<ModifyMPULayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyMPULayoutWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RemoveTerminalsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveTerminalsResponse
+   */
   async removeTerminalsWithOptions(request: RemoveTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTerminalsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12669,11 +13335,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveTerminalsResponse>(await this.callApi(params, req, runtime), new RemoveTerminalsResponse({}));
   }
 
+  /**
+   * @param request RemoveTerminalsRequest
+   * @return RemoveTerminalsResponse
+   */
   async removeTerminals(request: RemoveTerminalsRequest): Promise<RemoveTerminalsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeTerminalsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary RemoveUsers
+   *
+   * @param request RemoveUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveUsersResponse
+   */
   async removeUsersWithOptions(request: RemoveUsersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12706,11 +13383,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveUsersResponse>(await this.callApi(params, req, runtime), new RemoveUsersResponse({}));
   }
 
+  /**
+   * @summary RemoveUsers
+   *
+   * @param request RemoveUsersRequest
+   * @return RemoveUsersResponse
+   */
   async removeUsers(request: RemoveUsersRequest): Promise<RemoveUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary StartCloudRecord
+   *
+   * @param request StartCloudRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartCloudRecordResponse
+   */
   async startCloudRecordWithOptions(request: StartCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<StartCloudRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12755,11 +13445,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartCloudRecordResponse>(await this.callApi(params, req, runtime), new StartCloudRecordResponse({}));
   }
 
+  /**
+   * @summary StartCloudRecord
+   *
+   * @param request StartCloudRecordRequest
+   * @return StartCloudRecordResponse
+   */
   async startCloudRecord(request: StartCloudRecordRequest): Promise<StartCloudRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startCloudRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StartMPUTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartMPUTaskResponse
+   */
   async startMPUTaskWithOptions(request: StartMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartMPUTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12907,11 +13608,20 @@ export default class Client extends OpenApi {
     return $tea.cast<StartMPUTaskResponse>(await this.callApi(params, req, runtime), new StartMPUTaskResponse({}));
   }
 
+  /**
+   * @param request StartMPUTaskRequest
+   * @return StartMPUTaskResponse
+   */
   async startMPUTask(request: StartMPUTaskRequest): Promise<StartMPUTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startMPUTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StartRecordTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartRecordTaskResponse
+   */
   async startRecordTaskWithOptions(request: StartRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartRecordTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13012,11 +13722,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartRecordTaskResponse>(await this.callApi(params, req, runtime), new StartRecordTaskResponse({}));
   }
 
+  /**
+   * @param request StartRecordTaskRequest
+   * @return StartRecordTaskResponse
+   */
   async startRecordTask(request: StartRecordTaskRequest): Promise<StartRecordTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startRecordTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary StartStreamingOut
+   *
+   * @param request StartStreamingOutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartStreamingOutResponse
+   */
   async startStreamingOutWithOptions(request: StartStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<StartStreamingOutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13061,11 +13782,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartStreamingOutResponse>(await this.callApi(params, req, runtime), new StartStreamingOutResponse({}));
   }
 
+  /**
+   * @summary StartStreamingOut
+   *
+   * @param request StartStreamingOutRequest
+   * @return StartStreamingOutResponse
+   */
   async startStreamingOut(request: StartStreamingOutRequest): Promise<StartStreamingOutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startStreamingOutWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除频道
+   *
+   * @param request StopChannelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopChannelResponse
+   */
   async stopChannelWithOptions(request: StopChannelRequest, runtime: $Util.RuntimeOptions): Promise<StopChannelResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13094,11 +13828,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopChannelResponse>(await this.callApi(params, req, runtime), new StopChannelResponse({}));
   }
 
+  /**
+   * @summary 删除频道
+   *
+   * @param request StopChannelRequest
+   * @return StopChannelResponse
+   */
   async stopChannel(request: StopChannelRequest): Promise<StopChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopChannelWithOptions(request, runtime);
   }
 
+  /**
+   * @summary StopCloudRecord
+   *
+   * @param request StopCloudRecordRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopCloudRecordResponse
+   */
   async stopCloudRecordWithOptions(request: StopCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<StopCloudRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13131,11 +13878,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StopCloudRecordResponse>(await this.callApi(params, req, runtime), new StopCloudRecordResponse({}));
   }
 
+  /**
+   * @summary StopCloudRecord
+   *
+   * @param request StopCloudRecordRequest
+   * @return StopCloudRecordResponse
+   */
   async stopCloudRecord(request: StopCloudRecordRequest): Promise<StopCloudRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopCloudRecordWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StopMPUTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopMPUTaskResponse
+   */
   async stopMPUTaskWithOptions(request: StopMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopMPUTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13168,11 +13926,20 @@ export default class Client extends OpenApi {
     return $tea.cast<StopMPUTaskResponse>(await this.callApi(params, req, runtime), new StopMPUTaskResponse({}));
   }
 
+  /**
+   * @param request StopMPUTaskRequest
+   * @return StopMPUTaskResponse
+   */
   async stopMPUTask(request: StopMPUTaskRequest): Promise<StopMPUTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopMPUTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request StopRecordTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopRecordTaskResponse
+   */
   async stopRecordTaskWithOptions(request: StopRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopRecordTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13205,11 +13972,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StopRecordTaskResponse>(await this.callApi(params, req, runtime), new StopRecordTaskResponse({}));
   }
 
+  /**
+   * @param request StopRecordTaskRequest
+   * @return StopRecordTaskResponse
+   */
   async stopRecordTask(request: StopRecordTaskRequest): Promise<StopRecordTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopRecordTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary StopStreamingOut
+   *
+   * @param request StopStreamingOutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopStreamingOutResponse
+   */
   async stopStreamingOutWithOptions(request: StopStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<StopStreamingOutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13242,11 +14020,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StopStreamingOutResponse>(await this.callApi(params, req, runtime), new StopStreamingOutResponse({}));
   }
 
+  /**
+   * @summary StopStreamingOut
+   *
+   * @param request StopStreamingOutRequest
+   * @return StopStreamingOutResponse
+   */
   async stopStreamingOut(request: StopStreamingOutRequest): Promise<StopStreamingOutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopStreamingOutWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAutoLiveStreamRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAutoLiveStreamRuleResponse
+   */
   async updateAutoLiveStreamRuleWithOptions(request: UpdateAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13303,11 +14092,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new UpdateAutoLiveStreamRuleResponse({}));
   }
 
+  /**
+   * @param request UpdateAutoLiveStreamRuleRequest
+   * @return UpdateAutoLiveStreamRuleResponse
+   */
   async updateAutoLiveStreamRule(request: UpdateAutoLiveStreamRuleRequest): Promise<UpdateAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAutoLiveStreamRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateMPUTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateMPUTaskResponse
+   */
   async updateMPUTaskWithOptions(request: UpdateMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMPUTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13412,11 +14210,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateMPUTaskResponse>(await this.callApi(params, req, runtime), new UpdateMPUTaskResponse({}));
   }
 
+  /**
+   * @param request UpdateMPUTaskRequest
+   * @return UpdateMPUTaskResponse
+   */
   async updateMPUTask(request: UpdateMPUTaskRequest): Promise<UpdateMPUTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMPUTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateRecordTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRecordTaskResponse
+   */
   async updateRecordTaskWithOptions(request: UpdateRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecordTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13505,11 +14312,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRecordTaskResponse>(await this.callApi(params, req, runtime), new UpdateRecordTaskResponse({}));
   }
 
+  /**
+   * @param request UpdateRecordTaskRequest
+   * @return UpdateRecordTaskResponse
+   */
   async updateRecordTask(request: UpdateRecordTaskRequest): Promise<UpdateRecordTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRecordTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateRecordTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRecordTemplateResponse
+   */
   async updateRecordTemplateWithOptions(request: UpdateRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecordTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13610,6 +14426,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRecordTemplateResponse>(await this.callApi(params, req, runtime), new UpdateRecordTemplateResponse({}));
   }
 
+  /**
+   * @param request UpdateRecordTemplateRequest
+   * @return UpdateRecordTemplateResponse
+   */
   async updateRecordTemplate(request: UpdateRecordTemplateRequest): Promise<UpdateRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRecordTemplateWithOptions(request, runtime);
