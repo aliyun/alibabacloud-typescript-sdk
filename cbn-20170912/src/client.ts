@@ -16163,13 +16163,16 @@ export class DescribeFlowlogsResponseBodyFlowLogsFlowLog extends $tea.Model {
   description?: string;
   flowLogId?: string;
   flowLogName?: string;
+  flowLogVersion?: string;
   interval?: number;
+  logFormatString?: string;
   logStoreName?: string;
   projectName?: string;
   regionId?: string;
   status?: string;
   tags?: DescribeFlowlogsResponseBodyFlowLogsFlowLogTags;
   transitRouterAttachmentId?: string;
+  transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
@@ -16177,13 +16180,16 @@ export class DescribeFlowlogsResponseBodyFlowLogsFlowLog extends $tea.Model {
       description: 'Description',
       flowLogId: 'FlowLogId',
       flowLogName: 'FlowLogName',
+      flowLogVersion: 'FlowLogVersion',
       interval: 'Interval',
+      logFormatString: 'LogFormatString',
       logStoreName: 'LogStoreName',
       projectName: 'ProjectName',
       regionId: 'RegionId',
       status: 'Status',
       tags: 'Tags',
       transitRouterAttachmentId: 'TransitRouterAttachmentId',
+      transitRouterId: 'TransitRouterId',
     };
   }
 
@@ -16194,13 +16200,16 @@ export class DescribeFlowlogsResponseBodyFlowLogsFlowLog extends $tea.Model {
       description: 'string',
       flowLogId: 'string',
       flowLogName: 'string',
+      flowLogVersion: 'string',
       interval: 'number',
+      logFormatString: 'string',
       logStoreName: 'string',
       projectName: 'string',
       regionId: 'string',
       status: 'string',
       tags: DescribeFlowlogsResponseBodyFlowLogsFlowLogTags,
       transitRouterAttachmentId: 'string',
+      transitRouterId: 'string',
     };
   }
 
