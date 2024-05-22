@@ -6818,6 +6818,75 @@ export class DescribeAppAttributesResponse extends $tea.Model {
   }
 }
 
+export class DescribeAppSecuritiesRequest extends $tea.Model {
+  appId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppSecuritiesResponseBody extends $tea.Model {
+  appSecuritys?: DescribeAppSecuritiesResponseBodyAppSecuritys;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appSecuritys: 'AppSecuritys',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appSecuritys: DescribeAppSecuritiesResponseBodyAppSecuritys,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppSecuritiesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppSecuritiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppSecuritiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppSecurityRequest extends $tea.Model {
   appId?: number;
   securityToken?: string;
@@ -20561,6 +20630,56 @@ export class DescribeAppAttributesResponseBodyApps extends $tea.Model {
   }
 }
 
+export class DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity extends $tea.Model {
+  appCode?: string;
+  appKey?: string;
+  appSecret?: string;
+  createdTime?: string;
+  modifiedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCode: 'AppCode',
+      appKey: 'AppKey',
+      appSecret: 'AppSecret',
+      createdTime: 'CreatedTime',
+      modifiedTime: 'ModifiedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCode: 'string',
+      appKey: 'string',
+      appSecret: 'string',
+      createdTime: 'string',
+      modifiedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppSecuritiesResponseBodyAppSecuritys extends $tea.Model {
+  appSecurity?: DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity[];
+  static names(): { [key: string]: string } {
+    return {
+      appSecurity: 'AppSecurity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appSecurity: { 'type': 'array', 'itemType': DescribeAppSecuritiesResponseBodyAppSecuritysAppSecurity },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppSecurityRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -30873,6 +30992,52 @@ export default class Client extends OpenApi {
   async describeAppAttributes(request: DescribeAppAttributesRequest): Promise<DescribeAppAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAppAttributesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询APP的密钥信息
+   *
+   * @param request DescribeAppSecuritiesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAppSecuritiesResponse
+   */
+  async describeAppSecuritiesWithOptions(request: DescribeAppSecuritiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppSecuritiesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppSecurities",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppSecuritiesResponse>(await this.callApi(params, req, runtime), new DescribeAppSecuritiesResponse({}));
+  }
+
+  /**
+   * @summary 查询APP的密钥信息
+   *
+   * @param request DescribeAppSecuritiesRequest
+   * @return DescribeAppSecuritiesResponse
+   */
+  async describeAppSecurities(request: DescribeAppSecuritiesRequest): Promise<DescribeAppSecuritiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppSecuritiesWithOptions(request, runtime);
   }
 
   /**
