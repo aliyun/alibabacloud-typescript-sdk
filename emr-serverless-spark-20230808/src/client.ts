@@ -601,6 +601,75 @@ export class TimeRange extends $tea.Model {
   }
 }
 
+export class AddMembersRequest extends $tea.Model {
+  memberArns?: string[];
+  workspaceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberArns: 'memberArns',
+      workspaceId: 'workspaceId',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberArns: { 'type': 'array', 'itemType': 'string' },
+      workspaceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMembersResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMembersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelJobRunRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -725,6 +794,75 @@ export class GetJobRunResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetJobRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantRoleToUsersRequest extends $tea.Model {
+  roleArn?: string;
+  userArns?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleArn: 'roleArn',
+      userArns: 'userArns',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleArn: 'string',
+      userArns: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantRoleToUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantRoleToUsersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GrantRoleToUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GrantRoleToUsersResponseBody,
     };
   }
 
@@ -2137,6 +2275,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 添加用户
+   *
+   * @param request AddMembersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddMembersResponse
+   */
+  async addMembersWithOptions(request: AddMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddMembersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.memberArns)) {
+      body["memberArns"] = request.memberArns;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddMembers",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/auth/members`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddMembersResponse>(await this.callApi(params, req, runtime), new AddMembersResponse({}));
+  }
+
+  /**
+   * @summary 添加用户
+   *
+   * @param request AddMembersRequest
+   * @return AddMembersResponse
+   */
+  async addMembers(request: AddMembersRequest): Promise<AddMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addMembersWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @summary 取消jobRun作业
    *
    * @param request CancelJobRunRequest
@@ -2224,6 +2417,61 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 给用户授权Role列表
+   *
+   * @param request GrantRoleToUsersRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantRoleToUsersResponse
+   */
+  async grantRoleToUsersWithOptions(request: GrantRoleToUsersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GrantRoleToUsersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.roleArn)) {
+      body["roleArn"] = request.roleArn;
+    }
+
+    if (!Util.isUnset(request.userArns)) {
+      body["userArns"] = request.userArns;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GrantRoleToUsers",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/auth/roles/grant`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantRoleToUsersResponse>(await this.callApi(params, req, runtime), new GrantRoleToUsersResponse({}));
+  }
+
+  /**
+   * @summary 给用户授权Role列表
+   *
+   * @param request GrantRoleToUsersRequest
+   * @return GrantRoleToUsersResponse
+   */
+  async grantRoleToUsers(request: GrantRoleToUsersRequest): Promise<GrantRoleToUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.grantRoleToUsersWithOptions(request, headers, runtime);
   }
 
   /**
