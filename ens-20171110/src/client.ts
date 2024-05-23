@@ -3679,6 +3679,81 @@ export class CreateNetworkAclEntryResponse extends $tea.Model {
   }
 }
 
+export class CreateSDGRequest extends $tea.Model {
+  description?: string;
+  fromSDGId?: string;
+  instanceId?: string;
+  size?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fromSDGId: 'FromSDGId',
+      instanceId: 'InstanceId',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fromSDGId: 'string',
+      instanceId: 'string',
+      size: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSDGResponseBody extends $tea.Model {
+  requestId?: string;
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSDGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSecurityGroupRequest extends $tea.Model {
   description?: string;
   securityGroupName?: string;
@@ -5352,6 +5427,88 @@ export class DeleteObjectResponse extends $tea.Model {
   }
 }
 
+export class DeleteSDGRequest extends $tea.Model {
+  SDGId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SDGId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSDGShrinkRequest extends $tea.Model {
+  SDGIdShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      SDGIdShrink: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SDGIdShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSDGResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSDGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSecurityGroupRequest extends $tea.Model {
   securityGroupId?: string;
   static names(): { [key: string]: string } {
@@ -6037,12 +6194,14 @@ export class DescribeApplicationRequest extends $tea.Model {
   appVersions?: string;
   level?: string;
   outDetailStatParams?: string;
+  resourceSelector?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appVersions: 'AppVersions',
       level: 'Level',
       outDetailStatParams: 'OutDetailStatParams',
+      resourceSelector: 'ResourceSelector',
     };
   }
 
@@ -6052,6 +6211,7 @@ export class DescribeApplicationRequest extends $tea.Model {
       appVersions: 'string',
       level: 'string',
       outDetailStatParams: 'string',
+      resourceSelector: 'string',
     };
   }
 
@@ -11972,6 +12132,97 @@ export class DescribeSDGDeploymentStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeSDGsRequest extends $tea.Model {
+  instanceIds?: string[];
+  SDGIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      SDGIds: 'SDGIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      SDGIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGsShrinkRequest extends $tea.Model {
+  instanceIdsShrink?: string;
+  SDGIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+      SDGIdsShrink: 'SDGIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+      SDGIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGsResponseBody extends $tea.Model {
+  requestId?: string;
+  SDGs?: DescribeSDGsResponseBodySDGs[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      SDGs: 'SDGs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      SDGs: { 'type': 'array', 'itemType': DescribeSDGsResponseBodySDGs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSDGsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSDGsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSecurityGroupAttributeRequest extends $tea.Model {
   securityGroupId?: string;
   static names(): { [key: string]: string } {
@@ -12756,171 +13007,6 @@ export class DescribeVSwitchesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVSwitchesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowRequest extends $tea.Model {
-  aliUid?: string;
-  businessId?: string;
-  endDate?: string;
-  ensRegionId?: string;
-  id?: string;
-  instanceId?: string;
-  pageNum?: string;
-  pageSize?: string;
-  startDate?: string;
-  status?: string;
-  workFlowId?: string;
-  workFlowName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      businessId: 'BusinessId',
-      endDate: 'EndDate',
-      ensRegionId: 'EnsRegionId',
-      id: 'Id',
-      instanceId: 'InstanceId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      startDate: 'StartDate',
-      status: 'Status',
-      workFlowId: 'WorkFlowId',
-      workFlowName: 'WorkFlowName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'string',
-      businessId: 'string',
-      endDate: 'string',
-      ensRegionId: 'string',
-      id: 'string',
-      instanceId: 'string',
-      pageNum: 'string',
-      pageSize: 'string',
-      startDate: 'string',
-      status: 'string',
-      workFlowId: 'string',
-      workFlowName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowResponseBody extends $tea.Model {
-  requestId?: string;
-  workFlowInfo?: DescribeWorkflowResponseBodyWorkFlowInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      workFlowInfo: 'WorkFlowInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      workFlowInfo: { 'type': 'array', 'itemType': DescribeWorkflowResponseBodyWorkFlowInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeWorkflowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeWorkflowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowActivityRequest extends $tea.Model {
-  workFlowId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      workFlowId: 'WorkFlowId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workFlowId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowActivityResponseBody extends $tea.Model {
-  activityInfo?: DescribeWorkflowActivityResponseBodyActivityInfo[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activityInfo: 'ActivityInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityInfo: { 'type': 'array', 'itemType': DescribeWorkflowActivityResponseBodyActivityInfo },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowActivityResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeWorkflowActivityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeWorkflowActivityResponseBody,
     };
   }
 
@@ -16828,6 +16914,88 @@ export class RemovePublicIpsFromEpnInstanceResponse extends $tea.Model {
   }
 }
 
+export class RemoveSDGRequest extends $tea.Model {
+  instanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveSDGShrinkRequest extends $tea.Model {
+  instanceIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveSDGResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveSDGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveVSwitchesFromEpnInstanceRequest extends $tea.Model {
   EPNInstanceId?: string;
   vSwitchesInfo?: string;
@@ -17211,12 +17379,10 @@ export class RescaleDeviceServiceResponse extends $tea.Model {
 
 export class ResetAICInstanceRequest extends $tea.Model {
   instanceId?: string;
-  instanceIds?: string[];
   serverId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      instanceIds: 'InstanceIds',
       serverId: 'ServerId',
     };
   }
@@ -17224,32 +17390,6 @@ export class ResetAICInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      serverId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAICInstanceShrinkRequest extends $tea.Model {
-  instanceId?: string;
-  instanceIdsShrink?: string;
-  serverId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      instanceIdsShrink: 'InstanceIds',
-      serverId: 'ServerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      instanceIdsShrink: 'string',
       serverId: 'string',
     };
   }
@@ -17573,170 +17713,6 @@ export class RestartDeviceInstanceResponse extends $tea.Model {
   }
 }
 
-export class RestartWorkflowRequest extends $tea.Model {
-  workflowIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      workflowIds: 'WorkflowIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workflowIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartWorkflowShrinkRequest extends $tea.Model {
-  workflowIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      workflowIdsShrink: 'WorkflowIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workflowIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartWorkflowResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RestartWorkflowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RestartWorkflowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryWorkflowRequest extends $tea.Model {
-  workflowIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      workflowIds: 'WorkflowIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workflowIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryWorkflowShrinkRequest extends $tea.Model {
-  workflowIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      workflowIdsShrink: 'WorkflowIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workflowIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryWorkflowResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetryWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RetryWorkflowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RetryWorkflowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RevokeSecurityGroupRequest extends $tea.Model {
   ipProtocol?: string;
   policy?: string;
@@ -17971,90 +17947,9 @@ export class RollbackApplicationResponse extends $tea.Model {
   }
 }
 
-export class RollbackWorkflowRequest extends $tea.Model {
-  workflowIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      workflowIds: 'WorkflowIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workflowIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RollbackWorkflowShrinkRequest extends $tea.Model {
-  workflowIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      workflowIdsShrink: 'WorkflowIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workflowIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RollbackWorkflowResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RollbackWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RollbackWorkflowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RollbackWorkflowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RunInstancesRequest extends $tea.Model {
   amount?: number;
+  autoReleaseTime?: string;
   autoRenew?: boolean;
   autoUseCoupon?: string;
   billingCycle?: string;
@@ -18083,6 +17978,7 @@ export class RunInstancesRequest extends $tea.Model {
   schedulingPriceStrategy?: string;
   schedulingStrategy?: string;
   securityId?: string;
+  spotStrategy?: string;
   systemDisk?: RunInstancesRequestSystemDisk;
   tag?: RunInstancesRequestTag[];
   uniqueSuffix?: boolean;
@@ -18091,6 +17987,7 @@ export class RunInstancesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      autoReleaseTime: 'AutoReleaseTime',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
       billingCycle: 'BillingCycle',
@@ -18119,6 +18016,7 @@ export class RunInstancesRequest extends $tea.Model {
       schedulingPriceStrategy: 'SchedulingPriceStrategy',
       schedulingStrategy: 'SchedulingStrategy',
       securityId: 'SecurityId',
+      spotStrategy: 'SpotStrategy',
       systemDisk: 'SystemDisk',
       tag: 'Tag',
       uniqueSuffix: 'UniqueSuffix',
@@ -18130,6 +18028,7 @@ export class RunInstancesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      autoReleaseTime: 'string',
       autoRenew: 'boolean',
       autoUseCoupon: 'string',
       billingCycle: 'string',
@@ -18158,6 +18057,7 @@ export class RunInstancesRequest extends $tea.Model {
       schedulingPriceStrategy: 'string',
       schedulingStrategy: 'string',
       securityId: 'string',
+      spotStrategy: 'string',
       systemDisk: RunInstancesRequestSystemDisk,
       tag: { 'type': 'array', 'itemType': RunInstancesRequestTag },
       uniqueSuffix: 'boolean',
@@ -18173,6 +18073,7 @@ export class RunInstancesRequest extends $tea.Model {
 
 export class RunInstancesShrinkRequest extends $tea.Model {
   amount?: number;
+  autoReleaseTime?: string;
   autoRenew?: boolean;
   autoUseCoupon?: string;
   billingCycle?: string;
@@ -18201,6 +18102,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
   schedulingPriceStrategy?: string;
   schedulingStrategy?: string;
   securityId?: string;
+  spotStrategy?: string;
   systemDiskShrink?: string;
   tag?: RunInstancesShrinkRequestTag[];
   uniqueSuffix?: boolean;
@@ -18209,6 +18111,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      autoReleaseTime: 'AutoReleaseTime',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
       billingCycle: 'BillingCycle',
@@ -18237,6 +18140,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       schedulingPriceStrategy: 'SchedulingPriceStrategy',
       schedulingStrategy: 'SchedulingStrategy',
       securityId: 'SecurityId',
+      spotStrategy: 'SpotStrategy',
       systemDiskShrink: 'SystemDisk',
       tag: 'Tag',
       uniqueSuffix: 'UniqueSuffix',
@@ -18248,6 +18152,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      autoReleaseTime: 'string',
       autoRenew: 'boolean',
       autoUseCoupon: 'string',
       billingCycle: 'string',
@@ -18276,6 +18181,7 @@ export class RunInstancesShrinkRequest extends $tea.Model {
       schedulingPriceStrategy: 'string',
       schedulingStrategy: 'string',
       securityId: 'string',
+      spotStrategy: 'string',
       systemDiskShrink: 'string',
       tag: { 'type': 'array', 'itemType': RunInstancesShrinkRequestTag },
       uniqueSuffix: 'boolean',
@@ -18439,6 +18345,69 @@ export class RunServiceScheduleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunServiceScheduleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSDGRequest extends $tea.Model {
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSDGResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SaveSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SaveSDGResponseBody,
     };
   }
 
@@ -19728,88 +19697,6 @@ export class StopSnatIpForSnatEntryResponse extends $tea.Model {
   }
 }
 
-export class TerminateWorkflowRequest extends $tea.Model {
-  workflowIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      workflowIds: 'WorkflowIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workflowIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TerminateWorkflowShrinkRequest extends $tea.Model {
-  workflowIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      workflowIdsShrink: 'WorkflowIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      workflowIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TerminateWorkflowResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TerminateWorkflowResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TerminateWorkflowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TerminateWorkflowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UnAssociateEnsEipAddressRequest extends $tea.Model {
   allocationId?: string;
   static names(): { [key: string]: string } {
@@ -20220,15 +20107,18 @@ export class UpgradeApplicationRequest extends $tea.Model {
 
 export class UpgradeApplicationResponseBody extends $tea.Model {
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -24452,6 +24342,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceTags extends $tea.Mod
 }
 
 export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
+  autoReleaseTime?: string;
   cpu?: string;
   creationTime?: string;
   dataDisk?: DescribeInstancesResponseBodyInstancesInstanceDataDisk;
@@ -24475,11 +24366,13 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
   publicIpAddresses?: DescribeInstancesResponseBodyInstancesInstancePublicIpAddresses;
   securityGroupIds?: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds;
   specName?: string;
+  spotStrategy?: string;
   status?: string;
   systemDisk?: DescribeInstancesResponseBodyInstancesInstanceSystemDisk;
   tags?: DescribeInstancesResponseBodyInstancesInstanceTags;
   static names(): { [key: string]: string } {
     return {
+      autoReleaseTime: 'AutoReleaseTime',
       cpu: 'Cpu',
       creationTime: 'CreationTime',
       dataDisk: 'DataDisk',
@@ -24503,6 +24396,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       publicIpAddresses: 'PublicIpAddresses',
       securityGroupIds: 'SecurityGroupIds',
       specName: 'SpecName',
+      spotStrategy: 'SpotStrategy',
       status: 'Status',
       systemDisk: 'SystemDisk',
       tags: 'Tags',
@@ -24511,6 +24405,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoReleaseTime: 'string',
       cpu: 'string',
       creationTime: 'string',
       dataDisk: DescribeInstancesResponseBodyInstancesInstanceDataDisk,
@@ -24534,6 +24429,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       publicIpAddresses: DescribeInstancesResponseBodyInstancesInstancePublicIpAddresses,
       securityGroupIds: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds,
       specName: 'string',
+      spotStrategy: 'string',
       status: 'string',
       systemDisk: DescribeInstancesResponseBodyInstancesInstanceSystemDisk,
       tags: DescribeInstancesResponseBodyInstancesInstanceTags,
@@ -27162,6 +27058,111 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $te
   }
 }
 
+export class DescribeSDGsResponseBodySDGsAvaliableRegionIds extends $tea.Model {
+  creationTime?: string;
+  regionId?: string;
+  snapshotId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      regionId: 'RegionId',
+      snapshotId: 'SnapshotId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      regionId: 'string',
+      snapshotId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGsResponseBodySDGsDeployedInstanceIds extends $tea.Model {
+  creationTime?: string;
+  deploymentType?: string;
+  instanceId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      deploymentType: 'DeploymentType',
+      instanceId: 'InstanceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      deploymentType: 'string',
+      instanceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSDGsResponseBodySDGs extends $tea.Model {
+  avaliableRegionIds?: DescribeSDGsResponseBodySDGsAvaliableRegionIds[];
+  creationInstanceId?: string;
+  creationRegionId?: string;
+  creationTime?: string;
+  deployedInstanceIds?: DescribeSDGsResponseBodySDGsDeployedInstanceIds[];
+  description?: string;
+  parentSDGId?: string;
+  SDGId?: string;
+  size?: number;
+  status?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avaliableRegionIds: 'AvaliableRegionIds',
+      creationInstanceId: 'CreationInstanceId',
+      creationRegionId: 'CreationRegionId',
+      creationTime: 'CreationTime',
+      deployedInstanceIds: 'DeployedInstanceIds',
+      description: 'Description',
+      parentSDGId: 'ParentSDGId',
+      SDGId: 'SDGId',
+      size: 'Size',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avaliableRegionIds: { 'type': 'array', 'itemType': DescribeSDGsResponseBodySDGsAvaliableRegionIds },
+      creationInstanceId: 'string',
+      creationRegionId: 'string',
+      creationTime: 'string',
+      deployedInstanceIds: { 'type': 'array', 'itemType': DescribeSDGsResponseBodySDGsDeployedInstanceIds },
+      description: 'string',
+      parentSDGId: 'string',
+      SDGId: 'string',
+      size: 'number',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSecurityGroupAttributeResponseBodyPermissionsPermission extends $tea.Model {
   creationTime?: string;
   description?: string;
@@ -27650,128 +27651,6 @@ export class DescribeVSwitchesResponseBodyVSwitches extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       vSwitch: { 'type': 'array', 'itemType': DescribeVSwitchesResponseBodyVSwitchesVSwitch },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowResponseBodyWorkFlowInfo extends $tea.Model {
-  aliUid?: string;
-  bizType?: string;
-  bussinessId?: string;
-  duration?: string;
-  ensRegionId?: string;
-  gmtCreate?: string;
-  gmtEnd?: string;
-  gmtExpire?: string;
-  gmtModify?: string;
-  gmtStart?: string;
-  id?: string;
-  initAttributes?: string;
-  instanceId?: string;
-  name?: string;
-  priority?: string;
-  status?: string;
-  workerNode?: string;
-  workflowId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      bizType: 'BizType',
-      bussinessId: 'BussinessId',
-      duration: 'Duration',
-      ensRegionId: 'EnsRegionId',
-      gmtCreate: 'GmtCreate',
-      gmtEnd: 'GmtEnd',
-      gmtExpire: 'GmtExpire',
-      gmtModify: 'GmtModify',
-      gmtStart: 'GmtStart',
-      id: 'Id',
-      initAttributes: 'InitAttributes',
-      instanceId: 'InstanceId',
-      name: 'Name',
-      priority: 'Priority',
-      status: 'Status',
-      workerNode: 'WorkerNode',
-      workflowId: 'WorkflowId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'string',
-      bizType: 'string',
-      bussinessId: 'string',
-      duration: 'string',
-      ensRegionId: 'string',
-      gmtCreate: 'string',
-      gmtEnd: 'string',
-      gmtExpire: 'string',
-      gmtModify: 'string',
-      gmtStart: 'string',
-      id: 'string',
-      initAttributes: 'string',
-      instanceId: 'string',
-      name: 'string',
-      priority: 'string',
-      status: 'string',
-      workerNode: 'string',
-      workflowId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkflowActivityResponseBodyActivityInfo extends $tea.Model {
-  activityId?: string;
-  activityName?: string;
-  duration?: string;
-  error?: string;
-  gmtCreate?: string;
-  gmtEnd?: string;
-  gmtStart?: string;
-  input?: string;
-  method?: string;
-  output?: string;
-  state?: string;
-  workerNode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activityId: 'ActivityId',
-      activityName: 'ActivityName',
-      duration: 'Duration',
-      error: 'Error',
-      gmtCreate: 'GmtCreate',
-      gmtEnd: 'GmtEnd',
-      gmtStart: 'GmtStart',
-      input: 'Input',
-      method: 'Method',
-      output: 'Output',
-      state: 'State',
-      workerNode: 'WorkerNode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityId: 'string',
-      activityName: 'string',
-      duration: 'string',
-      error: 'string',
-      gmtCreate: 'string',
-      gmtEnd: 'string',
-      gmtStart: 'string',
-      input: 'string',
-      method: 'string',
-      output: 'string',
-      state: 'string',
-      workerNode: 'string',
     };
   }
 
@@ -28680,6 +28559,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Associates a network access control list (ACL) with a network.
+   *
+   * @param request AccosicateNetworkAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AccosicateNetworkAclResponse
+   */
   async accosicateNetworkAclWithOptions(request: AccosicateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<AccosicateNetworkAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28708,18 +28594,26 @@ export default class Client extends OpenApi {
     return $tea.cast<AccosicateNetworkAclResponse>(await this.callApi(params, req, runtime), new AccosicateNetworkAclResponse({}));
   }
 
+  /**
+   * @summary Associates a network access control list (ACL) with a network.
+   *
+   * @param request AccosicateNetworkAclRequest
+   * @return AccosicateNetworkAclResponse
+   */
   async accosicateNetworkAcl(request: AccosicateNetworkAclRequest): Promise<AccosicateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.accosicateNetworkAclWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param tmpReq AddBackendServersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddBackendServersResponse
+   * @summary Adds backend servers.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param tmpReq AddBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddBackendServersResponse
    */
   async addBackendServersWithOptions(tmpReq: AddBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<AddBackendServersResponse> {
     Util.validateModel(tmpReq);
@@ -28756,17 +28650,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request AddBackendServersRequest
-    * @return AddBackendServersResponse
+   * @summary Adds backend servers.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param request AddBackendServersRequest
+   * @return AddBackendServersResponse
    */
   async addBackendServers(request: AddBackendServersRequest): Promise<AddBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBackendServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures Network Address Translation (NAT) rules for an instance. This operation is an asynchronous API operation. For more information about the configurations, see the API documentation of GetDeviceInternetPort.
+   *
+   * @param request AddDeviceInternetPortRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDeviceInternetPortResponse
+   */
   async addDeviceInternetPortWithOptions(request: AddDeviceInternetPortRequest, runtime: $Util.RuntimeOptions): Promise<AddDeviceInternetPortResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -28787,20 +28690,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDeviceInternetPortResponse>(await this.callApi(params, req, runtime), new AddDeviceInternetPortResponse({}));
   }
 
+  /**
+   * @summary Configures Network Address Translation (NAT) rules for an instance. This operation is an asynchronous API operation. For more information about the configurations, see the API documentation of GetDeviceInternetPort.
+   *
+   * @param request AddDeviceInternetPortRequest
+   * @return AddDeviceInternetPortResponse
+   */
   async addDeviceInternetPort(request: AddDeviceInternetPortRequest): Promise<AddDeviceInternetPortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDeviceInternetPortWithOptions(request, runtime);
   }
 
   /**
-    * # [](#)Usage notes
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    * *   Internal networks and IPv4 addresses are not supported.
-    *
-    * @param request AddNetworkInterfaceToInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddNetworkInterfaceToInstanceResponse
+   * @summary Adds an IPv6 network interface controller (NIC). A public IP address is automatically assigned at the same time.
+   *
+   * @description # [](#)Usage notes
+   * *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   * *   Internal networks and IPv4 addresses are not supported.
+   *
+   * @param request AddNetworkInterfaceToInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddNetworkInterfaceToInstanceResponse
    */
   async addNetworkInterfaceToInstanceWithOptions(request: AddNetworkInterfaceToInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AddNetworkInterfaceToInstanceResponse> {
     Util.validateModel(request);
@@ -28835,19 +28746,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)Usage notes
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    * *   Internal networks and IPv4 addresses are not supported.
-    *
-    * @param request AddNetworkInterfaceToInstanceRequest
-    * @return AddNetworkInterfaceToInstanceResponse
+   * @summary Adds an IPv6 network interface controller (NIC). A public IP address is automatically assigned at the same time.
+   *
+   * @description # [](#)Usage notes
+   * *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   * *   Internal networks and IPv4 addresses are not supported.
+   *
+   * @param request AddNetworkInterfaceToInstanceRequest
+   * @return AddNetworkInterfaceToInstanceResponse
    */
   async addNetworkInterfaceToInstance(request: AddNetworkInterfaceToInstanceRequest): Promise<AddNetworkInterfaceToInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addNetworkInterfaceToInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds an elastic IP address (EIP) to a Source Network Address Translation (SNAT) entry.
+   *
+   * @param request AddSnatIpForSnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddSnatIpForSnatEntryResponse
+   */
   async addSnatIpForSnatEntryWithOptions(request: AddSnatIpForSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddSnatIpForSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28876,11 +28796,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSnatIpForSnatEntryResponse>(await this.callApi(params, req, runtime), new AddSnatIpForSnatEntryResponse({}));
   }
 
+  /**
+   * @summary Adds an elastic IP address (EIP) to a Source Network Address Translation (SNAT) entry.
+   *
+   * @param request AddSnatIpForSnatEntryRequest
+   * @return AddSnatIpForSnatEntryResponse
+   */
   async addSnatIpForSnatEntry(request: AddSnatIpForSnatEntryRequest): Promise<AddSnatIpForSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSnatIpForSnatEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Assigns secondary private IP addresses to an elastic network interface (ENI).
+   *
+   * @param request AssignPrivateIpAddressesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssignPrivateIpAddressesResponse
+   */
   async assignPrivateIpAddressesWithOptions(request: AssignPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<AssignPrivateIpAddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28909,11 +28842,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AssignPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new AssignPrivateIpAddressesResponse({}));
   }
 
+  /**
+   * @summary Assigns secondary private IP addresses to an elastic network interface (ENI).
+   *
+   * @param request AssignPrivateIpAddressesRequest
+   * @return AssignPrivateIpAddressesResponse
+   */
   async assignPrivateIpAddresses(request: AssignPrivateIpAddressesRequest): Promise<AssignPrivateIpAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.assignPrivateIpAddressesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates an elastic IP address (EIP) with a cloud resource that is deployed in the same region.
+   *
+   * @param request AssociateEnsEipAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateEnsEipAddressResponse
+   */
   async associateEnsEipAddressWithOptions(request: AssociateEnsEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEnsEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28950,11 +28896,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateEnsEipAddressResponse>(await this.callApi(params, req, runtime), new AssociateEnsEipAddressResponse({}));
   }
 
+  /**
+   * @summary Associates an elastic IP address (EIP) with a cloud resource that is deployed in the same region.
+   *
+   * @param request AssociateEnsEipAddressRequest
+   * @return AssociateEnsEipAddressResponse
+   */
   async associateEnsEipAddress(request: AssociateEnsEipAddressRequest): Promise<AssociateEnsEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateEnsEipAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Attaches a disk to an Edge Node Service (ENS) instance.
+   *
+   * @param request AttachDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachDiskResponse
+   */
   async attachDiskWithOptions(request: AttachDiskRequest, runtime: $Util.RuntimeOptions): Promise<AttachDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28987,20 +28946,28 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachDiskResponse>(await this.callApi(params, req, runtime), new AttachDiskResponse({}));
   }
 
+  /**
+   * @summary Attaches a disk to an Edge Node Service (ENS) instance.
+   *
+   * @param request AttachDiskRequest
+   * @return AttachDiskResponse
+   */
   async attachDisk(request: AttachDiskRequest): Promise<AttachDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachDiskWithOptions(request, runtime);
   }
 
   /**
-    * # [](#)Usage notes
-    * *   You can call this operation up to 10 times per second per account.
-    * *   After you execute the command, the instance restarts loading.
-    * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
-    *
-    * @param request AttachEnsInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachEnsInstancesResponse
+   * @summary Adds an Edge Node Service (ENS) instance to Container Service for Kubernetes (ACK).
+   *
+   * @description # [](#)Usage notes
+   * *   You can call this operation up to 10 times per second per account.
+   * *   After you execute the command, the instance restarts loading.
+   * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
+   *
+   * @param request AttachEnsInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachEnsInstancesResponse
    */
   async attachEnsInstancesWithOptions(request: AttachEnsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<AttachEnsInstancesResponse> {
     Util.validateModel(request);
@@ -29031,19 +28998,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * # [](#)Usage notes
-    * *   You can call this operation up to 10 times per second per account.
-    * *   After you execute the command, the instance restarts loading.
-    * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
-    *
-    * @param request AttachEnsInstancesRequest
-    * @return AttachEnsInstancesResponse
+   * @summary Adds an Edge Node Service (ENS) instance to Container Service for Kubernetes (ACK).
+   *
+   * @description # [](#)Usage notes
+   * *   You can call this operation up to 10 times per second per account.
+   * *   After you execute the command, the instance restarts loading.
+   * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
+   *
+   * @param request AttachEnsInstancesRequest
+   * @return AttachEnsInstancesResponse
    */
   async attachEnsInstances(request: AttachEnsInstancesRequest): Promise<AttachEnsInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachEnsInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an inbound security group rule. This operation allows or denies the inbound traffic from other devices to instances in the security group.
+   *
+   * @param request AuthorizeSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuthorizeSecurityGroupResponse
+   */
   async authorizeSecurityGroupWithOptions(request: AuthorizeSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeSecurityGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29092,17 +29068,25 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeSecurityGroupResponse>(await this.callApi(params, req, runtime), new AuthorizeSecurityGroupResponse({}));
   }
 
+  /**
+   * @summary Creates an inbound security group rule. This operation allows or denies the inbound traffic from other devices to instances in the security group.
+   *
+   * @param request AuthorizeSecurityGroupRequest
+   * @return AuthorizeSecurityGroupResponse
+   */
   async authorizeSecurityGroup(request: AuthorizeSecurityGroupRequest): Promise<AuthorizeSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeSecurityGroupWithOptions(request, runtime);
   }
 
   /**
-    * In the security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-    *
-    * @param request AuthorizeSecurityGroupEgressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AuthorizeSecurityGroupEgressResponse
+   * @summary Creates an outbound security group rule. This operation allows or denies the outbound traffic from the instances in the security group to other devices.
+   *
+   * @description In the security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
+   *
+   * @param request AuthorizeSecurityGroupEgressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuthorizeSecurityGroupEgressResponse
    */
   async authorizeSecurityGroupEgressWithOptions(request: AuthorizeSecurityGroupEgressRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeSecurityGroupEgressResponse> {
     Util.validateModel(request);
@@ -29153,16 +29137,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In the security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-    *
-    * @param request AuthorizeSecurityGroupEgressRequest
-    * @return AuthorizeSecurityGroupEgressResponse
+   * @summary Creates an outbound security group rule. This operation allows or denies the outbound traffic from the instances in the security group to other devices.
+   *
+   * @description In the security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
+   *
+   * @param request AuthorizeSecurityGroupEgressRequest
+   * @return AuthorizeSecurityGroupEgressResponse
    */
   async authorizeSecurityGroupEgress(request: AuthorizeSecurityGroupEgressRequest): Promise<AuthorizeSecurityGroupEgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeSecurityGroupEgressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 清理分发数据
+   *
+   * @param request CleanDistDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CleanDistDataResponse
+   */
   async cleanDistDataWithOptions(request: CleanDistDataRequest, runtime: $Util.RuntimeOptions): Promise<CleanDistDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29199,11 +29192,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CleanDistDataResponse>(await this.callApi(params, req, runtime), new CleanDistDataResponse({}));
   }
 
+  /**
+   * @summary 清理分发数据
+   *
+   * @param request CleanDistDataRequest
+   * @return CleanDistDataResponse
+   */
   async cleanDistData(request: CleanDistDataRequest): Promise<CleanDistDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cleanDistDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Copies a shared data group (SDG) across nodes.
+   *
+   * @param tmpReq CopySDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopySDGResponse
+   */
   async copySDGWithOptions(tmpReq: CopySDGRequest, runtime: $Util.RuntimeOptions): Promise<CopySDGResponse> {
     Util.validateModel(tmpReq);
     let request = new CopySDGShrinkRequest({ });
@@ -29230,11 +29236,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CopySDGResponse>(await this.callApi(params, req, runtime), new CopySDGResponse({}));
   }
 
+  /**
+   * @summary Copies a shared data group (SDG) across nodes.
+   *
+   * @param request CopySDGRequest
+   * @return CopySDGResponse
+   */
   async copySDG(request: CopySDGRequest): Promise<CopySDGResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copySDGWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Copies a snapshot.
+   *
+   * @param tmpReq CopySnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CopySnapshotResponse
+   */
   async copySnapshotWithOptions(tmpReq: CopySnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CopySnapshotResponse> {
     Util.validateModel(tmpReq);
     let request = new CopySnapshotShrinkRequest({ });
@@ -29277,11 +29296,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CopySnapshotResponse>(await this.callApi(params, req, runtime), new CopySnapshotResponse({}));
   }
 
+  /**
+   * @summary Copies a snapshot.
+   *
+   * @param request CopySnapshotRequest
+   * @return CopySnapshotResponse
+   */
   async copySnapshot(request: CopySnapshotRequest): Promise<CopySnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.copySnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an ARM server.
+   *
+   * @param request CreateARMServerInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateARMServerInstancesResponse
+   */
   async createARMServerInstancesWithOptions(request: CreateARMServerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CreateARMServerInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29362,11 +29394,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateARMServerInstancesResponse>(await this.callApi(params, req, runtime), new CreateARMServerInstancesResponse({}));
   }
 
+  /**
+   * @summary Creates an ARM server.
+   *
+   * @param request CreateARMServerInstancesRequest
+   * @return CreateARMServerInstancesResponse
+   */
   async createARMServerInstances(request: CreateARMServerInstancesRequest): Promise<CreateARMServerInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createARMServerInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an edge application that allows you to manage Edge Node Service (ENS) nodes in containers, bare metal instances, and virtual machines.
+   *
+   * @param request CreateApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApplicationResponse
+   */
   async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29395,11 +29440,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
   }
 
+  /**
+   * @summary Creates an edge application that allows you to manage Edge Node Service (ENS) nodes in containers, bare metal instances, and virtual machines.
+   *
+   * @param request CreateApplicationRequest
+   * @return CreateApplicationResponse
+   */
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a classic network
+   *
+   * @param request CreateClassicNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateClassicNetworkResponse
+   */
   async createClassicNetworkWithOptions(request: CreateClassicNetworkRequest, runtime: $Util.RuntimeOptions): Promise<CreateClassicNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29436,11 +29494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateClassicNetworkResponse>(await this.callApi(params, req, runtime), new CreateClassicNetworkResponse({}));
   }
 
+  /**
+   * @summary Creates a classic network
+   *
+   * @param request CreateClassicNetworkRequest
+   * @return CreateClassicNetworkResponse
+   */
   async createClassicNetwork(request: CreateClassicNetworkRequest): Promise<CreateClassicNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createClassicNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a pay-as-you-go or subscription data disk.
+   *
+   * @param request CreateDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDiskResponse
+   */
   async createDiskWithOptions(request: CreateDiskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29493,18 +29564,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDiskResponse>(await this.callApi(params, req, runtime), new CreateDiskResponse({}));
   }
 
+  /**
+   * @summary Creates a pay-as-you-go or subscription data disk.
+   *
+   * @param request CreateDiskRequest
+   * @return CreateDiskResponse
+   */
   async createDisk(request: CreateDiskRequest): Promise<CreateDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDiskWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 5,000 times per second per account.
-    * *   You can call this operation up to 50 times per second per user.
-    *
-    * @param request CreateEipInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateEipInstanceResponse
+   * @summary Applies for an elastic IP address (EIP).
+   *
+   * @description *   You can call this operation up to 5,000 times per second per account.
+   * *   You can call this operation up to 50 times per second per user.
+   *
+   * @param request CreateEipInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEipInstanceResponse
    */
   async createEipInstanceWithOptions(request: CreateEipInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEipInstanceResponse> {
     Util.validateModel(request);
@@ -29555,17 +29634,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 5,000 times per second per account.
-    * *   You can call this operation up to 50 times per second per user.
-    *
-    * @param request CreateEipInstanceRequest
-    * @return CreateEipInstanceResponse
+   * @summary Applies for an elastic IP address (EIP).
+   *
+   * @description *   You can call this operation up to 5,000 times per second per account.
+   * *   You can call this operation up to 50 times per second per user.
+   *
+   * @param request CreateEipInstanceRequest
+   * @return CreateEipInstanceResponse
    */
   async createEipInstance(request: CreateEipInstanceRequest): Promise<CreateEipInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEipInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a custom route entry.
+   *
+   * @param request CreateEnsRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEnsRouteEntryResponse
+   */
   async createEnsRouteEntryWithOptions(request: CreateEnsRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnsRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29610,11 +29698,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEnsRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateEnsRouteEntryResponse({}));
   }
 
+  /**
+   * @summary Creates a custom route entry.
+   *
+   * @param request CreateEnsRouteEntryRequest
+   * @return CreateEnsRouteEntryResponse
+   */
   async createEnsRouteEntry(request: CreateEnsRouteEntryRequest): Promise<CreateEnsRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnsRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建售卖约束
+   *
+   * @param tmpReq CreateEnsSaleControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEnsSaleControlResponse
+   */
   async createEnsSaleControlWithOptions(tmpReq: CreateEnsSaleControlRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnsSaleControlResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateEnsSaleControlShrinkRequest({ });
@@ -29653,11 +29754,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEnsSaleControlResponse>(await this.callApi(params, req, runtime), new CreateEnsSaleControlResponse({}));
   }
 
+  /**
+   * @summary 创建售卖约束
+   *
+   * @param request CreateEnsSaleControlRequest
+   * @return CreateEnsSaleControlResponse
+   */
   async createEnsSaleControl(request: CreateEnsSaleControlRequest): Promise<CreateEnsSaleControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnsSaleControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an edge service.
+   *
+   * @param request CreateEnsServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEnsServiceResponse
+   */
   async createEnsServiceWithOptions(request: CreateEnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnsServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29686,11 +29800,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEnsServiceResponse>(await this.callApi(params, req, runtime), new CreateEnsServiceResponse({}));
   }
 
+  /**
+   * @summary Creates an edge service.
+   *
+   * @param request CreateEnsServiceRequest
+   * @return CreateEnsServiceResponse
+   */
   async createEnsService(request: CreateEnsServiceRequest): Promise<CreateEnsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEnsServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an edge private network (EPN) instance.
+   *
+   * @param request CreateEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEpnInstanceResponse
+   */
   async createEpnInstanceWithOptions(request: CreateEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29731,11 +29858,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateEpnInstanceResponse>(await this.callApi(params, req, runtime), new CreateEpnInstanceResponse({}));
   }
 
+  /**
+   * @summary Creates an edge private network (EPN) instance.
+   *
+   * @param request CreateEpnInstanceRequest
+   * @return CreateEpnInstanceResponse
+   */
   async createEpnInstance(request: CreateEpnInstanceRequest): Promise<CreateEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createEpnInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a Network Attached Storage (NAS) file system.
+   *
+   * @param tmpReq CreateFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateFileSystemResponse
+   */
   async createFileSystemWithOptions(tmpReq: CreateFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileSystemResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateFileSystemShrinkRequest({ });
@@ -29762,11 +29902,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateFileSystemResponse>(await this.callApi(params, req, runtime), new CreateFileSystemResponse({}));
   }
 
+  /**
+   * @summary Creates a Network Attached Storage (NAS) file system.
+   *
+   * @param request CreateFileSystemRequest
+   * @return CreateFileSystemResponse
+   */
   async createFileSystem(request: CreateFileSystemRequest): Promise<CreateFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createFileSystemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a Destination Network Address Translation (DNAT) entry to a DNAT table.
+   *
+   * @param request CreateForwardEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateForwardEntryResponse
+   */
   async createForwardEntryWithOptions(request: CreateForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29823,11 +29976,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateForwardEntryResponse>(await this.callApi(params, req, runtime), new CreateForwardEntryResponse({}));
   }
 
+  /**
+   * @summary Adds a Destination Network Address Translation (DNAT) entry to a DNAT table.
+   *
+   * @param request CreateForwardEntryRequest
+   * @return CreateForwardEntryResponse
+   */
   async createForwardEntry(request: CreateForwardEntryRequest): Promise<CreateForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an image from an instance.
+   *
+   * @param request CreateImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageResponse
+   */
   async createImageWithOptions(request: CreateImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -29864,19 +30030,27 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageResponse>(await this.callApi(params, req, runtime), new CreateImageResponse({}));
   }
 
+  /**
+   * @summary Creates an image from an instance.
+   *
+   * @param request CreateImageRequest
+   * @return CreateImageResponse
+   */
   async createImage(request: CreateImageRequest): Promise<CreateImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 10 times per second per account.
-    * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
-    * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
-    *
-    * @param request CreateInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateInstanceResponse
+   * @summary Creates an instance.
+   *
+   * @description *   You can call this operation up to 10 times per second per account.
+   * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
+   * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
+   *
+   * @param request CreateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -29991,18 +30165,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 10 times per second per account.
-    * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
-    * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
-    *
-    * @param request CreateInstanceRequest
-    * @return CreateInstanceResponse
+   * @summary Creates an instance.
+   *
+   * @description *   You can call this operation up to 10 times per second per account.
+   * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
+   * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
+   *
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 调用CreateInstanceOpsTask来针对一个实例或实例运维组发起运维任务
+   *
+   * @param tmpReq CreateInstanceActiveOpsTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceActiveOpsTaskResponse
+   */
   async createInstanceActiveOpsTaskWithOptions(tmpReq: CreateInstanceActiveOpsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceActiveOpsTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateInstanceActiveOpsTaskShrinkRequest({ });
@@ -30033,17 +30216,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceActiveOpsTaskResponse>(await this.callApi(params, req, runtime), new CreateInstanceActiveOpsTaskResponse({}));
   }
 
+  /**
+   * @summary 调用CreateInstanceOpsTask来针对一个实例或实例运维组发起运维任务
+   *
+   * @param request CreateInstanceActiveOpsTaskRequest
+   * @return CreateInstanceActiveOpsTaskResponse
+   */
   async createInstanceActiveOpsTask(request: CreateInstanceActiveOpsTaskRequest): Promise<CreateInstanceActiveOpsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceActiveOpsTaskWithOptions(request, runtime);
   }
 
   /**
-    * An SSH key pair consists of a public key and a private key. ENS stores the public key and returns the unencrypted private key that is PEM-encoded in the PKCS#8 format. You must securely lock away the private key.
-    *
-    * @param request CreateKeyPairRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateKeyPairResponse
+   * @summary Creates an SSH key pair.
+   *
+   * @description An SSH key pair consists of a public key and a private key. ENS stores the public key and returns the unencrypted private key that is PEM-encoded in the PKCS#8 format. You must securely lock away the private key.
+   *
+   * @param request CreateKeyPairRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateKeyPairResponse
    */
   async createKeyPairWithOptions(request: CreateKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<CreateKeyPairResponse> {
     Util.validateModel(request);
@@ -30070,10 +30261,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * An SSH key pair consists of a public key and a private key. ENS stores the public key and returns the unencrypted private key that is PEM-encoded in the PKCS#8 format. You must securely lock away the private key.
-    *
-    * @param request CreateKeyPairRequest
-    * @return CreateKeyPairResponse
+   * @summary Creates an SSH key pair.
+   *
+   * @description An SSH key pair consists of a public key and a private key. ENS stores the public key and returns the unencrypted private key that is PEM-encoded in the PKCS#8 format. You must securely lock away the private key.
+   *
+   * @param request CreateKeyPairRequest
+   * @return CreateKeyPairResponse
    */
   async createKeyPair(request: CreateKeyPairRequest): Promise<CreateKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30081,12 +30274,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request CreateLoadBalancerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerResponse
+   * @summary Creates an Edge Load Balancer (ELB) instance.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request CreateLoadBalancerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerResponse
    */
   async createLoadBalancerWithOptions(request: CreateLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerResponse> {
     Util.validateModel(request);
@@ -30133,11 +30328,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request CreateLoadBalancerRequest
-    * @return CreateLoadBalancerResponse
+   * @summary Creates an Edge Load Balancer (ELB) instance.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request CreateLoadBalancerRequest
+   * @return CreateLoadBalancerResponse
    */
   async createLoadBalancer(request: CreateLoadBalancerRequest): Promise<CreateLoadBalancerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30145,12 +30342,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request CreateLoadBalancerHTTPListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerHTTPListenerResponse
+   * @summary Creates an HTTP listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request CreateLoadBalancerHTTPListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerHTTPListenerResponse
    */
   async createLoadBalancerHTTPListenerWithOptions(request: CreateLoadBalancerHTTPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerHTTPListenerResponse> {
     Util.validateModel(request);
@@ -30249,11 +30448,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request CreateLoadBalancerHTTPListenerRequest
-    * @return CreateLoadBalancerHTTPListenerResponse
+   * @summary Creates an HTTP listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request CreateLoadBalancerHTTPListenerRequest
+   * @return CreateLoadBalancerHTTPListenerResponse
    */
   async createLoadBalancerHTTPListener(request: CreateLoadBalancerHTTPListenerRequest): Promise<CreateLoadBalancerHTTPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30261,12 +30462,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request CreateLoadBalancerHTTPSListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerHTTPSListenerResponse
+   * @summary Creates an HTTPS listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request CreateLoadBalancerHTTPSListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerHTTPSListenerResponse
    */
   async createLoadBalancerHTTPSListenerWithOptions(request: CreateLoadBalancerHTTPSListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerHTTPSListenerResponse> {
     Util.validateModel(request);
@@ -30377,11 +30580,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request CreateLoadBalancerHTTPSListenerRequest
-    * @return CreateLoadBalancerHTTPSListenerResponse
+   * @summary Creates an HTTPS listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request CreateLoadBalancerHTTPSListenerRequest
+   * @return CreateLoadBalancerHTTPSListenerResponse
    */
   async createLoadBalancerHTTPSListener(request: CreateLoadBalancerHTTPSListenerRequest): Promise<CreateLoadBalancerHTTPSListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30389,12 +30594,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request CreateLoadBalancerTCPListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerTCPListenerResponse
+   * @summary Creates a Transmission Control Protocol (TCP) listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request CreateLoadBalancerTCPListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerTCPListenerResponse
    */
   async createLoadBalancerTCPListenerWithOptions(request: CreateLoadBalancerTCPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerTCPListenerResponse> {
     Util.validateModel(request);
@@ -30485,11 +30692,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request CreateLoadBalancerTCPListenerRequest
-    * @return CreateLoadBalancerTCPListenerResponse
+   * @summary Creates a Transmission Control Protocol (TCP) listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request CreateLoadBalancerTCPListenerRequest
+   * @return CreateLoadBalancerTCPListenerResponse
    */
   async createLoadBalancerTCPListener(request: CreateLoadBalancerTCPListenerRequest): Promise<CreateLoadBalancerTCPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30497,12 +30706,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request CreateLoadBalancerUDPListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLoadBalancerUDPListenerResponse
+   * @summary Creates a User Datagram Protocol (UDP) listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request CreateLoadBalancerUDPListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLoadBalancerUDPListenerResponse
    */
   async createLoadBalancerUDPListenerWithOptions(request: CreateLoadBalancerUDPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerUDPListenerResponse> {
     Util.validateModel(request);
@@ -30577,11 +30788,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request CreateLoadBalancerUDPListenerRequest
-    * @return CreateLoadBalancerUDPListenerResponse
+   * @summary Creates a User Datagram Protocol (UDP) listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request CreateLoadBalancerUDPListenerRequest
+   * @return CreateLoadBalancerUDPListenerResponse
    */
   async createLoadBalancerUDPListener(request: CreateLoadBalancerUDPListenerRequest): Promise<CreateLoadBalancerUDPListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30589,12 +30802,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Precautions
-    * After you call this operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the Active state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-    *
-    * @param request CreateMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateMountTargetResponse
+   * @summary Creates a mount target.
+   *
+   * @description ## [](#)Precautions
+   * After you call this operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the Active state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+   *
+   * @param request CreateMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateMountTargetResponse
    */
   async createMountTargetWithOptions(request: CreateMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateMountTargetResponse> {
     Util.validateModel(request);
@@ -30633,17 +30848,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## [](#)Precautions
-    * After you call this operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the Active state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-    *
-    * @param request CreateMountTargetRequest
-    * @return CreateMountTargetResponse
+   * @summary Creates a mount target.
+   *
+   * @description ## [](#)Precautions
+   * After you call this operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the Active state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+   *
+   * @param request CreateMountTargetRequest
+   * @return CreateMountTargetResponse
    */
   async createMountTarget(request: CreateMountTargetRequest): Promise<CreateMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMountTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a network address translation (NAT) gateway.
+   *
+   * @param request CreateNatGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNatGatewayResponse
+   */
   async createNatGatewayWithOptions(request: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30684,18 +30908,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNatGatewayResponse>(await this.callApi(params, req, runtime), new CreateNatGatewayResponse({}));
   }
 
+  /**
+   * @summary Creates a network address translation (NAT) gateway.
+   *
+   * @param request CreateNatGatewayRequest
+   * @return CreateNatGatewayResponse
+   */
   async createNatGateway(request: CreateNatGatewayRequest): Promise<CreateNatGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNatGatewayWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request CreateNetworkRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateNetworkResponse
+   * @summary Creates a virtual private cloud (VPC).
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request CreateNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkResponse
    */
   async createNetworkWithOptions(request: CreateNetworkRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkResponse> {
     Util.validateModel(request);
@@ -30734,17 +30966,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request CreateNetworkRequest
-    * @return CreateNetworkResponse
+   * @summary Creates a virtual private cloud (VPC).
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request CreateNetworkRequest
+   * @return CreateNetworkResponse
    */
   async createNetwork(request: CreateNetworkRequest): Promise<CreateNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a network access control list (ACL).
+   *
+   * @param request CreateNetworkAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkAclResponse
+   */
   async createNetworkAclWithOptions(request: CreateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30773,11 +31014,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNetworkAclResponse>(await this.callApi(params, req, runtime), new CreateNetworkAclResponse({}));
   }
 
+  /**
+   * @summary Creates a network access control list (ACL).
+   *
+   * @param request CreateNetworkAclRequest
+   * @return CreateNetworkAclResponse
+   */
   async createNetworkAcl(request: CreateNetworkAclRequest): Promise<CreateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a network access control list (ACL) rule.
+   *
+   * @param request CreateNetworkAclEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateNetworkAclEntryResponse
+   */
   async createNetworkAclEntryWithOptions(request: CreateNetworkAclEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkAclEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30834,11 +31088,68 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateNetworkAclEntryResponse>(await this.callApi(params, req, runtime), new CreateNetworkAclEntryResponse({}));
   }
 
+  /**
+   * @summary Creates a network access control list (ACL) rule.
+   *
+   * @param request CreateNetworkAclEntryRequest
+   * @return CreateNetworkAclEntryResponse
+   */
   async createNetworkAclEntry(request: CreateNetworkAclEntryRequest): Promise<CreateNetworkAclEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNetworkAclEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a shared data group (SDG) by using a specific device.
+   *
+   * @description ## [](#)
+   * After you create an SDG, you must call the [SaveSDG](https://help.aliyun.com/document_detail/608126.html) operation to save the SDG. Otherwise, the SDG is unavailable.
+   *
+   * @param request CreateSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSDGResponse
+   */
+  async createSDGWithOptions(request: CreateSDGRequest, runtime: $Util.RuntimeOptions): Promise<CreateSDGResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSDGResponse>(await this.callApi(params, req, runtime), new CreateSDGResponse({}));
+  }
+
+  /**
+   * @summary Creates a shared data group (SDG) by using a specific device.
+   *
+   * @description ## [](#)
+   * After you create an SDG, you must call the [SaveSDG](https://help.aliyun.com/document_detail/608126.html) operation to save the SDG. Otherwise, the SDG is unavailable.
+   *
+   * @param request CreateSDGRequest
+   * @return CreateSDGResponse
+   */
+  async createSDG(request: CreateSDGRequest): Promise<CreateSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSDGWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Creates a security group.
+   *
+   * @param request CreateSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSecurityGroupResponse
+   */
   async createSecurityGroupWithOptions(request: CreateSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecurityGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30867,11 +31178,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSecurityGroupResponse>(await this.callApi(params, req, runtime), new CreateSecurityGroupResponse({}));
   }
 
+  /**
+   * @summary Creates a security group.
+   *
+   * @param request CreateSecurityGroupRequest
+   * @return CreateSecurityGroupResponse
+   */
   async createSecurityGroup(request: CreateSecurityGroupRequest): Promise<CreateSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a snapshot.
+   *
+   * @param request CreateSnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSnapshotResponse
+   */
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30908,11 +31232,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
   }
 
+  /**
+   * @summary Creates a snapshot.
+   *
+   * @param request CreateSnapshotRequest
+   * @return CreateSnapshotResponse
+   */
   async createSnapshot(request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds a source network address translation (SNAT) entry to a specified SNAT table.
+   *
+   * @param request CreateSnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSnatEntryResponse
+   */
   async createSnatEntryWithOptions(request: CreateSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -30961,11 +31298,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSnatEntryResponse>(await this.callApi(params, req, runtime), new CreateSnatEntryResponse({}));
   }
 
+  /**
+   * @summary Adds a source network address translation (SNAT) entry to a specified SNAT table.
+   *
+   * @param request CreateSnatEntryRequest
+   * @return CreateSnatEntryResponse
+   */
   async createSnatEntry(request: CreateSnatEntryRequest): Promise<CreateSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSnatEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a vSwitch.
+   *
+   * @param request CreateVSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateVSwitchResponse
+   */
   async createVSwitchWithOptions(request: CreateVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<CreateVSwitchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31006,11 +31356,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVSwitchResponse>(await this.callApi(params, req, runtime), new CreateVSwitchResponse({}));
   }
 
+  /**
+   * @summary Creates a vSwitch.
+   *
+   * @param request CreateVSwitchRequest
+   * @return CreateVSwitchResponse
+   */
   async createVSwitch(request: CreateVSwitchRequest): Promise<CreateVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases all containers and resource instances related to a specific application in an asynchronous manner.
+   *
+   * @param request DeleteApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApplicationResponse
+   */
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31039,11 +31402,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
   }
 
+  /**
+   * @summary Releases all containers and resource instances related to a specific application in an asynchronous manner.
+   *
+   * @param request DeleteApplicationRequest
+   * @return DeleteApplicationResponse
+   */
   async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a bucket.
+   *
+   * @description *   Only the Alibaba Cloud Account ID owner of a bucket can delete the bucket from the account.
+   * *   You cannot delete buckets that store objects. You can only delete empty buckets.
+   *
+   * @param request DeleteBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBucketResponse
+   */
   async deleteBucketWithOptions(request: DeleteBucketRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBucketResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31068,11 +31447,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketResponse>(await this.callApi(params, req, runtime), new DeleteBucketResponse({}));
   }
 
+  /**
+   * @summary Deletes a bucket.
+   *
+   * @description *   Only the Alibaba Cloud Account ID owner of a bucket can delete the bucket from the account.
+   * *   You cannot delete buckets that store objects. You can only delete empty buckets.
+   *
+   * @param request DeleteBucketRequest
+   * @return DeleteBucketResponse
+   */
   async deleteBucket(request: DeleteBucketRequest): Promise<DeleteBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes the lifecycle rules for objects in a bucket.
+   *
+   * @param request DeleteBucketLifecycleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBucketLifecycleResponse
+   */
   async deleteBucketLifecycleWithOptions(request: DeleteBucketLifecycleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBucketLifecycleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31101,11 +31496,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketLifecycleResponse>(await this.callApi(params, req, runtime), new DeleteBucketLifecycleResponse({}));
   }
 
+  /**
+   * @summary Deletes the lifecycle rules for objects in a bucket.
+   *
+   * @param request DeleteBucketLifecycleRequest
+   * @return DeleteBucketLifecycleResponse
+   */
   async deleteBucketLifecycle(request: DeleteBucketLifecycleRequest): Promise<DeleteBucketLifecycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBucketLifecycleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes Network Address Translation (NAT) rules for a server or container based on the ID.
+   *
+   * @param request DeleteDeviceInternetPortRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDeviceInternetPortResponse
+   */
   async deleteDeviceInternetPortWithOptions(request: DeleteDeviceInternetPortRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceInternetPortResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -31126,17 +31534,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDeviceInternetPortResponse>(await this.callApi(params, req, runtime), new DeleteDeviceInternetPortResponse({}));
   }
 
+  /**
+   * @summary Deletes Network Address Translation (NAT) rules for a server or container based on the ID.
+   *
+   * @param request DeleteDeviceInternetPortRequest
+   * @return DeleteDeviceInternetPortResponse
+   */
   async deleteDeviceInternetPort(request: DeleteDeviceInternetPortRequest): Promise<DeleteDeviceInternetPortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDeviceInternetPortWithOptions(request, runtime);
   }
 
   /**
-    * When you release a disk, the disk must be in the Available state.
-    *
-    * @param request DeleteDiskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDiskResponse
+   * @summary Deletes a disk.
+   *
+   * @description When you release a disk, the disk must be in the Available state.
+   *
+   * @param request DeleteDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDiskResponse
    */
   async deleteDiskWithOptions(request: DeleteDiskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskResponse> {
     Util.validateModel(request);
@@ -31163,16 +31579,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you release a disk, the disk must be in the Available state.
-    *
-    * @param request DeleteDiskRequest
-    * @return DeleteDiskResponse
+   * @summary Deletes a disk.
+   *
+   * @description When you release a disk, the disk must be in the Available state.
+   *
+   * @param request DeleteDiskRequest
+   * @return DeleteDiskResponse
    */
   async deleteDisk(request: DeleteDiskRequest): Promise<DeleteDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDiskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom route entry.
+   *
+   * @param request DeleteEnsRouteEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEnsRouteEntryResponse
+   */
   async deleteEnsRouteEntryWithOptions(request: DeleteEnsRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnsRouteEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31197,11 +31622,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnsRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteEnsRouteEntryResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom route entry.
+   *
+   * @param request DeleteEnsRouteEntryRequest
+   * @return DeleteEnsRouteEntryResponse
+   */
   async deleteEnsRouteEntry(request: DeleteEnsRouteEntryRequest): Promise<DeleteEnsRouteEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEnsRouteEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除售卖约束的条件约束
+   *
+   * @param tmpReq DeleteEnsSaleConditionControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEnsSaleConditionControlResponse
+   */
   async deleteEnsSaleConditionControlWithOptions(tmpReq: DeleteEnsSaleConditionControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnsSaleConditionControlResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteEnsSaleConditionControlShrinkRequest({ });
@@ -31240,11 +31678,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnsSaleConditionControlResponse>(await this.callApi(params, req, runtime), new DeleteEnsSaleConditionControlResponse({}));
   }
 
+  /**
+   * @summary 删除售卖约束的条件约束
+   *
+   * @param request DeleteEnsSaleConditionControlRequest
+   * @return DeleteEnsSaleConditionControlResponse
+   */
   async deleteEnsSaleConditionControl(request: DeleteEnsSaleConditionControlRequest): Promise<DeleteEnsSaleConditionControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEnsSaleConditionControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除售卖约束基础约束
+   *
+   * @param tmpReq DeleteEnsSaleControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEnsSaleControlResponse
+   */
   async deleteEnsSaleControlWithOptions(tmpReq: DeleteEnsSaleControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnsSaleControlResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteEnsSaleControlShrinkRequest({ });
@@ -31283,17 +31734,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteEnsSaleControlResponse>(await this.callApi(params, req, runtime), new DeleteEnsSaleControlResponse({}));
   }
 
+  /**
+   * @summary 删除售卖约束基础约束
+   *
+   * @param request DeleteEnsSaleControlRequest
+   * @return DeleteEnsSaleControlResponse
+   */
   async deleteEnsSaleControl(request: DeleteEnsSaleControlRequest): Promise<DeleteEnsSaleControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEnsSaleControlWithOptions(request, runtime);
   }
 
   /**
-    * You can delete an EPN instance only when the instance group information is empty.
-    *
-    * @param request DeleteEpnInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteEpnInstanceResponse
+   * @summary Deletes an edge private network (EPN) instance.
+   *
+   * @description You can delete an EPN instance only when the instance group information is empty.
+   *
+   * @param request DeleteEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEpnInstanceResponse
    */
   async deleteEpnInstanceWithOptions(request: DeleteEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEpnInstanceResponse> {
     Util.validateModel(request);
@@ -31320,16 +31779,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can delete an EPN instance only when the instance group information is empty.
-    *
-    * @param request DeleteEpnInstanceRequest
-    * @return DeleteEpnInstanceResponse
+   * @summary Deletes an edge private network (EPN) instance.
+   *
+   * @description You can delete an EPN instance only when the instance group information is empty.
+   *
+   * @param request DeleteEpnInstanceRequest
+   * @return DeleteEpnInstanceResponse
    */
   async deleteEpnInstance(request: DeleteEpnInstanceRequest): Promise<DeleteEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEpnInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Network Attached Storage (NAS) file system.
+   *
+   * @param request DeleteFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFileSystemResponse
+   */
   async deleteFileSystemWithOptions(request: DeleteFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileSystemResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -31350,11 +31818,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFileSystemResponse>(await this.callApi(params, req, runtime), new DeleteFileSystemResponse({}));
   }
 
+  /**
+   * @summary Deletes a Network Attached Storage (NAS) file system.
+   *
+   * @param request DeleteFileSystemRequest
+   * @return DeleteFileSystemResponse
+   */
   async deleteFileSystem(request: DeleteFileSystemRequest): Promise<DeleteFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFileSystemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a Destination Network Address Translation (DNAT) entry from a specified DNAT table.
+   *
+   * @param request DeleteForwardEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteForwardEntryResponse
+   */
   async deleteForwardEntryWithOptions(request: DeleteForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31379,11 +31860,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteForwardEntryResponse>(await this.callApi(params, req, runtime), new DeleteForwardEntryResponse({}));
   }
 
+  /**
+   * @summary Deletes a Destination Network Address Translation (DNAT) entry from a specified DNAT table.
+   *
+   * @param request DeleteForwardEntryRequest
+   * @return DeleteForwardEntryResponse
+   */
   async deleteForwardEntry(request: DeleteForwardEntryRequest): Promise<DeleteForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a custom image.
+   *
+   * @param request DeleteImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteImageResponse
+   */
   async deleteImageWithOptions(request: DeleteImageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31408,18 +31902,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteImageResponse>(await this.callApi(params, req, runtime), new DeleteImageResponse({}));
   }
 
+  /**
+   * @summary Deletes a custom image.
+   *
+   * @param request DeleteImageRequest
+   * @return DeleteImageResponse
+   */
   async deleteImage(request: DeleteImageRequest): Promise<DeleteImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteImageWithOptions(request, runtime);
   }
 
   /**
-    * *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
-    * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
-    *
-    * @param request DeleteKeyPairsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteKeyPairsResponse
+   * @summary Deletes SSH key pairs.
+   *
+   * @description *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
+   * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
+   *
+   * @param request DeleteKeyPairsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteKeyPairsResponse
    */
   async deleteKeyPairsWithOptions(request: DeleteKeyPairsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteKeyPairsResponse> {
     Util.validateModel(request);
@@ -31450,11 +31952,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
-    * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
-    *
-    * @param request DeleteKeyPairsRequest
-    * @return DeleteKeyPairsResponse
+   * @summary Deletes SSH key pairs.
+   *
+   * @description *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
+   * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
+   *
+   * @param request DeleteKeyPairsRequest
+   * @return DeleteKeyPairsResponse
    */
   async deleteKeyPairs(request: DeleteKeyPairsRequest): Promise<DeleteKeyPairsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31462,12 +31966,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DeleteLoadBalancerListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteLoadBalancerListenerResponse
+   * @summary Deletes a listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DeleteLoadBalancerListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLoadBalancerListenerResponse
    */
   async deleteLoadBalancerListenerWithOptions(request: DeleteLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerListenerResponse> {
     Util.validateModel(request);
@@ -31502,11 +32008,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DeleteLoadBalancerListenerRequest
-    * @return DeleteLoadBalancerListenerResponse
+   * @summary Deletes a listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DeleteLoadBalancerListenerRequest
+   * @return DeleteLoadBalancerListenerResponse
    */
   async deleteLoadBalancerListener(request: DeleteLoadBalancerListenerRequest): Promise<DeleteLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31514,11 +32022,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-    *
-    * @param request DeleteMountTargetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteMountTargetResponse
+   * @summary Deletes a mount target.
+   *
+   * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+   *
+   * @param request DeleteMountTargetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteMountTargetResponse
    */
   async deleteMountTargetWithOptions(request: DeleteMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMountTargetResponse> {
     Util.validateModel(request);
@@ -31553,16 +32063,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-    *
-    * @param request DeleteMountTargetRequest
-    * @return DeleteMountTargetResponse
+   * @summary Deletes a mount target.
+   *
+   * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+   *
+   * @param request DeleteMountTargetRequest
+   * @return DeleteMountTargetResponse
    */
   async deleteMountTarget(request: DeleteMountTargetRequest): Promise<DeleteMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteMountTargetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an Internet network address translation (NAT) gateway.
+   *
+   * @param request DeleteNatGatewayRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNatGatewayResponse
+   */
   async deleteNatGatewayWithOptions(request: DeleteNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatGatewayResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31587,11 +32106,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNatGatewayResponse>(await this.callApi(params, req, runtime), new DeleteNatGatewayResponse({}));
   }
 
+  /**
+   * @summary Deletes an Internet network address translation (NAT) gateway.
+   *
+   * @param request DeleteNatGatewayRequest
+   * @return DeleteNatGatewayResponse
+   */
   async deleteNatGateway(request: DeleteNatGatewayRequest): Promise<DeleteNatGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNatGatewayWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a virtual private cloud (VPC).
+   *
+   * @param request DeleteNetworkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkResponse
+   */
   async deleteNetworkWithOptions(request: DeleteNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31616,11 +32148,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkResponse>(await this.callApi(params, req, runtime), new DeleteNetworkResponse({}));
   }
 
+  /**
+   * @summary Deletes a virtual private cloud (VPC).
+   *
+   * @param request DeleteNetworkRequest
+   * @return DeleteNetworkResponse
+   */
   async deleteNetwork(request: DeleteNetworkRequest): Promise<DeleteNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a network access control list (ACL).
+   *
+   * @param request DeleteNetworkAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkAclResponse
+   */
   async deleteNetworkAclWithOptions(request: DeleteNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31645,11 +32190,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkAclResponse>(await this.callApi(params, req, runtime), new DeleteNetworkAclResponse({}));
   }
 
+  /**
+   * @summary Deletes a network access control list (ACL).
+   *
+   * @param request DeleteNetworkAclRequest
+   * @return DeleteNetworkAclResponse
+   */
   async deleteNetworkAcl(request: DeleteNetworkAclRequest): Promise<DeleteNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a network access control list (ACL) rule.
+   *
+   * @param request DeleteNetworkAclEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteNetworkAclEntryResponse
+   */
   async deleteNetworkAclEntryWithOptions(request: DeleteNetworkAclEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkAclEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31674,11 +32232,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteNetworkAclEntryResponse>(await this.callApi(params, req, runtime), new DeleteNetworkAclEntryResponse({}));
   }
 
+  /**
+   * @summary Deletes a network access control list (ACL) rule.
+   *
+   * @param request DeleteNetworkAclEntryRequest
+   * @return DeleteNetworkAclEntryResponse
+   */
   async deleteNetworkAclEntry(request: DeleteNetworkAclEntryRequest): Promise<DeleteNetworkAclEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkAclEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an object.
+   *
+   * @param request DeleteObjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteObjectResponse
+   */
   async deleteObjectWithOptions(request: DeleteObjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteObjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31707,17 +32278,75 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteObjectResponse>(await this.callApi(params, req, runtime), new DeleteObjectResponse({}));
   }
 
+  /**
+   * @summary Deletes an object.
+   *
+   * @param request DeleteObjectRequest
+   * @return DeleteObjectResponse
+   */
   async deleteObject(request: DeleteObjectRequest): Promise<DeleteObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteObjectWithOptions(request, runtime);
   }
 
   /**
-    * Before you delete a security group, make sure that no instances exist in the security group.
-    *
-    * @param request DeleteSecurityGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSecurityGroupResponse
+   * @summary Deletes a shared data group (SDG).
+   *
+   * @description ## [](#)
+   * If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
+   *
+   * @param tmpReq DeleteSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSDGResponse
+   */
+  async deleteSDGWithOptions(tmpReq: DeleteSDGRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.SDGId)) {
+      request.SDGIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.SDGId, "SDGId", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSDGResponse>(await this.callApi(params, req, runtime), new DeleteSDGResponse({}));
+  }
+
+  /**
+   * @summary Deletes a shared data group (SDG).
+   *
+   * @description ## [](#)
+   * If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
+   *
+   * @param request DeleteSDGRequest
+   * @return DeleteSDGResponse
+   */
+  async deleteSDG(request: DeleteSDGRequest): Promise<DeleteSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSDGWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Deletes a security group.
+   *
+   * @description Before you delete a security group, make sure that no instances exist in the security group.
+   *
+   * @param request DeleteSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSecurityGroupResponse
    */
   async deleteSecurityGroupWithOptions(request: DeleteSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecurityGroupResponse> {
     Util.validateModel(request);
@@ -31744,16 +32373,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete a security group, make sure that no instances exist in the security group.
-    *
-    * @param request DeleteSecurityGroupRequest
-    * @return DeleteSecurityGroupResponse
+   * @summary Deletes a security group.
+   *
+   * @description Before you delete a security group, make sure that no instances exist in the security group.
+   *
+   * @param request DeleteSecurityGroupRequest
+   * @return DeleteSecurityGroupResponse
    */
   async deleteSecurityGroup(request: DeleteSecurityGroupRequest): Promise<DeleteSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a snapshot.
+   *
+   * @param request DeleteSnapshotRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSnapshotResponse
+   */
   async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31778,11 +32416,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotResponse({}));
   }
 
+  /**
+   * @summary Deletes a snapshot.
+   *
+   * @param request DeleteSnapshotRequest
+   * @return DeleteSnapshotResponse
+   */
   async deleteSnapshot(request: DeleteSnapshotRequest): Promise<DeleteSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnapshotWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a source network address translation (SNAT) entry from a specified SNAT table.
+   *
+   * @param request DeleteSnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSnatEntryResponse
+   */
   async deleteSnatEntryWithOptions(request: DeleteSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31807,11 +32458,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnatEntryResponse>(await this.callApi(params, req, runtime), new DeleteSnatEntryResponse({}));
   }
 
+  /**
+   * @summary Deletes a source network address translation (SNAT) entry from a specified SNAT table.
+   *
+   * @param request DeleteSnatEntryRequest
+   * @return DeleteSnatEntryResponse
+   */
   async deleteSnatEntry(request: DeleteSnatEntryRequest): Promise<DeleteSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnatEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an elastic IP address (EIP) from a source network address translation (SNAT) entry.
+   *
+   * @param request DeleteSnatIpForSnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSnatIpForSnatEntryResponse
+   */
   async deleteSnatIpForSnatEntryWithOptions(request: DeleteSnatIpForSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnatIpForSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31840,17 +32504,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSnatIpForSnatEntryResponse>(await this.callApi(params, req, runtime), new DeleteSnatIpForSnatEntryResponse({}));
   }
 
+  /**
+   * @summary Deletes an elastic IP address (EIP) from a source network address translation (SNAT) entry.
+   *
+   * @param request DeleteSnatIpForSnatEntryRequest
+   * @return DeleteSnatIpForSnatEntryResponse
+   */
   async deleteSnatIpForSnatEntry(request: DeleteSnatIpForSnatEntryRequest): Promise<DeleteSnatIpForSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSnatIpForSnatEntryWithOptions(request, runtime);
   }
 
   /**
-    * Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
-    *
-    * @param request DeleteVSwitchRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteVSwitchResponse
+   * @summary Deletes a vSwitch.
+   *
+   * @description Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
+   *
+   * @param request DeleteVSwitchRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteVSwitchResponse
    */
   async deleteVSwitchWithOptions(request: DeleteVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchResponse> {
     Util.validateModel(request);
@@ -31877,16 +32549,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
-    *
-    * @param request DeleteVSwitchRequest
-    * @return DeleteVSwitchResponse
+   * @summary Deletes a vSwitch.
+   *
+   * @description Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
+   *
+   * @param request DeleteVSwitchRequest
+   * @return DeleteVSwitchResponse
    */
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteVSwitchWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deploys shared data groups (SDGs).
+   *
+   * @param tmpReq DeploySDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeploySDGResponse
+   */
   async deploySDGWithOptions(tmpReq: DeploySDGRequest, runtime: $Util.RuntimeOptions): Promise<DeploySDGResponse> {
     Util.validateModel(tmpReq);
     let request = new DeploySDGShrinkRequest({ });
@@ -31913,11 +32594,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeploySDGResponse>(await this.callApi(params, req, runtime), new DeploySDGResponse({}));
   }
 
+  /**
+   * @summary Deploys shared data groups (SDGs).
+   *
+   * @param request DeploySDGRequest
+   * @return DeploySDGResponse
+   */
   async deploySDG(request: DeploySDGRequest): Promise<DeploySDGResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deploySDGWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about images of the Android in Container (AIC) instance.
+   *
+   * @param request DescribeAICImagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAICImagesResponse
+   */
   async describeAICImagesWithOptions(request: DescribeAICImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAICImagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -31974,11 +32668,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAICImagesResponse>(await this.callApi(params, req, runtime), new DescribeAICImagesResponse({}));
   }
 
+  /**
+   * @summary Queries information about images of the Android in Container (AIC) instance.
+   *
+   * @param request DescribeAICImagesRequest
+   * @return DescribeAICImagesResponse
+   */
   async describeAICImages(request: DescribeAICImagesRequest): Promise<DescribeAICImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAICImagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about ARM servers and Android in Container (AIC) instances.
+   *
+   * @param tmpReq DescribeARMServerInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeARMServerInstancesResponse
+   */
   async describeARMServerInstancesWithOptions(tmpReq: DescribeARMServerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeARMServerInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeARMServerInstancesShrinkRequest({ });
@@ -32021,11 +32728,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeARMServerInstancesResponse>(await this.callApi(params, req, runtime), new DescribeARMServerInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries information about ARM servers and Android in Container (AIC) instances.
+   *
+   * @param request DescribeARMServerInstancesRequest
+   * @return DescribeARMServerInstancesResponse
+   */
   async describeARMServerInstances(request: DescribeARMServerInstancesRequest): Promise<DescribeARMServerInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeARMServerInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the basic properties, resources, and container status of an application.
+   *
+   * @param request DescribeApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApplicationResponse
+   */
   async describeApplicationWithOptions(request: DescribeApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32045,6 +32765,10 @@ export default class Client extends OpenApi {
       query["OutDetailStatParams"] = request.outDetailStatParams;
     }
 
+    if (!Util.isUnset(request.resourceSelector)) {
+      query["ResourceSelector"] = request.resourceSelector;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -32062,11 +32786,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApplicationResponse>(await this.callApi(params, req, runtime), new DescribeApplicationResponse({}));
   }
 
+  /**
+   * @summary Queries the basic properties, resources, and container status of an application.
+   *
+   * @param request DescribeApplicationRequest
+   * @return DescribeApplicationResponse
+   */
   async describeApplication(request: DescribeApplicationRequest): Promise<DescribeApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the total quota of resources and the resource usage in different region levels. You can perform resource scale-out based on this information.
+   *
+   * @param request DescribeApplicationResourceSummaryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApplicationResourceSummaryResponse
+   */
   async describeApplicationResourceSummaryWithOptions(request: DescribeApplicationResourceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationResourceSummaryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32095,11 +32832,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApplicationResourceSummaryResponse>(await this.callApi(params, req, runtime), new DescribeApplicationResourceSummaryResponse({}));
   }
 
+  /**
+   * @summary Queries the total quota of resources and the resource usage in different region levels. You can perform resource scale-out based on this information.
+   *
+   * @param request DescribeApplicationResourceSummaryRequest
+   * @return DescribeApplicationResourceSummaryResponse
+   */
   async describeApplicationResourceSummary(request: DescribeApplicationResourceSummaryRequest): Promise<DescribeApplicationResourceSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApplicationResourceSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the resources that can be created.
+   *
+   * @param request DescribeAvailableResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResourceWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32116,11 +32866,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
   }
 
+  /**
+   * @summary Queries the resources that can be created.
+   *
+   * @return DescribeAvailableResourceResponse
+   */
   async describeAvailableResource(): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase when you create an instance.
+   *
+   * @param request DescribeAvailableResourceInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAvailableResourceInfoResponse
+   */
   async describeAvailableResourceInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32137,11 +32899,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAvailableResourceInfoResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase when you create an instance.
+   *
+   * @return DescribeAvailableResourceInfoResponse
+   */
   async describeAvailableResourceInfo(): Promise<DescribeAvailableResourceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableResourceInfoWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries available bandwidth metering methods.
+   *
+   * @param request DescribeBandWithdChargeTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBandWithdChargeTypeResponse
+   */
   async describeBandWithdChargeTypeWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeBandWithdChargeTypeResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32158,11 +32932,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBandWithdChargeTypeResponse>(await this.callApi(params, req, runtime), new DescribeBandWithdChargeTypeResponse({}));
   }
 
+  /**
+   * @summary Queries available bandwidth metering methods.
+   *
+   * @return DescribeBandWithdChargeTypeResponse
+   */
   async describeBandWithdChargeType(): Promise<DescribeBandWithdChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBandWithdChargeTypeWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the metering method for the bandwidth.
+   *
+   * @param request DescribeBandwitdhByInternetChargeTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBandwitdhByInternetChargeTypeResponse
+   */
   async describeBandwitdhByInternetChargeTypeWithOptions(request: DescribeBandwitdhByInternetChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandwitdhByInternetChargeTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32199,11 +32985,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBandwitdhByInternetChargeTypeResponse>(await this.callApi(params, req, runtime), new DescribeBandwitdhByInternetChargeTypeResponse({}));
   }
 
+  /**
+   * @summary Queries the metering method for the bandwidth.
+   *
+   * @param request DescribeBandwitdhByInternetChargeTypeRequest
+   * @return DescribeBandwitdhByInternetChargeTypeResponse
+   */
   async describeBandwitdhByInternetChargeType(request: DescribeBandwitdhByInternetChargeTypeRequest): Promise<DescribeBandwitdhByInternetChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBandwitdhByInternetChargeTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the available resources in a region.
+   *
+   * @param request DescribeCloudDiskAvailableResourceInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudDiskAvailableResourceInfoResponse
+   */
   async describeCloudDiskAvailableResourceInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCloudDiskAvailableResourceInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32220,11 +33019,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudDiskAvailableResourceInfoResponse>(await this.callApi(params, req, runtime), new DescribeCloudDiskAvailableResourceInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the available resources in a region.
+   *
+   * @return DescribeCloudDiskAvailableResourceInfoResponse
+   */
   async describeCloudDiskAvailableResourceInfo(): Promise<DescribeCloudDiskAvailableResourceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudDiskAvailableResourceInfoWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase when you create an instance.
+   *
+   * @param request DescribeCloudDiskTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCloudDiskTypesResponse
+   */
   async describeCloudDiskTypesWithOptions(request: DescribeCloudDiskTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudDiskTypesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -32245,11 +33056,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCloudDiskTypesResponse>(await this.callApi(params, req, runtime), new DescribeCloudDiskTypesResponse({}));
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase when you create an instance.
+   *
+   * @param request DescribeCloudDiskTypesRequest
+   * @return DescribeCloudDiskTypesResponse
+   */
   async describeCloudDiskTypes(request: DescribeCloudDiskTypesRequest): Promise<DescribeCloudDiskTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCloudDiskTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the results of creating an instance.
+   *
+   * @param request DescribeCreatePrePaidInstanceResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCreatePrePaidInstanceResultResponse
+   */
   async describeCreatePrePaidInstanceResultWithOptions(request: DescribeCreatePrePaidInstanceResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCreatePrePaidInstanceResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32274,11 +33098,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCreatePrePaidInstanceResultResponse>(await this.callApi(params, req, runtime), new DescribeCreatePrePaidInstanceResultResponse({}));
   }
 
+  /**
+   * @summary Queries the results of creating an instance.
+   *
+   * @param request DescribeCreatePrePaidInstanceResultRequest
+   * @return DescribeCreatePrePaidInstanceResultResponse
+   */
   async describeCreatePrePaidInstanceResult(request: DescribeCreatePrePaidInstanceResultRequest): Promise<DescribeCreatePrePaidInstanceResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCreatePrePaidInstanceResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the distribution status of data files on edge instances of an application.
+   *
+   * @param tmpReq DescribeDataDistResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataDistResultResponse
+   */
   async describeDataDistResultWithOptions(tmpReq: DescribeDataDistResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataDistResultResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeDataDistResultShrinkRequest({ });
@@ -32341,11 +33178,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataDistResultResponse>(await this.callApi(params, req, runtime), new DescribeDataDistResultResponse({}));
   }
 
+  /**
+   * @summary Queries the distribution status of data files on edge instances of an application.
+   *
+   * @param request DescribeDataDistResultRequest
+   * @return DescribeDataDistResultResponse
+   */
   async describeDataDistResult(request: DescribeDataDistResultRequest): Promise<DescribeDataDistResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataDistResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the download URLs of application data on file servers and returns the file servers on which data is pushed.
+   *
+   * @param request DescribeDataDownloadURLRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataDownloadURLResponse
+   */
   async describeDataDownloadURLWithOptions(request: DescribeDataDownloadURLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataDownloadURLResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -32366,11 +33216,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataDownloadURLResponse>(await this.callApi(params, req, runtime), new DescribeDataDownloadURLResponse({}));
   }
 
+  /**
+   * @summary Queries the download URLs of application data on file servers and returns the file servers on which data is pushed.
+   *
+   * @param request DescribeDataDownloadURLRequest
+   * @return DescribeDataDownloadURLResponse
+   */
   async describeDataDownloadURL(request: DescribeDataDownloadURLRequest): Promise<DescribeDataDownloadURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataDownloadURLWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the push status of application data files on Edge Node Service (ENS) nodes.
+   *
+   * @param request DescribeDataPushResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDataPushResultResponse
+   */
   async describeDataPushResultWithOptions(request: DescribeDataPushResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataPushResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32423,11 +33286,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDataPushResultResponse>(await this.callApi(params, req, runtime), new DescribeDataPushResultResponse({}));
   }
 
+  /**
+   * @summary Queries the push status of application data files on Edge Node Service (ENS) nodes.
+   *
+   * @param request DescribeDataPushResultRequest
+   * @return DescribeDataPushResultResponse
+   */
   async describeDataPushResult(request: DescribeDataPushResultRequest): Promise<DescribeDataPushResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDataPushResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the properties of instances and virtual devices in a specific edge application.
+   *
+   * @param request DescribeDeviceServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDeviceServiceResponse
+   */
   async describeDeviceServiceWithOptions(request: DescribeDeviceServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeviceServiceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -32448,11 +33324,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDeviceServiceResponse>(await this.callApi(params, req, runtime), new DescribeDeviceServiceResponse({}));
   }
 
+  /**
+   * @summary Queries the properties of instances and virtual devices in a specific edge application.
+   *
+   * @param request DescribeDeviceServiceRequest
+   * @return DescribeDeviceServiceResponse
+   */
   async describeDeviceService(request: DescribeDeviceServiceRequest): Promise<DescribeDeviceServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDeviceServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about one or more disks.
+   *
+   * @param request DescribeDisksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeDisksResponse
+   */
   async describeDisksWithOptions(request: DescribeDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDisksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32533,11 +33422,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDisksResponse>(await this.callApi(params, req, runtime), new DescribeDisksResponse({}));
   }
 
+  /**
+   * @summary Queries the information about one or more disks.
+   *
+   * @param request DescribeDisksRequest
+   * @return DescribeDisksResponse
+   */
   async describeDisks(request: DescribeDisksRequest): Promise<DescribeDisksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDisksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the properties of elastic IP addresses (EIPs).
+   *
+   * @param request DescribeEipAddressesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEipAddressesResponse
+   */
   async describeEipAddressesWithOptions(request: DescribeEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipAddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32566,11 +33468,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEipAddressesResponse>(await this.callApi(params, req, runtime), new DescribeEipAddressesResponse({}));
   }
 
+  /**
+   * @summary Queries the properties of elastic IP addresses (EIPs).
+   *
+   * @param request DescribeEipAddressesRequest
+   * @return DescribeEipAddressesResponse
+   */
   async describeEipAddresses(request: DescribeEipAddressesRequest): Promise<DescribeEipAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEipAddressesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase when you create an instance.
+   *
+   * @param request DescribeElbAvailableResourceInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeElbAvailableResourceInfoResponse
+   */
   async describeElbAvailableResourceInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeElbAvailableResourceInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32587,11 +33502,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeElbAvailableResourceInfoResponse>(await this.callApi(params, req, runtime), new DescribeElbAvailableResourceInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase when you create an instance.
+   *
+   * @return DescribeElbAvailableResourceInfoResponse
+   */
   async describeElbAvailableResourceInfo(): Promise<DescribeElbAvailableResourceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeElbAvailableResourceInfoWithOptions(runtime);
   }
 
+  /**
+   * @summary 描述商品code
+   *
+   * @param request DescribeEnsCommodityCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsCommodityCodeResponse
+   */
   async describeEnsCommodityCodeWithOptions(request: DescribeEnsCommodityCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsCommodityCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32616,11 +33543,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsCommodityCodeResponse>(await this.callApi(params, req, runtime), new DescribeEnsCommodityCodeResponse({}));
   }
 
+  /**
+   * @summary 描述商品code
+   *
+   * @param request DescribeEnsCommodityCodeRequest
+   * @return DescribeEnsCommodityCodeResponse
+   */
   async describeEnsCommodityCode(request: DescribeEnsCommodityCodeRequest): Promise<DescribeEnsCommodityCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsCommodityCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取模块code
+   *
+   * @param request DescribeEnsCommodityModuleCodeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsCommodityModuleCodeResponse
+   */
   async describeEnsCommodityModuleCodeWithOptions(request: DescribeEnsCommodityModuleCodeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsCommodityModuleCodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32649,11 +33589,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsCommodityModuleCodeResponse>(await this.callApi(params, req, runtime), new DescribeEnsCommodityModuleCodeResponse({}));
   }
 
+  /**
+   * @summary 获取模块code
+   *
+   * @param request DescribeEnsCommodityModuleCodeRequest
+   * @return DescribeEnsCommodityModuleCodeResponse
+   */
   async describeEnsCommodityModuleCode(request: DescribeEnsCommodityModuleCodeRequest): Promise<DescribeEnsCommodityModuleCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsCommodityModuleCodeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries elastic IP addresses (EIPs).
+   *
+   * @param request DescribeEnsEipAddressesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsEipAddressesResponse
+   */
   async describeEnsEipAddressesWithOptions(request: DescribeEnsEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsEipAddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32710,11 +33663,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsEipAddressesResponse>(await this.callApi(params, req, runtime), new DescribeEnsEipAddressesResponse({}));
   }
 
+  /**
+   * @summary Queries elastic IP addresses (EIPs).
+   *
+   * @param request DescribeEnsEipAddressesRequest
+   * @return DescribeEnsEipAddressesResponse
+   */
   async describeEnsEipAddresses(request: DescribeEnsEipAddressesRequest): Promise<DescribeEnsEipAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsEipAddressesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries regions in which ENS resources can be created.
+   *
+   * @param request DescribeEnsNetDistrictRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsNetDistrictResponse
+   */
   async describeEnsNetDistrictWithOptions(request: DescribeEnsNetDistrictRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsNetDistrictResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32743,11 +33709,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsNetDistrictResponse>(await this.callApi(params, req, runtime), new DescribeEnsNetDistrictResponse({}));
   }
 
+  /**
+   * @summary Queries regions in which ENS resources can be created.
+   *
+   * @param request DescribeEnsNetDistrictRequest
+   * @return DescribeEnsNetDistrictResponse
+   */
   async describeEnsNetDistrict(request: DescribeEnsNetDistrictRequest): Promise<DescribeEnsNetDistrictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsNetDistrictWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the supported network levels.
+   *
+   * @param request DescribeEnsNetLevelRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsNetLevelResponse
+   */
   async describeEnsNetLevelWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeEnsNetLevelResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -32764,11 +33743,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsNetLevelResponse>(await this.callApi(params, req, runtime), new DescribeEnsNetLevelResponse({}));
   }
 
+  /**
+   * @summary Queries the supported network levels.
+   *
+   * @return DescribeEnsNetLevelResponse
+   */
   async describeEnsNetLevel(): Promise<DescribeEnsNetLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsNetLevelWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the information about ISPs and number of ISPs in an area.
+   *
+   * @param request DescribeEnsNetSaleDistrictRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsNetSaleDistrictResponse
+   */
   async describeEnsNetSaleDistrictWithOptions(request: DescribeEnsNetSaleDistrictRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsNetSaleDistrictResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32797,11 +33788,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsNetSaleDistrictResponse>(await this.callApi(params, req, runtime), new DescribeEnsNetSaleDistrictResponse({}));
   }
 
+  /**
+   * @summary Queries the information about ISPs and number of ISPs in an area.
+   *
+   * @param request DescribeEnsNetSaleDistrictRequest
+   * @return DescribeEnsNetSaleDistrictResponse
+   */
   async describeEnsNetSaleDistrict(request: DescribeEnsNetSaleDistrictRequest): Promise<DescribeEnsNetSaleDistrictResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsNetSaleDistrictWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether an edge node supports IPv6.
+   *
+   * @param request DescribeEnsRegionIdIpv6InfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsRegionIdIpv6InfoResponse
+   */
   async describeEnsRegionIdIpv6InfoWithOptions(request: DescribeEnsRegionIdIpv6InfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsRegionIdIpv6InfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32826,17 +33830,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsRegionIdIpv6InfoResponse>(await this.callApi(params, req, runtime), new DescribeEnsRegionIdIpv6InfoResponse({}));
   }
 
+  /**
+   * @summary Queries whether an edge node supports IPv6.
+   *
+   * @param request DescribeEnsRegionIdIpv6InfoRequest
+   * @return DescribeEnsRegionIdIpv6InfoResponse
+   */
   async describeEnsRegionIdIpv6Info(request: DescribeEnsRegionIdIpv6InfoRequest): Promise<DescribeEnsRegionIdIpv6InfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsRegionIdIpv6InfoWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request DescribeEnsRegionIdResourceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEnsRegionIdResourceResponse
+   * @summary Queries node resources.
+   *
+   * @description ****
+   *
+   * @param request DescribeEnsRegionIdResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsRegionIdResourceResponse
    */
   async describeEnsRegionIdResourceWithOptions(request: DescribeEnsRegionIdResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsRegionIdResourceResponse> {
     Util.validateModel(request);
@@ -32883,16 +33895,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request DescribeEnsRegionIdResourceRequest
-    * @return DescribeEnsRegionIdResourceResponse
+   * @summary Queries node resources.
+   *
+   * @description ****
+   *
+   * @param request DescribeEnsRegionIdResourceRequest
+   * @return DescribeEnsRegionIdResourceResponse
    */
   async describeEnsRegionIdResource(request: DescribeEnsRegionIdResourceRequest): Promise<DescribeEnsRegionIdResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsRegionIdResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Edge Node Service (ENS) nodes that you can use.
+   *
+   * @param request DescribeEnsRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsRegionsResponse
+   */
   async describeEnsRegionsWithOptions(request: DescribeEnsRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -32917,11 +33938,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsRegionsResponse>(await this.callApi(params, req, runtime), new DescribeEnsRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the Edge Node Service (ENS) nodes that you can use.
+   *
+   * @param request DescribeEnsRegionsRequest
+   * @return DescribeEnsRegionsResponse
+   */
   async describeEnsRegions(request: DescribeEnsRegionsRequest): Promise<DescribeEnsRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the usage summary of ENS virtual machines (VMs), disks, and networks.
+   *
+   * @param request DescribeEnsResourceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsResourceUsageResponse
+   */
   async describeEnsResourceUsageWithOptions(request: DescribeEnsResourceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsResourceUsageResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -32942,11 +33976,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeEnsResourceUsageResponse({}));
   }
 
+  /**
+   * @summary Queries the usage summary of ENS virtual machines (VMs), disks, and networks.
+   *
+   * @param request DescribeEnsResourceUsageRequest
+   * @return DescribeEnsResourceUsageResponse
+   */
   async describeEnsResourceUsage(request: DescribeEnsResourceUsageRequest): Promise<DescribeEnsResourceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsResourceUsageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries route entries.
+   *
+   * @param request DescribeEnsRouteEntryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsRouteEntryListResponse
+   */
   async describeEnsRouteEntryListWithOptions(request: DescribeEnsRouteEntryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsRouteEntryListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33003,11 +34050,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsRouteEntryListResponse>(await this.callApi(params, req, runtime), new DescribeEnsRouteEntryListResponse({}));
   }
 
+  /**
+   * @summary Queries route entries.
+   *
+   * @param request DescribeEnsRouteEntryListRequest
+   * @return DescribeEnsRouteEntryListResponse
+   */
   async describeEnsRouteEntryList(request: DescribeEnsRouteEntryListRequest): Promise<DescribeEnsRouteEntryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsRouteEntryListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 展示配置的售卖约束信息
+   *
+   * @param request DescribeEnsSaleControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsSaleControlResponse
+   */
   async describeEnsSaleControlWithOptions(request: DescribeEnsSaleControlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsSaleControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33048,11 +34108,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsSaleControlResponse>(await this.callApi(params, req, runtime), new DescribeEnsSaleControlResponse({}));
   }
 
+  /**
+   * @summary 展示配置的售卖约束信息
+   *
+   * @param request DescribeEnsSaleControlRequest
+   * @return DescribeEnsSaleControlResponse
+   */
   async describeEnsSaleControl(request: DescribeEnsSaleControlRequest): Promise<DescribeEnsSaleControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsSaleControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取可用资源
+   *
+   * @param request DescribeEnsSaleControlAvailableResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsSaleControlAvailableResourceResponse
+   */
   async describeEnsSaleControlAvailableResourceWithOptions(request: DescribeEnsSaleControlAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsSaleControlAvailableResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33085,11 +34158,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsSaleControlAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeEnsSaleControlAvailableResourceResponse({}));
   }
 
+  /**
+   * @summary 获取可用资源
+   *
+   * @param request DescribeEnsSaleControlAvailableResourceRequest
+   * @return DescribeEnsSaleControlAvailableResourceResponse
+   */
   async describeEnsSaleControlAvailableResource(request: DescribeEnsSaleControlAvailableResourceRequest): Promise<DescribeEnsSaleControlAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsSaleControlAvailableResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取售卖约束库存
+   *
+   * @param request DescribeEnsSaleControlStockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEnsSaleControlStockResponse
+   */
   async describeEnsSaleControlStockWithOptions(request: DescribeEnsSaleControlStockRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnsSaleControlStockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33130,11 +34216,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEnsSaleControlStockResponse>(await this.callApi(params, req, runtime), new DescribeEnsSaleControlStockResponse({}));
   }
 
+  /**
+   * @summary 获取售卖约束库存
+   *
+   * @param request DescribeEnsSaleControlStockRequest
+   * @return DescribeEnsSaleControlStockResponse
+   */
   async describeEnsSaleControlStock(request: DescribeEnsSaleControlStockRequest): Promise<DescribeEnsSaleControlStockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEnsSaleControlStockWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the EPN bandwidth usage.
+   *
+   * @param request DescribeEpnBandWidthDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEpnBandWidthDataResponse
+   */
   async describeEpnBandWidthDataWithOptions(request: DescribeEpnBandWidthDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEpnBandWidthDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33187,11 +34286,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEpnBandWidthDataResponse>(await this.callApi(params, req, runtime), new DescribeEpnBandWidthDataResponse({}));
   }
 
+  /**
+   * @summary Queries the EPN bandwidth usage.
+   *
+   * @param request DescribeEpnBandWidthDataRequest
+   * @return DescribeEpnBandWidthDataResponse
+   */
   async describeEpnBandWidthData(request: DescribeEpnBandWidthDataRequest): Promise<DescribeEpnBandWidthDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEpnBandWidthDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the metering method of the EPN bandwidth within a time period.
+   *
+   * @param request DescribeEpnBandwitdhByInternetChargeTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEpnBandwitdhByInternetChargeTypeResponse
+   */
   async describeEpnBandwitdhByInternetChargeTypeWithOptions(request: DescribeEpnBandwitdhByInternetChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEpnBandwitdhByInternetChargeTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33232,17 +34344,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEpnBandwitdhByInternetChargeTypeResponse>(await this.callApi(params, req, runtime), new DescribeEpnBandwitdhByInternetChargeTypeResponse({}));
   }
 
+  /**
+   * @summary Queries the metering method of the EPN bandwidth within a time period.
+   *
+   * @param request DescribeEpnBandwitdhByInternetChargeTypeRequest
+   * @return DescribeEpnBandwitdhByInternetChargeTypeResponse
+   */
   async describeEpnBandwitdhByInternetChargeType(request: DescribeEpnBandwitdhByInternetChargeTypeRequest): Promise<DescribeEpnBandwitdhByInternetChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEpnBandwitdhByInternetChargeTypeWithOptions(request, runtime);
   }
 
   /**
-    * In internal networking mode, the value of Instances is empty in the response. In public networking mode, the value of VSwitches is empty in the response.
-    *
-    * @param request DescribeEpnInstanceAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeEpnInstanceAttributeResponse
+   * @summary Queries networking information about an EPN instance.
+   *
+   * @description In internal networking mode, the value of Instances is empty in the response. In public networking mode, the value of VSwitches is empty in the response.
+   *
+   * @param request DescribeEpnInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEpnInstanceAttributeResponse
    */
   async describeEpnInstanceAttributeWithOptions(request: DescribeEpnInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEpnInstanceAttributeResponse> {
     Util.validateModel(request);
@@ -33269,16 +34389,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * In internal networking mode, the value of Instances is empty in the response. In public networking mode, the value of VSwitches is empty in the response.
-    *
-    * @param request DescribeEpnInstanceAttributeRequest
-    * @return DescribeEpnInstanceAttributeResponse
+   * @summary Queries networking information about an EPN instance.
+   *
+   * @description In internal networking mode, the value of Instances is empty in the response. In public networking mode, the value of VSwitches is empty in the response.
+   *
+   * @param request DescribeEpnInstanceAttributeRequest
+   * @return DescribeEpnInstanceAttributeResponse
    */
   async describeEpnInstanceAttribute(request: DescribeEpnInstanceAttributeRequest): Promise<DescribeEpnInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEpnInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries EPN instances.
+   *
+   * @param request DescribeEpnInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEpnInstancesResponse
+   */
   async describeEpnInstancesWithOptions(request: DescribeEpnInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEpnInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33315,11 +34444,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEpnInstancesResponse>(await this.callApi(params, req, runtime), new DescribeEpnInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries EPN instances.
+   *
+   * @param request DescribeEpnInstancesRequest
+   * @return DescribeEpnInstancesResponse
+   */
   async describeEpnInstances(request: DescribeEpnInstancesRequest): Promise<DescribeEpnInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEpnInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the metering data of the edge private network (EPN).
+   *
+   * @param request DescribeEpnMeasurementDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEpnMeasurementDataResponse
+   */
   async describeEpnMeasurementDataWithOptions(request: DescribeEpnMeasurementDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEpnMeasurementDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33348,19 +34490,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEpnMeasurementDataResponse>(await this.callApi(params, req, runtime), new DescribeEpnMeasurementDataResponse({}));
   }
 
+  /**
+   * @summary Queries the metering data of the edge private network (EPN).
+   *
+   * @param request DescribeEpnMeasurementDataRequest
+   * @return DescribeEpnMeasurementDataResponse
+   */
   async describeEpnMeasurementData(request: DescribeEpnMeasurementDataRequest): Promise<DescribeEpnMeasurementDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEpnMeasurementDataWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
-    * *   Empty strings are returned for images that are not exported.
-    * *   The download links may become invalid if you delete objects in OSS.
-    *
-    * @param request DescribeExportImageInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeExportImageInfoResponse
+   * @summary Queries the export result of an image.
+   *
+   * @description *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
+   * *   Empty strings are returned for images that are not exported.
+   * *   The download links may become invalid if you delete objects in OSS.
+   *
+   * @param request DescribeExportImageInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExportImageInfoResponse
    */
   async describeExportImageInfoWithOptions(request: DescribeExportImageInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExportImageInfoResponse> {
     Util.validateModel(request);
@@ -33399,18 +34549,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
-    * *   Empty strings are returned for images that are not exported.
-    * *   The download links may become invalid if you delete objects in OSS.
-    *
-    * @param request DescribeExportImageInfoRequest
-    * @return DescribeExportImageInfoResponse
+   * @summary Queries the export result of an image.
+   *
+   * @description *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
+   * *   Empty strings are returned for images that are not exported.
+   * *   The download links may become invalid if you delete objects in OSS.
+   *
+   * @param request DescribeExportImageInfoRequest
+   * @return DescribeExportImageInfoResponse
    */
   async describeExportImageInfo(request: DescribeExportImageInfoRequest): Promise<DescribeExportImageInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExportImageInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the export status of an image.
+   *
+   * @param request DescribeExportImageStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExportImageStatusResponse
+   */
   async describeExportImageStatusWithOptions(request: DescribeExportImageStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExportImageStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33435,11 +34594,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExportImageStatusResponse>(await this.callApi(params, req, runtime), new DescribeExportImageStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the export status of an image.
+   *
+   * @param request DescribeExportImageStatusRequest
+   * @return DescribeExportImageStatusResponse
+   */
   async describeExportImageStatus(request: DescribeExportImageStatusRequest): Promise<DescribeExportImageStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExportImageStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about file systems.
+   *
+   * @param request DescribeFileSystemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeFileSystemsResponse
+   */
   async describeFileSystemsWithOptions(request: DescribeFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileSystemsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -33460,11 +34632,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeFileSystemsResponse>(await this.callApi(params, req, runtime), new DescribeFileSystemsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about file systems.
+   *
+   * @param request DescribeFileSystemsRequest
+   * @return DescribeFileSystemsResponse
+   */
   async describeFileSystems(request: DescribeFileSystemsRequest): Promise<DescribeFileSystemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFileSystemsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Destination Network Address Translation (DNAT) entries that you created.
+   *
+   * @param request DescribeForwardTableEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeForwardTableEntriesResponse
+   */
   async describeForwardTableEntriesWithOptions(request: DescribeForwardTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeForwardTableEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33517,11 +34702,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeForwardTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeForwardTableEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries Destination Network Address Translation (DNAT) entries that you created.
+   *
+   * @param request DescribeForwardTableEntriesRequest
+   * @return DescribeForwardTableEntriesResponse
+   */
   async describeForwardTableEntries(request: DescribeForwardTableEntriesRequest): Promise<DescribeForwardTableEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeForwardTableEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available images.
+   *
+   * @param request DescribeImageInfosRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageInfosResponse
+   */
   async describeImageInfosWithOptions(request: DescribeImageInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageInfosResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33546,11 +34744,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageInfosResponse>(await this.callApi(params, req, runtime), new DescribeImageInfosResponse({}));
   }
 
+  /**
+   * @summary Queries available images.
+   *
+   * @param request DescribeImageInfosRequest
+   * @return DescribeImageInfosResponse
+   */
   async describeImageInfos(request: DescribeImageInfosRequest): Promise<DescribeImageInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageInfosWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the accounts with which you share an image specified by the ImageId parameter.
+   *
+   * @param request DescribeImageSharePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImageSharePermissionResponse
+   */
   async describeImageSharePermissionWithOptions(request: DescribeImageSharePermissionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageSharePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33587,11 +34798,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImageSharePermissionResponse>(await this.callApi(params, req, runtime), new DescribeImageSharePermissionResponse({}));
   }
 
+  /**
+   * @summary Queries the accounts with which you share an image specified by the ImageId parameter.
+   *
+   * @param request DescribeImageSharePermissionRequest
+   * @return DescribeImageSharePermissionResponse
+   */
   async describeImageSharePermission(request: DescribeImageSharePermissionRequest): Promise<DescribeImageSharePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageSharePermissionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available images.
+   *
+   * @param request DescribeImagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeImagesResponse
+   */
   async describeImagesWithOptions(request: DescribeImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33640,11 +34864,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeImagesResponse>(await this.callApi(params, req, runtime), new DescribeImagesResponse({}));
   }
 
+  /**
+   * @summary Queries available images.
+   *
+   * @param request DescribeImagesRequest
+   * @return DescribeImagesResponse
+   */
   async describeImages(request: DescribeImagesRequest): Promise<DescribeImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call this operation to query whether auto-renewal is enabled for an instance.
+   *
+   * @param request DescribeInstanceAutoRenewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceAutoRenewAttributeResponse
+   */
   async describeInstanceAutoRenewAttributeWithOptions(request: DescribeInstanceAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33673,11 +34910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAutoRenewAttributeResponse({}));
   }
 
+  /**
+   * @summary You can call this operation to query whether auto-renewal is enabled for an instance.
+   *
+   * @param request DescribeInstanceAutoRenewAttributeRequest
+   * @return DescribeInstanceAutoRenewAttributeResponse
+   */
   async describeInstanceAutoRenewAttribute(request: DescribeInstanceAutoRenewAttributeRequest): Promise<DescribeInstanceAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the vCPU and memory usage of an instance.
+   *
+   * @param request DescribeInstanceMonitorDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceMonitorDataResponse
+   */
   async describeInstanceMonitorDataWithOptions(request: DescribeInstanceMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceMonitorDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33714,11 +34964,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeInstanceMonitorDataResponse({}));
   }
 
+  /**
+   * @summary Queries the vCPU and memory usage of an instance.
+   *
+   * @param request DescribeInstanceMonitorDataRequest
+   * @return DescribeInstanceMonitorDataResponse
+   */
   async describeInstanceMonitorData(request: DescribeInstanceMonitorDataRequest): Promise<DescribeInstanceMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceMonitorDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the instance specifications that you can purchase.
+   *
+   * @param request DescribeInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceSpecResponse
+   */
   async describeInstanceSpecWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -33735,11 +34998,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceSpecResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecResponse({}));
   }
 
+  /**
+   * @summary Queries the instance specifications that you can purchase.
+   *
+   * @return DescribeInstanceSpecResponse
+   */
   async describeInstanceSpec(): Promise<DescribeInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceSpecWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the specifications of instance types.
+   *
+   * @param request DescribeInstanceTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceTypesResponse
+   */
   async describeInstanceTypesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTypesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -33756,11 +35031,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceTypesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTypesResponse({}));
   }
 
+  /**
+   * @summary Queries the specifications of instance types.
+   *
+   * @return DescribeInstanceTypesResponse
+   */
   async describeInstanceTypes(): Promise<DescribeInstanceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceTypesWithOptions(runtime);
   }
 
+  /**
+   * @summary Queries the Virtual Network Computing (VNC) URL of an Edge Node Service (ENS) instance.
+   *
+   * @param request DescribeInstanceVncUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceVncUrlResponse
+   */
   async describeInstanceVncUrlWithOptions(request: DescribeInstanceVncUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceVncUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33785,19 +35072,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceVncUrlResponse>(await this.callApi(params, req, runtime), new DescribeInstanceVncUrlResponse({}));
   }
 
+  /**
+   * @summary Queries the Virtual Network Computing (VNC) URL of an Edge Node Service (ENS) instance.
+   *
+   * @param request DescribeInstanceVncUrlRequest
+   * @return DescribeInstanceVncUrlResponse
+   */
   async describeInstanceVncUrl(request: DescribeInstanceVncUrlRequest): Promise<DescribeInstanceVncUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceVncUrlWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 800 times per second per account.
-    * *   You can call this operation up to 100 times per second per user.
-    * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
-    *
-    * @param tmpReq DescribeInstancesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeInstancesResponse
+   * @summary Queries the details of one or more Edge Node Service (ENS) instances.
+   *
+   * @description *   You can call this operation up to 800 times per second per account.
+   * *   You can call this operation up to 100 times per second per user.
+   * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
+   *
+   * @param tmpReq DescribeInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstancesResponse
    */
   async describeInstancesWithOptions(tmpReq: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(tmpReq);
@@ -33898,18 +35193,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 800 times per second per account.
-    * *   You can call this operation up to 100 times per second per user.
-    * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
-    *
-    * @param request DescribeInstancesRequest
-    * @return DescribeInstancesResponse
+   * @summary Queries the details of one or more Edge Node Service (ENS) instances.
+   *
+   * @description *   You can call this operation up to 800 times per second per account.
+   * *   You can call this operation up to 100 times per second per user.
+   * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
+   *
+   * @param request DescribeInstancesRequest
+   * @return DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries one or more key pairs.
+   *
+   * @param request DescribeKeyPairsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeKeyPairsResponse
+   */
   async describeKeyPairsWithOptions(request: DescribeKeyPairsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKeyPairsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33946,19 +35250,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeKeyPairsResponse>(await this.callApi(params, req, runtime), new DescribeKeyPairsResponse({}));
   }
 
+  /**
+   * @summary Queries one or more key pairs.
+   *
+   * @param request DescribeKeyPairsRequest
+   * @return DescribeKeyPairsResponse
+   */
   async describeKeyPairs(request: DescribeKeyPairsRequest): Promise<DescribeKeyPairsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeKeyPairsWithOptions(request, runtime);
   }
 
   /**
-    * > 
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerAttributeResponse
+   * @summary Queries detailed information about an Edge Load Balancer (ELB) instance.
+   *
+   * @description > 
+   * *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerAttributeResponse
    */
   async describeLoadBalancerAttributeWithOptions(request: DescribeLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerAttributeResponse> {
     Util.validateModel(request);
@@ -33985,12 +35297,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerAttributeRequest
-    * @return DescribeLoadBalancerAttributeResponse
+   * @summary Queries detailed information about an Edge Load Balancer (ELB) instance.
+   *
+   * @description > 
+   * *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerAttributeRequest
+   * @return DescribeLoadBalancerAttributeResponse
    */
   async describeLoadBalancerAttribute(request: DescribeLoadBalancerAttributeRequest): Promise<DescribeLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33998,13 +35312,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerHTTPListenerAttributeResponse
+   * @summary Queries the configuration of an HTTP listener.
+   *
+   * @description > 
+   * *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerHTTPListenerAttributeResponse
    */
   async describeLoadBalancerHTTPListenerAttributeWithOptions(request: DescribeLoadBalancerHTTPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerHTTPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -34035,12 +35351,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
-    * @return DescribeLoadBalancerHTTPListenerAttributeResponse
+   * @summary Queries the configuration of an HTTP listener.
+   *
+   * @description > 
+   * *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerHTTPListenerAttributeRequest
+   * @return DescribeLoadBalancerHTTPListenerAttributeResponse
    */
   async describeLoadBalancerHTTPListenerAttribute(request: DescribeLoadBalancerHTTPListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34048,12 +35366,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+   * @summary Queries the configurations of an HTTPS listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
    */
   async describeLoadBalancerHTTPSListenerAttributeWithOptions(request: DescribeLoadBalancerHTTPSListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     Util.validateModel(request);
@@ -34084,17 +35404,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
-    * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
+   * @summary Queries the configurations of an HTTPS listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerHTTPSListenerAttributeRequest
+   * @return DescribeLoadBalancerHTTPSListenerAttributeResponse
    */
   async describeLoadBalancerHTTPSListenerAttribute(request: DescribeLoadBalancerHTTPSListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerHTTPSListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the specifications of an Edge Load Balancer (ELB) instance.
+   *
+   * @param request DescribeLoadBalancerSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerSpecResponse
+   */
   async describeLoadBalancerSpecWithOptions(request: DescribeLoadBalancerSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerSpecResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34115,18 +35444,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLoadBalancerSpecResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerSpecResponse({}));
   }
 
+  /**
+   * @summary Queries the specifications of an Edge Load Balancer (ELB) instance.
+   *
+   * @param request DescribeLoadBalancerSpecRequest
+   * @return DescribeLoadBalancerSpecResponse
+   */
   async describeLoadBalancerSpec(request: DescribeLoadBalancerSpecRequest): Promise<DescribeLoadBalancerSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerSpecWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerTCPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerTCPListenerAttributeResponse
+   * @summary Queries the configurations of a Transmission Control Protocol (TCP) listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerTCPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerTCPListenerAttributeResponse
    */
   async describeLoadBalancerTCPListenerAttributeWithOptions(request: DescribeLoadBalancerTCPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerTCPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -34157,11 +35494,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerTCPListenerAttributeRequest
-    * @return DescribeLoadBalancerTCPListenerAttributeResponse
+   * @summary Queries the configurations of a Transmission Control Protocol (TCP) listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerTCPListenerAttributeRequest
+   * @return DescribeLoadBalancerTCPListenerAttributeResponse
    */
   async describeLoadBalancerTCPListenerAttribute(request: DescribeLoadBalancerTCPListenerAttributeRequest): Promise<DescribeLoadBalancerTCPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34169,12 +35508,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerUDPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancerUDPListenerAttributeResponse
+   * @summary Queries the configuration of a User Datagram Protocol (UDP) listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerUDPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancerUDPListenerAttributeResponse
    */
   async describeLoadBalancerUDPListenerAttributeWithOptions(request: DescribeLoadBalancerUDPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerUDPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -34205,11 +35546,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancerUDPListenerAttributeRequest
-    * @return DescribeLoadBalancerUDPListenerAttributeResponse
+   * @summary Queries the configuration of a User Datagram Protocol (UDP) listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancerUDPListenerAttributeRequest
+   * @return DescribeLoadBalancerUDPListenerAttributeResponse
    */
   async describeLoadBalancerUDPListenerAttribute(request: DescribeLoadBalancerUDPListenerAttributeRequest): Promise<DescribeLoadBalancerUDPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34217,12 +35560,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeLoadBalancersResponse
+   * @summary Queries Edge Load Balancer (ELB) instances.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLoadBalancersResponse
    */
   async describeLoadBalancersWithOptions(request: DescribeLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancersResponse> {
     Util.validateModel(request);
@@ -34245,17 +35590,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request DescribeLoadBalancersRequest
-    * @return DescribeLoadBalancersResponse
+   * @summary Queries Edge Load Balancer (ELB) instances.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request DescribeLoadBalancersRequest
+   * @return DescribeLoadBalancersResponse
    */
   async describeLoadBalancers(request: DescribeLoadBalancersRequest): Promise<DescribeLoadBalancersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the metering data of the user.
+   *
+   * @param request DescribeMeasurementDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMeasurementDataResponse
+   */
   async describeMeasurementDataWithOptions(request: DescribeMeasurementDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeasurementDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34284,11 +35638,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMeasurementDataResponse>(await this.callApi(params, req, runtime), new DescribeMeasurementDataResponse({}));
   }
 
+  /**
+   * @summary Queries the metering data of the user.
+   *
+   * @param request DescribeMeasurementDataRequest
+   * @return DescribeMeasurementDataResponse
+   */
   async describeMeasurementData(request: DescribeMeasurementDataRequest): Promise<DescribeMeasurementDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMeasurementDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about mount targets.
+   *
+   * @param request DescribeMountTargetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeMountTargetsResponse
+   */
   async describeMountTargetsWithOptions(request: DescribeMountTargetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMountTargetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34329,11 +35696,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeMountTargetsResponse>(await this.callApi(params, req, runtime), new DescribeMountTargetsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about mount targets.
+   *
+   * @param request DescribeMountTargetsRequest
+   * @return DescribeMountTargetsResponse
+   */
   async describeMountTargets(request: DescribeMountTargetsRequest): Promise<DescribeMountTargetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeMountTargetsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 根据筛选条件获取指定NC属性和资源量信息
+   *
+   * @param request DescribeNCInformationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNCInformationResponse
+   */
   async describeNCInformationWithOptions(request: DescribeNCInformationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNCInformationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34354,11 +35734,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNCInformationResponse>(await this.callApi(params, req, runtime), new DescribeNCInformationResponse({}));
   }
 
+  /**
+   * @summary 根据筛选条件获取指定NC属性和资源量信息
+   *
+   * @param request DescribeNCInformationRequest
+   * @return DescribeNCInformationResponse
+   */
   async describeNCInformation(request: DescribeNCInformationRequest): Promise<DescribeNCInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNCInformationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries created Network Address Translation (NAT) gateways.
+   *
+   * @param request DescribeNatGatewaysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNatGatewaysResponse
+   */
   async describeNatGatewaysWithOptions(request: DescribeNatGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatGatewaysResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34379,11 +35772,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNatGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeNatGatewaysResponse({}));
   }
 
+  /**
+   * @summary Queries created Network Address Translation (NAT) gateways.
+   *
+   * @param request DescribeNatGatewaysRequest
+   * @return DescribeNatGatewaysResponse
+   */
   async describeNatGateways(request: DescribeNatGatewaysRequest): Promise<DescribeNatGatewaysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNatGatewaysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries network access control lists (ACLs).
+   *
+   * @param request DescribeNetworkAclsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkAclsResponse
+   */
   async describeNetworkAclsWithOptions(request: DescribeNetworkAclsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAclsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34404,18 +35810,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkAclsResponse>(await this.callApi(params, req, runtime), new DescribeNetworkAclsResponse({}));
   }
 
+  /**
+   * @summary Queries network access control lists (ACLs).
+   *
+   * @param request DescribeNetworkAclsRequest
+   * @return DescribeNetworkAclsResponse
+   */
   async describeNetworkAcls(request: DescribeNetworkAclsRequest): Promise<DescribeNetworkAclsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkAclsWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request DescribeNetworkAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeNetworkAttributeResponse
+   * @summary Queries the configuration of a specified network.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param request DescribeNetworkAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkAttributeResponse
    */
   async describeNetworkAttributeWithOptions(request: DescribeNetworkAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAttributeResponse> {
     Util.validateModel(request);
@@ -34442,17 +35856,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request DescribeNetworkAttributeRequest
-    * @return DescribeNetworkAttributeResponse
+   * @summary Queries the configuration of a specified network.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param request DescribeNetworkAttributeRequest
+   * @return DescribeNetworkAttributeResponse
    */
   async describeNetworkAttribute(request: DescribeNetworkAttributeRequest): Promise<DescribeNetworkAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Elastic Network Interfaces (ENIs).
+   *
+   * @param request DescribeNetworkInterfacesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworkInterfacesResponse
+   */
   async describeNetworkInterfacesWithOptions(request: DescribeNetworkInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkInterfacesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34521,18 +35944,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new DescribeNetworkInterfacesResponse({}));
   }
 
+  /**
+   * @summary Queries Elastic Network Interfaces (ENIs).
+   *
+   * @param request DescribeNetworkInterfacesRequest
+   * @return DescribeNetworkInterfacesResponse
+   */
   async describeNetworkInterfaces(request: DescribeNetworkInterfacesRequest): Promise<DescribeNetworkInterfacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworkInterfacesWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request DescribeNetworksRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeNetworksResponse
+   * @summary Query the network list.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param request DescribeNetworksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNetworksResponse
    */
   async describeNetworksWithOptions(request: DescribeNetworksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworksResponse> {
     Util.validateModel(request);
@@ -34575,17 +36006,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request DescribeNetworksRequest
-    * @return DescribeNetworksResponse
+   * @summary Query the network list.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param request DescribeNetworksRequest
+   * @return DescribeNetworksResponse
    */
   async describeNetworks(request: DescribeNetworksRequest): Promise<DescribeNetworksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNetworksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase.
+   *
+   * @param request DescribePrePaidInstanceStockRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePrePaidInstanceStockResponse
+   */
   async describePrePaidInstanceStockWithOptions(request: DescribePrePaidInstanceStockRequest, runtime: $Util.RuntimeOptions): Promise<DescribePrePaidInstanceStockResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34622,11 +36062,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePrePaidInstanceStockResponse>(await this.callApi(params, req, runtime), new DescribePrePaidInstanceStockResponse({}));
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase.
+   *
+   * @param request DescribePrePaidInstanceStockRequest
+   * @return DescribePrePaidInstanceStockResponse
+   */
   async describePrePaidInstanceStock(request: DescribePrePaidInstanceStockRequest): Promise<DescribePrePaidInstanceStockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePrePaidInstanceStockWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the most recent price of an Edge Node Service (ENS) instance.
+   *
+   * @param tmpReq DescribePriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribePriceResponse
+   */
   async describePriceWithOptions(tmpReq: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribePriceShrinkRequest({ });
@@ -34689,11 +36142,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
   }
 
+  /**
+   * @summary Queries the most recent price of an Edge Node Service (ENS) instance.
+   *
+   * @param request DescribePriceRequest
+   * @return DescribePriceResponse
+   */
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about the Internet service providers (ISPs) of edge nodes.
+   *
+   * @param request DescribeRegionIspsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionIspsResponse
+   */
   async describeRegionIspsWithOptions(request: DescribeRegionIspsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionIspsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34714,11 +36180,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionIspsResponse>(await this.callApi(params, req, runtime), new DescribeRegionIspsResponse({}));
   }
 
+  /**
+   * @summary Queries information about the Internet service providers (ISPs) of edge nodes.
+   *
+   * @param request DescribeRegionIspsRequest
+   * @return DescribeRegionIspsResponse
+   */
   async describeRegionIsps(request: DescribeRegionIspsRequest): Promise<DescribeRegionIspsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionIspsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取区域节点资源量信息
+   *
+   * @param request DescribeRegionResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionResourceResponse
+   */
   async describeRegionResourceWithOptions(request: DescribeRegionResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionResourceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34739,11 +36218,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionResourceResponse>(await this.callApi(params, req, runtime), new DescribeRegionResourceResponse({}));
   }
 
+  /**
+   * @summary 获取区域节点资源量信息
+   *
+   * @param request DescribeRegionResourceRequest
+   * @return DescribeRegionResourceResponse
+   */
   async describeRegionResource(request: DescribeRegionResourceRequest): Promise<DescribeRegionResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase.
+   *
+   * @param request DescribeReservedResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeReservedResourceResponse
+   */
   async describeReservedResourceWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeReservedResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -34760,11 +36252,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeReservedResourceResponse>(await this.callApi(params, req, runtime), new DescribeReservedResourceResponse({}));
   }
 
+  /**
+   * @summary Queries the specifications of resources that you can purchase.
+   *
+   * @return DescribeReservedResourceResponse
+   */
   async describeReservedResource(): Promise<DescribeReservedResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeReservedResourceWithOptions(runtime);
   }
 
+  /**
+   * @summary 获取资源状态变化时间线
+   *
+   * @param request DescribeResourceTimelineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceTimelineResponse
+   */
   async describeResourceTimelineWithOptions(request: DescribeResourceTimelineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceTimelineResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34785,11 +36289,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceTimelineResponse>(await this.callApi(params, req, runtime), new DescribeResourceTimelineResponse({}));
   }
 
+  /**
+   * @summary 获取资源状态变化时间线
+   *
+   * @param request DescribeResourceTimelineRequest
+   * @return DescribeResourceTimelineResponse
+   */
   async describeResourceTimeline(request: DescribeResourceTimelineRequest): Promise<DescribeResourceTimelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResourceTimelineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the deployment status of the shared data group (SDG).
+   *
+   * @param request DescribeSDGDeploymentStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSDGDeploymentStatusResponse
+   */
   async describeSDGDeploymentStatusWithOptions(request: DescribeSDGDeploymentStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSDGDeploymentStatusResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -34810,11 +36327,72 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSDGDeploymentStatusResponse>(await this.callApi(params, req, runtime), new DescribeSDGDeploymentStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the deployment status of the shared data group (SDG).
+   *
+   * @param request DescribeSDGDeploymentStatusRequest
+   * @return DescribeSDGDeploymentStatusResponse
+   */
   async describeSDGDeploymentStatus(request: DescribeSDGDeploymentStatusRequest): Promise<DescribeSDGDeploymentStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSDGDeploymentStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about created shared data groups (SDGs).
+   *
+   * @param tmpReq DescribeSDGsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSDGsResponse
+   */
+  async describeSDGsWithOptions(tmpReq: DescribeSDGsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSDGsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeSDGsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.SDGIds)) {
+      request.SDGIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.SDGIds, "SDGIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSDGs",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSDGsResponse>(await this.callApi(params, req, runtime), new DescribeSDGsResponse({}));
+  }
+
+  /**
+   * @summary Queries information about created shared data groups (SDGs).
+   *
+   * @param request DescribeSDGsRequest
+   * @return DescribeSDGsResponse
+   */
+  async describeSDGs(request: DescribeSDGsRequest): Promise<DescribeSDGsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSDGsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries the rules of a security group.
+   *
+   * @param request DescribeSecurityGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityGroupAttributeResponse
+   */
   async describeSecurityGroupAttributeWithOptions(request: DescribeSecurityGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34839,11 +36417,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityGroupAttributeResponse>(await this.callApi(params, req, runtime), new DescribeSecurityGroupAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the rules of a security group.
+   *
+   * @param request DescribeSecurityGroupAttributeRequest
+   * @return DescribeSecurityGroupAttributeResponse
+   */
   async describeSecurityGroupAttribute(request: DescribeSecurityGroupAttributeRequest): Promise<DescribeSecurityGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries details about created security groups.
+   *
+   * @param request DescribeSecurityGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSecurityGroupsResponse
+   */
   async describeSecurityGroupsWithOptions(request: DescribeSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34880,11 +36471,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSecurityGroupsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries details about created security groups.
+   *
+   * @param request DescribeSecurityGroupsRequest
+   * @return DescribeSecurityGroupsResponse
+   */
   async describeSecurityGroups(request: DescribeSecurityGroupsRequest): Promise<DescribeSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries custom images.
+   *
+   * @param request DescribeSelfImagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSelfImagesResponse
+   */
   async describeSelfImagesWithOptions(request: DescribeSelfImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSelfImagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34925,11 +36529,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSelfImagesResponse>(await this.callApi(params, req, runtime), new DescribeSelfImagesResponse({}));
   }
 
+  /**
+   * @summary Queries custom images.
+   *
+   * @param request DescribeSelfImagesRequest
+   * @return DescribeSelfImagesResponse
+   */
   async describeSelfImages(request: DescribeSelfImagesRequest): Promise<DescribeSelfImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSelfImagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary You can call the DescribeServcieSchedule to query the real-time status of the instance device or container that is being occupied by the UUID.
+   *
+   * @param request DescribeServcieScheduleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServcieScheduleResponse
+   */
   async describeServcieScheduleWithOptions(request: DescribeServcieScheduleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServcieScheduleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -34962,11 +36579,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServcieScheduleResponse>(await this.callApi(params, req, runtime), new DescribeServcieScheduleResponse({}));
   }
 
+  /**
+   * @summary You can call the DescribeServcieSchedule to query the real-time status of the instance device or container that is being occupied by the UUID.
+   *
+   * @param request DescribeServcieScheduleRequest
+   * @return DescribeServcieScheduleResponse
+   */
   async describeServcieSchedule(request: DescribeServcieScheduleRequest): Promise<DescribeServcieScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeServcieScheduleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about snapshots.
+   *
+   * @param request DescribeSnapshotsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnapshotsResponse
+   */
   async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35011,11 +36641,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
   }
 
+  /**
+   * @summary Queries information about snapshots.
+   *
+   * @param request DescribeSnapshotsRequest
+   * @return DescribeSnapshotsResponse
+   */
   async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of a specific source network address translation (SNAT) entry.
+   *
+   * @param request DescribeSnatAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnatAttributeResponse
+   */
   async describeSnatAttributeWithOptions(request: DescribeSnatAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35040,11 +36683,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnatAttributeResponse>(await this.callApi(params, req, runtime), new DescribeSnatAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a specific source network address translation (SNAT) entry.
+   *
+   * @param request DescribeSnatAttributeRequest
+   * @return DescribeSnatAttributeResponse
+   */
   async describeSnatAttribute(request: DescribeSnatAttributeRequest): Promise<DescribeSnatAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnatAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries source network address translation (SNAT) entries.
+   *
+   * @param request DescribeSnatTableEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSnatTableEntriesResponse
+   */
   async describeSnatTableEntriesWithOptions(request: DescribeSnatTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatTableEntriesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -35065,11 +36721,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSnatTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeSnatTableEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries source network address translation (SNAT) entries.
+   *
+   * @param request DescribeSnatTableEntriesRequest
+   * @return DescribeSnatTableEntriesResponse
+   */
   async describeSnatTableEntries(request: DescribeSnatTableEntriesRequest): Promise<DescribeSnatTableEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSnatTableEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the bandwidth that you use within a specified period of time.
+   *
+   * @param request DescribeUserBandWidthDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeUserBandWidthDataResponse
+   */
   async describeUserBandWidthDataWithOptions(request: DescribeUserBandWidthDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserBandWidthDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35114,11 +36783,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeUserBandWidthDataResponse>(await this.callApi(params, req, runtime), new DescribeUserBandWidthDataResponse({}));
   }
 
+  /**
+   * @summary Queries the bandwidth that you use within a specified period of time.
+   *
+   * @param request DescribeUserBandWidthDataRequest
+   * @return DescribeUserBandWidthDataResponse
+   */
   async describeUserBandWidthData(request: DescribeUserBandWidthDataRequest): Promise<DescribeUserBandWidthDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeUserBandWidthDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about available vSwitches.
+   *
+   * @param request DescribeVSwitchesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeVSwitchesResponse
+   */
   async describeVSwitchesWithOptions(request: DescribeVSwitchesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35167,113 +36849,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeVSwitchesResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchesResponse({}));
   }
 
+  /**
+   * @summary Queries information about available vSwitches.
+   *
+   * @param request DescribeVSwitchesRequest
+   * @return DescribeVSwitchesResponse
+   */
   async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVSwitchesWithOptions(request, runtime);
   }
 
-  async describeWorkflowWithOptions(request: DescribeWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.aliUid)) {
-      query["AliUid"] = request.aliUid;
-    }
-
-    if (!Util.isUnset(request.businessId)) {
-      query["BusinessId"] = request.businessId;
-    }
-
-    if (!Util.isUnset(request.endDate)) {
-      query["EndDate"] = request.endDate;
-    }
-
-    if (!Util.isUnset(request.ensRegionId)) {
-      query["EnsRegionId"] = request.ensRegionId;
-    }
-
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.pageNum)) {
-      query["PageNum"] = request.pageNum;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.startDate)) {
-      query["StartDate"] = request.startDate;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    if (!Util.isUnset(request.workFlowId)) {
-      query["WorkFlowId"] = request.workFlowId;
-    }
-
-    if (!Util.isUnset(request.workFlowName)) {
-      query["WorkFlowName"] = request.workFlowName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeWorkflow",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeWorkflowResponse>(await this.callApi(params, req, runtime), new DescribeWorkflowResponse({}));
-  }
-
-  async describeWorkflow(request: DescribeWorkflowRequest): Promise<DescribeWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeWorkflowWithOptions(request, runtime);
-  }
-
-  async describeWorkflowActivityWithOptions(request: DescribeWorkflowActivityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowActivityResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.workFlowId)) {
-      query["WorkFlowId"] = request.workFlowId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeWorkflowActivity",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeWorkflowActivityResponse>(await this.callApi(params, req, runtime), new DescribeWorkflowActivityResponse({}));
-  }
-
-  async describeWorkflowActivity(request: DescribeWorkflowActivityRequest): Promise<DescribeWorkflowActivityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeWorkflowActivityWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
+   *
+   * @param request DetachDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachDiskResponse
+   */
   async detachDiskWithOptions(request: DetachDiskRequest, runtime: $Util.RuntimeOptions): Promise<DetachDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35302,11 +36895,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachDiskResponse>(await this.callApi(params, req, runtime), new DetachDiskResponse({}));
   }
 
+  /**
+   * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
+   *
+   * @param request DetachDiskRequest
+   * @return DetachDiskResponse
+   */
   async detachDisk(request: DetachDiskRequest): Promise<DetachDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachDiskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+   *
+   * @param request DistApplicationDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DistApplicationDataResponse
+   */
   async distApplicationDataWithOptions(request: DistApplicationDataRequest, runtime: $Util.RuntimeOptions): Promise<DistApplicationDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35339,11 +36945,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DistApplicationDataResponse>(await this.callApi(params, req, runtime), new DistApplicationDataResponse({}));
   }
 
+  /**
+   * @summary Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+   *
+   * @param request DistApplicationDataRequest
+   * @return DistApplicationDataResponse
+   */
   async distApplicationData(request: DistApplicationDataRequest): Promise<DistApplicationDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.distApplicationDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Exports billing details within a specific time range.
+   *
+   * @param request ExportBillDetailDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportBillDetailDataResponse
+   */
   async exportBillDetailDataWithOptions(request: ExportBillDetailDataRequest, runtime: $Util.RuntimeOptions): Promise<ExportBillDetailDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35372,11 +36991,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportBillDetailDataResponse>(await this.callApi(params, req, runtime), new ExportBillDetailDataResponse({}));
   }
 
+  /**
+   * @summary Exports billing details within a specific time range.
+   *
+   * @param request ExportBillDetailDataRequest
+   * @return ExportBillDetailDataResponse
+   */
   async exportBillDetailData(request: ExportBillDetailDataRequest): Promise<ExportBillDetailDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportBillDetailDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Exports a custom image to an Object Storage Service (OSS) bucket in the same region.
+   *
+   * @param request ExportImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportImageResponse
+   */
   async exportImageWithOptions(request: ExportImageRequest, runtime: $Util.RuntimeOptions): Promise<ExportImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35417,11 +37049,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportImageResponse>(await this.callApi(params, req, runtime), new ExportImageResponse({}));
   }
 
+  /**
+   * @summary Exports a custom image to an Object Storage Service (OSS) bucket in the same region.
+   *
+   * @param request ExportImageRequest
+   * @return ExportImageResponse
+   */
   async exportImage(request: ExportImageRequest): Promise<ExportImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Exports the metering data within a specific time range.
+   *
+   * @param request ExportMeasurementDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportMeasurementDataResponse
+   */
   async exportMeasurementDataWithOptions(request: ExportMeasurementDataRequest, runtime: $Util.RuntimeOptions): Promise<ExportMeasurementDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35450,11 +37095,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportMeasurementDataResponse>(await this.callApi(params, req, runtime), new ExportMeasurementDataResponse({}));
   }
 
+  /**
+   * @summary Exports the metering data within a specific time range.
+   *
+   * @param request ExportMeasurementDataRequest
+   * @return ExportMeasurementDataResponse
+   */
   async exportMeasurementData(request: ExportMeasurementDataRequest): Promise<ExportMeasurementDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportMeasurementDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the access control list (ACL) of a bucket.
+   *
+   * @param request GetBucketAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBucketAclResponse
+   */
   async getBucketAclWithOptions(request: GetBucketAclRequest, runtime: $Util.RuntimeOptions): Promise<GetBucketAclResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -35475,11 +37133,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketAclResponse>(await this.callApi(params, req, runtime), new GetBucketAclResponse({}));
   }
 
+  /**
+   * @summary Queries the access control list (ACL) of a bucket.
+   *
+   * @param request GetBucketAclRequest
+   * @return GetBucketAclResponse
+   */
   async getBucketAcl(request: GetBucketAclRequest): Promise<GetBucketAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBucketAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about a bucket.
+   *
+   * @param request GetBucketInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBucketInfoResponse
+   */
   async getBucketInfoWithOptions(request: GetBucketInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetBucketInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35504,11 +37175,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketInfoResponse>(await this.callApi(params, req, runtime), new GetBucketInfoResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about a bucket.
+   *
+   * @param request GetBucketInfoRequest
+   * @return GetBucketInfoResponse
+   */
   async getBucketInfo(request: GetBucketInfoRequest): Promise<GetBucketInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBucketInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries lifecycle rules.
+   *
+   * @param request GetBucketLifecycleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBucketLifecycleResponse
+   */
   async getBucketLifecycleWithOptions(request: GetBucketLifecycleRequest, runtime: $Util.RuntimeOptions): Promise<GetBucketLifecycleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35537,11 +37221,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBucketLifecycleResponse>(await this.callApi(params, req, runtime), new GetBucketLifecycleResponse({}));
   }
 
+  /**
+   * @summary Queries lifecycle rules.
+   *
+   * @param request GetBucketLifecycleRequest
+   * @return GetBucketLifecycleResponse
+   */
   async getBucketLifecycle(request: GetBucketLifecycleRequest): Promise<GetBucketLifecycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBucketLifecycleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the network address translation (NAT) rule details of a device such as a server or container by its ID.
+   *
+   * @param request GetDeviceInternetPortRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDeviceInternetPortResponse
+   */
   async getDeviceInternetPortWithOptions(request: GetDeviceInternetPortRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceInternetPortResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -35562,11 +37259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDeviceInternetPortResponse>(await this.callApi(params, req, runtime), new GetDeviceInternetPortResponse({}));
   }
 
+  /**
+   * @summary Queries the network address translation (NAT) rule details of a device such as a server or container by its ID.
+   *
+   * @param request GetDeviceInternetPortRequest
+   * @return GetDeviceInternetPortResponse
+   */
   async getDeviceInternetPort(request: GetDeviceInternetPortRequest): Promise<GetDeviceInternetPortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeviceInternetPortWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
+   *
+   * @param request GetOssStorageAndAccByBucketsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOssStorageAndAccByBucketsResponse
+   */
   async getOssStorageAndAccByBucketsWithOptions(request: GetOssStorageAndAccByBucketsRequest, runtime: $Util.RuntimeOptions): Promise<GetOssStorageAndAccByBucketsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -35587,17 +37297,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOssStorageAndAccByBucketsResponse>(await this.callApi(params, req, runtime), new GetOssStorageAndAccByBucketsResponse({}));
   }
 
+  /**
+   * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
+   *
+   * @param request GetOssStorageAndAccByBucketsRequest
+   * @return GetOssStorageAndAccByBucketsResponse
+   */
   async getOssStorageAndAccByBuckets(request: GetOssStorageAndAccByBucketsRequest): Promise<GetOssStorageAndAccByBucketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOssStorageAndAccByBucketsWithOptions(request, runtime);
   }
 
   /**
-    * The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
-    *
-    * @param request GetOssUsageDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetOssUsageDataResponse
+   * @summary Queries the storage and bandwidth usage within a specific time range.
+   *
+   * @description The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+   *
+   * @param request GetOssUsageDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOssUsageDataResponse
    */
   async getOssUsageDataWithOptions(request: GetOssUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<GetOssUsageDataResponse> {
     Util.validateModel(request);
@@ -35620,10 +37338,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
-    *
-    * @param request GetOssUsageDataRequest
-    * @return GetOssUsageDataResponse
+   * @summary Queries the storage and bandwidth usage within a specific time range.
+   *
+   * @description The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+   *
+   * @param request GetOssUsageDataRequest
+   * @return GetOssUsageDataResponse
    */
   async getOssUsageData(request: GetOssUsageDataRequest): Promise<GetOssUsageDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35631,12 +37351,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
-    * *   The key pair can be only in the ssh-rsa format.
-    *
-    * @param request ImportKeyPairRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ImportKeyPairResponse
+   * @summary Imports the public key of a Rivest–Shamir–Adleman (RSA)-encrypted key pair that is generated by a third-party tool.
+   *
+   * @description *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
+   * *   The key pair can be only in the ssh-rsa format.
+   *
+   * @param request ImportKeyPairRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ImportKeyPairResponse
    */
   async importKeyPairWithOptions(request: ImportKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<ImportKeyPairResponse> {
     Util.validateModel(request);
@@ -35667,17 +37389,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
-    * *   The key pair can be only in the ssh-rsa format.
-    *
-    * @param request ImportKeyPairRequest
-    * @return ImportKeyPairResponse
+   * @summary Imports the public key of a Rivest–Shamir–Adleman (RSA)-encrypted key pair that is generated by a third-party tool.
+   *
+   * @description *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
+   * *   The key pair can be only in the ssh-rsa format.
+   *
+   * @param request ImportKeyPairRequest
+   * @return ImportKeyPairResponse
    */
   async importKeyPair(request: ImportKeyPairRequest): Promise<ImportKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importKeyPairWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Assigns public IP addresses to an EPN instance.
+   *
+   * @param request JoinPublicIpsToEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return JoinPublicIpsToEpnInstanceResponse
+   */
   async joinPublicIpsToEpnInstanceWithOptions(request: JoinPublicIpsToEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<JoinPublicIpsToEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35706,17 +37437,25 @@ export default class Client extends OpenApi {
     return $tea.cast<JoinPublicIpsToEpnInstanceResponse>(await this.callApi(params, req, runtime), new JoinPublicIpsToEpnInstanceResponse({}));
   }
 
+  /**
+   * @summary Assigns public IP addresses to an EPN instance.
+   *
+   * @param request JoinPublicIpsToEpnInstanceRequest
+   * @return JoinPublicIpsToEpnInstanceResponse
+   */
   async joinPublicIpsToEpnInstance(request: JoinPublicIpsToEpnInstanceRequest): Promise<JoinPublicIpsToEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinPublicIpsToEpnInstanceWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
-    *
-    * @param request JoinSecurityGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return JoinSecurityGroupResponse
+   * @summary Adds an Edge Node Service (ENS) instance to a specified security group.
+   *
+   * @description Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
+   *
+   * @param request JoinSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return JoinSecurityGroupResponse
    */
   async joinSecurityGroupWithOptions(request: JoinSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<JoinSecurityGroupResponse> {
     Util.validateModel(request);
@@ -35751,16 +37490,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
-    *
-    * @param request JoinSecurityGroupRequest
-    * @return JoinSecurityGroupResponse
+   * @summary Adds an Edge Node Service (ENS) instance to a specified security group.
+   *
+   * @description Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
+   *
+   * @param request JoinSecurityGroupRequest
+   * @return JoinSecurityGroupResponse
    */
   async joinSecurityGroup(request: JoinSecurityGroupRequest): Promise<JoinSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary For internal connections, instances that are associated with a vSwitch automatically take effect. For public connections such as intelligent acceleration, you need to manually add the instances.
+   *
+   * @param request JoinVSwitchesToEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return JoinVSwitchesToEpnInstanceResponse
+   */
   async joinVSwitchesToEpnInstanceWithOptions(request: JoinVSwitchesToEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<JoinVSwitchesToEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35789,17 +37537,25 @@ export default class Client extends OpenApi {
     return $tea.cast<JoinVSwitchesToEpnInstanceResponse>(await this.callApi(params, req, runtime), new JoinVSwitchesToEpnInstanceResponse({}));
   }
 
+  /**
+   * @summary For internal connections, instances that are associated with a vSwitch automatically take effect. For public connections such as intelligent acceleration, you need to manually add the instances.
+   *
+   * @param request JoinVSwitchesToEpnInstanceRequest
+   * @return JoinVSwitchesToEpnInstanceResponse
+   */
   async joinVSwitchesToEpnInstance(request: JoinVSwitchesToEpnInstanceRequest): Promise<JoinVSwitchesToEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinVSwitchesToEpnInstanceWithOptions(request, runtime);
   }
 
   /**
-    * Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
-    *
-    * @param request LeaveSecurityGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return LeaveSecurityGroupResponse
+   * @summary Removes an instance from a security group.
+   *
+   * @description Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
+   *
+   * @param request LeaveSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LeaveSecurityGroupResponse
    */
   async leaveSecurityGroupWithOptions(request: LeaveSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<LeaveSecurityGroupResponse> {
     Util.validateModel(request);
@@ -35834,16 +37590,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
-    *
-    * @param request LeaveSecurityGroupRequest
-    * @return LeaveSecurityGroupResponse
+   * @summary Removes an instance from a security group.
+   *
+   * @description Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
+   *
+   * @param request LeaveSecurityGroupRequest
+   * @return LeaveSecurityGroupResponse
    */
   async leaveSecurityGroup(request: LeaveSecurityGroupRequest): Promise<LeaveSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.leaveSecurityGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the created applications.
+   *
+   * @param request ListApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsResponse
+   */
   async listApplicationsWithOptions(request: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35896,11 +37661,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
   }
 
+  /**
+   * @summary Queries the created applications.
+   *
+   * @param request ListApplicationsRequest
+   * @return ListApplicationsResponse
+   */
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries all buckets of a user.
+   *
+   * @param request ListBucketsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBucketsResponse
+   */
   async listBucketsWithOptions(request: ListBucketsRequest, runtime: $Util.RuntimeOptions): Promise<ListBucketsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35933,11 +37711,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBucketsResponse>(await this.callApi(params, req, runtime), new ListBucketsResponse({}));
   }
 
+  /**
+   * @summary Queries all buckets of a user.
+   *
+   * @param request ListBucketsRequest
+   * @return ListBucketsResponse
+   */
   async listBuckets(request: ListBucketsRequest): Promise<ListBucketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBucketsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Lists all objects in a bucket.
+   *
+   * @param request ListObjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListObjectsResponse
+   */
   async listObjectsWithOptions(request: ListObjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListObjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35986,11 +37777,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListObjectsResponse>(await this.callApi(params, req, runtime), new ListObjectsResponse({}));
   }
 
+  /**
+   * @summary Lists all objects in a bucket.
+   *
+   * @param request ListObjectsRequest
+   * @return ListObjectsResponse
+   */
   async listObjects(request: ListObjectsRequest): Promise<ListObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listObjectsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
+   *
+   * @param request ModifyEnsEipAddressAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyEnsEipAddressAttributeResponse
+   */
   async modifyEnsEipAddressAttributeWithOptions(request: ModifyEnsEipAddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEnsEipAddressAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36027,11 +37831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyEnsEipAddressAttributeResponse>(await this.callApi(params, req, runtime), new ModifyEnsEipAddressAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
+   *
+   * @param request ModifyEnsEipAddressAttributeRequest
+   * @return ModifyEnsEipAddressAttributeResponse
+   */
   async modifyEnsEipAddressAttribute(request: ModifyEnsEipAddressAttributeRequest): Promise<ModifyEnsEipAddressAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEnsEipAddressAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an Edge Private Network (EPN) instance.
+   *
+   * @param request ModifyEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyEpnInstanceResponse
+   */
   async modifyEpnInstanceWithOptions(request: ModifyEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36068,11 +37885,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyEpnInstanceResponse>(await this.callApi(params, req, runtime), new ModifyEpnInstanceResponse({}));
   }
 
+  /**
+   * @summary Modifies an Edge Private Network (EPN) instance.
+   *
+   * @param request ModifyEpnInstanceRequest
+   * @return ModifyEpnInstanceResponse
+   */
   async modifyEpnInstance(request: ModifyEpnInstanceRequest): Promise<ModifyEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyEpnInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the description of a file system.
+   *
+   * @param request ModifyFileSystemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyFileSystemResponse
+   */
   async modifyFileSystemWithOptions(request: ModifyFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFileSystemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36105,11 +37935,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyFileSystemResponse>(await this.callApi(params, req, runtime), new ModifyFileSystemResponse({}));
   }
 
+  /**
+   * @summary Modifies the description of a file system.
+   *
+   * @param request ModifyFileSystemRequest
+   * @return ModifyFileSystemResponse
+   */
   async modifyFileSystem(request: ModifyFileSystemRequest): Promise<ModifyFileSystemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyFileSystemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies a Destination Network Address Translation (DNAT) rule.
+   *
+   * @param request ModifyForwardEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyForwardEntryResponse
+   */
   async modifyForwardEntryWithOptions(request: ModifyForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyForwardEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36142,11 +37985,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyForwardEntryResponse>(await this.callApi(params, req, runtime), new ModifyForwardEntryResponse({}));
   }
 
+  /**
+   * @summary Modifies a Destination Network Address Translation (DNAT) rule.
+   *
+   * @param request ModifyForwardEntryRequest
+   * @return ModifyForwardEntryResponse
+   */
   async modifyForwardEntry(request: ModifyForwardEntryRequest): Promise<ModifyForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyForwardEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the image attributes.
+   *
+   * @param request ModifyImageAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyImageAttributeResponse
+   */
   async modifyImageAttributeWithOptions(request: ModifyImageAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyImageAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36175,11 +38031,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyImageAttributeResponse>(await this.callApi(params, req, runtime), new ModifyImageAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the image attributes.
+   *
+   * @param request ModifyImageAttributeRequest
+   * @return ModifyImageAttributeResponse
+   */
   async modifyImageAttribute(request: ModifyImageAttributeRequest): Promise<ModifyImageAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyImageAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Shares or unshares an image.
+   *
+   * @param request ModifyImageSharePermissionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyImageSharePermissionResponse
+   */
   async modifyImageSharePermissionWithOptions(request: ModifyImageSharePermissionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyImageSharePermissionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36212,19 +38081,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyImageSharePermissionResponse>(await this.callApi(params, req, runtime), new ModifyImageSharePermissionResponse({}));
   }
 
+  /**
+   * @summary Shares or unshares an image.
+   *
+   * @param request ModifyImageSharePermissionRequest
+   * @return ModifyImageSharePermissionResponse
+   */
   async modifyImageSharePermission(request: ModifyImageSharePermissionRequest): Promise<ModifyImageSharePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyImageSharePermissionWithOptions(request, runtime);
   }
 
   /**
-    * *   If an instance is in the Starting state, you cannot reset the password of the instance.
-    * *   When the instance is in the Running state, you cannot change the password of the instance.
-    * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
-    *
-    * @param request ModifyInstanceAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstanceAttributeResponse
+   * @summary Changes the attributes of an instance, such as the name and the password.
+   *
+   * @description *   If an instance is in the Starting state, you cannot reset the password of the instance.
+   * *   When the instance is in the Running state, you cannot change the password of the instance.
+   * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
+   *
+   * @param request ModifyInstanceAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceAttributeResponse
    */
   async modifyInstanceAttributeWithOptions(request: ModifyInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAttributeResponse> {
     Util.validateModel(request);
@@ -36267,18 +38144,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If an instance is in the Starting state, you cannot reset the password of the instance.
-    * *   When the instance is in the Running state, you cannot change the password of the instance.
-    * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
-    *
-    * @param request ModifyInstanceAttributeRequest
-    * @return ModifyInstanceAttributeResponse
+   * @summary Changes the attributes of an instance, such as the name and the password.
+   *
+   * @description *   If an instance is in the Starting state, you cannot reset the password of the instance.
+   * *   When the instance is in the Running state, you cannot change the password of the instance.
+   * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
+   *
+   * @param request ModifyInstanceAttributeRequest
+   * @return ModifyInstanceAttributeResponse
    */
   async modifyInstanceAttribute(request: ModifyInstanceAttributeRequest): Promise<ModifyInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures auto-renewal for instances.
+   *
+   * @param request ModifyInstanceAutoRenewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceAutoRenewAttributeResponse
+   */
   async modifyInstanceAutoRenewAttributeWithOptions(request: ModifyInstanceAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36319,11 +38205,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAutoRenewAttributeResponse({}));
   }
 
+  /**
+   * @summary Configures auto-renewal for instances.
+   *
+   * @param request ModifyInstanceAutoRenewAttributeRequest
+   * @return ModifyInstanceAutoRenewAttributeResponse
+   */
   async modifyInstanceAutoRenewAttribute(request: ModifyInstanceAutoRenewAttributeRequest): Promise<ModifyInstanceAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Changes the billing method of Edge Node Service (ENS) instances. You can switch between the pay-as-you-go and subscription billing methods for instances. You can also change the billing method for disks that you created with pay-as-you-go instances to subscription.
+   *
+   * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of ENS.
+   * The instances must be in the Running or Stopped state, and you have no overdue payments for them.
+   *
+   * @param tmpReq ModifyInstanceChargeTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceChargeTypeResponse
+   */
   async modifyInstanceChargeTypeWithOptions(tmpReq: ModifyInstanceChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceChargeTypeResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyInstanceChargeTypeShrinkRequest({ });
@@ -36378,18 +38280,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceChargeTypeResponse({}));
   }
 
+  /**
+   * @summary Changes the billing method of Edge Node Service (ENS) instances. You can switch between the pay-as-you-go and subscription billing methods for instances. You can also change the billing method for disks that you created with pay-as-you-go instances to subscription.
+   *
+   * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of ENS.
+   * The instances must be in the Running or Stopped state, and you have no overdue payments for them.
+   *
+   * @param request ModifyInstanceChargeTypeRequest
+   * @return ModifyInstanceChargeTypeResponse
+   */
   async modifyInstanceChargeType(request: ModifyInstanceChargeTypeRequest): Promise<ModifyInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceChargeTypeWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request ModifyLoadBalancerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyLoadBalancerAttributeResponse
+   * @summary Modifies the information about an Edge Load Balancer (ELB) instance.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request ModifyLoadBalancerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyLoadBalancerAttributeResponse
    */
   async modifyLoadBalancerAttributeWithOptions(request: ModifyLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerAttributeResponse> {
     Util.validateModel(request);
@@ -36420,11 +38333,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request ModifyLoadBalancerAttributeRequest
-    * @return ModifyLoadBalancerAttributeResponse
+   * @summary Modifies the information about an Edge Load Balancer (ELB) instance.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request ModifyLoadBalancerAttributeRequest
+   * @return ModifyLoadBalancerAttributeResponse
    */
   async modifyLoadBalancerAttribute(request: ModifyLoadBalancerAttributeRequest): Promise<ModifyLoadBalancerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36432,12 +38347,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request ModifyNetworkAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyNetworkAttributeResponse
+   * @summary Modifies the network information.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request ModifyNetworkAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNetworkAttributeResponse
    */
   async modifyNetworkAttributeWithOptions(request: ModifyNetworkAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkAttributeResponse> {
     Util.validateModel(request);
@@ -36472,17 +38389,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request ModifyNetworkAttributeRequest
-    * @return ModifyNetworkAttributeResponse
+   * @summary Modifies the network information.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request ModifyNetworkAttributeRequest
+   * @return ModifyNetworkAttributeResponse
    */
   async modifyNetworkAttribute(request: ModifyNetworkAttributeRequest): Promise<ModifyNetworkAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNetworkAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Upgrades or downgrades the instance type of a subscription Edge Node Service (ENS) instance. The new instance type takes effect for the remaining lifecycle of the instance.
+   *
+   * @param request ModifyPrepayInstanceSpecRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyPrepayInstanceSpecResponse
+   */
   async modifyPrepayInstanceSpecWithOptions(request: ModifyPrepayInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayInstanceSpecResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36511,18 +38437,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyPrepayInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayInstanceSpecResponse({}));
   }
 
+  /**
+   * @summary Upgrades or downgrades the instance type of a subscription Edge Node Service (ENS) instance. The new instance type takes effect for the remaining lifecycle of the instance.
+   *
+   * @param request ModifyPrepayInstanceSpecRequest
+   * @return ModifyPrepayInstanceSpecResponse
+   */
   async modifyPrepayInstanceSpec(request: ModifyPrepayInstanceSpecRequest): Promise<ModifyPrepayInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPrepayInstanceSpecWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request ModifySecurityGroupAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifySecurityGroupAttributeResponse
+   * @summary Modifies the information about a security group.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request ModifySecurityGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySecurityGroupAttributeResponse
    */
   async modifySecurityGroupAttributeWithOptions(request: ModifySecurityGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupAttributeResponse> {
     Util.validateModel(request);
@@ -36557,17 +38491,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request ModifySecurityGroupAttributeRequest
-    * @return ModifySecurityGroupAttributeResponse
+   * @summary Modifies the information about a security group.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request ModifySecurityGroupAttributeRequest
+   * @return ModifySecurityGroupAttributeResponse
    */
   async modifySecurityGroupAttribute(request: ModifySecurityGroupAttributeRequest): Promise<ModifySecurityGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySecurityGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the information about a snapshot.
+   *
+   * @param request ModifySnapshotAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySnapshotAttributeResponse
+   */
   async modifySnapshotAttributeWithOptions(request: ModifySnapshotAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifySnapshotAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36600,18 +38543,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySnapshotAttributeResponse>(await this.callApi(params, req, runtime), new ModifySnapshotAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the information about a snapshot.
+   *
+   * @param request ModifySnapshotAttributeRequest
+   * @return ModifySnapshotAttributeResponse
+   */
   async modifySnapshotAttribute(request: ModifySnapshotAttributeRequest): Promise<ModifySnapshotAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySnapshotAttributeWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request ModifyVSwitchAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyVSwitchAttributeResponse
+   * @summary Modifies information about a vSwitch.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request ModifyVSwitchAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyVSwitchAttributeResponse
    */
   async modifyVSwitchAttributeWithOptions(request: ModifyVSwitchAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVSwitchAttributeResponse> {
     Util.validateModel(request);
@@ -36646,17 +38597,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 5 times per second per user.
-    *
-    * @param request ModifyVSwitchAttributeRequest
-    * @return ModifyVSwitchAttributeResponse
+   * @summary Modifies information about a vSwitch.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 5 times per second per user.
+   *
+   * @param request ModifyVSwitchAttributeRequest
+   * @return ModifyVSwitchAttributeResponse
    */
   async modifyVSwitchAttribute(request: ModifyVSwitchAttributeRequest): Promise<ModifyVSwitchAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVSwitchAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Pushes the business or service data of an application to file servers.
+   *
+   * @param request PushApplicationDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PushApplicationDataResponse
+   */
   async pushApplicationDataWithOptions(request: PushApplicationDataRequest, runtime: $Util.RuntimeOptions): Promise<PushApplicationDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36693,11 +38653,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PushApplicationDataResponse>(await this.callApi(params, req, runtime), new PushApplicationDataResponse({}));
   }
 
+  /**
+   * @summary Pushes the business or service data of an application to file servers.
+   *
+   * @param request PushApplicationDataRequest
+   * @return PushApplicationDataResponse
+   */
   async pushApplicationData(request: PushApplicationDataRequest): Promise<PushApplicationDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushApplicationDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an EOS bucket.
+   *
+   * @param request PutBucketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutBucketResponse
+   */
   async putBucketWithOptions(request: PutBucketRequest, runtime: $Util.RuntimeOptions): Promise<PutBucketResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -36738,11 +38711,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketResponse>(await this.callApi(params, req, runtime), new PutBucketResponse({}));
   }
 
+  /**
+   * @summary Creates an EOS bucket.
+   *
+   * @param request PutBucketRequest
+   * @return PutBucketResponse
+   */
   async putBucket(request: PutBucketRequest): Promise<PutBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putBucketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the access control list (ACL) of a bucket.
+   *
+   * @param request PutBucketAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutBucketAclResponse
+   */
   async putBucketAclWithOptions(request: PutBucketAclRequest, runtime: $Util.RuntimeOptions): Promise<PutBucketAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36771,18 +38757,26 @@ export default class Client extends OpenApi {
     return $tea.cast<PutBucketAclResponse>(await this.callApi(params, req, runtime), new PutBucketAclResponse({}));
   }
 
+  /**
+   * @summary Modifies the access control list (ACL) of a bucket.
+   *
+   * @param request PutBucketAclRequest
+   * @return PutBucketAclResponse
+   */
   async putBucketAcl(request: PutBucketAclRequest): Promise<PutBucketAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putBucketAclWithOptions(request, runtime);
   }
 
   /**
-    * - You can configure up to 1000 rules. 
-    * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
-    *
-    * @param request PutBucketLifecycleRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return PutBucketLifecycleResponse
+   * @summary Configures lifecycle rules for objects.
+   *
+   * @description - You can configure up to 1000 rules. 
+   * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+   *
+   * @param request PutBucketLifecycleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PutBucketLifecycleResponse
    */
   async putBucketLifecycleWithOptions(request: PutBucketLifecycleRequest, runtime: $Util.RuntimeOptions): Promise<PutBucketLifecycleResponse> {
     Util.validateModel(request);
@@ -36833,17 +38827,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * - You can configure up to 1000 rules. 
-    * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
-    *
-    * @param request PutBucketLifecycleRequest
-    * @return PutBucketLifecycleResponse
+   * @summary Configures lifecycle rules for objects.
+   *
+   * @description - You can configure up to 1000 rules. 
+   * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+   *
+   * @param request PutBucketLifecycleRequest
+   * @return PutBucketLifecycleResponse
    */
   async putBucketLifecycle(request: PutBucketLifecycleRequest): Promise<PutBucketLifecycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.putBucketLifecycleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Initializes a disk.
+   *
+   * @param request ReInitDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReInitDiskResponse
+   */
   async reInitDiskWithOptions(request: ReInitDiskRequest, runtime: $Util.RuntimeOptions): Promise<ReInitDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36872,11 +38875,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReInitDiskResponse>(await this.callApi(params, req, runtime), new ReInitDiskResponse({}));
   }
 
+  /**
+   * @summary Initializes a disk.
+   *
+   * @param request ReInitDiskRequest
+   * @return ReInitDiskResponse
+   */
   async reInitDisk(request: ReInitDiskRequest): Promise<ReInitDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reInitDiskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restarts an Android in Container (AIC) instance.
+   *
+   * @param tmpReq RebootAICInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebootAICInstanceResponse
+   */
   async rebootAICInstanceWithOptions(tmpReq: RebootAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootAICInstanceResponse> {
     Util.validateModel(tmpReq);
     let request = new RebootAICInstanceShrinkRequest({ });
@@ -36903,11 +38919,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RebootAICInstanceResponse>(await this.callApi(params, req, runtime), new RebootAICInstanceResponse({}));
   }
 
+  /**
+   * @summary Restarts an Android in Container (AIC) instance.
+   *
+   * @param request RebootAICInstanceRequest
+   * @return RebootAICInstanceResponse
+   */
   async rebootAICInstance(request: RebootAICInstanceRequest): Promise<RebootAICInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootAICInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Reboots an Android in Container (AIC) server.
+   *
+   * @param request RebootARMServerInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebootARMServerInstanceResponse
+   */
   async rebootARMServerInstanceWithOptions(request: RebootARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootARMServerInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -36928,18 +38957,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RebootARMServerInstanceResponse>(await this.callApi(params, req, runtime), new RebootARMServerInstanceResponse({}));
   }
 
+  /**
+   * @summary Reboots an Android in Container (AIC) server.
+   *
+   * @param request RebootARMServerInstanceRequest
+   * @return RebootARMServerInstanceResponse
+   */
   async rebootARMServerInstance(request: RebootARMServerInstanceRequest): Promise<RebootARMServerInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootARMServerInstanceWithOptions(request, runtime);
   }
 
   /**
-    * *   Only instances that are in the Running state can be restarted.
-    * *   If the operation is successful, the status of the instance becomes Starting.
-    *
-    * @param request RebootInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RebootInstanceResponse
+   * @summary Reboots an instance.
+   *
+   * @description *   Only instances that are in the Running state can be restarted.
+   * *   If the operation is successful, the status of the instance becomes Starting.
+   *
+   * @param request RebootInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebootInstanceResponse
    */
   async rebootInstanceWithOptions(request: RebootInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebootInstanceResponse> {
     Util.validateModel(request);
@@ -36970,17 +39007,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only instances that are in the Running state can be restarted.
-    * *   If the operation is successful, the status of the instance becomes Starting.
-    *
-    * @param request RebootInstanceRequest
-    * @return RebootInstanceResponse
+   * @summary Reboots an instance.
+   *
+   * @description *   Only instances that are in the Running state can be restarted.
+   * *   If the operation is successful, the status of the instance becomes Starting.
+   *
+   * @param request RebootInstanceRequest
+   * @return RebootInstanceResponse
    */
   async rebootInstance(request: RebootInstanceRequest): Promise<RebootInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 选择批量实例进行重启操作
+   *
+   * @param tmpReq RebootInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebootInstancesResponse
+   */
   async rebootInstancesWithOptions(tmpReq: RebootInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RebootInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new RebootInstancesShrinkRequest({ });
@@ -37011,11 +39057,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RebootInstancesResponse>(await this.callApi(params, req, runtime), new RebootInstancesResponse({}));
   }
 
+  /**
+   * @summary 选择批量实例进行重启操作
+   *
+   * @param request RebootInstancesRequest
+   * @return RebootInstancesResponse
+   */
   async rebootInstances(request: RebootInstancesRequest): Promise<RebootInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Recovers an Android in Container (AIC) instance on the server.
+   *
+   * @param request RecoverAICInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RecoverAICInstanceResponse
+   */
   async recoverAICInstanceWithOptions(request: RecoverAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RecoverAICInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -37036,11 +39095,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RecoverAICInstanceResponse>(await this.callApi(params, req, runtime), new RecoverAICInstanceResponse({}));
   }
 
+  /**
+   * @summary Recovers an Android in Container (AIC) instance on the server.
+   *
+   * @param request RecoverAICInstanceRequest
+   * @return RecoverAICInstanceResponse
+   */
   async recoverAICInstance(request: RecoverAICInstanceRequest): Promise<RecoverAICInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recoverAICInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Resets an instance based on specific parameters.
+   *
+   * @param request ReinitInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReinitInstanceResponse
+   */
   async reinitInstanceWithOptions(request: ReinitInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReinitInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -37073,11 +39145,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReinitInstanceResponse>(await this.callApi(params, req, runtime), new ReinitInstanceResponse({}));
   }
 
+  /**
+   * @summary Resets an instance based on specific parameters.
+   *
+   * @param request ReinitInstanceRequest
+   * @return ReinitInstanceResponse
+   */
   async reinitInstance(request: ReinitInstanceRequest): Promise<ReinitInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reinitInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 选择批量实例进行重置操作
+   *
+   * @param tmpReq ReinitInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReinitInstancesResponse
+   */
   async reinitInstancesWithOptions(tmpReq: ReinitInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ReinitInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new ReinitInstancesShrinkRequest({ });
@@ -37116,11 +39201,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReinitInstancesResponse>(await this.callApi(params, req, runtime), new ReinitInstancesResponse({}));
   }
 
+  /**
+   * @summary 选择批量实例进行重置操作
+   *
+   * @param request ReinitInstancesRequest
+   * @return ReinitInstancesResponse
+   */
   async reinitInstances(request: ReinitInstancesRequest): Promise<ReinitInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.reinitInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases an Android in Container (AIC) instance from the server.
+   *
+   * @param request ReleaseAICInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseAICInstanceResponse
+   */
   async releaseAICInstanceWithOptions(request: ReleaseAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseAICInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37145,11 +39243,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseAICInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseAICInstanceResponse({}));
   }
 
+  /**
+   * @summary Releases an Android in Container (AIC) instance from the server.
+   *
+   * @param request ReleaseAICInstanceRequest
+   * @return ReleaseAICInstanceResponse
+   */
   async releaseAICInstance(request: ReleaseAICInstanceRequest): Promise<ReleaseAICInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseAICInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Releases an ARM server.
+   *
+   * @param request ReleaseARMServerInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseARMServerInstanceResponse
+   */
   async releaseARMServerInstanceWithOptions(request: ReleaseARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseARMServerInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37174,18 +39285,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseARMServerInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseARMServerInstanceResponse({}));
   }
 
+  /**
+   * @summary Releases an ARM server.
+   *
+   * @param request ReleaseARMServerInstanceRequest
+   * @return ReleaseARMServerInstanceResponse
+   */
   async releaseARMServerInstance(request: ReleaseARMServerInstanceRequest): Promise<ReleaseARMServerInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseARMServerInstanceWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 10,000 times per second per account.
-    * *   The maximum number of times that each user can call this operation per second is 50.
-    *
-    * @param request ReleaseInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReleaseInstanceResponse
+   * @summary Releases an instance.
+   *
+   * @description *   You can call this operation up to 10,000 times per second per account.
+   * *   The maximum number of times that each user can call this operation per second is 50.
+   *
+   * @param request ReleaseInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseInstanceResponse
    */
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
@@ -37212,17 +39331,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 10,000 times per second per account.
-    * *   The maximum number of times that each user can call this operation per second is 50.
-    *
-    * @param request ReleaseInstanceRequest
-    * @return ReleaseInstanceResponse
+   * @summary Releases an instance.
+   *
+   * @description *   You can call this operation up to 10,000 times per second per account.
+   * *   The maximum number of times that each user can call this operation per second is 50.
+   *
+   * @param request ReleaseInstanceRequest
+   * @return ReleaseInstanceResponse
    */
   async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a pay-as-you-go instance.
+   *
+   * @param request ReleasePostPaidInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleasePostPaidInstanceResponse
+   */
   async releasePostPaidInstanceWithOptions(request: ReleasePostPaidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleasePostPaidInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37247,11 +39375,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleasePostPaidInstanceResponse>(await this.callApi(params, req, runtime), new ReleasePostPaidInstanceResponse({}));
   }
 
+  /**
+   * @summary Deletes a pay-as-you-go instance.
+   *
+   * @param request ReleasePostPaidInstanceRequest
+   * @return ReleasePostPaidInstanceResponse
+   */
   async releasePostPaidInstance(request: ReleasePostPaidInstanceRequest): Promise<ReleasePostPaidInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releasePostPaidInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Call ReleasePrePaidInstance to delete a subscription instance.
+   *
+   * @param request ReleasePrePaidInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleasePrePaidInstanceResponse
+   */
   async releasePrePaidInstanceWithOptions(request: ReleasePrePaidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleasePrePaidInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37276,18 +39417,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleasePrePaidInstanceResponse>(await this.callApi(params, req, runtime), new ReleasePrePaidInstanceResponse({}));
   }
 
+  /**
+   * @summary Call ReleasePrePaidInstance to delete a subscription instance.
+   *
+   * @param request ReleasePrePaidInstanceRequest
+   * @return ReleasePrePaidInstanceResponse
+   */
   async releasePrePaidInstance(request: ReleasePrePaidInstanceRequest): Promise<ReleasePrePaidInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releasePrePaidInstanceWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param tmpReq RemoveBackendServersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveBackendServersResponse
+   * @summary Removes backend servers.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param tmpReq RemoveBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveBackendServersResponse
    */
   async removeBackendServersWithOptions(tmpReq: RemoveBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveBackendServersResponse> {
     Util.validateModel(tmpReq);
@@ -37324,17 +39473,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request RemoveBackendServersRequest
-    * @return RemoveBackendServersResponse
+   * @summary Removes backend servers.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param request RemoveBackendServersRequest
+   * @return RemoveBackendServersResponse
    */
   async removeBackendServers(request: RemoveBackendServersRequest): Promise<RemoveBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeBackendServersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes IP addresses from an edge private network (EPN) instance.
+   *
+   * @param request RemovePublicIpsFromEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemovePublicIpsFromEpnInstanceResponse
+   */
   async removePublicIpsFromEpnInstanceWithOptions(request: RemovePublicIpsFromEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RemovePublicIpsFromEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37363,11 +39521,68 @@ export default class Client extends OpenApi {
     return $tea.cast<RemovePublicIpsFromEpnInstanceResponse>(await this.callApi(params, req, runtime), new RemovePublicIpsFromEpnInstanceResponse({}));
   }
 
+  /**
+   * @summary Removes IP addresses from an edge private network (EPN) instance.
+   *
+   * @param request RemovePublicIpsFromEpnInstanceRequest
+   * @return RemovePublicIpsFromEpnInstanceResponse
+   */
   async removePublicIpsFromEpnInstance(request: RemovePublicIpsFromEpnInstanceRequest): Promise<RemovePublicIpsFromEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removePublicIpsFromEpnInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes shared data groups (SDGs) that are deployed on instances.
+   *
+   * @param tmpReq RemoveSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveSDGResponse
+   */
+  async removeSDGWithOptions(tmpReq: RemoveSDGRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RemoveSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveSDGResponse>(await this.callApi(params, req, runtime), new RemoveSDGResponse({}));
+  }
+
+  /**
+   * @summary Removes shared data groups (SDGs) that are deployed on instances.
+   *
+   * @param request RemoveSDGRequest
+   * @return RemoveSDGResponse
+   */
+  async removeSDG(request: RemoveSDGRequest): Promise<RemoveSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeSDGWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Deletes the networking information. This operation is applicable only for instances that reside in the internal network.
+   *
+   * @param request RemoveVSwitchesFromEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveVSwitchesFromEpnInstanceResponse
+   */
   async removeVSwitchesFromEpnInstanceWithOptions(request: RemoveVSwitchesFromEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVSwitchesFromEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37396,11 +39611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveVSwitchesFromEpnInstanceResponse>(await this.callApi(params, req, runtime), new RemoveVSwitchesFromEpnInstanceResponse({}));
   }
 
+  /**
+   * @summary Deletes the networking information. This operation is applicable only for instances that reside in the internal network.
+   *
+   * @param request RemoveVSwitchesFromEpnInstanceRequest
+   * @return RemoveVSwitchesFromEpnInstanceResponse
+   */
   async removeVSwitchesFromEpnInstance(request: RemoveVSwitchesFromEpnInstanceRequest): Promise<RemoveVSwitchesFromEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeVSwitchesFromEpnInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Renews a subscription Android in Container (AIC) instance.
+   *
+   * @param request RenewARMServerInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewARMServerInstanceResponse
+   */
   async renewARMServerInstanceWithOptions(request: RenewARMServerInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewARMServerInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37437,11 +39665,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewARMServerInstanceResponse>(await this.callApi(params, req, runtime), new RenewARMServerInstanceResponse({}));
   }
 
+  /**
+   * @summary Renews a subscription Android in Container (AIC) instance.
+   *
+   * @param request RenewARMServerInstanceRequest
+   * @return RenewARMServerInstanceResponse
+   */
   async renewARMServerInstance(request: RenewARMServerInstanceRequest): Promise<RenewARMServerInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewARMServerInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Renews a subscription instance.
+   *
+   * @param request RenewInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewInstanceResponse
+   */
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -37462,11 +39703,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
   }
 
+  /**
+   * @summary Renews a subscription instance.
+   *
+   * @param request RenewInstanceRequest
+   * @return RenewInstanceResponse
+   */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Scales resources in an asynchronous manner and deploys or releases the container.
+   *
+   * @param request RescaleApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RescaleApplicationResponse
+   */
   async rescaleApplicationWithOptions(request: RescaleApplicationRequest, runtime: $Util.RuntimeOptions): Promise<RescaleApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37511,11 +39765,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RescaleApplicationResponse>(await this.callApi(params, req, runtime), new RescaleApplicationResponse({}));
   }
 
+  /**
+   * @summary Scales resources in an asynchronous manner and deploys or releases the container.
+   *
+   * @param request RescaleApplicationRequest
+   * @return RescaleApplicationResponse
+   */
   async rescaleApplication(request: RescaleApplicationRequest): Promise<RescaleApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rescaleApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Scales out a bare metal device.
+   *
+   * @param request RescaleDeviceServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RescaleDeviceServiceResponse
+   */
   async rescaleDeviceServiceWithOptions(request: RescaleDeviceServiceRequest, runtime: $Util.RuntimeOptions): Promise<RescaleDeviceServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37578,19 +39845,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RescaleDeviceServiceResponse>(await this.callApi(params, req, runtime), new RescaleDeviceServiceResponse({}));
   }
 
+  /**
+   * @summary Scales out a bare metal device.
+   *
+   * @param request RescaleDeviceServiceRequest
+   * @return RescaleDeviceServiceResponse
+   */
   async rescaleDeviceService(request: RescaleDeviceServiceRequest): Promise<RescaleDeviceServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rescaleDeviceServiceWithOptions(request, runtime);
   }
 
-  async resetAICInstanceWithOptions(tmpReq: ResetAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResetAICInstanceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ResetAICInstanceShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.instanceIds)) {
-      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
-    }
-
+  /**
+   * @summary Resets an Android in Container (AIC) instance.
+   *
+   * @param request ResetAICInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAICInstanceResponse
+   */
+  async resetAICInstanceWithOptions(request: ResetAICInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResetAICInstanceResponse> {
+    Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -37609,11 +39883,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAICInstanceResponse>(await this.callApi(params, req, runtime), new ResetAICInstanceResponse({}));
   }
 
+  /**
+   * @summary Resets an Android in Container (AIC) instance.
+   *
+   * @param request ResetAICInstanceRequest
+   * @return ResetAICInstanceResponse
+   */
   async resetAICInstance(request: ResetAICInstanceRequest): Promise<ResetAICInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAICInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Resets an instance including its image.
+   *
+   * @param request ResetDeviceInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetDeviceInstanceResponse
+   */
   async resetDeviceInstanceWithOptions(request: ResetDeviceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResetDeviceInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -37634,21 +39921,29 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetDeviceInstanceResponse>(await this.callApi(params, req, runtime), new ResetDeviceInstanceResponse({}));
   }
 
+  /**
+   * @summary Resets an instance including its image.
+   *
+   * @param request ResetDeviceInstanceRequest
+   * @return ResetDeviceInstanceResponse
+   */
   async resetDeviceInstance(request: ResetDeviceInstanceRequest): Promise<ResetDeviceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetDeviceInstanceWithOptions(request, runtime);
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-    * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
-    * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-    * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
-    *
-    * @param request ResetDiskRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ResetDiskResponse
+   * @summary Rolls back a disk by using a snapshot.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
+   * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
+   * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
+   * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
+   *
+   * @param request ResetDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetDiskResponse
    */
   async resetDiskWithOptions(request: ResetDiskRequest, runtime: $Util.RuntimeOptions): Promise<ResetDiskResponse> {
     Util.validateModel(request);
@@ -37679,20 +39974,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-    * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
-    * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-    * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
-    *
-    * @param request ResetDiskRequest
-    * @return ResetDiskResponse
+   * @summary Rolls back a disk by using a snapshot.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
+   * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
+   * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
+   * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
+   *
+   * @param request ResetDiskRequest
+   * @return ResetDiskResponse
    */
   async resetDisk(request: ResetDiskRequest): Promise<ResetDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetDiskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Resizes a pay-as-you-go disk that you purchase.
+   *
+   * @param request ResizeDiskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResizeDiskResponse
+   */
   async resizeDiskWithOptions(request: ResizeDiskRequest, runtime: $Util.RuntimeOptions): Promise<ResizeDiskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37721,11 +40025,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResizeDiskResponse>(await this.callApi(params, req, runtime), new ResizeDiskResponse({}));
   }
 
+  /**
+   * @summary Resizes a pay-as-you-go disk that you purchase.
+   *
+   * @param request ResizeDiskRequest
+   * @return ResizeDiskResponse
+   */
   async resizeDisk(request: ResizeDiskRequest): Promise<ResizeDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resizeDiskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Restarts applications deployed on an instance and returns the restart results in a synchronous manner.
+   *
+   * @param request RestartDeviceInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartDeviceInstanceResponse
+   */
   async restartDeviceInstanceWithOptions(request: RestartDeviceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDeviceInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -37746,89 +40063,27 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartDeviceInstanceResponse>(await this.callApi(params, req, runtime), new RestartDeviceInstanceResponse({}));
   }
 
+  /**
+   * @summary Restarts applications deployed on an instance and returns the restart results in a synchronous manner.
+   *
+   * @param request RestartDeviceInstanceRequest
+   * @return RestartDeviceInstanceResponse
+   */
   async restartDeviceInstance(request: RestartDeviceInstanceRequest): Promise<RestartDeviceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDeviceInstanceWithOptions(request, runtime);
   }
 
-  async restartWorkflowWithOptions(tmpReq: RestartWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<RestartWorkflowResponse> {
-    Util.validateModel(tmpReq);
-    let request = new RestartWorkflowShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.workflowIds)) {
-      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.workflowIdsShrink)) {
-      query["WorkflowIds"] = request.workflowIdsShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RestartWorkflow",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RestartWorkflowResponse>(await this.callApi(params, req, runtime), new RestartWorkflowResponse({}));
-  }
-
-  async restartWorkflow(request: RestartWorkflowRequest): Promise<RestartWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.restartWorkflowWithOptions(request, runtime);
-  }
-
-  async retryWorkflowWithOptions(tmpReq: RetryWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<RetryWorkflowResponse> {
-    Util.validateModel(tmpReq);
-    let request = new RetryWorkflowShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.workflowIds)) {
-      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.workflowIdsShrink)) {
-      query["WorkflowIds"] = request.workflowIdsShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RetryWorkflow",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RetryWorkflowResponse>(await this.callApi(params, req, runtime), new RetryWorkflowResponse({}));
-  }
-
-  async retryWorkflow(request: RetryWorkflowRequest): Promise<RetryWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.retryWorkflowWithOptions(request, runtime);
-  }
-
   /**
-    * *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
-    * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-    * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
-    *
-    * @param request RevokeSecurityGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RevokeSecurityGroupResponse
+   * @summary Deletes an inbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+   *
+   * @description *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
+   * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+   * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
+   *
+   * @param request RevokeSecurityGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeSecurityGroupResponse
    */
   async revokeSecurityGroupWithOptions(request: RevokeSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<RevokeSecurityGroupResponse> {
     Util.validateModel(request);
@@ -37879,12 +40134,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
-    * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-    * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
-    *
-    * @param request RevokeSecurityGroupRequest
-    * @return RevokeSecurityGroupResponse
+   * @summary Deletes an inbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+   *
+   * @description *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
+   * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+   * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
+   *
+   * @param request RevokeSecurityGroupRequest
+   * @return RevokeSecurityGroupResponse
    */
   async revokeSecurityGroup(request: RevokeSecurityGroupRequest): Promise<RevokeSecurityGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37892,11 +40149,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
-    *
-    * @param request RevokeSecurityGroupEgressRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RevokeSecurityGroupEgressResponse
+   * @summary Deletes an outbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+   *
+   * @description >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
+   *
+   * @param request RevokeSecurityGroupEgressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeSecurityGroupEgressResponse
    */
   async revokeSecurityGroupEgressWithOptions(request: RevokeSecurityGroupEgressRequest, runtime: $Util.RuntimeOptions): Promise<RevokeSecurityGroupEgressResponse> {
     Util.validateModel(request);
@@ -37947,16 +40206,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
-    *
-    * @param request RevokeSecurityGroupEgressRequest
-    * @return RevokeSecurityGroupEgressResponse
+   * @summary Deletes an outbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+   *
+   * @description >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
+   *
+   * @param request RevokeSecurityGroupEgressRequest
+   * @return RevokeSecurityGroupEgressResponse
    */
   async revokeSecurityGroupEgress(request: RevokeSecurityGroupEgressRequest): Promise<RevokeSecurityGroupEgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeSecurityGroupEgressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Rolls back the container version of a specific application.
+   *
+   * @param request RollbackApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RollbackApplicationResponse
+   */
   async rollbackApplicationWithOptions(request: RollbackApplicationRequest, runtime: $Util.RuntimeOptions): Promise<RollbackApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37993,46 +40261,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RollbackApplicationResponse>(await this.callApi(params, req, runtime), new RollbackApplicationResponse({}));
   }
 
+  /**
+   * @summary Rolls back the container version of a specific application.
+   *
+   * @param request RollbackApplicationRequest
+   * @return RollbackApplicationResponse
+   */
   async rollbackApplication(request: RollbackApplicationRequest): Promise<RollbackApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackApplicationWithOptions(request, runtime);
   }
 
-  async rollbackWorkflowWithOptions(tmpReq: RollbackWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<RollbackWorkflowResponse> {
-    Util.validateModel(tmpReq);
-    let request = new RollbackWorkflowShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.workflowIds)) {
-      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.workflowIdsShrink)) {
-      query["WorkflowIds"] = request.workflowIdsShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RollbackWorkflow",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RollbackWorkflowResponse>(await this.callApi(params, req, runtime), new RollbackWorkflowResponse({}));
-  }
-
-  async rollbackWorkflow(request: RollbackWorkflowRequest): Promise<RollbackWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.rollbackWorkflowWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary Creates one or more pay-as-you-go or subscription Edge Node Service (ENS) instances.
+   *
+   * @param tmpReq RunInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunInstancesResponse
+   */
   async runInstancesWithOptions(tmpReq: RunInstancesRequest, runtime: $Util.RuntimeOptions): Promise<RunInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new RunInstancesShrinkRequest({ });
@@ -38048,6 +40294,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.amount)) {
       query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.autoReleaseTime)) {
+      query["AutoReleaseTime"] = request.autoReleaseTime;
     }
 
     if (!Util.isUnset(request.autoRenew)) {
@@ -38162,6 +40412,10 @@ export default class Client extends OpenApi {
       query["SecurityId"] = request.securityId;
     }
 
+    if (!Util.isUnset(request.spotStrategy)) {
+      query["SpotStrategy"] = request.spotStrategy;
+    }
+
     if (!Util.isUnset(request.systemDiskShrink)) {
       query["SystemDisk"] = request.systemDiskShrink;
     }
@@ -38199,11 +40453,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RunInstancesResponse>(await this.callApi(params, req, runtime), new RunInstancesResponse({}));
   }
 
+  /**
+   * @summary Creates one or more pay-as-you-go or subscription Edge Node Service (ENS) instances.
+   *
+   * @param request RunInstancesRequest
+   * @return RunInstancesResponse
+   */
   async runInstances(request: RunInstancesRequest): Promise<RunInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Schedules the nearest idle resources including instances and pods for your device based on the user ID and IP address and initializes the virtual environment.
+   *
+   * @param request RunServiceScheduleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RunServiceScheduleResponse
+   */
   async runServiceScheduleWithOptions(request: RunServiceScheduleRequest, runtime: $Util.RuntimeOptions): Promise<RunServiceScheduleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38260,18 +40527,64 @@ export default class Client extends OpenApi {
     return $tea.cast<RunServiceScheduleResponse>(await this.callApi(params, req, runtime), new RunServiceScheduleResponse({}));
   }
 
+  /**
+   * @summary Schedules the nearest idle resources including instances and pods for your device based on the user ID and IP address and initializes the virtual environment.
+   *
+   * @param request RunServiceScheduleRequest
+   * @return RunServiceScheduleResponse
+   */
   async runServiceSchedule(request: RunServiceScheduleRequest): Promise<RunServiceScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runServiceScheduleWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param tmpReq SetBackendServersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetBackendServersResponse
+   * @summary Saves the disk of a specific device as a shared data group (SDG).
+   *
+   * @param request SaveSDGRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveSDGResponse
+   */
+  async saveSDGWithOptions(request: SaveSDGRequest, runtime: $Util.RuntimeOptions): Promise<SaveSDGResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveSDGResponse>(await this.callApi(params, req, runtime), new SaveSDGResponse({}));
+  }
+
+  /**
+   * @summary Saves the disk of a specific device as a shared data group (SDG).
+   *
+   * @param request SaveSDGRequest
+   * @return SaveSDGResponse
+   */
+  async saveSDG(request: SaveSDGRequest): Promise<SaveSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveSDGWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Sets the weights of backend servers.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param tmpReq SetBackendServersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetBackendServersResponse
    */
   async setBackendServersWithOptions(tmpReq: SetBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<SetBackendServersResponse> {
     Util.validateModel(tmpReq);
@@ -38308,11 +40621,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second.
-    * *   You can call this operation up to 10 times per second per account.
-    *
-    * @param request SetBackendServersRequest
-    * @return SetBackendServersResponse
+   * @summary Sets the weights of backend servers.
+   *
+   * @description *   You can call this operation up to 100 times per second.
+   * *   You can call this operation up to 10 times per second per account.
+   *
+   * @param request SetBackendServersRequest
+   * @return SetBackendServersResponse
    */
   async setBackendServers(request: SetBackendServersRequest): Promise<SetBackendServersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38320,12 +40635,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerHTTPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerHTTPListenerAttributeResponse
+   * @summary Modifies the configurations of an HTTP listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerHTTPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerHTTPListenerAttributeResponse
    */
   async setLoadBalancerHTTPListenerAttributeWithOptions(request: SetLoadBalancerHTTPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerHTTPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -38412,11 +40729,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerHTTPListenerAttributeRequest
-    * @return SetLoadBalancerHTTPListenerAttributeResponse
+   * @summary Modifies the configurations of an HTTP listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerHTTPListenerAttributeRequest
+   * @return SetLoadBalancerHTTPListenerAttributeResponse
    */
   async setLoadBalancerHTTPListenerAttribute(request: SetLoadBalancerHTTPListenerAttributeRequest): Promise<SetLoadBalancerHTTPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38424,12 +40743,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerHTTPSListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerHTTPSListenerAttributeResponse
+   * @summary Modifies the configurations of an HTTPS listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerHTTPSListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerHTTPSListenerAttributeResponse
    */
   async setLoadBalancerHTTPSListenerAttributeWithOptions(request: SetLoadBalancerHTTPSListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerHTTPSListenerAttributeResponse> {
     Util.validateModel(request);
@@ -38520,11 +40841,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerHTTPSListenerAttributeRequest
-    * @return SetLoadBalancerHTTPSListenerAttributeResponse
+   * @summary Modifies the configurations of an HTTPS listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerHTTPSListenerAttributeRequest
+   * @return SetLoadBalancerHTTPSListenerAttributeResponse
    */
   async setLoadBalancerHTTPSListenerAttribute(request: SetLoadBalancerHTTPSListenerAttributeRequest): Promise<SetLoadBalancerHTTPSListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38532,12 +40855,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerStatusResponse
+   * @summary Modifies the status of an Edge Load Balancer (ELB) instance.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerStatusResponse
    */
   async setLoadBalancerStatusWithOptions(request: SetLoadBalancerStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerStatusResponse> {
     Util.validateModel(request);
@@ -38568,11 +40893,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerStatusRequest
-    * @return SetLoadBalancerStatusResponse
+   * @summary Modifies the status of an Edge Load Balancer (ELB) instance.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerStatusRequest
+   * @return SetLoadBalancerStatusResponse
    */
   async setLoadBalancerStatus(request: SetLoadBalancerStatusRequest): Promise<SetLoadBalancerStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38580,12 +40907,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerTCPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerTCPListenerAttributeResponse
+   * @summary Modifies the configurations of a TCP listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerTCPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerTCPListenerAttributeResponse
    */
   async setLoadBalancerTCPListenerAttributeWithOptions(request: SetLoadBalancerTCPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerTCPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -38672,11 +41001,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerTCPListenerAttributeRequest
-    * @return SetLoadBalancerTCPListenerAttributeResponse
+   * @summary Modifies the configurations of a TCP listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerTCPListenerAttributeRequest
+   * @return SetLoadBalancerTCPListenerAttributeResponse
    */
   async setLoadBalancerTCPListenerAttribute(request: SetLoadBalancerTCPListenerAttributeRequest): Promise<SetLoadBalancerTCPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38684,13 +41015,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerUDPListenerAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SetLoadBalancerUDPListenerAttributeResponse
+   * @summary Modifies the configurations of a UDP listener.
+   *
+   * @description > 
+   * *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerUDPListenerAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetLoadBalancerUDPListenerAttributeResponse
    */
   async setLoadBalancerUDPListenerAttributeWithOptions(request: SetLoadBalancerUDPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerUDPListenerAttributeResponse> {
     Util.validateModel(request);
@@ -38761,18 +41094,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * > 
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request SetLoadBalancerUDPListenerAttributeRequest
-    * @return SetLoadBalancerUDPListenerAttributeResponse
+   * @summary Modifies the configurations of a UDP listener.
+   *
+   * @description > 
+   * *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request SetLoadBalancerUDPListenerAttributeRequest
+   * @return SetLoadBalancerUDPListenerAttributeResponse
    */
   async setLoadBalancerUDPListenerAttribute(request: SetLoadBalancerUDPListenerAttributeRequest): Promise<SetLoadBalancerUDPListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setLoadBalancerUDPListenerAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Starts an edge network instance.
+   *
+   * @param request StartEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartEpnInstanceResponse
+   */
   async startEpnInstanceWithOptions(request: StartEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38797,18 +41139,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StartEpnInstanceResponse>(await this.callApi(params, req, runtime), new StartEpnInstanceResponse({}));
   }
 
+  /**
+   * @summary Starts an edge network instance.
+   *
+   * @param request StartEpnInstanceRequest
+   * @return StartEpnInstanceResponse
+   */
   async startEpnInstance(request: StartEpnInstanceRequest): Promise<StartEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startEpnInstanceWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call the operation only when the instance is in the Stopped state.
-    * *   If the operation is successful, the status of the instance becomes Starting.
-    *
-    * @param request StartInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartInstanceResponse
+   * @summary Starts an instance.
+   *
+   * @description *   You can call the operation only when the instance is in the Stopped state.
+   * *   If the operation is successful, the status of the instance becomes Starting.
+   *
+   * @param request StartInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartInstanceResponse
    */
   async startInstanceWithOptions(request: StartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
     Util.validateModel(request);
@@ -38835,17 +41185,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call the operation only when the instance is in the Stopped state.
-    * *   If the operation is successful, the status of the instance becomes Starting.
-    *
-    * @param request StartInstanceRequest
-    * @return StartInstanceResponse
+   * @summary Starts an instance.
+   *
+   * @description *   You can call the operation only when the instance is in the Stopped state.
+   * *   If the operation is successful, the status of the instance becomes Starting.
+   *
+   * @param request StartInstanceRequest
+   * @return StartInstanceResponse
    */
   async startInstance(request: StartInstanceRequest): Promise<StartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 选择批量实例进行启动操作
+   *
+   * @param tmpReq StartInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartInstancesResponse
+   */
   async startInstancesWithOptions(tmpReq: StartInstancesRequest, runtime: $Util.RuntimeOptions): Promise<StartInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new StartInstancesShrinkRequest({ });
@@ -38876,18 +41235,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StartInstancesResponse>(await this.callApi(params, req, runtime), new StartInstancesResponse({}));
   }
 
+  /**
+   * @summary 选择批量实例进行启动操作
+   *
+   * @param request StartInstancesRequest
+   * @return StartInstancesResponse
+   */
   async startInstances(request: StartInstancesRequest): Promise<StartInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startInstancesWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request StartLoadBalancerListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartLoadBalancerListenerResponse
+   * @summary Enables a listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request StartLoadBalancerListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartLoadBalancerListenerResponse
    */
   async startLoadBalancerListenerWithOptions(request: StartLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<StartLoadBalancerListenerResponse> {
     Util.validateModel(request);
@@ -38922,17 +41289,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request StartLoadBalancerListenerRequest
-    * @return StartLoadBalancerListenerResponse
+   * @summary Enables a listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request StartLoadBalancerListenerRequest
+   * @return StartLoadBalancerListenerResponse
    */
   async startLoadBalancerListener(request: StartLoadBalancerListenerRequest): Promise<StartLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startLoadBalancerListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+   *
+   * @param request StartSnatIpForSnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartSnatIpForSnatEntryResponse
+   */
   async startSnatIpForSnatEntryWithOptions(request: StartSnatIpForSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<StartSnatIpForSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38961,11 +41337,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartSnatIpForSnatEntryResponse>(await this.callApi(params, req, runtime), new StartSnatIpForSnatEntryResponse({}));
   }
 
+  /**
+   * @summary Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+   *
+   * @param request StartSnatIpForSnatEntryRequest
+   * @return StartSnatIpForSnatEntryResponse
+   */
   async startSnatIpForSnatEntry(request: StartSnatIpForSnatEntryRequest): Promise<StartSnatIpForSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startSnatIpForSnatEntryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Stops an EPN instance.
+   *
+   * @param request StopEpnInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopEpnInstanceResponse
+   */
   async stopEpnInstanceWithOptions(request: StopEpnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopEpnInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38990,20 +41379,28 @@ export default class Client extends OpenApi {
     return $tea.cast<StopEpnInstanceResponse>(await this.callApi(params, req, runtime), new StopEpnInstanceResponse({}));
   }
 
+  /**
+   * @summary Stops an EPN instance.
+   *
+   * @param request StopEpnInstanceRequest
+   * @return StopEpnInstanceResponse
+   */
   async stopEpnInstance(request: StopEpnInstanceRequest): Promise<StopEpnInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopEpnInstanceWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation to stop instances that are only in the Running state.
-    * *   If the call is successful, the state of the instance becomes Stopping.
-    * *   Once the instance is stopped, the state of the instance becomes Stopped.
-    * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
-    *
-    * @param request StopInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopInstanceResponse
+   * @summary Stops an instance.
+   *
+   * @description *   You can call this operation to stop instances that are only in the Running state.
+   * *   If the call is successful, the state of the instance becomes Stopping.
+   * *   Once the instance is stopped, the state of the instance becomes Stopped.
+   * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
+   *
+   * @param request StopInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopInstanceResponse
    */
   async stopInstanceWithOptions(request: StopInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
@@ -39034,19 +41431,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation to stop instances that are only in the Running state.
-    * *   If the call is successful, the state of the instance becomes Stopping.
-    * *   Once the instance is stopped, the state of the instance becomes Stopped.
-    * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
-    *
-    * @param request StopInstanceRequest
-    * @return StopInstanceResponse
+   * @summary Stops an instance.
+   *
+   * @description *   You can call this operation to stop instances that are only in the Running state.
+   * *   If the call is successful, the state of the instance becomes Stopping.
+   * *   Once the instance is stopped, the state of the instance becomes Stopped.
+   * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
+   *
+   * @param request StopInstanceRequest
+   * @return StopInstanceResponse
    */
   async stopInstance(request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 选择批量实例进行停止操作
+   *
+   * @param tmpReq StopInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopInstancesResponse
+   */
   async stopInstancesWithOptions(tmpReq: StopInstancesRequest, runtime: $Util.RuntimeOptions): Promise<StopInstancesResponse> {
     Util.validateModel(tmpReq);
     let request = new StopInstancesShrinkRequest({ });
@@ -39077,18 +41483,26 @@ export default class Client extends OpenApi {
     return $tea.cast<StopInstancesResponse>(await this.callApi(params, req, runtime), new StopInstancesResponse({}));
   }
 
+  /**
+   * @summary 选择批量实例进行停止操作
+   *
+   * @param request StopInstancesRequest
+   * @return StopInstancesResponse
+   */
   async stopInstances(request: StopInstancesRequest): Promise<StopInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopInstancesWithOptions(request, runtime);
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request StopLoadBalancerListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopLoadBalancerListenerResponse
+   * @summary Disables a listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request StopLoadBalancerListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopLoadBalancerListenerResponse
    */
   async stopLoadBalancerListenerWithOptions(request: StopLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<StopLoadBalancerListenerResponse> {
     Util.validateModel(request);
@@ -39123,17 +41537,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You can call this operation up to 100 times per second per account.
-    * *   You can call this operation up to 10 times per second per user.
-    *
-    * @param request StopLoadBalancerListenerRequest
-    * @return StopLoadBalancerListenerResponse
+   * @summary Disables a listener.
+   *
+   * @description *   You can call this operation up to 100 times per second per account.
+   * *   You can call this operation up to 10 times per second per user.
+   *
+   * @param request StopLoadBalancerListenerRequest
+   * @return StopLoadBalancerListenerResponse
    */
   async stopLoadBalancerListener(request: StopLoadBalancerListenerRequest): Promise<StopLoadBalancerListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopLoadBalancerListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+   *
+   * @param request StopSnatIpForSnatEntryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopSnatIpForSnatEntryResponse
+   */
   async stopSnatIpForSnatEntryWithOptions(request: StopSnatIpForSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<StopSnatIpForSnatEntryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39162,46 +41585,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopSnatIpForSnatEntryResponse>(await this.callApi(params, req, runtime), new StopSnatIpForSnatEntryResponse({}));
   }
 
+  /**
+   * @summary Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+   *
+   * @param request StopSnatIpForSnatEntryRequest
+   * @return StopSnatIpForSnatEntryResponse
+   */
   async stopSnatIpForSnatEntry(request: StopSnatIpForSnatEntryRequest): Promise<StopSnatIpForSnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopSnatIpForSnatEntryWithOptions(request, runtime);
   }
 
-  async terminateWorkflowWithOptions(tmpReq: TerminateWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<TerminateWorkflowResponse> {
-    Util.validateModel(tmpReq);
-    let request = new TerminateWorkflowShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.workflowIds)) {
-      request.workflowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowIds, "WorkflowIds", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.workflowIdsShrink)) {
-      query["WorkflowIds"] = request.workflowIdsShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "TerminateWorkflow",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<TerminateWorkflowResponse>(await this.callApi(params, req, runtime), new TerminateWorkflowResponse({}));
-  }
-
-  async terminateWorkflow(request: TerminateWorkflowRequest): Promise<TerminateWorkflowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.terminateWorkflowWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary Disassociates an elastic IP address (EIP) from an instance.
+   *
+   * @param request UnAssociateEnsEipAddressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnAssociateEnsEipAddressResponse
+   */
   async unAssociateEnsEipAddressWithOptions(request: UnAssociateEnsEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnAssociateEnsEipAddressResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39226,11 +41627,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnAssociateEnsEipAddressResponse>(await this.callApi(params, req, runtime), new UnAssociateEnsEipAddressResponse({}));
   }
 
+  /**
+   * @summary Disassociates an elastic IP address (EIP) from an instance.
+   *
+   * @param request UnAssociateEnsEipAddressRequest
+   * @return UnAssociateEnsEipAddressResponse
+   */
   async unAssociateEnsEipAddress(request: UnAssociateEnsEipAddressRequest): Promise<UnAssociateEnsEipAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unAssociateEnsEipAddressWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
+   *
+   * @param request UnassignPrivateIpAddressesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassignPrivateIpAddressesResponse
+   */
   async unassignPrivateIpAddressesWithOptions(request: UnassignPrivateIpAddressesRequest, runtime: $Util.RuntimeOptions): Promise<UnassignPrivateIpAddressesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39259,11 +41673,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassignPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new UnassignPrivateIpAddressesResponse({}));
   }
 
+  /**
+   * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
+   *
+   * @param request UnassignPrivateIpAddressesRequest
+   * @return UnassignPrivateIpAddressesResponse
+   */
   async unassignPrivateIpAddresses(request: UnassignPrivateIpAddressesRequest): Promise<UnassignPrivateIpAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassignPrivateIpAddressesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disassociates a network access control list (ACL) from a network.
+   *
+   * @param request UnassociateNetworkAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnassociateNetworkAclResponse
+   */
   async unassociateNetworkAclWithOptions(request: UnassociateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateNetworkAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39292,11 +41719,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnassociateNetworkAclResponse>(await this.callApi(params, req, runtime), new UnassociateNetworkAclResponse({}));
   }
 
+  /**
+   * @summary Disassociates a network access control list (ACL) from a network.
+   *
+   * @param request UnassociateNetworkAclRequest
+   * @return UnassociateNetworkAclResponse
+   */
   async unassociateNetworkAcl(request: UnassociateNetworkAclRequest): Promise<UnassociateNetworkAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unassociateNetworkAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改售卖约束
+   *
+   * @param tmpReq UpdateEnsSaleControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEnsSaleControlResponse
+   */
   async updateEnsSaleControlWithOptions(tmpReq: UpdateEnsSaleControlRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnsSaleControlResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateEnsSaleControlShrinkRequest({ });
@@ -39335,11 +41775,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEnsSaleControlResponse>(await this.callApi(params, req, runtime), new UpdateEnsSaleControlResponse({}));
   }
 
+  /**
+   * @summary 修改售卖约束
+   *
+   * @param request UpdateEnsSaleControlRequest
+   * @return UpdateEnsSaleControlResponse
+   */
   async updateEnsSaleControl(request: UpdateEnsSaleControlRequest): Promise<UpdateEnsSaleControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEnsSaleControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the image of an Android in Container (AIC) instance.
+   *
+   * @param tmpReq UpgradeAICInstanceImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeAICInstanceImageResponse
+   */
   async upgradeAICInstanceImageWithOptions(tmpReq: UpgradeAICInstanceImageRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeAICInstanceImageResponse> {
     Util.validateModel(tmpReq);
     let request = new UpgradeAICInstanceImageShrinkRequest({ });
@@ -39366,11 +41819,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeAICInstanceImageResponse>(await this.callApi(params, req, runtime), new UpgradeAICInstanceImageResponse({}));
   }
 
+  /**
+   * @summary Updates the image of an Android in Container (AIC) instance.
+   *
+   * @param request UpgradeAICInstanceImageRequest
+   * @return UpgradeAICInstanceImageResponse
+   */
   async upgradeAICInstanceImage(request: UpgradeAICInstanceImageRequest): Promise<UpgradeAICInstanceImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeAICInstanceImageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the container in an asynchronous manner. You can configure multiple canary release policies.
+   *
+   * @param request UpgradeApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeApplicationResponse
+   */
   async upgradeApplicationWithOptions(request: UpgradeApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -39403,6 +41869,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeApplicationResponse>(await this.callApi(params, req, runtime), new UpgradeApplicationResponse({}));
   }
 
+  /**
+   * @summary Updates the container in an asynchronous manner. You can configure multiple canary release policies.
+   *
+   * @param request UpgradeApplicationRequest
+   * @return UpgradeApplicationResponse
+   */
   async upgradeApplication(request: UpgradeApplicationRequest): Promise<UpgradeApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeApplicationWithOptions(request, runtime);
