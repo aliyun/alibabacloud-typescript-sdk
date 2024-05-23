@@ -17,6 +17,7 @@ export class CreateAppRequest extends $tea.Model {
   privateNetwork?: CreateAppRequestPrivateNetwork[];
   quotaInfo?: CreateAppRequestQuotaInfo;
   regionId?: string;
+  scenario?: string;
   version?: string;
   dryRun?: boolean;
   static names(): { [key: string]: string } {
@@ -29,6 +30,7 @@ export class CreateAppRequest extends $tea.Model {
       privateNetwork: 'privateNetwork',
       quotaInfo: 'quotaInfo',
       regionId: 'regionId',
+      scenario: 'scenario',
       version: 'version',
       dryRun: 'dryRun',
     };
@@ -44,6 +46,7 @@ export class CreateAppRequest extends $tea.Model {
       privateNetwork: { 'type': 'array', 'itemType': CreateAppRequestPrivateNetwork },
       quotaInfo: CreateAppRequestQuotaInfo,
       regionId: 'string',
+      scenario: 'string',
       version: 'string',
       dryRun: 'boolean',
     };
@@ -77,9 +80,9 @@ export class CreateAppResponseBody extends $tea.Model {
 }
 
 export class CreateAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -93,6 +96,81 @@ export class CreateAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEndpointRequest extends $tea.Model {
+  endpointZones?: CreateEndpointRequestEndpointZones[];
+  name?: string;
+  vpcId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointZones: 'endpointZones',
+      name: 'name',
+      vpcId: 'vpcId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointZones: { 'type': 'array', 'itemType': CreateEndpointRequestEndpointZones },
+      name: 'string',
+      vpcId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEndpointResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateEndpointResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateEndpointResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEndpointResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEndpointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEndpointResponseBody,
     };
   }
 
@@ -124,9 +202,9 @@ export class DeleteAppResponseBody extends $tea.Model {
 }
 
 export class DeleteAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -190,9 +268,9 @@ export class GetAppResponseBody extends $tea.Model {
 }
 
 export class GetAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -237,9 +315,9 @@ export class GetAppQuotaResponseBody extends $tea.Model {
 }
 
 export class GetAppQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -312,9 +390,9 @@ export class GetMonitorDataResponseBody extends $tea.Model {
 }
 
 export class GetMonitorDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMonitorDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMonitorDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -399,9 +477,9 @@ export class ListAppsResponseBody extends $tea.Model {
 }
 
 export class ListAppsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -483,9 +561,9 @@ export class UpdateAppResponseBody extends $tea.Model {
 }
 
 export class UpdateAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAppResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAppResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -698,6 +776,47 @@ export class CreateAppResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateEndpointRequestEndpointZones extends $tea.Model {
+  vswitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vswitchId: 'vswitchId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vswitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEndpointResponseBodyResult extends $tea.Model {
+  endpointId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointId: 'endpointId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAppResponseBodyResult extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -717,6 +836,118 @@ export class DeleteAppResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetAppResponseBodyResultNetworkWhiteIpGroup extends $tea.Model {
+  groupName?: string;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'groupName',
+      ips: 'ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppResponseBodyResultNetwork extends $tea.Model {
+  domain?: string;
+  enabled?: boolean;
+  port?: number;
+  type?: string;
+  whiteIpGroup?: GetAppResponseBodyResultNetworkWhiteIpGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'domain',
+      enabled: 'enabled',
+      port: 'port',
+      type: 'type',
+      whiteIpGroup: 'whiteIpGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      enabled: 'boolean',
+      port: 'number',
+      type: 'string',
+      whiteIpGroup: { 'type': 'array', 'itemType': GetAppResponseBodyResultNetworkWhiteIpGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppResponseBodyResultPrivateNetworkWhiteIpGroup extends $tea.Model {
+  groupName?: string;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'groupName',
+      ips: 'ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppResponseBodyResultPrivateNetwork extends $tea.Model {
+  domain?: string;
+  enabled?: boolean;
+  port?: number;
+  pvlEndpointId?: string;
+  type?: string;
+  vpcId?: string;
+  whiteIpGroup?: GetAppResponseBodyResultPrivateNetworkWhiteIpGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'domain',
+      enabled: 'enabled',
+      port: 'port',
+      pvlEndpointId: 'pvlEndpointId',
+      type: 'type',
+      vpcId: 'vpcId',
+      whiteIpGroup: 'whiteIpGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      enabled: 'boolean',
+      port: 'number',
+      pvlEndpointId: 'string',
+      type: 'string',
+      vpcId: 'string',
+      whiteIpGroup: { 'type': 'array', 'itemType': GetAppResponseBodyResultPrivateNetworkWhiteIpGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppResponseBodyResult extends $tea.Model {
   appId?: string;
   appName?: string;
@@ -724,7 +955,9 @@ export class GetAppResponseBodyResult extends $tea.Model {
   description?: string;
   instanceId?: string;
   modifiedTime?: string;
+  network?: GetAppResponseBodyResultNetwork[];
   ownerId?: string;
+  privateNetwork?: GetAppResponseBodyResultPrivateNetwork[];
   regionId?: string;
   status?: string;
   version?: string;
@@ -736,7 +969,9 @@ export class GetAppResponseBodyResult extends $tea.Model {
       description: 'description',
       instanceId: 'instanceId',
       modifiedTime: 'modifiedTime',
+      network: 'network',
       ownerId: 'ownerId',
+      privateNetwork: 'privateNetwork',
       regionId: 'regionId',
       status: 'status',
       version: 'version',
@@ -751,7 +986,9 @@ export class GetAppResponseBodyResult extends $tea.Model {
       description: 'string',
       instanceId: 'string',
       modifiedTime: 'string',
+      network: { 'type': 'array', 'itemType': GetAppResponseBodyResultNetwork },
       ownerId: 'string',
+      privateNetwork: { 'type': 'array', 'itemType': GetAppResponseBodyResultPrivateNetwork },
       regionId: 'string',
       status: 'string',
       version: 'string',
@@ -1148,6 +1385,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 创建Serverless应用
+   *
+   * @param request CreateAppRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppResponse
+   */
   async createAppWithOptions(request: CreateAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1188,6 +1433,10 @@ export default class Client extends OpenApi {
       body["regionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.scenario)) {
+      body["scenario"] = request.scenario;
+    }
+
     if (!Util.isUnset(request.version)) {
       body["version"] = request.version;
     }
@@ -1211,12 +1460,84 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppResponse>(await this.callApi(params, req, runtime), new CreateAppResponse({}));
   }
 
+  /**
+   * @summary 创建Serverless应用
+   *
+   * @param request CreateAppRequest
+   * @return CreateAppResponse
+   */
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAppWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 创建端点
+   *
+   * @param request CreateEndpointRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEndpointResponse
+   */
+  async createEndpointWithOptions(request: CreateEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateEndpointResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endpointZones)) {
+      body["endpointZones"] = request.endpointZones;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["vpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEndpoint",
+      version: "2023-06-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/es-serverless/endpoints`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEndpointResponse>(await this.callApi(params, req, runtime), new CreateEndpointResponse({}));
+  }
+
+  /**
+   * @summary 创建端点
+   *
+   * @param request CreateEndpointRequest
+   * @return CreateEndpointResponse
+   */
+  async createEndpoint(request: CreateEndpointRequest): Promise<CreateEndpointResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createEndpointWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除Serverless应用。
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppResponse
+   */
   async deleteAppWithOptions(appName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -1235,12 +1556,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppResponse>(await this.callApi(params, req, runtime), new DeleteAppResponse({}));
   }
 
+  /**
+   * @summary 删除Serverless应用。
+   *
+   * @return DeleteAppResponse
+   */
   async deleteApp(appName: string): Promise<DeleteAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAppWithOptions(appName, headers, runtime);
   }
 
+  /**
+   * @summary 获取Serverless应用详情
+   *
+   * @param request GetAppRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppResponse
+   */
   async getAppWithOptions(appName: string, request: GetAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1266,12 +1600,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppResponse>(await this.callApi(params, req, runtime), new GetAppResponse({}));
   }
 
+  /**
+   * @summary 获取Serverless应用详情
+   *
+   * @param request GetAppRequest
+   * @return GetAppResponse
+   */
   async getApp(appName: string, request: GetAppRequest): Promise<GetAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAppWithOptions(appName, request, headers, runtime);
   }
 
+  /**
+   * @summary 获取Serverless应用配额详情
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppQuotaResponse
+   */
   async getAppQuotaWithOptions(appName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAppQuotaResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -1290,12 +1637,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppQuotaResponse>(await this.callApi(params, req, runtime), new GetAppQuotaResponse({}));
   }
 
+  /**
+   * @summary 获取Serverless应用配额详情
+   *
+   * @return GetAppQuotaResponse
+   */
   async getAppQuota(appName: string): Promise<GetAppQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAppQuotaWithOptions(appName, headers, runtime);
   }
 
+  /**
+   * @summary 获取监控数据
+   *
+   * @param request GetMonitorDataRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetMonitorDataResponse
+   */
   async getMonitorDataWithOptions(request: GetMonitorDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMonitorDataResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1316,12 +1676,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMonitorDataResponse>(await this.callApi(params, req, runtime), new GetMonitorDataResponse({}));
   }
 
+  /**
+   * @summary 获取监控数据
+   *
+   * @param request GetMonitorDataRequest
+   * @return GetMonitorDataResponse
+   */
   async getMonitorData(request: GetMonitorDataRequest): Promise<GetMonitorDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMonitorDataWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 查看Serverless应用列表
+   *
+   * @param request ListAppsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppsResponse
+   */
   async listAppsWithOptions(request: ListAppsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -1371,12 +1745,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppsResponse>(await this.callApi(params, req, runtime), new ListAppsResponse({}));
   }
 
+  /**
+   * @summary 查看Serverless应用列表
+   *
+   * @param request ListAppsRequest
+   * @return ListAppsResponse
+   */
   async listApps(request: ListAppsRequest): Promise<ListAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAppsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary 编辑Serverless应用
+   *
+   * @param request UpdateAppRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAppResponse
+   */
   async updateAppWithOptions(appName: string, request: UpdateAppRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -1426,6 +1814,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAppResponse>(await this.callApi(params, req, runtime), new UpdateAppResponse({}));
   }
 
+  /**
+   * @summary 编辑Serverless应用
+   *
+   * @param request UpdateAppRequest
+   * @return UpdateAppResponse
+   */
   async updateApp(appName: string, request: UpdateAppRequest): Promise<UpdateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
