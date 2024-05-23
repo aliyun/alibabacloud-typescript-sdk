@@ -200,6 +200,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
   logNum?: number;
   logSingleStorage?: number;
   logSpec?: string;
+  ltsNum?: string;
+  ltsSpec?: string;
   multiZoneCombination?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -245,6 +247,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       logNum: 'LogNum',
       logSingleStorage: 'LogSingleStorage',
       logSpec: 'LogSpec',
+      ltsNum: 'LtsNum',
+      ltsSpec: 'LtsSpec',
       multiZoneCombination: 'MultiZoneCombination',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -293,6 +297,8 @@ export class CreateLindormInstanceRequest extends $tea.Model {
       logNum: 'number',
       logSingleStorage: 'number',
       logSpec: 'string',
+      ltsNum: 'string',
+      ltsSpec: 'string',
       multiZoneCombination: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -3189,6 +3195,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
   aliUid?: number;
   createMilliseconds?: number;
   createTime?: string;
+  enableColumn?: boolean;
   enableCompute?: boolean;
   enableLts?: boolean;
   enableMessage?: boolean;
@@ -3214,6 +3221,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       aliUid: 'AliUid',
       createMilliseconds: 'CreateMilliseconds',
       createTime: 'CreateTime',
+      enableColumn: 'EnableColumn',
       enableCompute: 'EnableCompute',
       enableLts: 'EnableLts',
       enableMessage: 'EnableMessage',
@@ -3242,6 +3250,7 @@ export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
       aliUid: 'number',
       createMilliseconds: 'number',
       createTime: 'string',
+      enableColumn: 'boolean',
       enableCompute: 'boolean',
       enableLts: 'boolean',
       enableMessage: 'boolean',
@@ -3387,6 +3396,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request CreateLdpsComputeGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLdpsComputeGroupResponse
+   */
   async createLdpsComputeGroupWithOptions(request: CreateLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateLdpsComputeGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3443,11 +3457,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new CreateLdpsComputeGroupResponse({}));
   }
 
+  /**
+   * @param request CreateLdpsComputeGroupRequest
+   * @return CreateLdpsComputeGroupResponse
+   */
   async createLdpsComputeGroup(request: CreateLdpsComputeGroupRequest): Promise<CreateLdpsComputeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLdpsComputeGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateLdpsNamespaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLdpsNamespaceResponse
+   */
   async createLdpsNamespaceWithOptions(request: CreateLdpsNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLdpsNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3500,17 +3523,23 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateLdpsNamespaceResponse>(await this.callApi(params, req, runtime), new CreateLdpsNamespaceResponse({}));
   }
 
+  /**
+   * @param request CreateLdpsNamespaceRequest
+   * @return CreateLdpsNamespaceResponse
+   */
   async createLdpsNamespace(request: CreateLdpsNamespaceRequest): Promise<CreateLdpsNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLdpsNamespaceWithOptions(request, runtime);
   }
 
   /**
-    * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
-    *
-    * @param request CreateLindormInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateLindormInstanceResponse
+   * @summary Creates a Lindorm instance.
+   *
+   * @description You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+   *
+   * @param request CreateLindormInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateLindormInstanceResponse
    */
   async createLindormInstanceWithOptions(request: CreateLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLindormInstanceResponse> {
     Util.validateModel(request);
@@ -3593,6 +3622,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.logSpec)) {
       query["LogSpec"] = request.logSpec;
+    }
+
+    if (!Util.isUnset(request.ltsNum)) {
+      query["LtsNum"] = request.ltsNum;
+    }
+
+    if (!Util.isUnset(request.ltsSpec)) {
+      query["LtsSpec"] = request.ltsSpec;
     }
 
     if (!Util.isUnset(request.multiZoneCombination)) {
@@ -3705,16 +3742,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
-    *
-    * @param request CreateLindormInstanceRequest
-    * @return CreateLindormInstanceResponse
+   * @summary Creates a Lindorm instance.
+   *
+   * @description You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+   *
+   * @param request CreateLindormInstanceRequest
+   * @return CreateLindormInstanceResponse
    */
   async createLindormInstance(request: CreateLindormInstanceRequest): Promise<CreateLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLindormInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteLdpsComputeGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteLdpsComputeGroupResponse
+   */
   async deleteLdpsComputeGroupWithOptions(request: DeleteLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLdpsComputeGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3767,11 +3811,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new DeleteLdpsComputeGroupResponse({}));
   }
 
+  /**
+   * @param request DeleteLdpsComputeGroupRequest
+   * @return DeleteLdpsComputeGroupResponse
+   */
   async deleteLdpsComputeGroup(request: DeleteLdpsComputeGroupRequest): Promise<DeleteLdpsComputeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLdpsComputeGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the regions supported by Lindorm.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3816,11 +3871,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Obtains the regions supported by Lindorm.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetClientSourceIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClientSourceIpResponse
+   */
   async getClientSourceIpWithOptions(request: GetClientSourceIpRequest, runtime: $Util.RuntimeOptions): Promise<GetClientSourceIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3869,11 +3935,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetClientSourceIpResponse>(await this.callApi(params, req, runtime), new GetClientSourceIpResponse({}));
   }
 
+  /**
+   * @param request GetClientSourceIpRequest
+   * @return GetClientSourceIpResponse
+   */
   async getClientSourceIp(request: GetClientSourceIpRequest): Promise<GetClientSourceIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getClientSourceIpWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetEngineDefaultAuthRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEngineDefaultAuthResponse
+   */
   async getEngineDefaultAuthWithOptions(request: GetEngineDefaultAuthRequest, runtime: $Util.RuntimeOptions): Promise<GetEngineDefaultAuthResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3922,11 +3997,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEngineDefaultAuthResponse>(await this.callApi(params, req, runtime), new GetEngineDefaultAuthResponse({}));
   }
 
+  /**
+   * @param request GetEngineDefaultAuthRequest
+   * @return GetEngineDefaultAuthResponse
+   */
   async getEngineDefaultAuth(request: GetEngineDefaultAuthRequest): Promise<GetEngineDefaultAuthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEngineDefaultAuthWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the whitelists configured for a Lindorm instance.
+   *
+   * @param request GetInstanceIpWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceIpWhiteListResponse
+   */
   async getInstanceIpWhiteListWithOptions(request: GetInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceIpWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3971,11 +4057,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new GetInstanceIpWhiteListResponse({}));
   }
 
+  /**
+   * @summary Queries the whitelists configured for a Lindorm instance.
+   *
+   * @param request GetInstanceIpWhiteListRequest
+   * @return GetInstanceIpWhiteListResponse
+   */
   async getInstanceIpWhiteList(request: GetInstanceIpWhiteListRequest): Promise<GetInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceIpWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetInstanceSecurityGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInstanceSecurityGroupsResponse
+   */
   async getInstanceSecurityGroupsWithOptions(request: GetInstanceSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceSecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4020,11 +4117,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new GetInstanceSecurityGroupsResponse({}));
   }
 
+  /**
+   * @param request GetInstanceSecurityGroupsRequest
+   * @return GetInstanceSecurityGroupsResponse
+   */
   async getInstanceSecurityGroups(request: GetInstanceSecurityGroupsRequest): Promise<GetInstanceSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceSecurityGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetLdpsComputeGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLdpsComputeGroupResponse
+   */
   async getLdpsComputeGroupWithOptions(request: GetLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsComputeGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4077,11 +4183,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new GetLdpsComputeGroupResponse({}));
   }
 
+  /**
+   * @param request GetLdpsComputeGroupRequest
+   * @return GetLdpsComputeGroupResponse
+   */
   async getLdpsComputeGroup(request: GetLdpsComputeGroupRequest): Promise<GetLdpsComputeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLdpsComputeGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetLdpsNamespacedQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLdpsNamespacedQuotaResponse
+   */
   async getLdpsNamespacedQuotaWithOptions(request: GetLdpsNamespacedQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsNamespacedQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4134,11 +4249,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLdpsNamespacedQuotaResponse>(await this.callApi(params, req, runtime), new GetLdpsNamespacedQuotaResponse({}));
   }
 
+  /**
+   * @param request GetLdpsNamespacedQuotaRequest
+   * @return GetLdpsNamespacedQuotaResponse
+   */
   async getLdpsNamespacedQuota(request: GetLdpsNamespacedQuotaRequest): Promise<GetLdpsNamespacedQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLdpsNamespacedQuotaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetLdpsResourceCostRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLdpsResourceCostResponse
+   */
   async getLdpsResourceCostWithOptions(request: GetLdpsResourceCostRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsResourceCostResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4199,11 +4323,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLdpsResourceCostResponse>(await this.callApi(params, req, runtime), new GetLdpsResourceCostResponse({}));
   }
 
+  /**
+   * @param request GetLdpsResourceCostRequest
+   * @return GetLdpsResourceCostResponse
+   */
   async getLdpsResourceCost(request: GetLdpsResourceCostRequest): Promise<GetLdpsResourceCostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLdpsResourceCostWithOptions(request, runtime);
   }
 
+  /**
+   * @summary The storage capacity of the disk of a single core node. This parameter is returned only for multi-zone instances.
+   *
+   * @param request GetLindormInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLindormInstanceResponse
+   */
   async getLindormInstanceWithOptions(request: GetLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4248,11 +4383,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLindormInstanceResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceResponse({}));
   }
 
+  /**
+   * @summary The storage capacity of the disk of a single core node. This parameter is returned only for multi-zone instances.
+   *
+   * @param request GetLindormInstanceRequest
+   * @return GetLindormInstanceResponse
+   */
   async getLindormInstance(request: GetLindormInstanceRequest): Promise<GetLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLindormInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetLindormInstanceEngineListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLindormInstanceEngineListResponse
+   */
   async getLindormInstanceEngineListWithOptions(request: GetLindormInstanceEngineListRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceEngineListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4301,11 +4447,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLindormInstanceEngineListResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceEngineListResponse({}));
   }
 
+  /**
+   * @param request GetLindormInstanceEngineListRequest
+   * @return GetLindormInstanceEngineListResponse
+   */
   async getLindormInstanceEngineList(request: GetLindormInstanceEngineListRequest): Promise<GetLindormInstanceEngineListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLindormInstanceEngineListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetLindormInstanceListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetLindormInstanceListResponse
+   */
   async getLindormInstanceListWithOptions(request: GetLindormInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4378,11 +4533,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetLindormInstanceListResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceListResponse({}));
   }
 
+  /**
+   * @param request GetLindormInstanceListRequest
+   * @return GetLindormInstanceListResponse
+   */
   async getLindormInstanceList(request: GetLindormInstanceListRequest): Promise<GetLindormInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLindormInstanceListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListLdpsComputeGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListLdpsComputeGroupsResponse
+   */
   async listLdpsComputeGroupsWithOptions(request: ListLdpsComputeGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListLdpsComputeGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4431,11 +4595,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLdpsComputeGroupsResponse>(await this.callApi(params, req, runtime), new ListLdpsComputeGroupsResponse({}));
   }
 
+  /**
+   * @param request ListLdpsComputeGroupsRequest
+   * @return ListLdpsComputeGroupsResponse
+   */
   async listLdpsComputeGroups(request: ListLdpsComputeGroupsRequest): Promise<ListLdpsComputeGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLdpsComputeGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries tags associated with the specified Lindorm instances.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4496,18 +4671,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries tags associated with the specified Lindorm instances.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
-    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
-    *
-    * @param request ModifyInstancePayTypeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ModifyInstancePayTypeResponse
+   * @summary Changes the billing method of the specified Lindorm instance.
+   *
+   * @description You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
+   *
+   * @param request ModifyInstancePayTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstancePayTypeResponse
    */
   async modifyInstancePayTypeWithOptions(request: ModifyInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstancePayTypeResponse> {
     Util.validateModel(request);
@@ -4566,17 +4749,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
-    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
-    *
-    * @param request ModifyInstancePayTypeRequest
-    * @return ModifyInstancePayTypeResponse
+   * @summary Changes the billing method of the specified Lindorm instance.
+   *
+   * @description You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
+   *
+   * @param request ModifyInstancePayTypeRequest
+   * @return ModifyInstancePayTypeResponse
    */
   async modifyInstancePayType(request: ModifyInstancePayTypeRequest): Promise<ModifyInstancePayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstancePayTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request OpenComputeEngineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenComputeEngineResponse
+   */
   async openComputeEngineWithOptions(request: OpenComputeEngineRequest, runtime: $Util.RuntimeOptions): Promise<OpenComputeEngineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4629,11 +4819,20 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenComputeEngineResponse>(await this.callApi(params, req, runtime), new OpenComputeEngineResponse({}));
   }
 
+  /**
+   * @param request OpenComputeEngineRequest
+   * @return OpenComputeEngineResponse
+   */
   async openComputeEngine(request: OpenComputeEngineRequest): Promise<OpenComputeEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openComputeEngineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request OpenComputePreCheckRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenComputePreCheckResponse
+   */
   async openComputePreCheckWithOptions(request: OpenComputePreCheckRequest, runtime: $Util.RuntimeOptions): Promise<OpenComputePreCheckResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4686,11 +4885,20 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenComputePreCheckResponse>(await this.callApi(params, req, runtime), new OpenComputePreCheckResponse({}));
   }
 
+  /**
+   * @param request OpenComputePreCheckRequest
+   * @return OpenComputePreCheckResponse
+   */
   async openComputePreCheck(request: OpenComputePreCheckRequest): Promise<OpenComputePreCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openComputePreCheckWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ReleaseLindormInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseLindormInstanceResponse
+   */
   async releaseLindormInstanceWithOptions(request: ReleaseLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseLindormInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4739,18 +4947,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseLindormInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseLindormInstanceResponse({}));
   }
 
+  /**
+   * @param request ReleaseLindormInstanceRequest
+   * @return ReleaseLindormInstanceResponse
+   */
   async releaseLindormInstance(request: ReleaseLindormInstanceRequest): Promise<ReleaseLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseLindormInstanceWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
-    * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
-    *
-    * @param request RenewLindormInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RenewLindormInstanceResponse
+   * @summary Renews a subscription Lindorm instance.
+   *
+   * @description You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+   *
+   * @param request RenewLindormInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewLindormInstanceResponse
    */
   async renewLindormInstanceWithOptions(request: RenewLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewLindormInstanceResponse> {
     Util.validateModel(request);
@@ -4809,17 +5023,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
-    * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
-    *
-    * @param request RenewLindormInstanceRequest
-    * @return RenewLindormInstanceResponse
+   * @summary Renews a subscription Lindorm instance.
+   *
+   * @description You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+   *
+   * @param request RenewLindormInstanceRequest
+   * @return RenewLindormInstanceResponse
    */
   async renewLindormInstance(request: RenewLindormInstanceRequest): Promise<RenewLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewLindormInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request RestartLdpsComputeGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartLdpsComputeGroupResponse
+   */
   async restartLdpsComputeGroupWithOptions(request: RestartLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<RestartLdpsComputeGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4872,20 +5093,26 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new RestartLdpsComputeGroupResponse({}));
   }
 
+  /**
+   * @param request RestartLdpsComputeGroupRequest
+   * @return RestartLdpsComputeGroupResponse
+   */
   async restartLdpsComputeGroup(request: RestartLdpsComputeGroupRequest): Promise<RestartLdpsComputeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartLdpsComputeGroupWithOptions(request, runtime);
   }
 
   /**
-    * Prerequisites
-    * *   The LindormTable version of your instance is 2.6.0 or later.
-    * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
-    * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
-    *
-    * @param request SwitchLSQLV3MySQLServiceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return SwitchLSQLV3MySQLServiceResponse
+   * @summary Enables and disables the MySQL compatibility feature.
+   *
+   * @description Prerequisites
+   * *   The LindormTable version of your instance is 2.6.0 or later.
+   * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+   * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+   *
+   * @param request SwitchLSQLV3MySQLServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchLSQLV3MySQLServiceResponse
    */
   async switchLSQLV3MySQLServiceWithOptions(request: SwitchLSQLV3MySQLServiceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchLSQLV3MySQLServiceResponse> {
     Util.validateModel(request);
@@ -4936,19 +5163,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Prerequisites
-    * *   The LindormTable version of your instance is 2.6.0 or later.
-    * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
-    * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
-    *
-    * @param request SwitchLSQLV3MySQLServiceRequest
-    * @return SwitchLSQLV3MySQLServiceResponse
+   * @summary Enables and disables the MySQL compatibility feature.
+   *
+   * @description Prerequisites
+   * *   The LindormTable version of your instance is 2.6.0 or later.
+   * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+   * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+   *
+   * @param request SwitchLSQLV3MySQLServiceRequest
+   * @return SwitchLSQLV3MySQLServiceResponse
    */
   async switchLSQLV3MySQLService(request: SwitchLSQLV3MySQLServiceRequest): Promise<SwitchLSQLV3MySQLServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchLSQLV3MySQLServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Associates tags with a single or multiple Lindorm instances.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5005,11 +5241,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Associates tags with a single or multiple Lindorm instances.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes a tag from an instance. If the tag is not associated with another instance, the tag is deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5066,11 +5315,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes a tag from an instance. If the tag is not associated with another instance, the tag is deleted.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Configures an IP address whitelist for a Lindorm instance.
+   *
+   * @param request UpdateInstanceIpWhiteListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceIpWhiteListResponse
+   */
   async updateInstanceIpWhiteListWithOptions(request: UpdateInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceIpWhiteListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5127,11 +5389,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateInstanceIpWhiteListResponse({}));
   }
 
+  /**
+   * @summary Configures an IP address whitelist for a Lindorm instance.
+   *
+   * @param request UpdateInstanceIpWhiteListRequest
+   * @return UpdateInstanceIpWhiteListResponse
+   */
   async updateInstanceIpWhiteList(request: UpdateInstanceIpWhiteListRequest): Promise<UpdateInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceIpWhiteListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateInstanceSecurityGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateInstanceSecurityGroupsResponse
+   */
   async updateInstanceSecurityGroupsWithOptions(request: UpdateInstanceSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceSecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5180,11 +5453,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateInstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceSecurityGroupsResponse({}));
   }
 
+  /**
+   * @param request UpdateInstanceSecurityGroupsRequest
+   * @return UpdateInstanceSecurityGroupsResponse
+   */
   async updateInstanceSecurityGroups(request: UpdateInstanceSecurityGroupsRequest): Promise<UpdateInstanceSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceSecurityGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateLdpsComputeGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateLdpsComputeGroupResponse
+   */
   async updateLdpsComputeGroupWithOptions(request: UpdateLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLdpsComputeGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5241,17 +5523,23 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new UpdateLdpsComputeGroupResponse({}));
   }
 
+  /**
+   * @param request UpdateLdpsComputeGroupRequest
+   * @return UpdateLdpsComputeGroupResponse
+   */
   async updateLdpsComputeGroup(request: UpdateLdpsComputeGroupRequest): Promise<UpdateLdpsComputeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLdpsComputeGroupWithOptions(request, runtime);
   }
 
   /**
-    * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](~~181971~~) and [Select storage types](~~174643~~).
-    *
-    * @param request UpgradeLindormInstanceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpgradeLindormInstanceResponse
+   * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.
+   *
+   * @description For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+   *
+   * @param request UpgradeLindormInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpgradeLindormInstanceResponse
    */
   async upgradeLindormInstanceWithOptions(request: UpgradeLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeLindormInstanceResponse> {
     Util.validateModel(request);
@@ -5382,10 +5670,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](~~181971~~) and [Select storage types](~~174643~~).
-    *
-    * @param request UpgradeLindormInstanceRequest
-    * @return UpgradeLindormInstanceResponse
+   * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.
+   *
+   * @description For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+   *
+   * @param request UpgradeLindormInstanceRequest
+   * @return UpgradeLindormInstanceResponse
    */
   async upgradeLindormInstance(request: UpgradeLindormInstanceRequest): Promise<UpgradeLindormInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
